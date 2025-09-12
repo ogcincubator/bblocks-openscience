@@ -1,0 +1,14 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+description: My example schema
+type: object
+properties:
+  a:
+    type: string
+    format: uri
+  b:
+    type: number
+  c:
+    type: number
+required:
+  - a
+  - b
