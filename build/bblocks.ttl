@@ -1,0 +1,99 @@
+@prefix bblocks: <https://www.opengis.net/def/bblocks/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/ogc.bbr.template.myFeature> a skos:Concept,
+        dcat:Dataset,
+        bblocks:Schema ;
+    rdfs:label "Custom Feature" ;
+    dct:abstract "This examples shows a simple customisation for OGC API Feature schemas"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
+    dct:created "2023-05-19T00:00:00+00:00"^^xsd:dateTime ;
+    dct:description [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/generateddocs/markdown/bbr/template/myFeature/index.md" ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/generateddocs/json-full/bbr/template/myFeature/index.json" ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/bblock/ogc.bbr.template.myFeature" ] ;
+    dct:hasVersion "1.0" ;
+    dct:modified "2025-09-12"^^xsd:date ;
+    dct:source <https://docs.ogc.org/is/17-069r3/17-069r3.html#_response_7> ;
+    skos:inScheme <https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/> ;
+    dcat:keyword "examples",
+        "feature" ;
+    bblocks:dependsOn <https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/ogc.bbr.template.mySchema>,
+        <https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/ogc.geo.features.feature> ;
+    bblocks:hasJsonLdContext <https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/annotated/bbr/template/myFeature/context.jsonld> ;
+    bblocks:hasSchema <https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/annotated/bbr/template/myFeature/schema.json>,
+        <https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/annotated/bbr/template/myFeature/schema.yaml> ;
+    bblocks:hasShaclRule <https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/_sources/mySchema/rules.shacl> ;
+    bblocks:scope <http://www.opengis.net/def/bblocks/scope/unstable> ;
+    bblocks:status <http://www.opengis.net/def/status/under-development> .
+
+<https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/bblocks.ttl> a prov:Entity ;
+    dct:format "text/turtle" ;
+    prov:wasAttributedTo _:N990c3b27cdb548409092b476dc666f25 ;
+    prov:wasGeneratedBy [ a prov:Activity ;
+            prov:endedAtTime "2025-09-12T22:43:45.264975"^^xsd:dateTime ;
+            prov:startedAtTime "2025-09-12T22:43:45.200977"^^xsd:dateTime ;
+            prov:used [ a prov:Entity ;
+                    dct:format "application/yaml" ;
+                    rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ],
+                [ a prov:Entity ;
+                    dct:format "application/json" ;
+                    dct:hasVersion "git:74b6b9ef0f296970cbe35e0473abf77eeff78994" ;
+                    rdfs:seeAlso <https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/register.json> ] ;
+            prov:wasAssociatedWith _:N990c3b27cdb548409092b476dc666f25 ] .
+
+<https://docs.ogc.org/is/17-069r3/17-069r3.html#_response_7> rdfs:label "OGC API - Features, Part 1, 7.16.2: Feature Response" .
+
+<https://example.com/sources/1> rdfs:label "Sample source document" .
+
+<https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/ogc.bbr.template.mySchema> a skos:Concept,
+        dcat:Dataset,
+        bblocks:Schema ;
+    rdfs:label "My Schema" ;
+    dct:abstract "An example schema defining the set of properties of any type of object."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
+    dct:created "2023-04-05T00:00:00+00:00"^^xsd:dateTime ;
+    dct:description [ dct:format "text/html" ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/bblock/ogc.bbr.template.mySchema" ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/generateddocs/markdown/bbr/template/mySchema/index.md" ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/generateddocs/json-full/bbr/template/mySchema/index.json" ] ;
+    dct:hasVersion "0.1" ;
+    dct:modified "2025-09-12"^^xsd:date ;
+    dct:source <https://example.com/sources/1> ;
+    skos:inScheme <https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/> ;
+    dcat:keyword "templates" ;
+    bblocks:hasJsonLdContext <https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/annotated/bbr/template/mySchema/context.jsonld> ;
+    bblocks:hasSchema <https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/annotated/bbr/template/mySchema/schema.json>,
+        <https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/annotated/bbr/template/mySchema/schema.yaml> ;
+    bblocks:hasShaclRule <https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/_sources/mySchema/rules.shacl> ;
+    bblocks:hasSourceJsonLdContext <https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/_sources/mySchema/context.jsonld> ;
+    bblocks:scope <http://www.opengis.net/def/bblocks/scope/unstable> ;
+    bblocks:status <http://www.opengis.net/def/status/under-development> .
+
+<https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/> a skos:ConceptScheme,
+        dcat:Catalog ;
+    rdfs:label "Building Blocks - My OGC Building Blocks repository" ;
+    dct:abstract """This is an example text for the abstract. It should be short and to the point.
+A "Tell me more" link will appear if there is an additional description with a longer explanation.
+"""^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
+    dct:description """The description can be longer. Both **the abstract** *and the description* support Markdown,
+including [links](https://google.es).
+"""^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
+    skos:prefLabel "Building Blocks - My OGC Building Blocks repository" ;
+    bblocks:hasValidationReport <https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/tests/report.html> ;
+    bblocks:imports <https://opengeospatial.github.io/bblocks/register.json> .
+
+_:N990c3b27cdb548409092b476dc666f25 a prov:Agent,
+        schema:SoftwareApplication ;
+    rdfs:label "OGC-NA tools" ;
+    dct:hasVersion "0.4.2" ;
+    rdfs:seeAlso <https://github.com/opengeospatial/ogc-na-tools> .
+
