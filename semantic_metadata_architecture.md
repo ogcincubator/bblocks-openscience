@@ -1,4 +1,49 @@
-# Semantic Metadata Ecosystem Architecture: STAC-DCAT-PROV-Workflows Integration
+# A FAIR workflow Architecture using OGC standards
+
+## Outline
+
+The business [goals](#goals) are described in terms of what needs to be achieved, and an "[architectural vision](#architectural-vision)" describes how this can be done.
+
+[Feasibility](#Feasibility) considers the realities of a short project cycle, in terms of constraining scope of the project whilst validating extensibility of the solution.
+
+[Existing Building Blocks](#existing-building-blocks) provides an inventory of existing elements that already provide access to existing OGC standards and potential standardisable elements, and conform to a common semantic documentation framework. 
+
+[Core Architectural Principles](#core-architectural-principles) documents considerations that will guide design of clean, integratable components for such an ecosystem
+
+[Semantic Integration Layers](#semantic-integration-layers) provide simple examples 
+
+[Implementation Architecture](#implementation-architecture) outlines a systematic roadmap to building and testing this approach.
+
+## Goals
+
+### 1. Interoperable workflows
+- Common semantic framework to support workflow description
+- Translation of workflows between platforms
+- Integrated provenance from workflows executed in different platforms
+
+i.e. Both the workflows and experiments (configured and executed workflows) are interoperable, and can be combined in a coherent ecosystem.
+
+### 2. Reproducible Science
+- Complete provenance capture from metadata and workflow execution
+- Workflow descriptions use same semantic foundation as data descriptions
+- Automatic validation ensures reproducibility requirements are met
+
+### 3. Interoperability at Scale  
+- Common semantic foundation enables cross-domain data integration
+- Modular building blocks support domain-specific extensions while maintaining coherence
+- Standards-based approach ensures broad adoption and tool compatibility
+
+### 4. Unified Discovery  
+- Single query interface across datasets and processing capabilities
+- Semantic reasoning enables discovery of compatible data-process combinations
+- Provenance-aware search finds all products derived from specific source data
+- 
+### 5. Knowledge Graph Analytics
+- Integrated view enables sophisticated analysis across data lineage
+- Machine-readable semantics support automated workflow optimization
+- Cross-domain queries reveal insights impossible with siloed metadata
+
+This architecture leverages the inherent semantic richness already present in STAC extensions, the proven PROV building block pathway to incorporate provenance data into OGC API environments, and the OGC API - Processes standard that enables execution of computing processes and retrieval of metadata describing their purpose and functionality. The result is a coherent semantic ecosystem where datasets, workflows, and provenance are described using consistent, interoperable vocabularies.
 
 ## Architectural Vision
 
@@ -16,33 +61,37 @@ The feasibility of this approach leverages STAC extensions that already encode r
 
 Although this represents a significant innovation, the research will be to test a body of existing standards and OGC Building Blocks supporting the integration and profiling of these standards.  OGC Building Blocks provides a solution for the extremely difficult task of mapping schemas to ontologies in a scalable, testable way.
 
-## Existing Building Blocks 
+Given the availability of tooling and foundational semantic elements of such an ecosystem and a pragmatic leveraging of existing STAC semantics, developing a candidate common open "science ontology", and testing it with these shared semantics and any application specific descriptions is feasible.
+
+Standardising specific application domain semantics is not feasible, however showing how these may be defined in a form that can be added to a standards ecosystem provides a pathway to future standardisation.
+
+## Existing Building Blocks
 
 ### Ready to use (test)
 
-- **OGC Main** 
+- **[OGC Main](https://opengeospatial.github.io/bblocks/register/)** 
   Common schema elements from OGC standard used in multiple places 
   - GeoJSON
   - FG-JSON
   - JSON-LINK
   - BBOX
   - etc
-- **OGC API Common**
-- **OGC API Features**
-- **OGC API Records**
-- **OMS/SOSA JSON schema** for Observation Features
-- **PROV** JSON schema
-- **Cross-domain-model** (standard ontologies)
+- **[OGC API Features](https://ogcincubator.github.io/bblocks-ogcapi-features/)**
+- **[OGC API Records](https://ogcincubator.github.io/bblocks-ogcapi-records/)**
+- **[OMS/SOSA JSON schema for Observation Features](https://opengeospatial.github.io/ogcapi-sosa/)**
+- **[PROV-JSONLD](https://ogcincubator.github.io/bblock-prov-schema/)** JSON schema
+- **[Cross-domain-model](https://ogcincubator.github.io/cross-domain-model/)** - standard ontologies and OGC profiles for best practices
 
 ### Partially developed
 - **STAC extensions**
 - **GeoDCAT** and profiles
 
+
 ### Required
 Given OSPD scope the following sets of Building Blocks would be required  
-- **OGC API Processes**
+- **[OGC API Processes](https://github.com/ogcincubator/bblocks-ogcapi-processes)**
 - **Open Science Workflow Ontology**
-- **Open Science API Processes Profiles**
+- **[Open Science API Processes Profiles](https://github.com/ogcincubator/bblocks-openscience)**
 
 note that CI/CT for transformations from workflow descriptions to alternative platform-specific encodings could be managed in separate repositories if required, or done as part of ontology testing.
 
@@ -56,14 +105,46 @@ note that CI/CT for transformations from workflow descriptions to alternative pl
 ## Core Architectural Principles
 
 ### 1. Semantic Coherence Through Shared Vocabularies
+
+Irrespective of the various encodings and communication protocols used to transfer data and metadata, **when common concepts are used this should be identifiable**.
+
+The rationale is very simple - simply consider the same term located in several different data sources with different schemas, and the amount of effort required to:
+
+a. determine if content has the same meaning
+b. communicate this to an audience examining the reliability of your reasoning
+c. encode the instructions to treat this content as semantically equivalent
+d. implement data processing steps that exploit these instructions
+e. document the data processing in a transparent, repeatable and reproducible way.
+
+The choice is to do this either:
+
+- once, as part of metadata design for reusable data and processing,
+- every time a workflow is created using these resources
+- post-facto to try to understand and reproduce 
+
+In an Open Science context, the following common patterns can be observed where 
+
 - **Common Ontological Foundation**: PROV-O provides the backbone for all provenance relationships
 - **Domain-Specific Extensions**: STAC extension semantics map to specialized ontologies (these can be derived from descriptions)
 - **Workflow Integration**: OGC API Processes descriptions share the same semantic patterns as dataset metadata
 - **Cross-Domain Linking**: Entities can be simultaneously datasets (DCAT), workflow inputs/outputs (PROV), and processing artifacts (OGC API Processes)
 
+### 3. Unified Resource Identification
+
+In order to 
+
+Resources exist simultaneously as:
+- **STAC Items/Collections**: Discoverable spatiotemporal assets
+- **DCAT Datasets/Distributions**: Catalog-described data resources  
+- **PROV Entities**: Inputs, outputs, and intermediate products in provenance chains
+- **OGC API Process I/O**: Parameters and results in workflow definitions
+
+
+
+
 ### 2. Modular Schema Composition
 
-A baseline could look somethign like:
+A baseline could look something like:
 
 ```
 Base Building Block (OGC API Records + DCAT)
@@ -73,14 +154,13 @@ Base Building Block (OGC API Records + DCAT)
 └── + OGC API Processes → Workflow Description
 ```
 
-### 3. Unified Resource Identification
-Resources exist simultaneously as:
-- **STAC Items/Collections**: Discoverable spatiotemporal assets
-- **DCAT Datasets/Distributions**: Catalog-described data resources  
-- **PROV Entities**: Inputs, outputs, and intermediate products in provenance chains
-- **OGC API Process I/O**: Parameters and results in workflow definitions
+Breaking this down into FAIR components - i.e. focus on tight scope control for reusability, the following repository architecture emerges:
+
+![](https://myogc1-my.sharepoint.com/personal/ratkinson_ogc_org/_layouts/15/Doc.aspx?sourcedoc={789db747-9ee0-45ff-ba27-27231497944b}&action=embedview)
 
 ## Semantic Integration Layers
+
+Some examples (placeholders) for how things will link in practice RDF and equivalent  JSON instance data (or vice versa?).
 
 ### Layer 1: Foundation Semantics (PROV-O + DCAT)
 ```turtle
@@ -122,63 +202,20 @@ Resources exist simultaneously as:
     prov:generated :l2a_imagery .
 ```
 
-## Building Block Architecture
 
-### 1. Semantic Building Blocks Registry
-```yaml
-stac-eo-dcat-profile:
-  inherits: [geodcat-base, stac-core, prov-schema]
-  schema: stac-eo-extension.schema.yaml
-  context: 
-    - https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/item.json#/$defs/eo
-    - geodcat-mappings.jsonld
-    - eo-ontology-context.jsonld
-    - prov-context.jsonld
-```
-
-### 2. Workflow-Aware Metadata Profiles
-```yaml
-processing-workflow-profile:
-  inherits: [ogc-api-processes-base, prov-schema]
-  semantic_alignment:
-    ogc:Process → prov:Activity
-    ogc:Input → prov:Entity
-    ogc:Output → prov:Entity  
-    ogc:Job → prov:Activity (instance)
-  links_to: [stac-profiles, dcat-profiles]
-```
-
-### 3. Cross-Domain Linking Patterns
-```json
-{
-  "@context": {
-    "stac": "http://www.opengis.net/ont/stac#",
-    "prov": "http://www.w3.org/ns/prov#",
-    "dcat": "http://www.w3.org/ns/dcat#"
-  },
-  "@type": ["stac:Item", "dcat:Dataset", "prov:Entity"],
-  "id": "sentinel2-l2a-20231201",
-  "prov:wasGeneratedBy": {
-    "@type": ["prov:Activity", "ogc:ProcessExecution"],
-    "prov:used": [
-      {
-        "@id": "sentinel2-l1c-20231201",
-        "@type": ["stac:Item", "prov:Entity"]
-      }
-    ]
-  }
-}
-```
 
 ## Implementation Architecture
 
 ### 1. Modular Profile Generation
+
+Tooling and training to empower participants to establish a collaborative test-driven rapid prototyping environment.
+
 - **Extension Analysis Engine**: Extracts semantic patterns from participant STAC extensions
 - **Ontology Mapping Service**: Aligns extension properties with domain vocabularies
 - **Profile Composer**: Combines base building blocks with extension-specific semantics
 - **Validation Framework**: Ensures semantic consistency across profile combinations
 
-### 2. Provenance Integration Points
+### 2. Open Science Ontology Design
 - **STAC Processing Extension**: Enhanced with PROV-O semantics for lineage tracking
 - **Collection-Level Provenance**: Describes processing pipelines that generate entire collections
 - **Cross-Collection Dependencies**: Links derived products to source collections via provenance chains
@@ -190,57 +227,5 @@ processing-workflow-profile:
 - **Workflow Composition**: Enable clients to integrate discovered data and processes as a workflow in an ad-hoc manner
 - **Execution Provenance**: Automatic PROV generation from process execution
 
-## Semantic Consistency Patterns
 
-### 1. Vocabulary Alignment Matrix
-```
-STAC Extension Property → Domain Ontology → PROV Role → OGC Process Type
-eo:cloud_cover → eo:CloudCover → prov:qualifier → ogc:QualityMetric  
-sar:polarizations → radar:Polarization → prov:parameter → ogc:InputSpec
-projection:epsg → crs:CoordinateSystem → prov:location → ogc:SpatialContext
-```
 
-### 2. Cross-Profile Validation Rules
-- **Semantic Type Consistency**: Entities maintain consistent typing across STAC/DCAT/PROV views
-- **Provenance Chain Integrity**: Processing relationships valid across workflow and dataset descriptions  
-- **Vocabulary Coherence**: Extension-specific terms properly grounded in domain ontologies
-- **Profile Composition**: Combined profiles maintain semantic consistency
-
-### 3. Knowledge Graph Views
-```sparql
-# Query spanning datasets, workflows, and provenance
-SELECT ?dataset ?process ?sensor WHERE {
-  ?dataset a stac:Item, dcat:Dataset ;
-           eo:hasInstrument ?sensor ;
-           prov:wasGeneratedBy ?process .
-  
-  ?process a prov:Activity, ogc:Process ;
-           ogc:hasInput ?input_data .
-           
-  ?sensor eo:onPlatform ?platform .
-}
-```
-
-## Value Realization
-
-### 1. Unified Discovery
-- Single query interface across datasets and processing capabilities
-- Semantic reasoning enables discovery of compatible data-process combinations
-- Provenance-aware search finds all products derived from specific source data
-
-### 2. Reproducible Science
-- Complete provenance capture from STAC metadata and OGC API Processes execution
-- Workflow descriptions use same semantic foundation as data descriptions
-- Automatic validation ensures reproducibility requirements are met
-
-### 3. Interoperability at Scale  
-- Common semantic foundation enables cross-domain data integration
-- Modular building blocks support domain-specific extensions while maintaining coherence
-- Standards-based approach ensures broad adoption and tool compatibility
-
-### 4. Knowledge Graph Analytics
-- Integrated view enables sophisticated analysis across data lineage
-- Machine-readable semantics support automated workflow optimization
-- Cross-domain queries reveal insights impossible with siloed metadata
-
-This architecture leverages the inherent semantic richness already present in STAC extensions, the proven PROV building block pathway to incorporate provenance data into OGC API environments, and the OGC API - Processes standard that enables execution of computing processes and retrieval of metadata describing their purpose and functionality. The result is a coherent semantic ecosystem where datasets, workflows, and provenance are described using consistent, interoperable vocabularies.
