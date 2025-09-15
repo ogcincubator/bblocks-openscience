@@ -13,14 +13,14 @@
     rdfs:label "Custom Feature" ;
     dct:abstract "This examples shows a simple customisation for OGC API Feature schemas"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-05-19T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/markdown" ;
+    dct:description [ dct:format "text/html" ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/bblock/ogc.bbr.template.myFeature" ],
+        [ dct:format "text/markdown" ;
             rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/generateddocs/markdown/bbr/template/myFeature/index.md" ],
         [ dct:format "application/json" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/generateddocs/json-full/bbr/template/myFeature/index.json" ],
-        [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/bblock/ogc.bbr.template.myFeature" ] ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/generateddocs/json-full/bbr/template/myFeature/index.json" ] ;
     dct:hasVersion "1.0" ;
-    dct:modified "2025-09-12"^^xsd:date ;
+    dct:modified "2025-09-15"^^xsd:date ;
     dct:source <https://docs.ogc.org/is/17-069r3/17-069r3.html#_response_7> ;
     skos:inScheme <https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/> ;
     dcat:keyword "examples",
@@ -36,18 +36,18 @@
 
 <https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/bblocks.ttl> a prov:Entity ;
     dct:format "text/turtle" ;
-    prov:wasAttributedTo _:N990c3b27cdb548409092b476dc666f25 ;
+    prov:wasAttributedTo _:Nf1d4a35d39ac474b8833e9e6cef3bfd0 ;
     prov:wasGeneratedBy [ a prov:Activity ;
-            prov:endedAtTime "2025-09-12T22:43:45.264975"^^xsd:dateTime ;
-            prov:startedAtTime "2025-09-12T22:43:45.200977"^^xsd:dateTime ;
+            prov:endedAtTime "2025-09-15T08:48:16.104285"^^xsd:dateTime ;
+            prov:startedAtTime "2025-09-15T08:48:16.039423"^^xsd:dateTime ;
             prov:used [ a prov:Entity ;
                     dct:format "application/yaml" ;
                     rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ],
                 [ a prov:Entity ;
                     dct:format "application/json" ;
-                    dct:hasVersion "git:74b6b9ef0f296970cbe35e0473abf77eeff78994" ;
+                    dct:hasVersion "git:a4978dbac104b25517df42ba343d555ec49b88d6" ;
                     rdfs:seeAlso <https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/register.json> ] ;
-            prov:wasAssociatedWith _:N990c3b27cdb548409092b476dc666f25 ] .
+            prov:wasAssociatedWith _:Nf1d4a35d39ac474b8833e9e6cef3bfd0 ] .
 
 <https://docs.ogc.org/is/17-069r3/17-069r3.html#_response_7> rdfs:label "OGC API - Features, Part 1, 7.16.2: Feature Response" .
 
@@ -59,14 +59,14 @@
     rdfs:label "My Schema" ;
     dct:abstract "An example schema defining the set of properties of any type of object."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-04-05T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/bblock/ogc.bbr.template.mySchema" ],
-        [ dct:format "text/markdown" ;
+    dct:description [ dct:format "text/markdown" ;
             rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/generateddocs/markdown/bbr/template/mySchema/index.md" ],
         [ dct:format "application/json" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/generateddocs/json-full/bbr/template/mySchema/index.json" ] ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/generateddocs/json-full/bbr/template/mySchema/index.json" ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/bblock/ogc.bbr.template.mySchema" ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2025-09-12"^^xsd:date ;
+    dct:modified "2025-09-15"^^xsd:date ;
     dct:source <https://example.com/sources/1> ;
     skos:inScheme <https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/> ;
     dcat:keyword "templates" ;
@@ -91,7 +91,7 @@ including [links](https://google.es).
     bblocks:hasValidationReport <https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/tests/report.html> ;
     bblocks:imports <https://opengeospatial.github.io/bblocks/register.json> .
 
-_:N990c3b27cdb548409092b476dc666f25 a prov:Agent,
+_:Nf1d4a35d39ac474b8833e9e6cef3bfd0 a prov:Agent,
         schema:SoftwareApplication ;
     rdfs:label "OGC-NA tools" ;
     dct:hasVersion "0.4.2" ;
