@@ -15,10 +15,10 @@
     dct:created "2023-05-19T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/bblock/ogc.bbr.template.myFeature" ],
-        [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/generateddocs/markdown/bbr/template/myFeature/index.md" ],
         [ dct:format "application/json" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/generateddocs/json-full/bbr/template/myFeature/index.json" ] ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/generateddocs/json-full/bbr/template/myFeature/index.json" ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/generateddocs/markdown/bbr/template/myFeature/index.md" ] ;
     dct:hasVersion "1.0" ;
     dct:modified "2025-09-15"^^xsd:date ;
     dct:source <https://docs.ogc.org/is/17-069r3/17-069r3.html#_response_7> ;
@@ -36,18 +36,18 @@
 
 <https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/bblocks.ttl> a prov:Entity ;
     dct:format "text/turtle" ;
-    prov:wasAttributedTo _:Nf1d4a35d39ac474b8833e9e6cef3bfd0 ;
+    prov:wasAttributedTo _:N0255fe67471e47e786ee379b1dad157f ;
     prov:wasGeneratedBy [ a prov:Activity ;
-            prov:endedAtTime "2025-09-15T08:48:16.104285"^^xsd:dateTime ;
-            prov:startedAtTime "2025-09-15T08:48:16.039423"^^xsd:dateTime ;
+            prov:endedAtTime "2025-09-15T08:49:55.867271"^^xsd:dateTime ;
+            prov:startedAtTime "2025-09-15T08:49:55.803031"^^xsd:dateTime ;
             prov:used [ a prov:Entity ;
                     dct:format "application/yaml" ;
                     rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ],
                 [ a prov:Entity ;
                     dct:format "application/json" ;
-                    dct:hasVersion "git:a4978dbac104b25517df42ba343d555ec49b88d6" ;
+                    dct:hasVersion "git:3ce5fd5f3551420c7d97ebbd38a84910074bd290" ;
                     rdfs:seeAlso <https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/register.json> ] ;
-            prov:wasAssociatedWith _:Nf1d4a35d39ac474b8833e9e6cef3bfd0 ] .
+            prov:wasAssociatedWith _:N0255fe67471e47e786ee379b1dad157f ] .
 
 <https://docs.ogc.org/is/17-069r3/17-069r3.html#_response_7> rdfs:label "OGC API - Features, Part 1, 7.16.2: Feature Response" .
 
@@ -91,7 +91,7 @@ including [links](https://google.es).
     bblocks:hasValidationReport <https://raw.githubusercontent.com/ogcincubator/bblocks-openscience/undefined/build/tests/report.html> ;
     bblocks:imports <https://opengeospatial.github.io/bblocks/register.json> .
 
-_:Nf1d4a35d39ac474b8833e9e6cef3bfd0 a prov:Agent,
+_:N0255fe67471e47e786ee379b1dad157f a prov:Agent,
         schema:SoftwareApplication ;
     rdfs:label "OGC-NA tools" ;
     dct:hasVersion "0.4.2" ;
