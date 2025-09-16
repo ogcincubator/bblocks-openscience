@@ -1,22 +1,23 @@
 # A short, descriptive name of this building block collection
-name: My OGC Building Blocks repository
+name: Open Science Workflows Building Blocks
 
 # Short abstract for this collection (optional)
 abstract: |
-  This is an example text for the abstract. It should be short and to the point.
-  A "Tell me more" link will appear if there is an additional description with a longer explanation.
-
+  Building Blocks for FAIR Open Science - profiles of OGC API Processes and various metadata standards to support open, transparent, interoperable and reproduceable scientific workflows..
 # Description for this collection (optional)
 description: |
-  The description can be longer. Both **the abstract** *and the description* support Markdown,
-  including [links](https://google.es).
+  This repository is initially aimed to support the Open Science Demonstrator Project, but may be further developed as a set of standards with appropriate working group governance.
 
 # Customize the following prefix (will be prepended to the path of the building blocks):
-identifier-prefix: ogc.bbr.template.
+identifier-prefix: ogc.osc.
 
 # List of imports ("default" is an alias for the main OGC Building Blocks Register)
 imports:
   - default
+  - https://ogcincubator.github.io/bblocks-ogcapi-records/build/register.json
+  - https://ogcincubator.github.io/bblocks-ogcapi-features/build/register.json
+  - https://ogcincubator.github.io/bblocks-stac/build/register.json
+  - https://ogcincubator.github.io/cross-domain-model
 
 # Whether to enable the (highly experimental) downcompiling of JSON schemas to an OpenAPI 3.0-compatible
 # version
