@@ -2,7 +2,7 @@
   "name": "Open Science Workflows Building Blocks",
   "abstract": "Building Blocks for FAIR Open Science - profiles of OGC API Processes and various metadata standards to support open, transparent, interoperable and reproduceable scientific workflows..\n",
   "description": "This repository is initially aimed to support the Open Science Demonstrator Project, but may be further developed as a set of standards with appropriate working group governance.\n",
-  "modified": "2025-09-16T12:06:01.149029",
+  "modified": "2025-09-16T12:23:49.376319",
   "tooling": {
     "bblocks-postprocess": {
       "commitId": "\"2b5877b48fd9de11b12a10c5844909caf9ed9e5f",
@@ -18,7 +18,6 @@
   "imports": [
     "https://opengeospatial.github.io/bblocks/register.json",
     "https://ogcincubator.github.io/bblocks-ogcapi-records/build/register.json",
-    "https://ogcincubator.github.io/bblocks-ogcapi-features/build/register.json",
     "https://ogcincubator.github.io/bblocks-stac/build/register.json",
     "https://ogcincubator.github.io/cross-domain-model/build/register.json"
   ],
@@ -33,10 +32,10 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
+        "ogc.contrib.stac.extensions.themes",
         "ogc.contrib.stac.extensions.osc",
         "ogc.contrib.stac.extensions.cf",
-        "ogc.geo.geodcat.stac.geodcat-stac-collection",
-        "ogc.contrib.stac.extensions.themes"
+        "ogc.geo.geodcat.stac.geodcat-stac-collection"
       ],
       "version": "0.1",
       "dateOfLastChange": "2025-09-16",
@@ -96,9 +95,9 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.contrib.stac.extensions.osc",
         "ogc.contrib.stac.extensions.themes",
         "ogc.contrib.stac.extensions.cf",
+        "ogc.contrib.stac.extensions.osc",
         "ogc.geo.geodcat.stac.geodcat-stac-item"
       ],
       "version": "0.1",
