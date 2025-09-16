@@ -1,0 +1,111 @@
+{
+  "@context": {
+    "href": {
+      "@type": "@id",
+      "@id": "oa:hasTarget"
+    },
+    "rel": {
+      "@context": {
+        "@base": "http://www.iana.org/assignments/relation/"
+      },
+      "@id": "http://www.iana.org/assignments/relation",
+      "@type": "@id"
+    },
+    "type": "dct:type",
+    "hreflang": "dct:language",
+    "title": "rdfs:label",
+    "length": "dct:extent",
+    "id": "@id",
+    "properties": "@nest",
+    "geometry": {
+      "@context": {
+        "type": "@type"
+      },
+      "@id": "geojson:geometry"
+    },
+    "bbox": {
+      "@container": "@list",
+      "@id": "geojson:bbox"
+    },
+    "Feature": "geojson:Feature",
+    "FeatureCollection": "geojson:FeatureCollection",
+    "GeometryCollection": "geojson:GeometryCollection",
+    "LineString": "geojson:LineString",
+    "MultiLineString": "geojson:MultiLineString",
+    "MultiPoint": "geojson:MultiPoint",
+    "MultiPolygon": "geojson:MultiPolygon",
+    "Point": "geojson:Point",
+    "Polygon": "geojson:Polygon",
+    "features": {
+      "@container": "@set",
+      "@id": "geojson:features"
+    },
+    "links": "rdfs:seeAlso",
+    "coordinates": {
+      "@container": "@list",
+      "@id": "geojson:coordinates"
+    },
+    "created": "dct:created",
+    "updated": "dct:modified",
+    "uriTemplate": {
+      "@type": "xsd:string",
+      "@id": "oa:hasTarget"
+    },
+    "description": "dct:description",
+    "license": "dct:license",
+    "extent": "dct:extent",
+    "datetime": {
+      "@id": "stac:datetime",
+      "@type": "xsd:dateTime"
+    },
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "assets": {
+      "@id": "urn:stac:vocab#hasAsset",
+      "@container": "@id",
+      "@context": {
+        "href": {
+          "@id": "dcat:downloadURL",
+          "@type": "@id"
+        },
+        "title": "dct:title",
+        "type": "dct:format"
+      }
+    },
+    "media_type": "stac:mediaType",
+    "themes": {
+      "@id": "thns:schemes",
+      "@container": "@set"
+    },
+    "concepts": {
+      "@id": "thns:concepts",
+      "@container": "@set",
+      "@context": {
+        "name": "thns:name",
+        "id": "thns:id",
+        "url": "@id"
+      }
+    },
+    "scheme": "thns:scheme",
+    "stac_version": "urn:stac:vocab#version",
+    "stac_extensions": "urn:stac:vocab#extensions",
+    "keywords": "dct:subject",
+    "oa": "http://www.w3.org/ns/oa#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "dct": "http://purl.org/dc/terms/",
+    "thns": "https://w3id.org/ogc/stac/themes/",
+    "geojson": "https://purl.org/geojson/vocab#",
+    "stac": "http://stacspec.org/ontology/core#",
+    "geo": "http://www.opengis.net/ont/geosparql#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "@version": 1.1
+  }
+}

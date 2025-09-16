@@ -1,0 +1,83 @@
+
+
+{
+  "itemIdentifier": "ogc.osc.geodcat-stac-earthcode.experiments",
+  "name": "EarthCODE Experiment",
+  "highlighted": true,
+  "abstract": "EarthCODE metadata profile linked to semantic models",
+  "status": "under-development",
+  "dateTimeAddition": "2023-09-18T00:00:00Z",
+  "itemClass": "schema",
+  "register": "ogc-incubator",
+  "dependsOn": [
+    "ogc.contrib.stac.extensions.osc",
+    "ogc.contrib.stac.extensions.themes",
+    "ogc.contrib.stac.extensions.cf",
+    "ogc.geo.geodcat.stac.geodcat-stac-item"
+  ],
+  "version": "0.1",
+  "dateOfLastChange": "2025-09-16",
+  "link": "https://github.com/opengeospatial/geodcat-ogcapi-records",
+  "sources": [
+    {
+      "title": "GeoDCAT Specification",
+      "link": "http://www.opengis.net/def/metamodel/profiles/geodcat"
+    },
+    {
+      "title": "EarthCODE",
+      "link": "{\n      \"title\": \"GeoDCAT Specification\",\n      \"link\": \"http://www.opengis.net/def/metamodel/profiles/geodcat\"\n    },"
+    }
+  ],
+  "scope": "dev",
+  "tags": [
+    "DCAT",
+    "profile",
+    "Records",
+    "STAC",
+    "EarthCODE"
+  ],
+  "shaclShapes": {
+    "ogc.geo.geodcat.records-ontology": [
+      "https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl"
+    ]
+  },
+  "ldContext": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/context.jsonld",
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/schema.yaml",
+  "sourceLdContext": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/context.jsonld",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/",
+  "rdfData": [],
+  "validationPassed": false,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-openscience/blob/master/build/tests/osc/geodcat-stac-earthcode/experiments/",
+  "description": "## ESA EarthCODE experiments as GeoDCAT and STAC profile \n\nThis building block shows a possible profile of GeoDCAT supporting semantic annotation and inclusion of the three STAC extensions used by EarthCODE:\n\n- themes\n- osc\n- cf\n",
+  "examples": [
+    {
+      "title": "An example demonstrating EO extension fields in a STAC item.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://raw.githubusercontent.com/ESA-EarthCODE/open-science-catalog-metadata/refs/heads/main/experiments/polaris-experiment/record.json",
+          "base-uri": "https://ogc.org/demo/ospd/",
+          "code": "{\n  \"id\": \"polaris-experiment\",\n  \"type\": \"Feature\",\n  \"conformsTo\": [\n    \"http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core\"\n  ],\n  \"geometry\": null,\n  \"properties\": {\n    \"created\": \"2025-02-19T23:00:00Z\",\n    \"updated\": \"2025-02-19T23:00:00Z\",\n    \"type\": \"experiment\",\n    \"title\": \"POLARIS\",\n    \"description\": \"Polar Operational Limit Assessment Risk Index System (POLARIS)\",\n    \"keywords\": [\n      \"sea ice\",\n      \"polar\"\n    ],\n    \"contacts\": [\n      {\n        \"name\": \"EarthCODE Demo\",\n        \"organization\": \"EarthCODE\",\n        \"links\": [\n          {\n            \"rel\": \"about\",\n            \"type\": \"text/html\",\n            \"href\": \"https://opensciencedata.esa.int/\"\n          }\n        ],\n        \"contactInstructions\": \"Contact via EarthCODE\",\n        \"roles\": [\n          \"host\"\n        ]\n      }\n    ],\n    \"themes\": [\n      {\n        \"scheme\": \"https://github.com/stac-extensions/osc#theme\",\n        \"concepts\": [\n          {\n            \"id\": \"oceans\"\n          }\n        ]\n      }\n    ],\n    \"formats\": [\n      {\n        \"name\": \"GeoTIFF\"\n      }\n    ],\n    \"license\": \"CC-BY-SA-4.0\",\n    \"osc:workflow\": \"polaris-workflow\",\n    \"version\": \"2\"\n  },\n  \"linkTemplates\": [],\n  \"links\": [\n    {\n      \"rel\": \"root\",\n      \"href\": \"../../catalog.json\",\n      \"type\": \"application/json\",\n      \"title\": \"Open Science Catalog\"\n    },\n    {\n      \"rel\": \"parent\",\n      \"href\": \"../catalog.json\",\n      \"type\": \"application/json\",\n      \"title\": \"Experiments\"\n    },\n    {\n      \"rel\": \"child\",\n      \"href\": \"../../products/polaris/collection.json\",\n      \"type\": \"application/json\",\n      \"title\": \"POLARIS\"\n    },\n    {\n      \"rel\": \"related\",\n      \"href\": \"../../themes/oceans/catalog.json\",\n      \"type\": \"application/json\",\n      \"title\": \"Theme: Oceans\"\n    },\n    {\n      \"rel\": \"related\",\n      \"href\": \"../../workflows/polaris-workflow/record.json\",\n      \"type\": \"application/json\",\n      \"title\": \"Workflow: POLARIS\"\n    },\n    {\n      \"rel\": \"input\",\n      \"href\": \"./input.yaml\",\n      \"type\": \"application/yaml\",\n      \"title\": \"Input parameters\"\n    },\n    {\n      \"rel\": \"environment\",\n      \"href\": \"./environment.yaml\",\n      \"type\": \"application/yaml\",\n      \"title\": \"Execution environment\"\n    },\n    {\n      \"rel\": \"self\",\n      \"href\": \"https://esa-earthcode.github.io/open-science-catalog-metadata/experiments/polaris-experiment/item.json\",\n      \"type\": \"application/json\"\n    }\n  ]\n}\n",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/experiments/example_1_1.json"
+        },
+        {
+          "language": "jsonld",
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/context.jsonld\",\n  \"id\": \"polaris-experiment\",\n  \"type\": \"Feature\",\n  \"conformsTo\": [\n    \"http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core\"\n  ],\n  \"geometry\": null,\n  \"properties\": {\n    \"created\": \"2025-02-19T23:00:00Z\",\n    \"updated\": \"2025-02-19T23:00:00Z\",\n    \"type\": \"experiment\",\n    \"title\": \"POLARIS\",\n    \"description\": \"Polar Operational Limit Assessment Risk Index System (POLARIS)\",\n    \"keywords\": [\n      \"sea ice\",\n      \"polar\"\n    ],\n    \"contacts\": [\n      {\n        \"name\": \"EarthCODE Demo\",\n        \"organization\": \"EarthCODE\",\n        \"links\": [\n          {\n            \"rel\": \"about\",\n            \"type\": \"text/html\",\n            \"href\": \"https://opensciencedata.esa.int/\"\n          }\n        ],\n        \"contactInstructions\": \"Contact via EarthCODE\",\n        \"roles\": [\n          \"host\"\n        ]\n      }\n    ],\n    \"themes\": [\n      {\n        \"scheme\": \"https://github.com/stac-extensions/osc#theme\",\n        \"concepts\": [\n          {\n            \"id\": \"oceans\"\n          }\n        ]\n      }\n    ],\n    \"formats\": [\n      {\n        \"name\": \"GeoTIFF\"\n      }\n    ],\n    \"license\": \"CC-BY-SA-4.0\",\n    \"osc:workflow\": \"polaris-workflow\",\n    \"version\": \"2\"\n  },\n  \"linkTemplates\": [],\n  \"links\": [\n    {\n      \"rel\": \"root\",\n      \"href\": \"../../catalog.json\",\n      \"type\": \"application/json\",\n      \"title\": \"Open Science Catalog\"\n    },\n    {\n      \"rel\": \"parent\",\n      \"href\": \"../catalog.json\",\n      \"type\": \"application/json\",\n      \"title\": \"Experiments\"\n    },\n    {\n      \"rel\": \"child\",\n      \"href\": \"../../products/polaris/collection.json\",\n      \"type\": \"application/json\",\n      \"title\": \"POLARIS\"\n    },\n    {\n      \"rel\": \"related\",\n      \"href\": \"../../themes/oceans/catalog.json\",\n      \"type\": \"application/json\",\n      \"title\": \"Theme: Oceans\"\n    },\n    {\n      \"rel\": \"related\",\n      \"href\": \"../../workflows/polaris-workflow/record.json\",\n      \"type\": \"application/json\",\n      \"title\": \"Workflow: POLARIS\"\n    },\n    {\n      \"rel\": \"input\",\n      \"href\": \"./input.yaml\",\n      \"type\": \"application/yaml\",\n      \"title\": \"Input parameters\"\n    },\n    {\n      \"rel\": \"environment\",\n      \"href\": \"./environment.yaml\",\n      \"type\": \"application/yaml\",\n      \"title\": \"Execution environment\"\n    },\n    {\n      \"rel\": \"self\",\n      \"href\": \"https://esa-earthcode.github.io/open-science-catalog-metadata/experiments/polaris-experiment/item.json\",\n      \"type\": \"application/json\"\n    }\n  ]\n}",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/experiments/example_1_1.jsonld"
+        },
+        {
+          "language": "ttl",
+          "code": "@prefix dcat: <http://www.w3.org/ns/dcat#> .\n@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix ns1: <http://www.iana.org/assignments/> .\n@prefix ns2: <osc:> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix rec: <https://www.opengis.net/def/ogc-api/records/> .\n@prefix stac: <http://stacspec.org/ontology/core#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://ogc.org/demo/ospd/polaris-experiment> a <https://ogc.org/demo/ospd/experiment>,\n        geojson:Feature ;\n    rdfs:label \"POLARIS\" ;\n    dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core> ;\n    dcterms:created \"2025-02-19T23:00:00Z\" ;\n    dcterms:modified \"2025-02-19T23:00:00Z\" ;\n    stac:description \"Polar Operational Limit Assessment Risk Index System (POLARIS)\" ;\n    stac:license \"CC-BY-SA-4.0\" ;\n    rdfs:seeAlso [ rdfs:label \"Open Science Catalog\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/root> ;\n            oa:hasTarget <https://ogc.org/catalog.json> ],\n        [ dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/self> ;\n            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/experiments/polaris-experiment/item.json> ],\n        [ rdfs:label \"Input parameters\" ;\n            dcterms:type \"application/yaml\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/input> ;\n            oa:hasTarget <https://ogc.org/demo/ospd/input.yaml> ],\n        [ rdfs:label \"Experiments\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/parent> ;\n            oa:hasTarget <https://ogc.org/demo/catalog.json> ],\n        [ rdfs:label \"Theme: Oceans\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],\n        [ rdfs:label \"Execution environment\" ;\n            dcterms:type \"application/yaml\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/environment> ;\n            oa:hasTarget <https://ogc.org/demo/ospd/environment.yaml> ],\n        [ rdfs:label \"Workflow: POLARIS\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://ogc.org/workflows/polaris-workflow/record.json> ],\n        [ rdfs:label \"POLARIS\" ;\n            dcterms:type \"application/json\" ;\n            ns1:relation <http://www.iana.org/assignments/relation/child> ;\n            oa:hasTarget <https://ogc.org/products/polaris/collection.json> ] ;\n    dcat:contactPoint [ rdfs:seeAlso [ dcterms:type \"text/html\" ;\n                    ns1:relation <http://www.iana.org/assignments/relation/about> ;\n                    oa:hasTarget <https://opensciencedata.esa.int/> ] ] ;\n    dcat:keyword \"polar\",\n        \"sea ice\" ;\n    rec:format [ ] ;\n    rec:themes [ rec:concept [ rec:conceptID \"oceans\"^^xsd:string ] ;\n            rec:scheme \"https://github.com/stac-extensions/osc#theme\" ] ;\n    ns2:workflow \"polaris-workflow\" .\n\n",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/experiments/example_1_1.ttl"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ndescription: Schema for OGCAPI records profile for GeoDCAT - defines all extra elements\n  defined by GeoDCAT so that the JSON-LD context can map to GeoDCAT RDF\nallOf:\n- $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes/schema.yaml\n- $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/osc/schema.yaml\n- $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/cf/schema.yaml\n- anyOf:\n  - $ref: https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/stac/geodcat-stac-item/schema.yaml\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-openscience",
+  "gitPath": "_sources/geodcat-stac-earthcode/experiments"
+}
