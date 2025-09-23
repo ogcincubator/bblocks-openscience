@@ -1,63 +1,62 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <osc:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
-@prefix ns3: <urn:stac:vocab#> .
-@prefix ns4: <cf:> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <osc:> .
+@prefix ns3: <cf:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix thns: <https://w3id.org/ogc/stac/themes/> .
+@prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
+@prefix stac: <http://stacspec.org/ontology/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://ogc.org/demo/ospd/ice-shelf-antarctica-cryosmos> rdfs:label "Ice shelf product_Antarctica_SMOS" ;
-    ns4:parameter [ ] ;
+<https://ogc.org/demo/ospd/ice-shelf-antarctica-cryosmos> a prov:Collection ;
+    rdfs:label "Ice shelf product_Antarctica_SMOS" ;
+    ns3:parameter [ ] ;
     dcterms:created "2020-03-19T00:00:00Z" ;
     dcterms:description "The ice shelf product consists of two types of NETCDF-4 files, one containing yearly mean quantities and one containing differential quantities as well as static surface type masks. Names of the first file type are \"SMOS_TB_for_Origin_yyyy_vvv.nc\", where \"yyyy\" is the respective year and \"vvv\" the dataset version. Names of the second file type are \"SMOS_Origin_yyyy_yyyy_vvv.nc\" where the first \"yyyy\" indicates the first year, the second \"yyyy\" the second year and \"vvv\" the dataset version. All differential quantities are based on the yearly mean of the second year minus the yearly mean of first year. Product details are available at: http://www.ifac.cnr.it/cryosmos/products/CryoSMOS_D8_EDUM_V2.0.pdf." ;
-    dcterms:extent [ ] ;
-    dcterms:license "proprietary" ;
     dcterms:modified "2024-09-12T20:32:06.219108Z" ;
-    dcterms:subject "Glaciers/Ice Sheets",
-        "Ice Sheets and Ice Shelves",
-        "Sea Ice" ;
-    dcterms:type "Collection" ;
-    rdfs:seeAlso [ rdfs:label "Theme: Cryosphere" ;
+    stac:extent [ ] ;
+    rdfs:seeAlso [ rdfs:label "Variable: Ice Sheets and Ice Shelves" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ],
-        [ rdfs:label "Access" ;
-            ns2:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <http://www.ifac.cnr.it/cryosmos/products/CRYOSMOS_shelf.tgz> ],
-        [ rdfs:label "Variable: Ice Sheets and Ice Shelves" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/variables/ice-sheets-and-ice-shelves/catalog.json> ],
-        [ rdfs:label "Products" ;
+        [ rdfs:label "Theme: Cryosphere" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
-        [ rdfs:label "EO Mission: SMOS" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/eo-missions/smos/catalog.json> ],
-        [ rdfs:label "Open Science Catalog" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://ogc.org/catalog.json> ],
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ],
         [ rdfs:label "Project: CryoSMOS" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/projects/cryosmos/collection.json> ],
+        [ rdfs:label "Products" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ],
+        [ rdfs:label "EO Mission: SMOS" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/eo-missions/smos/catalog.json> ],
+        [ rdfs:label "Access" ;
+            ns1:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <http://www.ifac.cnr.it/cryosmos/products/CRYOSMOS_shelf.tgz> ],
         [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/products/ice-shelf-antarctica-cryosmos/collection.json> ] ;
-    thns:schemes [ thns:concepts [ thns:id "cryosphere" ] ;
-            thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
-    ns1:missions "smos" ;
-    ns1:project "cryosmos" ;
-    ns1:region "Antarctica" ;
-    ns1:status "ongoing" ;
-    ns1:type "product" ;
-    ns1:variables "ice-sheets-and-ice-shelves" ;
-    ns3:extensions "https://stac-extensions.github.io/cf/v0.2.0/schema.json",
-        "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
-        "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
-    ns3:version "1.0.0" .
+    dcat:keyword "Glaciers/Ice Sheets",
+        "Ice Sheets and Ice Shelves",
+        "Sea Ice" ;
+    dcat:license "proprietary" ;
+    rec:themes [ rec:concept [ rec:conceptID "cryosphere"^^xsd:string ] ;
+            rec:scheme "https://github.com/stac-extensions/osc#theme" ] ;
+    ns2:missions "smos" ;
+    ns2:project "cryosmos" ;
+    ns2:region "Antarctica" ;
+    ns2:status "ongoing" ;
+    ns2:type "product" ;
+    ns2:variables "ice-sheets-and-ice-shelves" .
 

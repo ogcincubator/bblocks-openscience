@@ -248,7 +248,6 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
-@prefix stac: <http://stacspec.org/ontology/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://ogc.org/demo/ospd/polaris-experiment> a <https://ogc.org/demo/ospd/experiment>,
@@ -256,14 +255,9 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
     rdfs:label "POLARIS" ;
     dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core> ;
     dcterms:created "2025-02-19T23:00:00Z" ;
+    dcterms:description "Polar Operational Limit Assessment Risk Index System (POLARIS)" ;
     dcterms:modified "2025-02-19T23:00:00Z" ;
-    stac:description "Polar Operational Limit Assessment Risk Index System (POLARIS)" ;
-    stac:license "CC-BY-SA-4.0" ;
-    rdfs:seeAlso [ rdfs:label "Workflow: POLARIS" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/workflows/polaris-workflow/record.json> ],
-        [ rdfs:label "Experiments" ;
+    rdfs:seeAlso [ rdfs:label "Experiments" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://ogc.org/demo/catalog.json> ],
@@ -271,10 +265,21 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
             dcterms:type "application/yaml" ;
             ns1:relation <http://www.iana.org/assignments/relation/input> ;
             oa:hasTarget <https://ogc.org/demo/ospd/input.yaml> ],
+        [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/experiments/polaris-experiment/item.json> ],
         [ rdfs:label "POLARIS" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/child> ;
             oa:hasTarget <https://ogc.org/products/polaris/collection.json> ],
+        [ rdfs:label "Execution environment" ;
+            dcterms:type "application/yaml" ;
+            ns1:relation <http://www.iana.org/assignments/relation/environment> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/environment.yaml> ],
+        [ rdfs:label "Workflow: POLARIS" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/workflows/polaris-workflow/record.json> ],
         [ rdfs:label "Open Science Catalog" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
@@ -282,19 +287,13 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
         [ rdfs:label "Theme: Oceans" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
-        [ rdfs:label "Execution environment" ;
-            dcterms:type "application/yaml" ;
-            ns1:relation <http://www.iana.org/assignments/relation/environment> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/environment.yaml> ],
-        [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/experiments/polaris-experiment/item.json> ] ;
+            oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ] ;
     dcat:contactPoint [ rdfs:seeAlso [ dcterms:type "text/html" ;
                     ns1:relation <http://www.iana.org/assignments/relation/about> ;
                     oa:hasTarget <https://opensciencedata.esa.int/> ] ] ;
     dcat:keyword "polar",
         "sea ice" ;
+    dcat:license "CC-BY-SA-4.0" ;
     rec:format [ ] ;
     rec:themes [ rec:concept [ rec:conceptID "oceans"^^xsd:string ] ;
             rec:scheme "https://github.com/stac-extensions/osc#theme" ] ;
@@ -314,7 +313,7 @@ allOf:
 - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/osc/schema.yaml
 - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/cf/schema.yaml
 - anyOf:
-  - $ref: https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/stac/geodcat-stac-item/schema.yaml
+  - $ref: https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/geodcat-records-prov/schema.yaml
 
 ```
 
@@ -381,10 +380,10 @@ Links to the schema:
       "@id": "oa:hasTarget"
     },
     "description": {
-      "@id": "stac:description",
+      "@id": "dct:description",
       "@container": "@set"
     },
-    "license": "stac:license",
+    "license": "dcat:license",
     "extent": "stac:extent",
     "datetime": {
       "@id": "stac:datetime",
@@ -503,8 +502,572 @@ Links to the schema:
         "@vocab": "https://www.opengis.net/def/ogc-api/records/"
       }
     },
-    "stac_version": "https://www.opengis.net/def/ogc-api/stac/version",
-    "stac_extensions": "https://www.opengis.net/def/ogc-api/stac/extensions",
+    "featureType": "@type",
+    "entityType": "@type",
+    "has_provenance": {
+      "@context": {
+        "activityType": "@type",
+        "endedAtTime": {
+          "@id": "prov:endedAtTime",
+          "@type": "xsd:dateTime"
+        },
+        "wasAssociatedWith": {
+          "@context": {
+            "type": "dct:type"
+          },
+          "@id": "prov:wasAssociatedWith",
+          "@type": "@id"
+        },
+        "wasInformedBy": {
+          "@id": "prov:wasInformedBy",
+          "@type": "@id"
+        },
+        "used": {
+          "@id": "prov:used",
+          "@type": "@id"
+        },
+        "wasStartedBy": {
+          "@id": "prov:wasStartedBy",
+          "@type": "@id"
+        },
+        "wasEndedBy": {
+          "@id": "prov:wasEndedBy",
+          "@type": "@id"
+        },
+        "invalidated": {
+          "@id": "prov:invalidated",
+          "@type": "@id"
+        },
+        "generated": {
+          "@id": "prov:generated",
+          "@type": "@id"
+        },
+        "qualifiedUsage": {
+          "@context": {
+            "entity": {
+              "@id": "prov:entity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedUsage",
+          "@type": "@id"
+        },
+        "qualifiedCommunication": {
+          "@context": {
+            "hadRole": {
+              "@id": "prov:hadRole",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedCommunication",
+          "@type": "@id"
+        },
+        "qualifiedStart": {
+          "@context": {
+            "entity": {
+              "@id": "prov:entity",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedStart",
+          "@type": "@id"
+        },
+        "qualifiedEnd": {
+          "@context": {
+            "entity": {
+              "@id": "prov:entity",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedEnd",
+          "@type": "@id"
+        },
+        "qualifiedAssociation": {
+          "@context": {
+            "agent": {
+              "@id": "prov:agent",
+              "@type": "@id"
+            },
+            "hadRole": {
+              "@id": "prov:hadRole",
+              "@type": "@id"
+            },
+            "hadPlan": {
+              "@id": "prov:hadPlan",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedAssociation",
+          "@type": "@id"
+        },
+        "agentType": "@type",
+        "name": "rdfs:label",
+        "actedOnBehalfOf": {
+          "@id": "prov:actedOnBehalfOf",
+          "@type": "@id"
+        },
+        "qualifiedDelegation": {
+          "@context": {
+            "agent": {
+              "@id": "prov:agent",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedDelegation",
+          "@type": "@id"
+        }
+      },
+      "@id": "dct:provenance",
+      "@type": "@id"
+    },
+    "wasGeneratedBy": {
+      "@id": "prov:wasGeneratedBy",
+      "@type": "@id"
+    },
+    "wasAttributedTo": {
+      "@context": {
+        "type": "dct:type",
+        "agentType": "@type",
+        "name": "rdfs:label",
+        "actedOnBehalfOf": {
+          "@id": "prov:actedOnBehalfOf",
+          "@type": "@id"
+        },
+        "qualifiedDelegation": {
+          "@context": {
+            "agent": {
+              "@id": "prov:agent",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedDelegation",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:wasAttributedTo",
+      "@type": "@id"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "alternateOf": {
+      "@id": "prov:alternateOf",
+      "@type": "@id"
+    },
+    "hadPrimarySource": {
+      "@id": "prov:hadPrimarySource",
+      "@type": "@id"
+    },
+    "specializationOf": {
+      "@id": "prov:specializationOf",
+      "@type": "@id"
+    },
+    "wasInvalidatedBy": {
+      "@id": "prov:wasInvalidatedBy",
+      "@type": "@id"
+    },
+    "wasQuotedFrom": {
+      "@id": "prov:wasQuotedFrom",
+      "@type": "@id"
+    },
+    "wasRevisionOf": {
+      "@id": "prov:wasRevisionOf",
+      "@type": "@id"
+    },
+    "atLocation": {
+      "@id": "prov:atLocation",
+      "@type": "@id"
+    },
+    "qualifiedGeneration": {
+      "@context": {
+        "hadRole": {
+          "@id": "prov:hadRole",
+          "@type": "@id"
+        },
+        "hadActivity": {
+          "@id": "prov:hadActivity",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:qualifiedGeneration",
+      "@type": "@id"
+    },
+    "qualifiedInvalidation": {
+      "@context": {
+        "hadRole": {
+          "@id": "prov:hadRole",
+          "@type": "@id"
+        },
+        "hadActivity": {
+          "@id": "prov:hadActivity",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:qualifiedInvalidation",
+      "@type": "@id"
+    },
+    "qualifiedDerivation": {
+      "@context": {
+        "hadGeneration": {
+          "@context": {
+            "hadRole": {
+              "@id": "prov:hadRole",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:hadGeneration",
+          "@type": "@id"
+        },
+        "hadActivity": {
+          "@context": {
+            "activityType": "@type",
+            "endedAtTime": {
+              "@id": "prov:endedAtTime",
+              "@type": "xsd:dateTime"
+            },
+            "wasAssociatedWith": {
+              "@context": {
+                "type": "dct:type",
+                "agentType": "@type",
+                "name": "rdfs:label",
+                "actedOnBehalfOf": {
+                  "@id": "prov:actedOnBehalfOf",
+                  "@type": "@id"
+                },
+                "qualifiedDelegation": {
+                  "@context": {
+                    "agent": {
+                      "@id": "prov:agent",
+                      "@type": "@id"
+                    }
+                  },
+                  "@id": "prov:qualifiedDelegation",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:wasAssociatedWith",
+              "@type": "@id"
+            },
+            "wasInformedBy": {
+              "@id": "prov:wasInformedBy",
+              "@type": "@id"
+            },
+            "used": {
+              "@id": "prov:used",
+              "@type": "@id"
+            },
+            "wasStartedBy": {
+              "@id": "prov:wasStartedBy",
+              "@type": "@id"
+            },
+            "wasEndedBy": {
+              "@id": "prov:wasEndedBy",
+              "@type": "@id"
+            },
+            "invalidated": {
+              "@id": "prov:invalidated",
+              "@type": "@id"
+            },
+            "generated": {
+              "@id": "prov:generated",
+              "@type": "@id"
+            },
+            "qualifiedUsage": {
+              "@id": "prov:qualifiedUsage",
+              "@type": "@id"
+            },
+            "qualifiedCommunication": {
+              "@context": {
+                "hadRole": {
+                  "@id": "prov:hadRole",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedCommunication",
+              "@type": "@id"
+            },
+            "qualifiedStart": {
+              "@id": "prov:qualifiedStart",
+              "@type": "@id"
+            },
+            "qualifiedEnd": {
+              "@id": "prov:qualifiedEnd",
+              "@type": "@id"
+            },
+            "qualifiedAssociation": {
+              "@context": {
+                "agent": {
+                  "@context": {
+                    "agentType": "@type",
+                    "name": "rdfs:label",
+                    "actedOnBehalfOf": {
+                      "@id": "prov:actedOnBehalfOf",
+                      "@type": "@id"
+                    },
+                    "qualifiedDelegation": {
+                      "@id": "prov:qualifiedDelegation",
+                      "@type": "@id"
+                    }
+                  },
+                  "@id": "prov:agent",
+                  "@type": "@id"
+                },
+                "hadRole": {
+                  "@id": "prov:hadRole",
+                  "@type": "@id"
+                },
+                "hadPlan": {
+                  "@id": "prov:hadPlan",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedAssociation",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:hadActivity",
+          "@type": "@id"
+        },
+        "hadUsage": {
+          "@id": "prov:hadUsage",
+          "@type": "@id"
+        },
+        "entity": {
+          "@id": "prov:entity",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:qualifiedDerivation",
+      "@type": "@id"
+    },
+    "qualifiedAttribution": {
+      "@context": {
+        "agent": {
+          "@context": {
+            "agentType": "@type",
+            "name": "rdfs:label",
+            "actedOnBehalfOf": {
+              "@id": "prov:actedOnBehalfOf",
+              "@type": "@id"
+            },
+            "qualifiedDelegation": {
+              "@context": {
+                "hadActivity": {
+                  "@id": "prov:hadActivity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedDelegation",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:agent",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:qualifiedAttribution",
+      "@type": "@id"
+    },
+    "wasInfluencedBy": {
+      "@id": "prov:wasInfluencedBy",
+      "@type": "@id"
+    },
+    "qualifiedInfluence": {
+      "@context": {
+        "entity": {
+          "@id": "prov:entity",
+          "@type": "@id"
+        },
+        "agent": {
+          "@id": "prov:agent",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:qualifiedInfluence",
+      "@type": "@id"
+    },
+    "provType": "@type",
+    "hadMember": {
+      "@id": "prov:hadMember",
+      "@type": "@id"
+    },
+    "Activity": "prov:Activity",
+    "ActivityInfluence": "prov:ActivityInfluence",
+    "Agent": "prov:Agent",
+    "AgentInfluence": "prov:AgentInfluence",
+    "Association": "prov:Association",
+    "Attribution": "prov:Attribution",
+    "Bundle": "prov:Bundle",
+    "Collection": "prov:Collection",
+    "Communication": "prov:Communication",
+    "Delegation": "prov:Delegation",
+    "Derivation": "prov:Derivation",
+    "EmptyCollection": "prov:EmptyCollection",
+    "End": "prov:End",
+    "Entity": "prov:Entity",
+    "EntityInfluence": "prov:EntityInfluence",
+    "Generation": "prov:Generation",
+    "Influence": "prov:Influence",
+    "InstantaneousEvent": "prov:InstantaneousEvent",
+    "Invalidation": "prov:Invalidation",
+    "Location": "prov:Location",
+    "Organization": "prov:Organization",
+    "Person": "prov:Person",
+    "Plan": "prov:Plan",
+    "PrimarySource": "prov:PrimarySource",
+    "Quotation": "prov:Quotation",
+    "Revision": "prov:Revision",
+    "Role": "prov:Role",
+    "SoftwareAgent": "prov:SoftwareAgent",
+    "Start": "prov:Start",
+    "Usage": "prov:Usage",
+    "ServiceDescription": "prov:ServiceDescription",
+    "DirectQueryService": "prov:DirectQueryService",
+    "Accept": "prov:Accept",
+    "Contribute": "prov:Contribute",
+    "Contributor": "prov:Contributor",
+    "Copyright": "prov:Copyright",
+    "Create": "prov:Create",
+    "Creator": "prov:Creator",
+    "Modify": "prov:Modify",
+    "Publish": "prov:Publish",
+    "Publisher": "prov:Publisher",
+    "Replace": "prov:Replace",
+    "RightsAssignment": "prov:RightsAssignment",
+    "RightsHolder": "prov:RightsHolder",
+    "Submit": "prov:Submit",
+    "Dictionary": "prov:Dictionary",
+    "EmptyDictionary": "prov:EmptyDictionary",
+    "KeyEntityPair": "prov:KeyEntityPair",
+    "Insertion": "prov:Insertion",
+    "Removal": "prov:Removal",
+    "atTime": {
+      "@id": "prov:atTime",
+      "@type": "xsd:dateTime"
+    },
+    "generatedAtTime": {
+      "@id": "prov:generatedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "invalidatedAtTime": {
+      "@id": "prov:invalidatedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "startedAtTime": {
+      "@id": "prov:startedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "value": "prov:value",
+    "provenanceUriTemplate": "prov:provenanceUriTemplate",
+    "pairKey": {
+      "@id": "prov:pairKey",
+      "@type": "rdfs:Literal"
+    },
+    "removedKey": {
+      "@id": "prov:removedKey",
+      "@type": "rdfs:Literal"
+    },
+    "activity": {
+      "@id": "prov:activity",
+      "@type": "@id"
+    },
+    "influenced": {
+      "@id": "prov:influenced",
+      "@type": "@id"
+    },
+    "influencer": {
+      "@id": "prov:influencer",
+      "@type": "@id"
+    },
+    "qualifiedPrimarySource": {
+      "@id": "prov:qualifiedPrimarySource",
+      "@type": "@id"
+    },
+    "qualifiedQuotation": {
+      "@id": "prov:qualifiedQuotation",
+      "@type": "@id"
+    },
+    "qualifiedRevision": {
+      "@id": "prov:qualifiedRevision",
+      "@type": "@id"
+    },
+    "has_anchor": {
+      "@id": "prov:has_anchor",
+      "@type": "@id"
+    },
+    "has_query_service": {
+      "@id": "prov:has_query_service",
+      "@type": "@id"
+    },
+    "describesService": {
+      "@id": "prov:describesService",
+      "@type": "@id"
+    },
+    "pingback": {
+      "@id": "prov:pingback",
+      "@type": "@id"
+    },
+    "dictionary": {
+      "@id": "prov:dictionary",
+      "@type": "@id"
+    },
+    "derivedByInsertionFrom": {
+      "@id": "prov:derivedByInsertionFrom",
+      "@type": "@id"
+    },
+    "derivedByRemovalFrom": {
+      "@id": "prov:derivedByRemovalFrom",
+      "@type": "@id"
+    },
+    "insertedKeyEntityPair": {
+      "@id": "prov:insertedKeyEntityPair",
+      "@type": "@id"
+    },
+    "hadDictionaryMember": {
+      "@id": "prov:hadDictionaryMember",
+      "@type": "@id"
+    },
+    "pairEntity": {
+      "@id": "prov:pairEntity",
+      "@type": "@id"
+    },
+    "qualifiedInsertion": {
+      "@id": "prov:qualifiedInsertion",
+      "@type": "@id"
+    },
+    "qualifiedRemoval": {
+      "@id": "prov:qualifiedRemoval",
+      "@type": "@id"
+    },
+    "asInBundle": {
+      "@id": "prov:asInBundle",
+      "@type": "@id"
+    },
+    "mentionOf": {
+      "@id": "prov:mentionOf",
+      "@type": "@id"
+    },
     "oa": "http://www.w3.org/ns/oa#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "dct": "http://purl.org/dc/terms/",
