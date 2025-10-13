@@ -2,12 +2,12 @@
   "name": "Open Science Workflows Building Blocks",
   "abstract": "Building Blocks for FAIR Open Science - profiles of OGC API Processes and various metadata standards to support open, transparent, interoperable and reproduceable scientific workflows..\n",
   "description": "This repository is initially aimed to support the Open Science Demonstrator Project, but may be further developed as a set of standards with appropriate working group governance.\n",
-  "modified": "2025-09-23T12:10:57.202051",
+  "modified": "2025-10-13T13:01:52.462743",
   "tooling": {
     "bblocks-postprocess": {
-      "commitId": "\"cbdf0741daa8bb5e8edcce157ff8f4bb6d0d71fa",
-      "shortCommitId": "\"cbdf07",
-      "date": "2025-09-22T08:13:53+00:00\""
+      "commitId": "\"bfb0f4bbc2c7fdd539fcd44d5f8e97a73288d480",
+      "shortCommitId": "\"bfb0f4",
+      "date": "2025-10-13T08:32:18+00:00\""
     }
   },
   "gitRepository": "https://github.com/ogcincubator/bblocks-openscience",
@@ -35,7 +35,7 @@
         "ogc.ogc-utils.prov"
       ],
       "version": "0.1",
-      "dateOfLastChange": "2025-09-23",
+      "dateOfLastChange": "2025-10-13",
       "link": "https://github.com/opengeospatial/ogcapi-processes",
       "sources": [],
       "scope": "dev",
@@ -70,7 +70,7 @@
       "itemClass": "model",
       "register": "ogc-incubator",
       "version": "0.1",
-      "dateOfLastChange": "2025-09-23",
+      "dateOfLastChange": "2025-10-13",
       "dependsOn": [
         "ogc.ogc-utils.prov"
       ],
@@ -111,7 +111,7 @@
         "ogc.osc.api-profiles.processes-prov"
       ],
       "version": "0.1",
-      "dateOfLastChange": "2025-09-23",
+      "dateOfLastChange": "2025-10-13",
       "link": "https://github.com/opengeospatial/ogcapi-processes",
       "sources": [],
       "scope": "dev",
@@ -150,10 +150,10 @@
       "itemClass": "model",
       "register": "ogc-incubator",
       "version": "0.1",
-      "dateOfLastChange": "2025-09-23",
+      "dateOfLastChange": "2025-10-13",
       "dependsOn": [
-        "ogc.osc.ontology.cwlprov",
-        "ogc.geo.geodcat.dcat"
+        "ogc.geo.geodcat.dcat",
+        "ogc.osc.ontology.cwlprov"
       ],
       "sources": [],
       "scope": "dev",
@@ -189,13 +189,13 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.geo.geodcat.geodcat-records-prov",
         "ogc.contrib.stac.extensions.cf",
+        "ogc.geo.geodcat.geodcat-records-prov",
         "ogc.contrib.stac.extensions.osc",
         "ogc.contrib.stac.extensions.themes"
       ],
       "version": "0.1",
-      "dateOfLastChange": "2025-09-23",
+      "dateOfLastChange": "2025-10-13",
       "link": "https://github.com/opengeospatial/geodcat-ogcapi-records",
       "sources": [
         {
@@ -218,9 +218,6 @@
       "shaclShapes": {
         "ogc.geo.geodcat.records-ontology": [
           "https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl"
-        ],
-        "ogc.model.cross-domain.prov": [
-          "https://raw.githubusercontent.com/Cyber-Domain-Ontology/CDO-Shapes-PROV-O/refs/heads/main/shapes/sh-prov-o.ttl"
         ]
       },
       "ldContext": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/context.jsonld",
@@ -259,13 +256,13 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.geo.geodcat.geodcat-records-prov",
         "ogc.contrib.stac.extensions.cf",
+        "ogc.geo.geodcat.geodcat-records-prov",
         "ogc.contrib.stac.extensions.osc",
         "ogc.contrib.stac.extensions.themes"
       ],
       "version": "0.1",
-      "dateOfLastChange": "2025-09-23",
+      "dateOfLastChange": "2025-10-13",
       "link": "https://github.com/opengeospatial/geodcat-ogcapi-records",
       "sources": [
         {
@@ -288,9 +285,6 @@
       "shaclShapes": {
         "ogc.geo.geodcat.records-ontology": [
           "https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl"
-        ],
-        "ogc.model.cross-domain.prov": [
-          "https://raw.githubusercontent.com/Cyber-Domain-Ontology/CDO-Shapes-PROV-O/refs/heads/main/shapes/sh-prov-o.ttl"
         ]
       },
       "ldContext": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/products/context.jsonld",
@@ -320,6 +314,66 @@
       }
     },
     {
+      "itemIdentifier": "ogc.osc.geodcat-stac-earthcode.workflows",
+      "name": "EarthCODE Workflow",
+      "highlighted": true,
+      "abstract": "EarthCODE metadata profile linked to semantic models",
+      "status": "under-development",
+      "dateTimeAddition": "2023-09-18T00:00:00Z",
+      "itemClass": "schema",
+      "register": "ogc-incubator",
+      "dependsOn": [
+        "ogc.geo.geodcat.geodcat-records-prov"
+      ],
+      "version": "0.1",
+      "dateOfLastChange": "2025-10-13",
+      "link": "https://github.com/opengeospatial/geodcat-ogcapi-records",
+      "sources": [
+        {
+          "title": "GeoDCAT Specification",
+          "link": "http://www.opengis.net/def/metamodel/profiles/geodcat"
+        }
+      ],
+      "scope": "dev",
+      "tags": [
+        "DCAT",
+        "profile",
+        "Records",
+        "STAC",
+        "EarthCODE"
+      ],
+      "shaclShapes": {
+        "ogc.geo.geodcat.records-ontology": [
+          "https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl"
+        ]
+      },
+      "ldContext": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/workflows/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/workflows/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/workflows/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/workflows/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/workflows/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/workflows/",
+      "rdfData": [],
+      "validationPassed": false,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-openscience/blob/master/build/tests/osc/geodcat-stac-earthcode/workflows/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/geodcat-stac-earthcode/workflows/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/workflows/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.workflows"
+        }
+      }
+    },
+    {
       "itemIdentifier": "ogc.osc.api-profiles.processes-openscience",
       "name": "Open Science profile of OGC API Processes",
       "highlighted": true,
@@ -330,11 +384,11 @@
       "register": "ogc-incubator",
       "dependsOn": [
         "ogc.osc.api-profiles.processes-workflow",
-        "ogc.osc.geodcat-stac-earthcode.products",
-        "ogc.osc.geodcat-stac-earthcode.experiments"
+        "ogc.osc.geodcat-stac-earthcode.experiments",
+        "ogc.osc.geodcat-stac-earthcode.products"
       ],
       "version": "0.1",
-      "dateOfLastChange": "2025-09-23",
+      "dateOfLastChange": "2025-10-13",
       "link": "https://github.com/opengeospatial/ogcapi-processes",
       "sources": [],
       "scope": "dev",
@@ -348,9 +402,6 @@
       "shaclShapes": {
         "ogc.geo.geodcat.records-ontology": [
           "https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl"
-        ],
-        "ogc.model.cross-domain.prov": [
-          "https://raw.githubusercontent.com/Cyber-Domain-Ontology/CDO-Shapes-PROV-O/refs/heads/main/shapes/sh-prov-o.ttl"
         ]
       },
       "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes-openscience/",

@@ -11,11 +11,11 @@
   "register": "ogc-incubator",
   "dependsOn": [
     "ogc.osc.api-profiles.processes-workflow",
-    "ogc.osc.geodcat-stac-earthcode.products",
-    "ogc.osc.geodcat-stac-earthcode.experiments"
+    "ogc.osc.geodcat-stac-earthcode.experiments",
+    "ogc.osc.geodcat-stac-earthcode.products"
   ],
   "version": "0.1",
-  "dateOfLastChange": "2025-09-23",
+  "dateOfLastChange": "2025-10-13",
   "link": "https://github.com/opengeospatial/ogcapi-processes",
   "sources": [],
   "scope": "dev",
@@ -29,9 +29,6 @@
   "shaclShapes": {
     "ogc.geo.geodcat.records-ontology": [
       "https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl"
-    ],
-    "ogc.model.cross-domain.prov": [
-      "https://raw.githubusercontent.com/Cyber-Domain-Ontology/CDO-Shapes-PROV-O/refs/heads/main/shapes/sh-prov-o.ttl"
     ]
   },
   "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes-openscience/",

@@ -11,17 +11,10 @@
       "@id": "http://www.iana.org/assignments/relation",
       "@type": "@id"
     },
-    "type": "@type",
+    "type": "dct:format",
     "hreflang": "dct:language",
     "title": "rdfs:label",
     "length": "dct:extent",
-    "id": "@id",
-    "properties": "@nest",
-    "geometry": "geojson:geometry",
-    "bbox": {
-      "@container": "@list",
-      "@id": "geojson:bbox"
-    },
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
     "GeometryCollection": "geojson:GeometryCollection",
@@ -34,6 +27,18 @@
     "features": {
       "@container": "@set",
       "@id": "geojson:features"
+    },
+    "id": "@id",
+    "properties": "@nest",
+    "geometry": {
+      "@context": {
+        "type": "@type"
+      },
+      "@id": "geojson:geometry"
+    },
+    "bbox": {
+      "@container": "@list",
+      "@id": "geojson:bbox"
     },
     "links": {
       "@context": {
@@ -174,6 +179,392 @@
         "@vocab": "https://www.opengis.net/def/ogc-api/records/"
       }
     },
+    "wasInfluencedBy": {
+      "@context": {
+        "activityType": "@type",
+        "endedAtTime": {
+          "@id": "prov:endedAtTime",
+          "@type": "xsd:dateTime"
+        },
+        "wasAssociatedWith": {
+          "@id": "prov:wasAssociatedWith",
+          "@type": "@id"
+        },
+        "wasInformedBy": {
+          "@id": "prov:wasInformedBy",
+          "@type": "@id"
+        },
+        "used": {
+          "@id": "prov:used",
+          "@type": "@id"
+        },
+        "wasStartedBy": {
+          "@id": "prov:wasStartedBy",
+          "@type": "@id"
+        },
+        "wasEndedBy": {
+          "@id": "prov:wasEndedBy",
+          "@type": "@id"
+        },
+        "invalidated": {
+          "@id": "prov:invalidated",
+          "@type": "@id"
+        },
+        "generated": {
+          "@id": "prov:generated",
+          "@type": "@id"
+        },
+        "qualifiedUsage": {
+          "@context": {
+            "entity": {
+              "@id": "prov:entity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedUsage",
+          "@type": "@id"
+        },
+        "qualifiedCommunication": {
+          "@context": {
+            "hadRole": {
+              "@id": "prov:hadRole",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedCommunication",
+          "@type": "@id"
+        },
+        "qualifiedStart": {
+          "@context": {
+            "entity": {
+              "@id": "prov:entity",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedStart",
+          "@type": "@id"
+        },
+        "qualifiedEnd": {
+          "@context": {
+            "entity": {
+              "@id": "prov:entity",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedEnd",
+          "@type": "@id"
+        },
+        "qualifiedAssociation": {
+          "@context": {
+            "agent": {
+              "@id": "prov:agent",
+              "@type": "@id"
+            },
+            "hadRole": {
+              "@id": "prov:hadRole",
+              "@type": "@id"
+            },
+            "hadPlan": {
+              "@id": "prov:hadPlan",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedAssociation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "agentType": "@type",
+        "name": "rdfs:label",
+        "actedOnBehalfOf": {
+          "@id": "prov:actedOnBehalfOf",
+          "@type": "@id"
+        },
+        "qualifiedDelegation": {
+          "@context": {
+            "agent": {
+              "@id": "prov:agent",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedDelegation",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:wasInfluencedBy",
+      "@type": "@id"
+    },
+    "qualifiedInfluence": {
+      "@context": {
+        "influencer": {
+          "@context": {
+            "activityType": "@type",
+            "endedAtTime": {
+              "@id": "prov:endedAtTime",
+              "@type": "xsd:dateTime"
+            },
+            "wasAssociatedWith": {
+              "@id": "prov:wasAssociatedWith",
+              "@type": "@id"
+            },
+            "wasInformedBy": {
+              "@id": "prov:wasInformedBy",
+              "@type": "@id"
+            },
+            "used": {
+              "@id": "prov:used",
+              "@type": "@id"
+            },
+            "wasStartedBy": {
+              "@id": "prov:wasStartedBy",
+              "@type": "@id"
+            },
+            "wasEndedBy": {
+              "@id": "prov:wasEndedBy",
+              "@type": "@id"
+            },
+            "invalidated": {
+              "@id": "prov:invalidated",
+              "@type": "@id"
+            },
+            "generated": {
+              "@id": "prov:generated",
+              "@type": "@id"
+            },
+            "qualifiedUsage": {
+              "@id": "prov:qualifiedUsage",
+              "@type": "@id"
+            },
+            "qualifiedCommunication": {
+              "@context": {
+                "hadRole": {
+                  "@id": "prov:hadRole",
+                  "@type": "@id"
+                },
+                "hadActivity": {
+                  "@id": "prov:hadActivity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedCommunication",
+              "@type": "@id"
+            },
+            "qualifiedStart": {
+              "@context": {
+                "hadActivity": {
+                  "@id": "prov:hadActivity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedStart",
+              "@type": "@id"
+            },
+            "qualifiedEnd": {
+              "@context": {
+                "hadActivity": {
+                  "@id": "prov:hadActivity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedEnd",
+              "@type": "@id"
+            },
+            "qualifiedAssociation": {
+              "@context": {
+                "hadRole": {
+                  "@id": "prov:hadRole",
+                  "@type": "@id"
+                },
+                "hadPlan": {
+                  "@id": "prov:hadPlan",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedAssociation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "agentType": "@type",
+            "name": "rdfs:label",
+            "actedOnBehalfOf": {
+              "@id": "prov:actedOnBehalfOf",
+              "@type": "@id"
+            },
+            "qualifiedDelegation": {
+              "@context": {
+                "hadActivity": {
+                  "@id": "prov:hadActivity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedDelegation",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:influencer",
+          "@type": "@id"
+        },
+        "entity": {
+          "@id": "prov:entity",
+          "@type": "@id"
+        },
+        "activity": {
+          "@context": {
+            "activityType": "@type",
+            "endedAtTime": {
+              "@id": "prov:endedAtTime",
+              "@type": "xsd:dateTime"
+            },
+            "wasAssociatedWith": {
+              "@context": {
+                "type": "dct:type",
+                "agentType": "@type",
+                "name": "rdfs:label",
+                "actedOnBehalfOf": {
+                  "@id": "prov:actedOnBehalfOf",
+                  "@type": "@id"
+                },
+                "qualifiedDelegation": {
+                  "@context": {
+                    "hadActivity": {
+                      "@id": "prov:hadActivity",
+                      "@type": "@id"
+                    }
+                  },
+                  "@id": "prov:qualifiedDelegation",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:wasAssociatedWith",
+              "@type": "@id"
+            },
+            "wasInformedBy": {
+              "@id": "prov:wasInformedBy",
+              "@type": "@id"
+            },
+            "used": {
+              "@id": "prov:used",
+              "@type": "@id"
+            },
+            "wasStartedBy": {
+              "@id": "prov:wasStartedBy",
+              "@type": "@id"
+            },
+            "wasEndedBy": {
+              "@id": "prov:wasEndedBy",
+              "@type": "@id"
+            },
+            "invalidated": {
+              "@id": "prov:invalidated",
+              "@type": "@id"
+            },
+            "generated": {
+              "@id": "prov:generated",
+              "@type": "@id"
+            },
+            "qualifiedUsage": {
+              "@id": "prov:qualifiedUsage",
+              "@type": "@id"
+            },
+            "qualifiedCommunication": {
+              "@context": {
+                "hadRole": {
+                  "@id": "prov:hadRole",
+                  "@type": "@id"
+                },
+                "hadActivity": {
+                  "@id": "prov:hadActivity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedCommunication",
+              "@type": "@id"
+            },
+            "qualifiedStart": {
+              "@context": {
+                "hadActivity": {
+                  "@id": "prov:hadActivity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedStart",
+              "@type": "@id"
+            },
+            "qualifiedEnd": {
+              "@context": {
+                "hadActivity": {
+                  "@id": "prov:hadActivity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedEnd",
+              "@type": "@id"
+            },
+            "qualifiedAssociation": {
+              "@context": {
+                "hadRole": {
+                  "@id": "prov:hadRole",
+                  "@type": "@id"
+                },
+                "hadPlan": {
+                  "@id": "prov:hadPlan",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedAssociation",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:activity",
+          "@type": "@id"
+        },
+        "agent": {
+          "@context": {
+            "type": "dct:type",
+            "agentType": "@type",
+            "name": "rdfs:label",
+            "actedOnBehalfOf": {
+              "@id": "prov:actedOnBehalfOf",
+              "@type": "@id"
+            },
+            "qualifiedDelegation": {
+              "@context": {
+                "hadActivity": {
+                  "@id": "prov:hadActivity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedDelegation",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:agent",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:qualifiedInfluence",
+      "@type": "@id"
+    },
+    "provType": "@type",
+    "hadMember": {
+      "@id": "prov:hadMember",
+      "@type": "@id"
+    },
     "featureType": "@type",
     "entityType": "@type",
     "has_provenance": {
@@ -309,6 +700,152 @@
       "@type": "@id"
     },
     "wasGeneratedBy": {
+      "@context": {
+        "activityType": "@type",
+        "endedAtTime": {
+          "@id": "prov:endedAtTime",
+          "@type": "xsd:dateTime"
+        },
+        "wasAssociatedWith": {
+          "@context": {
+            "type": "dct:type",
+            "agentType": "@type",
+            "name": "rdfs:label",
+            "actedOnBehalfOf": {
+              "@id": "prov:actedOnBehalfOf",
+              "@type": "@id"
+            },
+            "qualifiedDelegation": {
+              "@context": {
+                "agent": {
+                  "@id": "prov:agent",
+                  "@type": "@id"
+                },
+                "hadActivity": {
+                  "@id": "prov:hadActivity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedDelegation",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:wasAssociatedWith",
+          "@type": "@id"
+        },
+        "wasInformedBy": {
+          "@id": "prov:wasInformedBy",
+          "@type": "@id"
+        },
+        "used": {
+          "@id": "prov:used",
+          "@type": "@id"
+        },
+        "wasStartedBy": {
+          "@id": "prov:wasStartedBy",
+          "@type": "@id"
+        },
+        "wasEndedBy": {
+          "@id": "prov:wasEndedBy",
+          "@type": "@id"
+        },
+        "invalidated": {
+          "@id": "prov:invalidated",
+          "@type": "@id"
+        },
+        "generated": {
+          "@id": "prov:generated",
+          "@type": "@id"
+        },
+        "qualifiedUsage": {
+          "@context": {
+            "entity": {
+              "@id": "prov:entity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedUsage",
+          "@type": "@id"
+        },
+        "qualifiedCommunication": {
+          "@context": {
+            "hadRole": {
+              "@id": "prov:hadRole",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedCommunication",
+          "@type": "@id"
+        },
+        "qualifiedStart": {
+          "@context": {
+            "entity": {
+              "@id": "prov:entity",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedStart",
+          "@type": "@id"
+        },
+        "qualifiedEnd": {
+          "@context": {
+            "entity": {
+              "@id": "prov:entity",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedEnd",
+          "@type": "@id"
+        },
+        "qualifiedAssociation": {
+          "@context": {
+            "agent": {
+              "@context": {
+                "agentType": "@type",
+                "name": "rdfs:label",
+                "actedOnBehalfOf": {
+                  "@id": "prov:actedOnBehalfOf",
+                  "@type": "@id"
+                },
+                "qualifiedDelegation": {
+                  "@context": {
+                    "hadActivity": {
+                      "@id": "prov:hadActivity",
+                      "@type": "@id"
+                    }
+                  },
+                  "@id": "prov:qualifiedDelegation",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:agent",
+              "@type": "@id"
+            },
+            "hadRole": {
+              "@id": "prov:hadRole",
+              "@type": "@id"
+            },
+            "hadPlan": {
+              "@id": "prov:hadPlan",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedAssociation",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:wasGeneratedBy",
       "@type": "@id"
     },
@@ -356,6 +893,152 @@
       "@type": "@id"
     },
     "wasInvalidatedBy": {
+      "@context": {
+        "activityType": "@type",
+        "endedAtTime": {
+          "@id": "prov:endedAtTime",
+          "@type": "xsd:dateTime"
+        },
+        "wasAssociatedWith": {
+          "@context": {
+            "type": "dct:type",
+            "agentType": "@type",
+            "name": "rdfs:label",
+            "actedOnBehalfOf": {
+              "@id": "prov:actedOnBehalfOf",
+              "@type": "@id"
+            },
+            "qualifiedDelegation": {
+              "@context": {
+                "agent": {
+                  "@id": "prov:agent",
+                  "@type": "@id"
+                },
+                "hadActivity": {
+                  "@id": "prov:hadActivity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedDelegation",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:wasAssociatedWith",
+          "@type": "@id"
+        },
+        "wasInformedBy": {
+          "@id": "prov:wasInformedBy",
+          "@type": "@id"
+        },
+        "used": {
+          "@id": "prov:used",
+          "@type": "@id"
+        },
+        "wasStartedBy": {
+          "@id": "prov:wasStartedBy",
+          "@type": "@id"
+        },
+        "wasEndedBy": {
+          "@id": "prov:wasEndedBy",
+          "@type": "@id"
+        },
+        "invalidated": {
+          "@id": "prov:invalidated",
+          "@type": "@id"
+        },
+        "generated": {
+          "@id": "prov:generated",
+          "@type": "@id"
+        },
+        "qualifiedUsage": {
+          "@context": {
+            "entity": {
+              "@id": "prov:entity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedUsage",
+          "@type": "@id"
+        },
+        "qualifiedCommunication": {
+          "@context": {
+            "hadRole": {
+              "@id": "prov:hadRole",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedCommunication",
+          "@type": "@id"
+        },
+        "qualifiedStart": {
+          "@context": {
+            "entity": {
+              "@id": "prov:entity",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedStart",
+          "@type": "@id"
+        },
+        "qualifiedEnd": {
+          "@context": {
+            "entity": {
+              "@id": "prov:entity",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedEnd",
+          "@type": "@id"
+        },
+        "qualifiedAssociation": {
+          "@context": {
+            "agent": {
+              "@context": {
+                "agentType": "@type",
+                "name": "rdfs:label",
+                "actedOnBehalfOf": {
+                  "@id": "prov:actedOnBehalfOf",
+                  "@type": "@id"
+                },
+                "qualifiedDelegation": {
+                  "@context": {
+                    "hadActivity": {
+                      "@id": "prov:hadActivity",
+                      "@type": "@id"
+                    }
+                  },
+                  "@id": "prov:qualifiedDelegation",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:agent",
+              "@type": "@id"
+            },
+            "hadRole": {
+              "@id": "prov:hadRole",
+              "@type": "@id"
+            },
+            "hadPlan": {
+              "@id": "prov:hadPlan",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedAssociation",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:wasInvalidatedBy",
       "@type": "@id"
     },
@@ -559,29 +1242,6 @@
         }
       },
       "@id": "prov:qualifiedAttribution",
-      "@type": "@id"
-    },
-    "wasInfluencedBy": {
-      "@id": "prov:wasInfluencedBy",
-      "@type": "@id"
-    },
-    "qualifiedInfluence": {
-      "@context": {
-        "entity": {
-          "@id": "prov:entity",
-          "@type": "@id"
-        },
-        "agent": {
-          "@id": "prov:agent",
-          "@type": "@id"
-        }
-      },
-      "@id": "prov:qualifiedInfluence",
-      "@type": "@id"
-    },
-    "provType": "@type",
-    "hadMember": {
-      "@id": "prov:hadMember",
       "@type": "@id"
     },
     "Activity": "prov:Activity",

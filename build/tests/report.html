@@ -51,9 +51,9 @@
     <body>
         <div class="container">
             <h1 class="title">Building blocks validation report</h1>
-            <small class="datetime">Generated at 2025-09-23T12:11:09.976710+00:00</small>
+            <small class="datetime">Generated at 2025-10-13T13:02:10.755134+00:00</small>
                 <p class="summary fw-semibold text-danger">
-                    Number of passing building blocks: 5 / 7 (71.43%)
+                    Number of passing building blocks: 5 / 8 (62.5%)
                 </p>
             <div class="text-end small" id="expand-collapse">
                 <a href="#" class="expand-all">Expand all</a>
@@ -442,6 +442,73 @@ On instance:
      &#x27;title&#x27;: &#x27;Ice shelf product_Antarctica_SMOS&#x27;,
      &#x27;type&#x27;: &#x27;Collection&#x27;,
      &#x27;updated&#x27;: &#x27;2024-09-12T20:32:06.219108Z&#x27;}</div>
+                                                                    <div class="font-monospace subsection-title mt-2">SHACL</div>
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:
+ - Shape &lt;https://www.ogc.org/rules/rec/#testVarExists&gt;: *none*
+</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bblock-report" data-bblock-id="ogc.osc.geodcat-stac-earthcode.workflows" id="bblock-ogc.osc.geodcat-stac-earthcode.workflows">
+                            <h2 class="accordion-header bblock-title">
+                                <button class="accordion-button " type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#bblock-collapse-ogc\.osc\.geodcat-stac-earthcode\.workflows">
+                                    <div class="flex-fill">
+                                        EarthCODE Workflow
+                                        <small class="ms-2 bblock-id">ogc.osc.geodcat-stac-earthcode.workflows</small>
+                                    </div>
+
+                                    <span class="badge text-bg-danger me-2">
+                                            Tests Failed
+                                            (0% passed)
+                                    </span>
+                                </button>
+                            </h2>
+                            <div class="accordion-collapse collapse show" id="bblock-collapse-ogc.osc.geodcat-stac-earthcode.workflows">
+                                <div class="accordion-body">
+                                        <p class="summary fw-semibold text-danger">
+                                            Test passed: 0 / 1
+                                        </p>
+                                        <div class="card mb-2 validation-item ">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-3"
+                                                            aria-expanded="false" aria-controls="uid-3"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="https://raw.githubusercontent.com/ESA-EarthCODE/open-science-catalog-metadata/refs/heads/main/workflows/polaris-workflow/record.json" target="_blank">example_1_1.json</a>
+                                                    <span class="badge bg-secondary example">Example</span>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-danger me-2">Failed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-3">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                    <div class="font-monospace entry-message section-files ">Using example_1_1.json from examples</div>
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                    <div class="font-monospace entry-message section-json_schema text-danger">ValidationError: {&#x27;name&#x27;: &#x27;GeoTIFF&#x27;} is not of type &#x27;string&#x27;
+
+Failed validating &#x27;type&#x27; in schema[0][&#x27;allOf&#x27;][0][&#x27;allOf&#x27;][0][&#x27;allOf&#x27;][0][&#x27;properties&#x27;][&#x27;properties&#x27;][&#x27;properties&#x27;][&#x27;formats&#x27;][&#x27;items&#x27;]:
+    {&#x27;type&#x27;: &#x27;string&#x27;}
+
+On instance[&#x27;properties&#x27;][&#x27;formats&#x27;][0]:
+    {&#x27;name&#x27;: &#x27;GeoTIFF&#x27;}</div>
                                                                     <div class="font-monospace subsection-title mt-2">SHACL</div>
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:
   Validation Report
