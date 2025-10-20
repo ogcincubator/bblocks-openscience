@@ -19,14 +19,39 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 
 ## Examples
 
-### An example demonstrating EarthCode Product as a STAC Collection.
+### Polarwarp
 #### json
 ```json
 {
+  "id": "polarwarp",
+  "title": "Polarwarp",
+  "created": "2025-10-13T16:54:34Z",
+  "osc:status": "completed",
   "type": "Collection",
-  "id": "ice-shelf-antarctica-cryosmos",
+  "osc:type": "product",
   "stac_version": "1.0.0",
-  "description": "The ice shelf product consists of two types of NETCDF-4 files, one containing yearly mean quantities and one containing differential quantities as well as static surface type masks. Names of the first file type are \"SMOS_TB_for_Origin_yyyy_vvv.nc\", where \"yyyy\" is the respective year and \"vvv\" the dataset version. Names of the second file type are \"SMOS_Origin_yyyy_yyyy_vvv.nc\" where the first \"yyyy\" indicates the first year, the second \"yyyy\" the second year and \"vvv\" the dataset version. All differential quantities are based on the yearly mean of the second year minus the yearly mean of first year. Product details are available at: http://www.ifac.cnr.it/cryosmos/products/CryoSMOS_D8_EDUM_V2.0.pdf.",
+  "description": "Polarwarp product\n\nForecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.",
+  "license": "various",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -0.0018099989187332413,
+          0.00043814539682784925,
+          0.001347252506956414,
+          0.0007574196581714432
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2025-02-25T00:00:00Z",
+          null
+        ]
+      ]
+    }
+  },
   "links": [
     {
       "rel": "root",
@@ -35,61 +60,43 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
       "title": "Open Science Catalog"
     },
     {
-      "rel": "via",
-      "href": "http://www.ifac.cnr.it/cryosmos/products/CRYOSMOS_shelf.tgz",
-      "title": "Access"
-    },
-    {
       "rel": "parent",
       "href": "../catalog.json",
       "type": "application/json",
       "title": "Products"
     },
     {
+      "href": "../../projects/cerulean-information-factory/collection.json",
       "rel": "related",
-      "href": "../../projects/cryosmos/collection.json",
       "type": "application/json",
-      "title": "Project: CryoSMOS"
+      "title": "Project: Cerulean Information Factory"
     },
     {
-      "rel": "related",
       "href": "../../themes/cryosphere/catalog.json",
+      "rel": "related",
       "type": "application/json",
       "title": "Theme: Cryosphere"
     },
     {
       "rel": "related",
-      "href": "../../variables/ice-sheets-and-ice-shelves/catalog.json",
+      "href": "../../experiments/polarwarp/record.json",
       "type": "application/json",
-      "title": "Variable: Ice Sheets and Ice Shelves"
+      "title": "Experiment: Polarwarp"
     },
     {
-      "rel": "related",
-      "href": "../../eo-missions/smos/catalog.json",
-      "type": "application/json",
-      "title": "EO Mission: SMOS"
+      "href": "./item.json",
+      "rel": "item"
     },
     {
-      "rel": "self",
-      "href": "https://esa-earthcode.github.io/open-science-catalog-metadata/products/ice-shelf-antarctica-cryosmos/collection.json",
-      "type": "application/json"
+      "href": "https://github.com/gtif-cerulean/polarwarp",
+      "rel": "via"
     }
   ],
   "stac_extensions": [
     "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/themes/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/cf/v0.2.0/schema.json"
+    "https://stac-extensions.github.io/themes/v1.0.0/schema.json"
   ],
-  "osc:project": "cryosmos",
-  "osc:status": "ongoing",
-  "osc:region": "Antarctica",
-  "osc:type": "product",
-  "created": "2020-03-19T00:00:00Z",
-  "cf:parameter": [
-    {
-      "name": "ice_shelves"
-    }
-  ],
+  "osc:project": "cerulean-information-factory",
   "themes": [
     {
       "scheme": "https://github.com/stac-extensions/osc#theme",
@@ -99,40 +106,6 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
         }
       ]
     }
-  ],
-  "osc:variables": [
-    "ice-sheets-and-ice-shelves"
-  ],
-  "osc:missions": [
-    "smos"
-  ],
-  "updated": "2024-09-12T20:32:06.219108Z",
-  "title": "Ice shelf product_Antarctica_SMOS",
-  "extent": {
-    "spatial": {
-      "bbox": [
-        [
-          -180.0,
-          -83.0,
-          180.0,
-          -60.0
-        ]
-      ]
-    },
-    "temporal": {
-      "interval": [
-        [
-          "2013-01-01T00:00:00Z",
-          "2014-12-31T23:59:59Z"
-        ]
-      ]
-    }
-  },
-  "license": "proprietary",
-  "keywords": [
-    "Glaciers/Ice Sheets",
-    "Ice Sheets and Ice Shelves",
-    "Sea Ice"
   ]
 }
 
@@ -142,10 +115,35 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/products/context.jsonld",
+  "id": "polarwarp",
+  "title": "Polarwarp",
+  "created": "2025-10-13T16:54:34Z",
+  "osc:status": "completed",
   "type": "Collection",
-  "id": "ice-shelf-antarctica-cryosmos",
+  "osc:type": "product",
   "stac_version": "1.0.0",
-  "description": "The ice shelf product consists of two types of NETCDF-4 files, one containing yearly mean quantities and one containing differential quantities as well as static surface type masks. Names of the first file type are \"SMOS_TB_for_Origin_yyyy_vvv.nc\", where \"yyyy\" is the respective year and \"vvv\" the dataset version. Names of the second file type are \"SMOS_Origin_yyyy_yyyy_vvv.nc\" where the first \"yyyy\" indicates the first year, the second \"yyyy\" the second year and \"vvv\" the dataset version. All differential quantities are based on the yearly mean of the second year minus the yearly mean of first year. Product details are available at: http://www.ifac.cnr.it/cryosmos/products/CryoSMOS_D8_EDUM_V2.0.pdf.",
+  "description": "Polarwarp product\n\nForecast rasters (+1h \u2026 +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.",
+  "license": "various",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -0.0018099989187332413,
+          0.00043814539682784925,
+          0.001347252506956414,
+          0.0007574196581714432
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2025-02-25T00:00:00Z",
+          null
+        ]
+      ]
+    }
+  },
   "links": [
     {
       "rel": "root",
@@ -154,61 +152,43 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
       "title": "Open Science Catalog"
     },
     {
-      "rel": "via",
-      "href": "http://www.ifac.cnr.it/cryosmos/products/CRYOSMOS_shelf.tgz",
-      "title": "Access"
-    },
-    {
       "rel": "parent",
       "href": "../catalog.json",
       "type": "application/json",
       "title": "Products"
     },
     {
+      "href": "../../projects/cerulean-information-factory/collection.json",
       "rel": "related",
-      "href": "../../projects/cryosmos/collection.json",
       "type": "application/json",
-      "title": "Project: CryoSMOS"
+      "title": "Project: Cerulean Information Factory"
     },
     {
-      "rel": "related",
       "href": "../../themes/cryosphere/catalog.json",
+      "rel": "related",
       "type": "application/json",
       "title": "Theme: Cryosphere"
     },
     {
       "rel": "related",
-      "href": "../../variables/ice-sheets-and-ice-shelves/catalog.json",
+      "href": "../../experiments/polarwarp/record.json",
       "type": "application/json",
-      "title": "Variable: Ice Sheets and Ice Shelves"
+      "title": "Experiment: Polarwarp"
     },
     {
-      "rel": "related",
-      "href": "../../eo-missions/smos/catalog.json",
-      "type": "application/json",
-      "title": "EO Mission: SMOS"
+      "href": "./item.json",
+      "rel": "item"
     },
     {
-      "rel": "self",
-      "href": "https://esa-earthcode.github.io/open-science-catalog-metadata/products/ice-shelf-antarctica-cryosmos/collection.json",
-      "type": "application/json"
+      "href": "https://github.com/gtif-cerulean/polarwarp",
+      "rel": "via"
     }
   ],
   "stac_extensions": [
     "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/themes/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/cf/v0.2.0/schema.json"
+    "https://stac-extensions.github.io/themes/v1.0.0/schema.json"
   ],
-  "osc:project": "cryosmos",
-  "osc:status": "ongoing",
-  "osc:region": "Antarctica",
-  "osc:type": "product",
-  "created": "2020-03-19T00:00:00Z",
-  "cf:parameter": [
-    {
-      "name": "ice_shelves"
-    }
-  ],
+  "osc:project": "cerulean-information-factory",
   "themes": [
     {
       "scheme": "https://github.com/stac-extensions/osc#theme",
@@ -218,40 +198,6 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
         }
       ]
     }
-  ],
-  "osc:variables": [
-    "ice-sheets-and-ice-shelves"
-  ],
-  "osc:missions": [
-    "smos"
-  ],
-  "updated": "2024-09-12T20:32:06.219108Z",
-  "title": "Ice shelf product_Antarctica_SMOS",
-  "extent": {
-    "spatial": {
-      "bbox": [
-        [
-          -180.0,
-          -83.0,
-          180.0,
-          -60.0
-        ]
-      ]
-    },
-    "temporal": {
-      "interval": [
-        [
-          "2013-01-01T00:00:00Z",
-          "2014-12-31T23:59:59Z"
-        ]
-      ]
-    }
-  },
-  "license": "proprietary",
-  "keywords": [
-    "Glaciers/Ice Sheets",
-    "Ice Sheets and Ice Shelves",
-    "Sea Ice"
   ]
 }
 ```
@@ -262,62 +208,49 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix ns2: <osc:> .
-@prefix ns3: <cf:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
 @prefix stac: <http://stacspec.org/ontology/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://ogc.org/demo/ospd/ice-shelf-antarctica-cryosmos> rdfs:label "Ice shelf product_Antarctica_SMOS" ;
-    ns3:parameter [ rdfs:label "ice_shelves" ] ;
-    dcterms:created "2020-03-19T00:00:00Z" ;
-    dcterms:description "The ice shelf product consists of two types of NETCDF-4 files, one containing yearly mean quantities and one containing differential quantities as well as static surface type masks. Names of the first file type are \"SMOS_TB_for_Origin_yyyy_vvv.nc\", where \"yyyy\" is the respective year and \"vvv\" the dataset version. Names of the second file type are \"SMOS_Origin_yyyy_yyyy_vvv.nc\" where the first \"yyyy\" indicates the first year, the second \"yyyy\" the second year and \"vvv\" the dataset version. All differential quantities are based on the yearly mean of the second year minus the yearly mean of first year. Product details are available at: http://www.ifac.cnr.it/cryosmos/products/CryoSMOS_D8_EDUM_V2.0.pdf." ;
-    dcterms:modified "2024-09-12T20:32:06.219108Z" ;
+<https://ogc.org/demo/ospd/polarwarp> rdfs:label "Polarwarp" ;
+    dcterms:created "2025-10-13T16:54:34Z" ;
+    dcterms:description """Polarwarp product
+
+Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.""" ;
     dcterms:type "Collection" ;
     stac:extent [ ] ;
-    rdfs:seeAlso [ rdfs:label "Open Science Catalog" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://ogc.org/catalog.json> ],
-        [ rdfs:label "EO Mission: SMOS" ;
+    rdfs:seeAlso [ rdfs:label "Project: Cerulean Information Factory" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/eo-missions/smos/catalog.json> ],
-        [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/products/ice-shelf-antarctica-cryosmos/collection.json> ],
-        [ rdfs:label "Project: CryoSMOS" ;
+            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],
+        [ rdfs:label "Experiment: Polarwarp" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/projects/cryosmos/collection.json> ],
+            oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ],
         [ rdfs:label "Theme: Cryosphere" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ],
-        [ rdfs:label "Access" ;
-            ns1:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <http://www.ifac.cnr.it/cryosmos/products/CRYOSMOS_shelf.tgz> ],
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/item.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
         [ rdfs:label "Products" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
-        [ rdfs:label "Variable: Ice Sheets and Ice Shelves" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/variables/ice-sheets-and-ice-shelves/catalog.json> ] ;
-    dcat:keyword "Glaciers/Ice Sheets",
-        "Ice Sheets and Ice Shelves",
-        "Sea Ice" ;
-    dcat:license "proprietary" ;
+            oa:hasTarget <https://ogc.org/demo/catalog.json> ] ;
+    dcat:license "various" ;
     rec:themes [ rec:concept [ rec:conceptID "cryosphere"^^xsd:string ] ;
             rec:scheme "https://github.com/stac-extensions/osc#theme" ] ;
-    ns2:missions "smos" ;
-    ns2:project "cryosmos" ;
-    ns2:region "Antarctica" ;
-    ns2:status "ongoing" ;
-    ns2:type "product" ;
-    ns2:variables "ice-sheets-and-ice-shelves" .
+    ns2:project "cerulean-information-factory" ;
+    ns2:status "completed" ;
+    ns2:type "product" .
 
 
 ```

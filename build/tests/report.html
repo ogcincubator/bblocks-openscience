@@ -51,15 +51,65 @@
     <body>
         <div class="container">
             <h1 class="title">Building blocks validation report</h1>
-            <small class="datetime">Generated at 2025-10-16T03:03:04.685929+00:00</small>
+            <small class="datetime">Generated at 2025-10-20T12:03:26.812344+00:00</small>
                 <p class="summary fw-semibold text-danger">
-                    Number of passing building blocks: 6 / 8 (75%)
+                    Number of passing building blocks: 7 / 9 (77.78%)
                 </p>
             <div class="text-end small" id="expand-collapse">
                 <a href="#" class="expand-all">Expand all</a>
                 <a href="#" class="collapse-all">Collapse all</a>
             </div>
                 <div class="accordion mt-2" id="bblock-reports">
+                        <div class="accordion-item bblock-report" data-bblock-id="ogc.osc.application-package" id="bblock-ogc.osc.application-package">
+                            <h2 class="accordion-header bblock-title">
+                                <button class="accordion-button collapsed" type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#bblock-collapse-ogc\.osc\.application-package">
+                                    <div class="flex-fill">
+                                        Application Package
+                                        <small class="ms-2 bblock-id">ogc.osc.application-package</small>
+                                    </div>
+
+                                    <span class="badge text-bg-success me-2">
+                                            Passed
+                                            (100% passed)
+                                    </span>
+                                </button>
+                            </h2>
+                            <div class="accordion-collapse collapse " id="bblock-collapse-ogc.osc.application-package">
+                                <div class="accordion-body">
+                                        <p class="summary fw-semibold text-success">
+                                            Test passed: 1 / 1
+                                        </p>
+                                        <div class="card mb-2 validation-item ">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-1"
+                                                            aria-expanded="false" aria-controls="uid-1"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="https://raw.githubusercontent.com/tjellicoe-tpzuk/eo-workflow-examples/refs/heads/main/water-bodies/water-bodies.cwl" target="_blank">example_1_1.yaml</a>
+                                                    <span class="badge bg-secondary example">Example</span>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-1">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                    <div class="font-monospace entry-message section-files ">Using example_1_1.yaml from examples</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="accordion-item bblock-report" data-bblock-id="ogc.osc.api-profiles.processes-prov" id="bblock-ogc.osc.api-profiles.processes-prov">
                             <h2 class="accordion-header bblock-title">
                                 <button class="accordion-button collapsed" type="button"
@@ -173,8 +223,8 @@
                                             <div class="card-body">
                                                 <div class="card-title mb-0">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
-                                                            data-bs-toggle="collapse" data-bs-target="#uid-1"
-                                                            aria-expanded="false" aria-controls="uid-1"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-2"
+                                                            aria-expanded="false" aria-controls="uid-2"
                                                             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
@@ -185,7 +235,7 @@
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
                                                 </div>
-                                                <div class="card-text mt-2 validation-text collapse" id="uid-1">
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-2">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
                                                                     <div class="font-monospace entry-message section-files ">Using example_2_1.json from examples</div>
@@ -210,19 +260,19 @@
                                             <div class="card-body">
                                                 <div class="card-title mb-0">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
-                                                            data-bs-toggle="collapse" data-bs-target="#uid-2"
-                                                            aria-expanded="false" aria-controls="uid-2"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-3"
+                                                            aria-expanded="false" aria-controls="uid-3"
                                                             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
                                                     </button>
-                                                    <a href="https://raw.githubusercontent.com/ESA-EarthCODE/open-science-catalog-metadata-staging/refs/heads/main/workflows/waterbodies/record.json" target="_blank">example_3_1.json</a>
+                                                    <a href="https://esa-earthcode.github.io/open-science-catalog-metadata-staging/workflows/waterbodies/record.json" target="_blank">example_3_1.json</a>
                                                     <span class="badge bg-secondary example">Example</span>
                                                     <div class="float-end">
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
                                                 </div>
-                                                <div class="card-text mt-2 validation-text collapse" id="uid-2">
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-3">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
                                                                     <div class="font-monospace entry-message section-files ">Using example_3_1.json from examples</div>
@@ -271,8 +321,8 @@
                                             <div class="card-body">
                                                 <div class="card-title mb-0">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
-                                                            data-bs-toggle="collapse" data-bs-target="#uid-3"
-                                                            aria-expanded="false" aria-controls="uid-3"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-4"
+                                                            aria-expanded="false" aria-controls="uid-4"
                                                             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
@@ -283,7 +333,7 @@
                                                             <span class="badge text-bg-danger me-2">Failed</span>
                                                     </div>
                                                 </div>
-                                                <div class="card-text mt-2 validation-text collapse" id="uid-3">
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-4">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
                                                                     <div class="font-monospace entry-message section-files ">Using example_1_1.json from examples</div>
@@ -445,19 +495,19 @@ On instance:
                                             <div class="card-body">
                                                 <div class="card-title mb-0">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
-                                                            data-bs-toggle="collapse" data-bs-target="#uid-4"
-                                                            aria-expanded="false" aria-controls="uid-4"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-5"
+                                                            aria-expanded="false" aria-controls="uid-5"
                                                             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
                                                     </button>
-                                                    <a href="https://raw.githubusercontent.com/ESA-EarthCODE/open-science-catalog-metadata/refs/heads/main/products/ice-shelf-antarctica-cryosmos/collection.json" target="_blank">example_1_1.json</a>
+                                                    <a href="https://esa-earthcode.github.io/open-science-catalog-metadata-staging/products/polarwarp/collection.json" target="_blank">example_1_1.json</a>
                                                     <span class="badge bg-secondary example">Example</span>
                                                     <div class="float-end">
                                                             <span class="badge text-bg-danger me-2">Failed</span>
                                                     </div>
                                                 </div>
-                                                <div class="card-text mt-2 validation-text collapse" id="uid-4">
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-5">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
                                                                     <div class="font-monospace entry-message section-files ">Using example_1_1.json from examples</div>
@@ -465,81 +515,57 @@ On instance:
                                                                     <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
                                                                     <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
-                                                                    <div class="font-monospace entry-message section-json_schema text-danger">ValidationError: {&#x27;type&#x27;: &#x27;Collection&#x27;, &#x27;id&#x27;: &#x27;ice-shelf-antarctica-cryosmos&#x27;, &#x27;stac_version&#x27;: &#x27;1.0.0&#x27;, &#x27;description&#x27;: &#x27;The ice shelf product consists of two types of NETCDF-4 files, one containing yearly mean quantities and one containing differential quantities as well as static surface type masks. Names of the first file type are &quot;SMOS_TB_for_Origin_yyyy_vvv.nc&quot;, where &quot;yyyy&quot; is the respective year and &quot;vvv&quot; the dataset version. Names of the second file type are &quot;SMOS_Origin_yyyy_yyyy_vvv.nc&quot; where the first &quot;yyyy&quot; indicates the first year, the second &quot;yyyy&quot; the second year and &quot;vvv&quot; the dataset version. All differential quantities are based on the yearly mean of the second year minus the yearly mean of first year. Product details are available at: http://www.ifac.cnr.it/cryosmos/products/CryoSMOS_D8_EDUM_V2.0.pdf.&#x27;, &#x27;links&#x27;: [{&#x27;rel&#x27;: &#x27;root&#x27;, &#x27;href&#x27;: &#x27;../../catalog.json&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Open Science Catalog&#x27;}, {&#x27;rel&#x27;: &#x27;via&#x27;, &#x27;href&#x27;: &#x27;http://www.ifac.cnr.it/cryosmos/products/CRYOSMOS_shelf.tgz&#x27;, &#x27;title&#x27;: &#x27;Access&#x27;}, {&#x27;rel&#x27;: &#x27;parent&#x27;, &#x27;href&#x27;: &#x27;../catalog.json&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Products&#x27;}, {&#x27;rel&#x27;: &#x27;related&#x27;, &#x27;href&#x27;: &#x27;../../projects/cryosmos/collection.json&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Project: CryoSMOS&#x27;}, {&#x27;rel&#x27;: &#x27;related&#x27;, &#x27;href&#x27;: &#x27;../../themes/cryosphere/catalog.json&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Theme: Cryosphere&#x27;}, {&#x27;rel&#x27;: &#x27;related&#x27;, &#x27;href&#x27;: &#x27;../../variables/ice-sheets-and-ice-shelves/catalog.json&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Variable: Ice Sheets and Ice Shelves&#x27;}, {&#x27;rel&#x27;: &#x27;related&#x27;, &#x27;href&#x27;: &#x27;../../eo-missions/smos/catalog.json&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;EO Mission: SMOS&#x27;}, {&#x27;rel&#x27;: &#x27;self&#x27;, &#x27;href&#x27;: &#x27;https://esa-earthcode.github.io/open-science-catalog-metadata/products/ice-shelf-antarctica-cryosmos/collection.json&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;}], &#x27;stac_extensions&#x27;: [&#x27;https://stac-extensions.github.io/osc/v1.0.0/schema.json&#x27;, &#x27;https://stac-extensions.github.io/themes/v1.0.0/schema.json&#x27;, &#x27;https://stac-extensions.github.io/cf/v0.2.0/schema.json&#x27;], &#x27;osc:project&#x27;: &#x27;cryosmos&#x27;, &#x27;osc:status&#x27;: &#x27;ongoing&#x27;, &#x27;osc:region&#x27;: &#x27;Antarctica&#x27;, &#x27;osc:type&#x27;: &#x27;product&#x27;, &#x27;created&#x27;: &#x27;2020-03-19T00:00:00Z&#x27;, &#x27;cf:parameter&#x27;: [{&#x27;name&#x27;: &#x27;ice_shelves&#x27;}], &#x27;themes&#x27;: [{&#x27;scheme&#x27;: &#x27;https://github.com/stac-extensions/osc#theme&#x27;, &#x27;concepts&#x27;: [{&#x27;id&#x27;: &#x27;cryosphere&#x27;}]}], &#x27;osc:variables&#x27;: [&#x27;ice-sheets-and-ice-shelves&#x27;], &#x27;osc:missions&#x27;: [&#x27;smos&#x27;], &#x27;updated&#x27;: &#x27;2024-09-12T20:32:06.219108Z&#x27;, &#x27;title&#x27;: &#x27;Ice shelf product_Antarctica_SMOS&#x27;, &#x27;extent&#x27;: {&#x27;spatial&#x27;: {&#x27;bbox&#x27;: [[-180.0, -83.0, 180.0, -60.0]]}, &#x27;temporal&#x27;: {&#x27;interval&#x27;: [[&#x27;2013-01-01T00:00:00Z&#x27;, &#x27;2014-12-31T23:59:59Z&#x27;]]}}, &#x27;license&#x27;: &#x27;proprietary&#x27;, &#x27;keywords&#x27;: [&#x27;Glaciers/Ice Sheets&#x27;, &#x27;Ice Sheets and Ice Shelves&#x27;, &#x27;Sea Ice&#x27;]} is not valid under any of the given schemas
+                                                                    <div class="font-monospace entry-message section-json_schema text-danger">ValidationError: {&#x27;id&#x27;: &#x27;polarwarp&#x27;, &#x27;title&#x27;: &#x27;Polarwarp&#x27;, &#x27;created&#x27;: &#x27;2025-10-13T16:54:34Z&#x27;, &#x27;osc:status&#x27;: &#x27;completed&#x27;, &#x27;type&#x27;: &#x27;Collection&#x27;, &#x27;osc:type&#x27;: &#x27;product&#x27;, &#x27;stac_version&#x27;: &#x27;1.0.0&#x27;, &#x27;description&#x27;: &#x27;Polarwarp product\n\nForecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.&#x27;, &#x27;license&#x27;: &#x27;various&#x27;, &#x27;extent&#x27;: {&#x27;spatial&#x27;: {&#x27;bbox&#x27;: [[-0.0018099989187332413, 0.00043814539682784925, 0.001347252506956414, 0.0007574196581714432]]}, &#x27;temporal&#x27;: {&#x27;interval&#x27;: [[&#x27;2025-02-25T00:00:00Z&#x27;, None]]}}, &#x27;links&#x27;: [{&#x27;rel&#x27;: &#x27;root&#x27;, &#x27;href&#x27;: &#x27;../../catalog.json&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Open Science Catalog&#x27;}, {&#x27;rel&#x27;: &#x27;parent&#x27;, &#x27;href&#x27;: &#x27;../catalog.json&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Products&#x27;}, {&#x27;href&#x27;: &#x27;../../projects/cerulean-information-factory/collection.json&#x27;, &#x27;rel&#x27;: &#x27;related&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Project: Cerulean Information Factory&#x27;}, {&#x27;href&#x27;: &#x27;../../themes/cryosphere/catalog.json&#x27;, &#x27;rel&#x27;: &#x27;related&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Theme: Cryosphere&#x27;}, {&#x27;rel&#x27;: &#x27;related&#x27;, &#x27;href&#x27;: &#x27;../../experiments/polarwarp/record.json&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Experiment: Polarwarp&#x27;}, {&#x27;href&#x27;: &#x27;./item.json&#x27;, &#x27;rel&#x27;: &#x27;item&#x27;}, {&#x27;href&#x27;: &#x27;https://github.com/gtif-cerulean/polarwarp&#x27;, &#x27;rel&#x27;: &#x27;via&#x27;}], &#x27;stac_extensions&#x27;: [&#x27;https://stac-extensions.github.io/osc/v1.0.0/schema.json&#x27;, &#x27;https://stac-extensions.github.io/themes/v1.0.0/schema.json&#x27;], &#x27;osc:project&#x27;: &#x27;cerulean-information-factory&#x27;, &#x27;themes&#x27;: [{&#x27;scheme&#x27;: &#x27;https://github.com/stac-extensions/osc#theme&#x27;, &#x27;concepts&#x27;: [{&#x27;id&#x27;: &#x27;cryosphere&#x27;}]}]} is not valid under any of the given schemas
 
 Failed validating &#x27;anyOf&#x27; in schema[&#x27;allOf&#x27;][3]:
     {&#x27;anyOf&#x27;: [{&#x27;$ref&#x27;: &#x27;https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/geodcat-records-prov/schema.yaml&#x27;}]}
 
 On instance:
-    {&#x27;cf:parameter&#x27;: [{&#x27;name&#x27;: &#x27;ice_shelves&#x27;}],
-     &#x27;created&#x27;: &#x27;2020-03-19T00:00:00Z&#x27;,
-     &#x27;description&#x27;: &#x27;The ice shelf product consists of two types of &#x27;
-                    &#x27;NETCDF-4 files, one containing yearly mean quantities &#x27;
-                    &#x27;and one containing differential quantities as well as &#x27;
-                    &#x27;static surface type masks. Names of the first file &#x27;
-                    &#x27;type are &quot;SMOS_TB_for_Origin_yyyy_vvv.nc&quot;, where &#x27;
-                    &#x27;&quot;yyyy&quot; is the respective year and &quot;vvv&quot; the dataset &#x27;
-                    &#x27;version. Names of the second file type are &#x27;
-                    &#x27;&quot;SMOS_Origin_yyyy_yyyy_vvv.nc&quot; where the first &quot;yyyy&quot; &#x27;
-                    &#x27;indicates the first year, the second &quot;yyyy&quot; the &#x27;
-                    &#x27;second year and &quot;vvv&quot; the dataset version. All &#x27;
-                    &#x27;differential quantities are based on the yearly mean &#x27;
-                    &#x27;of the second year minus the yearly mean of first &#x27;
-                    &#x27;year. Product details are available at: &#x27;
-                    &#x27;http://www.ifac.cnr.it/cryosmos/products/CryoSMOS_D8_EDUM_V2.0.pdf.&#x27;,
-     &#x27;extent&#x27;: {&#x27;spatial&#x27;: {&#x27;bbox&#x27;: [[-180.0, -83.0, 180.0, -60.0]]},
-                &#x27;temporal&#x27;: {&#x27;interval&#x27;: [[&#x27;2013-01-01T00:00:00Z&#x27;,
-                                           &#x27;2014-12-31T23:59:59Z&#x27;]]}},
-     &#x27;id&#x27;: &#x27;ice-shelf-antarctica-cryosmos&#x27;,
-     &#x27;keywords&#x27;: [&#x27;Glaciers/Ice Sheets&#x27;,
-                  &#x27;Ice Sheets and Ice Shelves&#x27;,
-                  &#x27;Sea Ice&#x27;],
-     &#x27;license&#x27;: &#x27;proprietary&#x27;,
+    {&#x27;created&#x27;: &#x27;2025-10-13T16:54:34Z&#x27;,
+     &#x27;description&#x27;: &#x27;Polarwarp product\n&#x27;
+                    &#x27;\n&#x27;
+                    &#x27;Forecast rasters (+1h … +6h) produced by the &#x27;
+                    &#x27;Polarwarp workflow using NEXTSIM model and S1 scenes.&#x27;,
+     &#x27;extent&#x27;: {&#x27;spatial&#x27;: {&#x27;bbox&#x27;: [[-0.0018099989187332413,
+                                      0.00043814539682784925,
+                                      0.001347252506956414,
+                                      0.0007574196581714432]]},
+                &#x27;temporal&#x27;: {&#x27;interval&#x27;: [[&#x27;2025-02-25T00:00:00Z&#x27;, None]]}},
+     &#x27;id&#x27;: &#x27;polarwarp&#x27;,
+     &#x27;license&#x27;: &#x27;various&#x27;,
      &#x27;links&#x27;: [{&#x27;href&#x27;: &#x27;../../catalog.json&#x27;,
                 &#x27;rel&#x27;: &#x27;root&#x27;,
                 &#x27;title&#x27;: &#x27;Open Science Catalog&#x27;,
                 &#x27;type&#x27;: &#x27;application/json&#x27;},
-               {&#x27;href&#x27;: &#x27;http://www.ifac.cnr.it/cryosmos/products/CRYOSMOS_shelf.tgz&#x27;,
-                &#x27;rel&#x27;: &#x27;via&#x27;,
-                &#x27;title&#x27;: &#x27;Access&#x27;},
                {&#x27;href&#x27;: &#x27;../catalog.json&#x27;,
                 &#x27;rel&#x27;: &#x27;parent&#x27;,
                 &#x27;title&#x27;: &#x27;Products&#x27;,
                 &#x27;type&#x27;: &#x27;application/json&#x27;},
-               {&#x27;href&#x27;: &#x27;../../projects/cryosmos/collection.json&#x27;,
+               {&#x27;href&#x27;: &#x27;../../projects/cerulean-information-factory/collection.json&#x27;,
                 &#x27;rel&#x27;: &#x27;related&#x27;,
-                &#x27;title&#x27;: &#x27;Project: CryoSMOS&#x27;,
+                &#x27;title&#x27;: &#x27;Project: Cerulean Information Factory&#x27;,
                 &#x27;type&#x27;: &#x27;application/json&#x27;},
                {&#x27;href&#x27;: &#x27;../../themes/cryosphere/catalog.json&#x27;,
                 &#x27;rel&#x27;: &#x27;related&#x27;,
                 &#x27;title&#x27;: &#x27;Theme: Cryosphere&#x27;,
                 &#x27;type&#x27;: &#x27;application/json&#x27;},
-               {&#x27;href&#x27;: &#x27;../../variables/ice-sheets-and-ice-shelves/catalog.json&#x27;,
+               {&#x27;href&#x27;: &#x27;../../experiments/polarwarp/record.json&#x27;,
                 &#x27;rel&#x27;: &#x27;related&#x27;,
-                &#x27;title&#x27;: &#x27;Variable: Ice Sheets and Ice Shelves&#x27;,
+                &#x27;title&#x27;: &#x27;Experiment: Polarwarp&#x27;,
                 &#x27;type&#x27;: &#x27;application/json&#x27;},
-               {&#x27;href&#x27;: &#x27;../../eo-missions/smos/catalog.json&#x27;,
-                &#x27;rel&#x27;: &#x27;related&#x27;,
-                &#x27;title&#x27;: &#x27;EO Mission: SMOS&#x27;,
-                &#x27;type&#x27;: &#x27;application/json&#x27;},
-               {&#x27;href&#x27;: &#x27;https://esa-earthcode.github.io/open-science-catalog-metadata/products/ice-shelf-antarctica-cryosmos/collection.json&#x27;,
-                &#x27;rel&#x27;: &#x27;self&#x27;,
-                &#x27;type&#x27;: &#x27;application/json&#x27;}],
-     &#x27;osc:missions&#x27;: [&#x27;smos&#x27;],
-     &#x27;osc:project&#x27;: &#x27;cryosmos&#x27;,
-     &#x27;osc:region&#x27;: &#x27;Antarctica&#x27;,
-     &#x27;osc:status&#x27;: &#x27;ongoing&#x27;,
+               {&#x27;href&#x27;: &#x27;./item.json&#x27;, &#x27;rel&#x27;: &#x27;item&#x27;},
+               {&#x27;href&#x27;: &#x27;https://github.com/gtif-cerulean/polarwarp&#x27;,
+                &#x27;rel&#x27;: &#x27;via&#x27;}],
+     &#x27;osc:project&#x27;: &#x27;cerulean-information-factory&#x27;,
+     &#x27;osc:status&#x27;: &#x27;completed&#x27;,
      &#x27;osc:type&#x27;: &#x27;product&#x27;,
-     &#x27;osc:variables&#x27;: [&#x27;ice-sheets-and-ice-shelves&#x27;],
      &#x27;stac_extensions&#x27;: [&#x27;https://stac-extensions.github.io/osc/v1.0.0/schema.json&#x27;,
-                         &#x27;https://stac-extensions.github.io/themes/v1.0.0/schema.json&#x27;,
-                         &#x27;https://stac-extensions.github.io/cf/v0.2.0/schema.json&#x27;],
+                         &#x27;https://stac-extensions.github.io/themes/v1.0.0/schema.json&#x27;],
      &#x27;stac_version&#x27;: &#x27;1.0.0&#x27;,
      &#x27;themes&#x27;: [{&#x27;concepts&#x27;: [{&#x27;id&#x27;: &#x27;cryosphere&#x27;}],
                  &#x27;scheme&#x27;: &#x27;https://github.com/stac-extensions/osc#theme&#x27;}],
-     &#x27;title&#x27;: &#x27;Ice shelf product_Antarctica_SMOS&#x27;,
-     &#x27;type&#x27;: &#x27;Collection&#x27;,
-     &#x27;updated&#x27;: &#x27;2024-09-12T20:32:06.219108Z&#x27;}</div>
+     &#x27;title&#x27;: &#x27;Polarwarp&#x27;,
+     &#x27;type&#x27;: &#x27;Collection&#x27;}</div>
                                                                     <div class="font-monospace subsection-title mt-2">SHACL</div>
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:
   Validation Report

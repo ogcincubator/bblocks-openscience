@@ -9,18 +9,18 @@
 
 <https://ogcincubator.github.io/bblocks-openscience/build/bblocks.ttl> a prov:Entity ;
     dct:format "text/turtle" ;
-    prov:wasAttributedTo _:N2641834f4d6c47bc9f0d7d81cfb648a6 ;
+    prov:wasAttributedTo _:N4f257048bb374305b02a52890ea325bb ;
     prov:wasGeneratedBy [ a prov:Activity ;
-            prov:endedAtTime "2025-10-16T03:03:04.760815"^^xsd:dateTime ;
-            prov:startedAtTime "2025-10-16T03:03:04.687122"^^xsd:dateTime ;
+            prov:endedAtTime "2025-10-20T12:03:26.893174"^^xsd:dateTime ;
+            prov:startedAtTime "2025-10-20T12:03:26.813754"^^xsd:dateTime ;
             prov:used [ a prov:Entity ;
                     dct:format "application/yaml" ;
                     rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ],
                 [ a prov:Entity ;
                     dct:format "application/json" ;
-                    dct:hasVersion "git:f6afa1005bfa01f92c1a627e991057413c1ecb0e" ;
+                    dct:hasVersion "git:f799dec828ae1221d566e0bb1c4135147c0d981b" ;
                     rdfs:seeAlso <https://ogcincubator.github.io/bblocks-openscience/build/register.json> ] ;
-            prov:wasAssociatedWith _:N2641834f4d6c47bc9f0d7d81cfb648a6 ] .
+            prov:wasAssociatedWith _:N4f257048bb374305b02a52890ea325bb ] .
 
 <https://ogcincubator.github.io/ogc.osc.api-profiles.processes-openscience> a skos:Concept,
         dcat:Dataset,
@@ -35,7 +35,7 @@
         [ dct:format "text/html" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes-openscience" ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2025-10-16"^^xsd:date ;
+    dct:modified "2025-10-20"^^xsd:date ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-openscience/> ;
     dcat:keyword "DCAT",
         "PROV",
@@ -49,20 +49,43 @@
     bblocks:scope <http://www.opengis.net/def/bblocks/scope/dev> ;
     bblocks:status <http://www.opengis.net/def/status/under-development> .
 
+<https://ogcincubator.github.io/ogc.osc.application-package> a skos:Concept,
+        dcat:Dataset,
+        bblocks:Schema ;
+    rdfs:label "Application Package" ;
+    dct:abstract "Earth Observation Application Package. "^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
+    dct:created "2023-09-18T00:00:00+00:00"^^xsd:dateTime ;
+    dct:description [ dct:format "text/html" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.application-package" ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/application-package/index.md" ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/application-package/index.json" ] ;
+    dct:hasVersion "0.1" ;
+    dct:modified "2025-10-20"^^xsd:date ;
+    dct:source <https://github.com/eoap> ;
+    skos:inScheme <https://ogcincubator.github.io/bblocks-openscience/> ;
+    bblocks:hasJsonLdContext <https://ogcincubator.github.io/bblocks-openscience/_sources/application-package/context.jsonld> ;
+    bblocks:hasSchema <https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.json>,
+        <https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.yaml> ;
+    bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-openscience/_sources/application-package/context.jsonld> ;
+    bblocks:scope <http://www.opengis.net/def/bblocks/scope/dev> ;
+    bblocks:status <http://www.opengis.net/def/status/under-development> .
+
 <https://ogcincubator.github.io/ogc.osc.geodcat-stac-earthcode.workflows> a skos:Concept,
         dcat:Dataset,
         bblocks:Schema ;
     rdfs:label "EarthCODE Workflow" ;
     dct:abstract "EarthCODE metadata profile linked to semantic models"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-09-18T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/markdown" ;
+    dct:description [ dct:format "text/html" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.workflows" ],
+        [ dct:format "text/markdown" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/geodcat-stac-earthcode/workflows/index.md" ],
         [ dct:format "application/json" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/workflows/index.json" ],
-        [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.workflows" ] ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/workflows/index.json" ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2025-10-16"^^xsd:date ;
+    dct:modified "2025-10-20"^^xsd:date ;
     dct:source <http://www.opengis.net/def/metamodel/profiles/geodcat> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-openscience/> ;
     dcat:keyword "DCAT",
@@ -85,14 +108,14 @@
     rdfs:label "Open Science Ontology" ;
     dct:abstract "A modular standards-based ontology for describing interoperable and reproduceable scientific workflows."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-09-18T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/ontology/openscience/index.json" ],
-        [ dct:format "text/markdown" ;
+    dct:description [ dct:format "text/markdown" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/ontology/openscience/index.md" ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/ontology/openscience/index.json" ],
         [ dct:format "text/html" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.ontology.openscience" ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2025-10-16"^^xsd:date ;
+    dct:modified "2025-10-20"^^xsd:date ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-openscience/> ;
     dcat:keyword "OSPD" ;
     bblocks:dependsOn <https://ogcincubator.github.io/ogc.geo.geodcat.dcat>,
@@ -100,20 +123,22 @@
     bblocks:scope <http://www.opengis.net/def/bblocks/scope/dev> ;
     bblocks:status <http://www.opengis.net/def/status/under-development> .
 
+<https://github.com/eoap> rdfs:label "Earth Observation Application Package" .
+
 <https://ogcincubator.github.io/ogc.osc.api-profiles.processes-prov> a skos:Concept,
         dcat:Dataset,
         bblocks:Api ;
     rdfs:label "IPT profile of OGC API Processes" ;
     dct:abstract "Generalised profile of API Processes with interoperable provenance, supporting IPT principles."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-09-18T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes-prov" ],
+    dct:description [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes-prov/index.md" ],
         [ dct:format "application/json" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes-prov/index.json" ],
-        [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes-prov/index.md" ] ;
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes-prov" ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2025-10-16"^^xsd:date ;
+    dct:modified "2025-10-20"^^xsd:date ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-openscience/> ;
     dcat:keyword "PROV" ;
     bblocks:dependsOn <https://ogcincubator.github.io/ogc.ogc-utils.prov> ;
@@ -126,14 +151,14 @@
     rdfs:label "Workflow profile of OGC API Processes" ;
     dct:abstract "Generalised profile of API Processes executing a workflow using CWL"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-09-18T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes-workflow/index.json" ],
+    dct:description [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes-workflow/index.md" ],
         [ dct:format "text/html" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes-workflow" ],
-        [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes-workflow/index.md" ] ;
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes-workflow/index.json" ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2025-10-16"^^xsd:date ;
+    dct:modified "2025-10-20"^^xsd:date ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-openscience/> ;
     dcat:keyword "DCAT",
         "PROV",
@@ -150,14 +175,14 @@
     rdfs:label "EarthCODE Experiment" ;
     dct:abstract "EarthCODE metadata profile linked to semantic models"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-09-18T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.experiments" ],
-        [ dct:format "text/markdown" ;
+    dct:description [ dct:format "text/markdown" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/geodcat-stac-earthcode/experiments/index.md" ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.experiments" ],
         [ dct:format "application/json" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/experiments/index.json" ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2025-10-16"^^xsd:date ;
+    dct:modified "2025-10-20"^^xsd:date ;
     dct:source <http://www.opengis.net/def/metamodel/profiles/geodcat> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-openscience/> ;
     dcat:keyword "DCAT",
@@ -183,14 +208,14 @@
     rdfs:label "EarthCODE Product" ;
     dct:abstract "EarthCODE metadata profile linked to semantic models"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-09-18T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/products/index.json" ],
-        [ dct:format "text/markdown" ;
+    dct:description [ dct:format "text/markdown" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/geodcat-stac-earthcode/products/index.md" ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/products/index.json" ],
         [ dct:format "text/html" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.products" ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2025-10-16"^^xsd:date ;
+    dct:modified "2025-10-20"^^xsd:date ;
     dct:source <http://www.opengis.net/def/metamodel/profiles/geodcat> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-openscience/> ;
     dcat:keyword "DCAT",
@@ -216,14 +241,14 @@
     rdfs:label "CWL Ontology" ;
     dct:abstract "Ontology describing the Common Workflow Language (CWL) model"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-09-18T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.ontology.cwlprov" ],
-        [ dct:format "application/json" ;
+    dct:description [ dct:format "application/json" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/ontology/cwlprov/index.json" ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.ontology.cwlprov" ],
         [ dct:format "text/markdown" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/ontology/cwlprov/index.md" ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2025-10-16"^^xsd:date ;
+    dct:modified "2025-10-20"^^xsd:date ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-openscience/> ;
     dcat:keyword "OSPD" ;
     bblocks:dependsOn <https://ogcincubator.github.io/ogc.ogc-utils.prov> ;
@@ -246,7 +271,7 @@
         <https://ogcincubator.github.io/cross-domain-model/build/register.json>,
         <https://opengeospatial.github.io/bblocks/register.json> .
 
-_:N2641834f4d6c47bc9f0d7d81cfb648a6 a prov:Agent,
+_:N4f257048bb374305b02a52890ea325bb a prov:Agent,
         schema:SoftwareApplication ;
     rdfs:label "OGC-NA tools" ;
     dct:hasVersion "0.4.6" ;
