@@ -156,7 +156,7 @@ Base Building Block (OGC API Records + DCAT)
 
 Breaking this down into FAIR components - i.e. focus on tight scope control for reusability, the following repository architecture emerges:
 
-[diagram](https://myogc1-my.sharepoint.com/personal/ratkinson_ogc_org/_layouts/15/Doc.aspx?sourcedoc={789db747-9ee0-45ff-ba27-27231497944b}&action=embedview)
+[diagram](overview.png)
 
 ## Semantic Integration Layers
 
