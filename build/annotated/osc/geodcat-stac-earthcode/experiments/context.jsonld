@@ -55,7 +55,7 @@
       "@id": "dct:description",
       "@container": "@set"
     },
-    "license": "dcat:license",
+    "license": "dct:license",
     "extent": "stac:extent",
     "datetime": {
       "@id": "stac:datetime",
@@ -87,7 +87,7 @@
             },
             "url": {
               "@type": "@id",
-              "@id": "dct:theme"
+              "@id": "dcat:theme"
             }
           }
         },
@@ -165,7 +165,7 @@
       "@id": "dcat:contactPoint",
       "@type": "@id"
     },
-    "rights": "dcat:rights",
+    "accessrights": "dct:accessRights",
     "linkTemplates": "rec:hasLinkTemplate",
     "variables": {
       "@container": "@id",
