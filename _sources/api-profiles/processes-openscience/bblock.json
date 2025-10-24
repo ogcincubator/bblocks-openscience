@@ -6,16 +6,23 @@
   "dateTimeAddition": "2023-09-18T00:00:00Z",
   "itemClass": "api",
   "register": "ogc-incubator",
-   "dependsOn": [
-     "ogc.osc.geodcat-stac-earthcode.experiments",
-     "ogc.osc.geodcat-stac-earthcode.products",
-     "ogc.osc.api-profiles.processes-workflow"
-      ],
+  "dependsOn": [
+    "ogc.osc.geodcat-stac-earthcode.experiments",
+    "ogc.osc.geodcat-stac-earthcode.products",
+    "ogc.osc.geodcat-stac-earthcode.workflows",
+    "ogc.osc.api-profiles.processes-workflow"
+  ],
   "version": "0.1",
   "dateOfLastChange": "2023-09-18",
   "link": "https://github.com/opengeospatial/ogcapi-processes",
   "sources": [
   ],
   "scope": "dev",
-  "tags": ["DCAT", "profile", "Records", "STAC", "PROV"]
+  "tags": [
+    "DCAT",
+    "profile",
+    "Records",
+    "STAC",
+    "PROV"
+  ]
 }
