@@ -1,5 +1,5 @@
 Validation report for ogc.osc.geodcat-stac-earthcode.experiments - EarthCODE Experiment
-Generated 2025-10-22T23:00:46.050235+00:00
+Generated 2025-10-24T06:38:42.868153+00:00
 === Files ===
 Using example_1_1.json from examples
 JSON-LD context is present - uplifting
@@ -12,7 +12,7 @@ Output Turtle example_1_1.ttl created
 ** Validation error **
 ValidationError: 'stac_extensions' is a required property
 
-Failed validating 'required' in schema['allOf'][0]['allOf'][1]:
+Failed validating 'required' in schema['allOf'][0]['allOf'][0]['allOf'][1]:
     {'$id': 'https://stac-extensions.github.io/themes/v1.0.0/schema.json#',
      '$schema': 'http://json-schema.org/draft-07/schema#',
      'definitions': {'fields': {'properties': {'themes': {'items': {'properties': {'concepts': {'items': {'properties': {'description': {'minLength': 1,

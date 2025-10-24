@@ -1,0 +1,76 @@
+{
+  "name": "Common Workflow Language Profile of PROV",
+  "abstract": "This is a test of the generic PROV building block using the CWL profile of PROV",
+  "description": "[CWL (Common Workflow Language)](https://github.com/common-workflow-language/cwl-v1.2) is a scientific workflow description approach.\n[CWLPROV](https://github.com/common-workflow-language/cwlprov) is a profile of the W3C PROV to describe workflows using a standard encoding.\n\nThis bblock is an initial test that the PROV schema can be extended to support such a profile.\n",
+  "modified": "2024-05-28T07:52:26.523594",
+  "tooling": {
+    "bblocks-postprocess": {
+      "commitId": "\"18fbb122a3d7cc4de8b9271905f60ee3e86205a6",
+      "shortCommitId": "\"18fbb1",
+      "date": "2024-05-13T08:31:44+00:00\""
+    }
+  },
+  "gitRepository": "https://github.com/ogcincubator/prov-cwl",
+  "gitHubRepository": "https://github.com/ogcincubator/prov-cwl/blob/master/",
+  "baseURL": "https://ogcincubator.github.io/prov-cwl/",
+  "viewerURL": "https://ogcincubator.github.io/prov-cwl/",
+  "validationReport": "https://ogcincubator.github.io/prov-cwl/build/tests/report.html",
+  "imports": [
+    "https://opengeospatial.github.io/bblocks/register.json",
+    "https://ogcincubator.github.io/bblock-prov-schema/build/register.json"
+  ],
+  "bblocks": [
+    {
+      "itemIdentifier": "ogc.profiles.prov.cwl.provenance",
+      "name": "CWL (Prov)",
+      "abstract": "Common Workflow Language - profile using PROV JSON schema building block.",
+      "status": "under-development",
+      "dateTimeAddition": "2023-04-05T00:00:00Z",
+      "itemClass": "schema",
+      "register": "ogcincubator",
+      "version": "0.1",
+      "dateOfLastChange": "2024-05-28",
+      "link": "https://ogcincubator.github.io/prov-cwl/",
+      "sources": [],
+      "maturity": "under-development",
+      "scope": "unstable",
+      "tags": [
+        "templates",
+        "provenance",
+        "profile"
+      ],
+      "shaclRules": {},
+      "dependsOn": [
+        "ogc.ogc-utils.prov"
+      ],
+      "ldContext": "https://ogcincubator.github.io/prov-cwl/build/annotated/profiles/prov/cwl/provenance/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/prov-cwl/build/annotated/profiles/prov/cwl/provenance/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/prov-cwl/build/annotated/profiles/prov/cwl/provenance/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/prov-cwl/_sources/provenance/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/prov-cwl/_sources/provenance/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/prov-cwl/_sources/provenance/",
+      "validationPassed": false,
+      "testOutputs": "https://github.com/ogcincubator/prov-cwl/blob/master/build/tests/profiles/prov/cwl/provenance/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/prov-cwl/build/generateddocs/markdown/profiles/prov/cwl/provenance/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/prov-cwl/build/generateddocs/json-full/profiles/prov/cwl/provenance/index.json"
+        },
+        "slate": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/prov-cwl/build/generateddocs/slate-build/profiles/prov/cwl/provenance/"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/prov-cwl/bblock/ogc.profiles.prov.cwl.provenance"
+        }
+      }
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 
-# EarthCODE Experiment (Schema)
+# EarthCODE Common STAC profile (Schema)
 
-`ogc.osc.geodcat-stac-earthcode.experiments` *v0.1*
+`ogc.osc.geodcat-stac-earthcode.common` *v0.1*
 
 EarthCODE metadata profile linked to semantic models
 
@@ -19,63 +19,39 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 
 ## Examples
 
-### An example demonstrating EO extension fields in a STAC item.
+### Polarwarp
 #### json
 ```json
 {
-  "id": "polaris-experiment",
-  "type": "Feature",
-  "conformsTo": [
-    "http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core"
-  ],
-  "geometry": null,
-  "properties": {
-    "created": "2025-02-19T23:00:00Z",
-    "updated": "2025-02-19T23:00:00Z",
-    "type": "experiment",
-    "title": "POLARIS",
-    "description": "Polar Operational Limit Assessment Risk Index System (POLARIS)",
-    "keywords": [
-      "sea ice",
-      "polar"
-    ],
-    "contacts": [
-      {
-        "name": "EarthCODE Demo",
-        "organization": "EarthCODE",
-        "links": [
-          {
-            "rel": "about",
-            "type": "text/html",
-            "href": "https://opensciencedata.esa.int/"
-          }
-        ],
-        "contactInstructions": "Contact via EarthCODE",
-        "roles": [
-          "host"
+  "id": "polarwarp",
+  "title": "Polarwarp",
+  "created": "2025-10-13T16:54:34Z",
+  "osc:status": "completed",
+  "type": "Collection",
+  "osc:type": "product",
+  "stac_version": "1.0.0",
+  "description": "Polarwarp product\n\nForecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.",
+  "license": "various",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -0.0018099989187332413,
+          0.00043814539682784925,
+          0.001347252506956414,
+          0.0007574196581714432
         ]
-      }
-    ],
-    "themes": [
-      {
-        "scheme": "https://github.com/stac-extensions/osc#theme",
-        "concepts": [
-          {
-            "id": "oceans"
-          }
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2025-02-25T00:00:00Z",
+          null
         ]
-      }
-    ],
-    "formats": [
-      {
-        "name": "GeoTIFF"
-      }
-    ],
-    "license": "CC-BY-SA-4.0",
-    "osc:workflow": "polaris-workflow",
-    "version": "2"
+      ]
+    }
   },
-  "linkTemplates": [],
   "links": [
     {
       "rel": "root",
@@ -87,42 +63,48 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
       "rel": "parent",
       "href": "../catalog.json",
       "type": "application/json",
-      "title": "Experiments"
+      "title": "Products"
     },
     {
-      "rel": "child",
-      "href": "../../products/polaris/collection.json",
+      "href": "../../projects/cerulean-information-factory/collection.json",
+      "rel": "related",
       "type": "application/json",
-      "title": "POLARIS"
+      "title": "Project: Cerulean Information Factory"
+    },
+    {
+      "href": "../../themes/cryosphere/catalog.json",
+      "rel": "related",
+      "type": "application/json",
+      "title": "Theme: Cryosphere"
     },
     {
       "rel": "related",
-      "href": "../../themes/oceans/catalog.json",
+      "href": "../../experiments/polarwarp/record.json",
       "type": "application/json",
-      "title": "Theme: Oceans"
+      "title": "Experiment: Polarwarp"
     },
     {
-      "rel": "related",
-      "href": "../../workflows/polaris-workflow/record.json",
-      "type": "application/json",
-      "title": "Workflow: POLARIS"
+      "href": "./item.json",
+      "rel": "item"
     },
     {
-      "rel": "input",
-      "href": "./input.yaml",
-      "type": "application/yaml",
-      "title": "Input parameters"
-    },
+      "href": "https://github.com/gtif-cerulean/polarwarp",
+      "rel": "via"
+    }
+  ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/themes/v1.0.0/schema.json"
+  ],
+  "osc:project": "cerulean-information-factory",
+  "themes": [
     {
-      "rel": "environment",
-      "href": "./environment.yaml",
-      "type": "application/yaml",
-      "title": "Execution environment"
-    },
-    {
-      "rel": "self",
-      "href": "https://esa-earthcode.github.io/open-science-catalog-metadata/experiments/polaris-experiment/item.json",
-      "type": "application/json"
+      "scheme": "https://github.com/stac-extensions/osc#theme",
+      "concepts": [
+        {
+          "id": "cryosphere"
+        }
+      ]
     }
   ]
 }
@@ -132,60 +114,36 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 #### jsonld
 ```jsonld
 {
-  "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/context.jsonld",
-  "id": "polaris-experiment",
-  "type": "Feature",
-  "conformsTo": [
-    "http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core"
-  ],
-  "geometry": null,
-  "properties": {
-    "created": "2025-02-19T23:00:00Z",
-    "updated": "2025-02-19T23:00:00Z",
-    "type": "experiment",
-    "title": "POLARIS",
-    "description": "Polar Operational Limit Assessment Risk Index System (POLARIS)",
-    "keywords": [
-      "sea ice",
-      "polar"
-    ],
-    "contacts": [
-      {
-        "name": "EarthCODE Demo",
-        "organization": "EarthCODE",
-        "links": [
-          {
-            "rel": "about",
-            "type": "text/html",
-            "href": "https://opensciencedata.esa.int/"
-          }
-        ],
-        "contactInstructions": "Contact via EarthCODE",
-        "roles": [
-          "host"
+  "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/context.jsonld",
+  "id": "polarwarp",
+  "title": "Polarwarp",
+  "created": "2025-10-13T16:54:34Z",
+  "osc:status": "completed",
+  "type": "Collection",
+  "osc:type": "product",
+  "stac_version": "1.0.0",
+  "description": "Polarwarp product\n\nForecast rasters (+1h \u2026 +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.",
+  "license": "various",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -0.0018099989187332413,
+          0.00043814539682784925,
+          0.001347252506956414,
+          0.0007574196581714432
         ]
-      }
-    ],
-    "themes": [
-      {
-        "scheme": "https://github.com/stac-extensions/osc#theme",
-        "concepts": [
-          {
-            "id": "oceans"
-          }
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2025-02-25T00:00:00Z",
+          null
         ]
-      }
-    ],
-    "formats": [
-      {
-        "name": "GeoTIFF"
-      }
-    ],
-    "license": "CC-BY-SA-4.0",
-    "osc:workflow": "polaris-workflow",
-    "version": "2"
+      ]
+    }
   },
-  "linkTemplates": [],
   "links": [
     {
       "rel": "root",
@@ -197,42 +155,48 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
       "rel": "parent",
       "href": "../catalog.json",
       "type": "application/json",
-      "title": "Experiments"
+      "title": "Products"
     },
     {
-      "rel": "child",
-      "href": "../../products/polaris/collection.json",
+      "href": "../../projects/cerulean-information-factory/collection.json",
+      "rel": "related",
       "type": "application/json",
-      "title": "POLARIS"
+      "title": "Project: Cerulean Information Factory"
+    },
+    {
+      "href": "../../themes/cryosphere/catalog.json",
+      "rel": "related",
+      "type": "application/json",
+      "title": "Theme: Cryosphere"
     },
     {
       "rel": "related",
-      "href": "../../themes/oceans/catalog.json",
+      "href": "../../experiments/polarwarp/record.json",
       "type": "application/json",
-      "title": "Theme: Oceans"
+      "title": "Experiment: Polarwarp"
     },
     {
-      "rel": "related",
-      "href": "../../workflows/polaris-workflow/record.json",
-      "type": "application/json",
-      "title": "Workflow: POLARIS"
+      "href": "./item.json",
+      "rel": "item"
     },
     {
-      "rel": "input",
-      "href": "./input.yaml",
-      "type": "application/yaml",
-      "title": "Input parameters"
-    },
+      "href": "https://github.com/gtif-cerulean/polarwarp",
+      "rel": "via"
+    }
+  ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/themes/v1.0.0/schema.json"
+  ],
+  "osc:project": "cerulean-information-factory",
+  "themes": [
     {
-      "rel": "environment",
-      "href": "./environment.yaml",
-      "type": "application/yaml",
-      "title": "Execution environment"
-    },
-    {
-      "rel": "self",
-      "href": "https://esa-earthcode.github.io/open-science-catalog-metadata/experiments/polaris-experiment/item.json",
-      "type": "application/json"
+      "scheme": "https://github.com/stac-extensions/osc#theme",
+      "concepts": [
+        {
+          "id": "cryosphere"
+        }
+      ]
     }
   ]
 }
@@ -240,64 +204,52 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 
 #### ttl
 ```ttl
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <osc:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <osc:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
+@prefix stac: <http://stacspec.org/ontology/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://ogc.org/demo/ospd/polaris-experiment> rdfs:label "POLARIS" ;
-    dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core> ;
-    dcterms:created "2025-02-19T23:00:00Z" ;
-    dcterms:description "Polar Operational Limit Assessment Risk Index System (POLARIS)" ;
-    dcterms:license "CC-BY-SA-4.0" ;
-    dcterms:modified "2025-02-19T23:00:00Z" ;
-    dcterms:type "Feature",
-        "experiment" ;
-    rdfs:seeAlso [ rdfs:label "Theme: Oceans" ;
+<https://ogc.org/demo/ospd/polarwarp> rdfs:label "Polarwarp" ;
+    dcterms:created "2025-10-13T16:54:34Z" ;
+    dcterms:description """Polarwarp product
+
+Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.""" ;
+    dcterms:license "various" ;
+    dcterms:type "Collection" ;
+    stac:extent [ ] ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
+        [ rdfs:label "Theme: Cryosphere" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
-        [ rdfs:label "Workflow: POLARIS" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/workflows/polaris-workflow/record.json> ],
-        [ rdfs:label "Experiments" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
-        [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/experiments/polaris-experiment/item.json> ],
-        [ rdfs:label "Input parameters" ;
-            dcterms:type "application/yaml" ;
-            ns2:relation <http://www.iana.org/assignments/relation/input> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/input.yaml> ],
-        [ rdfs:label "Execution environment" ;
-            dcterms:type "application/yaml" ;
-            ns2:relation <http://www.iana.org/assignments/relation/environment> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/environment.yaml> ],
-        [ rdfs:label "POLARIS" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/child> ;
-            oa:hasTarget <https://ogc.org/products/polaris/collection.json> ],
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ],
         [ rdfs:label "Open Science Catalog" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://ogc.org/catalog.json> ] ;
-    dcat:contactPoint [ rdfs:label "EarthCODE Demo" ;
-            rdfs:seeAlso [ dcterms:type "text/html" ;
-                    ns2:relation <http://www.iana.org/assignments/relation/about> ;
-                    oa:hasTarget <https://opensciencedata.esa.int/> ] ] ;
-    dcat:keyword "polar",
-        "sea ice" ;
-    rec:format [ rec:name "GeoTIFF" ] ;
-    rec:themes [ rec:concept [ rec:conceptID "oceans"^^xsd:string ] ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ],
+        [ rdfs:label "Project: Cerulean Information Factory" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/item.json> ],
+        [ rdfs:label "Products" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
+        [ rdfs:label "Experiment: Polarwarp" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ] ;
+    rec:themes [ rec:concept [ rec:conceptID "cryosphere"^^xsd:string ] ;
             rec:scheme "https://github.com/stac-extensions/osc#theme" ] ;
-    ns1:workflow "polaris-workflow" .
+    ns2:project "cerulean-information-factory" ;
+    ns2:status "completed" ;
+    ns2:type "product" .
 
 
 ```
@@ -306,16 +258,21 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
-description: EarthCode Experiment
+description: Schema for OGCAPI records profile for GeoDCAT - defines all extra elements
+  defined by GeoDCAT so that the JSON-LD context can map to GeoDCAT RDF
 allOf:
-- $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml
+- $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes/schema.yaml
+- $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/osc/schema.yaml
+- $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/cf/schema.yaml
+- anyOf:
+  - $ref: https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/geodcat-records-prov/schema.yaml
 
 ```
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/schema.json)
-* JSON version: [schema.json](https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/schema.yaml)
+* YAML version: [schema.yaml](https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.json)
+* JSON version: [schema.json](https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml)
 
 
 # JSON-LD Context
@@ -844,20 +801,17 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/context.jsonld)
+[context.jsonld](https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/context.jsonld)
 
 ## Sources
 
-* [GeoDCAT Specification](http://www.opengis.net/def/metamodel/profiles/geodcat)
-* [EarthCODE]({
-      "title": "GeoDCAT Specification",
-      "link": "http://www.opengis.net/def/metamodel/profiles/geodcat"
-    },)
+* [EarthCODE](https://earthcode.esa.int/)
+* [EarthCODE Catalog](https://opensciencedata.esa.int/)
 
 # For developers
 
 The source code for this Building Block can be found in the following repository:
 
 * URL: [https://github.com/ogcincubator/bblocks-openscience](https://github.com/ogcincubator/bblocks-openscience)
-* Path: `_sources/geodcat-stac-earthcode/experiments`
+* Path: `_sources/geodcat-stac-earthcode/common`
 
