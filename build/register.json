@@ -2,12 +2,12 @@
   "name": "Open Science Workflows Building Blocks",
   "abstract": "Building Blocks for FAIR Open Science - profiles of OGC API Processes and various metadata standards to support open, transparent, interoperable and reproducible scientific workflows..\n",
   "description": "This repository is initially aimed to support the [Open Science Persistent Demonstrator](https://www.ogc.org/initiatives/open-science/) pilot, but may be further developed as a set of standards with appropriate working group governance.\n",
-  "modified": "2025-10-24T06:38:27.223058",
+  "modified": "2025-10-24T07:45:27.221219",
   "tooling": {
     "bblocks-postprocess": {
-      "commitId": "\"0834bcc055075708e98a7500bea7bc0f59b4b1bd",
-      "shortCommitId": "\"0834bc",
-      "date": "2025-10-22T12:50:13+00:00\""
+      "commitId": "\"5ed1dac91db32afad17cae7126753f9393a99864",
+      "shortCommitId": "\"5ed1da",
+      "date": "2025-10-24T07:42:05+00:00\""
     }
   },
   "gitRepository": "https://github.com/ogcincubator/bblocks-openscience",
@@ -220,10 +220,10 @@
       "register": "ogc-incubator",
       "dependsOn": [
         "ogc.ogc-utils.prov",
-        "ogc.contrib.stac.extensions.osc",
+        "ogc.contrib.stac.extensions.cf",
         "ogc.geo.geodcat.geodcat-records-prov",
         "ogc.contrib.stac.extensions.themes",
-        "ogc.contrib.stac.extensions.cf"
+        "ogc.contrib.stac.extensions.osc"
       ],
       "version": "0.1",
       "dateOfLastChange": "2025-10-24",
@@ -499,8 +499,8 @@
       "register": "ogc-incubator",
       "dependsOn": [
         "ogc.osc.geodcat-stac-earthcode.experiments",
-        "ogc.osc.api-profiles.processes-workflow",
         "ogc.osc.geodcat-stac-earthcode.workflows",
+        "ogc.osc.api-profiles.processes-workflow",
         "ogc.osc.geodcat-stac-earthcode.products"
       ],
       "version": "0.1",
