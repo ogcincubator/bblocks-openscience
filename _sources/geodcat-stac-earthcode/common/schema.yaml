@@ -7,3 +7,29 @@ allOf:
   - anyOf:
   #  - $ref: bblocks://ogc.geo.geodcat.stac.geodcat-stac-item
     - $ref: bblocks://ogc.geo.geodcat.geodcat-records-prov
+definitions:
+  osc:workflow:
+    title: Workflow
+    type: string
+    format: osc-workflow
+    minLength: 1
+  via_links:
+    title: Via Link
+    properties:
+      type:
+        enum:
+          - application/json
+          - application/pdf
+          - application/zip
+          - text/html
+          - text/plain
+        options:
+          enum_titles:
+            - JSON
+            - PDF
+            - ZIP
+            - HTML
+            - Text
+      rel:
+        enum:
+          - via
