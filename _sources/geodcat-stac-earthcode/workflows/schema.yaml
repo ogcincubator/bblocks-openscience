@@ -1,6 +1,27 @@
 "$schema": https://json-schema.org/draft/2020-12/schema
-description: 'Schema for OGCAPI records profile for GeoDCAT - defines all extra elements defined by GeoDCAT so that the JSON-LD context can map to GeoDCAT RDF'
+description: 'Schema for EarthCODE Workflow'
 allOf:
   - anyOf:
   #  - $ref: bblocks://ogc.geo.geodcat.stac.geodcat-stac-item
     - $ref: bblocks://ogc.geo.geodcat.geodcat-records
+properties:
+  properties:
+    type: object
+    required:
+      - osc:project
+    properties:
+      osc:project:
+        $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common#/definitions/osc:project
+  links:
+    type: array
+    items:
+      oneOf:
+        # EarthCODE's validator also constrains 'rel' links to be application/json
+        # (intended to be STAC) or text/html.
+        - title: Other Link
+          properties:
+            rel:
+              not:
+                enum:
+                  - via
+        - $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common#/definitions/via_links
