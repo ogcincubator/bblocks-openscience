@@ -1,7 +1,8 @@
 "$schema": https://json-schema.org/draft/2020-12/schema
 description: 'EarthCode Experiment'
 allOf:
-  - $ref: bblocks://ogc.api.records.v1.schemas.recordGeoJSON
+  - $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common
+  - $ref: bblocks://ogc.geo.geodcat.geodcat-records
 properties:
   properties:
     type: object

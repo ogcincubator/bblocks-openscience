@@ -1,12 +1,13 @@
 "$schema": https://json-schema.org/draft/2020-12/schema
-description: 'Schema for OGCAPI records profile for GeoDCAT - defines all extra elements defined by GeoDCAT so that the JSON-LD context can map to GeoDCAT RDF'
-allOf:
-  - $ref: bblocks://ogc.contrib.stac.extensions.themes
-  - $ref: bblocks://ogc.contrib.stac.extensions.osc
-  - $ref: bblocks://ogc.contrib.stac.extensions.cf
-  - anyOf:
-  #  - $ref: bblocks://ogc.geo.geodcat.stac.geodcat-stac-item
-    - $ref: bblocks://ogc.geo.geodcat.geodcat-records-prov
+description: 'Schema for OGCAPI records profile and STAC profile used by EarthCODE'
+anyOf:
+  - allOf:
+    - anyOf:
+      - $ref: bblocks://ogc.geo.geodcat.stac.geodcat-stac-item
+      - $ref: bblocks://ogc.geo.geodcat.stac.geodcat-stac-collection
+    - $ref: bblocks://ogc.contrib.stac.extensions.themes
+    - $ref: bblocks://ogc.contrib.stac.extensions.osc
+  - $ref: bblocks://ogc.geo.geodcat.geodcat-records
 definitions:
   osc:workflow:
     title: Workflow
@@ -33,3 +34,57 @@ definitions:
       rel:
         enum:
           - via
+
+  osc:project:
+    title: Project
+    type: string
+    format: osc-project
+    minLength: 1
+
+  osc:status:
+    title: Status
+    type: string
+    enum:
+      - planned
+      - ongoing
+      - completed
+
+  osc:region:
+    title: Region
+    type: string
+    minLength: 1
+
+  osc:missions:
+    title: EO Missions
+    format: osc-missions
+    type: array
+    uniqueItems: true
+    items:
+      title: EO Mission
+      type: string
+      format: osc-mission
+      minLength: 1
+
+  osc:variables:
+    title: Variables
+    format: osc-variables
+    type: array
+    uniqueItems: true
+    items:
+      title: Variable
+      type: string
+      format: osc-variable
+      minLength: 1
+
+  osc:experiment:
+    title: Experiment
+    format: osc-experiment
+    type: string
+    minLength: 1
+
+  osc:workflows:
+    title: Workflows
+    type: array
+    format: osc-workflows
+    items:
+      $ref: "#/definitions/osc:workflow"
