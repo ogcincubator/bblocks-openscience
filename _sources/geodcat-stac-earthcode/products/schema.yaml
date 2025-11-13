@@ -2,3 +2,6 @@
 description: 'EarthCode Product'
 allOf:
   - $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common
+  - anyOf:
+    - $ref: bblocks://ogc.contrib.stac.collection
+    - $ref: bblocks://ogc.contrib.stac.collection-v1-0-0
