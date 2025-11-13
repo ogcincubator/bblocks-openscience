@@ -1,0 +1,593 @@
+{
+  "summary": {
+    "total": 10,
+    "passed": 7,
+    "failed": 3,
+    "result": false
+  },
+  "bblocks": {
+    "ogc.osc.ontology.cwlprov": {
+      "title": "Validation report for ogc.osc.ontology.cwlprov - CWL Ontology",
+      "bblockName": "CWL Ontology",
+      "bblockId": "ogc.osc.ontology.cwlprov",
+      "generated": "2025-11-13T12:19:00.515720+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.osc.application-package": {
+      "title": "Validation report for ogc.osc.application-package - Application Package",
+      "bblockName": "Application Package",
+      "bblockId": "ogc.osc.application-package",
+      "generated": "2025-11-13T12:19:00.567161+00:00",
+      "result": true,
+      "items": [
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/osc/application-package/example_1_1.yaml",
+            "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/application-package/example_1_1.yaml",
+            "exampleIndex": 1,
+            "snippetIndex": 1,
+            "language": "application/x-yaml",
+            "sourceUrl": "https://raw.githubusercontent.com/tjellicoe-tpzuk/eo-workflow-examples/refs/heads/main/water-bodies/water-bodies.cwl"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using example_1_1.yaml from examples"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "globalErrors": {},
+      "counts": {
+        "total": 1,
+        "passed": 1,
+        "failed": 0
+      }
+    },
+    "ogc.osc.ontology.openscience": {
+      "title": "Validation report for ogc.osc.ontology.openscience - Open Science Ontology",
+      "bblockName": "Open Science Ontology",
+      "bblockId": "ogc.osc.ontology.openscience",
+      "generated": "2025-11-13T12:19:00.571639+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.osc.geodcat-stac-earthcode.workflows": {
+      "title": "Validation report for ogc.osc.geodcat-stac-earthcode.workflows - EarthCODE Workflow",
+      "bblockName": "EarthCODE Workflow",
+      "bblockId": "ogc.osc.geodcat-stac-earthcode.workflows",
+      "generated": "2025-11-13T12:19:01.204887+00:00",
+      "result": true,
+      "items": [
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/osc/geodcat-stac-earthcode/workflows/example_2_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/workflows/example_2_1.json",
+            "exampleIndex": 2,
+            "snippetIndex": 1,
+            "language": "application/json",
+            "sourceUrl": "https://raw.githubusercontent.com/ESA-EarthCODE/open-science-catalog-metadata/refs/heads/main/workflows/polaris-workflow/record.json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using example_2_1.json from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_2_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_2_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_2_1.ttl",
+                  "size": 61,
+                  "isError": false,
+                  "message": "Output Turtle example_2_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl",
+                  "focusNodes": {
+                    "<https://www.ogc.org/rules/rec/#testVarExists>": {
+                      "nodes": []
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:\n - Shape <https://www.ogc.org/rules/rec/#testVarExists>: *none*\n"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/osc/geodcat-stac-earthcode/workflows/example_3_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/workflows/example_3_1.json",
+            "exampleIndex": 3,
+            "snippetIndex": 1,
+            "language": "application/json",
+            "sourceUrl": "https://esa-earthcode.github.io/open-science-catalog-metadata-staging/workflows/waterbodies/record.json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using example_3_1.json from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_3_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_3_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_3_1.ttl",
+                  "size": 37,
+                  "isError": false,
+                  "message": "Output Turtle example_3_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl",
+                  "focusNodes": {
+                    "<https://www.ogc.org/rules/rec/#testVarExists>": {
+                      "nodes": []
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:\n - Shape <https://www.ogc.org/rules/rec/#testVarExists>: *none*\n"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "globalErrors": {},
+      "counts": {
+        "total": 2,
+        "passed": 2,
+        "failed": 0
+      }
+    },
+    "ogc.osc.geodcat-stac-earthcode.common": {
+      "title": "Validation report for ogc.osc.geodcat-stac-earthcode.common - EarthCODE Common STAC profile",
+      "bblockName": "EarthCODE Common STAC profile",
+      "bblockId": "ogc.osc.geodcat-stac-earthcode.common",
+      "generated": "2025-11-13T12:19:03.853788+00:00",
+      "result": false,
+      "items": [
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/osc/geodcat-stac-earthcode/common/example_1_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/common/example_1_1.json",
+            "exampleIndex": 1,
+            "snippetIndex": 1,
+            "language": "application/json",
+            "sourceUrl": "https://esa-earthcode.github.io/open-science-catalog-metadata-staging/products/polarwarp/collection.json"
+          },
+          "result": false,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using example_1_1.json from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_1_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_1_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_1_1.ttl",
+                  "size": 44,
+                  "isError": false,
+                  "message": "Output Turtle example_1_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": false,
+                  "exception": "ValidationError",
+                  "errorMessage": "{'id': 'polarwarp', 'title': 'Polarwarp', 'created': '2025-10-13T16:54:34Z', 'osc:status': 'completed', 'type': 'Collection', 'osc:type': 'product', 'stac_version': '1.0.0', 'description': 'Polarwarp product\\n\\nForecast rasters (+1h \u2026 +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.', 'license': 'various', 'extent': {'spatial': {'bbox': [[-0.0018099989187332413, 0.00043814539682784925, 0.001347252506956414, 0.0007574196581714432]]}, 'temporal': {'interval': [['2025-02-25T00:00:00Z', None]]}}, 'links': [{'rel': 'root', 'href': '../../catalog.json', 'type': 'application/json', 'title': 'Open Science Catalog'}, {'rel': 'parent', 'href': '../catalog.json', 'type': 'application/json', 'title': 'Products'}, {'href': '../../projects/cerulean-information-factory/collection.json', 'rel': 'related', 'type': 'application/json', 'title': 'Project: Cerulean Information Factory'}, {'href': '../../themes/cryosphere/catalog.json', 'rel': 'related', 'type': 'application/json', 'title': 'Theme: Cryosphere'}, {'rel': 'related', 'href': '../../experiments/polarwarp/record.json', 'type': 'application/json', 'title': 'Experiment: Polarwarp'}, {'href': './item.json', 'rel': 'item'}, {'href': 'https://github.com/gtif-cerulean/polarwarp', 'rel': 'via'}], 'stac_extensions': ['https://stac-extensions.github.io/osc/v1.0.0/schema.json', 'https://stac-extensions.github.io/themes/v1.0.0/schema.json'], 'osc:project': 'cerulean-information-factory', 'themes': [{'scheme': 'https://github.com/stac-extensions/osc#theme', 'concepts': [{'id': 'cryosphere'}]}]} is not valid under any of the given schemas",
+                  "isError": true,
+                  "message": "ValidationError: {'id': 'polarwarp', 'title': 'Polarwarp', 'created': '2025-10-13T16:54:34Z', 'osc:status': 'completed', 'type': 'Collection', 'osc:type': 'product', 'stac_version': '1.0.0', 'description': 'Polarwarp product\\n\\nForecast rasters (+1h \u2026 +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.', 'license': 'various', 'extent': {'spatial': {'bbox': [[-0.0018099989187332413, 0.00043814539682784925, 0.001347252506956414, 0.0007574196581714432]]}, 'temporal': {'interval': [['2025-02-25T00:00:00Z', None]]}}, 'links': [{'rel': 'root', 'href': '../../catalog.json', 'type': 'application/json', 'title': 'Open Science Catalog'}, {'rel': 'parent', 'href': '../catalog.json', 'type': 'application/json', 'title': 'Products'}, {'href': '../../projects/cerulean-information-factory/collection.json', 'rel': 'related', 'type': 'application/json', 'title': 'Project: Cerulean Information Factory'}, {'href': '../../themes/cryosphere/catalog.json', 'rel': 'related', 'type': 'application/json', 'title': 'Theme: Cryosphere'}, {'rel': 'related', 'href': '../../experiments/polarwarp/record.json', 'type': 'application/json', 'title': 'Experiment: Polarwarp'}, {'href': './item.json', 'rel': 'item'}, {'href': 'https://github.com/gtif-cerulean/polarwarp', 'rel': 'via'}], 'stac_extensions': ['https://stac-extensions.github.io/osc/v1.0.0/schema.json', 'https://stac-extensions.github.io/themes/v1.0.0/schema.json'], 'osc:project': 'cerulean-information-factory', 'themes': [{'scheme': 'https://github.com/stac-extensions/osc#theme', 'concepts': [{'id': 'cryosphere'}]}]} is not valid under any of the given schemas\n\nFailed validating 'anyOf' in schema['allOf'][3]:\n    {'anyOf': [{'$ref': 'https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/geodcat-records-prov/schema.yaml'}]}\n\nOn instance:\n    {'created': '2025-10-13T16:54:34Z',\n     'description': 'Polarwarp product\\n'\n                    '\\n'\n                    'Forecast rasters (+1h \u2026 +6h) produced by the '\n                    'Polarwarp workflow using NEXTSIM model and S1 scenes.',\n     'extent': {'spatial': {'bbox': [[-0.0018099989187332413,\n                                      0.00043814539682784925,\n                                      0.001347252506956414,\n                                      0.0007574196581714432]]},\n                'temporal': {'interval': [['2025-02-25T00:00:00Z', None]]}},\n     'id': 'polarwarp',\n     'license': 'various',\n     'links': [{'href': '../../catalog.json',\n                'rel': 'root',\n                'title': 'Open Science Catalog',\n                'type': 'application/json'},\n               {'href': '../catalog.json',\n                'rel': 'parent',\n                'title': 'Products',\n                'type': 'application/json'},\n               {'href': '../../projects/cerulean-information-factory/collection.json',\n                'rel': 'related',\n                'title': 'Project: Cerulean Information Factory',\n                'type': 'application/json'},\n               {'href': '../../themes/cryosphere/catalog.json',\n                'rel': 'related',\n                'title': 'Theme: Cryosphere',\n                'type': 'application/json'},\n               {'href': '../../experiments/polarwarp/record.json',\n                'rel': 'related',\n                'title': 'Experiment: Polarwarp',\n                'type': 'application/json'},\n               {'href': './item.json', 'rel': 'item'},\n               {'href': 'https://github.com/gtif-cerulean/polarwarp',\n                'rel': 'via'}],\n     'osc:project': 'cerulean-information-factory',\n     'osc:status': 'completed',\n     'osc:type': 'product',\n     'stac_extensions': ['https://stac-extensions.github.io/osc/v1.0.0/schema.json',\n                         'https://stac-extensions.github.io/themes/v1.0.0/schema.json'],\n     'stac_version': '1.0.0',\n     'themes': [{'concepts': [{'id': 'cryosphere'}],\n                 'scheme': 'https://github.com/stac-extensions/osc#theme'}],\n     'title': 'Polarwarp',\n     'type': 'Collection'}"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl",
+                  "focusNodes": {
+                    "<https://www.ogc.org/rules/rec/#testVarExists>": {
+                      "nodes": []
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:\n - Shape <https://www.ogc.org/rules/rec/#testVarExists>: *none*\n"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "globalErrors": {},
+      "counts": {
+        "total": 1,
+        "passed": 0,
+        "failed": 1
+      }
+    },
+    "ogc.osc.geodcat-stac-earthcode.experiments": {
+      "title": "Validation report for ogc.osc.geodcat-stac-earthcode.experiments - EarthCODE Experiment",
+      "bblockName": "EarthCODE Experiment",
+      "bblockId": "ogc.osc.geodcat-stac-earthcode.experiments",
+      "generated": "2025-11-13T12:19:06.314094+00:00",
+      "result": false,
+      "items": [
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/osc/geodcat-stac-earthcode/experiments/example_1_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/experiments/example_1_1.json",
+            "exampleIndex": 1,
+            "snippetIndex": 1,
+            "language": "application/json",
+            "sourceUrl": "https://raw.githubusercontent.com/ESA-EarthCODE/open-science-catalog-metadata/refs/heads/main/experiments/polaris-experiment/record.json"
+          },
+          "result": false,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using example_1_1.json from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_1_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_1_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_1_1.ttl",
+                  "size": 62,
+                  "isError": false,
+                  "message": "Output Turtle example_1_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": false,
+                  "exception": "ValidationError",
+                  "errorMessage": "'stac_extensions' is a required property",
+                  "isError": true,
+                  "message": "ValidationError: 'stac_extensions' is a required property\n\nFailed validating 'required' in schema['allOf'][0]['allOf'][0]['allOf'][1]:\n    {'$id': 'https://stac-extensions.github.io/themes/v1.0.0/schema.json#',\n     '$schema': 'http://json-schema.org/draft-07/schema#',\n     'definitions': {'fields': {'properties': {'themes': {'items': {'properties': {'concepts': {'items': {'properties': {'description': {'minLength': 1,\n                                                                                                                                         'type': 'string'},\n                                                                                                                         'id': {'minLength': 1,\n                                                                                                                                'type': 'string'},\n                                                                                                                         'title': {'minLength': 1,\n                                                                                                                                   'type': 'string'},\n                                                                                                                         'url': {'format': 'uri',\n                                                                                                                                 'type': 'string'}},\n                                                                                                          'required': ['id'],\n                                                                                                          'type': 'object'},\n                                                                                                'minItems': 1,\n                                                                                                'type': 'array'},\n                                                                                   'scheme': {'minLength': 1,\n                                                                                              'type': 'string'}},\n                                                                    'required': ['concepts',\n                                                                                 'scheme'],\n                                                                    'type': 'object'},\n                                                          'minItems': 1,\n                                                          'type': 'array'}},\n                                'required': ['themes'],\n                                'type': 'object'}},\n     'description': 'STAC Themes Extension for STAC Catalogs, Collections '\n                    'and Items.',\n     'oneOf': [{'$comment': 'This is the schema for STAC Items.',\n                'properties': {'properties': {'$ref': '#/definitions/fields'},\n                               'type': {'const': 'Feature'}},\n                'required': ['type', 'properties'],\n                'type': 'object'},\n               {'$comment': 'This is the schema for STAC Catalogs.',\n                'allOf': [{'$ref': '#/definitions/fields'}],\n                'properties': {'type': {'const': 'Catalog'}},\n                'required': ['type'],\n                'type': 'object'},\n               {'$comment': 'This is the schema for STAC Collections.',\n                'anyOf': [{'$ref': '#/definitions/fields'},\n                          {'$comment': 'This is the schema for the fields '\n                                       'in Summaries. By default, only '\n                                       'checks the existance of the '\n                                       'properties, but not the schema of '\n                                       'the summaries.',\n                           'properties': {'summaries': {'required': ['themes']}},\n                           'required': ['summaries']}],\n                'properties': {'type': {'const': 'Collection'}},\n                'required': ['type'],\n                'type': 'object'}],\n     'properties': {'stac_extensions': {'contains': {'const': 'https://stac-extensions.github.io/themes/v1.0.0/schema.json'},\n                                        'type': 'array'}},\n     'required': ['stac_extensions'],\n     'title': 'Themes Extension',\n     'type': 'object'}\n\nOn instance:\n    {'conformsTo': ['http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core'],\n     'geometry': None,\n     'id': 'polaris-experiment',\n     'linkTemplates': [],\n     'links': [{'href': '../../catalog.json',\n                'rel': 'root',\n                'title': 'Open Science Catalog',\n                'type': 'application/json'},\n               {'href': '../catalog.json',\n                'rel': 'parent',\n                'title': 'Experiments',\n                'type': 'application/json'},\n               {'href': '../../products/polaris/collection.json',\n                'rel': 'child',\n                'title': 'POLARIS',\n                'type': 'application/json'},\n               {'href': '../../themes/oceans/catalog.json',\n                'rel': 'related',\n                'title': 'Theme: Oceans',\n                'type': 'application/json'},\n               {'href': '../../workflows/polaris-workflow/record.json',\n                'rel': 'related',\n                'title': 'Workflow: POLARIS',\n                'type': 'application/json'},\n               {'href': './input.yaml',\n                'rel': 'input',\n                'title': 'Input parameters',\n                'type': 'application/yaml'},\n               {'href': './environment.yaml',\n                'rel': 'environment',\n                'title': 'Execution environment',\n                'type': 'application/yaml'},\n               {'href': 'https://esa-earthcode.github.io/open-science-catalog-metadata/experiments/polaris-experiment/item.json',\n                'rel': 'self',\n                'type': 'application/json'}],\n     'properties': {'contacts': [{'contactInstructions': 'Contact via '\n                                                         'EarthCODE',\n                                  'links': [{'href': 'https://opensciencedata.esa.int/',\n                                             'rel': 'about',\n                                             'type': 'text/html'}],\n                                  'name': 'EarthCODE Demo',\n                                  'organization': 'EarthCODE',\n                                  'roles': ['host']}],\n                    'created': '2025-02-19T23:00:00Z',\n                    'description': 'Polar Operational Limit Assessment '\n                                   'Risk Index System (POLARIS)',\n                    'formats': [{'name': 'GeoTIFF'}],\n                    'keywords': ['sea ice', 'polar'],\n                    'license': 'CC-BY-SA-4.0',\n                    'osc:workflow': 'polaris-workflow',\n                    'themes': [{'concepts': [{'id': 'oceans'}],\n                                'scheme': 'https://github.com/stac-extensions/osc#theme'}],\n                    'title': 'POLARIS',\n                    'type': 'experiment',\n                    'updated': '2025-02-19T23:00:00Z',\n                    'version': '2'},\n     'type': 'Feature'}"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl",
+                  "focusNodes": {
+                    "<https://www.ogc.org/rules/rec/#testVarExists>": {
+                      "nodes": []
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:\n - Shape <https://www.ogc.org/rules/rec/#testVarExists>: *none*\n"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "globalErrors": {},
+      "counts": {
+        "total": 1,
+        "passed": 0,
+        "failed": 1
+      }
+    },
+    "ogc.osc.geodcat-stac-earthcode.products": {
+      "title": "Validation report for ogc.osc.geodcat-stac-earthcode.products - EarthCODE Product",
+      "bblockName": "EarthCODE Product",
+      "bblockId": "ogc.osc.geodcat-stac-earthcode.products",
+      "generated": "2025-11-13T12:19:08.280623+00:00",
+      "result": false,
+      "items": [
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/osc/geodcat-stac-earthcode/products/example_1_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/products/example_1_1.json",
+            "exampleIndex": 1,
+            "snippetIndex": 1,
+            "language": "application/json",
+            "sourceUrl": "https://esa-earthcode.github.io/open-science-catalog-metadata-staging/products/polarwarp/collection.json"
+          },
+          "result": false,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using example_1_1.json from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_1_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_1_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_1_1.ttl",
+                  "size": 44,
+                  "isError": false,
+                  "message": "Output Turtle example_1_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": false,
+                  "exception": "ValidationError",
+                  "errorMessage": "{'id': 'polarwarp', 'title': 'Polarwarp', 'created': '2025-10-13T16:54:34Z', 'osc:status': 'completed', 'type': 'Collection', 'osc:type': 'product', 'stac_version': '1.0.0', 'description': 'Polarwarp product\\n\\nForecast rasters (+1h \u2026 +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.', 'license': 'various', 'extent': {'spatial': {'bbox': [[-0.0018099989187332413, 0.00043814539682784925, 0.001347252506956414, 0.0007574196581714432]]}, 'temporal': {'interval': [['2025-02-25T00:00:00Z', None]]}}, 'links': [{'rel': 'root', 'href': '../../catalog.json', 'type': 'application/json', 'title': 'Open Science Catalog'}, {'rel': 'parent', 'href': '../catalog.json', 'type': 'application/json', 'title': 'Products'}, {'href': '../../projects/cerulean-information-factory/collection.json', 'rel': 'related', 'type': 'application/json', 'title': 'Project: Cerulean Information Factory'}, {'href': '../../themes/cryosphere/catalog.json', 'rel': 'related', 'type': 'application/json', 'title': 'Theme: Cryosphere'}, {'rel': 'related', 'href': '../../experiments/polarwarp/record.json', 'type': 'application/json', 'title': 'Experiment: Polarwarp'}, {'href': './item.json', 'rel': 'item'}, {'href': 'https://github.com/gtif-cerulean/polarwarp', 'rel': 'via'}], 'stac_extensions': ['https://stac-extensions.github.io/osc/v1.0.0/schema.json', 'https://stac-extensions.github.io/themes/v1.0.0/schema.json'], 'osc:project': 'cerulean-information-factory', 'themes': [{'scheme': 'https://github.com/stac-extensions/osc#theme', 'concepts': [{'id': 'cryosphere'}]}]} is not valid under any of the given schemas",
+                  "isError": true,
+                  "message": "ValidationError: {'id': 'polarwarp', 'title': 'Polarwarp', 'created': '2025-10-13T16:54:34Z', 'osc:status': 'completed', 'type': 'Collection', 'osc:type': 'product', 'stac_version': '1.0.0', 'description': 'Polarwarp product\\n\\nForecast rasters (+1h \u2026 +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.', 'license': 'various', 'extent': {'spatial': {'bbox': [[-0.0018099989187332413, 0.00043814539682784925, 0.001347252506956414, 0.0007574196581714432]]}, 'temporal': {'interval': [['2025-02-25T00:00:00Z', None]]}}, 'links': [{'rel': 'root', 'href': '../../catalog.json', 'type': 'application/json', 'title': 'Open Science Catalog'}, {'rel': 'parent', 'href': '../catalog.json', 'type': 'application/json', 'title': 'Products'}, {'href': '../../projects/cerulean-information-factory/collection.json', 'rel': 'related', 'type': 'application/json', 'title': 'Project: Cerulean Information Factory'}, {'href': '../../themes/cryosphere/catalog.json', 'rel': 'related', 'type': 'application/json', 'title': 'Theme: Cryosphere'}, {'rel': 'related', 'href': '../../experiments/polarwarp/record.json', 'type': 'application/json', 'title': 'Experiment: Polarwarp'}, {'href': './item.json', 'rel': 'item'}, {'href': 'https://github.com/gtif-cerulean/polarwarp', 'rel': 'via'}], 'stac_extensions': ['https://stac-extensions.github.io/osc/v1.0.0/schema.json', 'https://stac-extensions.github.io/themes/v1.0.0/schema.json'], 'osc:project': 'cerulean-information-factory', 'themes': [{'scheme': 'https://github.com/stac-extensions/osc#theme', 'concepts': [{'id': 'cryosphere'}]}]} is not valid under any of the given schemas\n\nFailed validating 'anyOf' in schema['allOf'][0]['allOf'][3]:\n    {'anyOf': [{'$ref': 'https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/geodcat-records-prov/schema.yaml'}]}\n\nOn instance:\n    {'created': '2025-10-13T16:54:34Z',\n     'description': 'Polarwarp product\\n'\n                    '\\n'\n                    'Forecast rasters (+1h \u2026 +6h) produced by the '\n                    'Polarwarp workflow using NEXTSIM model and S1 scenes.',\n     'extent': {'spatial': {'bbox': [[-0.0018099989187332413,\n                                      0.00043814539682784925,\n                                      0.001347252506956414,\n                                      0.0007574196581714432]]},\n                'temporal': {'interval': [['2025-02-25T00:00:00Z', None]]}},\n     'id': 'polarwarp',\n     'license': 'various',\n     'links': [{'href': '../../catalog.json',\n                'rel': 'root',\n                'title': 'Open Science Catalog',\n                'type': 'application/json'},\n               {'href': '../catalog.json',\n                'rel': 'parent',\n                'title': 'Products',\n                'type': 'application/json'},\n               {'href': '../../projects/cerulean-information-factory/collection.json',\n                'rel': 'related',\n                'title': 'Project: Cerulean Information Factory',\n                'type': 'application/json'},\n               {'href': '../../themes/cryosphere/catalog.json',\n                'rel': 'related',\n                'title': 'Theme: Cryosphere',\n                'type': 'application/json'},\n               {'href': '../../experiments/polarwarp/record.json',\n                'rel': 'related',\n                'title': 'Experiment: Polarwarp',\n                'type': 'application/json'},\n               {'href': './item.json', 'rel': 'item'},\n               {'href': 'https://github.com/gtif-cerulean/polarwarp',\n                'rel': 'via'}],\n     'osc:project': 'cerulean-information-factory',\n     'osc:status': 'completed',\n     'osc:type': 'product',\n     'stac_extensions': ['https://stac-extensions.github.io/osc/v1.0.0/schema.json',\n                         'https://stac-extensions.github.io/themes/v1.0.0/schema.json'],\n     'stac_version': '1.0.0',\n     'themes': [{'concepts': [{'id': 'cryosphere'}],\n                 'scheme': 'https://github.com/stac-extensions/osc#theme'}],\n     'title': 'Polarwarp',\n     'type': 'Collection'}"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl",
+                  "focusNodes": {
+                    "<https://www.ogc.org/rules/rec/#testVarExists>": {
+                      "nodes": []
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:\n - Shape <https://www.ogc.org/rules/rec/#testVarExists>: *none*\n"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "globalErrors": {},
+      "counts": {
+        "total": 1,
+        "passed": 0,
+        "failed": 1
+      }
+    },
+    "ogc.osc.api-profiles.processes-prov": {
+      "title": "Validation report for ogc.osc.api-profiles.processes-prov - IPT profile of OGC API Processes",
+      "bblockName": "IPT profile of OGC API Processes",
+      "bblockId": "ogc.osc.api-profiles.processes-prov",
+      "generated": "2025-11-13T12:19:08.285463+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.osc.api-profiles.processes-workflow": {
+      "title": "Validation report for ogc.osc.api-profiles.processes-workflow - Workflow profile of OGC API Processes",
+      "bblockName": "Workflow profile of OGC API Processes",
+      "bblockId": "ogc.osc.api-profiles.processes-workflow",
+      "generated": "2025-11-13T12:19:08.289131+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.osc.api-profiles.processes-openscience": {
+      "title": "Validation report for ogc.osc.api-profiles.processes-openscience - Open Science profile of OGC API Processes",
+      "bblockName": "Open Science profile of OGC API Processes",
+      "bblockId": "ogc.osc.api-profiles.processes-openscience",
+      "generated": "2025-11-13T12:19:08.316054+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    }
+  }
+}
