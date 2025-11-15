@@ -210,7 +210,6 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
-@prefix stac: <http://stacspec.org/ontology/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://ogc.org/demo/ospd/polarwarp> rdfs:label "Polarwarp" ;
@@ -218,33 +217,33 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
     dcterms:description """Polarwarp product
 
 Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.""" ;
+    dcterms:extent [ ] ;
     dcterms:license "various" ;
     dcterms:type "Collection" ;
-    stac:extent [ ] ;
-    rdfs:seeAlso [ rdfs:label "Experiment: Polarwarp" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
-        [ rdfs:label "Open Science Catalog" ;
+    rdfs:seeAlso [ rdfs:label "Open Science Catalog" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://ogc.org/catalog.json> ],
-        [ rdfs:label "Theme: Cryosphere" ;
+        [ rdfs:label "Experiment: Polarwarp" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/item.json> ],
+            oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ],
+        [ rdfs:label "Project: Cerulean Information Factory" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
         [ rdfs:label "Products" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://ogc.org/demo/catalog.json> ],
-        [ rdfs:label "Project: Cerulean Information Factory" ;
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/item.json> ],
+        [ rdfs:label "Theme: Cryosphere" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ] ;
+            oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ] ;
     rec:themes [ rec:concept [ rec:conceptID "cryosphere"^^xsd:string ] ;
             rec:scheme "https://github.com/stac-extensions/osc#theme" ] ;
     ns2:project "cerulean-information-factory" ;
@@ -336,9 +335,9 @@ Links to the schema:
       "@container": "@set"
     },
     "license": "dct:license",
-    "extent": "stac:extent",
+    "extent": "dct:extent",
     "datetime": {
-      "@id": "stac:datetime",
+      "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
     "start_datetime": {
@@ -351,9 +350,21 @@ Links to the schema:
     },
     "assets": {
       "@id": "https://w3id.org/ogc/stac/core/assets",
-      "@container": "@id"
+      "@container": "@id",
+      "@context": {
+        "thumbnail": "stac:thumbnail",
+        "overview": "stac:overview",
+        "data": "stac:data",
+        "metadata": "stac:metadata",
+        "type": "dct:format",
+        "title": "dct:title",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
+      }
     },
-    "media_type": "stac:mediaType",
+    "media_type": "dct:format",
     "themes": {
       "@id": "rec:themes",
       "@container": "@set",
@@ -384,6 +395,13 @@ Links to the schema:
       }
     },
     "scheme": "thns:scheme",
+    "name": "cf:name",
+    "unit": {
+      "@id": "qudt:hasUnit",
+      "@context": {
+        "@base": "http://qudt.org/vocab/unit/"
+      }
+    },
     "time": {
       "@id": "dct:temporal",
       "@context": {
@@ -776,16 +794,15 @@ Links to the schema:
       "@id": "prov:mentionOf",
       "@type": "@id"
     },
-    "name": "rdfs:label",
     "oa": "http://www.w3.org/ns/oa#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "dct": "http://purl.org/dc/terms/",
     "thns": "https://w3id.org/ogc/stac/themes/",
     "geojson": "https://purl.org/geojson/vocab#",
     "stac": "http://stacspec.org/ontology/core#",
-    "geo": "http://www.opengis.net/ont/geosparql#",
-    "prov": "http://www.w3.org/ns/prov#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "cf": "https://w3id.org/ogc/stac/cf/",
+    "qudt": "http://qudt.org/schema/qudt/",
     "w3ctime": "http://www.w3.org/2006/time#",
     "rec": "https://www.opengis.net/def/ogc-api/records/",
     "dcat": "http://www.w3.org/ns/dcat#",
@@ -794,6 +811,7 @@ Links to the schema:
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "dctype": "http://purl.org/dc/dcmitype/",
     "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "prov": "http://www.w3.org/ns/prov#",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "@version": 1.1
   }

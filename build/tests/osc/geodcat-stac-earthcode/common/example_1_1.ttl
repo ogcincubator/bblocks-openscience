@@ -4,7 +4,6 @@
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
-@prefix stac: <http://stacspec.org/ontology/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://ogc.org/demo/ospd/polarwarp> rdfs:label "Polarwarp" ;
@@ -12,33 +11,33 @@
     dcterms:description """Polarwarp product
 
 Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.""" ;
+    dcterms:extent [ ] ;
     dcterms:license "various" ;
     dcterms:type "Collection" ;
-    stac:extent [ ] ;
-    rdfs:seeAlso [ rdfs:label "Experiment: Polarwarp" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
-        [ rdfs:label "Open Science Catalog" ;
+    rdfs:seeAlso [ rdfs:label "Open Science Catalog" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://ogc.org/catalog.json> ],
-        [ rdfs:label "Theme: Cryosphere" ;
+        [ rdfs:label "Experiment: Polarwarp" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/item.json> ],
+            oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ],
+        [ rdfs:label "Project: Cerulean Information Factory" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
         [ rdfs:label "Products" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://ogc.org/demo/catalog.json> ],
-        [ rdfs:label "Project: Cerulean Information Factory" ;
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/item.json> ],
+        [ rdfs:label "Theme: Cryosphere" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ] ;
+            oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ] ;
     rec:themes [ rec:concept [ rec:conceptID "cryosphere"^^xsd:string ] ;
             rec:scheme "https://github.com/stac-extensions/osc#theme" ] ;
     ns2:project "cerulean-information-factory" ;
