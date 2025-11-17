@@ -2,7 +2,7 @@
   "name": "Open Science Workflows Building Blocks",
   "abstract": "Building Blocks for FAIR Open Science - profiles of OGC API Processes and various metadata standards to support open, transparent, interoperable and reproducible scientific workflows..\n",
   "description": "This repository is initially aimed to support the [Open Science Persistent Demonstrator](https://www.ogc.org/initiatives/open-science/) pilot, but may be further developed as a set of standards with appropriate working group governance.\n",
-  "modified": "2025-11-13T12:18:52.687984",
+  "modified": "2025-11-15T06:06:36.825022",
   "tooling": {
     "bblocks-postprocess": {
       "commitId": "\"4fa4cc94cf7d37823107d163051f795337c61afb",
@@ -123,8 +123,8 @@
       "version": "0.1",
       "dateOfLastChange": "2025-11-13",
       "dependsOn": [
-        "ogc.osc.ontology.cwlprov",
-        "ogc.geo.geodcat.dcat"
+        "ogc.geo.geodcat.dcat",
+        "ogc.osc.ontology.cwlprov"
       ],
       "sources": [],
       "scope": "dev",
@@ -221,10 +221,10 @@
       "register": "ogc-incubator",
       "dependsOn": [
         "ogc.ogc-utils.prov",
-        "ogc.contrib.stac.extensions.cf",
-        "ogc.geo.geodcat.geodcat-records-prov",
         "ogc.contrib.stac.extensions.osc",
-        "ogc.contrib.stac.extensions.themes"
+        "ogc.contrib.stac.extensions.cf",
+        "ogc.contrib.stac.extensions.themes",
+        "ogc.geo.geodcat.geodcat-records-prov"
       ],
       "version": "0.1",
       "dateOfLastChange": "2025-11-13",
@@ -417,8 +417,8 @@
       "itemClass": "api",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.ogc-utils.prov",
-        "ogc.api.processes.v1.api"
+        "ogc.api.processes.v1.api",
+        "ogc.ogc-utils.prov"
       ],
       "version": "0.1",
       "dateOfLastChange": "2025-11-13",
@@ -501,10 +501,10 @@
       "itemClass": "api",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.osc.geodcat-stac-earthcode.products",
+        "ogc.osc.api-profiles.processes-workflow",
         "ogc.osc.geodcat-stac-earthcode.experiments",
         "ogc.osc.geodcat-stac-earthcode.workflows",
-        "ogc.osc.api-profiles.processes-workflow"
+        "ogc.osc.geodcat-stac-earthcode.products"
       ],
       "version": "0.1",
       "dateOfLastChange": "2025-11-13",
