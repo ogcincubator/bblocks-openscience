@@ -11,7 +11,7 @@ properties:
       - osc:project
     properties:
       osc:project:
-        $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common#/definitions/osc:project
+        $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common#/$defs/osc:project
   links:
     type: array
     items:
@@ -24,4 +24,4 @@ properties:
               not:
                 enum:
                   - via
-        - $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common#/definitions/via_links
+        - $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common#/$defs/via_links

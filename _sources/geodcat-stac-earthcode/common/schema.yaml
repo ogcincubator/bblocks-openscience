@@ -8,7 +8,7 @@ anyOf:
     - $ref: bblocks://ogc.contrib.stac.extensions.themes
     - $ref: bblocks://ogc.contrib.stac.extensions.osc
   - $ref: bblocks://ogc.geo.geodcat.geodcat-records
-definitions:
+$defs:
   osc:workflow:
     title: Workflow
     type: string
@@ -87,4 +87,4 @@ definitions:
     type: array
     format: osc-workflows
     items:
-      $ref: "#/definitions/osc:workflow"
+      $ref: "#/$defs/osc:workflow"

@@ -10,7 +10,7 @@ properties:
       - osc:workflow
     properties:
       osc:workflow:
-        $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common#/definitions/osc:workflow
+        $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common#/$defs/osc:workflow
   links:
     type: array
     items:
@@ -31,4 +31,4 @@ properties:
           properties:
             rel:
               const: environment
-        - $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common#/definitions/via_links
+        - $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common#/$defs/via_links
