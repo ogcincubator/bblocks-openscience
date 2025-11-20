@@ -40,6 +40,7 @@ $graph:
         label: area of interest
         doc: area of interest as a bounding box
         type: string
+        default: "-121.399,39.834,-120.74,40.472"
       epsg:
         label: EPSG code
         doc: EPSG code
@@ -49,6 +50,7 @@ $graph:
         label: Sentinel-2 STAC items
         doc: list of Sentinel-2 COG STAC items
         type: string[]
+        default: ["https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2B_10TFK_20210713_0_L2A", "https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2A_10TFK_20220524_0_L2A"]
       bands:
         label: bands used for the NDWI
         doc: bands used for the NDWI
