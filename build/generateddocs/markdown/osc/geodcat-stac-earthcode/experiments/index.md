@@ -248,56 +248,56 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix thns: <https://w3id.org/ogc/stac/themes/> .
 
 <https://ogc.org/demo/ospd/polaris-experiment> rdfs:label "POLARIS" ;
     dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core> ;
     dcterms:created "2025-02-19T23:00:00Z" ;
     dcterms:description "Polar Operational Limit Assessment Risk Index System (POLARIS)" ;
-    dcterms:license "CC-BY-SA-4.0" ;
     dcterms:modified "2025-02-19T23:00:00Z" ;
     dcterms:type "Feature",
         "experiment" ;
-    rdfs:seeAlso [ rdfs:label "Theme: Oceans" ;
-            dcterms:type "application/json" ;
+    rdfs:seeAlso [ rdfs:label "Experiments" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
+        [ dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/experiments/polaris-experiment/item.json> ],
+        [ rdfs:label "Theme: Oceans" ;
+            dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
         [ rdfs:label "Input parameters" ;
-            dcterms:type "application/yaml" ;
+            dcterms:format "application/yaml" ;
             ns1:relation <http://www.iana.org/assignments/relation/input> ;
             oa:hasTarget <https://ogc.org/demo/ospd/input.yaml> ],
-        [ rdfs:label "Execution environment" ;
-            dcterms:type "application/yaml" ;
-            ns1:relation <http://www.iana.org/assignments/relation/environment> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/environment.yaml> ],
-        [ rdfs:label "Experiments" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
-        [ rdfs:label "Open Science Catalog" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://ogc.org/catalog.json> ],
         [ rdfs:label "Workflow: POLARIS" ;
-            dcterms:type "application/json" ;
+            dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/workflows/polaris-workflow/record.json> ],
-        [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/experiments/polaris-experiment/item.json> ],
+        [ rdfs:label "Execution environment" ;
+            dcterms:format "application/yaml" ;
+            ns1:relation <http://www.iana.org/assignments/relation/environment> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/environment.yaml> ],
         [ rdfs:label "POLARIS" ;
-            dcterms:type "application/json" ;
+            dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/child> ;
-            oa:hasTarget <https://ogc.org/products/polaris/collection.json> ] ;
-    dcat:contactPoint [ rdfs:seeAlso [ dcterms:type "text/html" ;
+            oa:hasTarget <https://ogc.org/products/polaris/collection.json> ],
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ] ;
+    dcat:contactPoint [ rdfs:seeAlso [ dcterms:format "text/html" ;
                     ns1:relation <http://www.iana.org/assignments/relation/about> ;
                     oa:hasTarget <https://opensciencedata.esa.int/> ] ;
             cf:name "EarthCODE Demo" ] ;
     dcat:keyword "polar",
         "sea ice" ;
-    rec:format [ rec:name "GeoTIFF" ] ;
-    rec:themes [ rec:concept [ rec:conceptID "oceans"^^xsd:string ] ;
-            rec:scheme "https://github.com/stac-extensions/osc#theme" ] ;
+    dcat:license "CC-BY-SA-4.0" ;
+    rec:format [ cf:name "GeoTIFF" ] ;
+    rec:themes [ thns:concepts [ thns:id "oceans" ] ;
+            thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
     ns2:workflow "polaris-workflow" .
 
 
@@ -324,21 +324,60 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
-    "href": {
-      "@type": "@id",
-      "@id": "oa:hasTarget"
-    },
-    "rel": {
-      "@context": {
-        "@base": "http://www.iana.org/assignments/relation/"
-      },
-      "@id": "http://www.iana.org/assignments/relation",
-      "@type": "@id"
-    },
+    "stac_version": "stac:version",
+    "stac_extensions": "stac:hasExtension",
     "type": "dct:type",
-    "hreflang": "dct:language",
-    "title": "rdfs:label",
-    "length": "dct:extent",
+    "id": "@id",
+    "extent": "dct:extent",
+    "assets": {
+      "@context": {
+        "title": "dct:title",
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        },
+        "thumbnail": "stac:thumbnail",
+        "overview": "stac:overview",
+        "data": "stac:data",
+        "metadata": "stac:metadata"
+      },
+      "@id": "stac:assets",
+      "@container": "@id"
+    },
+    "title": {
+      "@id": "rdfs:label",
+      "@container": "@set"
+    },
+    "description": {
+      "@id": "dct:description",
+      "@container": "@set"
+    },
+    "links": {
+      "@context": {
+        "type": "dct:format"
+      },
+      "@id": "rdfs:seeAlso"
+    },
+    "keywords": {
+      "@id": "dcat:keyword",
+      "@container": "@set"
+    },
+    "license": "dcat:license",
+    "datetime": {
+      "@id": "dct:date",
+      "@type": "xsd:dateTime"
+    },
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "providers": "stac:hasProvider",
+    "media_type": "dct:format",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
     "GeometryCollection": "geojson:GeometryCollection",
@@ -352,11 +391,14 @@ Links to the schema:
       "@container": "@set",
       "@id": "geojson:features"
     },
-    "id": "@id",
     "properties": "@nest",
     "geometry": {
       "@context": {
-        "type": "@type"
+        "type": "@type",
+        "coordinates": {
+          "@container": "@list",
+          "@id": "geojson:coordinates"
+        }
       },
       "@id": "geojson:geometry"
     },
@@ -364,72 +406,76 @@ Links to the schema:
       "@container": "@list",
       "@id": "geojson:bbox"
     },
-    "links": "rdfs:seeAlso",
-    "coordinates": {
-      "@container": "@list",
-      "@id": "geojson:coordinates"
+    "conformsTo": {
+      "@container": "@set",
+      "@id": "dct:conformsTo",
+      "@type": "@id"
     },
+    "time": "dct:temporal",
     "created": "dct:created",
     "updated": "dct:modified",
-    "uriTemplate": {
-      "@type": "xsd:string",
+    "language": "rec:language",
+    "languages": {
+      "@container": "@set",
+      "@id": "rec:languages"
+    },
+    "resourceLanguages": {
+      "@container": "@set",
+      "@id": "rec:resourceLanguages"
+    },
+    "externalIds": {
+      "@context": {
+        "scheme": "rec:scheme",
+        "value": "rec:id"
+      },
+      "@container": "@set",
+      "@id": "rec:scopedIdentifier"
+    },
+    "themes": {
+      "@container": "@set",
+      "@id": "rec:themes"
+    },
+    "formats": {
+      "@container": "@set",
+      "@id": "rec:format",
+      "@type": "@id"
+    },
+    "contacts": {
+      "@container": "@set",
+      "@id": "dcat:contactPoint",
+      "@type": "@id"
+    },
+    "rights": "dcat:rights",
+    "linkTemplates": {
+      "@context": {
+        "type": "dct:format",
+        "uriTemplate": {
+          "@type": "xsd:string",
+          "@id": "rec:uriTemplate"
+        },
+        "varBase": "rec:varBase",
+        "variables": {
+          "@id": "rec:hasVariable",
+          "@container": "@index",
+          "@index": "dct:identifier",
+          "@type": "@json"
+        }
+      },
+      "@id": "rec:hasLinkTemplate"
+    },
+    "href": {
+      "@type": "@id",
       "@id": "oa:hasTarget"
     },
-    "description": {
-      "@id": "dct:description",
-      "@container": "@set"
-    },
-    "license": "dct:license",
-    "extent": "dct:extent",
-    "datetime": {
-      "@id": "dct:date",
-      "@type": "xsd:dateTime"
-    },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "assets": {
-      "@id": "https://w3id.org/ogc/stac/core/assets",
-      "@container": "@id",
+    "rel": {
       "@context": {
-        "thumbnail": "stac:thumbnail",
-        "overview": "stac:overview",
-        "data": "stac:data",
-        "metadata": "stac:metadata",
-        "type": "dct:format",
-        "title": "dct:title",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        }
-      }
+        "@base": "http://www.iana.org/assignments/relation/"
+      },
+      "@id": "http://www.iana.org/assignments/relation",
+      "@type": "@id"
     },
-    "media_type": "dct:format",
-    "themes": {
-      "@id": "rec:themes",
-      "@container": "@set",
-      "@context": {
-        "concepts": {
-          "@id": "rec:concept",
-          "@context": {
-            "id": {
-              "@type": "xsd:string",
-              "@id": "rec:conceptID"
-            },
-            "url": {
-              "@type": "@id",
-              "@id": "dcat:theme"
-            }
-          }
-        },
-        "scheme": "rec:scheme"
-      }
-    },
+    "hreflang": "dct:language",
+    "length": "dct:extent",
     "concepts": {
       "@id": "thns:concepts",
       "@container": "@set",
@@ -447,69 +493,7 @@ Links to the schema:
         "@base": "http://qudt.org/vocab/unit/"
       }
     },
-    "time": {
-      "@id": "dct:temporal",
-      "@context": {
-        "interval": {
-          "@id": "w3ctime:hasTime",
-          "@container": "@list"
-        },
-        "resolution": "rec:iso8601period"
-      }
-    },
-    "keywords": {
-      "@container": "@set",
-      "@id": "dcat:keyword"
-    },
-    "conformsTo": {
-      "@container": "@set",
-      "@id": "dct:conformsTo",
-      "@type": "@id"
-    },
-    "language": {
-      "@id": "rec:language",
-      "@context": {
-        "code": "rec:languageCode",
-        "name": "skos:prefLabel"
-      }
-    },
-    "languages": {
-      "@container": "@set",
-      "@id": "rec:languages",
-      "@context": {
-        "code": "rec:languageCode",
-        "name": "skos:prefLabel"
-      }
-    },
-    "resourceLanguages": {
-      "@container": "@set",
-      "@id": "rec:resourceLanguages",
-      "@context": {
-        "code": "rec:languageCode",
-        "name": "skos:prefLabel"
-      }
-    },
-    "externalIds": {
-      "@container": "@set",
-      "@id": "rec:scopedIdentifier",
-      "@context": {
-        "scheme": "rec:scheme",
-        "value": "rec:id"
-      }
-    },
-    "formats": {
-      "@id": "rec:format",
-      "@context": {
-        "name": "rec:name"
-      }
-    },
-    "contacts": {
-      "@container": "@set",
-      "@id": "dcat:contactPoint",
-      "@type": "@id"
-    },
     "accessrights": "dct:accessRights",
-    "linkTemplates": "rec:hasLinkTemplate",
     "variables": {
       "@container": "@id",
       "@id": "rec:hasVariable",
@@ -839,25 +823,25 @@ Links to the schema:
       "@id": "prov:mentionOf",
       "@type": "@id"
     },
-    "oa": "http://www.w3.org/ns/oa#",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "stac": "https://w3id.org/ogc/stac/core/",
     "dct": "http://purl.org/dc/terms/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "oa": "http://www.w3.org/ns/oa#",
     "thns": "https://w3id.org/ogc/stac/themes/",
     "geojson": "https://purl.org/geojson/vocab#",
-    "stac": "http://stacspec.org/ontology/core#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "cf": "https://w3id.org/ogc/stac/cf/",
-    "qudt": "http://qudt.org/schema/qudt/",
-    "w3ctime": "http://www.w3.org/2006/time#",
-    "rec": "https://www.opengis.net/def/ogc-api/records/",
     "dcat": "http://www.w3.org/ns/dcat#",
+    "rec": "https://www.opengis.net/def/ogc-api/records/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "owl": "http://www.w3.org/2002/07/owl#",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "w3ctime": "http://www.w3.org/2006/time#",
     "dctype": "http://purl.org/dc/dcmitype/",
     "vcard": "http://www.w3.org/2006/vcard/ns#",
     "prov": "http://www.w3.org/ns/prov#",
     "foaf": "http://xmlns.com/foaf/0.1/",
+    "cf": "https://w3id.org/ogc/stac/cf/",
+    "qudt": "http://qudt.org/schema/qudt/",
     "@version": 1.1
   }
 }
