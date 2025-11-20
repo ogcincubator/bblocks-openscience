@@ -13,12 +13,11 @@
       "@container": "@set",
       "@id": "geojson:features"
     },
-    "type": "dct:type",
+    "type": "@type",
     "id": "@id",
     "properties": "@nest",
     "geometry": {
       "@context": {
-        "type": "@type",
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
@@ -30,7 +29,13 @@
       "@container": "@list",
       "@id": "geojson:bbox"
     },
-    "links": "rdfs:seeAlso",
+    "links": {
+      "@context": {
+        "type": "dct:format",
+        "title": "rdfs:label"
+      },
+      "@id": "rdfs:seeAlso"
+    },
     "conformsTo": {
       "@container": "@set",
       "@id": "dct:conformsTo",
@@ -41,7 +46,7 @@
     "updated": "dct:modified",
     "title": {
       "@container": "@set",
-      "@id": "rdfs:label"
+      "@id": "dct:title"
     },
     "description": {
       "@container": "@set",
@@ -49,7 +54,7 @@
     },
     "keywords": {
       "@container": "@set",
-      "@id": "dct:subject"
+      "@id": "dcat:keyword"
     },
     "language": "rec:language",
     "languages": {
@@ -78,15 +83,20 @@
       "@type": "@id"
     },
     "contacts": {
+      "@context": {
+        "type": "dct:type",
+        "title": "rdfs:label"
+      },
       "@container": "@set",
       "@id": "dcat:contactPoint",
       "@type": "@id"
     },
-    "license": "dct:license",
+    "license": "dcat:license",
     "rights": "dcat:rights",
     "linkTemplates": {
       "@context": {
         "type": "dct:format",
+        "title": "rdfs:label",
         "uriTemplate": {
           "@type": "xsd:string",
           "@id": "rec:uriTemplate"
@@ -127,7 +137,6 @@
     "length": "dct:extent",
     "assets": {
       "@context": {
-        "title": "dct:title",
         "type": "dct:format",
         "roles": {
           "@id": "stac:roles",
@@ -138,8 +147,8 @@
         "data": "stac:data",
         "metadata": "stac:metadata"
       },
-      "@id": "stac:hasAsset",
-      "@container": "@set"
+      "@id": "stac:assets",
+      "@container": "@id"
     },
     "datetime": {
       "@id": "dct:date",
@@ -166,6 +175,13 @@
       }
     },
     "scheme": "thns:scheme",
+    "name": "cf:name",
+    "unit": {
+      "@id": "qudt:hasUnit",
+      "@context": {
+        "@base": "http://qudt.org/vocab/unit/"
+      }
+    },
     "geojson": "https://purl.org/geojson/vocab#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "oa": "http://www.w3.org/ns/oa#",
@@ -183,6 +199,8 @@
     "foaf": "http://xmlns.com/foaf/0.1/",
     "stac": "https://w3id.org/ogc/stac/core/",
     "thns": "https://w3id.org/ogc/stac/themes/",
+    "cf": "https://w3id.org/ogc/stac/cf/",
+    "qudt": "http://qudt.org/schema/qudt/",
     "@version": 1.1
   }
 }

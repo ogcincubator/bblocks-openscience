@@ -209,55 +209,56 @@ The EarthCODE OSC has requirements which are not captured here
 
 #### ttl
 ```ttl
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <osc:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <osc:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix thns: <https://w3id.org/ogc/stac/themes/> .
 
-<https://ogc.org/demo/ospd/polarwarp> rdfs:label "Polarwarp" ;
+<https://ogc.org/demo/ospd/polarwarp> a <https://ogc.org/demo/ospd/Collection> ;
     dcterms:created "2025-10-13T16:54:34Z" ;
     dcterms:description """Polarwarp product
 
 Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.""" ;
     dcterms:extent [ ] ;
-    dcterms:license "various" ;
-    dcterms:type "Collection" ;
-    rdfs:seeAlso [ rdfs:label "Experiment: Polarwarp" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+    dcterms:title "Polarwarp" ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/item.json> ],
+        [ rdfs:label "Theme: Cryosphere" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ],
+        [ rdfs:label "Project: Cerulean Information Factory" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],
+        [ rdfs:label "Experiment: Polarwarp" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ],
         [ rdfs:label "Products" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
-        [ ns2:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
-        [ rdfs:label "Project: Cerulean Information Factory" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],
-        [ rdfs:label "Theme: Cryosphere" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ],
-        [ rdfs:label "Open Science Catalog" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://ogc.org/catalog.json> ],
-        [ ns2:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/item.json> ] ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://ogc.org/demo/catalog.json> ] ;
+    dcat:license "various" ;
     stac:hasExtension "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
         "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
     rec:themes [ thns:concepts [ thns:id "cryosphere" ] ;
             thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
-    ns1:project "cerulean-information-factory" ;
-    ns1:status "completed" ;
-    ns1:type "product" .
+    ns2:project "cerulean-information-factory" ;
+    ns2:status "completed" ;
+    ns2:type "product" .
 
 
 ```
@@ -270,51 +271,20 @@ description: EarthCode Product
 allOf:
 - $ref: https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml
 - anyOf:
-  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml
-  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection-v1-0-0/schema.yaml
-required:
-- osc:project
-- osc:status
-- osc:type
-- themes
+  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/cf/schema.yaml
+  - not:
+      properties:
+        stac_extensions:
+          type: array
+          contains:
+            const: https://stac-extensions.github.io/cf/v0.2.0/schema.json
 properties:
   osc:type:
     type: string
     enum:
     - product
-  osc:status:
-    $ref: https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/definitions/osc:status
-  osc:project:
-    $ref: https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/definitions/osc:project
-  osc:region:
-    $ref: https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/definitions/osc:region
-  osc:variables:
-    $ref: https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/definitions/osc:variables
-  osc:missions:
-    $ref: https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/definitions/osc:missions
-  osc:experiment:
-    $ref: https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/definitions/osc:experiment
-  cf:parameter:
-    type: array
-    format: cf-parameters
-    title: CF Parameter
-    description: Following the <a href='http://cfconventions.org/cf-conventions/cf-conventions.html#_description_of_the_data'>Climate
-      and Forecast (CF) Metadata Conventions</a>
-    minItems: 1
-    uniqueItems: true
-    items:
-      title: Parameter
-      type: object
-      required:
-      - name
-      properties:
-        name:
-          title: Name
-          type: string
-          minLength: 1
-        unit:
-          title: Unit
-          type: string
+  type:
+    const: Collection
 
 ```
 
@@ -342,12 +312,11 @@ Links to the schema:
       "@container": "@set",
       "@id": "geojson:features"
     },
-    "type": "dct:type",
+    "type": "@type",
     "id": "@id",
     "properties": "@nest",
     "geometry": {
       "@context": {
-        "type": "@type",
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
@@ -359,7 +328,13 @@ Links to the schema:
       "@container": "@list",
       "@id": "geojson:bbox"
     },
-    "links": "rdfs:seeAlso",
+    "links": {
+      "@context": {
+        "type": "dct:format",
+        "title": "rdfs:label"
+      },
+      "@id": "rdfs:seeAlso"
+    },
     "conformsTo": {
       "@container": "@set",
       "@id": "dct:conformsTo",
@@ -370,7 +345,7 @@ Links to the schema:
     "updated": "dct:modified",
     "title": {
       "@container": "@set",
-      "@id": "rdfs:label"
+      "@id": "dct:title"
     },
     "description": {
       "@container": "@set",
@@ -378,7 +353,7 @@ Links to the schema:
     },
     "keywords": {
       "@container": "@set",
-      "@id": "dct:subject"
+      "@id": "dcat:keyword"
     },
     "language": "rec:language",
     "languages": {
@@ -407,15 +382,20 @@ Links to the schema:
       "@type": "@id"
     },
     "contacts": {
+      "@context": {
+        "type": "dct:type",
+        "title": "rdfs:label"
+      },
       "@container": "@set",
       "@id": "dcat:contactPoint",
       "@type": "@id"
     },
-    "license": "dct:license",
+    "license": "dcat:license",
     "rights": "dcat:rights",
     "linkTemplates": {
       "@context": {
         "type": "dct:format",
+        "title": "rdfs:label",
         "uriTemplate": {
           "@type": "xsd:string",
           "@id": "rec:uriTemplate"
@@ -456,7 +436,6 @@ Links to the schema:
     "length": "dct:extent",
     "assets": {
       "@context": {
-        "title": "dct:title",
         "type": "dct:format",
         "roles": {
           "@id": "stac:roles",
@@ -467,8 +446,8 @@ Links to the schema:
         "data": "stac:data",
         "metadata": "stac:metadata"
       },
-      "@id": "stac:hasAsset",
-      "@container": "@set"
+      "@id": "stac:assets",
+      "@container": "@id"
     },
     "datetime": {
       "@id": "dct:date",
@@ -495,6 +474,13 @@ Links to the schema:
       }
     },
     "scheme": "thns:scheme",
+    "name": "cf:name",
+    "unit": {
+      "@id": "qudt:hasUnit",
+      "@context": {
+        "@base": "http://qudt.org/vocab/unit/"
+      }
+    },
     "geojson": "https://purl.org/geojson/vocab#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "oa": "http://www.w3.org/ns/oa#",
@@ -512,6 +498,8 @@ Links to the schema:
     "foaf": "http://xmlns.com/foaf/0.1/",
     "stac": "https://w3id.org/ogc/stac/core/",
     "thns": "https://w3id.org/ogc/stac/themes/",
+    "cf": "https://w3id.org/ogc/stac/cf/",
+    "qudt": "http://qudt.org/schema/qudt/",
     "@version": 1.1
   }
 }

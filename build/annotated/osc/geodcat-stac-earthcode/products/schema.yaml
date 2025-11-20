@@ -3,48 +3,17 @@ description: EarthCode Product
 allOf:
 - $ref: https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml
 - anyOf:
-  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.yaml
-  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection-v1-0-0/schema.yaml
-required:
-- osc:project
-- osc:status
-- osc:type
-- themes
+  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/cf/schema.yaml
+  - not:
+      properties:
+        stac_extensions:
+          type: array
+          contains:
+            const: https://stac-extensions.github.io/cf/v0.2.0/schema.json
 properties:
   osc:type:
     type: string
     enum:
     - product
-  osc:status:
-    $ref: https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/definitions/osc:status
-  osc:project:
-    $ref: https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/definitions/osc:project
-  osc:region:
-    $ref: https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/definitions/osc:region
-  osc:variables:
-    $ref: https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/definitions/osc:variables
-  osc:missions:
-    $ref: https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/definitions/osc:missions
-  osc:experiment:
-    $ref: https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/definitions/osc:experiment
-  cf:parameter:
-    type: array
-    format: cf-parameters
-    title: CF Parameter
-    description: Following the <a href='http://cfconventions.org/cf-conventions/cf-conventions.html#_description_of_the_data'>Climate
-      and Forecast (CF) Metadata Conventions</a>
-    minItems: 1
-    uniqueItems: true
-    items:
-      title: Parameter
-      type: object
-      required:
-      - name
-      properties:
-        name:
-          title: Name
-          type: string
-          minLength: 1
-        unit:
-          title: Unit
-          type: string
+  type:
+    const: Collection

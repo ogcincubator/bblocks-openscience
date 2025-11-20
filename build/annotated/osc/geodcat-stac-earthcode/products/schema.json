@@ -8,19 +8,22 @@
     {
       "anyOf": [
         {
-          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.json"
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/cf/schema.json"
         },
         {
-          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection-v1-0-0/schema.json"
+          "not": {
+            "properties": {
+              "stac_extensions": {
+                "type": "array",
+                "contains": {
+                  "const": "https://stac-extensions.github.io/cf/v0.2.0/schema.json"
+                }
+              }
+            }
+          }
         }
       ]
     }
-  ],
-  "required": [
-    "osc:project",
-    "osc:status",
-    "osc:type",
-    "themes"
   ],
   "properties": {
     "osc:type": {
@@ -29,49 +32,8 @@
         "product"
       ]
     },
-    "osc:status": {
-      "$ref": "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.json#/definitions/osc:status"
-    },
-    "osc:project": {
-      "$ref": "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.json#/definitions/osc:project"
-    },
-    "osc:region": {
-      "$ref": "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.json#/definitions/osc:region"
-    },
-    "osc:variables": {
-      "$ref": "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.json#/definitions/osc:variables"
-    },
-    "osc:missions": {
-      "$ref": "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.json#/definitions/osc:missions"
-    },
-    "osc:experiment": {
-      "$ref": "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.json#/definitions/osc:experiment"
-    },
-    "cf:parameter": {
-      "type": "array",
-      "format": "cf-parameters",
-      "title": "CF Parameter",
-      "description": "Following the <a href='http://cfconventions.org/cf-conventions/cf-conventions.html#_description_of_the_data'>Climate and Forecast (CF) Metadata Conventions</a>",
-      "minItems": 1,
-      "uniqueItems": true,
-      "items": {
-        "title": "Parameter",
-        "type": "object",
-        "required": [
-          "name"
-        ],
-        "properties": {
-          "name": {
-            "title": "Name",
-            "type": "string",
-            "minLength": 1
-          },
-          "unit": {
-            "title": "Unit",
-            "type": "string"
-          }
-        }
-      }
+    "type": {
+      "const": "Collection"
     }
   }
 }

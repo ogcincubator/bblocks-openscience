@@ -51,7 +51,7 @@
     <body>
         <div class="container">
             <h1 class="title">Building blocks validation report</h1>
-            <small class="datetime">Generated at 2025-11-20T11:12:07.871281+00:00</small>
+            <small class="datetime">Generated at 2025-11-20T17:43:12.520609+00:00</small>
                 <p class="summary fw-semibold text-success">
                     Number of passing building blocks: 10 / 10 (100%)
                 </p>
@@ -295,7 +295,7 @@
                             <div class="accordion-collapse collapse " id="bblock-collapse-ogc.osc.geodcat-stac-earthcode.products">
                                 <div class="accordion-body">
                                         <p class="summary fw-semibold text-success">
-                                            Test passed: 2 / 2
+                                            Test passed: 7 / 7
                                         </p>
                                         <div class="card mb-2 validation-item require-fail">
                                             <div class="card-body">
@@ -327,64 +327,32 @@
                                                                     <div class="font-monospace entry-message section-json_schema text-danger">ValidationError: {&#x27;id&#x27;: &#x27;polarwarp&#x27;, &#x27;title&#x27;: &#x27;Polarwarp&#x27;, &#x27;created&#x27;: &#x27;2025-10-13T16:54:34Z&#x27;, &#x27;osc:status&#x27;: &#x27;completed&#x27;, &#x27;type&#x27;: &#x27;Collection&#x27;, &#x27;osc:type&#x27;: &#x27;product&#x27;, &#x27;stac_version&#x27;: &#x27;1.0.0&#x27;, &#x27;description&#x27;: &#x27;Polarwarp product\n\nForecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.&#x27;, &#x27;license&#x27;: &#x27;various&#x27;, &#x27;extent&#x27;: {&#x27;spatial&#x27;: {&#x27;bbox&#x27;: [[-0.0018099989187332413, 0.00043814539682784925, 0.001347252506956414, 0.0007574196581714432]]}, &#x27;temporal&#x27;: {&#x27;interval&#x27;: [[&#x27;2025-02-25T00:00:00Z&#x27;, None]]}}, &#x27;links&#x27;: [{&#x27;rel&#x27;: &#x27;root&#x27;, &#x27;href&#x27;: &#x27;../../catalog.json&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Open Science Catalog&#x27;}, {&#x27;rel&#x27;: &#x27;parent&#x27;, &#x27;href&#x27;: &#x27;../catalog.json&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Products&#x27;}, {&#x27;href&#x27;: &#x27;../../projects/cerulean-information-factory/collection.json&#x27;, &#x27;rel&#x27;: &#x27;related&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Project: Cerulean Information Factory&#x27;}, {&#x27;href&#x27;: &#x27;../../themes/cryosphere/catalog.json&#x27;, &#x27;rel&#x27;: &#x27;related&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Theme: Cryosphere&#x27;}, {&#x27;rel&#x27;: &#x27;related&#x27;, &#x27;href&#x27;: &#x27;../../experiments/polarwarp/record.json&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Experiment: Polarwarp&#x27;}, {&#x27;href&#x27;: &#x27;./item.json&#x27;, &#x27;rel&#x27;: &#x27;item&#x27;}, {&#x27;href&#x27;: &#x27;https://github.com/gtif-cerulean/polarwarp&#x27;, &#x27;rel&#x27;: &#x27;via&#x27;}], &#x27;stac_extensions&#x27;: [&#x27;https://stac-extensions.github.io/osc/v1.0.0/schema.json&#x27;, &#x27;https://stac-extensions.github.io/themes/v1.0.0/schema.json&#x27;], &#x27;osc:project&#x27;: &#x27;cerulean-information-factory&#x27;, &#x27;themes&#x27;: []} is not valid under any of the given schemas
 
 Failed validating &#x27;anyOf&#x27; in schema[&#x27;allOf&#x27;][0]:
-    {&#x27;$schema&#x27;: &#x27;https://json-schema.org/draft/2020-12/schema&#x27;,
+    {&#x27;$defs&#x27;: {&#x27;osc:project&#x27;: {&#x27;format&#x27;: &#x27;osc-project&#x27;,
+                               &#x27;minLength&#x27;: 1,
+                               &#x27;title&#x27;: &#x27;Project&#x27;,
+                               &#x27;type&#x27;: &#x27;string&#x27;},
+               &#x27;osc:workflow&#x27;: {&#x27;format&#x27;: &#x27;osc-workflow&#x27;,
+                                &#x27;minLength&#x27;: 1,
+                                &#x27;title&#x27;: &#x27;Workflow&#x27;,
+                                &#x27;type&#x27;: &#x27;string&#x27;},
+               &#x27;via_links&#x27;: {&#x27;properties&#x27;: {&#x27;rel&#x27;: {&#x27;enum&#x27;: [&#x27;via&#x27;]},
+                                            &#x27;type&#x27;: {&#x27;enum&#x27;: [&#x27;application/json&#x27;,
+                                                              &#x27;application/pdf&#x27;,
+                                                              &#x27;application/zip&#x27;,
+                                                              &#x27;text/html&#x27;,
+                                                              &#x27;text/plain&#x27;],
+                                                     &#x27;options&#x27;: {&#x27;enum_titles&#x27;: [&#x27;JSON&#x27;,
+                                                                                 &#x27;PDF&#x27;,
+                                                                                 &#x27;ZIP&#x27;,
+                                                                                 &#x27;HTML&#x27;,
+                                                                                 &#x27;Text&#x27;]}}},
+                             &#x27;title&#x27;: &#x27;Via Link&#x27;}},
+     &#x27;$schema&#x27;: &#x27;https://json-schema.org/draft/2020-12/schema&#x27;,
      &#x27;anyOf&#x27;: [{&#x27;allOf&#x27;: [{&#x27;anyOf&#x27;: [{&#x27;$ref&#x27;: &#x27;https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/stac/geodcat-stac-item/schema.yaml&#x27;},
                                      {&#x27;$ref&#x27;: &#x27;https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/stac/geodcat-stac-collection/schema.yaml&#x27;}]},
                           {&#x27;$ref&#x27;: &#x27;https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes/schema.yaml&#x27;},
                           {&#x27;$ref&#x27;: &#x27;https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/osc/schema.yaml&#x27;}]},
                {&#x27;$ref&#x27;: &#x27;https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/geodcat-records/schema.yaml&#x27;}],
-     &#x27;definitions&#x27;: {&#x27;osc:experiment&#x27;: {&#x27;format&#x27;: &#x27;osc-experiment&#x27;,
-                                        &#x27;minLength&#x27;: 1,
-                                        &#x27;title&#x27;: &#x27;Experiment&#x27;,
-                                        &#x27;type&#x27;: &#x27;string&#x27;},
-                     &#x27;osc:missions&#x27;: {&#x27;format&#x27;: &#x27;osc-missions&#x27;,
-                                      &#x27;items&#x27;: {&#x27;format&#x27;: &#x27;osc-mission&#x27;,
-                                                &#x27;minLength&#x27;: 1,
-                                                &#x27;title&#x27;: &#x27;EO Mission&#x27;,
-                                                &#x27;type&#x27;: &#x27;string&#x27;},
-                                      &#x27;title&#x27;: &#x27;EO Missions&#x27;,
-                                      &#x27;type&#x27;: &#x27;array&#x27;,
-                                      &#x27;uniqueItems&#x27;: True},
-                     &#x27;osc:project&#x27;: {&#x27;format&#x27;: &#x27;osc-project&#x27;,
-                                     &#x27;minLength&#x27;: 1,
-                                     &#x27;title&#x27;: &#x27;Project&#x27;,
-                                     &#x27;type&#x27;: &#x27;string&#x27;},
-                     &#x27;osc:region&#x27;: {&#x27;minLength&#x27;: 1,
-                                    &#x27;title&#x27;: &#x27;Region&#x27;,
-                                    &#x27;type&#x27;: &#x27;string&#x27;},
-                     &#x27;osc:status&#x27;: {&#x27;enum&#x27;: [&#x27;planned&#x27;,
-                                             &#x27;ongoing&#x27;,
-                                             &#x27;completed&#x27;],
-                                    &#x27;title&#x27;: &#x27;Status&#x27;,
-                                    &#x27;type&#x27;: &#x27;string&#x27;},
-                     &#x27;osc:variables&#x27;: {&#x27;format&#x27;: &#x27;osc-variables&#x27;,
-                                       &#x27;items&#x27;: {&#x27;format&#x27;: &#x27;osc-variable&#x27;,
-                                                 &#x27;minLength&#x27;: 1,
-                                                 &#x27;title&#x27;: &#x27;Variable&#x27;,
-                                                 &#x27;type&#x27;: &#x27;string&#x27;},
-                                       &#x27;title&#x27;: &#x27;Variables&#x27;,
-                                       &#x27;type&#x27;: &#x27;array&#x27;,
-                                       &#x27;uniqueItems&#x27;: True},
-                     &#x27;osc:workflow&#x27;: {&#x27;format&#x27;: &#x27;osc-workflow&#x27;,
-                                      &#x27;minLength&#x27;: 1,
-                                      &#x27;title&#x27;: &#x27;Workflow&#x27;,
-                                      &#x27;type&#x27;: &#x27;string&#x27;},
-                     &#x27;osc:workflows&#x27;: {&#x27;format&#x27;: &#x27;osc-workflows&#x27;,
-                                       &#x27;items&#x27;: {&#x27;$ref&#x27;: &#x27;#/definitions/osc:workflow&#x27;},
-                                       &#x27;title&#x27;: &#x27;Workflows&#x27;,
-                                       &#x27;type&#x27;: &#x27;array&#x27;},
-                     &#x27;via_links&#x27;: {&#x27;properties&#x27;: {&#x27;rel&#x27;: {&#x27;enum&#x27;: [&#x27;via&#x27;]},
-                                                  &#x27;type&#x27;: {&#x27;enum&#x27;: [&#x27;application/json&#x27;,
-                                                                    &#x27;application/pdf&#x27;,
-                                                                    &#x27;application/zip&#x27;,
-                                                                    &#x27;text/html&#x27;,
-                                                                    &#x27;text/plain&#x27;],
-                                                           &#x27;options&#x27;: {&#x27;enum_titles&#x27;: [&#x27;JSON&#x27;,
-                                                                                       &#x27;PDF&#x27;,
-                                                                                       &#x27;ZIP&#x27;,
-                                                                                       &#x27;HTML&#x27;,
-                                                                                       &#x27;Text&#x27;]}}},
-                                   &#x27;title&#x27;: &#x27;Via Link&#x27;}},
      &#x27;description&#x27;: &#x27;Schema for OGCAPI records profile and STAC profile &#x27;
                     &#x27;used by EarthCODE&#x27;}
 
@@ -445,12 +413,449 @@ On instance:
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card mb-2 validation-item ">
+                                        <div class="card mb-2 validation-item require-fail">
                                             <div class="card-body">
                                                 <div class="card-title mb-0">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
                                                             data-bs-toggle="collapse" data-bs-target="#uid-5"
                                                             aria-expanded="false" aria-controls="uid-5"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="../../_sources/geodcat-stac-earthcode/products/tests/invalid-cf-parameters-fail.json" target="_blank">invalid-cf-parameters-fail.json</a>
+                                                    <span class="badge bg-secondary test_resource">Test resource</span>
+                                                        <span class="badge text-bg-info">Requires fail</span>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-5">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">General</div>
+                                                                    <div class="font-monospace entry-message section-general ">Test was expected to fail and it did.</div>
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                    <div class="font-monospace entry-message section-files ">Using invalid-cf-parameters-fail.json from test resources</div>
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD invalid-cf-parameters-fail.jsonld created</div>
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle invalid-cf-parameters-fail.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                    <div class="font-monospace entry-message section-json_schema text-danger">ValidationError: [] is too short
+
+Failed validating &#x27;minItems&#x27; in schema[0][&#x27;allOf&#x27;][0][&#x27;properties&#x27;][&#x27;cf:parameter&#x27;]:
+    {&#x27;items&#x27;: {&#x27;properties&#x27;: {&#x27;name&#x27;: {&#x27;minLength&#x27;: 1, &#x27;type&#x27;: &#x27;string&#x27;},
+                              &#x27;unit&#x27;: {&#x27;type&#x27;: &#x27;string&#x27;}},
+               &#x27;required&#x27;: [&#x27;name&#x27;],
+               &#x27;type&#x27;: &#x27;object&#x27;},
+     &#x27;minItems&#x27;: 1,
+     &#x27;type&#x27;: &#x27;array&#x27;}
+
+On instance[&#x27;cf:parameter&#x27;]:
+    []</div>
+                                                                    <div class="font-monospace subsection-title mt-2">SHACL</div>
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:
+ - Shape &lt;https://www.ogc.org/rules/rec/#testVarExists&gt;: *none*
+</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card mb-2 validation-item require-fail">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-6"
+                                                            aria-expanded="false" aria-controls="uid-6"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="../../_sources/geodcat-stac-earthcode/products/tests/invalid-osc-status-fail.json" target="_blank">invalid-osc-status-fail.json</a>
+                                                    <span class="badge bg-secondary test_resource">Test resource</span>
+                                                        <span class="badge text-bg-info">Requires fail</span>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-6">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">General</div>
+                                                                    <div class="font-monospace entry-message section-general ">Test was expected to fail and it did.</div>
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                    <div class="font-monospace entry-message section-files ">Using invalid-osc-status-fail.json from test resources</div>
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD invalid-osc-status-fail.jsonld created</div>
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle invalid-osc-status-fail.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                    <div class="font-monospace entry-message section-json_schema text-danger">ValidationError: {&#x27;id&#x27;: &#x27;polarwarp&#x27;, &#x27;title&#x27;: &#x27;Polarwarp&#x27;, &#x27;created&#x27;: &#x27;2025-10-13T16:54:34Z&#x27;, &#x27;osc:status&#x27;: &#x27;invalid status&#x27;, &#x27;type&#x27;: &#x27;Collection&#x27;, &#x27;osc:type&#x27;: &#x27;product&#x27;, &#x27;stac_version&#x27;: &#x27;1.0.0&#x27;, &#x27;description&#x27;: &#x27;Polarwarp product\n\nForecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.&#x27;, &#x27;license&#x27;: &#x27;various&#x27;, &#x27;extent&#x27;: {&#x27;spatial&#x27;: {&#x27;bbox&#x27;: [[-0.0018099989187332413, 0.00043814539682784925, 0.001347252506956414, 0.0007574196581714432]]}, &#x27;temporal&#x27;: {&#x27;interval&#x27;: [[&#x27;2025-02-25T00:00:00Z&#x27;, None]]}}, &#x27;links&#x27;: [{&#x27;rel&#x27;: &#x27;root&#x27;, &#x27;href&#x27;: &#x27;../../catalog.json&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Open Science Catalog&#x27;}, {&#x27;rel&#x27;: &#x27;parent&#x27;, &#x27;href&#x27;: &#x27;../catalog.json&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Products&#x27;}, {&#x27;href&#x27;: &#x27;../../projects/cerulean-information-factory/collection.json&#x27;, &#x27;rel&#x27;: &#x27;related&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Project: Cerulean Information Factory&#x27;}, {&#x27;href&#x27;: &#x27;../../themes/cryosphere/catalog.json&#x27;, &#x27;rel&#x27;: &#x27;related&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Theme: Cryosphere&#x27;}, {&#x27;rel&#x27;: &#x27;related&#x27;, &#x27;href&#x27;: &#x27;../../experiments/polarwarp/record.json&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Experiment: Polarwarp&#x27;}, {&#x27;href&#x27;: &#x27;./item.json&#x27;, &#x27;rel&#x27;: &#x27;item&#x27;}, {&#x27;href&#x27;: &#x27;https://github.com/gtif-cerulean/polarwarp&#x27;, &#x27;rel&#x27;: &#x27;via&#x27;}], &#x27;stac_extensions&#x27;: [&#x27;https://stac-extensions.github.io/osc/v1.0.0/schema.json&#x27;, &#x27;https://stac-extensions.github.io/themes/v1.0.0/schema.json&#x27;], &#x27;osc:project&#x27;: &#x27;cerulean-information-factory&#x27;, &#x27;themes&#x27;: [{&#x27;scheme&#x27;: &#x27;https://github.com/stac-extensions/osc#theme&#x27;, &#x27;concepts&#x27;: [{&#x27;id&#x27;: &#x27;cryosphere&#x27;}]}]} is not valid under any of the given schemas
+
+Failed validating &#x27;anyOf&#x27; in schema[&#x27;allOf&#x27;][0]:
+    {&#x27;$defs&#x27;: {&#x27;osc:project&#x27;: {&#x27;format&#x27;: &#x27;osc-project&#x27;,
+                               &#x27;minLength&#x27;: 1,
+                               &#x27;title&#x27;: &#x27;Project&#x27;,
+                               &#x27;type&#x27;: &#x27;string&#x27;},
+               &#x27;osc:workflow&#x27;: {&#x27;format&#x27;: &#x27;osc-workflow&#x27;,
+                                &#x27;minLength&#x27;: 1,
+                                &#x27;title&#x27;: &#x27;Workflow&#x27;,
+                                &#x27;type&#x27;: &#x27;string&#x27;},
+               &#x27;via_links&#x27;: {&#x27;properties&#x27;: {&#x27;rel&#x27;: {&#x27;enum&#x27;: [&#x27;via&#x27;]},
+                                            &#x27;type&#x27;: {&#x27;enum&#x27;: [&#x27;application/json&#x27;,
+                                                              &#x27;application/pdf&#x27;,
+                                                              &#x27;application/zip&#x27;,
+                                                              &#x27;text/html&#x27;,
+                                                              &#x27;text/plain&#x27;],
+                                                     &#x27;options&#x27;: {&#x27;enum_titles&#x27;: [&#x27;JSON&#x27;,
+                                                                                 &#x27;PDF&#x27;,
+                                                                                 &#x27;ZIP&#x27;,
+                                                                                 &#x27;HTML&#x27;,
+                                                                                 &#x27;Text&#x27;]}}},
+                             &#x27;title&#x27;: &#x27;Via Link&#x27;}},
+     &#x27;$schema&#x27;: &#x27;https://json-schema.org/draft/2020-12/schema&#x27;,
+     &#x27;anyOf&#x27;: [{&#x27;allOf&#x27;: [{&#x27;anyOf&#x27;: [{&#x27;$ref&#x27;: &#x27;https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/stac/geodcat-stac-item/schema.yaml&#x27;},
+                                     {&#x27;$ref&#x27;: &#x27;https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/stac/geodcat-stac-collection/schema.yaml&#x27;}]},
+                          {&#x27;$ref&#x27;: &#x27;https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes/schema.yaml&#x27;},
+                          {&#x27;$ref&#x27;: &#x27;https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/osc/schema.yaml&#x27;}]},
+               {&#x27;$ref&#x27;: &#x27;https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/geodcat-records/schema.yaml&#x27;}],
+     &#x27;description&#x27;: &#x27;Schema for OGCAPI records profile and STAC profile &#x27;
+                    &#x27;used by EarthCODE&#x27;}
+
+On instance:
+    {&#x27;created&#x27;: &#x27;2025-10-13T16:54:34Z&#x27;,
+     &#x27;description&#x27;: &#x27;Polarwarp product\n&#x27;
+                    &#x27;\n&#x27;
+                    &#x27;Forecast rasters (+1h … +6h) produced by the &#x27;
+                    &#x27;Polarwarp workflow using NEXTSIM model and S1 scenes.&#x27;,
+     &#x27;extent&#x27;: {&#x27;spatial&#x27;: {&#x27;bbox&#x27;: [[-0.0018099989187332413,
+                                      0.00043814539682784925,
+                                      0.001347252506956414,
+                                      0.0007574196581714432]]},
+                &#x27;temporal&#x27;: {&#x27;interval&#x27;: [[&#x27;2025-02-25T00:00:00Z&#x27;, None]]}},
+     &#x27;id&#x27;: &#x27;polarwarp&#x27;,
+     &#x27;license&#x27;: &#x27;various&#x27;,
+     &#x27;links&#x27;: [{&#x27;href&#x27;: &#x27;../../catalog.json&#x27;,
+                &#x27;rel&#x27;: &#x27;root&#x27;,
+                &#x27;title&#x27;: &#x27;Open Science Catalog&#x27;,
+                &#x27;type&#x27;: &#x27;application/json&#x27;},
+               {&#x27;href&#x27;: &#x27;../catalog.json&#x27;,
+                &#x27;rel&#x27;: &#x27;parent&#x27;,
+                &#x27;title&#x27;: &#x27;Products&#x27;,
+                &#x27;type&#x27;: &#x27;application/json&#x27;},
+               {&#x27;href&#x27;: &#x27;../../projects/cerulean-information-factory/collection.json&#x27;,
+                &#x27;rel&#x27;: &#x27;related&#x27;,
+                &#x27;title&#x27;: &#x27;Project: Cerulean Information Factory&#x27;,
+                &#x27;type&#x27;: &#x27;application/json&#x27;},
+               {&#x27;href&#x27;: &#x27;../../themes/cryosphere/catalog.json&#x27;,
+                &#x27;rel&#x27;: &#x27;related&#x27;,
+                &#x27;title&#x27;: &#x27;Theme: Cryosphere&#x27;,
+                &#x27;type&#x27;: &#x27;application/json&#x27;},
+               {&#x27;href&#x27;: &#x27;../../experiments/polarwarp/record.json&#x27;,
+                &#x27;rel&#x27;: &#x27;related&#x27;,
+                &#x27;title&#x27;: &#x27;Experiment: Polarwarp&#x27;,
+                &#x27;type&#x27;: &#x27;application/json&#x27;},
+               {&#x27;href&#x27;: &#x27;./item.json&#x27;, &#x27;rel&#x27;: &#x27;item&#x27;},
+               {&#x27;href&#x27;: &#x27;https://github.com/gtif-cerulean/polarwarp&#x27;,
+                &#x27;rel&#x27;: &#x27;via&#x27;}],
+     &#x27;osc:project&#x27;: &#x27;cerulean-information-factory&#x27;,
+     &#x27;osc:status&#x27;: &#x27;invalid status&#x27;,
+     &#x27;osc:type&#x27;: &#x27;product&#x27;,
+     &#x27;stac_extensions&#x27;: [&#x27;https://stac-extensions.github.io/osc/v1.0.0/schema.json&#x27;,
+                         &#x27;https://stac-extensions.github.io/themes/v1.0.0/schema.json&#x27;],
+     &#x27;stac_version&#x27;: &#x27;1.0.0&#x27;,
+     &#x27;themes&#x27;: [{&#x27;concepts&#x27;: [{&#x27;id&#x27;: &#x27;cryosphere&#x27;}],
+                 &#x27;scheme&#x27;: &#x27;https://github.com/stac-extensions/osc#theme&#x27;}],
+     &#x27;title&#x27;: &#x27;Polarwarp&#x27;,
+     &#x27;type&#x27;: &#x27;Collection&#x27;}</div>
+                                                                    <div class="font-monospace subsection-title mt-2">SHACL</div>
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:
+ - Shape &lt;https://www.ogc.org/rules/rec/#testVarExists&gt;: *none*
+</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card mb-2 validation-item require-fail">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-7"
+                                                            aria-expanded="false" aria-controls="uid-7"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="../../_sources/geodcat-stac-earthcode/products/tests/missing-project-fail.json" target="_blank">missing-project-fail.json</a>
+                                                    <span class="badge bg-secondary test_resource">Test resource</span>
+                                                        <span class="badge text-bg-info">Requires fail</span>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-7">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">General</div>
+                                                                    <div class="font-monospace entry-message section-general ">Test was expected to fail and it did.</div>
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                    <div class="font-monospace entry-message section-files ">Using missing-project-fail.json from test resources</div>
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD missing-project-fail.jsonld created</div>
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle missing-project-fail.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                    <div class="font-monospace entry-message section-json_schema text-danger">ValidationError: {&#x27;id&#x27;: &#x27;polarwarp&#x27;, &#x27;title&#x27;: &#x27;Polarwarp&#x27;, &#x27;created&#x27;: &#x27;2025-10-13T16:54:34Z&#x27;, &#x27;osc:status&#x27;: &#x27;ongoing&#x27;, &#x27;type&#x27;: &#x27;Collection&#x27;, &#x27;osc:type&#x27;: &#x27;product&#x27;, &#x27;stac_version&#x27;: &#x27;1.0.0&#x27;, &#x27;description&#x27;: &#x27;Polarwarp product\n\nForecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.&#x27;, &#x27;license&#x27;: &#x27;various&#x27;, &#x27;extent&#x27;: {&#x27;spatial&#x27;: {&#x27;bbox&#x27;: [[-0.0018099989187332413, 0.00043814539682784925, 0.001347252506956414, 0.0007574196581714432]]}, &#x27;temporal&#x27;: {&#x27;interval&#x27;: [[&#x27;2025-02-25T00:00:00Z&#x27;, None]]}}, &#x27;links&#x27;: [{&#x27;rel&#x27;: &#x27;root&#x27;, &#x27;href&#x27;: &#x27;../../catalog.json&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Open Science Catalog&#x27;}, {&#x27;rel&#x27;: &#x27;parent&#x27;, &#x27;href&#x27;: &#x27;../catalog.json&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Products&#x27;}, {&#x27;href&#x27;: &#x27;../../projects/cerulean-information-factory/collection.json&#x27;, &#x27;rel&#x27;: &#x27;related&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Project: Cerulean Information Factory&#x27;}, {&#x27;href&#x27;: &#x27;../../themes/cryosphere/catalog.json&#x27;, &#x27;rel&#x27;: &#x27;related&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Theme: Cryosphere&#x27;}, {&#x27;rel&#x27;: &#x27;related&#x27;, &#x27;href&#x27;: &#x27;../../experiments/polarwarp/record.json&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Experiment: Polarwarp&#x27;}, {&#x27;href&#x27;: &#x27;./item.json&#x27;, &#x27;rel&#x27;: &#x27;item&#x27;}, {&#x27;href&#x27;: &#x27;https://github.com/gtif-cerulean/polarwarp&#x27;, &#x27;rel&#x27;: &#x27;via&#x27;}], &#x27;stac_extensions&#x27;: [&#x27;https://stac-extensions.github.io/osc/v1.0.0/schema.json&#x27;, &#x27;https://stac-extensions.github.io/themes/v1.0.0/schema.json&#x27;], &#x27;themes&#x27;: [{&#x27;scheme&#x27;: &#x27;https://github.com/stac-extensions/osc#theme&#x27;, &#x27;concepts&#x27;: [{&#x27;id&#x27;: &#x27;cryosphere&#x27;}]}]} is not valid under any of the given schemas
+
+Failed validating &#x27;anyOf&#x27; in schema[&#x27;allOf&#x27;][0]:
+    {&#x27;$defs&#x27;: {&#x27;osc:project&#x27;: {&#x27;format&#x27;: &#x27;osc-project&#x27;,
+                               &#x27;minLength&#x27;: 1,
+                               &#x27;title&#x27;: &#x27;Project&#x27;,
+                               &#x27;type&#x27;: &#x27;string&#x27;},
+               &#x27;osc:workflow&#x27;: {&#x27;format&#x27;: &#x27;osc-workflow&#x27;,
+                                &#x27;minLength&#x27;: 1,
+                                &#x27;title&#x27;: &#x27;Workflow&#x27;,
+                                &#x27;type&#x27;: &#x27;string&#x27;},
+               &#x27;via_links&#x27;: {&#x27;properties&#x27;: {&#x27;rel&#x27;: {&#x27;enum&#x27;: [&#x27;via&#x27;]},
+                                            &#x27;type&#x27;: {&#x27;enum&#x27;: [&#x27;application/json&#x27;,
+                                                              &#x27;application/pdf&#x27;,
+                                                              &#x27;application/zip&#x27;,
+                                                              &#x27;text/html&#x27;,
+                                                              &#x27;text/plain&#x27;],
+                                                     &#x27;options&#x27;: {&#x27;enum_titles&#x27;: [&#x27;JSON&#x27;,
+                                                                                 &#x27;PDF&#x27;,
+                                                                                 &#x27;ZIP&#x27;,
+                                                                                 &#x27;HTML&#x27;,
+                                                                                 &#x27;Text&#x27;]}}},
+                             &#x27;title&#x27;: &#x27;Via Link&#x27;}},
+     &#x27;$schema&#x27;: &#x27;https://json-schema.org/draft/2020-12/schema&#x27;,
+     &#x27;anyOf&#x27;: [{&#x27;allOf&#x27;: [{&#x27;anyOf&#x27;: [{&#x27;$ref&#x27;: &#x27;https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/stac/geodcat-stac-item/schema.yaml&#x27;},
+                                     {&#x27;$ref&#x27;: &#x27;https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/stac/geodcat-stac-collection/schema.yaml&#x27;}]},
+                          {&#x27;$ref&#x27;: &#x27;https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes/schema.yaml&#x27;},
+                          {&#x27;$ref&#x27;: &#x27;https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/osc/schema.yaml&#x27;}]},
+               {&#x27;$ref&#x27;: &#x27;https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/geodcat-records/schema.yaml&#x27;}],
+     &#x27;description&#x27;: &#x27;Schema for OGCAPI records profile and STAC profile &#x27;
+                    &#x27;used by EarthCODE&#x27;}
+
+On instance:
+    {&#x27;created&#x27;: &#x27;2025-10-13T16:54:34Z&#x27;,
+     &#x27;description&#x27;: &#x27;Polarwarp product\n&#x27;
+                    &#x27;\n&#x27;
+                    &#x27;Forecast rasters (+1h … +6h) produced by the &#x27;
+                    &#x27;Polarwarp workflow using NEXTSIM model and S1 scenes.&#x27;,
+     &#x27;extent&#x27;: {&#x27;spatial&#x27;: {&#x27;bbox&#x27;: [[-0.0018099989187332413,
+                                      0.00043814539682784925,
+                                      0.001347252506956414,
+                                      0.0007574196581714432]]},
+                &#x27;temporal&#x27;: {&#x27;interval&#x27;: [[&#x27;2025-02-25T00:00:00Z&#x27;, None]]}},
+     &#x27;id&#x27;: &#x27;polarwarp&#x27;,
+     &#x27;license&#x27;: &#x27;various&#x27;,
+     &#x27;links&#x27;: [{&#x27;href&#x27;: &#x27;../../catalog.json&#x27;,
+                &#x27;rel&#x27;: &#x27;root&#x27;,
+                &#x27;title&#x27;: &#x27;Open Science Catalog&#x27;,
+                &#x27;type&#x27;: &#x27;application/json&#x27;},
+               {&#x27;href&#x27;: &#x27;../catalog.json&#x27;,
+                &#x27;rel&#x27;: &#x27;parent&#x27;,
+                &#x27;title&#x27;: &#x27;Products&#x27;,
+                &#x27;type&#x27;: &#x27;application/json&#x27;},
+               {&#x27;href&#x27;: &#x27;../../projects/cerulean-information-factory/collection.json&#x27;,
+                &#x27;rel&#x27;: &#x27;related&#x27;,
+                &#x27;title&#x27;: &#x27;Project: Cerulean Information Factory&#x27;,
+                &#x27;type&#x27;: &#x27;application/json&#x27;},
+               {&#x27;href&#x27;: &#x27;../../themes/cryosphere/catalog.json&#x27;,
+                &#x27;rel&#x27;: &#x27;related&#x27;,
+                &#x27;title&#x27;: &#x27;Theme: Cryosphere&#x27;,
+                &#x27;type&#x27;: &#x27;application/json&#x27;},
+               {&#x27;href&#x27;: &#x27;../../experiments/polarwarp/record.json&#x27;,
+                &#x27;rel&#x27;: &#x27;related&#x27;,
+                &#x27;title&#x27;: &#x27;Experiment: Polarwarp&#x27;,
+                &#x27;type&#x27;: &#x27;application/json&#x27;},
+               {&#x27;href&#x27;: &#x27;./item.json&#x27;, &#x27;rel&#x27;: &#x27;item&#x27;},
+               {&#x27;href&#x27;: &#x27;https://github.com/gtif-cerulean/polarwarp&#x27;,
+                &#x27;rel&#x27;: &#x27;via&#x27;}],
+     &#x27;osc:status&#x27;: &#x27;ongoing&#x27;,
+     &#x27;osc:type&#x27;: &#x27;product&#x27;,
+     &#x27;stac_extensions&#x27;: [&#x27;https://stac-extensions.github.io/osc/v1.0.0/schema.json&#x27;,
+                         &#x27;https://stac-extensions.github.io/themes/v1.0.0/schema.json&#x27;],
+     &#x27;stac_version&#x27;: &#x27;1.0.0&#x27;,
+     &#x27;themes&#x27;: [{&#x27;concepts&#x27;: [{&#x27;id&#x27;: &#x27;cryosphere&#x27;}],
+                 &#x27;scheme&#x27;: &#x27;https://github.com/stac-extensions/osc#theme&#x27;}],
+     &#x27;title&#x27;: &#x27;Polarwarp&#x27;,
+     &#x27;type&#x27;: &#x27;Collection&#x27;}</div>
+                                                                    <div class="font-monospace subsection-title mt-2">SHACL</div>
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:
+ - Shape &lt;https://www.ogc.org/rules/rec/#testVarExists&gt;: *none*
+</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card mb-2 validation-item require-fail">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-8"
+                                                            aria-expanded="false" aria-controls="uid-8"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="../../_sources/geodcat-stac-earthcode/products/tests/missing-type-fail.json" target="_blank">missing-type-fail.json</a>
+                                                    <span class="badge bg-secondary test_resource">Test resource</span>
+                                                        <span class="badge text-bg-info">Requires fail</span>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-8">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">General</div>
+                                                                    <div class="font-monospace entry-message section-general ">Test was expected to fail and it did.</div>
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                    <div class="font-monospace entry-message section-files ">Using missing-type-fail.json from test resources</div>
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD missing-type-fail.jsonld created</div>
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle missing-type-fail.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                    <div class="font-monospace entry-message section-json_schema text-danger">ValidationError: {&#x27;id&#x27;: &#x27;polarwarp&#x27;, &#x27;title&#x27;: &#x27;Polarwarp&#x27;, &#x27;created&#x27;: &#x27;2025-10-13T16:54:34Z&#x27;, &#x27;osc:status&#x27;: &#x27;ongoing&#x27;, &#x27;type&#x27;: &#x27;Collection&#x27;, &#x27;stac_version&#x27;: &#x27;1.0.0&#x27;, &#x27;description&#x27;: &#x27;Polarwarp product\n\nForecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.&#x27;, &#x27;license&#x27;: &#x27;various&#x27;, &#x27;extent&#x27;: {&#x27;spatial&#x27;: {&#x27;bbox&#x27;: [[-0.0018099989187332413, 0.00043814539682784925, 0.001347252506956414, 0.0007574196581714432]]}, &#x27;temporal&#x27;: {&#x27;interval&#x27;: [[&#x27;2025-02-25T00:00:00Z&#x27;, None]]}}, &#x27;links&#x27;: [{&#x27;rel&#x27;: &#x27;root&#x27;, &#x27;href&#x27;: &#x27;../../catalog.json&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Open Science Catalog&#x27;}, {&#x27;rel&#x27;: &#x27;parent&#x27;, &#x27;href&#x27;: &#x27;../catalog.json&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Products&#x27;}, {&#x27;href&#x27;: &#x27;../../projects/cerulean-information-factory/collection.json&#x27;, &#x27;rel&#x27;: &#x27;related&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Project: Cerulean Information Factory&#x27;}, {&#x27;href&#x27;: &#x27;../../themes/cryosphere/catalog.json&#x27;, &#x27;rel&#x27;: &#x27;related&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Theme: Cryosphere&#x27;}, {&#x27;rel&#x27;: &#x27;related&#x27;, &#x27;href&#x27;: &#x27;../../experiments/polarwarp/record.json&#x27;, &#x27;type&#x27;: &#x27;application/json&#x27;, &#x27;title&#x27;: &#x27;Experiment: Polarwarp&#x27;}, {&#x27;href&#x27;: &#x27;./item.json&#x27;, &#x27;rel&#x27;: &#x27;item&#x27;}, {&#x27;href&#x27;: &#x27;https://github.com/gtif-cerulean/polarwarp&#x27;, &#x27;rel&#x27;: &#x27;via&#x27;}], &#x27;stac_extensions&#x27;: [&#x27;https://stac-extensions.github.io/osc/v1.0.0/schema.json&#x27;, &#x27;https://stac-extensions.github.io/themes/v1.0.0/schema.json&#x27;], &#x27;osc:project&#x27;: &#x27;cerulean-information-factory&#x27;, &#x27;themes&#x27;: [{&#x27;scheme&#x27;: &#x27;https://github.com/stac-extensions/osc#theme&#x27;, &#x27;concepts&#x27;: [{&#x27;id&#x27;: &#x27;cryosphere&#x27;}]}]} is not valid under any of the given schemas
+
+Failed validating &#x27;anyOf&#x27; in schema[&#x27;allOf&#x27;][0]:
+    {&#x27;$defs&#x27;: {&#x27;osc:project&#x27;: {&#x27;format&#x27;: &#x27;osc-project&#x27;,
+                               &#x27;minLength&#x27;: 1,
+                               &#x27;title&#x27;: &#x27;Project&#x27;,
+                               &#x27;type&#x27;: &#x27;string&#x27;},
+               &#x27;osc:workflow&#x27;: {&#x27;format&#x27;: &#x27;osc-workflow&#x27;,
+                                &#x27;minLength&#x27;: 1,
+                                &#x27;title&#x27;: &#x27;Workflow&#x27;,
+                                &#x27;type&#x27;: &#x27;string&#x27;},
+               &#x27;via_links&#x27;: {&#x27;properties&#x27;: {&#x27;rel&#x27;: {&#x27;enum&#x27;: [&#x27;via&#x27;]},
+                                            &#x27;type&#x27;: {&#x27;enum&#x27;: [&#x27;application/json&#x27;,
+                                                              &#x27;application/pdf&#x27;,
+                                                              &#x27;application/zip&#x27;,
+                                                              &#x27;text/html&#x27;,
+                                                              &#x27;text/plain&#x27;],
+                                                     &#x27;options&#x27;: {&#x27;enum_titles&#x27;: [&#x27;JSON&#x27;,
+                                                                                 &#x27;PDF&#x27;,
+                                                                                 &#x27;ZIP&#x27;,
+                                                                                 &#x27;HTML&#x27;,
+                                                                                 &#x27;Text&#x27;]}}},
+                             &#x27;title&#x27;: &#x27;Via Link&#x27;}},
+     &#x27;$schema&#x27;: &#x27;https://json-schema.org/draft/2020-12/schema&#x27;,
+     &#x27;anyOf&#x27;: [{&#x27;allOf&#x27;: [{&#x27;anyOf&#x27;: [{&#x27;$ref&#x27;: &#x27;https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/stac/geodcat-stac-item/schema.yaml&#x27;},
+                                     {&#x27;$ref&#x27;: &#x27;https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/stac/geodcat-stac-collection/schema.yaml&#x27;}]},
+                          {&#x27;$ref&#x27;: &#x27;https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes/schema.yaml&#x27;},
+                          {&#x27;$ref&#x27;: &#x27;https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/osc/schema.yaml&#x27;}]},
+               {&#x27;$ref&#x27;: &#x27;https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/geodcat-records/schema.yaml&#x27;}],
+     &#x27;description&#x27;: &#x27;Schema for OGCAPI records profile and STAC profile &#x27;
+                    &#x27;used by EarthCODE&#x27;}
+
+On instance:
+    {&#x27;created&#x27;: &#x27;2025-10-13T16:54:34Z&#x27;,
+     &#x27;description&#x27;: &#x27;Polarwarp product\n&#x27;
+                    &#x27;\n&#x27;
+                    &#x27;Forecast rasters (+1h … +6h) produced by the &#x27;
+                    &#x27;Polarwarp workflow using NEXTSIM model and S1 scenes.&#x27;,
+     &#x27;extent&#x27;: {&#x27;spatial&#x27;: {&#x27;bbox&#x27;: [[-0.0018099989187332413,
+                                      0.00043814539682784925,
+                                      0.001347252506956414,
+                                      0.0007574196581714432]]},
+                &#x27;temporal&#x27;: {&#x27;interval&#x27;: [[&#x27;2025-02-25T00:00:00Z&#x27;, None]]}},
+     &#x27;id&#x27;: &#x27;polarwarp&#x27;,
+     &#x27;license&#x27;: &#x27;various&#x27;,
+     &#x27;links&#x27;: [{&#x27;href&#x27;: &#x27;../../catalog.json&#x27;,
+                &#x27;rel&#x27;: &#x27;root&#x27;,
+                &#x27;title&#x27;: &#x27;Open Science Catalog&#x27;,
+                &#x27;type&#x27;: &#x27;application/json&#x27;},
+               {&#x27;href&#x27;: &#x27;../catalog.json&#x27;,
+                &#x27;rel&#x27;: &#x27;parent&#x27;,
+                &#x27;title&#x27;: &#x27;Products&#x27;,
+                &#x27;type&#x27;: &#x27;application/json&#x27;},
+               {&#x27;href&#x27;: &#x27;../../projects/cerulean-information-factory/collection.json&#x27;,
+                &#x27;rel&#x27;: &#x27;related&#x27;,
+                &#x27;title&#x27;: &#x27;Project: Cerulean Information Factory&#x27;,
+                &#x27;type&#x27;: &#x27;application/json&#x27;},
+               {&#x27;href&#x27;: &#x27;../../themes/cryosphere/catalog.json&#x27;,
+                &#x27;rel&#x27;: &#x27;related&#x27;,
+                &#x27;title&#x27;: &#x27;Theme: Cryosphere&#x27;,
+                &#x27;type&#x27;: &#x27;application/json&#x27;},
+               {&#x27;href&#x27;: &#x27;../../experiments/polarwarp/record.json&#x27;,
+                &#x27;rel&#x27;: &#x27;related&#x27;,
+                &#x27;title&#x27;: &#x27;Experiment: Polarwarp&#x27;,
+                &#x27;type&#x27;: &#x27;application/json&#x27;},
+               {&#x27;href&#x27;: &#x27;./item.json&#x27;, &#x27;rel&#x27;: &#x27;item&#x27;},
+               {&#x27;href&#x27;: &#x27;https://github.com/gtif-cerulean/polarwarp&#x27;,
+                &#x27;rel&#x27;: &#x27;via&#x27;}],
+     &#x27;osc:project&#x27;: &#x27;cerulean-information-factory&#x27;,
+     &#x27;osc:status&#x27;: &#x27;ongoing&#x27;,
+     &#x27;stac_extensions&#x27;: [&#x27;https://stac-extensions.github.io/osc/v1.0.0/schema.json&#x27;,
+                         &#x27;https://stac-extensions.github.io/themes/v1.0.0/schema.json&#x27;],
+     &#x27;stac_version&#x27;: &#x27;1.0.0&#x27;,
+     &#x27;themes&#x27;: [{&#x27;concepts&#x27;: [{&#x27;id&#x27;: &#x27;cryosphere&#x27;}],
+                 &#x27;scheme&#x27;: &#x27;https://github.com/stac-extensions/osc#theme&#x27;}],
+     &#x27;title&#x27;: &#x27;Polarwarp&#x27;,
+     &#x27;type&#x27;: &#x27;Collection&#x27;}</div>
+                                                                    <div class="font-monospace subsection-title mt-2">SHACL</div>
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:
+ - Shape &lt;https://www.ogc.org/rules/rec/#testVarExists&gt;: *none*
+</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card mb-2 validation-item ">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-9"
+                                                            aria-expanded="false" aria-controls="uid-9"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="../../_sources/geodcat-stac-earthcode/products/tests/valid-cf-parameters.json" target="_blank">valid-cf-parameters.json</a>
+                                                    <span class="badge bg-secondary test_resource">Test resource</span>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-9">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                    <div class="font-monospace entry-message section-files ">Using valid-cf-parameters.json from test resources</div>
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD valid-cf-parameters.jsonld created</div>
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle valid-cf-parameters.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                                    <div class="font-monospace subsection-title mt-2">SHACL</div>
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:
+ - Shape &lt;https://www.ogc.org/rules/rec/#testVarExists&gt;: *none*
+</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card mb-2 validation-item ">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-10"
+                                                            aria-expanded="false" aria-controls="uid-10"
                                                             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
@@ -461,7 +866,7 @@ On instance:
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
                                                 </div>
-                                                <div class="card-text mt-2 validation-text collapse" id="uid-5">
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-10">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
                                                                     <div class="font-monospace entry-message section-files ">Using example_1_1.json from examples</div>
@@ -510,8 +915,8 @@ On instance:
                                             <div class="card-body">
                                                 <div class="card-title mb-0">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
-                                                            data-bs-toggle="collapse" data-bs-target="#uid-6"
-                                                            aria-expanded="false" aria-controls="uid-6"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-11"
+                                                            aria-expanded="false" aria-controls="uid-11"
                                                             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
@@ -522,7 +927,7 @@ On instance:
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
                                                 </div>
-                                                <div class="card-text mt-2 validation-text collapse" id="uid-6">
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-11">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
                                                                     <div class="font-monospace entry-message section-files ">Using example_1_1.json from examples</div>
@@ -547,8 +952,8 @@ On instance:
                                             <div class="card-body">
                                                 <div class="card-title mb-0">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
-                                                            data-bs-toggle="collapse" data-bs-target="#uid-7"
-                                                            aria-expanded="false" aria-controls="uid-7"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-12"
+                                                            aria-expanded="false" aria-controls="uid-12"
                                                             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
@@ -559,7 +964,7 @@ On instance:
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
                                                 </div>
-                                                <div class="card-text mt-2 validation-text collapse" id="uid-7">
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-12">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
                                                                     <div class="font-monospace entry-message section-files ">Using example_2_1.json from examples</div>
@@ -584,8 +989,8 @@ On instance:
                                             <div class="card-body">
                                                 <div class="card-title mb-0">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
-                                                            data-bs-toggle="collapse" data-bs-target="#uid-8"
-                                                            aria-expanded="false" aria-controls="uid-8"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-13"
+                                                            aria-expanded="false" aria-controls="uid-13"
                                                             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
@@ -596,7 +1001,7 @@ On instance:
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
                                                 </div>
-                                                <div class="card-text mt-2 validation-text collapse" id="uid-8">
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-13">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
                                                                     <div class="font-monospace entry-message section-files ">Using example_3_1.json from examples</div>
@@ -621,8 +1026,8 @@ On instance:
                                             <div class="card-body">
                                                 <div class="card-title mb-0">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
-                                                            data-bs-toggle="collapse" data-bs-target="#uid-9"
-                                                            aria-expanded="false" aria-controls="uid-9"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-14"
+                                                            aria-expanded="false" aria-controls="uid-14"
                                                             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
@@ -633,7 +1038,7 @@ On instance:
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
                                                 </div>
-                                                <div class="card-text mt-2 validation-text collapse" id="uid-9">
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-14">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
                                                                     <div class="font-monospace entry-message section-files ">Using example_4_1.json from examples</div>

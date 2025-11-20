@@ -15,12 +15,12 @@
     dct:created "2023-09-18T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "application/json" ;
             rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/json-full/osc/api-profiles/processes-openscience/index.json" ],
-        [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/markdown/osc/api-profiles/processes-openscience/index.md" ],
         [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/bblock/ogc.osc.api-profiles.processes-openscience" ] ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/bblock/ogc.osc.api-profiles.processes-openscience" ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/markdown/osc/api-profiles/processes-openscience/index.md" ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2025-11-13"^^xsd:date ;
+    dct:modified "2025-11-20"^^xsd:date ;
     skos:inScheme <https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/> ;
     dcat:keyword "DCAT",
         "PROV",
@@ -41,14 +41,14 @@
     rdfs:label "Open Science Ontology" ;
     dct:abstract "A modular standards-based ontology for describing interoperable and reproduceable scientific workflows."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-09-18T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/bblock/ogc.osc.ontology.openscience" ],
-        [ dct:format "application/json" ;
+    dct:description [ dct:format "application/json" ;
             rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/json-full/osc/ontology/openscience/index.json" ],
         [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/markdown/osc/ontology/openscience/index.md" ] ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/markdown/osc/ontology/openscience/index.md" ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/bblock/ogc.osc.ontology.openscience" ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2025-11-13"^^xsd:date ;
+    dct:modified "2025-11-20"^^xsd:date ;
     skos:inScheme <https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/> ;
     dcat:keyword "OSPD" ;
     bblocks:dependsOn <https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/ogc.geo.geodcat.dcat>,
@@ -58,18 +58,18 @@
 
 <https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/bblocks.ttl> a prov:Entity ;
     dct:format "text/turtle" ;
-    prov:wasAttributedTo _:N92571f94a8af44daae8ef82ec3d28d5d ;
+    prov:wasAttributedTo _:N965c6e16170f47e6baa96ea080620c37 ;
     prov:wasGeneratedBy [ a prov:Activity ;
-            prov:endedAtTime "2025-11-20T11:12:07.951764"^^xsd:dateTime ;
-            prov:startedAtTime "2025-11-20T11:12:07.872941"^^xsd:dateTime ;
+            prov:endedAtTime "2025-11-20T17:43:12.591943"^^xsd:dateTime ;
+            prov:startedAtTime "2025-11-20T17:43:12.522686"^^xsd:dateTime ;
             prov:used [ a prov:Entity ;
-                    dct:format "application/yaml" ;
-                    rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ],
-                [ a prov:Entity ;
                     dct:format "application/json" ;
-                    dct:hasVersion "git:84ced21285af9d538a4fbd9be82823c0eab609e9" ;
-                    rdfs:seeAlso <https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/register.json> ] ;
-            prov:wasAssociatedWith _:N92571f94a8af44daae8ef82ec3d28d5d ] .
+                    dct:hasVersion "git:450e6538e9966741329ad06f46276049d5510ec9" ;
+                    rdfs:seeAlso <https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/register.json> ],
+                [ a prov:Entity ;
+                    dct:format "application/yaml" ;
+                    rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ] ;
+            prov:wasAssociatedWith _:N965c6e16170f47e6baa96ea080620c37 ] .
 
 <https://earthcode.esa.int/> rdfs:label "EarthCODE" .
 
@@ -90,7 +90,7 @@
         [ dct:format "text/markdown" ;
             rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/markdown/osc/api-profiles/processes-prov/index.md" ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2025-11-13"^^xsd:date ;
+    dct:modified "2025-11-20"^^xsd:date ;
     skos:inScheme <https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/> ;
     dcat:keyword "PROV" ;
     bblocks:dependsOn <https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/ogc.api.processes.v1.api>,
@@ -106,12 +106,12 @@
     dct:created "2023-09-18T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "application/json" ;
             rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/json-full/osc/api-profiles/processes-workflow/index.json" ],
-        [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/bblock/ogc.osc.api-profiles.processes-workflow" ],
         [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/markdown/osc/api-profiles/processes-workflow/index.md" ] ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/markdown/osc/api-profiles/processes-workflow/index.md" ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/bblock/ogc.osc.api-profiles.processes-workflow" ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2025-11-13"^^xsd:date ;
+    dct:modified "2025-11-20"^^xsd:date ;
     skos:inScheme <https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/> ;
     dcat:keyword "DCAT",
         "PROV",
@@ -129,14 +129,14 @@
     rdfs:label "Application Package" ;
     dct:abstract "Earth Observation Application Package. "^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-09-18T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/markdown" ;
+    dct:description [ dct:format "application/json" ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/json-full/osc/application-package/index.json" ],
+        [ dct:format "text/markdown" ;
             rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/markdown/osc/application-package/index.md" ],
         [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/bblock/ogc.osc.application-package" ],
-        [ dct:format "application/json" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/json-full/osc/application-package/index.json" ] ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/bblock/ogc.osc.application-package" ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2025-11-13"^^xsd:date ;
+    dct:modified "2025-11-20"^^xsd:date ;
     dct:source <https://github.com/eoap> ;
     skos:inScheme <https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/> ;
     bblocks:dependsOn <https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/ogc.profiles.prov.cwl.provenance> ;
@@ -155,12 +155,12 @@
     dct:created "2023-09-18T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/bblock/ogc.osc.geodcat-stac-earthcode.experiments" ],
-        [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/markdown/osc/geodcat-stac-earthcode/experiments/index.md" ],
         [ dct:format "application/json" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/json-full/osc/geodcat-stac-earthcode/experiments/index.json" ] ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/json-full/osc/geodcat-stac-earthcode/experiments/index.json" ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/markdown/osc/geodcat-stac-earthcode/experiments/index.md" ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2025-11-13"^^xsd:date ;
+    dct:modified "2025-11-20"^^xsd:date ;
     dct:source <http://www.opengis.net/def/metamodel/profiles/geodcat> ;
     skos:inScheme <https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/> ;
     dcat:keyword "DCAT",
@@ -184,14 +184,14 @@
     rdfs:label "EarthCODE Product" ;
     dct:abstract "EarthCODE metadata profile linked to semantic models"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-09-18T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/markdown" ;
+    dct:description [ dct:format "application/json" ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/json-full/osc/geodcat-stac-earthcode/products/index.json" ],
+        [ dct:format "text/markdown" ;
             rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/markdown/osc/geodcat-stac-earthcode/products/index.md" ],
         [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/bblock/ogc.osc.geodcat-stac-earthcode.products" ],
-        [ dct:format "application/json" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/json-full/osc/geodcat-stac-earthcode/products/index.json" ] ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/bblock/ogc.osc.geodcat-stac-earthcode.products" ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2025-11-13"^^xsd:date ;
+    dct:modified "2025-11-20"^^xsd:date ;
     dct:source <http://www.opengis.net/def/metamodel/profiles/geodcat> ;
     skos:inScheme <https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/> ;
     dcat:keyword "DCAT",
@@ -199,8 +199,7 @@
         "Records",
         "STAC",
         "profile" ;
-    bblocks:dependsOn <https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/ogc.contrib.stac.collection>,
-        <https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/ogc.contrib.stac.collection-v1-0-0>,
+    bblocks:dependsOn <https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/ogc.contrib.stac.extensions.cf>,
         <https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/ogc.osc.geodcat-stac-earthcode.common> ;
     bblocks:hasJsonLdContext <https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/products/context.jsonld> ;
     bblocks:hasSchema <https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/products/schema.json>,
@@ -218,12 +217,12 @@
     dct:created "2023-09-18T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/bblock/ogc.osc.geodcat-stac-earthcode.workflows" ],
-        [ dct:format "application/json" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/json-full/osc/geodcat-stac-earthcode/workflows/index.json" ],
         [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/markdown/osc/geodcat-stac-earthcode/workflows/index.md" ] ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/markdown/osc/geodcat-stac-earthcode/workflows/index.md" ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/json-full/osc/geodcat-stac-earthcode/workflows/index.json" ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2025-11-13"^^xsd:date ;
+    dct:modified "2025-11-20"^^xsd:date ;
     dct:source <http://www.opengis.net/def/metamodel/profiles/geodcat> ;
     skos:inScheme <https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/> ;
     dcat:keyword "DCAT",
@@ -247,14 +246,14 @@
     rdfs:label "CWL Ontology" ;
     dct:abstract "Ontology describing the Common Workflow Language (CWL) model"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-09-18T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
+    dct:description [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/markdown/osc/ontology/cwlprov/index.md" ],
+        [ dct:format "application/json" ;
             rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/json-full/osc/ontology/cwlprov/index.json" ],
         [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/bblock/ogc.osc.ontology.cwlprov" ],
-        [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/markdown/osc/ontology/cwlprov/index.md" ] ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/bblock/ogc.osc.ontology.cwlprov" ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2025-11-13"^^xsd:date ;
+    dct:modified "2025-11-20"^^xsd:date ;
     skos:inScheme <https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/> ;
     dcat:keyword "OSPD" ;
     bblocks:dependsOn <https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/ogc.ogc-utils.prov> ;
@@ -271,12 +270,12 @@
     dct:created "2023-09-18T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/bblock/ogc.osc.geodcat-stac-earthcode.common" ],
-        [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/markdown/osc/geodcat-stac-earthcode/common/index.md" ],
         [ dct:format "application/json" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/json-full/osc/geodcat-stac-earthcode/common/index.json" ] ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/json-full/osc/geodcat-stac-earthcode/common/index.json" ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/generateddocs/markdown/osc/geodcat-stac-earthcode/common/index.md" ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2025-11-13"^^xsd:date ;
+    dct:modified "2025-11-20"^^xsd:date ;
     dct:source <https://earthcode.esa.int/>,
         <https://opensciencedata.esa.int/> ;
     skos:inScheme <https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/> ;
@@ -315,7 +314,7 @@
         <https://ogcincubator.github.io/prov-cwl/build/register.json>,
         <https://opengeospatial.github.io/bblocks/register.json> .
 
-_:N92571f94a8af44daae8ef82ec3d28d5d a prov:Agent,
+_:N965c6e16170f47e6baa96ea080620c37 a prov:Agent,
         schema:SoftwareApplication ;
     rdfs:label "OGC-NA tools" ;
     dct:hasVersion "0.5.2" ;
