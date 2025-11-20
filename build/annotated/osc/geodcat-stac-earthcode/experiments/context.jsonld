@@ -2,12 +2,11 @@
   "@context": {
     "stac_version": "stac:version",
     "stac_extensions": "stac:hasExtension",
-    "type": "dct:type",
+    "type": "@type",
     "id": "@id",
     "extent": "dct:extent",
     "assets": {
       "@context": {
-        "title": "dct:title",
         "type": "dct:format",
         "roles": {
           "@id": "stac:roles",
@@ -22,7 +21,7 @@
       "@container": "@id"
     },
     "title": {
-      "@id": "rdfs:label",
+      "@id": "dct:title",
       "@container": "@set"
     },
     "description": {
@@ -31,7 +30,8 @@
     },
     "links": {
       "@context": {
-        "type": "dct:format"
+        "type": "dct:type",
+        "title": "rdfs:label"
       },
       "@id": "rdfs:seeAlso"
     },
@@ -70,7 +70,6 @@
     "properties": "@nest",
     "geometry": {
       "@context": {
-        "type": "@type",
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
@@ -117,6 +116,10 @@
       "@type": "@id"
     },
     "contacts": {
+      "@context": {
+        "type": "dct:type",
+        "title": "rdfs:label"
+      },
       "@container": "@set",
       "@id": "dcat:contactPoint",
       "@type": "@id"
@@ -125,6 +128,7 @@
     "linkTemplates": {
       "@context": {
         "type": "dct:format",
+        "title": "rdfs:label",
         "uriTemplate": {
           "@type": "xsd:string",
           "@id": "rec:uriTemplate"
@@ -162,7 +166,7 @@
       }
     },
     "scheme": "thns:scheme",
-    "name": "cf:name",
+    "name": "rdfs:label",
     "unit": {
       "@id": "qudt:hasUnit",
       "@context": {
@@ -179,18 +183,168 @@
       }
     },
     "wasInfluencedBy": {
+      "@context": {
+        "type": "dct:type",
+        "title": "rdfs:label"
+      },
       "@id": "prov:wasInfluencedBy",
       "@type": "@id"
     },
     "qualifiedInfluence": {
+      "@context": {
+        "influencer": {
+          "@context": {
+            "type": "dct:type",
+            "title": "rdfs:label"
+          },
+          "@id": "prov:influencer",
+          "@type": "@id"
+        },
+        "activity": {
+          "@context": {
+            "wasAssociatedWith": {
+              "@context": {
+                "type": "dct:type",
+                "title": "rdfs:label"
+              },
+              "@id": "prov:wasAssociatedWith",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:activity",
+          "@type": "@id"
+        },
+        "agent": {
+          "@context": {
+            "type": "dct:type",
+            "title": "rdfs:label"
+          },
+          "@id": "prov:agent",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:qualifiedInfluence",
+      "@type": "@id"
+    },
+    "provType": "@type",
+    "hadMember": {
+      "@id": "prov:hadMember",
+      "@type": "@id"
+    },
+    "featureType": "@type",
+    "entityType": "@type",
+    "has_provenance": {
+      "@context": {
+        "wasAssociatedWith": {
+          "@id": "prov:wasAssociatedWith",
+          "@type": "@id",
+          "@context": {
+            "type": "dct:type",
+            "title": "rdfs:label"
+          }
+        }
+      },
+      "@id": "dct:provenance",
+      "@type": "@id"
+    },
+    "wasGeneratedBy": {
+      "@context": {
+        "wasAssociatedWith": {
+          "@context": {
+            "type": "dct:type",
+            "title": "rdfs:label"
+          },
+          "@id": "prov:wasAssociatedWith",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:wasGeneratedBy",
+      "@type": "@id"
+    },
+    "wasAttributedTo": {
+      "@context": {
+        "type": "dct:type",
+        "title": "rdfs:label"
+      },
+      "@id": "prov:wasAttributedTo",
+      "@type": "@id"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "alternateOf": {
+      "@id": "prov:alternateOf",
+      "@type": "@id"
+    },
+    "hadPrimarySource": {
+      "@id": "prov:hadPrimarySource",
+      "@type": "@id"
+    },
+    "specializationOf": {
+      "@id": "prov:specializationOf",
+      "@type": "@id"
+    },
+    "wasInvalidatedBy": {
+      "@context": {
+        "wasAssociatedWith": {
+          "@context": {
+            "type": "dct:type",
+            "title": "rdfs:label"
+          },
+          "@id": "prov:wasAssociatedWith",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:wasInvalidatedBy",
+      "@type": "@id"
+    },
+    "wasQuotedFrom": {
+      "@id": "prov:wasQuotedFrom",
+      "@type": "@id"
+    },
+    "wasRevisionOf": {
+      "@id": "prov:wasRevisionOf",
+      "@type": "@id"
+    },
+    "atLocation": {
+      "@id": "prov:atLocation",
+      "@type": "@id"
+    },
+    "qualifiedGeneration": {
+      "@id": "prov:qualifiedGeneration",
+      "@type": "@id"
+    },
+    "qualifiedInvalidation": {
+      "@id": "prov:qualifiedInvalidation",
+      "@type": "@id"
+    },
+    "qualifiedDerivation": {
+      "@context": {
+        "hadActivity": {
+          "@context": {
+            "wasAssociatedWith": {
+              "@context": {
+                "type": "dct:type",
+                "title": "rdfs:label"
+              },
+              "@id": "prov:wasAssociatedWith",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:hadActivity",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:qualifiedDerivation",
+      "@type": "@id"
+    },
+    "qualifiedAttribution": {
+      "@id": "prov:qualifiedAttribution",
       "@type": "@id"
     },
     "activityType": "@type",
     "agentType": "@type",
-    "entityType": "@type",
-    "featureType": "@type",
-    "provType": "@type",
     "Activity": "prov:Activity",
     "ActivityInfluence": "prov:ActivityInfluence",
     "Agent": "prov:Agent",
@@ -279,14 +433,6 @@
       "@id": "prov:agent",
       "@type": "@id"
     },
-    "alternateOf": {
-      "@id": "prov:alternateOf",
-      "@type": "@id"
-    },
-    "atLocation": {
-      "@id": "prov:atLocation",
-      "@type": "@id"
-    },
     "entity": {
       "@id": "prov:entity",
       "@type": "@id"
@@ -307,16 +453,8 @@
       "@id": "prov:hadGeneration",
       "@type": "@id"
     },
-    "hadMember": {
-      "@id": "prov:hadMember",
-      "@type": "@id"
-    },
     "hadPlan": {
       "@id": "prov:hadPlan",
-      "@type": "@id"
-    },
-    "hadPrimarySource": {
-      "@id": "prov:hadPrimarySource",
       "@type": "@id"
     },
     "hadRole": {
@@ -343,10 +481,6 @@
       "@id": "prov:qualifiedAssociation",
       "@type": "@id"
     },
-    "qualifiedAttribution": {
-      "@id": "prov:qualifiedAttribution",
-      "@type": "@id"
-    },
     "qualifiedCommunication": {
       "@id": "prov:qualifiedCommunication",
       "@type": "@id"
@@ -355,20 +489,8 @@
       "@id": "prov:qualifiedDelegation",
       "@type": "@id"
     },
-    "qualifiedDerivation": {
-      "@id": "prov:qualifiedDerivation",
-      "@type": "@id"
-    },
     "qualifiedEnd": {
       "@id": "prov:qualifiedEnd",
-      "@type": "@id"
-    },
-    "qualifiedGeneration": {
-      "@id": "prov:qualifiedGeneration",
-      "@type": "@id"
-    },
-    "qualifiedInvalidation": {
-      "@id": "prov:qualifiedInvalidation",
       "@type": "@id"
     },
     "qualifiedPrimarySource": {
@@ -391,10 +513,6 @@
       "@id": "prov:qualifiedUsage",
       "@type": "@id"
     },
-    "specializationOf": {
-      "@id": "prov:specializationOf",
-      "@type": "@id"
-    },
     "used": {
       "@id": "prov:used",
       "@type": "@id"
@@ -403,36 +521,12 @@
       "@id": "prov:wasAssociatedWith",
       "@type": "@id"
     },
-    "wasAttributedTo": {
-      "@id": "prov:wasAttributedTo",
-      "@type": "@id"
-    },
-    "wasDerivedFrom": {
-      "@id": "prov:wasDerivedFrom",
-      "@type": "@id"
-    },
     "wasEndedBy": {
       "@id": "prov:wasEndedBy",
       "@type": "@id"
     },
-    "wasGeneratedBy": {
-      "@id": "prov:wasGeneratedBy",
-      "@type": "@id"
-    },
     "wasInformedBy": {
       "@id": "prov:wasInformedBy",
-      "@type": "@id"
-    },
-    "wasInvalidatedBy": {
-      "@id": "prov:wasInvalidatedBy",
-      "@type": "@id"
-    },
-    "wasQuotedFrom": {
-      "@id": "prov:wasQuotedFrom",
-      "@type": "@id"
-    },
-    "wasRevisionOf": {
-      "@id": "prov:wasRevisionOf",
       "@type": "@id"
     },
     "wasStartedBy": {
@@ -441,10 +535,6 @@
     },
     "has_anchor": {
       "@id": "prov:has_anchor",
-      "@type": "@id"
-    },
-    "has_provenance": {
-      "@id": "dct:provenance",
       "@type": "@id"
     },
     "has_query_service": {

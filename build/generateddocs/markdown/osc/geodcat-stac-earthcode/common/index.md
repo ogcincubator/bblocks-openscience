@@ -206,54 +206,55 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 ```ttl
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <osc:> .
+@prefix ns1: <osc:> .
+@prefix ns2: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix thns: <https://w3id.org/ogc/stac/themes/> .
 
-<https://ogc.org/demo/ospd/polarwarp> rdfs:label "Polarwarp" ;
+<https://ogc.org/demo/ospd/polarwarp> a prov:Collection ;
     dcterms:created "2025-10-13T16:54:34Z" ;
     dcterms:description """Polarwarp product
 
 Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.""" ;
     dcterms:extent [ ] ;
-    dcterms:type "Collection" ;
+    dcterms:title "Polarwarp" ;
     rdfs:seeAlso [ rdfs:label "Project: Cerulean Information Factory" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+        [ ns2:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://ogc.org/demo/ospd/item.json> ],
-        [ rdfs:label "Products" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
         [ rdfs:label "Open Science Catalog" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://ogc.org/catalog.json> ],
-        [ rdfs:label "Theme: Cryosphere" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ],
+        [ ns2:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
         [ rdfs:label "Experiment: Polarwarp" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ] ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ],
+        [ rdfs:label "Products" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
+        [ rdfs:label "Theme: Cryosphere" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ] ;
     dcat:license "various" ;
     stac:hasExtension "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
         "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
     rec:themes [ thns:concepts [ thns:id "cryosphere" ] ;
             thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
-    ns2:project "cerulean-information-factory" ;
-    ns2:status "completed" ;
-    ns2:type "product" .
+    ns1:project "cerulean-information-factory" ;
+    ns1:status "completed" ;
+    ns1:type "product" .
 
 
 ```
@@ -286,12 +287,11 @@ Links to the schema:
   "@context": {
     "stac_version": "stac:version",
     "stac_extensions": "stac:hasExtension",
-    "type": "dct:type",
+    "type": "@type",
     "id": "@id",
     "extent": "dct:extent",
     "assets": {
       "@context": {
-        "title": "dct:title",
         "type": "dct:format",
         "roles": {
           "@id": "stac:roles",
@@ -306,7 +306,7 @@ Links to the schema:
       "@container": "@id"
     },
     "title": {
-      "@id": "rdfs:label",
+      "@id": "dct:title",
       "@container": "@set"
     },
     "description": {
@@ -315,7 +315,8 @@ Links to the schema:
     },
     "links": {
       "@context": {
-        "type": "dct:format"
+        "type": "dct:type",
+        "title": "rdfs:label"
       },
       "@id": "rdfs:seeAlso"
     },
@@ -354,7 +355,6 @@ Links to the schema:
     "properties": "@nest",
     "geometry": {
       "@context": {
-        "type": "@type",
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
@@ -401,6 +401,10 @@ Links to the schema:
       "@type": "@id"
     },
     "contacts": {
+      "@context": {
+        "type": "dct:type",
+        "title": "rdfs:label"
+      },
       "@container": "@set",
       "@id": "dcat:contactPoint",
       "@type": "@id"
@@ -409,6 +413,7 @@ Links to the schema:
     "linkTemplates": {
       "@context": {
         "type": "dct:format",
+        "title": "rdfs:label",
         "uriTemplate": {
           "@type": "xsd:string",
           "@id": "rec:uriTemplate"
@@ -446,7 +451,7 @@ Links to the schema:
       }
     },
     "scheme": "thns:scheme",
-    "name": "cf:name",
+    "name": "rdfs:label",
     "unit": {
       "@id": "qudt:hasUnit",
       "@context": {
@@ -463,18 +468,168 @@ Links to the schema:
       }
     },
     "wasInfluencedBy": {
+      "@context": {
+        "type": "dct:type",
+        "title": "rdfs:label"
+      },
       "@id": "prov:wasInfluencedBy",
       "@type": "@id"
     },
     "qualifiedInfluence": {
+      "@context": {
+        "influencer": {
+          "@context": {
+            "type": "dct:type",
+            "title": "rdfs:label"
+          },
+          "@id": "prov:influencer",
+          "@type": "@id"
+        },
+        "activity": {
+          "@context": {
+            "wasAssociatedWith": {
+              "@context": {
+                "type": "dct:type",
+                "title": "rdfs:label"
+              },
+              "@id": "prov:wasAssociatedWith",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:activity",
+          "@type": "@id"
+        },
+        "agent": {
+          "@context": {
+            "type": "dct:type",
+            "title": "rdfs:label"
+          },
+          "@id": "prov:agent",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:qualifiedInfluence",
+      "@type": "@id"
+    },
+    "provType": "@type",
+    "hadMember": {
+      "@id": "prov:hadMember",
+      "@type": "@id"
+    },
+    "featureType": "@type",
+    "entityType": "@type",
+    "has_provenance": {
+      "@context": {
+        "wasAssociatedWith": {
+          "@id": "prov:wasAssociatedWith",
+          "@type": "@id",
+          "@context": {
+            "type": "dct:type",
+            "title": "rdfs:label"
+          }
+        }
+      },
+      "@id": "dct:provenance",
+      "@type": "@id"
+    },
+    "wasGeneratedBy": {
+      "@context": {
+        "wasAssociatedWith": {
+          "@context": {
+            "type": "dct:type",
+            "title": "rdfs:label"
+          },
+          "@id": "prov:wasAssociatedWith",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:wasGeneratedBy",
+      "@type": "@id"
+    },
+    "wasAttributedTo": {
+      "@context": {
+        "type": "dct:type",
+        "title": "rdfs:label"
+      },
+      "@id": "prov:wasAttributedTo",
+      "@type": "@id"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "alternateOf": {
+      "@id": "prov:alternateOf",
+      "@type": "@id"
+    },
+    "hadPrimarySource": {
+      "@id": "prov:hadPrimarySource",
+      "@type": "@id"
+    },
+    "specializationOf": {
+      "@id": "prov:specializationOf",
+      "@type": "@id"
+    },
+    "wasInvalidatedBy": {
+      "@context": {
+        "wasAssociatedWith": {
+          "@context": {
+            "type": "dct:type",
+            "title": "rdfs:label"
+          },
+          "@id": "prov:wasAssociatedWith",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:wasInvalidatedBy",
+      "@type": "@id"
+    },
+    "wasQuotedFrom": {
+      "@id": "prov:wasQuotedFrom",
+      "@type": "@id"
+    },
+    "wasRevisionOf": {
+      "@id": "prov:wasRevisionOf",
+      "@type": "@id"
+    },
+    "atLocation": {
+      "@id": "prov:atLocation",
+      "@type": "@id"
+    },
+    "qualifiedGeneration": {
+      "@id": "prov:qualifiedGeneration",
+      "@type": "@id"
+    },
+    "qualifiedInvalidation": {
+      "@id": "prov:qualifiedInvalidation",
+      "@type": "@id"
+    },
+    "qualifiedDerivation": {
+      "@context": {
+        "hadActivity": {
+          "@context": {
+            "wasAssociatedWith": {
+              "@context": {
+                "type": "dct:type",
+                "title": "rdfs:label"
+              },
+              "@id": "prov:wasAssociatedWith",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:hadActivity",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:qualifiedDerivation",
+      "@type": "@id"
+    },
+    "qualifiedAttribution": {
+      "@id": "prov:qualifiedAttribution",
       "@type": "@id"
     },
     "activityType": "@type",
     "agentType": "@type",
-    "entityType": "@type",
-    "featureType": "@type",
-    "provType": "@type",
     "Activity": "prov:Activity",
     "ActivityInfluence": "prov:ActivityInfluence",
     "Agent": "prov:Agent",
@@ -563,14 +718,6 @@ Links to the schema:
       "@id": "prov:agent",
       "@type": "@id"
     },
-    "alternateOf": {
-      "@id": "prov:alternateOf",
-      "@type": "@id"
-    },
-    "atLocation": {
-      "@id": "prov:atLocation",
-      "@type": "@id"
-    },
     "entity": {
       "@id": "prov:entity",
       "@type": "@id"
@@ -591,16 +738,8 @@ Links to the schema:
       "@id": "prov:hadGeneration",
       "@type": "@id"
     },
-    "hadMember": {
-      "@id": "prov:hadMember",
-      "@type": "@id"
-    },
     "hadPlan": {
       "@id": "prov:hadPlan",
-      "@type": "@id"
-    },
-    "hadPrimarySource": {
-      "@id": "prov:hadPrimarySource",
       "@type": "@id"
     },
     "hadRole": {
@@ -627,10 +766,6 @@ Links to the schema:
       "@id": "prov:qualifiedAssociation",
       "@type": "@id"
     },
-    "qualifiedAttribution": {
-      "@id": "prov:qualifiedAttribution",
-      "@type": "@id"
-    },
     "qualifiedCommunication": {
       "@id": "prov:qualifiedCommunication",
       "@type": "@id"
@@ -639,20 +774,8 @@ Links to the schema:
       "@id": "prov:qualifiedDelegation",
       "@type": "@id"
     },
-    "qualifiedDerivation": {
-      "@id": "prov:qualifiedDerivation",
-      "@type": "@id"
-    },
     "qualifiedEnd": {
       "@id": "prov:qualifiedEnd",
-      "@type": "@id"
-    },
-    "qualifiedGeneration": {
-      "@id": "prov:qualifiedGeneration",
-      "@type": "@id"
-    },
-    "qualifiedInvalidation": {
-      "@id": "prov:qualifiedInvalidation",
       "@type": "@id"
     },
     "qualifiedPrimarySource": {
@@ -675,10 +798,6 @@ Links to the schema:
       "@id": "prov:qualifiedUsage",
       "@type": "@id"
     },
-    "specializationOf": {
-      "@id": "prov:specializationOf",
-      "@type": "@id"
-    },
     "used": {
       "@id": "prov:used",
       "@type": "@id"
@@ -687,36 +806,12 @@ Links to the schema:
       "@id": "prov:wasAssociatedWith",
       "@type": "@id"
     },
-    "wasAttributedTo": {
-      "@id": "prov:wasAttributedTo",
-      "@type": "@id"
-    },
-    "wasDerivedFrom": {
-      "@id": "prov:wasDerivedFrom",
-      "@type": "@id"
-    },
     "wasEndedBy": {
       "@id": "prov:wasEndedBy",
       "@type": "@id"
     },
-    "wasGeneratedBy": {
-      "@id": "prov:wasGeneratedBy",
-      "@type": "@id"
-    },
     "wasInformedBy": {
       "@id": "prov:wasInformedBy",
-      "@type": "@id"
-    },
-    "wasInvalidatedBy": {
-      "@id": "prov:wasInvalidatedBy",
-      "@type": "@id"
-    },
-    "wasQuotedFrom": {
-      "@id": "prov:wasQuotedFrom",
-      "@type": "@id"
-    },
-    "wasRevisionOf": {
-      "@id": "prov:wasRevisionOf",
       "@type": "@id"
     },
     "wasStartedBy": {
@@ -725,10 +820,6 @@ Links to the schema:
     },
     "has_anchor": {
       "@id": "prov:has_anchor",
-      "@type": "@id"
-    },
-    "has_provenance": {
-      "@id": "dct:provenance",
       "@type": "@id"
     },
     "has_query_service": {
