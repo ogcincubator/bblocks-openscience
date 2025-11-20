@@ -2,21 +2,21 @@
   "title": "Validation report for ogc.osc.geodcat-stac-earthcode.common - EarthCODE Common STAC profile",
   "bblockName": "EarthCODE Common STAC profile",
   "bblockId": "ogc.osc.geodcat-stac-earthcode.common",
-  "generated": "2025-11-20T10:42:06.906399+00:00",
-  "result": false,
+  "generated": "2025-11-20T11:12:03.657111+00:00",
+  "result": true,
   "items": [
     {
       "source": {
         "type": "EXAMPLE",
         "requireFail": false,
         "filename": "build/tests/osc/geodcat-stac-earthcode/common/example_1_1.json",
-        "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/common/example_1_1.json",
+        "url": "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/tests/osc/geodcat-stac-earthcode/common/example_1_1.json",
         "exampleIndex": 1,
         "snippetIndex": 1,
         "language": "application/json",
         "sourceUrl": "https://esa-earthcode.github.io/open-science-catalog-metadata-staging/products/polarwarp/collection.json"
       },
-      "result": false,
+      "result": true,
       "sections": [
         {
           "name": "FILES",
@@ -53,11 +53,9 @@
           "entries": [
             {
               "op": "validation",
-              "result": false,
-              "exception": "ValidationError",
-              "errorMessage": "{'id': 'polarwarp', 'title': 'Polarwarp', 'created': '2025-10-13T16:54:34Z', 'osc:status': 'completed', 'type': 'Collection', 'osc:type': 'product', 'stac_version': '1.0.0', 'description': 'Polarwarp product\\n\\nForecast rasters (+1h \u2026 +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.', 'license': 'various', 'extent': {'spatial': {'bbox': [[-0.0018099989187332413, 0.00043814539682784925, 0.001347252506956414, 0.0007574196581714432]]}, 'temporal': {'interval': [['2025-02-25T00:00:00Z', None]]}}, 'links': [{'rel': 'root', 'href': '../../catalog.json', 'type': 'application/json', 'title': 'Open Science Catalog'}, {'rel': 'parent', 'href': '../catalog.json', 'type': 'application/json', 'title': 'Products'}, {'href': '../../projects/cerulean-information-factory/collection.json', 'rel': 'related', 'type': 'application/json', 'title': 'Project: Cerulean Information Factory'}, {'href': '../../themes/cryosphere/catalog.json', 'rel': 'related', 'type': 'application/json', 'title': 'Theme: Cryosphere'}, {'rel': 'related', 'href': '../../experiments/polarwarp/record.json', 'type': 'application/json', 'title': 'Experiment: Polarwarp'}, {'href': './item.json', 'rel': 'item'}, {'href': 'https://github.com/gtif-cerulean/polarwarp', 'rel': 'via'}], 'stac_extensions': ['https://stac-extensions.github.io/osc/v1.0.0/schema.json', 'https://stac-extensions.github.io/themes/v1.0.0/schema.json'], 'osc:project': 'cerulean-information-factory', 'themes': [{'scheme': 'https://github.com/stac-extensions/osc#theme', 'concepts': [{'id': 'cryosphere'}]}]} is not valid under any of the given schemas",
-              "isError": true,
-              "message": "ValidationError: {'id': 'polarwarp', 'title': 'Polarwarp', 'created': '2025-10-13T16:54:34Z', 'osc:status': 'completed', 'type': 'Collection', 'osc:type': 'product', 'stac_version': '1.0.0', 'description': 'Polarwarp product\\n\\nForecast rasters (+1h \u2026 +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.', 'license': 'various', 'extent': {'spatial': {'bbox': [[-0.0018099989187332413, 0.00043814539682784925, 0.001347252506956414, 0.0007574196581714432]]}, 'temporal': {'interval': [['2025-02-25T00:00:00Z', None]]}}, 'links': [{'rel': 'root', 'href': '../../catalog.json', 'type': 'application/json', 'title': 'Open Science Catalog'}, {'rel': 'parent', 'href': '../catalog.json', 'type': 'application/json', 'title': 'Products'}, {'href': '../../projects/cerulean-information-factory/collection.json', 'rel': 'related', 'type': 'application/json', 'title': 'Project: Cerulean Information Factory'}, {'href': '../../themes/cryosphere/catalog.json', 'rel': 'related', 'type': 'application/json', 'title': 'Theme: Cryosphere'}, {'rel': 'related', 'href': '../../experiments/polarwarp/record.json', 'type': 'application/json', 'title': 'Experiment: Polarwarp'}, {'href': './item.json', 'rel': 'item'}, {'href': 'https://github.com/gtif-cerulean/polarwarp', 'rel': 'via'}], 'stac_extensions': ['https://stac-extensions.github.io/osc/v1.0.0/schema.json', 'https://stac-extensions.github.io/themes/v1.0.0/schema.json'], 'osc:project': 'cerulean-information-factory', 'themes': [{'scheme': 'https://github.com/stac-extensions/osc#theme', 'concepts': [{'id': 'cryosphere'}]}]} is not valid under any of the given schemas\n\nFailed validating 'anyOf' in schema['allOf'][3]:\n    {'anyOf': [{'$ref': 'https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/geodcat-records-prov/schema.yaml'}]}\n\nOn instance:\n    {'created': '2025-10-13T16:54:34Z',\n     'description': 'Polarwarp product\\n'\n                    '\\n'\n                    'Forecast rasters (+1h \u2026 +6h) produced by the '\n                    'Polarwarp workflow using NEXTSIM model and S1 scenes.',\n     'extent': {'spatial': {'bbox': [[-0.0018099989187332413,\n                                      0.00043814539682784925,\n                                      0.001347252506956414,\n                                      0.0007574196581714432]]},\n                'temporal': {'interval': [['2025-02-25T00:00:00Z', None]]}},\n     'id': 'polarwarp',\n     'license': 'various',\n     'links': [{'href': '../../catalog.json',\n                'rel': 'root',\n                'title': 'Open Science Catalog',\n                'type': 'application/json'},\n               {'href': '../catalog.json',\n                'rel': 'parent',\n                'title': 'Products',\n                'type': 'application/json'},\n               {'href': '../../projects/cerulean-information-factory/collection.json',\n                'rel': 'related',\n                'title': 'Project: Cerulean Information Factory',\n                'type': 'application/json'},\n               {'href': '../../themes/cryosphere/catalog.json',\n                'rel': 'related',\n                'title': 'Theme: Cryosphere',\n                'type': 'application/json'},\n               {'href': '../../experiments/polarwarp/record.json',\n                'rel': 'related',\n                'title': 'Experiment: Polarwarp',\n                'type': 'application/json'},\n               {'href': './item.json', 'rel': 'item'},\n               {'href': 'https://github.com/gtif-cerulean/polarwarp',\n                'rel': 'via'}],\n     'osc:project': 'cerulean-information-factory',\n     'osc:status': 'completed',\n     'osc:type': 'product',\n     'stac_extensions': ['https://stac-extensions.github.io/osc/v1.0.0/schema.json',\n                         'https://stac-extensions.github.io/themes/v1.0.0/schema.json'],\n     'stac_version': '1.0.0',\n     'themes': [{'concepts': [{'id': 'cryosphere'}],\n                 'scheme': 'https://github.com/stac-extensions/osc#theme'}],\n     'title': 'Polarwarp',\n     'type': 'Collection'}"
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
             }
           ]
         },
@@ -90,7 +88,7 @@
   "globalErrors": {},
   "counts": {
     "total": 1,
-    "passed": 0,
-    "failed": 1
+    "passed": 1,
+    "failed": 0
   }
 }

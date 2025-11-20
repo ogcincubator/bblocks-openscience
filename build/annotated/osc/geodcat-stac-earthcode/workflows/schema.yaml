@@ -1,6 +1,24 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-description: Schema for OGCAPI records profile for GeoDCAT - defines all extra elements
-  defined by GeoDCAT so that the JSON-LD context can map to GeoDCAT RDF
+description: Schema for EarthCODE Workflow
 allOf:
 - anyOf:
   - $ref: https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/geodcat-records/schema.yaml
+properties:
+  properties:
+    type: object
+    required:
+    - osc:project
+    properties:
+      osc:project:
+        $ref: https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/definitions/osc:project
+  links:
+    type: array
+    items:
+      oneOf:
+      - title: Other Link
+        properties:
+          rel:
+            not:
+              enum:
+              - via
+      - $ref: https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/definitions/via_links

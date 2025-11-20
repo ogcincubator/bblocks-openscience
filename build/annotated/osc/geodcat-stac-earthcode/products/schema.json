@@ -3,7 +3,7 @@
   "description": "EarthCode Product",
   "allOf": [
     {
-      "$ref": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.json"
+      "$ref": "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.json"
     },
     {
       "anyOf": [
@@ -15,5 +15,63 @@
         }
       ]
     }
-  ]
+  ],
+  "required": [
+    "osc:project",
+    "osc:status",
+    "osc:type",
+    "themes"
+  ],
+  "properties": {
+    "osc:type": {
+      "type": "string",
+      "enum": [
+        "product"
+      ]
+    },
+    "osc:status": {
+      "$ref": "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.json#/definitions/osc:status"
+    },
+    "osc:project": {
+      "$ref": "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.json#/definitions/osc:project"
+    },
+    "osc:region": {
+      "$ref": "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.json#/definitions/osc:region"
+    },
+    "osc:variables": {
+      "$ref": "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.json#/definitions/osc:variables"
+    },
+    "osc:missions": {
+      "$ref": "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.json#/definitions/osc:missions"
+    },
+    "osc:experiment": {
+      "$ref": "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.json#/definitions/osc:experiment"
+    },
+    "cf:parameter": {
+      "type": "array",
+      "format": "cf-parameters",
+      "title": "CF Parameter",
+      "description": "Following the <a href='http://cfconventions.org/cf-conventions/cf-conventions.html#_description_of_the_data'>Climate and Forecast (CF) Metadata Conventions</a>",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "title": "Parameter",
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "minLength": 1
+          },
+          "unit": {
+            "title": "Unit",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,22 +1,123 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "description": "Schema for OGCAPI records profile for GeoDCAT - defines all extra elements defined by GeoDCAT so that the JSON-LD context can map to GeoDCAT RDF",
-  "allOf": [
+  "description": "Schema for OGCAPI records profile and STAC profile used by EarthCODE",
+  "anyOf": [
     {
-      "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes/schema.json"
-    },
-    {
-      "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/osc/schema.json"
-    },
-    {
-      "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/cf/schema.json"
-    },
-    {
-      "anyOf": [
+      "allOf": [
         {
-          "$ref": "https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/geodcat-records-prov/schema.json"
+          "anyOf": [
+            {
+              "$ref": "https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/stac/geodcat-stac-item/schema.json"
+            },
+            {
+              "$ref": "https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/stac/geodcat-stac-collection/schema.json"
+            }
+          ]
+        },
+        {
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes/schema.json"
+        },
+        {
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/osc/schema.json"
         }
       ]
+    },
+    {
+      "$ref": "https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/geodcat-records/schema.json"
     }
-  ]
+  ],
+  "definitions": {
+    "osc:workflow": {
+      "title": "Workflow",
+      "type": "string",
+      "format": "osc-workflow",
+      "minLength": 1
+    },
+    "via_links": {
+      "title": "Via Link",
+      "properties": {
+        "type": {
+          "enum": [
+            "application/json",
+            "application/pdf",
+            "application/zip",
+            "text/html",
+            "text/plain"
+          ],
+          "options": {
+            "enum_titles": [
+              "JSON",
+              "PDF",
+              "ZIP",
+              "HTML",
+              "Text"
+            ]
+          }
+        },
+        "rel": {
+          "enum": [
+            "via"
+          ]
+        }
+      }
+    },
+    "osc:project": {
+      "title": "Project",
+      "type": "string",
+      "format": "osc-project",
+      "minLength": 1
+    },
+    "osc:status": {
+      "title": "Status",
+      "type": "string",
+      "enum": [
+        "planned",
+        "ongoing",
+        "completed"
+      ]
+    },
+    "osc:region": {
+      "title": "Region",
+      "type": "string",
+      "minLength": 1
+    },
+    "osc:missions": {
+      "title": "EO Missions",
+      "format": "osc-missions",
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "title": "EO Mission",
+        "type": "string",
+        "format": "osc-mission",
+        "minLength": 1
+      }
+    },
+    "osc:variables": {
+      "title": "Variables",
+      "format": "osc-variables",
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "title": "Variable",
+        "type": "string",
+        "format": "osc-variable",
+        "minLength": 1
+      }
+    },
+    "osc:experiment": {
+      "title": "Experiment",
+      "format": "osc-experiment",
+      "type": "string",
+      "minLength": 1
+    },
+    "osc:workflows": {
+      "title": "Workflows",
+      "type": "array",
+      "format": "osc-workflows",
+      "items": {
+        "$ref": "#/definitions/osc:workflow"
+      }
+    }
+  }
 }
