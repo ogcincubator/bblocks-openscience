@@ -2,21 +2,21 @@
   "title": "Validation report for ogc.osc.geodcat-stac-earthcode.experiments - EarthCODE Experiment",
   "bblockName": "EarthCODE Experiment",
   "bblockId": "ogc.osc.geodcat-stac-earthcode.experiments",
-  "generated": "2025-11-13T12:19:06.314094+00:00",
-  "result": false,
+  "generated": "2025-11-20T11:12:06.212985+00:00",
+  "result": true,
   "items": [
     {
       "source": {
         "type": "EXAMPLE",
         "requireFail": false,
         "filename": "build/tests/osc/geodcat-stac-earthcode/experiments/example_1_1.json",
-        "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/experiments/example_1_1.json",
+        "url": "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/tests/osc/geodcat-stac-earthcode/experiments/example_1_1.json",
         "exampleIndex": 1,
         "snippetIndex": 1,
         "language": "application/json",
         "sourceUrl": "https://raw.githubusercontent.com/ESA-EarthCODE/open-science-catalog-metadata/refs/heads/main/experiments/polaris-experiment/record.json"
       },
-      "result": false,
+      "result": true,
       "sections": [
         {
           "name": "FILES",
@@ -41,7 +41,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_1_1.ttl",
-              "size": 62,
+              "size": 60,
               "isError": false,
               "message": "Output Turtle example_1_1.ttl created"
             }
@@ -53,11 +53,9 @@
           "entries": [
             {
               "op": "validation",
-              "result": false,
-              "exception": "ValidationError",
-              "errorMessage": "'stac_extensions' is a required property",
-              "isError": true,
-              "message": "ValidationError: 'stac_extensions' is a required property\n\nFailed validating 'required' in schema['allOf'][0]['allOf'][0]['allOf'][1]:\n    {'$id': 'https://stac-extensions.github.io/themes/v1.0.0/schema.json#',\n     '$schema': 'http://json-schema.org/draft-07/schema#',\n     'definitions': {'fields': {'properties': {'themes': {'items': {'properties': {'concepts': {'items': {'properties': {'description': {'minLength': 1,\n                                                                                                                                         'type': 'string'},\n                                                                                                                         'id': {'minLength': 1,\n                                                                                                                                'type': 'string'},\n                                                                                                                         'title': {'minLength': 1,\n                                                                                                                                   'type': 'string'},\n                                                                                                                         'url': {'format': 'uri',\n                                                                                                                                 'type': 'string'}},\n                                                                                                          'required': ['id'],\n                                                                                                          'type': 'object'},\n                                                                                                'minItems': 1,\n                                                                                                'type': 'array'},\n                                                                                   'scheme': {'minLength': 1,\n                                                                                              'type': 'string'}},\n                                                                    'required': ['concepts',\n                                                                                 'scheme'],\n                                                                    'type': 'object'},\n                                                          'minItems': 1,\n                                                          'type': 'array'}},\n                                'required': ['themes'],\n                                'type': 'object'}},\n     'description': 'STAC Themes Extension for STAC Catalogs, Collections '\n                    'and Items.',\n     'oneOf': [{'$comment': 'This is the schema for STAC Items.',\n                'properties': {'properties': {'$ref': '#/definitions/fields'},\n                               'type': {'const': 'Feature'}},\n                'required': ['type', 'properties'],\n                'type': 'object'},\n               {'$comment': 'This is the schema for STAC Catalogs.',\n                'allOf': [{'$ref': '#/definitions/fields'}],\n                'properties': {'type': {'const': 'Catalog'}},\n                'required': ['type'],\n                'type': 'object'},\n               {'$comment': 'This is the schema for STAC Collections.',\n                'anyOf': [{'$ref': '#/definitions/fields'},\n                          {'$comment': 'This is the schema for the fields '\n                                       'in Summaries. By default, only '\n                                       'checks the existance of the '\n                                       'properties, but not the schema of '\n                                       'the summaries.',\n                           'properties': {'summaries': {'required': ['themes']}},\n                           'required': ['summaries']}],\n                'properties': {'type': {'const': 'Collection'}},\n                'required': ['type'],\n                'type': 'object'}],\n     'properties': {'stac_extensions': {'contains': {'const': 'https://stac-extensions.github.io/themes/v1.0.0/schema.json'},\n                                        'type': 'array'}},\n     'required': ['stac_extensions'],\n     'title': 'Themes Extension',\n     'type': 'object'}\n\nOn instance:\n    {'conformsTo': ['http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core'],\n     'geometry': None,\n     'id': 'polaris-experiment',\n     'linkTemplates': [],\n     'links': [{'href': '../../catalog.json',\n                'rel': 'root',\n                'title': 'Open Science Catalog',\n                'type': 'application/json'},\n               {'href': '../catalog.json',\n                'rel': 'parent',\n                'title': 'Experiments',\n                'type': 'application/json'},\n               {'href': '../../products/polaris/collection.json',\n                'rel': 'child',\n                'title': 'POLARIS',\n                'type': 'application/json'},\n               {'href': '../../themes/oceans/catalog.json',\n                'rel': 'related',\n                'title': 'Theme: Oceans',\n                'type': 'application/json'},\n               {'href': '../../workflows/polaris-workflow/record.json',\n                'rel': 'related',\n                'title': 'Workflow: POLARIS',\n                'type': 'application/json'},\n               {'href': './input.yaml',\n                'rel': 'input',\n                'title': 'Input parameters',\n                'type': 'application/yaml'},\n               {'href': './environment.yaml',\n                'rel': 'environment',\n                'title': 'Execution environment',\n                'type': 'application/yaml'},\n               {'href': 'https://esa-earthcode.github.io/open-science-catalog-metadata/experiments/polaris-experiment/item.json',\n                'rel': 'self',\n                'type': 'application/json'}],\n     'properties': {'contacts': [{'contactInstructions': 'Contact via '\n                                                         'EarthCODE',\n                                  'links': [{'href': 'https://opensciencedata.esa.int/',\n                                             'rel': 'about',\n                                             'type': 'text/html'}],\n                                  'name': 'EarthCODE Demo',\n                                  'organization': 'EarthCODE',\n                                  'roles': ['host']}],\n                    'created': '2025-02-19T23:00:00Z',\n                    'description': 'Polar Operational Limit Assessment '\n                                   'Risk Index System (POLARIS)',\n                    'formats': [{'name': 'GeoTIFF'}],\n                    'keywords': ['sea ice', 'polar'],\n                    'license': 'CC-BY-SA-4.0',\n                    'osc:workflow': 'polaris-workflow',\n                    'themes': [{'concepts': [{'id': 'oceans'}],\n                                'scheme': 'https://github.com/stac-extensions/osc#theme'}],\n                    'title': 'POLARIS',\n                    'type': 'experiment',\n                    'updated': '2025-02-19T23:00:00Z',\n                    'version': '2'},\n     'type': 'Feature'}"
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
             }
           ]
         },
@@ -90,7 +88,7 @@
   "globalErrors": {},
   "counts": {
     "total": 1,
-    "passed": 0,
-    "failed": 1
+    "passed": 1,
+    "failed": 0
   }
 }

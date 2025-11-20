@@ -40,6 +40,7 @@ $graph:
         label: area of interest
         doc: area of interest as a bounding box
         type: string
+        default: "-121.399,39.834,-120.74,40.472"
       epsg:
         label: EPSG code
         doc: EPSG code
@@ -49,6 +50,7 @@ $graph:
         label: Sentinel-2 STAC items
         doc: list of Sentinel-2 COG STAC items
         type: string[]
+        default: ["https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2B_10TFK_20210713_0_L2A", "https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2A_10TFK_20220524_0_L2A"]
       bands:
         label: bands used for the NDWI
         doc: bands used for the NDWI
@@ -270,8 +272,8 @@ allOf:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.json)
-* JSON version: [schema.json](https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.yaml)
+* YAML version: [schema.yaml](https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/application-package/schema.json)
+* JSON version: [schema.json](https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/application-package/schema.yaml)
 
 
 # JSON-LD Context
@@ -281,7 +283,7 @@ None
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://ogcincubator.github.io/bblocks-openscience/_sources/application-package/context.jsonld)
+[context.jsonld](https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/_sources/application-package/context.jsonld)
 
 ## Sources
 
@@ -291,6 +293,6 @@ You can find the full JSON-LD context here:
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/ogcincubator/bblocks-openscience](https://github.com/ogcincubator/bblocks-openscience)
+* URL: [https://github.com/ahaywardtvuk/bblocks-openscience](https://github.com/ahaywardtvuk/bblocks-openscience)
 * Path: `_sources/application-package`
 

@@ -19,6 +19,6 @@ This ontology will be based on canonical common ontologies where appropriate, an
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/ogcincubator/bblocks-openscience](https://github.com/ogcincubator/bblocks-openscience)
+* URL: [https://github.com/ahaywardtvuk/bblocks-openscience](https://github.com/ahaywardtvuk/bblocks-openscience)
 * Path: `_sources/ontology/openscience`
 

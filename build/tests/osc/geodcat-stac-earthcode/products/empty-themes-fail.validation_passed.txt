@@ -1,0 +1,137 @@
+Validation report for ogc.osc.geodcat-stac-earthcode.products - EarthCODE Product
+Generated 2025-11-20T11:12:07.268313+00:00
+=== General ===
+Test was expected to fail and it did.
+=== End General ===
+
+=== Files ===
+Using empty-themes-fail.json from test resources
+JSON-LD context is present - uplifting
+Output JSON-LD empty-themes-fail.jsonld created
+Output Turtle empty-themes-fail.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: {'id': 'polarwarp', 'title': 'Polarwarp', 'created': '2025-10-13T16:54:34Z', 'osc:status': 'completed', 'type': 'Collection', 'osc:type': 'product', 'stac_version': '1.0.0', 'description': 'Polarwarp product\n\nForecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.', 'license': 'various', 'extent': {'spatial': {'bbox': [[-0.0018099989187332413, 0.00043814539682784925, 0.001347252506956414, 0.0007574196581714432]]}, 'temporal': {'interval': [['2025-02-25T00:00:00Z', None]]}}, 'links': [{'rel': 'root', 'href': '../../catalog.json', 'type': 'application/json', 'title': 'Open Science Catalog'}, {'rel': 'parent', 'href': '../catalog.json', 'type': 'application/json', 'title': 'Products'}, {'href': '../../projects/cerulean-information-factory/collection.json', 'rel': 'related', 'type': 'application/json', 'title': 'Project: Cerulean Information Factory'}, {'href': '../../themes/cryosphere/catalog.json', 'rel': 'related', 'type': 'application/json', 'title': 'Theme: Cryosphere'}, {'rel': 'related', 'href': '../../experiments/polarwarp/record.json', 'type': 'application/json', 'title': 'Experiment: Polarwarp'}, {'href': './item.json', 'rel': 'item'}, {'href': 'https://github.com/gtif-cerulean/polarwarp', 'rel': 'via'}], 'stac_extensions': ['https://stac-extensions.github.io/osc/v1.0.0/schema.json', 'https://stac-extensions.github.io/themes/v1.0.0/schema.json'], 'osc:project': 'cerulean-information-factory', 'themes': []} is not valid under any of the given schemas
+
+Failed validating 'anyOf' in schema['allOf'][0]:
+    {'$schema': 'https://json-schema.org/draft/2020-12/schema',
+     'anyOf': [{'allOf': [{'anyOf': [{'$ref': 'https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/stac/geodcat-stac-item/schema.yaml'},
+                                     {'$ref': 'https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/stac/geodcat-stac-collection/schema.yaml'}]},
+                          {'$ref': 'https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes/schema.yaml'},
+                          {'$ref': 'https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/osc/schema.yaml'}]},
+               {'$ref': 'https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/geodcat-records/schema.yaml'}],
+     'definitions': {'osc:experiment': {'format': 'osc-experiment',
+                                        'minLength': 1,
+                                        'title': 'Experiment',
+                                        'type': 'string'},
+                     'osc:missions': {'format': 'osc-missions',
+                                      'items': {'format': 'osc-mission',
+                                                'minLength': 1,
+                                                'title': 'EO Mission',
+                                                'type': 'string'},
+                                      'title': 'EO Missions',
+                                      'type': 'array',
+                                      'uniqueItems': True},
+                     'osc:project': {'format': 'osc-project',
+                                     'minLength': 1,
+                                     'title': 'Project',
+                                     'type': 'string'},
+                     'osc:region': {'minLength': 1,
+                                    'title': 'Region',
+                                    'type': 'string'},
+                     'osc:status': {'enum': ['planned',
+                                             'ongoing',
+                                             'completed'],
+                                    'title': 'Status',
+                                    'type': 'string'},
+                     'osc:variables': {'format': 'osc-variables',
+                                       'items': {'format': 'osc-variable',
+                                                 'minLength': 1,
+                                                 'title': 'Variable',
+                                                 'type': 'string'},
+                                       'title': 'Variables',
+                                       'type': 'array',
+                                       'uniqueItems': True},
+                     'osc:workflow': {'format': 'osc-workflow',
+                                      'minLength': 1,
+                                      'title': 'Workflow',
+                                      'type': 'string'},
+                     'osc:workflows': {'format': 'osc-workflows',
+                                       'items': {'$ref': '#/definitions/osc:workflow'},
+                                       'title': 'Workflows',
+                                       'type': 'array'},
+                     'via_links': {'properties': {'rel': {'enum': ['via']},
+                                                  'type': {'enum': ['application/json',
+                                                                    'application/pdf',
+                                                                    'application/zip',
+                                                                    'text/html',
+                                                                    'text/plain'],
+                                                           'options': {'enum_titles': ['JSON',
+                                                                                       'PDF',
+                                                                                       'ZIP',
+                                                                                       'HTML',
+                                                                                       'Text']}}},
+                                   'title': 'Via Link'}},
+     'description': 'Schema for OGCAPI records profile and STAC profile '
+                    'used by EarthCODE'}
+
+On instance:
+    {'created': '2025-10-13T16:54:34Z',
+     'description': 'Polarwarp product\n'
+                    '\n'
+                    'Forecast rasters (+1h … +6h) produced by the '
+                    'Polarwarp workflow using NEXTSIM model and S1 scenes.',
+     'extent': {'spatial': {'bbox': [[-0.0018099989187332413,
+                                      0.00043814539682784925,
+                                      0.001347252506956414,
+                                      0.0007574196581714432]]},
+                'temporal': {'interval': [['2025-02-25T00:00:00Z', None]]}},
+     'id': 'polarwarp',
+     'license': 'various',
+     'links': [{'href': '../../catalog.json',
+                'rel': 'root',
+                'title': 'Open Science Catalog',
+                'type': 'application/json'},
+               {'href': '../catalog.json',
+                'rel': 'parent',
+                'title': 'Products',
+                'type': 'application/json'},
+               {'href': '../../projects/cerulean-information-factory/collection.json',
+                'rel': 'related',
+                'title': 'Project: Cerulean Information Factory',
+                'type': 'application/json'},
+               {'href': '../../themes/cryosphere/catalog.json',
+                'rel': 'related',
+                'title': 'Theme: Cryosphere',
+                'type': 'application/json'},
+               {'href': '../../experiments/polarwarp/record.json',
+                'rel': 'related',
+                'title': 'Experiment: Polarwarp',
+                'type': 'application/json'},
+               {'href': './item.json', 'rel': 'item'},
+               {'href': 'https://github.com/gtif-cerulean/polarwarp',
+                'rel': 'via'}],
+     'osc:project': 'cerulean-information-factory',
+     'osc:status': 'completed',
+     'osc:type': 'product',
+     'stac_extensions': ['https://stac-extensions.github.io/osc/v1.0.0/schema.json',
+                         'https://stac-extensions.github.io/themes/v1.0.0/schema.json'],
+     'stac_version': '1.0.0',
+     'themes': [],
+     'title': 'Polarwarp',
+     'type': 'Collection'}
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:
+ - Shape <https://www.ogc.org/rules/rec/#testVarExists>: *none*
+
+=== End SHACL ===
+

@@ -132,7 +132,7 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 #### jsonld
 ```jsonld
 {
-  "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/context.jsonld",
+  "@context": "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/experiments/context.jsonld",
   "id": "polaris-experiment",
   "type": "Feature",
   "conformsTo": [
@@ -242,62 +242,62 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 ```ttl
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <osc:> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix ns1: <osc:> .
+@prefix ns2: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix thns: <https://w3id.org/ogc/stac/themes/> .
 
-<https://ogc.org/demo/ospd/polaris-experiment> rdfs:label "POLARIS" ;
+<https://ogc.org/demo/ospd/polaris-experiment> a <https://ogc.org/demo/ospd/experiment>,
+        geojson:Feature ;
     dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core> ;
     dcterms:created "2025-02-19T23:00:00Z" ;
     dcterms:description "Polar Operational Limit Assessment Risk Index System (POLARIS)" ;
-    dcterms:license "CC-BY-SA-4.0" ;
     dcterms:modified "2025-02-19T23:00:00Z" ;
-    dcterms:type "Feature",
-        "experiment" ;
-    rdfs:seeAlso [ rdfs:label "Input parameters" ;
-            dcterms:type "application/yaml" ;
-            ns1:relation <http://www.iana.org/assignments/relation/input> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/input.yaml> ],
-        [ rdfs:label "Execution environment" ;
-            dcterms:type "application/yaml" ;
-            ns1:relation <http://www.iana.org/assignments/relation/environment> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/environment.yaml> ],
-        [ rdfs:label "Open Science Catalog" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://ogc.org/catalog.json> ],
-        [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+    dcterms:title "POLARIS" ;
+    rdfs:seeAlso [ dcterms:format "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/experiments/polaris-experiment/item.json> ],
-        [ rdfs:label "Workflow: POLARIS" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/workflows/polaris-workflow/record.json> ],
+        [ rdfs:label "Execution environment" ;
+            dcterms:format "application/yaml" ;
+            ns2:relation <http://www.iana.org/assignments/relation/environment> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/environment.yaml> ],
+        [ rdfs:label "Input parameters" ;
+            dcterms:format "application/yaml" ;
+            ns2:relation <http://www.iana.org/assignments/relation/input> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/input.yaml> ],
+        [ rdfs:label "Experiments" ;
+            dcterms:format "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
         [ rdfs:label "Theme: Oceans" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            dcterms:format "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
         [ rdfs:label "POLARIS" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/child> ;
+            dcterms:format "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/child> ;
             oa:hasTarget <https://ogc.org/products/polaris/collection.json> ],
-        [ rdfs:label "Experiments" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://ogc.org/demo/catalog.json> ] ;
-    dcat:contactPoint [ rdfs:label "EarthCODE Demo" ;
-            rdfs:seeAlso [ dcterms:type "text/html" ;
-                    ns1:relation <http://www.iana.org/assignments/relation/about> ;
+        [ rdfs:label "Workflow: POLARIS" ;
+            dcterms:format "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/workflows/polaris-workflow/record.json> ],
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:format "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ] ;
+    dcat:contactPoint [ rdfs:seeAlso [ dcterms:format "text/html" ;
+                    ns2:relation <http://www.iana.org/assignments/relation/about> ;
                     oa:hasTarget <https://opensciencedata.esa.int/> ] ] ;
     dcat:keyword "polar",
         "sea ice" ;
-    rec:format [ rec:name "GeoTIFF" ] ;
-    rec:themes [ rec:concept [ rec:conceptID "oceans"^^xsd:string ] ;
-            rec:scheme "https://github.com/stac-extensions/osc#theme" ] ;
-    ns2:workflow "polaris-workflow" .
+    dcat:license "CC-BY-SA-4.0" ;
+    rec:format [ ] ;
+    rec:themes [ thns:concepts [ thns:id "oceans" ] ;
+            thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
+    ns1:workflow "polaris-workflow" .
 
 
 ```
@@ -308,14 +308,44 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 $schema: https://json-schema.org/draft/2020-12/schema
 description: EarthCode Experiment
 allOf:
-- $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml
+- $ref: https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml
+- $ref: https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/geodcat-records/schema.yaml
+properties:
+  properties:
+    type: object
+    required:
+    - osc:workflow
+    properties:
+      osc:workflow:
+        $ref: https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/definitions/osc:workflow
+  links:
+    type: array
+    items:
+      oneOf:
+      - title: Other Link
+        properties:
+          rel:
+            not:
+              enum:
+              - via
+              - input
+              - environment
+      - title: Link to Input Parameter
+        properties:
+          rel:
+            const: input
+      - title: Link to Execution Environment
+        properties:
+          rel:
+            const: environment
+      - $ref: https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/definitions/via_links
 
 ```
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/schema.json)
-* JSON version: [schema.json](https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/schema.yaml)
+* YAML version: [schema.yaml](https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/experiments/schema.json)
+* JSON version: [schema.json](https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/experiments/schema.yaml)
 
 
 # JSON-LD Context
@@ -323,21 +353,6 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
-    "href": {
-      "@type": "@id",
-      "@id": "oa:hasTarget"
-    },
-    "rel": {
-      "@context": {
-        "@base": "http://www.iana.org/assignments/relation/"
-      },
-      "@id": "http://www.iana.org/assignments/relation",
-      "@type": "@id"
-    },
-    "type": "dct:type",
-    "hreflang": "dct:language",
-    "title": "rdfs:label",
-    "length": "dct:extent",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
     "GeometryCollection": "geojson:GeometryCollection",
@@ -351,11 +366,15 @@ Links to the schema:
       "@container": "@set",
       "@id": "geojson:features"
     },
+    "type": "@type",
     "id": "@id",
     "properties": "@nest",
     "geometry": {
       "@context": {
-        "type": "@type"
+        "coordinates": {
+          "@container": "@list",
+          "@id": "geojson:coordinates"
+        }
       },
       "@id": "geojson:geometry"
     },
@@ -363,27 +382,132 @@ Links to the schema:
       "@container": "@list",
       "@id": "geojson:bbox"
     },
-    "links": "rdfs:seeAlso",
-    "coordinates": {
-      "@container": "@list",
-      "@id": "geojson:coordinates"
+    "links": {
+      "@context": {
+        "type": "dct:format",
+        "title": "rdfs:label"
+      },
+      "@id": "rdfs:seeAlso"
     },
+    "conformsTo": {
+      "@container": "@set",
+      "@id": "dct:conformsTo",
+      "@type": "@id"
+    },
+    "time": "dct:temporal",
     "created": "dct:created",
     "updated": "dct:modified",
-    "uriTemplate": {
-      "@type": "xsd:string",
-      "@id": "oa:hasTarget"
+    "title": {
+      "@container": "@set",
+      "@id": "dct:title"
     },
     "description": {
-      "@id": "dct:description",
-      "@container": "@set"
+      "@container": "@set",
+      "@id": "dct:description"
     },
-    "license": "dct:license",
-    "extent": "stac:extent",
+    "keywords": {
+      "@container": "@set",
+      "@id": "dcat:keyword"
+    },
+    "language": "rec:language",
+    "languages": {
+      "@container": "@set",
+      "@id": "rec:languages"
+    },
+    "resourceLanguages": {
+      "@container": "@set",
+      "@id": "rec:resourceLanguages"
+    },
+    "externalIds": {
+      "@context": {
+        "scheme": "rec:scheme",
+        "value": "rec:id"
+      },
+      "@container": "@set",
+      "@id": "rec:scopedIdentifier"
+    },
+    "themes": {
+      "@container": "@set",
+      "@id": "rec:themes"
+    },
+    "formats": {
+      "@container": "@set",
+      "@id": "rec:format",
+      "@type": "@id"
+    },
+    "contacts": {
+      "@context": {
+        "type": "dct:type",
+        "title": "rdfs:label"
+      },
+      "@container": "@set",
+      "@id": "dcat:contactPoint",
+      "@type": "@id"
+    },
+    "license": "dcat:license",
+    "rights": "dcat:rights",
+    "linkTemplates": {
+      "@context": {
+        "type": "dct:format",
+        "title": "rdfs:label",
+        "uriTemplate": {
+          "@type": "xsd:string",
+          "@id": "rec:uriTemplate"
+        },
+        "varBase": "rec:varBase",
+        "variables": {
+          "@id": "rec:hasVariable",
+          "@container": "@index",
+          "@index": "dct:identifier",
+          "@type": "@json"
+        }
+      },
+      "@id": "rec:hasLinkTemplate"
+    },
+    "accessrights": "dct:accessRights",
+    "variables": {
+      "@container": "@id",
+      "@id": "rec:hasVariable",
+      "@context": {
+        "@base": "http://example.com/variables/",
+        "@vocab": "https://www.opengis.net/def/ogc-api/records/"
+      }
+    },
+    "stac_version": "stac:version",
+    "stac_extensions": "stac:hasExtension",
+    "href": {
+      "@type": "@id",
+      "@id": "oa:hasTarget"
+    },
+    "rel": {
+      "@context": {
+        "@base": "http://www.iana.org/assignments/relation/"
+      },
+      "@id": "http://www.iana.org/assignments/relation",
+      "@type": "@id"
+    },
+    "hreflang": "dct:language",
+    "length": "dct:extent",
+    "assets": {
+      "@context": {
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        },
+        "thumbnail": "stac:thumbnail",
+        "overview": "stac:overview",
+        "data": "stac:data",
+        "metadata": "stac:metadata"
+      },
+      "@id": "stac:assets",
+      "@container": "@id"
+    },
     "datetime": {
-      "@id": "stac:datetime",
+      "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
+    "extent": "dct:extent",
     "start_datetime": {
       "@id": "stac:start_datetime",
       "@type": "xsd:dateTime"
@@ -392,31 +516,8 @@ Links to the schema:
       "@id": "stac:end_datetime",
       "@type": "xsd:dateTime"
     },
-    "assets": {
-      "@id": "https://w3id.org/ogc/stac/core/assets",
-      "@container": "@id"
-    },
-    "media_type": "stac:mediaType",
-    "themes": {
-      "@id": "rec:themes",
-      "@container": "@set",
-      "@context": {
-        "concepts": {
-          "@id": "rec:concept",
-          "@context": {
-            "id": {
-              "@type": "xsd:string",
-              "@id": "rec:conceptID"
-            },
-            "url": {
-              "@type": "@id",
-              "@id": "dcat:theme"
-            }
-          }
-        },
-        "scheme": "rec:scheme"
-      }
-    },
+    "providers": "stac:hasProvider",
+    "media_type": "dct:format",
     "concepts": {
       "@id": "thns:concepts",
       "@container": "@set",
@@ -427,424 +528,30 @@ Links to the schema:
       }
     },
     "scheme": "thns:scheme",
-    "time": {
-      "@id": "dct:temporal",
-      "@context": {
-        "interval": {
-          "@id": "w3ctime:hasTime",
-          "@container": "@list"
-        },
-        "resolution": "rec:iso8601period"
-      }
-    },
-    "keywords": {
-      "@container": "@set",
-      "@id": "dcat:keyword"
-    },
-    "conformsTo": {
-      "@container": "@set",
-      "@id": "dct:conformsTo",
-      "@type": "@id"
-    },
-    "language": {
-      "@id": "rec:language",
-      "@context": {
-        "code": "rec:languageCode",
-        "name": "skos:prefLabel"
-      }
-    },
-    "languages": {
-      "@container": "@set",
-      "@id": "rec:languages",
-      "@context": {
-        "code": "rec:languageCode",
-        "name": "skos:prefLabel"
-      }
-    },
-    "resourceLanguages": {
-      "@container": "@set",
-      "@id": "rec:resourceLanguages",
-      "@context": {
-        "code": "rec:languageCode",
-        "name": "skos:prefLabel"
-      }
-    },
-    "externalIds": {
-      "@container": "@set",
-      "@id": "rec:scopedIdentifier",
-      "@context": {
-        "scheme": "rec:scheme",
-        "value": "rec:id"
-      }
-    },
-    "formats": {
-      "@id": "rec:format",
-      "@context": {
-        "name": "rec:name"
-      }
-    },
-    "contacts": {
-      "@container": "@set",
-      "@id": "dcat:contactPoint",
-      "@type": "@id"
-    },
-    "accessrights": "dct:accessRights",
-    "linkTemplates": "rec:hasLinkTemplate",
-    "variables": {
-      "@container": "@id",
-      "@id": "rec:hasVariable",
-      "@context": {
-        "@base": "http://example.com/variables/",
-        "@vocab": "https://www.opengis.net/def/ogc-api/records/"
-      }
-    },
-    "wasInfluencedBy": {
-      "@id": "prov:wasInfluencedBy",
-      "@type": "@id"
-    },
-    "qualifiedInfluence": {
-      "@id": "prov:qualifiedInfluence",
-      "@type": "@id"
-    },
-    "activityType": "@type",
-    "agentType": "@type",
-    "entityType": "@type",
-    "featureType": "@type",
-    "provType": "@type",
-    "Activity": "prov:Activity",
-    "ActivityInfluence": "prov:ActivityInfluence",
-    "Agent": "prov:Agent",
-    "AgentInfluence": "prov:AgentInfluence",
-    "Association": "prov:Association",
-    "Attribution": "prov:Attribution",
-    "Bundle": "prov:Bundle",
-    "Collection": "prov:Collection",
-    "Communication": "prov:Communication",
-    "Delegation": "prov:Delegation",
-    "Derivation": "prov:Derivation",
-    "EmptyCollection": "prov:EmptyCollection",
-    "End": "prov:End",
-    "Entity": "prov:Entity",
-    "EntityInfluence": "prov:EntityInfluence",
-    "Generation": "prov:Generation",
-    "Influence": "prov:Influence",
-    "InstantaneousEvent": "prov:InstantaneousEvent",
-    "Invalidation": "prov:Invalidation",
-    "Location": "prov:Location",
-    "Organization": "prov:Organization",
-    "Person": "prov:Person",
-    "Plan": "prov:Plan",
-    "PrimarySource": "prov:PrimarySource",
-    "Quotation": "prov:Quotation",
-    "Revision": "prov:Revision",
-    "Role": "prov:Role",
-    "SoftwareAgent": "prov:SoftwareAgent",
-    "Start": "prov:Start",
-    "Usage": "prov:Usage",
-    "ServiceDescription": "prov:ServiceDescription",
-    "DirectQueryService": "prov:DirectQueryService",
-    "Accept": "prov:Accept",
-    "Contribute": "prov:Contribute",
-    "Contributor": "prov:Contributor",
-    "Copyright": "prov:Copyright",
-    "Create": "prov:Create",
-    "Creator": "prov:Creator",
-    "Modify": "prov:Modify",
-    "Publish": "prov:Publish",
-    "Publisher": "prov:Publisher",
-    "Replace": "prov:Replace",
-    "RightsAssignment": "prov:RightsAssignment",
-    "RightsHolder": "prov:RightsHolder",
-    "Submit": "prov:Submit",
-    "Dictionary": "prov:Dictionary",
-    "EmptyDictionary": "prov:EmptyDictionary",
-    "KeyEntityPair": "prov:KeyEntityPair",
-    "Insertion": "prov:Insertion",
-    "Removal": "prov:Removal",
-    "atTime": {
-      "@id": "prov:atTime",
-      "@type": "xsd:dateTime"
-    },
-    "endedAtTime": {
-      "@id": "prov:endedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "generatedAtTime": {
-      "@id": "prov:generatedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "invalidatedAtTime": {
-      "@id": "prov:invalidatedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "startedAtTime": {
-      "@id": "prov:startedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "value": "prov:value",
-    "provenanceUriTemplate": "prov:provenanceUriTemplate",
-    "pairKey": {
-      "@id": "prov:pairKey",
-      "@type": "rdfs:Literal"
-    },
-    "removedKey": {
-      "@id": "prov:removedKey",
-      "@type": "rdfs:Literal"
-    },
-    "actedOnBehalfOf": {
-      "@id": "prov:actedOnBehalfOf",
-      "@type": "@id"
-    },
-    "agent": {
-      "@id": "prov:agent",
-      "@type": "@id"
-    },
-    "alternateOf": {
-      "@id": "prov:alternateOf",
-      "@type": "@id"
-    },
-    "atLocation": {
-      "@id": "prov:atLocation",
-      "@type": "@id"
-    },
-    "entity": {
-      "@id": "prov:entity",
-      "@type": "@id"
-    },
-    "generated": {
-      "@id": "prov:generated",
-      "@type": "@id"
-    },
-    "hadActivity": {
-      "@id": "prov:hadActivity",
-      "@type": "@id"
-    },
-    "activity": {
-      "@id": "prov:activity",
-      "@type": "@id"
-    },
-    "hadGeneration": {
-      "@id": "prov:hadGeneration",
-      "@type": "@id"
-    },
-    "hadMember": {
-      "@id": "prov:hadMember",
-      "@type": "@id"
-    },
-    "hadPlan": {
-      "@id": "prov:hadPlan",
-      "@type": "@id"
-    },
-    "hadPrimarySource": {
-      "@id": "prov:hadPrimarySource",
-      "@type": "@id"
-    },
-    "hadRole": {
-      "@id": "prov:hadRole",
-      "@type": "@id"
-    },
-    "hadUsage": {
-      "@id": "prov:hadUsage",
-      "@type": "@id"
-    },
-    "influenced": {
-      "@id": "prov:influenced",
-      "@type": "@id"
-    },
-    "influencer": {
-      "@id": "prov:influencer",
-      "@type": "@id"
-    },
-    "invalidated": {
-      "@id": "prov:invalidated",
-      "@type": "@id"
-    },
-    "qualifiedAssociation": {
-      "@id": "prov:qualifiedAssociation",
-      "@type": "@id"
-    },
-    "qualifiedAttribution": {
-      "@id": "prov:qualifiedAttribution",
-      "@type": "@id"
-    },
-    "qualifiedCommunication": {
-      "@id": "prov:qualifiedCommunication",
-      "@type": "@id"
-    },
-    "qualifiedDelegation": {
-      "@id": "prov:qualifiedDelegation",
-      "@type": "@id"
-    },
-    "qualifiedDerivation": {
-      "@id": "prov:qualifiedDerivation",
-      "@type": "@id"
-    },
-    "qualifiedEnd": {
-      "@id": "prov:qualifiedEnd",
-      "@type": "@id"
-    },
-    "qualifiedGeneration": {
-      "@id": "prov:qualifiedGeneration",
-      "@type": "@id"
-    },
-    "qualifiedInvalidation": {
-      "@id": "prov:qualifiedInvalidation",
-      "@type": "@id"
-    },
-    "qualifiedPrimarySource": {
-      "@id": "prov:qualifiedPrimarySource",
-      "@type": "@id"
-    },
-    "qualifiedQuotation": {
-      "@id": "prov:qualifiedQuotation",
-      "@type": "@id"
-    },
-    "qualifiedRevision": {
-      "@id": "prov:qualifiedRevision",
-      "@type": "@id"
-    },
-    "qualifiedStart": {
-      "@id": "prov:qualifiedStart",
-      "@type": "@id"
-    },
-    "qualifiedUsage": {
-      "@id": "prov:qualifiedUsage",
-      "@type": "@id"
-    },
-    "specializationOf": {
-      "@id": "prov:specializationOf",
-      "@type": "@id"
-    },
-    "used": {
-      "@id": "prov:used",
-      "@type": "@id"
-    },
-    "wasAssociatedWith": {
-      "@id": "prov:wasAssociatedWith",
-      "@type": "@id"
-    },
-    "wasAttributedTo": {
-      "@id": "prov:wasAttributedTo",
-      "@type": "@id"
-    },
-    "wasDerivedFrom": {
-      "@id": "prov:wasDerivedFrom",
-      "@type": "@id"
-    },
-    "wasEndedBy": {
-      "@id": "prov:wasEndedBy",
-      "@type": "@id"
-    },
-    "wasGeneratedBy": {
-      "@id": "prov:wasGeneratedBy",
-      "@type": "@id"
-    },
-    "wasInformedBy": {
-      "@id": "prov:wasInformedBy",
-      "@type": "@id"
-    },
-    "wasInvalidatedBy": {
-      "@id": "prov:wasInvalidatedBy",
-      "@type": "@id"
-    },
-    "wasQuotedFrom": {
-      "@id": "prov:wasQuotedFrom",
-      "@type": "@id"
-    },
-    "wasRevisionOf": {
-      "@id": "prov:wasRevisionOf",
-      "@type": "@id"
-    },
-    "wasStartedBy": {
-      "@id": "prov:wasStartedBy",
-      "@type": "@id"
-    },
-    "has_anchor": {
-      "@id": "prov:has_anchor",
-      "@type": "@id"
-    },
-    "has_provenance": {
-      "@id": "dct:provenance",
-      "@type": "@id"
-    },
-    "has_query_service": {
-      "@id": "prov:has_query_service",
-      "@type": "@id"
-    },
-    "describesService": {
-      "@id": "prov:describesService",
-      "@type": "@id"
-    },
-    "pingback": {
-      "@id": "prov:pingback",
-      "@type": "@id"
-    },
-    "dictionary": {
-      "@id": "prov:dictionary",
-      "@type": "@id"
-    },
-    "derivedByInsertionFrom": {
-      "@id": "prov:derivedByInsertionFrom",
-      "@type": "@id"
-    },
-    "derivedByRemovalFrom": {
-      "@id": "prov:derivedByRemovalFrom",
-      "@type": "@id"
-    },
-    "insertedKeyEntityPair": {
-      "@id": "prov:insertedKeyEntityPair",
-      "@type": "@id"
-    },
-    "hadDictionaryMember": {
-      "@id": "prov:hadDictionaryMember",
-      "@type": "@id"
-    },
-    "pairEntity": {
-      "@id": "prov:pairEntity",
-      "@type": "@id"
-    },
-    "qualifiedInsertion": {
-      "@id": "prov:qualifiedInsertion",
-      "@type": "@id"
-    },
-    "qualifiedRemoval": {
-      "@id": "prov:qualifiedRemoval",
-      "@type": "@id"
-    },
-    "asInBundle": {
-      "@id": "prov:asInBundle",
-      "@type": "@id"
-    },
-    "mentionOf": {
-      "@id": "prov:mentionOf",
-      "@type": "@id"
-    },
-    "name": "rdfs:label",
-    "oa": "http://www.w3.org/ns/oa#",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "dct": "http://purl.org/dc/terms/",
-    "thns": "https://w3id.org/ogc/stac/themes/",
     "geojson": "https://purl.org/geojson/vocab#",
-    "stac": "http://stacspec.org/ontology/core#",
-    "geo": "http://www.opengis.net/ont/geosparql#",
-    "prov": "http://www.w3.org/ns/prov#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "w3ctime": "http://www.w3.org/2006/time#",
-    "rec": "https://www.opengis.net/def/ogc-api/records/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "oa": "http://www.w3.org/ns/oa#",
+    "dct": "http://purl.org/dc/terms/",
     "dcat": "http://www.w3.org/ns/dcat#",
+    "rec": "https://www.opengis.net/def/ogc-api/records/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "owl": "http://www.w3.org/2002/07/owl#",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "w3ctime": "http://www.w3.org/2006/time#",
     "dctype": "http://purl.org/dc/dcmitype/",
     "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "prov": "http://www.w3.org/ns/prov#",
     "foaf": "http://xmlns.com/foaf/0.1/",
+    "stac": "https://w3id.org/ogc/stac/core/",
+    "thns": "https://w3id.org/ogc/stac/themes/",
     "@version": 1.1
   }
 }
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/context.jsonld)
+[context.jsonld](https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/experiments/context.jsonld)
 
 ## Sources
 
@@ -858,6 +565,6 @@ You can find the full JSON-LD context here:
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/ogcincubator/bblocks-openscience](https://github.com/ogcincubator/bblocks-openscience)
+* URL: [https://github.com/ahaywardtvuk/bblocks-openscience](https://github.com/ahaywardtvuk/bblocks-openscience)
 * Path: `_sources/geodcat-stac-earthcode/experiments`
 

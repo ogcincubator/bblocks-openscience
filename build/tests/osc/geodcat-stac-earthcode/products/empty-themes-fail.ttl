@@ -1,0 +1,46 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ns1: <osc:> .
+@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+
+<file:///github/workspace/polarwarp> rdfs:label "Polarwarp" ;
+    dct:created "2025-10-13T16:54:34Z" ;
+    dct:description """Polarwarp product
+
+Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.""" ;
+    dct:extent [ ] ;
+    dct:license "various" ;
+    dct:type "Collection" ;
+    rdfs:seeAlso [ rdfs:label "Products" ;
+            dct:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <file:///github/catalog.json> ],
+        [ ns2:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <file:///github/workspace/item.json> ],
+        [ rdfs:label "Open Science Catalog" ;
+            dct:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <file:///catalog.json> ],
+        [ ns2:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
+        [ rdfs:label "Theme: Cryosphere" ;
+            dct:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <file:///themes/cryosphere/catalog.json> ],
+        [ rdfs:label "Project: Cerulean Information Factory" ;
+            dct:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <file:///projects/cerulean-information-factory/collection.json> ],
+        [ rdfs:label "Experiment: Polarwarp" ;
+            dct:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <file:///experiments/polarwarp/record.json> ] ;
+    stac:hasExtension "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
+    stac:version "1.0.0" ;
+    ns1:project "cerulean-information-factory" ;
+    ns1:status "completed" ;
+    ns1:type "product" .
+

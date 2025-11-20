@@ -2,15 +2,94 @@
   "title": "Validation report for ogc.osc.geodcat-stac-earthcode.workflows - EarthCODE Workflow",
   "bblockName": "EarthCODE Workflow",
   "bblockId": "ogc.osc.geodcat-stac-earthcode.workflows",
-  "generated": "2025-11-13T12:19:01.204887+00:00",
+  "generated": "2025-11-20T11:12:07.819094+00:00",
   "result": true,
   "items": [
     {
       "source": {
         "type": "EXAMPLE",
         "requireFail": false,
+        "filename": "build/tests/osc/geodcat-stac-earthcode/workflows/example_1_1.json",
+        "url": "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/tests/osc/geodcat-stac-earthcode/workflows/example_1_1.json",
+        "exampleIndex": 1,
+        "snippetIndex": 1,
+        "language": "application/json",
+        "sourceUrl": "https://esa-earthcode.github.io/open-science-catalog-metadata-staging/workflows/polarwarp/record.json"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using example_1_1.json from examples"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_1_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_1_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_1_1.ttl",
+              "size": 81,
+              "isError": false,
+              "message": "Output Turtle example_1_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl",
+              "focusNodes": {
+                "<https://www.ogc.org/rules/rec/#testVarExists>": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:\n - Shape <https://www.ogc.org/rules/rec/#testVarExists>: *none*\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
         "filename": "build/tests/osc/geodcat-stac-earthcode/workflows/example_2_1.json",
-        "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/workflows/example_2_1.json",
+        "url": "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/tests/osc/geodcat-stac-earthcode/workflows/example_2_1.json",
         "exampleIndex": 2,
         "snippetIndex": 1,
         "language": "application/json",
@@ -41,7 +120,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_2_1.ttl",
-              "size": 61,
+              "size": 57,
               "isError": false,
               "message": "Output Turtle example_2_1.ttl created"
             }
@@ -89,7 +168,7 @@
         "type": "EXAMPLE",
         "requireFail": false,
         "filename": "build/tests/osc/geodcat-stac-earthcode/workflows/example_3_1.json",
-        "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/workflows/example_3_1.json",
+        "url": "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/tests/osc/geodcat-stac-earthcode/workflows/example_3_1.json",
         "exampleIndex": 3,
         "snippetIndex": 1,
         "language": "application/json",
@@ -120,9 +199,88 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_3_1.ttl",
-              "size": 37,
+              "size": 36,
               "isError": false,
               "message": "Output Turtle example_3_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl",
+              "focusNodes": {
+                "<https://www.ogc.org/rules/rec/#testVarExists>": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl:\n - Shape <https://www.ogc.org/rules/rec/#testVarExists>: *none*\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/osc/geodcat-stac-earthcode/workflows/example_4_1.json",
+        "url": "https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/tests/osc/geodcat-stac-earthcode/workflows/example_4_1.json",
+        "exampleIndex": 4,
+        "snippetIndex": 1,
+        "language": "application/json",
+        "sourceUrl": "https://raw.githubusercontent.com/ESA-EarthCODE/open-science-catalog-metadata/refs/heads/main/workflows/polaris-workflow/record.json"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using example_4_1.json from examples"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_4_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_4_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_4_1.ttl",
+              "size": 57,
+              "isError": false,
+              "message": "Output Turtle example_4_1.ttl created"
             }
           ]
         },
@@ -166,8 +324,8 @@
   ],
   "globalErrors": {},
   "counts": {
-    "total": 2,
-    "passed": 2,
+    "total": 4,
+    "passed": 4,
     "failed": 0
   }
 }
