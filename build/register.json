@@ -2,7 +2,7 @@
   "name": "Open Science Workflows Building Blocks",
   "abstract": "Building Blocks for FAIR Open Science - profiles of OGC API Processes and various metadata standards to support open, transparent, interoperable and reproducible scientific workflows..\n",
   "description": "This repository is initially aimed to support the [Open Science Persistent Demonstrator](https://www.ogc.org/initiatives/open-science/) pilot, but may be further developed as a set of standards with appropriate working group governance.\n",
-  "modified": "2025-11-20T21:41:55.360783",
+  "modified": "2025-11-20T22:02:45.891478",
   "tooling": {
     "bblocks-postprocess": {
       "commitId": "\"4fa4cc94cf7d37823107d163051f795337c61afb",
@@ -123,8 +123,8 @@
       "version": "0.1",
       "dateOfLastChange": "2025-11-20",
       "dependsOn": [
-        "ogc.osc.ontology.cwlprov",
-        "ogc.geo.geodcat.dcat"
+        "ogc.geo.geodcat.dcat",
+        "ogc.osc.ontology.cwlprov"
       ],
       "sources": [],
       "scope": "dev",
@@ -221,10 +221,10 @@
       "register": "ogc-incubator",
       "dependsOn": [
         "ogc.contrib.stac.extensions.cf",
+        "ogc.ogc-utils.prov",
         "ogc.contrib.stac.extensions.themes",
         "ogc.contrib.stac.extensions.osc",
-        "ogc.geo.geodcat.geodcat-records-prov",
-        "ogc.ogc-utils.prov"
+        "ogc.geo.geodcat.geodcat-records-prov"
       ],
       "version": "0.1",
       "dateOfLastChange": "2025-11-20",
@@ -351,8 +351,8 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.osc.geodcat-stac-earthcode.common",
         "ogc.contrib.stac.collection-v1-0-0",
+        "ogc.osc.geodcat-stac-earthcode.common",
         "ogc.contrib.stac.collection"
       ],
       "version": "0.1",
@@ -457,8 +457,8 @@
       "itemClass": "api",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.osc.application-package",
-        "ogc.osc.api-profiles.processes-prov"
+        "ogc.osc.api-profiles.processes-prov",
+        "ogc.osc.application-package"
       ],
       "version": "0.1",
       "dateOfLastChange": "2025-11-20",

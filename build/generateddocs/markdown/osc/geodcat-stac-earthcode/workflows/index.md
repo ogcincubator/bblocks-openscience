@@ -255,10 +255,13 @@ The Polar Operational Limit Assessment Risk Indexing System (POLARIS) is a metho
     dcterms:description "Polar Operational Limit Assessment Risk Index System (POLARIS) algorithm." ;
     dcterms:modified "2025-03-03T22:00:00Z" ;
     dcterms:title "POLARIS" ;
-    rdfs:seeAlso [ rdfs:label "Git source repository" ;
+    rdfs:seeAlso [ dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/polaris-workflow/record.json> ],
+        [ rdfs:label "Workflows" ;
             dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/git> ;
-            oa:hasTarget <https://github.com/gtif-cerulean/cerulean-catalog.git> ],
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
         [ rdfs:label "Theme: Oceans" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
@@ -275,17 +278,14 @@ The Polar Operational Limit Assessment Risk Indexing System (POLARIS) is a metho
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/application> ;
             oa:hasTarget <https://github.com/gtif-cerulean/cerulean-catalog.git> ],
-        [ rdfs:label "Workflows" ;
+        [ rdfs:label "Git source repository" ;
             dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
+            ns1:relation <http://www.iana.org/assignments/relation/git> ;
+            oa:hasTarget <https://github.com/gtif-cerulean/cerulean-catalog.git> ],
         [ rdfs:label "POLARIS" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/child> ;
-            oa:hasTarget <https://ogc.org/experiments/polaris-experiment/record.json> ],
-        [ dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/polaris-workflow/record.json> ] ;
+            oa:hasTarget <https://ogc.org/experiments/polaris-experiment/record.json> ] ;
     dcat:contactPoint [ rdfs:seeAlso [ dcterms:format "text/html" ;
                     ns1:relation <http://www.iana.org/assignments/relation/about> ;
                     oa:hasTarget <https://opensciencedata.esa.int/> ] ] ;
@@ -483,14 +483,14 @@ not accessible at https://osc-staging.earthcode.eox.at/workflows/waterbodies/rec
         [ dcterms:format "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/waterbodies/record.json> ],
-        [ rdfs:label "Open Science Catalog" ;
-            dcterms:format "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://ogc.org/catalog.json> ],
         [ rdfs:label "Project: OSPD" ;
             dcterms:format "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/projects/ospd/collection.json> ],
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:format "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ],
         [ rdfs:label "OGC Application Package" ;
             dcterms:format "application/clw+yaml" ;
             dcterms:language "" ;

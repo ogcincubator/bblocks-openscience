@@ -2,12 +2,11 @@
   "@context": {
     "stac_version": "stac:version",
     "stac_extensions": "stac:hasExtension",
-    "type": "dct:type",
+    "type": "@type",
     "id": "@id",
     "extent": "dct:extent",
     "assets": {
       "@context": {
-        "title": "dct:title",
         "type": "dct:format",
         "roles": {
           "@id": "stac:roles",
@@ -22,14 +21,20 @@
       "@container": "@set"
     },
     "title": {
-      "@id": "rdfs:label",
+      "@id": "dct:title",
       "@container": "@set"
     },
     "description": {
       "@id": "dct:description",
       "@container": "@set"
     },
-    "links": "rdfs:seeAlso",
+    "links": {
+      "@context": {
+        "type": "dct:type",
+        "title": "rdfs:label"
+      },
+      "@id": "rdfs:seeAlso"
+    },
     "keywords": {
       "@id": "dct:subject",
       "@container": "@set"
@@ -65,7 +70,6 @@
     "properties": "@nest",
     "geometry": {
       "@context": {
-        "type": "@type",
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
@@ -112,6 +116,10 @@
       "@type": "@id"
     },
     "contacts": {
+      "@context": {
+        "type": "dct:type",
+        "title": "rdfs:label"
+      },
       "@container": "@set",
       "@id": "dcat:contactPoint",
       "@type": "@id"
@@ -120,6 +128,7 @@
     "linkTemplates": {
       "@context": {
         "type": "dct:format",
+        "title": "rdfs:label",
         "uriTemplate": {
           "@type": "xsd:string",
           "@id": "rec:uriTemplate"
@@ -174,10 +183,46 @@
       }
     },
     "wasInfluencedBy": {
+      "@context": {
+        "type": "dct:type",
+        "title": "rdfs:label"
+      },
       "@id": "prov:wasInfluencedBy",
       "@type": "@id"
     },
     "qualifiedInfluence": {
+      "@context": {
+        "influencer": {
+          "@context": {
+            "type": "dct:type",
+            "title": "rdfs:label"
+          },
+          "@id": "prov:influencer",
+          "@type": "@id"
+        },
+        "activity": {
+          "@context": {
+            "wasAssociatedWith": {
+              "@context": {
+                "type": "dct:type",
+                "title": "rdfs:label"
+              },
+              "@id": "prov:wasAssociatedWith",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:activity",
+          "@type": "@id"
+        },
+        "agent": {
+          "@context": {
+            "type": "dct:type",
+            "title": "rdfs:label"
+          },
+          "@id": "prov:agent",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:qualifiedInfluence",
       "@type": "@id"
     },
@@ -189,14 +234,38 @@
     "featureType": "@type",
     "entityType": "@type",
     "has_provenance": {
+      "@context": {
+        "wasAssociatedWith": {
+          "@id": "prov:wasAssociatedWith",
+          "@type": "@id",
+          "@context": {
+            "type": "dct:type",
+            "title": "rdfs:label"
+          }
+        }
+      },
       "@id": "dct:provenance",
       "@type": "@id"
     },
     "wasGeneratedBy": {
+      "@context": {
+        "wasAssociatedWith": {
+          "@context": {
+            "type": "dct:type",
+            "title": "rdfs:label"
+          },
+          "@id": "prov:wasAssociatedWith",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:wasGeneratedBy",
       "@type": "@id"
     },
     "wasAttributedTo": {
+      "@context": {
+        "type": "dct:type",
+        "title": "rdfs:label"
+      },
       "@id": "prov:wasAttributedTo",
       "@type": "@id"
     },
@@ -217,6 +286,16 @@
       "@type": "@id"
     },
     "wasInvalidatedBy": {
+      "@context": {
+        "wasAssociatedWith": {
+          "@context": {
+            "type": "dct:type",
+            "title": "rdfs:label"
+          },
+          "@id": "prov:wasAssociatedWith",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:wasInvalidatedBy",
       "@type": "@id"
     },
@@ -241,6 +320,22 @@
       "@type": "@id"
     },
     "qualifiedDerivation": {
+      "@context": {
+        "hadActivity": {
+          "@context": {
+            "wasAssociatedWith": {
+              "@context": {
+                "type": "dct:type",
+                "title": "rdfs:label"
+              },
+              "@id": "prov:wasAssociatedWith",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:hadActivity",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:qualifiedDerivation",
       "@type": "@id"
     },
