@@ -3,49 +3,17 @@ description: 'EarthCode Product'
 allOf:
   - $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common
   - anyOf:
-    - $ref: bblocks://ogc.contrib.stac.collection
-    - $ref: bblocks://ogc.contrib.stac.collection-v1-0-0
-  # - $ref: bblocks://ogc.contrib.stac.extensions.cf
-required:
-  - osc:project
-  - osc:status
-  - osc:type
-  - themes
+    - $ref: bblocks://ogc.contrib.stac.extensions.cf
+    - not:
+        properties:
+          stac_extensions:
+            type: array
+            contains:
+              const: https://stac-extensions.github.io/cf/v0.2.0/schema.json
 properties:
   osc:type:
     type: string
     enum:
       - product
-  osc:status:
-    $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common#/$defs/osc:status
-  osc:project:
-    $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common#/$defs/osc:project
-  osc:region:
-    $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common#/$defs/osc:region
-  osc:variables:
-    $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common#/$defs/osc:variables
-  osc:missions:
-    $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common#/$defs/osc:missions
-  osc:experiment:
-    $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common#/$defs/osc:experiment
-  cf:parameter:
-    type: array
-    format: cf-parameters
-    title: CF Parameter
-    description: "Following the <a href='http://cfconventions.org/cf-conventions/cf-conventions.html#_description_of_the_data'>Climate and Forecast (CF) Metadata Conventions</a>"
-    minItems: 1
-    uniqueItems: true
-    items:
-      title: Parameter
-      type: object
-      required:
-        - name
-      properties:
-        name:
-          title: Name
-          type: string
-          minLength: 1
-        unit:
-          title: Unit
-          type: string
-
+  type:
+    const: Collection
