@@ -272,8 +272,8 @@ allOf:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/application-package/schema.json)
-* JSON version: [schema.json](https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/build/annotated/osc/application-package/schema.yaml)
+* YAML version: [schema.yaml](https://ahaywardtvuk.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.json)
+* JSON version: [schema.json](https://ahaywardtvuk.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.yaml)
 
 
 # JSON-LD Context
@@ -283,7 +283,7 @@ None
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://raw.githubusercontent.com/ahaywardtvuk/bblocks-openscience/undefined/_sources/application-package/context.jsonld)
+[context.jsonld](https://ahaywardtvuk.github.io/bblocks-openscience/_sources/application-package/context.jsonld)
 
 ## Sources
 

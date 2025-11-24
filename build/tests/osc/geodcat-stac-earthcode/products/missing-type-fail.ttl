@@ -15,30 +15,30 @@
 Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.""" ;
     dct:extent [ ] ;
     dct:title "Polarwarp" ;
-    rdfs:seeAlso [ rdfs:label "Products" ;
+    rdfs:seeAlso [ rdfs:label "Theme: Cryosphere" ;
             dct:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <file:///github/catalog.json> ],
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <file:///themes/cryosphere/catalog.json> ],
         [ rdfs:label "Experiment: Polarwarp" ;
             dct:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <file:///experiments/polarwarp/record.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <file:///github/workspace/item.json> ],
+        [ rdfs:label "Products" ;
+            dct:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <file:///github/catalog.json> ],
         [ rdfs:label "Open Science Catalog" ;
             dct:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <file:///catalog.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <file:///github/workspace/item.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
         [ rdfs:label "Project: Cerulean Information Factory" ;
             dct:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <file:///projects/cerulean-information-factory/collection.json> ],
-        [ rdfs:label "Theme: Cryosphere" ;
-            dct:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <file:///themes/cryosphere/catalog.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ] ;
+            oa:hasTarget <file:///projects/cerulean-information-factory/collection.json> ] ;
     dcat:license "various" ;
     stac:hasExtension "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
         "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
