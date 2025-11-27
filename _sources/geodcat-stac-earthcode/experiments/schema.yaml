@@ -2,3 +2,33 @@
 description: 'EarthCode Experiment'
 allOf:
   - $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common
+  - $ref: bblocks://ogc.geo.geodcat.geodcat-records
+properties:
+  properties:
+    type: object
+    required:
+      - osc:workflow
+    properties:
+      osc:workflow:
+        $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common#/$defs/osc:workflow
+  links:
+    type: array
+    items:
+      oneOf:
+        - title: Other Link
+          properties:
+            rel:
+              not:
+                enum:
+                  - via
+                  - input
+                  - environment
+        - title: Link to Input Parameter
+          properties:
+            rel:
+              const: input
+        - title: Link to Execution Environment
+          properties:
+            rel:
+              const: environment
+        - $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common#/$defs/via_links
