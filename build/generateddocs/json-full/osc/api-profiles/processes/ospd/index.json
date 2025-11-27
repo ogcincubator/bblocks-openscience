@@ -1,7 +1,7 @@
 
 
 {
-  "itemIdentifier": "ogc.osc.api-profiles.processes-openscience",
+  "itemIdentifier": "ogc.osc.api-profiles.processes.ospd",
   "name": "Open Science profile of OGC API Processes",
   "highlighted": true,
   "abstract": "Support reproduceable science and interoperable workflows through profiling OGC API Processes to use a workflow model with transparent provenance and adherance to a common metadata profile for describing data inputs and outputs.",
@@ -13,10 +13,10 @@
     "ogc.osc.geodcat-stac-earthcode.experiments",
     "ogc.osc.geodcat-stac-earthcode.products",
     "ogc.osc.geodcat-stac-earthcode.workflows",
-    "ogc.osc.api-profiles.processes-workflow"
+    "ogc.osc.api-profiles.processes.workflow"
   ],
   "version": "0.1",
-  "dateOfLastChange": "2025-11-20",
+  "dateOfLastChange": "2025-11-27",
   "link": "https://github.com/opengeospatial/ogcapi-processes",
   "sources": [],
   "scope": "dev",
@@ -28,14 +28,14 @@
     "PROV"
   ],
   "shaclShapes": {
-    "ogc.geo.geodcat.records-ontology": [
-      "https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl"
+    "ogc.api.records.v1.schemas.linkTemplate": [
+      "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
     ]
   },
-  "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes-openscience/",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/ospd/",
   "rdfData": [],
   "validationPassed": true,
   "annotatedSchema": null,
   "gitRepository": "https://github.com/ogcincubator/bblocks-openscience",
-  "gitPath": "_sources/api-profiles/processes-openscience"
+  "gitPath": "_sources/api-profiles/processes/ospd"
 }

@@ -1,7 +1,7 @@
 
 # Workflow profile of OGC API Processes (Api)
 
-`ogc.osc.api-profiles.processes-workflow` *v0.1*
+`ogc.osc.api-profiles.processes.workflow` *v0.1*
 
 Generalised profile of API Processes executing a workflow (using Application Package profile of CWL)
 
@@ -13,5 +13,5 @@ Generalised profile of API Processes executing a workflow (using Application Pac
 The source code for this Building Block can be found in the following repository:
 
 * URL: [https://github.com/ogcincubator/bblocks-openscience](https://github.com/ogcincubator/bblocks-openscience)
-* Path: `_sources/api-profiles/processes-workflow`
+* Path: `_sources/api-profiles/processes/workflow`
 

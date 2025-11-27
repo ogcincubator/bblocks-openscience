@@ -1,7 +1,7 @@
 
 
 {
-  "itemIdentifier": "ogc.osc.api-profiles.processes-workflow",
+  "itemIdentifier": "ogc.osc.api-profiles.processes.workflow",
   "name": "Workflow profile of OGC API Processes",
   "highlighted": true,
   "abstract": "Generalised profile of API Processes executing a workflow (using Application Package profile of CWL)",
@@ -10,11 +10,11 @@
   "itemClass": "api",
   "register": "ogc-incubator",
   "dependsOn": [
-    "ogc.osc.api-profiles.processes-prov",
-    "ogc.osc.application-package"
+    "ogc.osc.application-package",
+    "ogc.osc.api-profiles.processes.ipt.api"
   ],
   "version": "0.1",
-  "dateOfLastChange": "2025-11-20",
+  "dateOfLastChange": "2025-11-27",
   "link": "https://github.com/opengeospatial/ogcapi-processes",
   "sources": [],
   "scope": "dev",
@@ -26,10 +26,10 @@
     "PROV"
   ],
   "shaclShapes": {},
-  "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes-workflow/",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/workflow/",
   "rdfData": [],
   "validationPassed": true,
   "annotatedSchema": null,
   "gitRepository": "https://github.com/ogcincubator/bblocks-openscience",
-  "gitPath": "_sources/api-profiles/processes-workflow"
+  "gitPath": "_sources/api-profiles/processes/workflow"
 }

@@ -257,25 +257,18 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
     dcterms:description "Polar Operational Limit Assessment Risk Index System (POLARIS)" ;
     dcterms:modified "2025-02-19T23:00:00Z" ;
     dcterms:title "POLARIS" ;
-    rdfs:seeAlso [ rdfs:label "Experiments" ;
+    rdfs:seeAlso [ rdfs:label "Open Science Catalog" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ],
         [ rdfs:label "Input parameters" ;
             dcterms:type "application/yaml" ;
             ns1:relation <http://www.iana.org/assignments/relation/input> ;
             oa:hasTarget <https://ogc.org/demo/ospd/input.yaml> ],
-        [ rdfs:label "Workflow: POLARIS" ;
+        [ rdfs:label "Experiments" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/workflows/polaris-workflow/record.json> ],
-        [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/experiments/polaris-experiment/item.json> ],
-        [ rdfs:label "POLARIS" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/child> ;
-            oa:hasTarget <https://ogc.org/products/polaris/collection.json> ],
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
         [ rdfs:label "Execution environment" ;
             dcterms:type "application/yaml" ;
             ns1:relation <http://www.iana.org/assignments/relation/environment> ;
@@ -284,10 +277,17 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
-        [ rdfs:label "Open Science Catalog" ;
+        [ rdfs:label "Workflow: POLARIS" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://ogc.org/catalog.json> ] ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/workflows/polaris-workflow/record.json> ],
+        [ rdfs:label "POLARIS" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/child> ;
+            oa:hasTarget <https://ogc.org/products/polaris/collection.json> ],
+        [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/experiments/polaris-experiment/item.json> ] ;
     dcat:contactPoint [ rdfs:label "EarthCODE Demo" ;
             rdfs:seeAlso [ dcterms:type "text/html" ;
                     ns1:relation <http://www.iana.org/assignments/relation/about> ;
@@ -295,7 +295,7 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
     dcat:keyword "polar",
         "sea ice" ;
     dcat:license "CC-BY-SA-4.0" ;
-    rec:format [ rdfs:label "GeoTIFF" ] ;
+    rec:format [ rec:name "GeoTIFF" ] ;
     rec:themes [ thns:concepts [ thns:id "oceans" ] ;
             thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
     ns2:workflow "polaris-workflow" .
@@ -435,6 +435,10 @@ Links to the schema:
       "@id": "rec:themes"
     },
     "formats": {
+      "@context": {
+        "name": "rec:name",
+        "mediaType": "rec:mediaType"
+      },
       "@container": "@set",
       "@id": "rec:format",
       "@type": "@id"
@@ -461,8 +465,7 @@ Links to the schema:
         "variables": {
           "@id": "rec:hasVariable",
           "@container": "@index",
-          "@index": "dct:identifier",
-          "@type": "@json"
+          "@index": "dct:identifier"
         }
       },
       "@id": "rec:hasLinkTemplate"

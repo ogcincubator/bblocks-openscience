@@ -111,6 +111,10 @@
       "@id": "rec:themes"
     },
     "formats": {
+      "@context": {
+        "name": "rec:name",
+        "mediaType": "rec:mediaType"
+      },
       "@container": "@set",
       "@id": "rec:format",
       "@type": "@id"
@@ -137,8 +141,7 @@
         "variables": {
           "@id": "rec:hasVariable",
           "@container": "@index",
-          "@index": "dct:identifier",
-          "@type": "@json"
+          "@index": "dct:identifier"
         }
       },
       "@id": "rec:hasLinkTemplate"
