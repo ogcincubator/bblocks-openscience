@@ -1,14 +1,14 @@
 {
-  "name": "IPT profile of OGC API Processes",
+  "name": "Workflow profile of OGC API Processes",
   "highlighted": true,
-  "abstract": "Generalised profile of API Processes with interoperable provenance, supporting IPT principles.",
+  "abstract": "Generalised profile of API Processes executing a workflow (using Application Package profile of CWL)",
   "status": "under-development",
   "dateTimeAddition": "2023-09-18T00:00:00Z",
   "itemClass": "api",
   "register": "ogc-incubator",
    "dependsOn": [
-     "ogc.ogc-utils.prov",
-     "ogc.api.processes.v1.api"
+     "ogc.osc.api-profiles.processes.ipt.api",
+     "ogc.osc.application-package"
       ],
   "version": "0.1",
   "dateOfLastChange": "2023-09-18",
@@ -16,5 +16,5 @@
   "sources": [
   ],
   "scope": "dev",
-  "tags": [ "PROV"]
+  "tags": ["DCAT", "profile", "Records", "STAC", "PROV"]
 }
