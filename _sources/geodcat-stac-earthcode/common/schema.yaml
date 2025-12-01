@@ -1,9 +1,42 @@
 "$schema": https://json-schema.org/draft/2020-12/schema
-description: 'Schema for OGCAPI records profile for GeoDCAT - defines all extra elements defined by GeoDCAT so that the JSON-LD context can map to GeoDCAT RDF'
-allOf:
-  - $ref: bblocks://ogc.contrib.stac.extensions.themes
-  - $ref: bblocks://ogc.contrib.stac.extensions.osc
-  - $ref: bblocks://ogc.contrib.stac.extensions.cf
-  - anyOf:
-  #  - $ref: bblocks://ogc.geo.geodcat.stac.geodcat-stac-item
-    - $ref: bblocks://ogc.geo.geodcat.geodcat-records-prov
+description: 'Schema for OGCAPI records profile and STAC profile used by EarthCODE'
+anyOf:
+  - allOf:
+    - anyOf:
+      - $ref: bblocks://ogc.geo.geodcat.stac.geodcat-stac-item
+      - $ref: bblocks://ogc.geo.geodcat.stac.geodcat-stac-collection
+    - $ref: bblocks://ogc.contrib.stac.extensions.themes
+    - $ref: bblocks://ogc.contrib.stac.extensions.osc
+  - $ref: bblocks://ogc.geo.geodcat.geodcat-records
+$defs:
+  osc:workflow:
+    title: Workflow
+    type: string
+    format: osc-workflow
+    minLength: 1
+  via_links:
+    title: Via Link
+    properties:
+      type:
+        enum:
+          - application/json
+          - application/pdf
+          - application/zip
+          - text/html
+          - text/plain
+        options:
+          enum_titles:
+            - JSON
+            - PDF
+            - ZIP
+            - HTML
+            - Text
+      rel:
+        enum:
+          - via
+
+  osc:project:
+    title: Project
+    type: string
+    format: osc-project
+    minLength: 1
