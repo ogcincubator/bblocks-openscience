@@ -1,0 +1,16 @@
+allOf:
+  - $ref: bblocks://ogc.api.processes.v1.schemas.execute
+properties:
+  inputs:
+    activity_id:
+      $ref: bblocks://ogc.ogc-utils.iri-or-curie
+    result_id:
+      $ref: bblocks://ogc.ogc-utils.iri-or-curie
+    agent_id:
+      $ref: bblocks://ogc.ogc-utils.iri-or-curie
+required:
+  - activity_id
+
+
+
+

@@ -1,0 +1,9 @@
+# todo - wrap this as a valid constraint on the qualifiedInputValue schema option
+allOf:
+  - $ref: bblocks://ogc.api.processes.v1.schemas.qualifiedInputValue
+properties:
+  # constrain "format" to be JSON or its its RDF then we would provide it as a link in a schema context?
+  value:
+    oneOf:
+    - $ref: bblocks://ogc.ogc-utils.prov-entity
+    - $ref: bblocks://ogc.ogc-utils.prov-activity
