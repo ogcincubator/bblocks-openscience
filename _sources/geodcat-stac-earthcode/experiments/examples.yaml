@@ -1,6 +1,20 @@
-- title: An example demonstrating EO extension fields in a STAC item.
+- title: An example demonstrating a basic EarthCODE Experiment
 
   snippets:
     - language: json
       ref: https://raw.githubusercontent.com/ESA-EarthCODE/open-science-catalog-metadata/refs/heads/main/experiments/polaris-experiment/record.json
+      base-uri: https://ogc.org/demo/ospd/
+
+- title: An example Experiment for the OSPD experiment taking the water bodies workflow and running it on another platform.
+
+  snippets:
+    - language: json
+      ref: examples/water-bodies.json
+      base-uri: https://ogc.org/demo/ospd/
+
+- title: The water bodies experiment with some provenance data attached
+
+  snippets:
+    - language: json
+      ref: examples/water-bodies-prov.json
       base-uri: https://ogc.org/demo/ospd/

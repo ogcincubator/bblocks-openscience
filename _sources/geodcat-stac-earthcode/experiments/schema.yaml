@@ -11,6 +11,8 @@ properties:
     properties:
       osc:workflow:
         $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common#/$defs/osc:workflow
+      prov:
+        $ref: bblocks://ogc.ogc-utils.prov-activity
   links:
     type: array
     items:
