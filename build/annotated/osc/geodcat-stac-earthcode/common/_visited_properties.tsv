@@ -1,302 +1,7 @@
 path	@id
+/stac_extensions	https://w3id.org/ogc/stac/core/hasExtension
 /type	@type
 /id	@id
-/properties	@nest
-/geometry	https://purl.org/geojson/vocab#geometry
-/geometry/type	@type
-/geometry/coordinates	https://purl.org/geojson/vocab#coordinates
-/geometry/bbox	https://purl.org/geojson/vocab#bbox
-/geometry/geometries	
-/geometry/geometries/type	@type
-/geometry/geometries/coordinates	https://purl.org/geojson/vocab#coordinates
-/geometry/geometries/bbox	https://purl.org/geojson/vocab#bbox
-/bbox	https://purl.org/geojson/vocab#bbox
-/links	http://www.w3.org/2000/01/rdf-schema#seeAlso
-/links/href	http://www.w3.org/ns/oa#hasTarget
-/links/rel	http://www.iana.org/assignments/relation
-/links/anchor	
-/links/type	http://purl.org/dc/terms/format
-/links/hreflang	http://purl.org/dc/terms/language
-/links/title	http://www.w3.org/2000/01/rdf-schema#label
-/links/length	http://purl.org/dc/terms/extent
-/conformsTo	http://purl.org/dc/terms/conformsTo
-/time	http://purl.org/dc/terms/temporal
-/time/date	
-/time/timestamp	
-/time/interval	
-/time/resolution	
-/properties/created	http://purl.org/dc/terms/created
-/properties/updated	http://purl.org/dc/terms/modified
-/properties/type	
-/properties/title	http://purl.org/dc/terms/title
-/properties/description	http://purl.org/dc/terms/description
-/properties/keywords	http://www.w3.org/ns/dcat#keyword
-/properties/language	https://www.opengis.net/def/ogc-api/records/language
-/properties/language/code	
-/properties/language/name	
-/properties/language/alternate	
-/properties/language/dir	
-/properties/languages	https://www.opengis.net/def/ogc-api/records/languages
-/properties/languages/code	
-/properties/languages/name	
-/properties/languages/alternate	
-/properties/languages/dir	
-/properties/resourceLanguages	https://www.opengis.net/def/ogc-api/records/resourceLanguages
-/properties/resourceLanguages/code	
-/properties/resourceLanguages/name	
-/properties/resourceLanguages/alternate	
-/properties/resourceLanguages/dir	
-/properties/externalIds	https://www.opengis.net/def/ogc-api/records/scopedIdentifier
-/properties/externalIds/scheme	https://www.opengis.net/def/ogc-api/records/scheme
-/properties/externalIds/value	https://www.opengis.net/def/ogc-api/records/id
-/properties/themes	https://www.opengis.net/def/ogc-api/records/themes
-/properties/themes/concepts	
-/properties/themes/concepts/id	
-/properties/themes/concepts/title	
-/properties/themes/concepts/description	
-/properties/themes/concepts/url	
-/properties/themes/scheme	
-/properties/formats	https://www.opengis.net/def/ogc-api/records/format
-/properties/formats/name	https://www.opengis.net/def/ogc-api/records/name
-/properties/formats/mediaType	https://www.opengis.net/def/ogc-api/records/mediaType
-/properties/contacts	http://www.w3.org/ns/dcat#contactPoint
-/properties/contacts/identifier	
-/properties/contacts/name	
-/properties/contacts/position	
-/properties/contacts/organization	
-/properties/contacts/logo	
-/properties/contacts/logo/href	http://www.w3.org/ns/oa#hasTarget
-/properties/contacts/logo/rel	http://www.iana.org/assignments/relation
-/properties/contacts/logo/anchor	
-/properties/contacts/logo/type	http://purl.org/dc/terms/type
-/properties/contacts/logo/hreflang	http://purl.org/dc/terms/language
-/properties/contacts/logo/title	http://www.w3.org/2000/01/rdf-schema#label
-/properties/contacts/logo/length	http://purl.org/dc/terms/extent
-/properties/contacts/phones	
-/properties/contacts/phones/value	
-/properties/contacts/phones/roles	
-/properties/contacts/emails	
-/properties/contacts/emails/value	
-/properties/contacts/emails/roles	
-/properties/contacts/addresses	
-/properties/contacts/addresses/deliveryPoint	
-/properties/contacts/addresses/city	
-/properties/contacts/addresses/administrativeArea	
-/properties/contacts/addresses/postalCode	
-/properties/contacts/addresses/country	
-/properties/contacts/addresses/roles	
-/properties/contacts/links	
-/properties/contacts/links/href	http://www.w3.org/ns/oa#hasTarget
-/properties/contacts/links/rel	http://www.iana.org/assignments/relation
-/properties/contacts/links/anchor	
-/properties/contacts/links/type	http://purl.org/dc/terms/type
-/properties/contacts/links/hreflang	http://purl.org/dc/terms/language
-/properties/contacts/links/title	http://www.w3.org/2000/01/rdf-schema#label
-/properties/contacts/links/length	http://purl.org/dc/terms/extent
-/properties/contacts/hoursOfService	
-/properties/contacts/contactInstructions	
-/properties/contacts/roles	
-/properties/license	http://www.w3.org/ns/dcat#license
-/properties/rights	http://www.w3.org/ns/dcat#rights
-/links/created	http://purl.org/dc/terms/created
-/links/updated	http://purl.org/dc/terms/modified
-/linkTemplates	https://www.opengis.net/def/ogc-api/records/hasLinkTemplate
-/linkTemplates/rel	http://www.iana.org/assignments/relation
-/linkTemplates/type	http://purl.org/dc/terms/format
-/linkTemplates/hreflang	http://purl.org/dc/terms/language
-/linkTemplates/title	http://www.w3.org/2000/01/rdf-schema#label
-/linkTemplates/length	http://purl.org/dc/terms/extent
-/linkTemplates/created	http://purl.org/dc/terms/created
-/linkTemplates/updated	http://purl.org/dc/terms/modified
-/linkTemplates/uriTemplate	https://www.opengis.net/def/ogc-api/records/uriTemplate
-/linkTemplates/varBase	https://www.opengis.net/def/ogc-api/records/varBase
-/linkTemplates/variables	https://www.opengis.net/def/ogc-api/records/hasVariable
-/collection	
-/properties/bands	
-/stac_version	https://w3id.org/ogc/stac/core/version
-/stac_extensions	https://w3id.org/ogc/stac/core/hasExtension
-/links/method	
-/links/headers	
-/links/body	
-/links/description	
-/links/keywords	
-/links/roles	
-/links/bands	
-/links/bands/title	
-/links/bands/description	
-/links/bands/keywords	
-/links/bands/roles	
-/links/bands/datetime	
-/links/bands/start_datetime	
-/links/bands/end_datetime	
-/links/bands/created	
-/links/bands/updated	
-/links/bands/data_type	
-/links/bands/nodata	
-/links/bands/statistics	
-/links/bands/statistics/minimum	
-/links/bands/statistics/maximum	
-/links/bands/statistics/mean	
-/links/bands/statistics/stddev	
-/links/bands/statistics/count	
-/links/bands/statistics/valid_percent	
-/links/bands/unit	
-/links/bands/platform	
-/links/bands/instruments	
-/links/bands/constellation	
-/links/bands/mission	
-/links/bands/gsd	
-/links/bands/license	
-/links/bands/providers	
-/links/bands/providers/name	
-/links/bands/providers/description	
-/links/bands/providers/roles	
-/links/bands/providers/url	
-/links/bands/name	
-/links/datetime	
-/links/start_datetime	
-/links/end_datetime	
-/links/data_type	
-/links/nodata	
-/links/statistics	
-/links/statistics/minimum	
-/links/statistics/maximum	
-/links/statistics/mean	
-/links/statistics/stddev	
-/links/statistics/count	
-/links/statistics/valid_percent	
-/links/unit	
-/links/platform	
-/links/instruments	
-/links/constellation	
-/links/mission	
-/links/gsd	
-/links/license	
-/links/providers	
-/links/providers/name	
-/links/providers/description	
-/links/providers/roles	
-/links/providers/url	
-/assets	https://w3id.org/ogc/stac/core/hasAsset
-/assets/href	
-/assets/title	http://purl.org/dc/terms/title
-/assets/description	http://purl.org/dc/terms/description
-/assets/type	http://purl.org/dc/terms/format
-/assets/roles	https://w3id.org/ogc/stac/core/roles
-/assets/keywords	
-/assets/bands	
-/assets/bands/title	
-/assets/bands/description	
-/assets/bands/keywords	
-/assets/bands/roles	
-/assets/bands/datetime	
-/assets/bands/start_datetime	
-/assets/bands/end_datetime	
-/assets/bands/created	
-/assets/bands/updated	
-/assets/bands/data_type	
-/assets/bands/nodata	
-/assets/bands/statistics	
-/assets/bands/statistics/minimum	
-/assets/bands/statistics/maximum	
-/assets/bands/statistics/mean	
-/assets/bands/statistics/stddev	
-/assets/bands/statistics/count	
-/assets/bands/statistics/valid_percent	
-/assets/bands/unit	
-/assets/bands/platform	
-/assets/bands/instruments	
-/assets/bands/constellation	
-/assets/bands/mission	
-/assets/bands/gsd	
-/assets/bands/license	
-/assets/bands/providers	
-/assets/bands/providers/name	
-/assets/bands/providers/description	
-/assets/bands/providers/roles	
-/assets/bands/providers/url	
-/assets/bands/name	
-/assets/datetime	
-/assets/start_datetime	
-/assets/end_datetime	
-/assets/created	
-/assets/updated	
-/assets/data_type	
-/assets/nodata	
-/assets/statistics	
-/assets/statistics/minimum	
-/assets/statistics/maximum	
-/assets/statistics/mean	
-/assets/statistics/stddev	
-/assets/statistics/count	
-/assets/statistics/valid_percent	
-/assets/unit	
-/assets/platform	
-/assets/instruments	
-/assets/constellation	
-/assets/mission	
-/assets/gsd	
-/assets/license	
-/assets/providers	
-/assets/providers/name	
-/assets/providers/description	
-/assets/providers/roles	
-/assets/providers/url	
-/properties/roles	
-/properties/bands/title	
-/properties/bands/description	
-/properties/bands/keywords	
-/properties/bands/roles	
-/properties/bands/datetime	
-/properties/bands/start_datetime	
-/properties/bands/end_datetime	
-/properties/bands/created	
-/properties/bands/updated	
-/properties/bands/data_type	
-/properties/bands/nodata	
-/properties/bands/statistics	
-/properties/bands/statistics/minimum	
-/properties/bands/statistics/maximum	
-/properties/bands/statistics/mean	
-/properties/bands/statistics/stddev	
-/properties/bands/statistics/count	
-/properties/bands/statistics/valid_percent	
-/properties/bands/unit	
-/properties/bands/platform	
-/properties/bands/instruments	
-/properties/bands/constellation	
-/properties/bands/mission	
-/properties/bands/gsd	
-/properties/bands/license	
-/properties/bands/providers	
-/properties/bands/providers/name	
-/properties/bands/providers/description	
-/properties/bands/providers/roles	
-/properties/bands/providers/url	
-/properties/bands/name	
-/properties/datetime	http://purl.org/dc/terms/date
-/properties/start_datetime	
-/properties/end_datetime	
-/properties/data_type	
-/properties/nodata	
-/properties/statistics	
-/properties/statistics/minimum	
-/properties/statistics/maximum	
-/properties/statistics/mean	
-/properties/statistics/stddev	
-/properties/statistics/count	
-/properties/statistics/valid_percent	
-/properties/unit	
-/properties/platform	
-/properties/instruments	
-/properties/constellation	
-/properties/mission	
-/properties/gsd	
-/properties/providers	
-/properties/providers/name	
-/properties/providers/description	
-/properties/providers/roles	
-/properties/providers/url	
 /extent	http://purl.org/dc/terms/extent
 /extent/spatial	
 /extent/spatial/bbox	
@@ -367,6 +72,14 @@ path	@id
 /item_assets/providers/description	
 /item_assets/providers/roles	
 /item_assets/providers/url	
+/links	http://www.w3.org/2000/01/rdf-schema#seeAlso
+/links/href	http://www.w3.org/ns/oa#hasTarget
+/links/rel	http://www.iana.org/assignments/relation
+/links/anchor	
+/links/type	http://purl.org/dc/terms/type
+/links/hreflang	http://purl.org/dc/terms/language
+/links/title	http://www.w3.org/2000/01/rdf-schema#label
+/links/length	http://purl.org/dc/terms/extent
 /summaries	
 /summaries/minimum	
 /summaries/maximum	
@@ -432,6 +145,259 @@ path	@id
 /providers/description	
 /providers/roles	
 /providers/url	
+/assets	https://w3id.org/ogc/stac/core/hasAsset
+/assets/href	
+/assets/title	http://purl.org/dc/terms/title
+/assets/description	http://purl.org/dc/terms/description
+/assets/type	http://purl.org/dc/terms/format
+/assets/roles	https://w3id.org/ogc/stac/core/roles
+/properties	@nest
+/geometry	https://purl.org/geojson/vocab#geometry
+/geometry/type	@type
+/geometry/coordinates	https://purl.org/geojson/vocab#coordinates
+/geometry/bbox	https://purl.org/geojson/vocab#bbox
+/geometry/geometries	
+/geometry/geometries/type	@type
+/geometry/geometries/coordinates	https://purl.org/geojson/vocab#coordinates
+/geometry/geometries/bbox	https://purl.org/geojson/vocab#bbox
+/bbox	https://purl.org/geojson/vocab#bbox
+/conformsTo	http://purl.org/dc/terms/conformsTo
+/time	http://purl.org/dc/terms/temporal
+/time/date	
+/time/timestamp	
+/time/interval	
+/time/resolution	
+/properties/created	http://purl.org/dc/terms/created
+/properties/updated	http://purl.org/dc/terms/modified
+/properties/type	
+/properties/title	http://purl.org/dc/terms/title
+/properties/description	http://purl.org/dc/terms/description
+/properties/keywords	http://www.w3.org/ns/dcat#keyword
+/properties/language	https://www.opengis.net/def/ogc-api/records/language
+/properties/language/code	
+/properties/language/name	
+/properties/language/alternate	
+/properties/language/dir	
+/properties/languages	https://www.opengis.net/def/ogc-api/records/languages
+/properties/languages/code	
+/properties/languages/name	
+/properties/languages/alternate	
+/properties/languages/dir	
+/properties/resourceLanguages	https://www.opengis.net/def/ogc-api/records/resourceLanguages
+/properties/resourceLanguages/code	
+/properties/resourceLanguages/name	
+/properties/resourceLanguages/alternate	
+/properties/resourceLanguages/dir	
+/properties/externalIds	https://www.opengis.net/def/ogc-api/records/scopedIdentifier
+/properties/externalIds/scheme	https://www.opengis.net/def/ogc-api/records/scheme
+/properties/externalIds/value	https://www.opengis.net/def/ogc-api/records/id
+/properties/themes	https://www.opengis.net/def/ogc-api/records/themes
+/properties/themes/concepts	https://w3id.org/ogc/stac/themes/concepts
+/properties/themes/concepts/id	https://w3id.org/ogc/stac/themes/id
+/properties/themes/concepts/title	http://purl.org/dc/terms/title
+/properties/themes/concepts/description	http://purl.org/dc/terms/description
+/properties/themes/concepts/url	@id
+/properties/themes/scheme	https://w3id.org/ogc/stac/themes/scheme
+/properties/formats	https://www.opengis.net/def/ogc-api/records/format
+/properties/formats/name	https://www.opengis.net/def/ogc-api/records/name
+/properties/formats/mediaType	https://www.opengis.net/def/ogc-api/records/mediaType
+/properties/contacts	http://www.w3.org/ns/dcat#contactPoint
+/properties/contacts/identifier	
+/properties/contacts/name	
+/properties/contacts/position	
+/properties/contacts/organization	
+/properties/contacts/logo	
+/properties/contacts/logo/href	http://www.w3.org/ns/oa#hasTarget
+/properties/contacts/logo/rel	http://www.iana.org/assignments/relation
+/properties/contacts/logo/anchor	
+/properties/contacts/logo/type	http://purl.org/dc/terms/type
+/properties/contacts/logo/hreflang	http://purl.org/dc/terms/language
+/properties/contacts/logo/title	http://www.w3.org/2000/01/rdf-schema#label
+/properties/contacts/logo/length	http://purl.org/dc/terms/extent
+/properties/contacts/phones	
+/properties/contacts/phones/value	
+/properties/contacts/phones/roles	
+/properties/contacts/emails	
+/properties/contacts/emails/value	
+/properties/contacts/emails/roles	
+/properties/contacts/addresses	
+/properties/contacts/addresses/deliveryPoint	
+/properties/contacts/addresses/city	
+/properties/contacts/addresses/administrativeArea	
+/properties/contacts/addresses/postalCode	
+/properties/contacts/addresses/country	
+/properties/contacts/addresses/roles	
+/properties/contacts/links	
+/properties/contacts/links/href	http://www.w3.org/ns/oa#hasTarget
+/properties/contacts/links/rel	http://www.iana.org/assignments/relation
+/properties/contacts/links/anchor	
+/properties/contacts/links/type	http://purl.org/dc/terms/type
+/properties/contacts/links/hreflang	http://purl.org/dc/terms/language
+/properties/contacts/links/title	http://www.w3.org/2000/01/rdf-schema#label
+/properties/contacts/links/length	http://purl.org/dc/terms/extent
+/properties/contacts/hoursOfService	
+/properties/contacts/contactInstructions	
+/properties/contacts/roles	
+/properties/license	http://www.w3.org/ns/dcat#license
+/properties/rights	http://www.w3.org/ns/dcat#rights
+/links/created	http://purl.org/dc/terms/created
+/links/updated	http://purl.org/dc/terms/modified
+/linkTemplates	https://www.opengis.net/def/ogc-api/records/hasLinkTemplate
+/linkTemplates/rel	http://www.iana.org/assignments/relation
+/linkTemplates/type	http://purl.org/dc/terms/format
+/linkTemplates/hreflang	http://purl.org/dc/terms/language
+/linkTemplates/title	http://www.w3.org/2000/01/rdf-schema#label
+/linkTemplates/length	http://purl.org/dc/terms/extent
+/linkTemplates/created	http://purl.org/dc/terms/created
+/linkTemplates/updated	http://purl.org/dc/terms/modified
+/linkTemplates/uriTemplate	https://www.opengis.net/def/ogc-api/records/uriTemplate
+/linkTemplates/varBase	https://www.opengis.net/def/ogc-api/records/varBase
+/linkTemplates/variables	https://www.opengis.net/def/ogc-api/records/hasVariable
+/collection	
+/properties/bands	
+/properties/bands/title	
+/properties/bands/description	
+/properties/bands/keywords	
+/properties/bands/roles	
+/properties/bands/bands	
+/properties/bands/bands/name	
+/properties/bands/datetime	
+/properties/bands/start_datetime	
+/properties/bands/end_datetime	
+/properties/bands/created	
+/properties/bands/updated	
+/properties/bands/data_type	
+/properties/bands/nodata	
+/properties/bands/statistics	
+/properties/bands/statistics/minimum	
+/properties/bands/statistics/maximum	
+/properties/bands/statistics/mean	
+/properties/bands/statistics/stddev	
+/properties/bands/statistics/count	
+/properties/bands/statistics/valid_percent	
+/properties/bands/unit	
+/properties/bands/platform	
+/properties/bands/instruments	
+/properties/bands/constellation	
+/properties/bands/mission	
+/properties/bands/gsd	
+/properties/bands/license	
+/properties/bands/providers	
+/properties/bands/providers/name	
+/properties/bands/providers/description	
+/properties/bands/providers/roles	
+/properties/bands/providers/url	
+/properties/bands/name	
+/links/method	
+/links/headers	
+/links/body	
+/links/description	
+/links/keywords	
+/links/roles	
+/links/bands	
+/links/bands/title	
+/links/bands/description	
+/links/bands/keywords	
+/links/bands/roles	
+/links/bands/datetime	
+/links/bands/start_datetime	
+/links/bands/end_datetime	
+/links/bands/created	
+/links/bands/updated	
+/links/bands/data_type	
+/links/bands/nodata	
+/links/bands/statistics	
+/links/bands/statistics/minimum	
+/links/bands/statistics/maximum	
+/links/bands/statistics/mean	
+/links/bands/statistics/stddev	
+/links/bands/statistics/count	
+/links/bands/statistics/valid_percent	
+/links/bands/unit	
+/links/bands/platform	
+/links/bands/instruments	
+/links/bands/constellation	
+/links/bands/mission	
+/links/bands/gsd	
+/links/bands/license	
+/links/bands/providers	
+/links/bands/providers/name	
+/links/bands/providers/description	
+/links/bands/providers/roles	
+/links/bands/providers/url	
+/links/bands/name	
+/links/datetime	
+/links/start_datetime	
+/links/end_datetime	
+/links/data_type	
+/links/nodata	
+/links/statistics	
+/links/statistics/minimum	
+/links/statistics/maximum	
+/links/statistics/mean	
+/links/statistics/stddev	
+/links/statistics/count	
+/links/statistics/valid_percent	
+/links/unit	
+/links/platform	
+/links/instruments	
+/links/constellation	
+/links/mission	
+/links/gsd	
+/links/license	
+/links/providers	
+/links/providers/name	
+/links/providers/description	
+/links/providers/roles	
+/links/providers/url	
+/properties/roles	
+/properties/datetime	http://purl.org/dc/terms/date
+/properties/start_datetime	
+/properties/end_datetime	
+/properties/data_type	
+/properties/nodata	
+/properties/statistics	
+/properties/statistics/minimum	
+/properties/statistics/maximum	
+/properties/statistics/mean	
+/properties/statistics/stddev	
+/properties/statistics/count	
+/properties/statistics/valid_percent	
+/properties/unit	
+/properties/platform	
+/properties/instruments	
+/properties/constellation	
+/properties/mission	
+/properties/gsd	
+/properties/providers	
+/properties/providers/name	
+/properties/providers/description	
+/properties/providers/roles	
+/properties/providers/url	
+/themes	https://w3id.org/ogc/stac/themes/schemes
+/themes/concepts	https://w3id.org/ogc/stac/themes/concepts
+/themes/concepts/id	https://w3id.org/ogc/stac/themes/id
+/themes/concepts/title	http://purl.org/dc/terms/title
+/themes/concepts/description	http://purl.org/dc/terms/description
+/themes/concepts/url	@id
+/themes/scheme	https://w3id.org/ogc/stac/themes/scheme
+/stac_version	
+/assets/datetime	
+/assets/start_datetime	
+/assets/end_datetime	
+/assets/created	
+/assets/updated	
+/assets/platform	
+/assets/instruments	
+/assets/constellation	
+/assets/mission	
+/assets/gsd	
+/assets/license	
+/assets/providers	
+/assets/providers/name	
+/assets/providers/description	
+/assets/providers/roles	
+/assets/providers/url	
 /properties/osc:type	
 /properties/osc:status	
 /properties/osc:project	
@@ -440,3 +406,105 @@ path	@id
 /properties/osc:missions	
 /properties/osc:experiment	
 /properties/osc:workflows	
+/cf:parameter	
+/cf:parameter/name	
+/cf:parameter/unit	
+/summaries/cf:parameter	
+/summaries/cf:parameter/type	
+/wasInfluencedBy	http://www.w3.org/ns/prov#wasInfluencedBy
+/wasInfluencedBy/id	@id
+/wasInfluencedBy/type	
+/wasInfluencedBy/activityType	@type
+/wasInfluencedBy/prov:type	
+/wasInfluencedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
+/wasInfluencedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
+/wasInfluencedBy/wasAssociatedWith/href	http://www.w3.org/ns/oa#hasTarget
+/wasInfluencedBy/wasAssociatedWith/rel	http://www.iana.org/assignments/relation
+/wasInfluencedBy/wasAssociatedWith/anchor	
+/wasInfluencedBy/wasAssociatedWith/type	http://purl.org/dc/terms/type
+/wasInfluencedBy/wasAssociatedWith/hreflang	http://purl.org/dc/terms/language
+/wasInfluencedBy/wasAssociatedWith/title	http://www.w3.org/2000/01/rdf-schema#label
+/wasInfluencedBy/wasAssociatedWith/length	http://purl.org/dc/terms/extent
+/wasInfluencedBy/wasAssociatedWith/provType	@type
+/wasInfluencedBy/wasAssociatedWith/agentType	@type
+/wasInfluencedBy/wasAssociatedWith/prov:type	
+/wasInfluencedBy/wasAssociatedWith/name	http://www.w3.org/2000/01/rdf-schema#label
+/wasInfluencedBy/wasAssociatedWith/id	@id
+/wasInfluencedBy/wasAssociatedWith/actedOnBehalfOf	http://www.w3.org/ns/prov#actedOnBehalfOf
+/wasInfluencedBy/wasAssociatedWith/atLocation	http://www.w3.org/ns/prov#atLocation
+/wasInfluencedBy/wasAssociatedWith/qualifiedDelegation	http://www.w3.org/ns/prov#qualifiedDelegation
+/wasInfluencedBy/wasAssociatedWith/qualifiedDelegation/id	@id
+/wasInfluencedBy/wasAssociatedWith/qualifiedDelegation/type	
+/wasInfluencedBy/wasAssociatedWith/qualifiedDelegation/agent	http://www.w3.org/ns/prov#agent
+/wasInfluencedBy/wasAssociatedWith/qualifiedDelegation/hadActivity	http://www.w3.org/ns/prov#hadActivity
+/wasInfluencedBy/wasInformedBy	http://www.w3.org/ns/prov#wasInformedBy
+/wasInfluencedBy/used	http://www.w3.org/ns/prov#used
+/wasInfluencedBy/wasStartedBy	http://www.w3.org/ns/prov#wasStartedBy
+/wasInfluencedBy/wasEndedBy	http://www.w3.org/ns/prov#wasEndedBy
+/wasInfluencedBy/invalidated	http://www.w3.org/ns/prov#invalidated
+/wasInfluencedBy/generated	http://www.w3.org/ns/prov#generated
+/wasInfluencedBy/atLocation	http://www.w3.org/ns/prov#atLocation
+/wasInfluencedBy/qualifiedUsage	http://www.w3.org/ns/prov#qualifiedUsage
+/wasInfluencedBy/qualifiedUsage/id	@id
+/wasInfluencedBy/qualifiedUsage/type	
+/wasInfluencedBy/qualifiedUsage/atTime	http://www.w3.org/ns/prov#atTime
+/wasInfluencedBy/qualifiedUsage/entity	http://www.w3.org/ns/prov#entity
+/wasInfluencedBy/qualifiedCommunication	http://www.w3.org/ns/prov#qualifiedCommunication
+/wasInfluencedBy/qualifiedCommunication/id	@id
+/wasInfluencedBy/qualifiedCommunication/atTime	http://www.w3.org/ns/prov#atTime
+/wasInfluencedBy/qualifiedCommunication/hadRole	http://www.w3.org/ns/prov#hadRole
+/wasInfluencedBy/qualifiedCommunication/influencer	http://www.w3.org/ns/prov#influencer
+/wasInfluencedBy/qualifiedCommunication/hadActivity	http://www.w3.org/ns/prov#hadActivity
+/wasInfluencedBy/qualifiedCommunication/activity	http://www.w3.org/ns/prov#activity
+/wasInfluencedBy/qualifiedCommunication/type	
+/wasInfluencedBy/qualifiedStart	http://www.w3.org/ns/prov#qualifiedStart
+/wasInfluencedBy/qualifiedStart/id	@id
+/wasInfluencedBy/qualifiedStart/type	
+/wasInfluencedBy/qualifiedStart/atTime	http://www.w3.org/ns/prov#atTime
+/wasInfluencedBy/qualifiedStart/entity	http://www.w3.org/ns/prov#entity
+/wasInfluencedBy/qualifiedStart/hadActivity	http://www.w3.org/ns/prov#hadActivity
+/wasInfluencedBy/qualifiedEnd	http://www.w3.org/ns/prov#qualifiedEnd
+/wasInfluencedBy/qualifiedEnd/type	
+/wasInfluencedBy/qualifiedAssociation	http://www.w3.org/ns/prov#qualifiedAssociation
+/wasInfluencedBy/qualifiedAssociation/id	@id
+/wasInfluencedBy/qualifiedAssociation/type	
+/wasInfluencedBy/qualifiedAssociation/agent	http://www.w3.org/ns/prov#agent
+/wasInfluencedBy/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
+/wasInfluencedBy/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
+/qualifiedInfluence	http://www.w3.org/ns/prov#qualifiedInfluence
+/qualifiedInfluence/id	@id
+/qualifiedInfluence/influencer	http://www.w3.org/ns/prov#influencer
+/qualifiedInfluence/entity	http://www.w3.org/ns/prov#entity
+/qualifiedInfluence/activity	http://www.w3.org/ns/prov#activity
+/qualifiedInfluence/agent	http://www.w3.org/ns/prov#agent
+/provType	@type
+/prov:type	
+/hadMember	http://www.w3.org/ns/prov#hadMember
+/featureType	@type
+/entityType	@type
+/has_provenance	http://purl.org/dc/terms/provenance
+/wasGeneratedBy	http://www.w3.org/ns/prov#wasGeneratedBy
+/wasAttributedTo	http://www.w3.org/ns/prov#wasAttributedTo
+/wasDerivedFrom	http://www.w3.org/ns/prov#wasDerivedFrom
+/alternateOf	http://www.w3.org/ns/prov#alternateOf
+/hadPrimarySource	http://www.w3.org/ns/prov#hadPrimarySource
+/specializationOf	http://www.w3.org/ns/prov#specializationOf
+/wasInvalidatedBy	http://www.w3.org/ns/prov#wasInvalidatedBy
+/wasQuotedFrom	http://www.w3.org/ns/prov#wasQuotedFrom
+/wasRevisionOf	http://www.w3.org/ns/prov#wasRevisionOf
+/atLocation	http://www.w3.org/ns/prov#atLocation
+/qualifiedGeneration	http://www.w3.org/ns/prov#qualifiedGeneration
+/qualifiedGeneration/type	
+/qualifiedInvalidation	http://www.w3.org/ns/prov#qualifiedInvalidation
+/qualifiedInvalidation/type	
+/qualifiedDerivation	http://www.w3.org/ns/prov#qualifiedDerivation
+/qualifiedDerivation/id	@id
+/qualifiedDerivation/type	
+/qualifiedDerivation/hadGeneration	http://www.w3.org/ns/prov#hadGeneration
+/qualifiedDerivation/hadActivity	http://www.w3.org/ns/prov#hadActivity
+/qualifiedDerivation/hadUsage	http://www.w3.org/ns/prov#hadUsage
+/qualifiedDerivation/entity	http://www.w3.org/ns/prov#entity
+/qualifiedAttribution	http://www.w3.org/ns/prov#qualifiedAttribution
+/qualifiedAttribution/id	@id
+/qualifiedAttribution/type	
+/qualifiedAttribution/agent	http://www.w3.org/ns/prov#agent

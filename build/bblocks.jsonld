@@ -1,7 +1,7 @@
 {
   "@context": [
     {
-      "@base": "https://ahaywardtvuk.github.io/bblocks-openscience"
+      "@base": "https://ogcincubator.github.io/bblocks-openscience"
     },
     {
       "bblocks": "https://www.opengis.net/def/bblocks/",
@@ -12,7 +12,11 @@
       "prof": "http://www.w3.org/ns/dx/prof/",
       "dcat": "http://www.w3.org/ns/dcat#",
       "modspec": "http://www.opengis.net/def/ont/modspec/",
-      "itemIdentifier": "@id",
+      "void": "http://rdfs.org/ns/void#",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "role": "http://www.w3.org/ns/dx/prof/role/",
+      "shacl": "https://www.w3.org/TR/shacl/",
+      "owl": "http://www.w3.org/2002/07/owl#",
       "baseURL": "@id",
       "name": "rdfs:label",
       "abstract": {
@@ -39,6 +43,10 @@
         "@id": "dct:modified",
         "@type": "xsd:date"
       },
+      "modified": {
+        "@id": "dct:modified",
+        "@type": "xsd:dateTime"
+      },
       "scope": {
         "@id": "bblocks:scope",
         "@type": "@id",
@@ -54,13 +62,11 @@
         }
       },
       "schema": {
-        "@id": "bblocks:hasSchema",
-        "@type": "@id",
-        "@container": "@index",
-        "@index": "dct:format"
+        "@id": "prof:hasResource",
+        "@type": "@id"
       },
       "ldContext": {
-        "@id": "bblocks:hasJsonLdContext",
+        "@id": "prof:hasResource",
         "@type": "@id"
       },
       "sourceLdContext": {
@@ -74,8 +80,14 @@
         "@index": "dct:identifier",
         "@context": {
           "mediatype": "dct:format",
-          "url": "rdfs:isDefinedBy"
+          "url": {
+            "@id": "rdfs:isDefinedBy",
+            "@type": "@id"
+          }
         }
+      },
+      "rdfs:isDefinedBy": {
+        "@type": "@id"
       },
       "hasConcepts": {
         "@reverse": "skos:inScheme"
@@ -90,21 +102,44 @@
       },
       "tags": "dcat:keyword",
       "shaclShapes": {
-        "@id": "bblocks:hasShaclRule",
-        "@type": "@id",
-        "@container": "@index",
-        "@index": "rdfs:seeAlso"
+        "@id": "prof:hasResource",
+        "@type": "@id"
       },
       "validationReport": {
         "@id": "bblocks:hasValidationReport",
         "@type": "@id"
       },
+      "validationPassed": "bblocks:validationPassed",
       "imports": {
-        "@id": "bblocks:imports",
+        "@id": "owl:imports",
         "@type": "@id"
       },
       "conformanceClasses": {
         "@id": "modspec:class",
+        "@type": "@id"
+      },
+      "requirementClasses": {
+        "@id": "modspec:requirementsClass",
+        "@type": "@id"
+      },
+      "sparqlEndpoint": {
+        "@id": "void:sparqlEndpoint",
+        "@type": "@id"
+      },
+      "viewerURL": {
+        "@id": "foaf:homepage",
+        "@type": "@id"
+      },
+      "dct:conformsTo": {
+        "@type": "@id"
+      },
+      "prof:hasRole": {
+        "@type": "@id"
+      },
+      "prof:hasArtifact": {
+        "@type": "@id"
+      },
+      "rdfs:seeAlso": {
         "@type": "@id"
       }
     }
@@ -112,20 +147,20 @@
   "name": "Building Blocks - Open Science Workflows Building Blocks",
   "abstract": "Building Blocks for FAIR Open Science - profiles of OGC API Processes and various metadata standards to support open, transparent, interoperable and reproducible scientific workflows..\n",
   "description": "This repository is initially aimed to support the [Open Science Persistent Demonstrator](https://www.ogc.org/initiatives/open-science/) pilot, but may be further developed as a set of standards with appropriate working group governance.\n",
-  "modified": "2025-11-24T10:14:13.524860",
+  "modified": "2025-12-01T00:00:12.324068",
   "tooling": {
     "bblocks-postprocess": {
-      "commitId": "\"4fa4cc94cf7d37823107d163051f795337c61afb",
-      "shortCommitId": "\"4fa4cc",
-      "date": "2025-11-20T10:59:41+00:00\""
+      "commitId": "\"07a1a91baa1dbde1a32d8591bc63333f7c57a9b9",
+      "shortCommitId": "\"07a1a9",
+      "date": "2025-11-29T00:51:03+00:00\""
     }
   },
-  "gitRepository": "https://github.com/ahaywardtvuk/bblocks-openscience",
-  "gitHubRepository": "https://github.com/ahaywardtvuk/bblocks-openscience/blob/master/",
-  "baseURL": "https://ahaywardtvuk.github.io/bblocks-openscience/",
-  "viewerURL": "https://ahaywardtvuk.github.io/bblocks-openscience/",
-  "validationReport": "https://ahaywardtvuk.github.io/bblocks-openscience/build/tests/report.html",
-  "validationReportJson": "https://ahaywardtvuk.github.io/bblocks-openscience/build/tests/report.json",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-openscience",
+  "gitHubRepository": "https://github.com/ogcincubator/bblocks-openscience/blob/master/",
+  "baseURL": "https://ogcincubator.github.io/bblocks-openscience/",
+  "viewerURL": "https://ogcincubator.github.io/bblocks-openscience/",
+  "validationReport": "https://ogcincubator.github.io/bblocks-openscience/build/tests/report.html",
+  "validationReportJson": "https://ogcincubator.github.io/bblocks-openscience/build/tests/report.json",
   "imports": [
     "https://opengeospatial.github.io/bblocks/register.json",
     "https://ogcincubator.github.io/bblocks-ogcapi-records/build/register.json",
@@ -134,7 +169,7 @@
     "https://ogcincubator.github.io/bblocks-stac/build/register.json",
     "https://ogcincubator.github.io/cross-domain-model/build/register.json"
   ],
-  "remoteCacheDir": "https://ahaywardtvuk.github.io/bblocks-openscience/build/annotated/_cache",
+  "remoteCacheDir": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/_cache",
   "@type": [
     "skos:ConceptScheme",
     "dcat:Catalog"
@@ -150,38 +185,118 @@
       "itemClass": "model",
       "register": "ogc-incubator",
       "version": "0.1",
-      "dateOfLastChange": "2025-11-20",
+      "dateOfLastChange": "2025-11-27",
       "dependsOn": [
-        "ogc.ogc-utils.prov"
+        "bblocks://ogc.ogc-utils.prov"
       ],
       "sources": [],
       "scope": "dev",
       "tags": [
         "OSPD"
       ],
-      "shaclShapes": {},
-      "sourceFiles": "https://ahaywardtvuk.github.io/bblocks-openscience/_sources/ontology/cwlprov/",
+      "shaclShapes": null,
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/ontology/cwlprov/",
       "rdfData": [],
       "validationPassed": true,
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/build/generateddocs/markdown/osc/ontology/cwlprov/index.md"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/ontology/cwlprov/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/build/generateddocs/json-full/osc/ontology/cwlprov/index.json"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/ontology/cwlprov/index.json"
         },
         "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/bblock/ogc.osc.ontology.cwlprov"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.ontology.cwlprov"
         }
       },
+      "@id": "bblocks://ogc.osc.ontology.cwlprov",
       "@type": [
         "bblocks:Model",
         "skos:Concept",
         "dcat:Dataset"
-      ]
+      ],
+      "skos:prefLabel": "CWL Ontology",
+      "ldContext": null,
+      "schema": null,
+      "openAPIDocument": null,
+      "profileOf": null,
+      "skos:topConceptOf": {
+        "@id": "https://ogcincubator.github.io/bblocks-openscience/"
+      }
+    },
+    {
+      "itemIdentifier": "ogc.osc.api-profiles.processes.ipt.results",
+      "status": "under-development",
+      "dateTimeAddition": "2025-10-22T15:29:12.046535",
+      "register": "ogcapi-processes",
+      "version": "0.1",
+      "dateOfLastChange": "2025-11-27",
+      "tags": [
+        "ogcapi-processes",
+        "schema"
+      ],
+      "name": "Result schema for IPT",
+      "abstract": "constraint on results to include provenance object inline",
+      "itemClass": "schema",
+      "shaclShapes": null,
+      "dependsOn": [
+        "bblocks://ogc.ogc-utils.prov-entity",
+        "bblocks://ogc.ogc-utils.prov-activity",
+        "bblocks://ogc.api.processes.v1.schemas.qualifiedInputValue"
+      ],
+      "schema": [
+        {
+          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/schema.yaml",
+          "prof:hasRole": "role:schema",
+          "dct:format": "application/yaml",
+          "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
+        },
+        {
+          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/schema.json",
+          "prof:hasRole": "role:schema",
+          "dct:format": "application/json",
+          "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
+        }
+      ],
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/results/schema.yaml",
+      "ldContext": {
+        "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/context.jsonld",
+        "prof:hasRole": "role:mapping",
+        "dct:format": "application/ld+json",
+        "dct:conformsTo": "https://www.w3.org/TR/json-ld11/"
+      },
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/results/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes/ipt/results/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/ipt/results/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.ipt.results"
+        }
+      },
+      "@id": "bblocks://ogc.osc.api-profiles.processes.ipt.results",
+      "@type": [
+        "bblocks:Schema",
+        "skos:Concept",
+        "dcat:Dataset"
+      ],
+      "skos:prefLabel": "Result schema for IPT",
+      "openAPIDocument": null,
+      "profileOf": null,
+      "skos:topConceptOf": {
+        "@id": "https://ogcincubator.github.io/bblocks-openscience/"
+      }
     },
     {
       "itemIdentifier": "ogc.osc.application-package",
@@ -193,10 +308,10 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.profiles.prov.cwl.provenance"
+        "bblocks://ogc.profiles.prov.cwl.provenance"
       ],
       "version": "0.1",
-      "dateOfLastChange": "2025-11-20",
+      "dateOfLastChange": "2025-11-27",
       "link": "https://github.com/opengeospatial/geodcat-ogcapi-records",
       "sources": [
         {
@@ -206,37 +321,59 @@
       ],
       "scope": "dev",
       "tags": [],
-      "shaclShapes": {},
-      "ldContext": "https://ahaywardtvuk.github.io/bblocks-openscience/_sources/application-package/context.jsonld",
-      "schema": {
-        "application/yaml": "https://ahaywardtvuk.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.yaml",
-        "application/json": "https://ahaywardtvuk.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.json"
+      "shaclShapes": null,
+      "ldContext": {
+        "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/_sources/application-package/context.jsonld",
+        "prof:hasRole": "role:mapping",
+        "dct:format": "application/ld+json",
+        "dct:conformsTo": "https://www.w3.org/TR/json-ld11/"
       },
-      "sourceSchema": "https://ahaywardtvuk.github.io/bblocks-openscience/_sources/application-package/schema.yaml",
-      "sourceLdContext": "https://ahaywardtvuk.github.io/bblocks-openscience/_sources/application-package/context.jsonld",
-      "sourceFiles": "https://ahaywardtvuk.github.io/bblocks-openscience/_sources/application-package/",
+      "schema": [
+        {
+          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.yaml",
+          "prof:hasRole": "role:schema",
+          "dct:format": "application/yaml",
+          "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
+        },
+        {
+          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.json",
+          "prof:hasRole": "role:schema",
+          "dct:format": "application/json",
+          "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
+        }
+      ],
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-openscience/_sources/application-package/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-openscience/_sources/application-package/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/application-package/",
       "rdfData": [],
       "validationPassed": true,
-      "testOutputs": "https://github.com/ahaywardtvuk/bblocks-openscience/blob/master/build/tests/osc/application-package/",
+      "testOutputs": "https://github.com/ogcincubator/bblocks-openscience/blob/master/build/tests/osc/application-package/",
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/build/generateddocs/markdown/osc/application-package/index.md"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/application-package/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/build/generateddocs/json-full/osc/application-package/index.json"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/application-package/index.json"
         },
         "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/bblock/ogc.osc.application-package"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.application-package"
         }
       },
+      "@id": "bblocks://ogc.osc.application-package",
       "@type": [
         "bblocks:Schema",
         "skos:Concept",
         "dcat:Dataset"
-      ]
+      ],
+      "skos:prefLabel": "Application Package",
+      "openAPIDocument": null,
+      "profileOf": null,
+      "skos:topConceptOf": {
+        "@id": "https://ogcincubator.github.io/bblocks-openscience/"
+      }
     },
     {
       "itemIdentifier": "ogc.osc.ontology.openscience",
@@ -247,39 +384,141 @@
       "itemClass": "model",
       "register": "ogc-incubator",
       "version": "0.1",
-      "dateOfLastChange": "2025-11-20",
+      "dateOfLastChange": "2025-11-27",
       "dependsOn": [
-        "ogc.geo.geodcat.dcat",
-        "ogc.osc.ontology.cwlprov"
+        "bblocks://ogc.osc.ontology.cwlprov",
+        "bblocks://ogc.geo.geodcat.dcat"
       ],
       "sources": [],
       "scope": "dev",
       "tags": [
         "OSPD"
       ],
-      "shaclShapes": {},
-      "sourceFiles": "https://ahaywardtvuk.github.io/bblocks-openscience/_sources/ontology/openscience/",
+      "shaclShapes": null,
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/ontology/openscience/",
       "rdfData": [],
       "validationPassed": true,
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/build/generateddocs/markdown/osc/ontology/openscience/index.md"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/ontology/openscience/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/build/generateddocs/json-full/osc/ontology/openscience/index.json"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/ontology/openscience/index.json"
         },
         "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/bblock/ogc.osc.ontology.openscience"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.ontology.openscience"
         }
       },
+      "@id": "bblocks://ogc.osc.ontology.openscience",
       "@type": [
         "bblocks:Model",
         "skos:Concept",
         "dcat:Dataset"
-      ]
+      ],
+      "skos:prefLabel": "Open Science Ontology",
+      "ldContext": null,
+      "schema": null,
+      "openAPIDocument": null,
+      "profileOf": null,
+      "skos:topConceptOf": {
+        "@id": "https://ogcincubator.github.io/bblocks-openscience/"
+      }
+    },
+    {
+      "itemIdentifier": "ogc.osc.geodcat-stac-earthcode.workflows",
+      "name": "EarthCODE Workflow",
+      "highlighted": true,
+      "abstract": "EarthCODE metadata profile linked to semantic models",
+      "status": "under-development",
+      "dateTimeAddition": "2023-09-18T00:00:00Z",
+      "itemClass": "schema",
+      "register": "ogc-incubator",
+      "dependsOn": [
+        "bblocks://ogc.geo.geodcat.geodcat-records"
+      ],
+      "version": "0.1",
+      "dateOfLastChange": "2025-11-27",
+      "link": "https://github.com/opengeospatial/geodcat-ogcapi-records",
+      "sources": [
+        {
+          "title": "GeoDCAT Specification",
+          "link": "http://www.opengis.net/def/metamodel/profiles/geodcat"
+        }
+      ],
+      "scope": "dev",
+      "tags": [
+        "DCAT",
+        "profile",
+        "Records",
+        "STAC",
+        "EarthCODE"
+      ],
+      "shaclShapes": [
+        {
+          "prof:hasArtifact": [
+            "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.api.records.v1.schemas.linkTemplate",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        }
+      ],
+      "ldContext": {
+        "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/workflows/context.jsonld",
+        "prof:hasRole": "role:mapping",
+        "dct:format": "application/ld+json",
+        "dct:conformsTo": "https://www.w3.org/TR/json-ld11/"
+      },
+      "schema": [
+        {
+          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/workflows/schema.yaml",
+          "prof:hasRole": "role:schema",
+          "dct:format": "application/yaml",
+          "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
+        },
+        {
+          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/workflows/schema.json",
+          "prof:hasRole": "role:schema",
+          "dct:format": "application/json",
+          "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
+        }
+      ],
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/workflows/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/workflows/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/workflows/",
+      "rdfData": [],
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-openscience/blob/master/build/tests/osc/geodcat-stac-earthcode/workflows/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/geodcat-stac-earthcode/workflows/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/workflows/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.workflows"
+        }
+      },
+      "@id": "bblocks://ogc.osc.geodcat-stac-earthcode.workflows",
+      "@type": [
+        "bblocks:Schema",
+        "skos:Concept",
+        "dcat:Dataset"
+      ],
+      "skos:prefLabel": "EarthCODE Workflow",
+      "openAPIDocument": null,
+      "profileOf": null,
+      "skos:topConceptOf": {
+        "@id": "https://ogcincubator.github.io/bblocks-openscience/"
+      }
     },
     {
       "itemIdentifier": "ogc.osc.geodcat-stac-earthcode.common",
@@ -291,15 +530,14 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.geo.geodcat.stac.geodcat-stac-item",
-        "ogc.contrib.stac.extensions.themes",
-        "ogc.geo.geodcat.stac.geodcat-stac-collection",
-        "ogc.contrib.stac.extensions.osc",
-        "ogc.ogc-utils.prov",
-        "ogc.geo.geodcat.geodcat-records"
+        "bblocks://ogc.contrib.stac.extensions.themes",
+        "bblocks://ogc.contrib.stac.extensions.osc",
+        "bblocks://ogc.geo.geodcat.geodcat-records-prov",
+        "bblocks://ogc.ogc-utils.prov",
+        "bblocks://ogc.contrib.stac.extensions.cf"
       ],
       "version": "0.1",
-      "dateOfLastChange": "2025-11-20",
+      "dateOfLastChange": "2025-11-27",
       "sources": [
         {
           "title": "EarthCODE",
@@ -318,41 +556,138 @@
         "STAC",
         "EarthCODE"
       ],
-      "shaclShapes": {
-        "ogc.geo.geodcat.records-ontology": [
-          "https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl"
-        ]
+      "shaclShapes": [
+        {
+          "prof:hasArtifact": [
+            "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.api.records.v1.schemas.linkTemplate",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        }
+      ],
+      "ldContext": {
+        "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/context.jsonld",
+        "prof:hasRole": "role:mapping",
+        "dct:format": "application/ld+json",
+        "dct:conformsTo": "https://www.w3.org/TR/json-ld11/"
       },
-      "ldContext": "https://ahaywardtvuk.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/context.jsonld",
-      "schema": {
-        "application/yaml": "https://ahaywardtvuk.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml",
-        "application/json": "https://ahaywardtvuk.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.json"
-      },
-      "sourceSchema": "https://ahaywardtvuk.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/common/schema.yaml",
-      "sourceLdContext": "https://ahaywardtvuk.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/common/context.jsonld",
-      "sourceFiles": "https://ahaywardtvuk.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/common/",
+      "schema": [
+        {
+          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml",
+          "prof:hasRole": "role:schema",
+          "dct:format": "application/yaml",
+          "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
+        },
+        {
+          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.json",
+          "prof:hasRole": "role:schema",
+          "dct:format": "application/json",
+          "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
+        }
+      ],
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/common/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/common/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/common/",
       "rdfData": [],
-      "validationPassed": true,
-      "testOutputs": "https://github.com/ahaywardtvuk/bblocks-openscience/blob/master/build/tests/osc/geodcat-stac-earthcode/common/",
+      "validationPassed": false,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-openscience/blob/master/build/tests/osc/geodcat-stac-earthcode/common/",
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/build/generateddocs/markdown/osc/geodcat-stac-earthcode/common/index.md"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/geodcat-stac-earthcode/common/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/common/index.json"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/common/index.json"
         },
         "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.common"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.common"
         }
       },
+      "@id": "bblocks://ogc.osc.geodcat-stac-earthcode.common",
       "@type": [
         "bblocks:Schema",
         "skos:Concept",
         "dcat:Dataset"
-      ]
+      ],
+      "skos:prefLabel": "EarthCODE Common STAC profile",
+      "openAPIDocument": null,
+      "profileOf": null,
+      "skos:topConceptOf": {
+        "@id": "https://ogcincubator.github.io/bblocks-openscience/"
+      }
+    },
+    {
+      "itemIdentifier": "ogc.osc.api-profiles.processes.ipt.execute",
+      "status": "under-development",
+      "dateTimeAddition": "2025-10-22T15:29:12.046535",
+      "register": "ogcapi-processes",
+      "version": "0.1",
+      "dateOfLastChange": "2025-11-27",
+      "tags": [
+        "ogcapi-processes",
+        "schema"
+      ],
+      "name": "Execute (request) schema for IPT",
+      "itemClass": "schema",
+      "shaclShapes": null,
+      "dependsOn": [
+        "bblocks://ogc.ogc-utils.iri-or-curie",
+        "bblocks://ogc.api.processes.v1.schemas.execute"
+      ],
+      "schema": [
+        {
+          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/schema.yaml",
+          "prof:hasRole": "role:schema",
+          "dct:format": "application/yaml",
+          "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
+        },
+        {
+          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/schema.json",
+          "prof:hasRole": "role:schema",
+          "dct:format": "application/json",
+          "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
+        }
+      ],
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/execute/schema.yaml",
+      "ldContext": {
+        "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/context.jsonld",
+        "prof:hasRole": "role:mapping",
+        "dct:format": "application/ld+json",
+        "dct:conformsTo": "https://www.w3.org/TR/json-ld11/"
+      },
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/execute/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes/ipt/execute/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/ipt/execute/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.ipt.execute"
+        }
+      },
+      "@id": "bblocks://ogc.osc.api-profiles.processes.ipt.execute",
+      "@type": [
+        "bblocks:Schema",
+        "skos:Concept",
+        "dcat:Dataset"
+      ],
+      "skos:prefLabel": "Execute (request) schema for IPT",
+      "openAPIDocument": null,
+      "profileOf": null,
+      "skos:topConceptOf": {
+        "@id": "https://ogcincubator.github.io/bblocks-openscience/"
+      }
     },
     {
       "itemIdentifier": "ogc.osc.geodcat-stac-earthcode.experiments",
@@ -364,11 +699,10 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.osc.geodcat-stac-earthcode.common",
-        "ogc.geo.geodcat.geodcat-records"
+        "bblocks://ogc.osc.geodcat-stac-earthcode.common"
       ],
       "version": "0.1",
-      "dateOfLastChange": "2025-11-20",
+      "dateOfLastChange": "2025-11-27",
       "link": "https://github.com/opengeospatial/geodcat-ogcapi-records",
       "sources": [
         {
@@ -388,41 +722,69 @@
         "STAC",
         "EarthCODE"
       ],
-      "shaclShapes": {
-        "ogc.geo.geodcat.records-ontology": [
-          "https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl"
-        ]
+      "shaclShapes": [
+        {
+          "prof:hasArtifact": [
+            "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.api.records.v1.schemas.linkTemplate",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        }
+      ],
+      "ldContext": {
+        "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/context.jsonld",
+        "prof:hasRole": "role:mapping",
+        "dct:format": "application/ld+json",
+        "dct:conformsTo": "https://www.w3.org/TR/json-ld11/"
       },
-      "ldContext": "https://ahaywardtvuk.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/context.jsonld",
-      "schema": {
-        "application/yaml": "https://ahaywardtvuk.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/schema.yaml",
-        "application/json": "https://ahaywardtvuk.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/schema.json"
-      },
-      "sourceSchema": "https://ahaywardtvuk.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/schema.yaml",
-      "sourceLdContext": "https://ahaywardtvuk.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/context.jsonld",
-      "sourceFiles": "https://ahaywardtvuk.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/",
+      "schema": [
+        {
+          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/schema.yaml",
+          "prof:hasRole": "role:schema",
+          "dct:format": "application/yaml",
+          "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
+        },
+        {
+          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/schema.json",
+          "prof:hasRole": "role:schema",
+          "dct:format": "application/json",
+          "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
+        }
+      ],
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/",
       "rdfData": [],
-      "validationPassed": true,
-      "testOutputs": "https://github.com/ahaywardtvuk/bblocks-openscience/blob/master/build/tests/osc/geodcat-stac-earthcode/experiments/",
+      "validationPassed": false,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-openscience/blob/master/build/tests/osc/geodcat-stac-earthcode/experiments/",
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/build/generateddocs/markdown/osc/geodcat-stac-earthcode/experiments/index.md"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/geodcat-stac-earthcode/experiments/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/experiments/index.json"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/experiments/index.json"
         },
         "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.experiments"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.experiments"
         }
       },
+      "@id": "bblocks://ogc.osc.geodcat-stac-earthcode.experiments",
       "@type": [
         "bblocks:Schema",
         "skos:Concept",
         "dcat:Dataset"
-      ]
+      ],
+      "skos:prefLabel": "EarthCODE Experiment",
+      "openAPIDocument": null,
+      "profileOf": null,
+      "skos:topConceptOf": {
+        "@id": "https://ogcincubator.github.io/bblocks-openscience/"
+      }
     },
     {
       "itemIdentifier": "ogc.osc.geodcat-stac-earthcode.products",
@@ -434,11 +796,12 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.osc.geodcat-stac-earthcode.common",
-        "ogc.contrib.stac.extensions.cf"
+        "bblocks://ogc.contrib.stac.collection-v1-0-0",
+        "bblocks://ogc.osc.geodcat-stac-earthcode.common",
+        "bblocks://ogc.contrib.stac.collection"
       ],
       "version": "0.1",
-      "dateOfLastChange": "2025-11-20",
+      "dateOfLastChange": "2025-11-27",
       "link": "https://github.com/opengeospatial/geodcat-ogcapi-records",
       "sources": [
         {
@@ -458,155 +821,130 @@
         "STAC",
         "EarthCODE"
       ],
-      "shaclShapes": {
-        "ogc.geo.geodcat.records-ontology": [
-          "https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl"
-        ]
+      "shaclShapes": [
+        {
+          "prof:hasArtifact": [
+            "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.api.records.v1.schemas.linkTemplate",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        }
+      ],
+      "ldContext": {
+        "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/products/context.jsonld",
+        "prof:hasRole": "role:mapping",
+        "dct:format": "application/ld+json",
+        "dct:conformsTo": "https://www.w3.org/TR/json-ld11/"
       },
-      "ldContext": "https://ahaywardtvuk.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/products/context.jsonld",
-      "schema": {
-        "application/yaml": "https://ahaywardtvuk.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/products/schema.yaml",
-        "application/json": "https://ahaywardtvuk.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/products/schema.json"
-      },
-      "sourceSchema": "https://ahaywardtvuk.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/products/schema.yaml",
-      "sourceLdContext": "https://ahaywardtvuk.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/products/context.jsonld",
-      "sourceFiles": "https://ahaywardtvuk.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/products/",
+      "schema": [
+        {
+          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/products/schema.yaml",
+          "prof:hasRole": "role:schema",
+          "dct:format": "application/yaml",
+          "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
+        },
+        {
+          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/products/schema.json",
+          "prof:hasRole": "role:schema",
+          "dct:format": "application/json",
+          "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
+        }
+      ],
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/products/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/products/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/products/",
       "rdfData": [],
-      "validationPassed": true,
-      "testOutputs": "https://github.com/ahaywardtvuk/bblocks-openscience/blob/master/build/tests/osc/geodcat-stac-earthcode/products/",
+      "validationPassed": false,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-openscience/blob/master/build/tests/osc/geodcat-stac-earthcode/products/",
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/build/generateddocs/markdown/osc/geodcat-stac-earthcode/products/index.md"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/geodcat-stac-earthcode/products/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/products/index.json"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/products/index.json"
         },
         "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.products"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.products"
         }
       },
+      "@id": "bblocks://ogc.osc.geodcat-stac-earthcode.products",
       "@type": [
         "bblocks:Schema",
         "skos:Concept",
         "dcat:Dataset"
-      ]
+      ],
+      "skos:prefLabel": "EarthCODE Product",
+      "openAPIDocument": null,
+      "profileOf": null,
+      "skos:topConceptOf": {
+        "@id": "https://ogcincubator.github.io/bblocks-openscience/"
+      }
     },
     {
-      "itemIdentifier": "ogc.osc.geodcat-stac-earthcode.workflows",
-      "name": "EarthCODE Workflow",
-      "highlighted": true,
-      "abstract": "EarthCODE metadata profile linked to semantic models",
+      "itemIdentifier": "ogc.osc.api-profiles.processes.ipt.api",
+      "name": "IPT Profile of OGC API Processes",
       "status": "under-development",
-      "dateTimeAddition": "2023-09-18T00:00:00Z",
-      "itemClass": "schema",
-      "register": "ogc-incubator",
-      "dependsOn": [
-        "ogc.osc.geodcat-stac-earthcode.common",
-        "ogc.geo.geodcat.geodcat-records"
-      ],
+      "dateTimeAddition": "2024-03-22T11:40:00+01:00",
+      "itemClass": "api",
+      "register": "ogcapi-features",
       "version": "0.1",
-      "dateOfLastChange": "2025-11-20",
-      "link": "https://github.com/opengeospatial/geodcat-ogcapi-records",
+      "dateOfLastChange": "2025-11-27",
       "sources": [
         {
-          "title": "GeoDCAT Specification",
-          "link": "http://www.opengis.net/def/metamodel/profiles/geodcat"
+          "title": "OGC API Processes",
+          "link": "https://docs.ogc.org/is/18-062r2/18-062r2.html"
         }
       ],
-      "scope": "dev",
-      "tags": [
-        "DCAT",
-        "profile",
-        "Records",
-        "STAC",
-        "EarthCODE"
-      ],
-      "shaclShapes": {
-        "ogc.geo.geodcat.records-ontology": [
-          "https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl"
-        ]
-      },
-      "ldContext": "https://ahaywardtvuk.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/workflows/context.jsonld",
-      "schema": {
-        "application/yaml": "https://ahaywardtvuk.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/workflows/schema.yaml",
-        "application/json": "https://ahaywardtvuk.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/workflows/schema.json"
-      },
-      "sourceSchema": "https://ahaywardtvuk.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/workflows/schema.yaml",
-      "sourceLdContext": "https://ahaywardtvuk.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/workflows/context.jsonld",
-      "sourceFiles": "https://ahaywardtvuk.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/workflows/",
-      "rdfData": [],
-      "validationPassed": true,
-      "testOutputs": "https://github.com/ahaywardtvuk/bblocks-openscience/blob/master/build/tests/osc/geodcat-stac-earthcode/workflows/",
-      "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/build/generateddocs/markdown/osc/geodcat-stac-earthcode/workflows/index.md"
-        },
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/workflows/index.json"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.workflows"
-        }
-      },
-      "@type": [
-        "bblocks:Schema",
-        "skos:Concept",
-        "dcat:Dataset"
-      ]
-    },
-    {
-      "itemIdentifier": "ogc.osc.api-profiles.processes-prov",
-      "name": "IPT profile of OGC API Processes",
-      "highlighted": true,
-      "abstract": "Generalised profile of API Processes with interoperable provenance, supporting IPT principles.",
-      "status": "under-development",
-      "dateTimeAddition": "2023-09-18T00:00:00Z",
-      "itemClass": "api",
-      "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.ogc-utils.prov",
-        "ogc.api.processes.v1.api"
+        "bblocks://ogc.osc.api-profiles.processes.ipt.results",
+        "bblocks://ogc.osc.api-profiles.processes.ipt.execute"
       ],
-      "version": "0.1",
-      "dateOfLastChange": "2025-11-20",
-      "link": "https://github.com/opengeospatial/ogcapi-processes",
-      "sources": [],
-      "scope": "dev",
       "tags": [
-        "PROV"
+        "ogcapi-processes",
+        "features"
       ],
-      "shaclShapes": {},
-      "sourceFiles": "https://ahaywardtvuk.github.io/bblocks-openscience/_sources/api-profiles/processes-prov/",
+      "highlighted": true,
+      "abstract": "This is a Profile of the OGC API Processes model with specific requirements to standardise Integrity Provenance and Trust (IPT) aspects/",
+      "shaclShapes": null,
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/api/",
       "rdfData": [],
       "validationPassed": true,
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes-prov/index.md"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes/ipt/api/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes-prov/index.json"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/ipt/api/index.json"
         },
         "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes-prov"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.ipt.api"
         }
       },
+      "@id": "bblocks://ogc.osc.api-profiles.processes.ipt.api",
       "@type": [
         "bblocks:Api",
         "skos:Concept",
         "dcat:Dataset"
-      ]
+      ],
+      "skos:prefLabel": "IPT Profile of OGC API Processes",
+      "ldContext": null,
+      "schema": null,
+      "openAPIDocument": null,
+      "profileOf": null,
+      "skos:topConceptOf": {
+        "@id": "https://ogcincubator.github.io/bblocks-openscience/"
+      }
     },
     {
-      "itemIdentifier": "ogc.osc.api-profiles.processes-workflow",
+      "itemIdentifier": "ogc.osc.api-profiles.processes.workflow",
       "name": "Workflow profile of OGC API Processes",
       "highlighted": true,
       "abstract": "Generalised profile of API Processes executing a workflow (using Application Package profile of CWL)",
@@ -615,11 +953,11 @@
       "itemClass": "api",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.osc.application-package",
-        "ogc.osc.api-profiles.processes-prov"
+        "bblocks://ogc.osc.api-profiles.processes.ipt.api",
+        "bblocks://ogc.osc.application-package"
       ],
       "version": "0.1",
-      "dateOfLastChange": "2025-11-20",
+      "dateOfLastChange": "2025-11-27",
       "link": "https://github.com/opengeospatial/ogcapi-processes",
       "sources": [],
       "scope": "dev",
@@ -630,32 +968,41 @@
         "STAC",
         "PROV"
       ],
-      "shaclShapes": {},
-      "sourceFiles": "https://ahaywardtvuk.github.io/bblocks-openscience/_sources/api-profiles/processes-workflow/",
+      "shaclShapes": null,
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/workflow/",
       "rdfData": [],
       "validationPassed": true,
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes-workflow/index.md"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes/workflow/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes-workflow/index.json"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/workflow/index.json"
         },
         "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes-workflow"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.workflow"
         }
       },
+      "@id": "bblocks://ogc.osc.api-profiles.processes.workflow",
       "@type": [
         "bblocks:Api",
         "skos:Concept",
         "dcat:Dataset"
-      ]
+      ],
+      "skos:prefLabel": "Workflow profile of OGC API Processes",
+      "ldContext": null,
+      "schema": null,
+      "openAPIDocument": null,
+      "profileOf": null,
+      "skos:topConceptOf": {
+        "@id": "https://ogcincubator.github.io/bblocks-openscience/"
+      }
     },
     {
-      "itemIdentifier": "ogc.osc.api-profiles.processes-openscience",
+      "itemIdentifier": "ogc.osc.api-profiles.processes.ospd",
       "name": "Open Science profile of OGC API Processes",
       "highlighted": true,
       "abstract": "Support reproduceable science and interoperable workflows through profiling OGC API Processes to use a workflow model with transparent provenance and adherance to a common metadata profile for describing data inputs and outputs.",
@@ -664,13 +1011,13 @@
       "itemClass": "api",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.osc.geodcat-stac-earthcode.products",
-        "ogc.osc.api-profiles.processes-workflow",
-        "ogc.osc.geodcat-stac-earthcode.workflows",
-        "ogc.osc.geodcat-stac-earthcode.experiments"
+        "bblocks://ogc.osc.geodcat-stac-earthcode.workflows",
+        "bblocks://ogc.osc.geodcat-stac-earthcode.products",
+        "bblocks://ogc.osc.api-profiles.processes.workflow",
+        "bblocks://ogc.osc.geodcat-stac-earthcode.experiments"
       ],
       "version": "0.1",
-      "dateOfLastChange": "2025-11-20",
+      "dateOfLastChange": "2025-11-27",
       "link": "https://github.com/opengeospatial/ogcapi-processes",
       "sources": [],
       "scope": "dev",
@@ -681,33 +1028,86 @@
         "STAC",
         "PROV"
       ],
-      "shaclShapes": {
-        "ogc.geo.geodcat.records-ontology": [
-          "https://ogcincubator.github.io/geodcat-ogcapi-records/_sources/records-ontology/rules.shacl"
-        ]
-      },
-      "sourceFiles": "https://ahaywardtvuk.github.io/bblocks-openscience/_sources/api-profiles/processes-openscience/",
+      "shaclShapes": [
+        {
+          "prof:hasArtifact": [
+            "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.api.records.v1.schemas.linkTemplate",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        }
+      ],
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/ospd/",
       "rdfData": [],
       "validationPassed": true,
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes-openscience/index.md"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes/ospd/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes-openscience/index.json"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/ospd/index.json"
         },
         "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://ahaywardtvuk.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes-openscience"
+          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.ospd"
         }
       },
+      "@id": "bblocks://ogc.osc.api-profiles.processes.ospd",
       "@type": [
         "bblocks:Api",
         "skos:Concept",
         "dcat:Dataset"
-      ]
+      ],
+      "skos:prefLabel": "Open Science profile of OGC API Processes",
+      "ldContext": null,
+      "schema": null,
+      "openAPIDocument": null,
+      "profileOf": null,
+      "skos:topConceptOf": {
+        "@id": "https://ogcincubator.github.io/bblocks-openscience/"
+      }
+    }
+  ],
+  "skos:hasTopConcept": [
+    {
+      "@id": "bblocks://ogc.osc.ontology.cwlprov"
+    },
+    {
+      "@id": "bblocks://ogc.osc.api-profiles.processes.ipt.results"
+    },
+    {
+      "@id": "bblocks://ogc.osc.application-package"
+    },
+    {
+      "@id": "bblocks://ogc.osc.ontology.openscience"
+    },
+    {
+      "@id": "bblocks://ogc.osc.geodcat-stac-earthcode.workflows"
+    },
+    {
+      "@id": "bblocks://ogc.osc.geodcat-stac-earthcode.common"
+    },
+    {
+      "@id": "bblocks://ogc.osc.api-profiles.processes.ipt.execute"
+    },
+    {
+      "@id": "bblocks://ogc.osc.geodcat-stac-earthcode.experiments"
+    },
+    {
+      "@id": "bblocks://ogc.osc.geodcat-stac-earthcode.products"
+    },
+    {
+      "@id": "bblocks://ogc.osc.api-profiles.processes.ipt.api"
+    },
+    {
+      "@id": "bblocks://ogc.osc.api-profiles.processes.workflow"
+    },
+    {
+      "@id": "bblocks://ogc.osc.api-profiles.processes.ospd"
     }
   ]
 }
