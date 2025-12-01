@@ -31,6 +31,55 @@ Links to the schema:
 * JSON version: [schema.json](https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/schema.yaml)
 
 
+# JSON-LD Context
+
+```jsonld
+{
+  "@context": {
+    "inputs": {
+      "@context": {
+        "bbox": {},
+        "crs": {},
+        "encoding": {},
+        "mediaType": {},
+        "schema": {},
+        "value": {},
+        "href": {},
+        "hreflang": {},
+        "rel": {},
+        "title": {},
+        "type": {}
+      }
+    },
+    "outputs": {
+      "@context": {
+        "format": {
+          "@context": {
+            "encoding": {},
+            "mediaType": {},
+            "schema": {}
+          }
+        },
+        "transmissionMode": {}
+      }
+    },
+    "response": {},
+    "subscriber": {
+      "@context": {
+        "failedUri": {},
+        "inProgressUri": {},
+        "successUri": {}
+      }
+    },
+    "@version": 1.1
+  }
+}
+```
+
+You can find the full JSON-LD context here:
+[context.jsonld](https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/context.jsonld)
+
+
 # For developers
 
 The source code for this Building Block can be found in the following repository:

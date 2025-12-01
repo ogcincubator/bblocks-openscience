@@ -1,24 +1,45 @@
 {
   "@context": {
-    "stac_version": "stac:version",
     "stac_extensions": "stac:hasExtension",
     "type": "@type",
     "id": "@id",
-    "extent": "dct:extent",
-    "assets": {
+    "extent": {
       "@context": {
-        "type": "dct:format",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        },
-        "thumbnail": "stac:thumbnail",
-        "overview": "stac:overview",
-        "data": "stac:data",
-        "metadata": "stac:metadata"
+        "spatial": {},
+        "temporal": {
+          "@context": {
+            "interval": {}
+          }
+        }
       },
-      "@id": "stac:assets",
-      "@container": "@id"
+      "@id": "dct:extent"
+    },
+    "item_assets": {},
+    "links": {
+      "@context": {
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "anchor": {},
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent",
+        "method": {},
+        "headers": {},
+        "body": {}
+      },
+      "@id": "rdfs:seeAlso"
+    },
+    "summaries": {
+      "@context": {
+        "minimum": {},
+        "maximum": {}
+      }
     },
     "title": {
       "@id": "dct:title",
@@ -28,31 +49,56 @@
       "@id": "dct:description",
       "@container": "@set"
     },
-    "links": {
-      "@context": {
-        "type": "dct:type",
-        "title": "rdfs:label"
-      },
-      "@id": "rdfs:seeAlso"
-    },
     "keywords": {
       "@id": "dcat:keyword",
       "@container": "@set"
     },
-    "license": "dcat:license",
+    "roles": {
+      "@id": "stac:roles",
+      "@container": "@set"
+    },
+    "bands": {},
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
+    "start_datetime": {},
+    "end_datetime": {},
+    "created": "dct:created",
+    "updated": "dct:modified",
+    "data_type": {},
+    "nodata": {},
+    "statistics": {
+      "@context": {
+        "minimum": {},
+        "maximum": {},
+        "mean": {},
+        "stddev": {},
+        "count": {},
+        "valid_percent": {}
+      }
     },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
+    "unit": {},
+    "platform": {},
+    "instruments": {},
+    "constellation": {},
+    "mission": {},
+    "gsd": {},
+    "license": "dcat:license",
+    "providers": {
+      "@context": {
+        "url": {}
+      }
     },
-    "providers": "stac:hasProvider",
+    "@vocab": "https://w3id.org/ogc/stac/assets/",
+    "assets": {
+      "@context": {
+        "type": "dct:format"
+      },
+      "@id": "stac:hasAsset",
+      "@container": "@set"
+    },
+    "stac_version": "stac:version",
     "media_type": "dct:format",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
@@ -73,7 +119,8 @@
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
-        }
+        },
+        "geometries": {}
       },
       "@id": "geojson:geometry"
     },
@@ -86,15 +133,68 @@
       "@id": "dct:conformsTo",
       "@type": "@id"
     },
-    "time": "dct:temporal",
-    "created": "dct:created",
-    "updated": "dct:modified",
-    "language": "rec:language",
+    "time": {
+      "@context": {
+        "date": {},
+        "timestamp": {},
+        "interval": {},
+        "resolution": {}
+      },
+      "@id": "dct:temporal"
+    },
+    "linkTemplates": {
+      "@context": {
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:format",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent",
+        "uriTemplate": {
+          "@type": "xsd:string",
+          "@id": "rec:uriTemplate"
+        },
+        "varBase": "rec:varBase",
+        "variables": {
+          "@id": "rec:hasVariable",
+          "@container": "@index",
+          "@index": "dct:identifier"
+        }
+      },
+      "@id": "rec:hasLinkTemplate"
+    },
+    "collection": {},
+    "language": {
+      "@context": {
+        "code": "rec:languageCode",
+        "name": "skos:prefLabel",
+        "alternate": {},
+        "dir": {}
+      },
+      "@id": "rec:language"
+    },
     "languages": {
+      "@context": {
+        "code": "rec:languageCode",
+        "name": "skos:prefLabel",
+        "alternate": {},
+        "dir": {}
+      },
       "@container": "@set",
       "@id": "rec:languages"
     },
     "resourceLanguages": {
+      "@context": {
+        "code": "rec:languageCode",
+        "name": "skos:prefLabel",
+        "alternate": {},
+        "dir": {}
+      },
       "@container": "@set",
       "@id": "rec:resourceLanguages"
     },
@@ -107,6 +207,22 @@
       "@id": "rec:scopedIdentifier"
     },
     "themes": {
+      "@context": {
+        "concepts": {
+          "@context": {
+            "id": {
+              "@id": "thns:id",
+              "@type": "xsd:string"
+            },
+            "url": {
+              "@id": "@id",
+              "@type": "@id"
+            }
+          },
+          "@id": "thns:concepts",
+          "@container": "@set"
+        }
+      },
       "@container": "@set",
       "@id": "rec:themes"
     },
@@ -121,44 +237,44 @@
     },
     "contacts": {
       "@context": {
-        "type": "dct:type",
-        "title": "rdfs:label"
+        "identifier": {},
+        "position": {},
+        "organization": {},
+        "logo": {
+          "@context": {
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "anchor": {},
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          }
+        },
+        "phones": {},
+        "emails": {},
+        "addresses": {
+          "@context": {
+            "deliveryPoint": {},
+            "city": {},
+            "administrativeArea": {},
+            "postalCode": {},
+            "country": {}
+          }
+        },
+        "hoursOfService": {},
+        "contactInstructions": {}
       },
       "@container": "@set",
       "@id": "dcat:contactPoint",
       "@type": "@id"
     },
     "rights": "dcat:rights",
-    "linkTemplates": {
-      "@context": {
-        "type": "dct:format",
-        "title": "rdfs:label",
-        "uriTemplate": {
-          "@type": "xsd:string",
-          "@id": "rec:uriTemplate"
-        },
-        "varBase": "rec:varBase",
-        "variables": {
-          "@id": "rec:hasVariable",
-          "@container": "@index",
-          "@index": "dct:identifier"
-        }
-      },
-      "@id": "rec:hasLinkTemplate"
-    },
-    "href": {
-      "@type": "@id",
-      "@id": "oa:hasTarget"
-    },
-    "rel": {
-      "@context": {
-        "@base": "http://www.iana.org/assignments/relation/"
-      },
-      "@id": "http://www.iana.org/assignments/relation",
-      "@type": "@id"
-    },
-    "hreflang": "dct:language",
-    "length": "dct:extent",
     "concepts": {
       "@id": "thns:concepts",
       "@container": "@set",
@@ -169,13 +285,16 @@
       }
     },
     "scheme": "thns:scheme",
+    "osc:type": {},
+    "osc:status": {},
+    "osc:project": {},
+    "osc:region": {},
+    "osc:variables": {},
+    "osc:missions": {},
+    "osc:experiment": {},
+    "osc:workflows": {},
+    "cf:parameter": {},
     "name": "rdfs:label",
-    "unit": {
-      "@id": "qudt:hasUnit",
-      "@context": {
-        "@base": "http://qudt.org/vocab/unit/"
-      }
-    },
     "accessrights": "dct:accessRights",
     "variables": {
       "@container": "@id",
@@ -188,7 +307,17 @@
     "wasInfluencedBy": {
       "@context": {
         "type": "dct:type",
-        "title": "rdfs:label"
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "anchor": {},
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
       },
       "@id": "prov:wasInfluencedBy",
       "@type": "@id"
@@ -198,17 +327,37 @@
         "influencer": {
           "@context": {
             "type": "dct:type",
-            "title": "rdfs:label"
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "anchor": {},
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
           },
           "@id": "prov:influencer",
           "@type": "@id"
         },
         "activity": {
           "@context": {
+            "type": "dct:type",
             "wasAssociatedWith": {
               "@context": {
-                "type": "dct:type",
-                "title": "rdfs:label"
+                "rel": {
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  },
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id"
+                },
+                "anchor": {},
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
               },
               "@id": "prov:wasAssociatedWith",
               "@type": "@id"
@@ -219,8 +368,18 @@
         },
         "agent": {
           "@context": {
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "anchor": {},
             "type": "dct:type",
-            "title": "rdfs:label"
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
           },
           "@id": "prov:agent",
           "@type": "@id"
@@ -230,6 +389,7 @@
       "@type": "@id"
     },
     "provType": "@type",
+    "prov:type": {},
     "hadMember": {
       "@id": "prov:hadMember",
       "@type": "@id"
@@ -238,12 +398,22 @@
     "entityType": "@type",
     "has_provenance": {
       "@context": {
+        "type": "dct:type",
         "wasAssociatedWith": {
           "@id": "prov:wasAssociatedWith",
           "@type": "@id",
           "@context": {
-            "type": "dct:type",
-            "title": "rdfs:label"
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "anchor": {},
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
           }
         }
       },
@@ -252,10 +422,20 @@
     },
     "wasGeneratedBy": {
       "@context": {
+        "type": "dct:type",
         "wasAssociatedWith": {
           "@context": {
-            "type": "dct:type",
-            "title": "rdfs:label"
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "anchor": {},
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
           },
           "@id": "prov:wasAssociatedWith",
           "@type": "@id"
@@ -266,8 +446,18 @@
     },
     "wasAttributedTo": {
       "@context": {
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "anchor": {},
         "type": "dct:type",
-        "title": "rdfs:label"
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
       },
       "@id": "prov:wasAttributedTo",
       "@type": "@id"
@@ -290,10 +480,20 @@
     },
     "wasInvalidatedBy": {
       "@context": {
+        "type": "dct:type",
         "wasAssociatedWith": {
           "@context": {
-            "type": "dct:type",
-            "title": "rdfs:label"
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "anchor": {},
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
           },
           "@id": "prov:wasAssociatedWith",
           "@type": "@id"
@@ -326,10 +526,20 @@
       "@context": {
         "hadActivity": {
           "@context": {
+            "type": "dct:type",
             "wasAssociatedWith": {
               "@context": {
-                "type": "dct:type",
-                "title": "rdfs:label"
+                "rel": {
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  },
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id"
+                },
+                "anchor": {},
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
               },
               "@id": "prov:wasAssociatedWith",
               "@type": "@id"
@@ -343,6 +553,15 @@
       "@type": "@id"
     },
     "qualifiedAttribution": {
+      "@context": {
+        "agent": {
+          "@context": {
+            "type": "dct:type"
+          },
+          "@id": "prov:agent",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:qualifiedAttribution",
       "@type": "@id"
     },
@@ -591,6 +810,10 @@
     "mentionOf": {
       "@id": "prov:mentionOf",
       "@type": "@id"
+    },
+    "href": {
+      "@type": "@id",
+      "@id": "oa:hasTarget"
     },
     "stac": "https://w3id.org/ogc/stac/core/",
     "dct": "http://purl.org/dc/terms/",

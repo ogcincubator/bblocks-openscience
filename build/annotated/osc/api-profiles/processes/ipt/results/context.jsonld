@@ -1,5 +1,15 @@
 {
   "@context": {
+    "encoding": {},
+    "mediaType": {},
+    "schema": {},
+    "value": {
+      "@context": {
+        "bbox": {},
+        "crs": {}
+      },
+      "@id": "prov:value"
+    },
     "wasInfluencedBy": {
       "@context": {
         "href": {
@@ -13,7 +23,7 @@
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "type": "dct:type",
+        "anchor": {},
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent"
@@ -36,7 +46,7 @@
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "type": "dct:type",
+            "anchor": {},
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -57,7 +67,7 @@
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "type": "dct:type",
+            "anchor": {},
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -70,6 +80,8 @@
       "@type": "@id"
     },
     "provType": "@type",
+    "prov:type": {},
+    "type": "dct:type",
     "hadMember": {
       "@id": "prov:hadMember",
       "@type": "@id"
@@ -98,7 +110,7 @@
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "type": "dct:type",
+        "anchor": {},
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent"
@@ -151,7 +163,7 @@
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "type": "dct:type",
+        "anchor": {},
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent"
@@ -246,7 +258,6 @@
       "@id": "prov:startedAtTime",
       "@type": "xsd:dateTime"
     },
-    "value": "prov:value",
     "provenanceUriTemplate": "prov:provenanceUriTemplate",
     "pairKey": {
       "@id": "prov:pairKey",
@@ -363,7 +374,7 @@
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "type": "dct:type",
+        "anchor": {},
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent"

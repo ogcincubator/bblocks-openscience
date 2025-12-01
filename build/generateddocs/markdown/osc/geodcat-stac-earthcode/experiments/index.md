@@ -240,6 +240,7 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 
 #### ttl
 ```ttl
+@prefix : <https://w3id.org/ogc/stac/assets/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
@@ -248,55 +249,61 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix thns: <https://w3id.org/ogc/stac/themes/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://ogc.org/demo/ospd/polaris-experiment> a <https://ogc.org/demo/ospd/experiment>,
-        geojson:Feature ;
+<https://ogc.org/demo/ospd/polaris-experiment> a geojson:Feature,
+        :experiment ;
     dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core> ;
     dcterms:created "2025-02-19T23:00:00Z" ;
     dcterms:description "Polar Operational Limit Assessment Risk Index System (POLARIS)" ;
     dcterms:modified "2025-02-19T23:00:00Z" ;
     dcterms:title "POLARIS" ;
-    rdfs:seeAlso [ rdfs:label "Open Science Catalog" ;
+    rdfs:seeAlso [ rdfs:label "Workflow: POLARIS" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://ogc.org/catalog.json> ],
-        [ rdfs:label "Input parameters" ;
-            dcterms:type "application/yaml" ;
-            ns1:relation <http://www.iana.org/assignments/relation/input> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/input.yaml> ],
-        [ rdfs:label "Experiments" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
-        [ rdfs:label "Execution environment" ;
-            dcterms:type "application/yaml" ;
-            ns1:relation <http://www.iana.org/assignments/relation/environment> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/environment.yaml> ],
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/workflows/polaris-workflow/record.json> ],
+        [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/experiments/polaris-experiment/item.json> ],
         [ rdfs:label "Theme: Oceans" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
-        [ rdfs:label "Workflow: POLARIS" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/workflows/polaris-workflow/record.json> ],
+        [ rdfs:label "Execution environment" ;
+            dcterms:type "application/yaml" ;
+            ns1:relation <http://www.iana.org/assignments/relation/environment> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/environment.yaml> ],
+        [ rdfs:label "Input parameters" ;
+            dcterms:type "application/yaml" ;
+            ns1:relation <http://www.iana.org/assignments/relation/input> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/input.yaml> ],
         [ rdfs:label "POLARIS" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/child> ;
             oa:hasTarget <https://ogc.org/products/polaris/collection.json> ],
-        [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/experiments/polaris-experiment/item.json> ] ;
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ],
+        [ rdfs:label "Experiments" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://ogc.org/demo/catalog.json> ] ;
     dcat:contactPoint [ rdfs:label "EarthCODE Demo" ;
             rdfs:seeAlso [ dcterms:type "text/html" ;
                     ns1:relation <http://www.iana.org/assignments/relation/about> ;
-                    oa:hasTarget <https://opensciencedata.esa.int/> ] ] ;
+                    oa:hasTarget <https://opensciencedata.esa.int/> ] ;
+            :contactInstructions "Contact via EarthCODE" ;
+            :organization "EarthCODE" ;
+            stac:roles "host" ] ;
     dcat:keyword "polar",
         "sea ice" ;
     dcat:license "CC-BY-SA-4.0" ;
+    :version "2" ;
     rec:format [ rec:name "GeoTIFF" ] ;
-    rec:themes [ thns:concepts [ thns:id "oceans" ] ;
+    rec:themes [ thns:concepts [ thns:id "oceans"^^xsd:string ] ;
             thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
     ns2:workflow "polaris-workflow" .
 
@@ -324,25 +331,46 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
-    "stac_version": "stac:version",
     "stac_extensions": "stac:hasExtension",
     "type": "@type",
     "id": "@id",
-    "extent": "dct:extent",
-    "assets": {
+    "extent": {
       "@context": {
-        "type": "dct:format",
-        "roles": {
-          "@id": "stac:roles",
-          "@container": "@set"
-        },
-        "thumbnail": "stac:thumbnail",
-        "overview": "stac:overview",
-        "data": "stac:data",
-        "metadata": "stac:metadata"
+        "spatial": {},
+        "temporal": {
+          "@context": {
+            "interval": {}
+          }
+        }
       },
-      "@id": "stac:assets",
-      "@container": "@id"
+      "@id": "dct:extent"
+    },
+    "item_assets": {},
+    "links": {
+      "@context": {
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "anchor": {},
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent",
+        "method": {},
+        "headers": {},
+        "body": {}
+      },
+      "@id": "rdfs:seeAlso"
+    },
+    "summaries": {
+      "@context": {
+        "minimum": {},
+        "maximum": {}
+      }
     },
     "title": {
       "@id": "dct:title",
@@ -352,31 +380,56 @@ Links to the schema:
       "@id": "dct:description",
       "@container": "@set"
     },
-    "links": {
-      "@context": {
-        "type": "dct:type",
-        "title": "rdfs:label"
-      },
-      "@id": "rdfs:seeAlso"
-    },
     "keywords": {
       "@id": "dcat:keyword",
       "@container": "@set"
     },
-    "license": "dcat:license",
+    "roles": {
+      "@id": "stac:roles",
+      "@container": "@set"
+    },
+    "bands": {},
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
+    "start_datetime": {},
+    "end_datetime": {},
+    "created": "dct:created",
+    "updated": "dct:modified",
+    "data_type": {},
+    "nodata": {},
+    "statistics": {
+      "@context": {
+        "minimum": {},
+        "maximum": {},
+        "mean": {},
+        "stddev": {},
+        "count": {},
+        "valid_percent": {}
+      }
     },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
+    "unit": {},
+    "platform": {},
+    "instruments": {},
+    "constellation": {},
+    "mission": {},
+    "gsd": {},
+    "license": "dcat:license",
+    "providers": {
+      "@context": {
+        "url": {}
+      }
     },
-    "providers": "stac:hasProvider",
+    "@vocab": "https://w3id.org/ogc/stac/assets/",
+    "assets": {
+      "@context": {
+        "type": "dct:format"
+      },
+      "@id": "stac:hasAsset",
+      "@container": "@set"
+    },
+    "stac_version": "stac:version",
     "media_type": "dct:format",
     "Feature": "geojson:Feature",
     "FeatureCollection": "geojson:FeatureCollection",
@@ -397,7 +450,8 @@ Links to the schema:
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
-        }
+        },
+        "geometries": {}
       },
       "@id": "geojson:geometry"
     },
@@ -410,15 +464,68 @@ Links to the schema:
       "@id": "dct:conformsTo",
       "@type": "@id"
     },
-    "time": "dct:temporal",
-    "created": "dct:created",
-    "updated": "dct:modified",
-    "language": "rec:language",
+    "time": {
+      "@context": {
+        "date": {},
+        "timestamp": {},
+        "interval": {},
+        "resolution": {}
+      },
+      "@id": "dct:temporal"
+    },
+    "linkTemplates": {
+      "@context": {
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:format",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent",
+        "uriTemplate": {
+          "@type": "xsd:string",
+          "@id": "rec:uriTemplate"
+        },
+        "varBase": "rec:varBase",
+        "variables": {
+          "@id": "rec:hasVariable",
+          "@container": "@index",
+          "@index": "dct:identifier"
+        }
+      },
+      "@id": "rec:hasLinkTemplate"
+    },
+    "collection": {},
+    "language": {
+      "@context": {
+        "code": "rec:languageCode",
+        "name": "skos:prefLabel",
+        "alternate": {},
+        "dir": {}
+      },
+      "@id": "rec:language"
+    },
     "languages": {
+      "@context": {
+        "code": "rec:languageCode",
+        "name": "skos:prefLabel",
+        "alternate": {},
+        "dir": {}
+      },
       "@container": "@set",
       "@id": "rec:languages"
     },
     "resourceLanguages": {
+      "@context": {
+        "code": "rec:languageCode",
+        "name": "skos:prefLabel",
+        "alternate": {},
+        "dir": {}
+      },
       "@container": "@set",
       "@id": "rec:resourceLanguages"
     },
@@ -431,6 +538,22 @@ Links to the schema:
       "@id": "rec:scopedIdentifier"
     },
     "themes": {
+      "@context": {
+        "concepts": {
+          "@context": {
+            "id": {
+              "@id": "thns:id",
+              "@type": "xsd:string"
+            },
+            "url": {
+              "@id": "@id",
+              "@type": "@id"
+            }
+          },
+          "@id": "thns:concepts",
+          "@container": "@set"
+        }
+      },
       "@container": "@set",
       "@id": "rec:themes"
     },
@@ -445,44 +568,44 @@ Links to the schema:
     },
     "contacts": {
       "@context": {
-        "type": "dct:type",
-        "title": "rdfs:label"
+        "identifier": {},
+        "position": {},
+        "organization": {},
+        "logo": {
+          "@context": {
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "anchor": {},
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          }
+        },
+        "phones": {},
+        "emails": {},
+        "addresses": {
+          "@context": {
+            "deliveryPoint": {},
+            "city": {},
+            "administrativeArea": {},
+            "postalCode": {},
+            "country": {}
+          }
+        },
+        "hoursOfService": {},
+        "contactInstructions": {}
       },
       "@container": "@set",
       "@id": "dcat:contactPoint",
       "@type": "@id"
     },
     "rights": "dcat:rights",
-    "linkTemplates": {
-      "@context": {
-        "type": "dct:format",
-        "title": "rdfs:label",
-        "uriTemplate": {
-          "@type": "xsd:string",
-          "@id": "rec:uriTemplate"
-        },
-        "varBase": "rec:varBase",
-        "variables": {
-          "@id": "rec:hasVariable",
-          "@container": "@index",
-          "@index": "dct:identifier"
-        }
-      },
-      "@id": "rec:hasLinkTemplate"
-    },
-    "href": {
-      "@type": "@id",
-      "@id": "oa:hasTarget"
-    },
-    "rel": {
-      "@context": {
-        "@base": "http://www.iana.org/assignments/relation/"
-      },
-      "@id": "http://www.iana.org/assignments/relation",
-      "@type": "@id"
-    },
-    "hreflang": "dct:language",
-    "length": "dct:extent",
     "concepts": {
       "@id": "thns:concepts",
       "@container": "@set",
@@ -493,13 +616,16 @@ Links to the schema:
       }
     },
     "scheme": "thns:scheme",
+    "osc:type": {},
+    "osc:status": {},
+    "osc:project": {},
+    "osc:region": {},
+    "osc:variables": {},
+    "osc:missions": {},
+    "osc:experiment": {},
+    "osc:workflows": {},
+    "cf:parameter": {},
     "name": "rdfs:label",
-    "unit": {
-      "@id": "qudt:hasUnit",
-      "@context": {
-        "@base": "http://qudt.org/vocab/unit/"
-      }
-    },
     "accessrights": "dct:accessRights",
     "variables": {
       "@container": "@id",
@@ -512,7 +638,17 @@ Links to the schema:
     "wasInfluencedBy": {
       "@context": {
         "type": "dct:type",
-        "title": "rdfs:label"
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "anchor": {},
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
       },
       "@id": "prov:wasInfluencedBy",
       "@type": "@id"
@@ -522,17 +658,37 @@ Links to the schema:
         "influencer": {
           "@context": {
             "type": "dct:type",
-            "title": "rdfs:label"
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "anchor": {},
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
           },
           "@id": "prov:influencer",
           "@type": "@id"
         },
         "activity": {
           "@context": {
+            "type": "dct:type",
             "wasAssociatedWith": {
               "@context": {
-                "type": "dct:type",
-                "title": "rdfs:label"
+                "rel": {
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  },
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id"
+                },
+                "anchor": {},
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
               },
               "@id": "prov:wasAssociatedWith",
               "@type": "@id"
@@ -543,8 +699,18 @@ Links to the schema:
         },
         "agent": {
           "@context": {
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "anchor": {},
             "type": "dct:type",
-            "title": "rdfs:label"
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
           },
           "@id": "prov:agent",
           "@type": "@id"
@@ -554,6 +720,7 @@ Links to the schema:
       "@type": "@id"
     },
     "provType": "@type",
+    "prov:type": {},
     "hadMember": {
       "@id": "prov:hadMember",
       "@type": "@id"
@@ -562,12 +729,22 @@ Links to the schema:
     "entityType": "@type",
     "has_provenance": {
       "@context": {
+        "type": "dct:type",
         "wasAssociatedWith": {
           "@id": "prov:wasAssociatedWith",
           "@type": "@id",
           "@context": {
-            "type": "dct:type",
-            "title": "rdfs:label"
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "anchor": {},
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
           }
         }
       },
@@ -576,10 +753,20 @@ Links to the schema:
     },
     "wasGeneratedBy": {
       "@context": {
+        "type": "dct:type",
         "wasAssociatedWith": {
           "@context": {
-            "type": "dct:type",
-            "title": "rdfs:label"
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "anchor": {},
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
           },
           "@id": "prov:wasAssociatedWith",
           "@type": "@id"
@@ -590,8 +777,18 @@ Links to the schema:
     },
     "wasAttributedTo": {
       "@context": {
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "anchor": {},
         "type": "dct:type",
-        "title": "rdfs:label"
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
       },
       "@id": "prov:wasAttributedTo",
       "@type": "@id"
@@ -614,10 +811,20 @@ Links to the schema:
     },
     "wasInvalidatedBy": {
       "@context": {
+        "type": "dct:type",
         "wasAssociatedWith": {
           "@context": {
-            "type": "dct:type",
-            "title": "rdfs:label"
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "anchor": {},
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
           },
           "@id": "prov:wasAssociatedWith",
           "@type": "@id"
@@ -650,10 +857,20 @@ Links to the schema:
       "@context": {
         "hadActivity": {
           "@context": {
+            "type": "dct:type",
             "wasAssociatedWith": {
               "@context": {
-                "type": "dct:type",
-                "title": "rdfs:label"
+                "rel": {
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  },
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id"
+                },
+                "anchor": {},
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
               },
               "@id": "prov:wasAssociatedWith",
               "@type": "@id"
@@ -667,6 +884,15 @@ Links to the schema:
       "@type": "@id"
     },
     "qualifiedAttribution": {
+      "@context": {
+        "agent": {
+          "@context": {
+            "type": "dct:type"
+          },
+          "@id": "prov:agent",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:qualifiedAttribution",
       "@type": "@id"
     },
@@ -915,6 +1141,10 @@ Links to the schema:
     "mentionOf": {
       "@id": "prov:mentionOf",
       "@type": "@id"
+    },
+    "href": {
+      "@type": "@id",
+      "@id": "oa:hasTarget"
     },
     "stac": "https://w3id.org/ogc/stac/core/",
     "dct": "http://purl.org/dc/terms/",

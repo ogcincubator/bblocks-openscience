@@ -31,6 +31,16 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
+    "encoding": {},
+    "mediaType": {},
+    "schema": {},
+    "value": {
+      "@context": {
+        "bbox": {},
+        "crs": {}
+      },
+      "@id": "prov:value"
+    },
     "wasInfluencedBy": {
       "@context": {
         "href": {
@@ -44,7 +54,7 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "type": "dct:type",
+        "anchor": {},
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent"
@@ -67,7 +77,7 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "type": "dct:type",
+            "anchor": {},
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -88,7 +98,7 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "type": "dct:type",
+            "anchor": {},
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -101,6 +111,8 @@ Links to the schema:
       "@type": "@id"
     },
     "provType": "@type",
+    "prov:type": {},
+    "type": "dct:type",
     "hadMember": {
       "@id": "prov:hadMember",
       "@type": "@id"
@@ -129,7 +141,7 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "type": "dct:type",
+        "anchor": {},
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent"
@@ -182,7 +194,7 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "type": "dct:type",
+        "anchor": {},
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent"
@@ -277,7 +289,6 @@ Links to the schema:
       "@id": "prov:startedAtTime",
       "@type": "xsd:dateTime"
     },
-    "value": "prov:value",
     "provenanceUriTemplate": "prov:provenanceUriTemplate",
     "pairKey": {
       "@id": "prov:pairKey",
@@ -394,7 +405,7 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "type": "dct:type",
+        "anchor": {},
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent"
