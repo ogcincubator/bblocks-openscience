@@ -2,3 +2,33 @@ $schema: https://json-schema.org/draft/2020-12/schema
 description: EarthCode Experiment
 allOf:
 - $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml
+- $ref: https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/geodcat-records/schema.yaml
+properties:
+  properties:
+    type: object
+    required:
+    - osc:workflow
+    properties:
+      osc:workflow:
+        $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/$defs/osc:workflow
+  links:
+    type: array
+    items:
+      oneOf:
+      - title: Other Link
+        properties:
+          rel:
+            not:
+              enum:
+              - via
+              - input
+              - environment
+      - title: Link to Input Parameter
+        properties:
+          rel:
+            const: input
+      - title: Link to Execution Environment
+        properties:
+          rel:
+            const: environment
+      - $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/$defs/via_links

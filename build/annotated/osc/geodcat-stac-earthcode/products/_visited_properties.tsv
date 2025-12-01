@@ -1,156 +1,6 @@
 path	@id
-/stac_extensions	https://w3id.org/ogc/stac/core/hasExtension
 /type	@type
 /id	@id
-/extent	http://purl.org/dc/terms/extent
-/extent/spatial	
-/extent/spatial/bbox	
-/extent/temporal	
-/extent/temporal/interval	
-/item_assets	
-/item_assets/href	
-/item_assets/title	http://purl.org/dc/terms/title
-/item_assets/description	http://purl.org/dc/terms/description
-/item_assets/type	@type
-/item_assets/roles	
-/item_assets/keywords	
-/item_assets/bands	
-/item_assets/bands/title	
-/item_assets/bands/description	
-/item_assets/bands/keywords	
-/item_assets/bands/roles	
-/item_assets/bands/datetime	
-/item_assets/bands/start_datetime	
-/item_assets/bands/end_datetime	
-/item_assets/bands/created	
-/item_assets/bands/updated	
-/item_assets/bands/data_type	
-/item_assets/bands/nodata	
-/item_assets/bands/statistics	
-/item_assets/bands/statistics/minimum	
-/item_assets/bands/statistics/maximum	
-/item_assets/bands/statistics/mean	
-/item_assets/bands/statistics/stddev	
-/item_assets/bands/statistics/count	
-/item_assets/bands/statistics/valid_percent	
-/item_assets/bands/unit	
-/item_assets/bands/platform	
-/item_assets/bands/instruments	
-/item_assets/bands/constellation	
-/item_assets/bands/mission	
-/item_assets/bands/gsd	
-/item_assets/bands/license	
-/item_assets/bands/providers	
-/item_assets/bands/providers/name	
-/item_assets/bands/providers/description	
-/item_assets/bands/providers/roles	
-/item_assets/bands/providers/url	
-/item_assets/bands/name	
-/item_assets/datetime	
-/item_assets/start_datetime	
-/item_assets/end_datetime	
-/item_assets/created	
-/item_assets/updated	
-/item_assets/data_type	
-/item_assets/nodata	
-/item_assets/statistics	
-/item_assets/statistics/minimum	
-/item_assets/statistics/maximum	
-/item_assets/statistics/mean	
-/item_assets/statistics/stddev	
-/item_assets/statistics/count	
-/item_assets/statistics/valid_percent	
-/item_assets/unit	
-/item_assets/platform	
-/item_assets/instruments	
-/item_assets/constellation	
-/item_assets/mission	
-/item_assets/gsd	
-/item_assets/license	
-/item_assets/providers	
-/item_assets/providers/name	
-/item_assets/providers/description	
-/item_assets/providers/roles	
-/item_assets/providers/url	
-/links	http://www.w3.org/2000/01/rdf-schema#seeAlso
-/links/href	http://www.w3.org/ns/oa#hasTarget
-/links/rel	http://www.iana.org/assignments/relation
-/links/anchor	
-/links/type	http://purl.org/dc/terms/type
-/links/hreflang	http://purl.org/dc/terms/language
-/links/title	http://www.w3.org/2000/01/rdf-schema#label
-/links/length	http://purl.org/dc/terms/extent
-/summaries	
-/summaries/minimum	
-/summaries/maximum	
-/title	
-/description	
-/keywords	
-/roles	
-/bands	
-/bands/title	
-/bands/description	
-/bands/keywords	
-/bands/roles	
-/bands/datetime	
-/bands/start_datetime	
-/bands/end_datetime	
-/bands/created	
-/bands/updated	
-/bands/data_type	
-/bands/nodata	
-/bands/statistics	
-/bands/statistics/minimum	
-/bands/statistics/maximum	
-/bands/statistics/mean	
-/bands/statistics/stddev	
-/bands/statistics/count	
-/bands/statistics/valid_percent	
-/bands/unit	
-/bands/platform	
-/bands/instruments	
-/bands/constellation	
-/bands/mission	
-/bands/gsd	
-/bands/license	
-/bands/providers	
-/bands/providers/name	
-/bands/providers/description	
-/bands/providers/roles	
-/bands/providers/url	
-/bands/name	
-/datetime	
-/start_datetime	
-/end_datetime	
-/created	
-/updated	
-/data_type	
-/nodata	
-/statistics	
-/statistics/minimum	
-/statistics/maximum	
-/statistics/mean	
-/statistics/stddev	
-/statistics/count	
-/statistics/valid_percent	
-/unit	
-/platform	
-/instruments	
-/constellation	
-/mission	
-/gsd	
-/license	
-/providers	
-/providers/name	
-/providers/description	
-/providers/roles	
-/providers/url	
-/assets	https://w3id.org/ogc/stac/core/hasAsset
-/assets/href	
-/assets/title	http://purl.org/dc/terms/title
-/assets/description	http://purl.org/dc/terms/description
-/assets/type	http://purl.org/dc/terms/format
-/assets/roles	https://w3id.org/ogc/stac/core/roles
 /properties	@nest
 /geometry	https://purl.org/geojson/vocab#geometry
 /geometry/type	@type
@@ -161,6 +11,14 @@ path	@id
 /geometry/geometries/coordinates	https://purl.org/geojson/vocab#coordinates
 /geometry/geometries/bbox	https://purl.org/geojson/vocab#bbox
 /bbox	https://purl.org/geojson/vocab#bbox
+/links	http://www.w3.org/2000/01/rdf-schema#seeAlso
+/links/href	http://www.w3.org/ns/oa#hasTarget
+/links/rel	http://www.iana.org/assignments/relation
+/links/anchor	
+/links/type	http://purl.org/dc/terms/format
+/links/hreflang	http://purl.org/dc/terms/language
+/links/title	http://www.w3.org/2000/01/rdf-schema#label
+/links/length	http://purl.org/dc/terms/extent
 /conformsTo	http://purl.org/dc/terms/conformsTo
 /time	http://purl.org/dc/terms/temporal
 /time/date	
@@ -288,6 +146,7 @@ path	@id
 /properties/bands/providers/roles	
 /properties/bands/providers/url	
 /properties/bands/name	
+/stac_extensions	https://w3id.org/ogc/stac/core/hasExtension
 /links/method	
 /links/headers	
 /links/body	
@@ -374,13 +233,74 @@ path	@id
 /properties/providers/description	
 /properties/providers/roles	
 /properties/providers/url	
-/themes	https://w3id.org/ogc/stac/themes/schemes
-/themes/concepts	https://w3id.org/ogc/stac/themes/concepts
-/themes/concepts/id	https://w3id.org/ogc/stac/themes/id
-/themes/concepts/title	http://purl.org/dc/terms/title
-/themes/concepts/description	http://purl.org/dc/terms/description
-/themes/concepts/url	@id
-/themes/scheme	https://w3id.org/ogc/stac/themes/scheme
+/assets	https://w3id.org/ogc/stac/core/hasAsset
+/assets/href	
+/assets/title	http://purl.org/dc/terms/title
+/assets/description	http://purl.org/dc/terms/description
+/assets/type	http://purl.org/dc/terms/format
+/assets/roles	https://w3id.org/ogc/stac/core/roles
+/title	
+/description	
+/keywords	
+/roles	
+/bands	
+/bands/title	
+/bands/description	
+/bands/keywords	
+/bands/roles	
+/bands/datetime	
+/bands/start_datetime	
+/bands/end_datetime	
+/bands/created	
+/bands/updated	
+/bands/data_type	
+/bands/nodata	
+/bands/statistics	
+/bands/statistics/minimum	
+/bands/statistics/maximum	
+/bands/statistics/mean	
+/bands/statistics/stddev	
+/bands/statistics/count	
+/bands/statistics/valid_percent	
+/bands/unit	
+/bands/platform	
+/bands/instruments	
+/bands/constellation	
+/bands/mission	
+/bands/gsd	
+/bands/license	
+/bands/providers	
+/bands/providers/name	
+/bands/providers/description	
+/bands/providers/roles	
+/bands/providers/url	
+/bands/name	
+/datetime	
+/start_datetime	
+/end_datetime	
+/created	
+/updated	
+/data_type	
+/nodata	
+/statistics	
+/statistics/minimum	
+/statistics/maximum	
+/statistics/mean	
+/statistics/stddev	
+/statistics/count	
+/statistics/valid_percent	
+/unit	
+/platform	
+/instruments	
+/constellation	
+/mission	
+/gsd	
+/license	
+/providers	
+/providers/name	
+/providers/description	
+/providers/roles	
+/providers/url	
 /stac_version	
 /assets/datetime	
 /assets/start_datetime	
@@ -398,6 +318,86 @@ path	@id
 /assets/providers/description	
 /assets/providers/roles	
 /assets/providers/url	
+/extent	http://purl.org/dc/terms/extent
+/extent/spatial	
+/extent/spatial/bbox	
+/extent/temporal	
+/extent/temporal/interval	
+/item_assets	
+/item_assets/href	
+/item_assets/title	http://purl.org/dc/terms/title
+/item_assets/description	http://purl.org/dc/terms/description
+/item_assets/type	@type
+/item_assets/roles	
+/item_assets/keywords	
+/item_assets/bands	
+/item_assets/bands/title	
+/item_assets/bands/description	
+/item_assets/bands/keywords	
+/item_assets/bands/roles	
+/item_assets/bands/datetime	
+/item_assets/bands/start_datetime	
+/item_assets/bands/end_datetime	
+/item_assets/bands/created	
+/item_assets/bands/updated	
+/item_assets/bands/data_type	
+/item_assets/bands/nodata	
+/item_assets/bands/statistics	
+/item_assets/bands/statistics/minimum	
+/item_assets/bands/statistics/maximum	
+/item_assets/bands/statistics/mean	
+/item_assets/bands/statistics/stddev	
+/item_assets/bands/statistics/count	
+/item_assets/bands/statistics/valid_percent	
+/item_assets/bands/unit	
+/item_assets/bands/platform	
+/item_assets/bands/instruments	
+/item_assets/bands/constellation	
+/item_assets/bands/mission	
+/item_assets/bands/gsd	
+/item_assets/bands/license	
+/item_assets/bands/providers	
+/item_assets/bands/providers/name	
+/item_assets/bands/providers/description	
+/item_assets/bands/providers/roles	
+/item_assets/bands/providers/url	
+/item_assets/bands/name	
+/item_assets/datetime	
+/item_assets/start_datetime	
+/item_assets/end_datetime	
+/item_assets/created	
+/item_assets/updated	
+/item_assets/data_type	
+/item_assets/nodata	
+/item_assets/statistics	
+/item_assets/statistics/minimum	
+/item_assets/statistics/maximum	
+/item_assets/statistics/mean	
+/item_assets/statistics/stddev	
+/item_assets/statistics/count	
+/item_assets/statistics/valid_percent	
+/item_assets/unit	
+/item_assets/platform	
+/item_assets/instruments	
+/item_assets/constellation	
+/item_assets/mission	
+/item_assets/gsd	
+/item_assets/license	
+/item_assets/providers	
+/item_assets/providers/name	
+/item_assets/providers/description	
+/item_assets/providers/roles	
+/item_assets/providers/url	
+/summaries	
+/summaries/minimum	
+/summaries/maximum	
+/themes	https://w3id.org/ogc/stac/themes/schemes
+/themes/concepts	https://w3id.org/ogc/stac/themes/concepts
+/themes/concepts/id	https://w3id.org/ogc/stac/themes/id
+/themes/concepts/title	http://purl.org/dc/terms/title
+/themes/concepts/description	http://purl.org/dc/terms/description
+/themes/concepts/url	@id
+/themes/scheme	https://w3id.org/ogc/stac/themes/scheme
 /properties/osc:type	
 /properties/osc:status	
 /properties/osc:project	
@@ -411,100 +411,4 @@ path	@id
 /cf:parameter/unit	
 /summaries/cf:parameter	
 /summaries/cf:parameter/type	
-/wasInfluencedBy	http://www.w3.org/ns/prov#wasInfluencedBy
-/wasInfluencedBy/id	@id
-/wasInfluencedBy/type	
-/wasInfluencedBy/activityType	@type
-/wasInfluencedBy/prov:type	
-/wasInfluencedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
-/wasInfluencedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
-/wasInfluencedBy/wasAssociatedWith/href	http://www.w3.org/ns/oa#hasTarget
-/wasInfluencedBy/wasAssociatedWith/rel	http://www.iana.org/assignments/relation
-/wasInfluencedBy/wasAssociatedWith/anchor	
-/wasInfluencedBy/wasAssociatedWith/type	http://purl.org/dc/terms/type
-/wasInfluencedBy/wasAssociatedWith/hreflang	http://purl.org/dc/terms/language
-/wasInfluencedBy/wasAssociatedWith/title	http://www.w3.org/2000/01/rdf-schema#label
-/wasInfluencedBy/wasAssociatedWith/length	http://purl.org/dc/terms/extent
-/wasInfluencedBy/wasAssociatedWith/provType	@type
-/wasInfluencedBy/wasAssociatedWith/agentType	@type
-/wasInfluencedBy/wasAssociatedWith/prov:type	
-/wasInfluencedBy/wasAssociatedWith/name	http://www.w3.org/2000/01/rdf-schema#label
-/wasInfluencedBy/wasAssociatedWith/id	@id
-/wasInfluencedBy/wasAssociatedWith/actedOnBehalfOf	http://www.w3.org/ns/prov#actedOnBehalfOf
-/wasInfluencedBy/wasAssociatedWith/atLocation	http://www.w3.org/ns/prov#atLocation
-/wasInfluencedBy/wasAssociatedWith/qualifiedDelegation	http://www.w3.org/ns/prov#qualifiedDelegation
-/wasInfluencedBy/wasAssociatedWith/qualifiedDelegation/id	@id
-/wasInfluencedBy/wasAssociatedWith/qualifiedDelegation/type	
-/wasInfluencedBy/wasAssociatedWith/qualifiedDelegation/agent	http://www.w3.org/ns/prov#agent
-/wasInfluencedBy/wasAssociatedWith/qualifiedDelegation/hadActivity	http://www.w3.org/ns/prov#hadActivity
-/wasInfluencedBy/wasInformedBy	http://www.w3.org/ns/prov#wasInformedBy
-/wasInfluencedBy/used	http://www.w3.org/ns/prov#used
-/wasInfluencedBy/wasStartedBy	http://www.w3.org/ns/prov#wasStartedBy
-/wasInfluencedBy/wasEndedBy	http://www.w3.org/ns/prov#wasEndedBy
-/wasInfluencedBy/invalidated	http://www.w3.org/ns/prov#invalidated
-/wasInfluencedBy/generated	http://www.w3.org/ns/prov#generated
-/wasInfluencedBy/atLocation	http://www.w3.org/ns/prov#atLocation
-/wasInfluencedBy/qualifiedUsage	http://www.w3.org/ns/prov#qualifiedUsage
-/wasInfluencedBy/qualifiedUsage/id	@id
-/wasInfluencedBy/qualifiedUsage/type	
-/wasInfluencedBy/qualifiedUsage/atTime	http://www.w3.org/ns/prov#atTime
-/wasInfluencedBy/qualifiedUsage/entity	http://www.w3.org/ns/prov#entity
-/wasInfluencedBy/qualifiedCommunication	http://www.w3.org/ns/prov#qualifiedCommunication
-/wasInfluencedBy/qualifiedCommunication/id	@id
-/wasInfluencedBy/qualifiedCommunication/atTime	http://www.w3.org/ns/prov#atTime
-/wasInfluencedBy/qualifiedCommunication/hadRole	http://www.w3.org/ns/prov#hadRole
-/wasInfluencedBy/qualifiedCommunication/influencer	http://www.w3.org/ns/prov#influencer
-/wasInfluencedBy/qualifiedCommunication/hadActivity	http://www.w3.org/ns/prov#hadActivity
-/wasInfluencedBy/qualifiedCommunication/activity	http://www.w3.org/ns/prov#activity
-/wasInfluencedBy/qualifiedCommunication/type	
-/wasInfluencedBy/qualifiedStart	http://www.w3.org/ns/prov#qualifiedStart
-/wasInfluencedBy/qualifiedStart/id	@id
-/wasInfluencedBy/qualifiedStart/type	
-/wasInfluencedBy/qualifiedStart/atTime	http://www.w3.org/ns/prov#atTime
-/wasInfluencedBy/qualifiedStart/entity	http://www.w3.org/ns/prov#entity
-/wasInfluencedBy/qualifiedStart/hadActivity	http://www.w3.org/ns/prov#hadActivity
-/wasInfluencedBy/qualifiedEnd	http://www.w3.org/ns/prov#qualifiedEnd
-/wasInfluencedBy/qualifiedEnd/type	
-/wasInfluencedBy/qualifiedAssociation	http://www.w3.org/ns/prov#qualifiedAssociation
-/wasInfluencedBy/qualifiedAssociation/id	@id
-/wasInfluencedBy/qualifiedAssociation/type	
-/wasInfluencedBy/qualifiedAssociation/agent	http://www.w3.org/ns/prov#agent
-/wasInfluencedBy/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
-/wasInfluencedBy/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
-/qualifiedInfluence	http://www.w3.org/ns/prov#qualifiedInfluence
-/qualifiedInfluence/id	@id
-/qualifiedInfluence/influencer	http://www.w3.org/ns/prov#influencer
-/qualifiedInfluence/entity	http://www.w3.org/ns/prov#entity
-/qualifiedInfluence/activity	http://www.w3.org/ns/prov#activity
-/qualifiedInfluence/agent	http://www.w3.org/ns/prov#agent
-/provType	@type
-/prov:type	
-/hadMember	http://www.w3.org/ns/prov#hadMember
-/featureType	@type
-/entityType	@type
-/has_provenance	http://purl.org/dc/terms/provenance
-/wasGeneratedBy	http://www.w3.org/ns/prov#wasGeneratedBy
-/wasAttributedTo	http://www.w3.org/ns/prov#wasAttributedTo
-/wasDerivedFrom	http://www.w3.org/ns/prov#wasDerivedFrom
-/alternateOf	http://www.w3.org/ns/prov#alternateOf
-/hadPrimarySource	http://www.w3.org/ns/prov#hadPrimarySource
-/specializationOf	http://www.w3.org/ns/prov#specializationOf
-/wasInvalidatedBy	http://www.w3.org/ns/prov#wasInvalidatedBy
-/wasQuotedFrom	http://www.w3.org/ns/prov#wasQuotedFrom
-/wasRevisionOf	http://www.w3.org/ns/prov#wasRevisionOf
-/atLocation	http://www.w3.org/ns/prov#atLocation
-/qualifiedGeneration	http://www.w3.org/ns/prov#qualifiedGeneration
-/qualifiedGeneration/type	
-/qualifiedInvalidation	http://www.w3.org/ns/prov#qualifiedInvalidation
-/qualifiedInvalidation/type	
-/qualifiedDerivation	http://www.w3.org/ns/prov#qualifiedDerivation
-/qualifiedDerivation/id	@id
-/qualifiedDerivation/type	
-/qualifiedDerivation/hadGeneration	http://www.w3.org/ns/prov#hadGeneration
-/qualifiedDerivation/hadActivity	http://www.w3.org/ns/prov#hadActivity
-/qualifiedDerivation/hadUsage	http://www.w3.org/ns/prov#hadUsage
-/qualifiedDerivation/entity	http://www.w3.org/ns/prov#entity
-/qualifiedAttribution	http://www.w3.org/ns/prov#qualifiedAttribution
-/qualifiedAttribution/id	@id
-/qualifiedAttribution/type	
-/qualifiedAttribution/agent	http://www.w3.org/ns/prov#agent
+/osc:type	

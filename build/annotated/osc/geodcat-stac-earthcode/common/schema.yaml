@@ -1,9 +1,41 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-description: Schema for OGCAPI records profile for GeoDCAT - defines all extra elements
-  defined by GeoDCAT so that the JSON-LD context can map to GeoDCAT RDF
-allOf:
-- $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes/schema.yaml
-- $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/osc/schema.yaml
-- $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/cf/schema.yaml
-- anyOf:
-  - $ref: https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/geodcat-records-prov/schema.yaml
+description: Schema for OGCAPI records profile and STAC profile used by EarthCODE
+anyOf:
+- allOf:
+  - anyOf:
+    - $ref: https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/stac/geodcat-stac-item/schema.yaml
+    - $ref: https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/stac/geodcat-stac-collection/schema.yaml
+  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes/schema.yaml
+  - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/osc/schema.yaml
+- $ref: https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/geodcat-records/schema.yaml
+$defs:
+  osc:workflow:
+    title: Workflow
+    type: string
+    format: osc-workflow
+    minLength: 1
+  via_links:
+    title: Via Link
+    properties:
+      type:
+        enum:
+        - application/json
+        - application/pdf
+        - application/zip
+        - text/html
+        - text/plain
+        options:
+          enum_titles:
+          - JSON
+          - PDF
+          - ZIP
+          - HTML
+          - Text
+      rel:
+        enum:
+        - via
+  osc:project:
+    title: Project
+    type: string
+    format: osc-project
+    minLength: 1

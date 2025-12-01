@@ -8,12 +8,32 @@
     {
       "anyOf": [
         {
-          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection/schema.json"
+          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/cf/schema.json"
         },
         {
-          "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/collection-v1-0-0/schema.json"
+          "not": {
+            "properties": {
+              "stac_extensions": {
+                "type": "array",
+                "contains": {
+                  "const": "https://stac-extensions.github.io/cf/v0.2.0/schema.json"
+                }
+              }
+            }
+          }
         }
       ]
     }
-  ]
+  ],
+  "properties": {
+    "osc:type": {
+      "type": "string",
+      "enum": [
+        "product"
+      ]
+    },
+    "type": {
+      "const": "Collection"
+    }
+  }
 }
