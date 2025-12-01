@@ -15,19 +15,19 @@
   "itemClass": "schema",
   "shaclShapes": {},
   "dependsOn": [
-    "ogc.api.processes.v1.schemas.execute",
-    "ogc.ogc-utils.iri-or-curie"
+    "ogc.ogc-utils.iri-or-curie",
+    "ogc.api.processes.v1.schemas.execute"
   ],
   "schema": {
-    "application/yaml": "https://ahaywardtvuk.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/schema.yaml",
-    "application/json": "https://ahaywardtvuk.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/schema.json"
+    "application/yaml": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/schema.json"
   },
-  "sourceSchema": "https://ahaywardtvuk.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/execute/schema.yaml",
-  "ldContext": "https://ahaywardtvuk.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/context.jsonld",
-  "sourceFiles": "https://ahaywardtvuk.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/execute/",
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/execute/schema.yaml",
+  "ldContext": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/context.jsonld",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/execute/",
   "rdfData": [],
   "validationPassed": true,
   "annotatedSchema": "allOf:\n- $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/execute/schema.yaml\nproperties:\n  inputs:\n    activity_id:\n      $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.yaml\n    result_id:\n      $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.yaml\n    agent_id:\n      $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.yaml\nrequired:\n- activity_id\n",
-  "gitRepository": "https://github.com/ahaywardtvuk/bblocks-openscience",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-openscience",
   "gitPath": "_sources/api-profiles/processes/ipt/execute"
 }
