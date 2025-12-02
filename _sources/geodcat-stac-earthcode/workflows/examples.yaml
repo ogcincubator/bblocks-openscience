@@ -46,7 +46,13 @@
     calculation.
   snippets:
    - language: json
-     ref: https://raw.githubusercontent.com/ESA-EarthCODE/open-science-catalog-metadata/refs/heads/main/workflows/polaris-workflow/record.json
+     ref: https://raw.githubusercontent.com/ESA-EarthCODE/open-science-catalog-metadata-staging/aae6a404e1140464a700302f2980e7ff17fe9422/workflows/kindgrove-mangrove-biomass-workflow/record.json
      base-uri: https://ogc.org/demo/ospd/
 
-
+- title: Coastal Vulnerability Index (CVI) Workflow
+  content: |-
+    An automated, reproducible workflow for calculating the Coastal Vulnerability Index (CVI). This system generates coastal transects, fetches satellite data (DEM, Land Cover), computes physical parameters, and classifies coastal risk based on the USGS/NOAA methodology.\n\nThe workflow is implemented in Common Workflow Language (CWL) and runs inside a Docker container, ensuring it can be executed anywhere—from a local laptop to a High-Performance Computing (HPC) cluster or JupyterHub.
+  snippets:
+   - language: json
+     ref: https://raw.githubusercontent.com/ESA-EarthCODE/open-science-catalog-metadata-staging/887242c4b132f6bc757ed36cf0d78a1bd0f608c7/workflows/cvi-workflow/record.json
+     base-uri: https://ogc.org/demo/ospd/
