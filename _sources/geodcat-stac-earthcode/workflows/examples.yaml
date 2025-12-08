@@ -40,6 +40,25 @@
       ref: https://esa-earthcode.github.io/open-science-catalog-metadata-staging/workflows/waterbodies/record.json
       base-uri: https://ogc.org/demo/ospd/
 
+- title: Water Bodies Detection With Provenance
+  content: |-
+    The Water Bodies Detection workflow record with mocked-up provenance data added to it.
+
+    Some notes:
+      - The 'prov' property contains the provenance data because the current schemas won't allow it to
+        be at the top level or inside `properties` due to a clash in the `type` field.
+      - The link to the CWL is there twice but it's not clear to me which type of link is better.
+      - wf4ever and PROV say little about how inputs are described. This is based on OGC API Processes.
+      - There's potential ambiguity over whether it's describing what arrived at the Processes API,
+        what arrived at the workflow engine or a mix. eg, processing mode may not reach the engine and
+        links may have been dereferenced. Or perhaps this is unimportant. However, both a link to CWL and
+        a link to a Processes API process could be given in one record.
+
+  snippets:
+    - language: json
+      ref: examples/water-bodies-with-provenance.json
+      base-uri: https://ogc.org/demo/ospd/
+
 - title: Mangrove Detect
   content: |-
     The mangrove biomass workflow demonstrates an initial approach to estimating above-ground biomass and carbon stocks using Sentinel-2 optical satellite imagery. This serves as a baseline workflow that can be augmented with complementary data sources depending on project needs. The current implementation queries the AWS STAC catalog for cloud-free scenes, calculates vegetation indices (NDVI, NDWI, SAVI), applies threshold-based classification to detect mangrove extent, and estimates biomass using a validated allometric equation from Myanmar field studies. Results include spatially explicit biomass maps, carbon stock totals, and CO2 equivalence calculations following IPCC Tier 2 methodology.

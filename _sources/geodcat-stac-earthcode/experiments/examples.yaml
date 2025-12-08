@@ -13,6 +13,25 @@
       base-uri: https://ogc.org/demo/ospd/
 
 - title: The water bodies experiment with some provenance data attached
+  content: |-
+    This describes an execution of the water bodies example workflow included in the workflows EarthCODE
+    bblock.
+
+    Some notes:
+      - The 'prov' property contains the provenance data because the current schemas won't allow it to
+        be at the top level or inside `properties` due to a clash in the `type` field.
+      - The wfprov:usedInput is nearer to a natural representation of the inputs than plain PROV's
+        qualifiedUsage. However, there is no equivalent wfprov:generatedOutput, which makes it difficult
+        to say that the output is a STAC Collection and that it was the stac_catalog output parameter.
+        If you wish to track quality/fit metrics as you develop a workflow or product then a
+        wfprov:producedOutput with a describedByParameter might have been useful.
+      - hadMember for the stac_items parameter indicates that this is not a string literal input but an
+        array of URIs for input entities.
+      - The outputs being a child is required in EarthCODE but this constrains catalogue structure
+        and results in STAC entities with multiple parents. It doesn't seem fundamentally necessary.
+      - Very little runtime information is given, cwltool --provenance emits very little and wf4ever
+        doesn't provide a way to represent it. eg, OS, total memory, etc, that are relevant to knowing
+        if an experiment can feasibly be repeated.
 
   snippets:
     - language: json

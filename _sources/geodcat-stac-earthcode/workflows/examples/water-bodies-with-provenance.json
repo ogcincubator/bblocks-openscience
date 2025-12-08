@@ -1,0 +1,151 @@
+{
+  "id": "waterbodies",
+  "type": "Feature",
+  "conformsTo": [
+    "http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core",
+    "https://stac-extensions.github.io/application/v0.1.0/schema.json",
+    "https://raw.githubusercontent.com/EOEPCA/metadata-profile/refs/heads/1.0/schemas/application-type-ogc-application-package"
+  ],
+  "geometry": null,
+
+  "properties": {
+    "prov": {
+      "provType": ["prov:Entity", "prov:Plan", "wfdesc:Workflow"],
+
+      "wfdesc:hasInput": {
+        "aoi": {
+          "title": "area of interest",
+          "description": "area of interest as a bounding box",
+          "schema": {
+            "type": "string",
+            "default": "-121.399,39.834,-120.74,40.472",
+            "pattern": "^-?\\d+(\\.\\d+)?,-?\\d+(\\.\\d+)?, -?\\d+(\\.\\d+)?,-?\\d+(\\.\\d+)?$"
+          }
+        },
+        "epsg": {
+          "title": "EPSG code",
+          "description": "EPSG code",
+          "schema": {
+            "type": "string",
+            "default": "EPSG:4326"
+          }
+        },
+        "stac_items": {
+          "title": "Sentinel-2 STAC items",
+          "description": "list of Sentinel-2 COG STAC items",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            },
+            "minItems": 1
+          },
+          "default": [
+            "https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2B_10TFK_20210713_0_L2A",
+            "https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2A_10TFK_20220524_0_L2A"
+          ]
+        },
+        "bands": {
+          "title": "bands used for the NDWI",
+          "description": "bands used for the NDWI",
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 2,
+            "maxItems": 2,
+            "default": ["green", "nir"]
+          }
+        }
+      },
+      "wfdesc:hasOutput": {
+        "stac_catalog": {
+          "label": "STAC Catalog",
+          "doc": "STAC Catalog containing the water bodies results",
+          "type": "application/json",
+          "provType": "prov:Collection"
+        }
+      }
+    },
+
+    "title": "Waterbodies",
+    "created": "2025-10-03T09:20:36Z",
+    "osc:project": "ospd",
+    "description": "Waterbodies workflow",
+    "type": "workflow",
+    "resourceLanguages": [],
+    "externalIds": [],
+    "formats": [],
+    "contacts": [
+      {
+        "name": "Tom Jellicoe",
+        "positionName": "Software Developer",
+        "organization": "Telespazio UK",
+        "emails": [
+            {
+                "value": "thomas.jellicoe@telespazio.com"
+            }
+        ]
+      }
+    ],
+    "keywords": [
+      "water",
+      "NDWI",
+      "water bodies",
+      "otsu",
+      "eoepca"
+    ],
+    "language": {
+      "code": ""
+    },
+    "languages": []
+  },
+
+
+  "links": [
+    {
+      "rel": "root",
+      "href": "https://example.com/open-science-catalog-metadata/catalog.json",
+      "type": "application/json",
+      "title": "Open Science Catalog"
+    },
+    {
+      "rel": "parent",
+      "href": "https://example.com/open-science-catalog-metadata/workflows/catalog.json",
+      "type": "application/json",
+      "title": "Workflows"
+    },
+    {
+      "rel": "self",
+      "href": "https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/waterbodies/record.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "related",
+      "href": "https://example.com/open-science-catalog-metadata/projects/ospd/collection.json",
+      "type": "application/json",
+      "title": "Project: OSPD"
+    },
+    {
+      "href": "https://raw.githubusercontent.com/tjellicoe-tpzuk/eo-workflow-examples/refs/heads/main/water-bodies/water-bodies.cwl",
+      "rel": "wfdesc:WorkflowDefinition",
+      "type": "application/cwl+yaml",
+      "title": "OGC Application Package"
+    },
+    {
+      "href": "https://raw.githubusercontent.com/tjellicoe-tpzuk/eo-workflow-examples/refs/heads/main/water-bodies/water-bodies.cwl",
+      "rel": "application",
+      "type": "application/cwl+yaml",
+      "hreflang": "",
+      "title": "OGC Application Package"
+    },
+    {
+      "href": "https://github.com/Terradue/ogc-eo-application-package-hands-on/tree/master/water-bodies",
+      "rel": "git",
+      "title": "Source Code"
+    }
+  ],
+  "linkTemplates": []
+}

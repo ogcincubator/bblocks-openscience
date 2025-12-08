@@ -8,9 +8,6 @@
 
   "properties": {
     "prov": {
-      "_comment": "This mocks up provenance information for the water bodies execution, first with plain prov then with wf4ever.",
-
-
       "id": "water-bodies-execution",
       "provType": [
         "Activity",
@@ -29,79 +26,7 @@
         }
       ],
 
-      "qualifiedUsage": [
-        {
-          "type": "Usage",
-          "entity": {
-            "id": "ogc-api-inputs",
-            "type": ["Entity", "wfprov:Artifact"],
-            "data": {
-              "stac_items": [
-                "https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2B_10TFK_20210713_0_L2A",
-                "https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2A_10TFK_20220524_0_L2A"
-              ],
-              "aoi": "-121.399,39.834,-120.74,40.472",
-              "epsg": "EPSG:4326",
-              "bands": [
-                "green",
-                "nir"
-              ]
-            }
-          },
-          "role": "Processes API inputs"
-        },
-        {
-          "type": "Usage",
-          "entity": {
-            "id": "aoi",
-            "type": ["Entity", "wfprov:Artifact"],
-            "data": "-121.399,39.834,-120.74,40.472"
-          },
-          "role": "https://example.com/workflows/water-bodies/record.json#main/aoi"
-        },
-        {
-          "type": "Usage",
-          "entity": {
-            "id": "stac_items",
-            "type": ["Entity", "wfprov:Artifact"],
-            "hadMember": [
-              "https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2B_10TFK_20210713_0_L2A",
-              "https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2A_10TFK_20220524_0_L2A"
-            ]
-          },
-          "role": "https://example.com/workflows/water-bodies/record.json#main/stac_items"
-        },
-        {
-          "type": "Usage",
-          "entity": {
-            "id": "epsg",
-            "type": ["Entity", "wfprov:Artifact"],
-            "data": "EPSG:4326"
-          },
-          "role": "https://example.com/workflows/water-bodies/record.json#main/epsg"
-        },
-        {
-          "type": "Usage",
-          "entity": {
-            "id": "bands",
-            "type": ["Entity", "prov:Collection", "wfprov:Artifact"],
-            "hadMember": [
-              {
-                "value": "green"
-              },
-              {
-                "value": "nir"
-              }
-            ]
-          },
-          "role": "https://example.com/workflows/water-bodies/record.json#main/bands"
-        }
-      ],
-
-      "generated": [
-        "https://example.com/products/water-bodies/collection.json"
-      ],
-
+      "generated": "https://example.com/open-science-catalog-metadata/products/water-bodies-execution-outputs/collection.json",
 
       
       "wfprov:describedByWorkflow": "https://example.com/workflows/waterbodies/record.json",
