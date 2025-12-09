@@ -90,14 +90,11 @@
     }
   },
 
-  "prov": {
-    "id": "water-bodies-product",
-    "provType": ["prov:Entity", "wfprov:Artifact", "wf4ever:Dataset"],
-    "wasDerivedFrom": [
-      "https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2B_10TFK_20210713_0_L2A",
-      "https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2A_10TFK_20220524_0_L2A"
-    ],
-    "wfprov:wasOutputFrom": "https://example.com/open-science-catalog-metadata/experiments/water-bodies-execution/record.json",
-    "wfprov:describedByParameter": "stac_catalog"
-  }
+  "provType": ["prov:Entity", "wfprov:Artifact", "wf4ever:Dataset"],
+  "wasDerivedFrom": [
+    "https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2B_10TFK_20210713_0_L2A",
+    "https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2A_10TFK_20220524_0_L2A"
+  ],
+  "wfprov:wasOutputFrom": "https://example.com/open-science-catalog-metadata/experiments/water-bodies-execution/record.json",
+  "wfprov:describedByParameter": "stac_catalog"
 }
