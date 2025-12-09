@@ -12,6 +12,19 @@ properties:
     properties:
       osc:project:
         $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common#/$defs/osc:project
+      prov:
+        $ref: bblocks://ogc.ogc-utils.prov-entity
+        properties:
+          wfdesc:hasInput:
+            type: object
+            additionalProperties:
+              type: object
+              $ref: bblocks://ogc.api.processes.v1.schemas.inputDescription
+          wfdesc:hasOutput:
+            type: object
+            additionalProperties:
+              type: object
+              $ref: bblocks://ogc.api.processes.v1.schemas.outputDescription
   links:
     type: array
     items:

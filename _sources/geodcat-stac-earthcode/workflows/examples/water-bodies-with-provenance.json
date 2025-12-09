@@ -10,6 +10,7 @@
 
   "properties": {
     "prov": {
+      "id": "waterbodies",
       "provType": ["prov:Entity", "prov:Plan", "wfdesc:Workflow"],
 
       "wfdesc:hasInput": {
@@ -62,10 +63,13 @@
       },
       "wfdesc:hasOutput": {
         "stac_catalog": {
-          "label": "STAC Catalog",
-          "doc": "STAC Catalog containing the water bodies results",
-          "type": "application/json",
-          "provType": "prov:Collection"
+          "title": "STAC Catalog",
+          "description": "STAC Catalog containing the water bodies results",
+          "provType": ["prov:Collection", "prov:Entity"],
+          "schema": {
+            "type": "string",
+            "format": "uri"
+          }
         }
       }
     },
