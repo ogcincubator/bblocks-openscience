@@ -1,17 +1,33 @@
 "$schema": https://json-schema.org/draft/2020-12/schema
 description: 'Schema for EarthCODE Workflow'
 allOf:
-  - anyOf:
-  #  - $ref: bblocks://ogc.geo.geodcat.stac.geodcat-stac-item
-    - $ref: bblocks://ogc.geo.geodcat.geodcat-records
+  - $ref: bblocks://ogc.geo.geodcat.geodcat-records
 properties:
   properties:
     type: object
+    # With provType specified prov-entity doesn't place any requirements on `type`.
+    # Such requirements cannot currently be met because EarthCODE requires
+    # `type=workflow`. This anyOf avoids this clash.
+    anyOf:
+      - $ref: bblocks://ogc.ogc-utils.prov-entity
+      - not:
+          required:
+            - provType
     required:
       - osc:project
     properties:
       osc:project:
         $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common#/$defs/osc:project
+      wfdesc:hasInput:
+        type: object
+        additionalProperties:
+          type: object
+          $ref: bblocks://ogc.api.processes.v1.schemas.inputDescription
+      wfdesc:hasOutput:
+        type: object
+        additionalProperties:
+          type: object
+          $ref: bblocks://ogc.api.processes.v1.schemas.outputDescription
   links:
     type: array
     items:
