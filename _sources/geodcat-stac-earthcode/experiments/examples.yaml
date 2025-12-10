@@ -18,8 +18,9 @@
     bblock.
 
     Some notes:
-      - The 'prov' property contains the provenance data because the current schemas won't allow it to
-        be at the top level or inside `properties` due to a clash in the `type` field.
+      - Validation fails because 1) OGC Records requires properties.type to be a string, 2) prov-activity
+        requires properties.type to be 'Activity' or 'prov:Activity' or an array containing this,
+        and 3) EarthCODE requires properties.type to be 'experiment'.
       - The wfprov:usedInput is nearer to a natural representation of the inputs than plain PROV's
         qualifiedUsage. However, there is no equivalent wfprov:generatedOutput, which makes it difficult
         to say that the output is a STAC Collection and that it was the stac_catalog output parameter.

@@ -7,63 +7,61 @@
   "geometry": null,
 
   "properties": {
-    "prov": {
-      "id": "water-bodies-execution",
-      "provType": [
-        "Activity",
-        "wfprov:WorkflowRun"
-      ],
-      "startedAtTime": "2025-01-21T17:40:50Z",
-      "endedAtTime": "2025-01-21T17:59:50Z",
-      "wasAssociatedWith": [
-        {
-          "agentType": "Person",
-          "name": "A Person",
-          "actedOnBehalfOf": {
-            "agentType": "Organization",
-            "name": "An Org"
-          }
+    "id": "water-bodies-execution",
+    "provType": [
+      "Activity",
+      "wfprov:WorkflowRun"
+    ],
+    "startedAtTime": "2025-01-21T17:40:50Z",
+    "endedAtTime": "2025-01-21T17:59:50Z",
+    "wasAssociatedWith": [
+      {
+        "agentType": "Person",
+        "name": "A Person",
+        "actedOnBehalfOf": {
+          "agentType": "Organization",
+          "name": "An Org"
         }
-      ],
+      }
+    ],
 
-      "generated": "https://example.com/open-science-catalog-metadata/products/water-bodies-execution-outputs/collection.json",
+    "generated": "https://example.com/open-science-catalog-metadata/products/water-bodies-execution-outputs/collection.json",
 
-      
-      "wfprov:describedByWorkflow": "https://example.com/workflows/waterbodies/record.json",
-      "wfprov:wasEnactedBy": { 
-        "id": "eo-data-platform",
-        "type": ["wfprov:WorkfowEngine", "prov:SoftwareAgent", "prov:Agent"],
-        "prov:label": "cwltool 3.1.20251031082601"
-      },
-      "wfprov:usedInput": [
-        {
-          "type": "wfprov:Artifact",
-          "hadMember": [
-            "https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2B_10TFK_20210713_0_L2A",
-            "https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2A_10TFK_20220524_0_L2A"
-          ],
-          "describedByParameter": "stac_items"
-        },
-        {
-          "type": "wfprov:Artifact",
-          "data": "-121.399,39.834,-120.74,40.472",
-          "describedByParameter": "aoi"
-        },
-        {
-          "type": "wfprov:Artifact",
-          "data": "EPSG:4326",
-          "describedByParameter": "epsg"
-        },
-        {
-          "type": "wfprov:Artifact",
-          "data": [
-              "green",
-              "nir"
-          ],
-          "describedByParameter": "bands"
-        }
-      ]
+    
+    "wfprov:describedByWorkflow": "https://example.com/workflows/waterbodies/record.json",
+    "wfprov:wasEnactedBy": { 
+      "id": "eo-data-platform",
+      "type": ["wfprov:WorkfowEngine", "prov:SoftwareAgent", "prov:Agent"],
+      "prov:label": "cwltool 3.1.20251031082601"
     },
+    "wfprov:usedInput": [
+      {
+        "type": "wfprov:Artifact",
+        "hadMember": [
+          "https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2B_10TFK_20210713_0_L2A",
+          "https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2A_10TFK_20220524_0_L2A"
+        ],
+        "describedByParameter": "stac_items"
+      },
+      {
+        "type": "wfprov:Artifact",
+        "data": "-121.399,39.834,-120.74,40.472",
+        "describedByParameter": "aoi"
+      },
+      {
+        "type": "wfprov:Artifact",
+        "data": "EPSG:4326",
+        "describedByParameter": "epsg"
+      },
+      {
+        "type": "wfprov:Artifact",
+        "data": [
+            "green",
+            "nir"
+        ],
+        "describedByParameter": "bands"
+      }
+    ],
 
 
     "created": "2025-01-21T18:00:00Z",
