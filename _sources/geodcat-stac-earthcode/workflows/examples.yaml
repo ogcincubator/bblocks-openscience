@@ -45,8 +45,8 @@
     The Water Bodies Detection workflow record with mocked-up provenance data added to it.
 
     Some notes:
-      - The 'prov' property contains the provenance data because the current schemas won't allow it to
-        be at the top level or inside `properties` due to a clash in the `type` field.
+      - There is an `properties.id` field because the prov-entity schema requires it, but it duplicates the
+        root `id`.
       - The link to the CWL is there twice but it's not clear to me which type of link is better.
       - wf4ever and PROV say little about how inputs are described. This is based on OGC API Processes.
       - There's potential ambiguity over whether it's describing what arrived at the Processes API,

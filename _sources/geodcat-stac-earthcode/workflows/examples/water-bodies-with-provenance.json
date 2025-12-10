@@ -9,67 +9,65 @@
   "geometry": null,
 
   "properties": {
-    "prov": {
-      "id": "waterbodies",
-      "provType": ["prov:Entity", "prov:Plan", "wfdesc:Workflow"],
+    "id": "required-by-prov-Entity-schema",
+    "provType": ["prov:Entity", "prov:Plan", "wfdesc:Workflow"],
 
-      "wfdesc:hasInput": {
-        "aoi": {
-          "title": "area of interest",
-          "description": "area of interest as a bounding box",
-          "schema": {
-            "type": "string",
-            "default": "-121.399,39.834,-120.74,40.472",
-            "pattern": "^-?\\d+(\\.\\d+)?,-?\\d+(\\.\\d+)?, -?\\d+(\\.\\d+)?,-?\\d+(\\.\\d+)?$"
-          }
-        },
-        "epsg": {
-          "title": "EPSG code",
-          "description": "EPSG code",
-          "schema": {
-            "type": "string",
-            "default": "EPSG:4326"
-          }
-        },
-        "stac_items": {
-          "title": "Sentinel-2 STAC items",
-          "description": "list of Sentinel-2 COG STAC items",
-          "schema": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "format": "uri"
-            },
-            "minItems": 1
-          },
-          "default": [
-            "https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2B_10TFK_20210713_0_L2A",
-            "https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2A_10TFK_20220524_0_L2A"
-          ]
-        },
-        "bands": {
-          "title": "bands used for the NDWI",
-          "description": "bands used for the NDWI",
-          "schema": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "minItems": 2,
-            "maxItems": 2,
-            "default": ["green", "nir"]
-          }
+    "wfdesc:hasInput": {
+      "aoi": {
+        "title": "area of interest",
+        "description": "area of interest as a bounding box",
+        "schema": {
+          "type": "string",
+          "default": "-121.399,39.834,-120.74,40.472",
+          "pattern": "^-?\\d+(\\.\\d+)?,-?\\d+(\\.\\d+)?, -?\\d+(\\.\\d+)?,-?\\d+(\\.\\d+)?$"
         }
       },
-      "wfdesc:hasOutput": {
-        "stac_catalog": {
-          "title": "STAC Catalog",
-          "description": "STAC Catalog containing the water bodies results",
-          "provType": ["prov:Collection", "prov:Entity"],
-          "schema": {
+      "epsg": {
+        "title": "EPSG code",
+        "description": "EPSG code",
+        "schema": {
+          "type": "string",
+          "default": "EPSG:4326"
+        }
+      },
+      "stac_items": {
+        "title": "Sentinel-2 STAC items",
+        "description": "list of Sentinel-2 COG STAC items",
+        "schema": {
+          "type": "array",
+          "items": {
             "type": "string",
             "format": "uri"
-          }
+          },
+          "minItems": 1
+        },
+        "default": [
+          "https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2B_10TFK_20210713_0_L2A",
+          "https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2A_10TFK_20220524_0_L2A"
+        ]
+      },
+      "bands": {
+        "title": "bands used for the NDWI",
+        "description": "bands used for the NDWI",
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 2,
+          "maxItems": 2,
+          "default": ["green", "nir"]
+        }
+      }
+    },
+    "wfdesc:hasOutput": {
+      "stac_catalog": {
+        "title": "STAC Catalog",
+        "description": "STAC Catalog containing the water bodies results",
+        "provType": ["prov:Collection", "prov:Entity"],
+        "schema": {
+          "type": "string",
+          "format": "uri"
         }
       }
     },
