@@ -1,0 +1,196 @@
+{
+  "@context": {
+    "kg": "https://example.org/kindgrove/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "wfprov": "http://purl.org/wf4ever/wfprov#",
+    "wfdesc": "http://purl.org/wf4ever/wfdesc#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "schema": "https://schema.org/",
+    "stac": "https://stacspec.org/ontology#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "kg:Sentinel2L2A",
+      "@type": ["wfprov:Artifact", "stac:Item"],
+      "schema:name": "Sentinel-2 L2A Multispectral Optical Imagery",
+      "stac:resolution": "10m",
+      "stac:collection": "sentinel-2-l2a"
+    },
+    {
+      "@id": "kg:AWSSTACCatalog",
+      "@type": ["wfprov:Artifact", "stac:Catalog"],
+      "schema:name": "AWS STAC Catalog (element84)",
+      "schema:url": "https://earth-search.aws.element84.com/v1"
+    },
+    {
+      "@id": "kg:KindGroveWorkflow",
+      "@type": ["wfdesc:Workflow", "schema:ComputationalWorkflow"],
+      "schema:name": "KindGrove Mangrove Carbon Assessment Workflow",
+      "schema:version": "1.0"
+    },
+    {
+      "@id": "kg:KindGroveWorkflowRun",
+      "@type": ["wfprov:WorkflowRun", "schema:CreateAction"],
+      "wfprov:describedByWorkflow": {"@id": "kg:KindGroveWorkflow"},
+      "wfprov:wasInitiatedBy": {"@id": "kg:CameronSajedi"},
+      "prov:startedAtTime": "2024-06-01T10:00:00Z",
+      "prov:endedAtTime": "2024-06-01T10:45:00Z"
+    },
+    {
+      "@id": "kg:SelectScenesProcess",
+      "@type": "wfprov:ProcessRun",
+      "wfprov:usedInput": [
+        {"@id": "kg:AWSSTACCatalog"},
+        {"@id": "kg:Sentinel2L2A"}
+      ],
+      "wfprov:wasPartOfWorkflowRun": {"@id": "kg:KindGroveWorkflowRun"},
+      "wfprov:wasEnactedBy": {"@id": "kg:JupyterNotebookEngine"},
+      "prov:generated": {"@id": "kg:SelectedScenes"}
+    },
+    {
+      "@id": "kg:SelectedScenes",
+      "@type": "wfprov:Artifact",
+      "schema:name": "Selected Sentinel-2 Scenes",
+      "prov:wasGeneratedBy": {"@id": "kg:SelectScenesProcess"}
+    },
+    {
+      "@id": "kg:DownloadBandsProcess",
+      "@type": "wfprov:ProcessRun",
+      "wfprov:usedInput": {"@id": "kg:SelectedScenes"},
+      "wfprov:wasPartOfWorkflowRun": {"@id": "kg:KindGroveWorkflowRun"},
+      "wfprov:wasEnactedBy": {"@id": "kg:JupyterNotebookEngine"},
+      "prov:generated": {"@id": "kg:DownloadedBands"}
+    },
+    {
+      "@id": "kg:DownloadedBands",
+      "@type": "wfprov:Artifact",
+      "schema:name": "Downloaded Sentinel-2 Bands",
+      "prov:wasGeneratedBy": {"@id": "kg:DownloadBandsProcess"}
+    },
+    {
+      "@id": "kg:CalculateVegetationIndicesProcess",
+      "@type": "wfprov:ProcessRun",
+      "wfprov:usedInput": {"@id": "kg:DownloadedBands"},
+      "wfprov:wasPartOfWorkflowRun": {"@id": "kg:KindGroveWorkflowRun"},
+      "wfprov:wasEnactedBy": {"@id": "kg:JupyterNotebookEngine"},
+      "prov:generated": {"@id": "kg:VegetationIndices"}
+    },
+    {
+      "@id": "kg:VegetationIndices",
+      "@type": "wfprov:Artifact",
+      "schema:name": "Vegetation Indices",
+      "prov:wasGeneratedBy": {"@id": "kg:CalculateVegetationIndicesProcess"}
+    },
+    {
+      "@id": "kg:ApplyThresholdClassificationProcess",
+      "@type": "wfprov:ProcessRun",
+      "wfprov:usedInput": {"@id": "kg:VegetationIndices"},
+      "wfprov:wasPartOfWorkflowRun": {"@id": "kg:KindGroveWorkflowRun"},
+      "wfprov:wasEnactedBy": {"@id": "kg:JupyterNotebookEngine"},
+      "prov:generated": {"@id": "kg:MangroveMask"}
+    },
+    {
+      "@id": "kg:MangroveMask",
+      "@type": "wfprov:Artifact",
+      "schema:name": "Detected Mangrove Mask",
+      "prov:wasGeneratedBy": {"@id": "kg:ApplyThresholdClassificationProcess"},
+      "prov:wasDerivedFrom": {"@id": "kg:VegetationIndices"}
+    },
+    {
+      "@id": "kg:ApplyAllometricEquationProcess",
+      "@type": "wfprov:ProcessRun",
+      "wfprov:usedInput": {"@id": "kg:MangroveMask"},
+      "wfprov:wasPartOfWorkflowRun": {"@id": "kg:KindGroveWorkflowRun"},
+      "wfprov:wasEnactedBy": {"@id": "kg:JupyterNotebookEngine"},
+      "prov:generated": {"@id": "kg:AllometricResults"}
+    },
+    {
+      "@id": "kg:AllometricResults",
+      "@type": "wfprov:Artifact",
+      "schema:name": "Allometric Equation Outputs",
+      "prov:wasGeneratedBy": {"@id": "kg:ApplyAllometricEquationProcess"},
+      "prov:wasDerivedFrom": {"@id": "kg:MangroveMask"}
+    },
+    {
+      "@id": "kg:CalculateCarbonStockProcess",
+      "@type": "wfprov:ProcessRun",
+      "wfprov:usedInput": {"@id": "kg:AllometricResults"},
+      "wfprov:wasPartOfWorkflowRun": {"@id": "kg:KindGroveWorkflowRun"},
+      "wfprov:wasEnactedBy": {"@id": "kg:JupyterNotebookEngine"},
+      "prov:generated": {"@id": "kg:CarbonStockEstimate"}
+    },
+    {
+      "@id": "kg:CarbonStockEstimate",
+      "@type": "wfprov:Artifact",
+      "schema:name": "Estimated Mangrove Carbon Stock",
+      "prov:wasGeneratedBy": {"@id": "kg:CalculateCarbonStockProcess"},
+      "prov:wasDerivedFrom": {"@id": "kg:AllometricResults"}
+    },
+    {
+      "@id": "kg:CalculateCO2EquivalentProcess",
+      "@type": "wfprov:ProcessRun",
+      "wfprov:usedInput": {"@id": "kg:CarbonStockEstimate"},
+      "wfprov:wasPartOfWorkflowRun": {"@id": "kg:KindGroveWorkflowRun"},
+      "wfprov:wasEnactedBy": {"@id": "kg:JupyterNotebookEngine"},
+      "prov:generated": {"@id": "kg:CO2EquivalentEstimate"}
+    },
+    {
+      "@id": "kg:CO2EquivalentEstimate",
+      "@type": "wfprov:Artifact",
+      "schema:name": "CO2 Equivalent Estimate",
+      "prov:wasGeneratedBy": {"@id": "kg:CalculateCO2EquivalentProcess"},
+      "prov:wasDerivedFrom": {"@id": "kg:CarbonStockEstimate"}
+    },
+    {
+      "@id": "kg:ExportResultsProcess",
+      "@type": "wfprov:ProcessRun",
+      "wfprov:usedInput": [
+        {"@id": "kg:CO2EquivalentEstimate"},
+        {"@id": "kg:MangroveMask"}
+      ],
+      "wfprov:wasPartOfWorkflowRun": {"@id": "kg:KindGroveWorkflowRun"},
+      "wfprov:wasEnactedBy": {"@id": "kg:JupyterNotebookEngine"},
+      "prov:generated": [
+        {"@id": "kg:GeoTIFFRaster"},
+        {"@id": "kg:CSVSummary"},
+        {"@id": "kg:InteractiveVisualisation"}
+      ]
+    },
+    {
+      "@id": "kg:GeoTIFFRaster",
+      "@type": ["wfprov:Artifact", "stac:Asset"],
+      "schema:encodingFormat": "image/tiff",
+      "prov:wasGeneratedBy": {"@id": "kg:ExportResultsProcess"}
+    },
+    {
+      "@id": "kg:CSVSummary",
+      "@type": ["wfprov:Artifact", "schema:Dataset"],
+      "schema:encodingFormat": "text/csv",
+      "prov:wasGeneratedBy": {"@id": "kg:ExportResultsProcess"}
+    },
+    {
+      "@id": "kg:InteractiveVisualisation",
+      "@type": "wfprov:Artifact",
+      "schema:name": "Interactive Visualisation Outputs",
+      "prov:wasGeneratedBy": {"@id": "kg:ExportResultsProcess"}
+    },
+    {
+      "@id": "kg:CameronSajedi",
+      "@type": ["prov:Person", "foaf:Person", "schema:Person"],
+      "schema:name": "Cameron Sajedi",
+      "schema:affiliation": {"@id": "kg:StarlingFoundries"}
+    },
+    {
+      "@id": "kg:StarlingFoundries",
+      "@type": ["prov:Organization", "foaf:Organization", "schema:Organization"],
+      "schema:name": "Starling Foundries"
+    },
+    {
+      "@id": "kg:JupyterNotebookEngine",
+      "@type": ["wfprov:WorkflowEngine", "prov:SoftwareAgent", "schema:SoftwareApplication"],
+      "schema:name": "Jupyter Notebook",
+      "prov:actedOnBehalfOf": {"@id": "kg:CameronSajedi"}
+    }
+  ]
+}
