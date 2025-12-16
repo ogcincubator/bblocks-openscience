@@ -8,6 +8,20 @@
     {
       "anyOf": [
         {
+          "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.json"
+        },
+        {
+          "not": {
+            "required": [
+              "provType"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "anyOf": [
+        {
           "$ref": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/cf/schema.json"
         },
         {

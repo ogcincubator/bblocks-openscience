@@ -5,12 +5,18 @@ allOf:
   - $ref: bblocks://ogc.geo.geodcat.geodcat-records
 properties:
   properties:
+    # because a Record is a "Feature" then the nested properties property can have
+    # properties defining aspects of the prov Activity using the bblock schema for this
+    allOf:
+      - $ref: bblocks://ogc.bbr.wf4ever.wfprov.WorkflowRun
     type: object
     required:
       - osc:workflow
     properties:
       osc:workflow:
         $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common#/$defs/osc:workflow
+    
+
   links:
     type: array
     items:

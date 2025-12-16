@@ -1,0 +1,102 @@
+{
+  "id": "water-bodies-execution",
+  "type": "Feature",
+  "conformsTo": [
+    "http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core"
+  ],
+  "geometry": null,
+  "properties": {
+    "created": "2025-01-21T18:00:00Z",
+    "updated": "2025-01-21T18:40:00Z",
+    "type": "experiment",
+    "title": "ESA WorldCereal Experiment",
+    "description": "Experiment using the water bodies workflow.",
+    "contacts": [
+      {
+        "name": "A person",
+        "position": "Researcher",
+        "organization": "An Org",
+        "contactInstructions": "Contact via website",
+        "roles": [
+          "principal investigator"
+        ]
+      },
+      {
+        "name": "An Org",
+        "links": [
+          {
+            "href": "https://example.com/",
+            "rel": "about",
+            "type": "text/html"
+          }
+        ],
+        "contactInstructions": "SEE WEBSITE",
+        "roles": [
+          "processor"
+        ]
+      }
+    ],
+    "themes": [
+      {
+        "scheme": "https://github.com/stac-extensions/osc#theme",
+        "concepts": [
+          {
+            "id": "land"
+          }
+        ]
+      }
+    ],
+    "formats": [
+      {
+        "name": "GeoTIFF"
+      }
+    ],
+    "license": "proprietary",
+    "osc:workflow": "waterbodies",
+    "version": "2"
+  },
+  "linkTemplates": [],
+  "links": [
+    {
+      "rel": "root",
+      "href": "https://example.com/open-science-catalog-metadata/catalog.json",
+      "type": "application/json",
+      "title": "Open Science Catalog"
+    },
+    {
+      "rel": "parent",
+      "href": "https://example.com/open-science-catalog-metadata/experiments/catalog.json",
+      "type": "application/json",
+      "title": "Experiments"
+    },
+    {
+      "rel": "child",
+      "href": "https://example.com/open-science-catalog-metadata/products/water-bodies-execution-outputs/collection.json",
+      "type": "application/json",
+      "title": "Water Bodies Execution Outputs"
+    },
+    {
+      "rel": "service",
+      "type": "application/json",
+      "title": "An EO data exploitation platform",
+      "href": "https://example.com"
+    },
+    {
+      "rel": "related",
+      "href": "https://example.com/open-science-catalog-metadata/themes/land/catalog.json",
+      "type": "application/json",
+      "title": "Theme: Land"
+    },
+    {
+      "rel": "related",
+      "href": "../../workflows/waterbodies/record.json",
+      "type": "application/json",
+      "title": "Workflow: Water Bodies"
+    },
+    {
+      "rel": "self",
+      "href": "https://example.com/open-science-catalog-metadata/experiments/water-bodies-execution/record.json",
+      "type": "application/json"
+    }
+  ]
+}

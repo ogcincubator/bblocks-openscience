@@ -1,16 +1,30 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 description: Schema for EarthCODE Workflow
 allOf:
-- anyOf:
-  - $ref: https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/geodcat-records/schema.yaml
+- $ref: https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/geodcat-records/schema.yaml
 properties:
   properties:
     type: object
+    anyOf:
+    - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml
+    - not:
+        required:
+        - provType
     required:
     - osc:project
     properties:
       osc:project:
         $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/$defs/osc:project
+      wfdesc:hasInput:
+        type: object
+        additionalProperties:
+          type: object
+          $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/inputDescription/schema.yaml
+      wfdesc:hasOutput:
+        type: object
+        additionalProperties:
+          type: object
+          $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/outputDescription/schema.yaml
   links:
     type: array
     items:

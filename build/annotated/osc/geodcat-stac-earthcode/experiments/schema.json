@@ -11,6 +11,11 @@
   ],
   "properties": {
     "properties": {
+      "allOf": [
+        {
+          "$ref": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfprov/WorkflowRun/schema.json"
+        }
+      ],
       "type": "object",
       "required": [
         "osc:workflow"

@@ -1,0 +1,44 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix ns1: <application:> .
+@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns3: <vcs:> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://ogc.org/demo/ospd/cvi-workflow> a geojson:Feature ;
+    dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core>,
+        <https://stac-extensions.github.io/osc/v1.0.0/schema.json> ;
+    rdfs:seeAlso [ rdfs:label "Theme: Oceans" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
+        [ rdfs:label "Git source repository" ;
+            ns2:relation <http://www.iana.org/assignments/relation/vcs> ;
+            oa:hasTarget <https://github.com/hartis-org/cvi-workflow> ;
+            ns3:branch "main" ;
+            ns3:type "git" ],
+        [ rdfs:label "Project: OSPD" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/projects/ospd/collection.json> ],
+        [ rdfs:label "Coastal Vulnerability Index (CVI) Workflow" ;
+            ns1:container true ;
+            ns1:language "Python" ;
+            ns1:type "cwl-workflow" ;
+            dcterms:type "application/x-cwl" ;
+            ns2:relation <http://www.iana.org/assignments/relation/application> ;
+            oa:hasTarget <https://github.com/hartis-org/cvi-workflow/blob/main/cvi_workflow.cwl> ],
+        [ rdfs:label "Workflows" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ],
+        [ dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/cvi-workflow/record.json> ] .
+

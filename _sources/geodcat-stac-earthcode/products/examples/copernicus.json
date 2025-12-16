@@ -1,0 +1,124 @@
+{
+  "type": "Collection",
+  "id": "satellite-aerosol-properties",
+  "stac_version": "1.0.0",
+  "title": "Aerosol properties gridded data from 1995 to present derived from satellite observations",
+  "description": "This data set provides observational records of aerosol properties obtained from observations collected by various satellite instruments. Aerosols are minor constituents of the atmosphere by mass, but critical components in terms of impact on climate. Aerosols influence the global radiation balance directly by scattering and absorbing radiation, and indirectly through influencing cloud reflectivity, cloud cover and cloud lifetime.\nThe main variables provided by this dataset are: aerosol optical depth, fine mode aerosol optical depth, dust aerosol optical depth, single scattering albedo, aerosol layer height and aerosol extinction coefficient. These variables are derived from observations from several sensors using a set of different processing techniques. This provides the possibility to derive a large set of complementary aerosol properties needed to describe the complex nature of atmospheric aerosols. Furthermore, different algorithms have their specific strengths and weaknesses, meaning that datasets originating from the same sensor but processed by different algorithms provide a way to evaluate uncertainties (e.g. areas of good or bad agreement between them). Altogether, the aerosol properties dataset is very extensive and offers a choice of complementary options – which is appropriate depends on the intended application.\nSelected observational records in this dataset are extended in time on a semi-annual basis. At the moment of extending, these records are up-to-date until five months behind present time.   \nThis dataset is produced on behalf of the Copernicus Climate Change Service.",
+  "keywords": [
+    "Temporal coverage: Past",
+    "Variable domain: Atmosphere (composition)",
+    "Spatial coverage: Global",
+    "Product type: Satellite observations"
+  ],
+  "license": "CC-BY-4.0",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          0.0,
+          -90.0,
+          360.0,
+          90.0
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "1995-06-01T00:00:00Z",
+          "2025-02-28T00:00:00Z"
+        ]
+      ]
+    }
+  },
+  "links": [
+    {
+      "rel": "self",
+      "type": "application/json",
+      "href": "https://cds.climate.copernicus.eu/api/catalogue/v1/collections/satellite-aerosol-properties"
+    },
+    {
+      "rel": "parent",
+      "type": "application/json",
+      "href": "https://cds.climate.copernicus.eu/api/catalogue/v1/"
+    },
+    {
+      "rel": "root",
+      "type": "application/json",
+      "href": "https://cds.climate.copernicus.eu/api/catalogue/v1/"
+    },
+    {
+      "rel": "qa",
+      "href": "https://cds.climate.copernicus.eu/datasets/satellite-aerosol-properties?tab=quality_assurance_tab",
+      "title": "Quality assessment of the dataset",
+      "type": "text/html"
+    },
+    {
+      "rel": "license",
+      "href": "https://spdx.org/licenses/CC-BY-4.0",
+      "title": "CC-BY licence"
+    },
+    {
+      "rel": "form",
+      "href": "https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-catalogue/resources/satellite-aerosol-properties/form_8506ebde2df46a645ca49b2cf7d1f139c4122fe75156a706326fe65dea56922a.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "constraints",
+      "href": "https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-catalogue/resources/satellite-aerosol-properties/constraints_bd18e6a4193303c700f2bab54d287637fc9e24a8922b8263c117355efb53fb64.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "retrieve",
+      "href": "https://cds.climate.copernicus.eu/api/retrieve/v1/processes/satellite-aerosol-properties",
+      "type": "application/json"
+    },
+    {
+      "rel": "costing_api",
+      "href": "https://cds.climate.copernicus.eu/api/retrieve/v1/processes/satellite-aerosol-properties/costing",
+      "type": "application/json"
+    },
+    {
+      "rel": "layout",
+      "href": "https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-catalogue/resources/satellite-aerosol-properties/layout_398b6a586a1bf34e4e4e6c05a3c57ae011072331fa3bc72ffbbb5ea433bef599.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "related",
+      "href": "https://cds.climate.copernicus.eu/api/catalogue/v1/collections/satellite-carbon-dioxide",
+      "title": "Carbon dioxide data from 2002 to present derived from satellite observations"
+    },
+    {
+      "rel": "related",
+      "href": "https://cds.climate.copernicus.eu/api/catalogue/v1/collections/satellite-ozone-v1",
+      "title": "Ozone monthly gridded data from 1970 to present derived from satellite observations"
+    },
+    {
+      "rel": "related",
+      "href": "https://cds.climate.copernicus.eu/api/catalogue/v1/collections/satellite-methane",
+      "title": "Methane data from 2002 to present derived from satellite observations"
+    },
+    {
+      "rel": "messages",
+      "href": "https://cds.climate.copernicus.eu/api/catalogue/v1/collections/satellite-aerosol-properties/messages",
+      "title": "All messages related to the selected dataset"
+    }
+  ],
+  "assets": {
+    "thumbnail": {
+      "href": "https://object-store.os-api.cci2.ecmwf.int:443/cci2-prod-catalogue/resources/satellite-aerosol-properties/overview_096df6e39e0942e26cb18d65fd47e950059ca9278d5e7fb00ea2bbe985bcf6ea.png",
+      "type": "image/jpg",
+      "roles": [
+        "thumbnail"
+      ]
+    }
+  },
+  "published": "2019-12-11T00:00:00Z",
+  "updated": "2025-10-11T00:00:00Z",
+  "sci:doi": "10.24381/cds.239d815c",
+  "cads:disabled_reason": null,
+  "cads:sanity_check": {
+    "status": "unknown",
+    "timestamp": null
+  }
+}

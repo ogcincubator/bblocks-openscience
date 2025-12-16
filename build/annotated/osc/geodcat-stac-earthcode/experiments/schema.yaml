@@ -5,6 +5,8 @@ allOf:
 - $ref: https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/geodcat-records/schema.yaml
 properties:
   properties:
+    allOf:
+    - $ref: https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfprov/WorkflowRun/schema.yaml
     type: object
     required:
     - osc:workflow

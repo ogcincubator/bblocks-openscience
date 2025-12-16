@@ -40,13 +40,46 @@
       ref: https://esa-earthcode.github.io/open-science-catalog-metadata-staging/workflows/waterbodies/record.json
       base-uri: https://ogc.org/demo/ospd/
 
+- title: Water Bodies Detection With Provenance
+  content: |-
+    The Water Bodies Detection workflow record with mocked-up provenance data added to it.
+
+    Some notes:
+      - There is an `properties.id` field because the prov-entity schema requires it, but it duplicates the
+        root `id`.
+      - The link to the CWL is there twice but it's not clear to me which type of link is better.
+      - wf4ever and PROV say little about how inputs are described. This is based on OGC API Processes.
+      - There's potential ambiguity over whether it's describing what arrived at the Processes API,
+        what arrived at the workflow engine or a mix. eg, processing mode may not reach the engine and
+        links may have been dereferenced. Or perhaps this is unimportant. However, both a link to CWL and
+        a link to a Processes API process could be given in one record.
+
+  snippets:
+    - language: json
+      ref: examples/water-bodies-with-provenance.json
+      base-uri: https://ogc.org/demo/ospd/
+
 - title: Mangrove Detect
   content: |-
     The mangrove biomass workflow demonstrates an initial approach to estimating above-ground biomass and carbon stocks using Sentinel-2 optical satellite imagery. This serves as a baseline workflow that can be augmented with complementary data sources depending on project needs. The current implementation queries the AWS STAC catalog for cloud-free scenes, calculates vegetation indices (NDVI, NDWI, SAVI), applies threshold-based classification to detect mangrove extent, and estimates biomass using a validated allometric equation from Myanmar field studies. Results include spatially explicit biomass maps, carbon stock totals, and CO2 equivalence calculations following IPCC Tier 2 methodology.
     calculation.
   snippets:
    - language: json
-     ref: https://raw.githubusercontent.com/ESA-EarthCODE/open-science-catalog-metadata/refs/heads/main/workflows/polaris-workflow/record.json
+     ref: https://esa-earthcode.github.io/open-science-catalog-metadata-staging/workflows/kindgrove-mangrove-biomass-workflow/record.json
      base-uri: https://ogc.org/demo/ospd/
 
+- title: Coastal Vulnerability Index (CVI) Workflow
+  content: |-
+    An automated, reproducible workflow for calculating the Coastal Vulnerability Index (CVI). This system generates coastal transects, fetches satellite data (DEM, Land Cover), computes physical parameters, and classifies coastal risk based on the USGS/NOAA methodology.\n\nThe workflow is implemented in Common Workflow Language (CWL) and runs inside a Docker container, ensuring it can be executed anywhere—from a local laptop to a High-Performance Computing (HPC) cluster or JupyterHub.
+  snippets:
+   - language: json
+     ref: https://esa-earthcode.github.io/open-science-catalog-metadata-staging/workflows/cvi-workflow/record.json
+     base-uri: https://ogc.org/demo/ospd/
 
+- title: ML4Floods Inference for Flood Extent Estimation
+  content: |-
+   ML4Floods inference for flood extent estimation using a pre-trained model on Sentinel-2 or Landsat-9 data. This application is designed to process satellite imagery and delineate flood extents.
+  snippets:
+   - language: json
+     ref: https://esa-earthcode.github.io/open-science-catalog-metadata-staging/workflows/app-ml4floods/record.json
+     base-uri: https://ogc.org/demo/ospd/

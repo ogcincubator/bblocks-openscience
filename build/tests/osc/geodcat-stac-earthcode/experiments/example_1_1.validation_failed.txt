@@ -1,0 +1,120 @@
+Validation report for ogc.osc.geodcat-stac-earthcode.experiments - EarthCODE Experiment
+Generated 2025-12-16T09:30:55.210564+00:00
+=== Files ===
+Using example_1_1.json (example_1_1) from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: 'id' is a required property
+
+Failed validating 'required' in schema['properties']['properties']['allOf'][0]['allOf'][0]:
+    {'$schema': 'https://json-schema.org/draft/2020-12/schema',
+     'allOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#/$defs/Activity'}],
+     'description': 'An execution instance of a process (based on '
+                    'prov:Activity)',
+     'properties': {'describedByProcess': {'description': 'Links to the '
+                                                          'process '
+                                                          'description '
+                                                          '(wfdesc:Process) '
+                                                          'that was '
+                                                          'executed',
+                                           'format': 'uri',
+                                           'type': 'string',
+                                           'x-jsonld-id': 'http://purl.org/wf4ever/wfprov#describedByProcess',
+                                           'x-jsonld-type': '@id'},
+                    'endedAtTime': {'description': 'End time of the '
+                                                   'execution',
+                                    'format': 'date-time',
+                                    'type': 'string',
+                                    'x-jsonld-id': 'http://www.w3.org/ns/prov#endedAtTime',
+                                    'x-jsonld-type': 'http://www.w3.org/2001/XMLSchema#dateTime'},
+                    'id': {'description': 'Unique identifier for the '
+                                          'process run',
+                           'format': 'uri',
+                           'type': 'string',
+                           'x-jsonld-id': '@id'},
+                    'startedAtTime': {'description': 'Start time of the '
+                                                     'execution',
+                                      'format': 'date-time',
+                                      'type': 'string',
+                                      'x-jsonld-id': 'http://www.w3.org/ns/prov#startedAtTime',
+                                      'x-jsonld-type': 'http://www.w3.org/2001/XMLSchema#dateTime'},
+                    'type': {'description': 'Type indicator (Activity or '
+                                            'sub-type)',
+                             'type': 'string',
+                             'x-jsonld-id': '@type'},
+                    'usedInput': {'description': 'Input artifacts used by '
+                                                 'this process run',
+                                  'items': {'properties': {'id': {'format': 'uri',
+                                                                  'type': 'string'}},
+                                            'required': ['id'],
+                                            'type': 'object'},
+                                  'type': 'array',
+                                  'x-jsonld-container': '@set',
+                                  'x-jsonld-id': 'http://purl.org/wf4ever/wfprov#usedInput',
+                                  'x-jsonld-type': '@id'},
+                    'wasEnactedBy': {'description': 'The workflow engine '
+                                                    'that enacted this '
+                                                    'process run',
+                                     'format': 'uri',
+                                     'type': 'string',
+                                     'x-jsonld-id': 'http://www.w3.org/ns/prov#wasAssociatedWith',
+                                     'x-jsonld-type': '@id'},
+                    'wasPartOfWorkflowRun': {'description': 'The workflow '
+                                                            'run that this '
+                                                            'process run '
+                                                            'was part of',
+                                             'format': 'uri',
+                                             'type': 'string',
+                                             'x-jsonld-id': 'http://purl.org/wf4ever/wfprov#wasPartOfWorkflowRun',
+                                             'x-jsonld-type': '@id'}},
+     'required': ['id'],
+     'type': 'object',
+     'x-jsonld-extra-terms': {'ProcessRun': 'http://purl.org/wf4ever/wfprov#ProcessRun',
+                              'WorkflowRun': 'http://purl.org/wf4ever/wfprov#WorkflowRun',
+                              'wasOutputFrom': {'x-jsonld-container': '@set',
+                                                'x-jsonld-id': 'http://www.w3.org/ns/prov#generated',
+                                                'x-jsonld-type': '@id'}},
+     'x-jsonld-prefixes': {'prov': 'http://www.w3.org/ns/prov#',
+                           'wfdesc': 'http://purl.org/wf4ever/wfdesc#',
+                           'wfprov': 'http://purl.org/wf4ever/wfprov#'},
+     'x-jsonld-vocab': 'http://purl.org/wf4ever/wfprov#'}
+
+On instance['properties']:
+    {'contacts': [{'contactInstructions': 'Contact via EarthCODE',
+                   'links': [{'href': 'https://opensciencedata.esa.int/',
+                              'rel': 'about',
+                              'type': 'text/html'}],
+                   'name': 'EarthCODE Demo',
+                   'organization': 'EarthCODE',
+                   'roles': ['host']}],
+     'created': '2025-02-19T23:00:00Z',
+     'description': 'Polar Operational Limit Assessment Risk Index System '
+                    '(POLARIS)',
+     'formats': [{'name': 'GeoTIFF'}],
+     'keywords': ['sea ice', 'polar'],
+     'license': 'CC-BY-SA-4.0',
+     'osc:workflow': 'polaris-workflow',
+     'themes': [{'concepts': [{'id': 'oceans'}],
+                 'scheme': 'https://github.com/stac-extensions/osc#theme'}],
+     'title': 'POLARIS',
+     'type': 'experiment',
+     'updated': '2025-02-19T23:00:00Z',
+     'version': '2'}
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
+ - Shape rec:testAllVarsInTemplate: *none*
+
+=== End SHACL ===
+

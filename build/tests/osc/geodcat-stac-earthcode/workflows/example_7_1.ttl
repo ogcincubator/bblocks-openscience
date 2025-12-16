@@ -1,0 +1,47 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <application:> .
+@prefix ns3: <vcs:> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://ogc.org/demo/ospd/app-ml4floods> a geojson:Feature ;
+    dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core>,
+        <https://stac-extensions.github.io/eo/v1.0.0/schema.json>,
+        <https://stac-extensions.github.io/osc/v1.0.0/schema.json>,
+        <https://stac-extensions.github.io/version/v1.0.0/schema.json>,
+        <https://stacspec.org/STAC-api.html> ;
+    rdfs:seeAlso [ rdfs:label "Workflows" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
+        [ rdfs:label "Project: OSPD" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/projects/ospd/collection.json> ],
+        [ rdfs:label "ML4Floods Inference Workflow" ;
+            ns2:container true ;
+            ns2:language "Python" ;
+            ns2:type "cwl-workflow" ;
+            dcterms:type "application/cwl" ;
+            ns1:relation <http://www.iana.org/assignments/relation/application> ;
+            oa:hasTarget <https://github.com/eoap/app-ml4floods/blob/main/cwl-workflow/app-ml4floods.cwl> ],
+        [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://ogc.org/demo/workflows/app-ml4floods/record.json> ],
+        [ rdfs:label "Theme: Land" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/themes/land/catalog.json> ],
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ],
+        [ rdfs:label "Git source repository" ;
+            ns1:relation <http://www.iana.org/assignments/relation/vcs> ;
+            oa:hasTarget <https://github.com/eoap/app-ml4floods> ;
+            ns3:branch "main" ;
+            ns3:type "git" ] .
+
