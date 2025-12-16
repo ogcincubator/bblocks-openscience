@@ -1,0 +1,143 @@
+@prefix kg: <https://example.org/kindgrove/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix wfprov: <http://purl.org/wf4ever/wfprov#> .
+@prefix wfdesc: <http://purl.org/wf4ever/wfdesc#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix schema: <https://schema.org/> .
+@prefix stac: <https://stacspec.org/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+# 1. WORKFLOW INPUTS
+#################################################################
+
+kg:Sentinel2L2A
+    a wfprov:Artifact , stac:Item ;
+    schema:name "Sentinel-2 L2A Multispectral Optical Imagery" ;
+    stac:resolution "10m" ;
+    stac:collection "sentinel-2-l2a" .
+
+kg:AWSSTACCatalog
+    a wfprov:Artifact , stac:Catalog ;
+    schema:name "AWS STAC Catalog (element84)" ;
+    schema:url "https://earth-search.aws.element84.com/v1" .
+
+#################################################################
+# 2. WORKFLOW PROCESSES (PROCESS RUNS)
+#################################################################
+
+kg:KindGroveWorkflow
+    a wfdesc:Workflow , schema:ComputationalWorkflow ;
+    schema:name "KindGrove Mangrove Carbon Assessment Workflow" ;
+    schema:version "1.0" .
+
+kg:KindGroveWorkflowRun
+    a wfprov:WorkflowRun , schema:CreateAction ;
+    wfprov:describedByWorkflow kg:KindGroveWorkflow ;
+    wfprov:wasInitiatedBy kg:CameronSajedi ;
+    prov:startedAtTime "2024-06-01T10:00:00Z"^^xsd:dateTime ;
+    prov:endedAtTime "2024-06-01T10:45:00Z"^^xsd:dateTime .
+
+kg:SelectScenesProcess
+    a wfprov:ProcessRun ;
+    wfprov:usedInput kg:AWSSTACCatalog ;
+    wfprov:usedInput kg:Sentinel2L2A ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
+
+kg:DownloadBandsProcess
+    a wfprov:ProcessRun ;
+    wfprov:usedInput kg:Sentinel2L2A ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
+
+kg:CalculateVegetationIndicesProcess
+    a wfprov:ProcessRun ;
+    wfprov:usedInput kg:Sentinel2L2A ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
+
+kg:ApplyThresholdClassificationProcess
+    a wfprov:ProcessRun ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
+
+kg:DetectedMangroveMaskProcess
+    a wfprov:ProcessRun ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
+
+kg:ApplyAllometricEquationProcess
+    a wfprov:ProcessRun ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
+
+kg:CalculateCarbonStockProcess
+    a wfprov:ProcessRun ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
+
+kg:CalculateCO2EquivalentProcess
+    a wfprov:ProcessRun ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
+
+kg:ExportResultsProcess
+    a wfprov:ProcessRun ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
+
+#################################################################
+# 3. WORKFLOW OUTPUTS
+#################################################################
+
+kg:MangroveMask
+    a wfprov:Artifact ;
+    schema:name "Detected Mangrove Mask" ;
+    prov:wasGeneratedBy kg:DetectedMangroveMaskProcess ;
+    prov:wasDerivedFrom kg:Sentinel2L2A .
+
+kg:CarbonStockEstimate
+    a wfprov:Artifact ;
+    schema:name "Estimated Mangrove Carbon Stock" ;
+    prov:wasGeneratedBy kg:CalculateCarbonStockProcess ;
+    prov:wasDerivedFrom kg:MangroveMask .
+
+kg:CO2EquivalentEstimate
+    a wfprov:Artifact ;
+    schema:name "CO2 Equivalent Estimate" ;
+    prov:wasGeneratedBy kg:CalculateCO2EquivalentProcess ;
+    prov:wasDerivedFrom kg:CarbonStockEstimate .
+
+kg:GeoTIFFRaster
+    a wfprov:Artifact , stac:Asset ;
+    schema:encodingFormat "image/tiff" ;
+    prov:wasGeneratedBy kg:ExportResultsProcess .
+
+kg:CSVSummary
+    a wfprov:Artifact , schema:Dataset ;
+    schema:encodingFormat "text/csv" ;
+    prov:wasGeneratedBy kg:ExportResultsProcess .
+
+kg:InteractiveVisualisation
+    a wfprov:Artifact ;
+    schema:name "Interactive Visualisation Outputs" ;
+    prov:wasGeneratedBy kg:ExportResultsProcess .
+
+#################################################################
+# 4. WORKFLOW AGENT (PERSON, ORGANISATION, ENGINE)
+#################################################################
+
+kg:CameronSajedi
+    a prov:Person , foaf:Person , schema:Person ;
+    schema:name "Cameron Sajedi" ;
+    schema:affiliation kg:StarlingFoundries .
+
+kg:StarlingFoundries
+    a prov:Organization , foaf:Organization , schema:Organization ;
+    schema:name "Starling Foundries" .
+
+kg:JupyterNotebookEngine
+    a wfprov:WorkflowEngine , prov:SoftwareAgent , schema:SoftwareApplication ;
+    schema:name "Jupyter Notebook" ;
+    prov:actedOnBehalfOf kg:CameronSajedi .
