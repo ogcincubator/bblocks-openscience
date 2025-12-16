@@ -1,0 +1,1670 @@
+{
+  "name": "Wf4Ever Building Blocks",
+  "abstract": "Building blocks for the Wf4Ever ontologies suite (wfdesc, wfprov, ro, wf4ever) enabling\nworkflow description, provenance tracking, research object aggregation, and specialized artifact types.\n",
+  "description": "This repository contains four separate building blocks for the **Wf4Ever ontologies**:\n\n- **wfdesc**: Workflow Description Ontology for describing workflow structure (prospective provenance)\n- **wfprov**: Workflow Provenance Ontology for tracking execution traces (retrospective provenance)\n- **ro**: Research Object Ontology for packaging and aggregating research artifacts\n- **wf4ever**: Extension ontology providing specialized artifact types (File, Dataset, Document, Image) and process types (WebServiceProcess, WorkflowResearchObject)\n\nAll examples are based on real CWL (Common Workflow Language) provenance data from\nscientific workflow executions.\n",
+  "modified": "2025-11-12T08:22:23.502852",
+  "tooling": {
+    "bblocks-postprocess": {
+      "commitId": "\"4fa4cc94cf7d37823107d163051f795337c61afb",
+      "shortCommitId": "\"4fa4cc",
+      "date": "2025-11-11T09:16:12+00:00\""
+    }
+  },
+  "gitRepository": "https://github.com/ogcincubator/bblocks-wf4ever",
+  "gitHubRepository": "https://github.com/ogcincubator/bblocks-wf4ever/blob/master/",
+  "baseURL": "https://ogcincubator.github.io/bblocks-wf4ever/",
+  "viewerURL": "https://ogcincubator.github.io/bblocks-wf4ever/",
+  "validationReport": "https://ogcincubator.github.io/bblocks-wf4ever/build/tests/report.html",
+  "validationReportJson": "https://ogcincubator.github.io/bblocks-wf4ever/build/tests/report.json",
+  "imports": [
+    "https://opengeospatial.github.io/bblocks/register.json",
+    "https://ogcincubator.github.io/bblocks-ogcapi-processes/build/register.json",
+    "https://ogcincubator.github.io/geodcat-ogcapi-records/build/register.json",
+    "https://ogcincubator.github.io/bblock-prov-schema/build/register.json",
+    "https://ogcincubator.github.io/bblocks-cwl/build/register.json"
+  ],
+  "bblocks": [
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.ro.Resource",
+      "name": "ro:Resource",
+      "abstract": "A resource that can be aggregated in a Research Object. Resources represent any artifact that contributes to the research outcome, such as data files, workflows, documentation, or external references.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "datatype",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "sources": [
+        {
+          "title": "Research Object Ontology - Resource",
+          "link": "http://purl.org/wf4ever/ro#Resource"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "tags": [
+        "ro",
+        "resource",
+        "research-object"
+      ],
+      "group": "Wf4Ever - ro",
+      "shaclShapes": {},
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/ro/Resource/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/ro/Resource/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/ro/Resource/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/ro/Resource/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/ro/Resource/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/ro/Resource/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/ro/Resource/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/ro/Resource/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.ro.Resource"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.ro.Folder",
+      "name": "ro:Folder",
+      "abstract": "A folder that organizes resources within a Research Object. Folders provide hierarchical structure, similar to filesystem directories, allowing logical grouping of related resources.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "datatype",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "sources": [
+        {
+          "title": "Research Object Ontology - Folder",
+          "link": "http://purl.org/wf4ever/ro#Folder"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "profileOf": [
+        "ogc.bbr.wf4ever.ro.Resource"
+      ],
+      "tags": [
+        "ro",
+        "folder",
+        "organization"
+      ],
+      "group": "Wf4Ever - ro",
+      "shaclShapes": {},
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/ro/Folder/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/ro/Folder/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/ro/Folder/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/ro/Folder/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/ro/Folder/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/ro/Folder/",
+      "rdfData": [],
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-wf4ever/blob/master/build/tests/bbr/wf4ever/ro/Folder/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/ro/Folder/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/ro/Folder/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.ro.Folder"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.ro.SemanticAnnotation",
+      "name": "ro:SemanticAnnotation",
+      "abstract": "A semantic annotation is a specialization of ao:Annotation which requires that the annotation body points to an RDF Graph containing semantic information about the annotated resource.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "datatype",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "sources": [
+        {
+          "title": "Research Object Ontology - SemanticAnnotation",
+          "link": "http://purl.org/wf4ever/ro#SemanticAnnotation"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "dependsOn": [],
+      "tags": [
+        "ro",
+        "research-object",
+        "annotation",
+        "semantic"
+      ],
+      "group": "Wf4Ever - ro",
+      "shaclShapes": {},
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/ro/SemanticAnnotation/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/ro/SemanticAnnotation/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/ro/SemanticAnnotation/schema.yaml",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/ro/SemanticAnnotation/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/ro/SemanticAnnotation/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/ro/SemanticAnnotation/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.ro.SemanticAnnotation"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.ro",
+      "name": "Research Object Ontology (ro)",
+      "abstract": "The Research Object ontology (ro) provides concepts for bundling and aggregating research artifacts, describing folder structures and annotations.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "schema",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "sources": [
+        {
+          "title": "Research Object Ontology",
+          "link": "http://purl.org/wf4ever/ro"
+        },
+        {
+          "title": "OAI-ORE",
+          "link": "http://www.openarchives.org/ore/"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "tags": [
+        "research-object",
+        "ro",
+        "ontology",
+        "wf4ever",
+        "aggregation"
+      ],
+      "group": "Wf4Ever Ontologies",
+      "shaclShapes": {},
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/ro/context.jsonld",
+      "ontology": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/ro/ontology.ttl",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/ro/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/ro/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/ro/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/ro/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/ro/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/ro/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/ro/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.ro"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.wf4ever.Dataset",
+      "name": "wf4ever:Dataset",
+      "abstract": "A dataset artifact - a collection of data values or files representing a scientific dataset.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "datatype",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "sources": [
+        {
+          "title": "Wf4Ever Ontology - Dataset",
+          "link": "http://purl.org/wf4ever/wf4ever#Dataset"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "profileOf": [
+        "ogc.bbr.wf4ever.wfdesc.Artifact"
+      ],
+      "tags": [
+        "wf4ever",
+        "artifact",
+        "dataset"
+      ],
+      "group": "Wf4Ever - wf4ever",
+      "shaclShapes": {},
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/Dataset/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/Dataset/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/Dataset/schema.yaml",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/Dataset/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/wf4ever/Dataset/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/wf4ever/Dataset/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.wf4ever.Dataset"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.wf4ever.Document",
+      "name": "wf4ever:Document",
+      "abstract": "A document artifact - textual or formatted content such as PDF, HTML, or text files.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "datatype",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "sources": [
+        {
+          "title": "Wf4Ever Ontology - Document",
+          "link": "http://purl.org/wf4ever/wf4ever#Document"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "profileOf": [
+        "ogc.bbr.wf4ever.wfdesc.Artifact"
+      ],
+      "tags": [
+        "wf4ever",
+        "artifact",
+        "document"
+      ],
+      "group": "Wf4Ever - wf4ever",
+      "shaclShapes": {},
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/Document/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/Document/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/Document/schema.yaml",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/Document/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/wf4ever/Document/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/wf4ever/Document/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.wf4ever.Document"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.wf4ever.File",
+      "name": "wf4ever:File",
+      "abstract": "A file artifact - a specialization of wfdesc:Artifact representing a file-based data entity used or produced by workflow execution.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "datatype",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "sources": [
+        {
+          "title": "Wf4Ever Ontology - File",
+          "link": "http://purl.org/wf4ever/wf4ever#File"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "profileOf": [
+        "ogc.bbr.wf4ever.wfdesc.Artifact"
+      ],
+      "tags": [
+        "wf4ever",
+        "artifact",
+        "file"
+      ],
+      "group": "Wf4Ever - wf4ever",
+      "shaclShapes": {},
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/File/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/File/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/File/schema.yaml",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/File/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/wf4ever/File/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/wf4ever/File/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.wf4ever.File"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.wf4ever.Image",
+      "name": "wf4ever:Image",
+      "abstract": "An image artifact - visual representation such as PNG, JPEG, or raster geospatial imagery.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "datatype",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "sources": [
+        {
+          "title": "Wf4Ever Ontology - Image",
+          "link": "http://purl.org/wf4ever/wf4ever#Image"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "profileOf": [
+        "ogc.bbr.wf4ever.wfdesc.Artifact"
+      ],
+      "tags": [
+        "wf4ever",
+        "artifact",
+        "image"
+      ],
+      "group": "Wf4Ever - wf4ever",
+      "shaclShapes": {},
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/Image/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/Image/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/Image/schema.yaml",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/Image/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/wf4ever/Image/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/wf4ever/Image/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.wf4ever.Image"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.wf4ever.WebServiceProcess",
+      "name": "wf4ever:WebServiceProcess",
+      "abstract": "A web service process - a process description whose enactment involves making a web service call.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "datatype",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "sources": [
+        {
+          "title": "Wf4Ever Ontology - WebServiceProcess",
+          "link": "http://purl.org/wf4ever/wf4ever#WebServiceProcess"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "profileOf": [
+        "ogc.bbr.wf4ever.wfdesc.Process"
+      ],
+      "tags": [
+        "wf4ever",
+        "process",
+        "web-service"
+      ],
+      "group": "Wf4Ever - wf4ever",
+      "shaclShapes": {},
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/WebServiceProcess/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/WebServiceProcess/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/WebServiceProcess/schema.yaml",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/WebServiceProcess/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/wf4ever/WebServiceProcess/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/wf4ever/WebServiceProcess/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.wf4ever.WebServiceProcess"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.wfdesc",
+      "name": "Workflow Description Ontology (wfdesc)",
+      "abstract": "The Workflow Description ontology (wfdesc) describes the structure of workflows, including processes, inputs, outputs, and data flow.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "schema",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "sources": [
+        {
+          "title": "Workflow Description Ontology",
+          "link": "http://purl.org/wf4ever/wfdesc"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "tags": [
+        "workflow",
+        "wfdesc",
+        "ontology",
+        "wf4ever"
+      ],
+      "group": "Wf4Ever Ontologies",
+      "shaclShapes": {},
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/context.jsonld",
+      "ontology": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/ontology.ttl",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/",
+      "rdfData": [],
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-wf4ever/blob/master/build/tests/bbr/wf4ever/wfdesc/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/wfdesc/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/wfdesc/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.wfdesc"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.wfdesc.Artifact",
+      "name": "wfdesc:Artifact",
+      "abstract": "An artifact representing a data value, file, or resource that can be used as input or generated as output by workflow processes. Artifacts provide concrete data representations for parameter binding.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "datatype",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "dependsOn": [],
+      "sources": [
+        {
+          "title": "Workflow Description Ontology - Artifact",
+          "link": "http://purl.org/wf4ever/wfdesc#Artifact"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "tags": [
+        "workflow",
+        "wfdesc",
+        "artifact",
+        "data",
+        "parameter"
+      ],
+      "group": "Wf4Ever - wfdesc",
+      "shaclShapes": {},
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/Artifact/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/Artifact/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/Artifact/schema.yaml",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/Artifact/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/wfdesc/Artifact/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/wfdesc/Artifact/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.wfdesc.Artifact"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.wfdesc.WorkflowInstance",
+      "name": "wfdesc:WorkflowInstance",
+      "abstract": "A specialized workflow description that includes all concrete data, parameters, and settings required to execute a specific workflow run. It bridges the gap between abstract workflow descriptions and concrete workflow executions.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "datatype",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "profileOf": [
+        "ogc.bbr.wf4ever.wfdesc.Workflow"
+      ],
+      "sources": [
+        {
+          "title": "Workflow Description Ontology - WorkflowInstance",
+          "link": "http://purl.org/wf4ever/wfdesc#WorkflowInstance"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "tags": [
+        "workflow",
+        "wfdesc",
+        "instance",
+        "execution",
+        "configuration"
+      ],
+      "group": "Wf4Ever - wfdesc",
+      "shaclShapes": {},
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/WorkflowInstance/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/WorkflowInstance/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/WorkflowInstance/schema.yaml",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/WorkflowInstance/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/wfdesc/WorkflowInstance/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/wfdesc/WorkflowInstance/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.wfdesc.WorkflowInstance"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.ro.AggregatedAnnotation",
+      "name": "ro:AggregatedAnnotation",
+      "abstract": "An annotation about resources within a Research Object. Annotations provide additional metadata, provenance information, or contextual details about aggregated resources, stored as part of the Research Object itself.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "datatype",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "sources": [
+        {
+          "title": "Research Object Ontology - AggregatedAnnotation",
+          "link": "http://purl.org/wf4ever/ro#AggregatedAnnotation"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "profileOf": [
+        "ogc.bbr.wf4ever.ro.SemanticAnnotation"
+      ],
+      "dependsOn": [
+        "ogc.bbr.wf4ever.ro.Resource"
+      ],
+      "tags": [
+        "ro",
+        "annotation",
+        "metadata"
+      ],
+      "group": "Wf4Ever - ro",
+      "shaclShapes": {},
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/ro/AggregatedAnnotation/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/ro/AggregatedAnnotation/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/ro/AggregatedAnnotation/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/ro/AggregatedAnnotation/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/ro/AggregatedAnnotation/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/ro/AggregatedAnnotation/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/ro/AggregatedAnnotation/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/ro/AggregatedAnnotation/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.ro.AggregatedAnnotation"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.ro.Manifest",
+      "name": "ro:Manifest",
+      "abstract": "A manifest that describes the structure and contents of a Research Object. The manifest provides metadata about the Research Object, its aggregated resources, annotations, and organizational structure.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "datatype",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "sources": [
+        {
+          "title": "Research Object Ontology - Manifest",
+          "link": "http://purl.org/wf4ever/ro#Manifest"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "dependsOn": [
+        "ogc.bbr.wf4ever.ro.Resource"
+      ],
+      "tags": [
+        "ro",
+        "manifest",
+        "metadata"
+      ],
+      "group": "Wf4Ever - ro",
+      "shaclShapes": {},
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/ro/Manifest/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/ro/Manifest/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/ro/Manifest/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/ro/Manifest/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/ro/Manifest/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/ro/Manifest/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/ro/Manifest/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/ro/Manifest/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.ro.Manifest"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.ro.FolderEntry",
+      "name": "ro:FolderEntry",
+      "abstract": "An entry within a folder that associates a name with a resource. FolderEntries provide the mapping between folder paths and actual resources, similar to filesystem directory entries.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "datatype",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "sources": [
+        {
+          "title": "Research Object Ontology - FolderEntry",
+          "link": "http://purl.org/wf4ever/ro#FolderEntry"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "dependsOn": [
+        "ogc.bbr.wf4ever.ro.Resource",
+        "ogc.bbr.wf4ever.ro.Folder"
+      ],
+      "tags": [
+        "ro",
+        "folder-entry",
+        "organization"
+      ],
+      "group": "Wf4Ever - ro",
+      "shaclShapes": {},
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/ro/FolderEntry/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/ro/FolderEntry/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/ro/FolderEntry/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/ro/FolderEntry/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/ro/FolderEntry/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/ro/FolderEntry/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/ro/FolderEntry/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/ro/FolderEntry/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.ro.FolderEntry"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.wfprov",
+      "name": "Workflow Provenance Ontology (wfprov)",
+      "abstract": "The Workflow Provenance ontology (wfprov) extends PROV-O to describe workflow execution traces, linking workflow runs to their descriptions.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "schema",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "sources": [
+        {
+          "title": "Workflow Provenance Ontology",
+          "link": "http://purl.org/wf4ever/wfprov"
+        },
+        {
+          "title": "PROV-O",
+          "link": "https://www.w3.org/TR/prov-o/"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "dependsOn": [
+        "ogc.bbr.wf4ever.wfdesc"
+      ],
+      "tags": [
+        "workflow",
+        "provenance",
+        "wfprov",
+        "ontology",
+        "wf4ever",
+        "prov"
+      ],
+      "group": "Wf4Ever Ontologies",
+      "shaclShapes": {},
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfprov/context.jsonld",
+      "ontology": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfprov/ontology.ttl",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfprov/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfprov/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfprov/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfprov/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfprov/",
+      "rdfData": [],
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-wf4ever/blob/master/build/tests/bbr/wf4ever/wfprov/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/wfprov/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/wfprov/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.wfprov"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.wfdesc.Parameter",
+      "name": "wfdesc:Parameter",
+      "abstract": "A parameter (input or output) of a workflow process. This is the base class for Input, Output, and Configuration.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "datatype",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "dependsOn": [
+        "ogc.bbr.wf4ever.wfdesc.Artifact"
+      ],
+      "sources": [
+        {
+          "title": "Workflow Description Ontology - Parameter",
+          "link": "http://purl.org/wf4ever/wfdesc#Parameter"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "tags": [
+        "workflow",
+        "wfdesc",
+        "parameter",
+        "ontology"
+      ],
+      "group": "Wf4Ever - wfdesc",
+      "shaclShapes": {},
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/Parameter/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/Parameter/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/Parameter/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/Parameter/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/Parameter/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/Parameter/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/wfdesc/Parameter/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/wfdesc/Parameter/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.wfdesc.Parameter"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.wfprov.WorkflowEngine",
+      "name": "wfprov:WorkflowEngine",
+      "abstract": "A software agent that executes workflows. The WorkflowEngine is responsible for enacting workflow and process executions, managing the execution environment and resources.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "datatype",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "sources": [
+        {
+          "title": "Workflow Provenance Ontology - WorkflowEngine",
+          "link": "http://purl.org/wf4ever/wfprov#WorkflowEngine"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "tags": [
+        "wfprov",
+        "workflow-engine",
+        "agent",
+        "execution"
+      ],
+      "group": "Wf4Ever - wfprov",
+      "shaclShapes": {},
+      "dependsOn": [
+        "ogc.ogc-utils.prov"
+      ],
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfprov/WorkflowEngine/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfprov/WorkflowEngine/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfprov/WorkflowEngine/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfprov/WorkflowEngine/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfprov/WorkflowEngine/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfprov/WorkflowEngine/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/wfprov/WorkflowEngine/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/wfprov/WorkflowEngine/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.wfprov.WorkflowEngine"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.ro.ResearchObject",
+      "name": "ro:ResearchObject",
+      "abstract": "A Research Object that bundles resources, data, methods, and contextual information. It provides a structured way to package research outputs with their provenance, making them portable, shareable, and preservable.",
+      "highlighted": true,
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "datatype",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "sources": [
+        {
+          "title": "Research Object Ontology - ResearchObject",
+          "link": "http://purl.org/wf4ever/ro#ResearchObject"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "dependsOn": [
+        "ogc.bbr.wf4ever.ro.Resource",
+        "ogc.bbr.wf4ever.ro.Manifest"
+      ],
+      "tags": [
+        "ro",
+        "research-object",
+        "aggregation"
+      ],
+      "group": "Wf4Ever - ro",
+      "shaclShapes": {},
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/ro/ResearchObject/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/ro/ResearchObject/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/ro/ResearchObject/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/ro/ResearchObject/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/ro/ResearchObject/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/ro/ResearchObject/",
+      "rdfData": [],
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-wf4ever/blob/master/build/tests/bbr/wf4ever/ro/ResearchObject/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/ro/ResearchObject/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/ro/ResearchObject/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.ro.ResearchObject"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.wf4ever",
+      "name": "Wf4Ever Extension Ontology",
+      "abstract": "The wf4ever ontology extends ro, wfdesc and wfprov with specialized artifact and process types commonly used in workflow research objects.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "schema",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "sources": [
+        {
+          "title": "Wf4Ever Ontology",
+          "link": "http://purl.org/wf4ever/wf4ever"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "dependsOn": [
+        "ogc.bbr.wf4ever.wfprov",
+        "ogc.bbr.wf4ever.wfdesc",
+        "ogc.bbr.wf4ever.ro"
+      ],
+      "tags": [
+        "wf4ever",
+        "workflow",
+        "research-object",
+        "artifact-types"
+      ],
+      "group": "Wf4Ever - wf4ever",
+      "shaclShapes": {},
+      "ontology": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/ontology.ttl",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/schema.yaml",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/wf4ever/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/wf4ever/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.wf4ever"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.wfdesc.Input",
+      "name": "wfdesc:Input",
+      "abstract": "An input parameter to a workflow process. Inputs receive data from external sources or from outputs of other processes via DataLinks.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "datatype",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "profileOf": [
+        "ogc.bbr.wf4ever.wfdesc.Parameter"
+      ],
+      "sources": [
+        {
+          "title": "Workflow Description Ontology - Input",
+          "link": "http://purl.org/wf4ever/wfdesc#Input"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "tags": [
+        "workflow",
+        "wfdesc",
+        "input",
+        "parameter"
+      ],
+      "group": "Wf4Ever - wfdesc",
+      "shaclShapes": {},
+      "dependsOn": [
+        "ogc.bbr.wf4ever.wfdesc.Parameter"
+      ],
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/Input/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/Input/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/Input/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/Input/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/Input/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/Input/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/wfdesc/Input/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/wfdesc/Input/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.wfdesc.Input"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.wfdesc.Output",
+      "name": "wfdesc:Output",
+      "abstract": "An output parameter from a workflow process. Outputs produce data that can be consumed by inputs of other processes or as final workflow results.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "datatype",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "profileOf": [
+        "ogc.bbr.wf4ever.wfdesc.Parameter"
+      ],
+      "sources": [
+        {
+          "title": "Workflow Description Ontology - Output",
+          "link": "http://purl.org/wf4ever/wfdesc#Output"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "tags": [
+        "workflow",
+        "wfdesc",
+        "output",
+        "parameter"
+      ],
+      "group": "Wf4Ever - wfdesc",
+      "shaclShapes": {},
+      "dependsOn": [
+        "ogc.bbr.wf4ever.wfdesc.Parameter"
+      ],
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/Output/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/Output/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/Output/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/Output/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/Output/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/Output/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/wfdesc/Output/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/wfdesc/Output/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.wfdesc.Output"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.wfprov.Artifact",
+      "name": "wfprov:Artifact",
+      "abstract": "A data entity that was used as input or generated as output during a workflow execution. Artifacts are the data products consumed or produced by process runs.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "datatype",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "dependsOn": [
+        "ogc.bbr.wf4ever.wfdesc.Parameter",
+        "ogc.ogc-utils.prov"
+      ],
+      "sources": [
+        {
+          "title": "Workflow Provenance Ontology - Artifact",
+          "link": "http://purl.org/wf4ever/wfprov#Artifact"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "tags": [
+        "wfprov",
+        "artifact",
+        "provenance",
+        "data"
+      ],
+      "group": "Wf4Ever - wfprov",
+      "shaclShapes": {},
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfprov/Artifact/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfprov/Artifact/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfprov/Artifact/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfprov/Artifact/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfprov/Artifact/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfprov/Artifact/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/wfprov/Artifact/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/wfprov/Artifact/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.wfprov.Artifact"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.wfdesc.DataLink",
+      "name": "wfdesc:DataLink",
+      "abstract": "A connection between processes in a workflow, linking an output of one process to an input of another process. DataLinks define the data flow in a workflow.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "datatype",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "dependsOn": [
+        "ogc.bbr.wf4ever.wfdesc.Input",
+        "ogc.bbr.wf4ever.wfdesc.Output"
+      ],
+      "sources": [
+        {
+          "title": "Workflow Description Ontology - DataLink",
+          "link": "http://purl.org/wf4ever/wfdesc#DataLink"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "tags": [
+        "workflow",
+        "wfdesc",
+        "datalink",
+        "dataflow"
+      ],
+      "group": "Wf4Ever - wfdesc",
+      "shaclShapes": {},
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/DataLink/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/DataLink/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/DataLink/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/DataLink/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/DataLink/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/DataLink/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/wfdesc/DataLink/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/wfdesc/DataLink/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.wfdesc.DataLink"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.wfdesc.Process",
+      "name": "wfdesc:Process",
+      "abstract": "A computational process or task in a workflow. Processes have inputs, outputs, and perform computations. This is the base class for atomic processes and composite Workflows.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "datatype",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "dependsOn": [
+        "ogc.bbr.wf4ever.wfdesc.Input",
+        "ogc.bbr.wf4ever.wfdesc.Output"
+      ],
+      "sources": [
+        {
+          "title": "Workflow Description Ontology - Process",
+          "link": "http://purl.org/wf4ever/wfdesc#Process"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "tags": [
+        "workflow",
+        "wfdesc",
+        "process",
+        "computation"
+      ],
+      "group": "Wf4Ever - wfdesc",
+      "shaclShapes": {},
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/Process/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/Process/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/Process/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/Process/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/Process/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/Process/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/wfdesc/Process/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/wfdesc/Process/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.wfdesc.Process"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.wfdesc.Workflow",
+      "name": "wfdesc:Workflow",
+      "abstract": "A composite process that contains sub-processes connected by data links. Workflows are directed graphs where nodes are processes and edges are data flow connections.",
+      "highlighted": true,
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "datatype",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "profileOf": [
+        "ogc.bbr.wf4ever.wfdesc.Process"
+      ],
+      "dependsOn": [
+        "ogc.bbr.wf4ever.wfdesc.DataLink",
+        "ogc.bbr.wf4ever.wfdesc.Process",
+        "ogc.api.processes.v1.schemas.process"
+      ],
+      "sources": [
+        {
+          "title": "Workflow Description Ontology - Workflow",
+          "link": "http://purl.org/wf4ever/wfdesc#Workflow"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "tags": [
+        "workflow",
+        "wfdesc",
+        "composite",
+        "graph"
+      ],
+      "group": "Wf4Ever - wfdesc",
+      "shaclShapes": {},
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/Workflow/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/Workflow/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/Workflow/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/Workflow/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/Workflow/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/Workflow/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/wfdesc/Workflow/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/wfdesc/Workflow/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.wfdesc.Workflow"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.wfprov.ProcessRun",
+      "name": "wfprov:ProcessRun",
+      "abstract": "An execution instance of a process. A ProcessRun represents the actual execution of a process described by wfdesc:Process, tracking what happened during that execution including inputs used, outputs generated, and timing information.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "datatype",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "sources": [
+        {
+          "title": "Workflow Provenance Ontology - ProcessRun",
+          "link": "http://purl.org/wf4ever/wfprov#ProcessRun"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "dependsOn": [
+        "ogc.bbr.wf4ever.wfprov.WorkflowEngine",
+        "ogc.bbr.wf4ever.wfprov.Artifact",
+        "ogc.bbr.wf4ever.wfdesc.Process",
+        "ogc.ogc-utils.prov"
+      ],
+      "tags": [
+        "wfprov",
+        "process-run",
+        "execution",
+        "provenance"
+      ],
+      "group": "Wf4Ever - wfprov",
+      "shaclShapes": {},
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfprov/ProcessRun/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfprov/ProcessRun/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfprov/ProcessRun/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfprov/ProcessRun/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfprov/ProcessRun/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfprov/ProcessRun/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/wfprov/ProcessRun/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/wfprov/ProcessRun/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.wfprov.ProcessRun"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.wf4ever.WorkflowResearchObject",
+      "name": "wf4ever:WorkflowResearchObject",
+      "abstract": "A research object that aggregates at least one workflow description, along with associated resources and provenance.",
+      "highlighted": true,
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "datatype",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "sources": [
+        {
+          "title": "Wf4Ever Ontology - WorkflowResearchObject",
+          "link": "http://purl.org/wf4ever/wf4ever#WorkflowResearchObject"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "dependsOn": [
+        "ogc.bbr.wf4ever.wfdesc.Workflow",
+        "ogc.bbr.wf4ever.ro.ResearchObject"
+      ],
+      "tags": [
+        "wf4ever",
+        "research-object",
+        "workflow"
+      ],
+      "group": "Wf4Ever - wf4ever",
+      "shaclShapes": {},
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/WorkflowResearchObject/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/WorkflowResearchObject/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/WorkflowResearchObject/schema.yaml",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/WorkflowResearchObject/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/wf4ever/WorkflowResearchObject/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/wf4ever/WorkflowResearchObject/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.wf4ever.WorkflowResearchObject"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.wfprov.WorkflowRun",
+      "name": "wfprov:WorkflowRun",
+      "abstract": "An execution instance of a workflow. A WorkflowRun is a special type of ProcessRun that represents the execution of a complete workflow (wfdesc:Workflow), containing multiple ProcessRuns for its sub-processes.",
+      "highlighted": true,
+      "status": "under-development",
+      "dateTimeAddition": "2025-11-07T00:00:00Z",
+      "itemClass": "datatype",
+      "register": "ogc-wf4ever",
+      "version": "1.0",
+      "dateOfLastChange": "2025-11-12",
+      "sources": [
+        {
+          "title": "Workflow Provenance Ontology - WorkflowRun",
+          "link": "http://purl.org/wf4ever/wfprov#WorkflowRun"
+        }
+      ],
+      "maturity": "development",
+      "scope": "unstable",
+      "profileOf": [
+        "ogc.bbr.wf4ever.wfprov.ProcessRun"
+      ],
+      "dependsOn": [
+        "ogc.bbr.wf4ever.wfdesc.Workflow",
+        "ogc.bbr.wf4ever.wfprov.ProcessRun"
+      ],
+      "tags": [
+        "wfprov",
+        "workflow-run",
+        "execution",
+        "provenance"
+      ],
+      "group": "Wf4Ever - wfprov",
+      "shaclShapes": {},
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfprov/WorkflowRun/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfprov/WorkflowRun/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfprov/WorkflowRun/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfprov/WorkflowRun/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfprov/WorkflowRun/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfprov/WorkflowRun/",
+      "rdfData": [],
+      "validationPassed": false,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-wf4ever/blob/master/build/tests/bbr/wf4ever/wfprov/WorkflowRun/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/wfprov/WorkflowRun/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/wfprov/WorkflowRun/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.wfprov.WorkflowRun"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.bbr.wf4ever.wf4ever-profiles.complete-provenance-trace",
+      "name": "Complete Workflow Provenance Trace",
+      "abstract": "Master profile combining Research Object, Workflow Description, and Workflow Execution Provenance",
+      "status": "under-development",
+      "dateTimeAddition": "2025-01-11T00:00:00Z",
+      "itemClass": "schema",
+      "register": "wf4ever",
+      "version": "0.1",
+      "dateOfLastChange": "2025-11-12",
+      "maturity": "development",
+      "scope": "unstable",
+      "sources": [
+        {
+          "title": "Wf4Ever Research Object Model",
+          "link": "http://purl.org/wf4ever/model"
+        },
+        {
+          "title": "CWLProv - Provenance profiles for Common Workflow Language",
+          "link": "https://w3id.org/cwl/prov"
+        }
+      ],
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever-profiles/complete-provenance-trace/schema.yaml",
+      "sourceContext": "context.jsonld",
+      "dependsOn": [
+        "ogc.bbr.wf4ever.ro.Manifest",
+        "ogc.bbr.wf4ever.wfdesc.Workflow",
+        "ogc.bbr.wf4ever.ro.ResearchObject",
+        "ogc.bbr.wf4ever.wfprov.WorkflowRun"
+      ],
+      "tags": [
+        "provenance",
+        "workflow",
+        "research-object",
+        "cwl",
+        "profile",
+        "end-to-end"
+      ],
+      "description": "## Description\n\nThis master profile combines all elements of the Wf4Ever ontology suite to represent a complete workflow provenance trace:\n\n- **Research Object (RO)**: Container aggregating all workflow-related resources\n- **Workflow Description (WFDESC)**: Prospective provenance - the workflow structure and specification\n- **Workflow Execution (WFPROV)**: Retrospective provenance - the actual execution trace\n\nThis building block demonstrates the full integration of:\n1. Workflow structure (inputs, outputs, steps)\n2. Execution trace (runs, artifacts, agents)\n3. Research object packaging (aggregation, annotations, manifest)\n\n## Purpose\n\nThis profile serves multiple purposes:\n- **Validation**: End-to-end test of the complete Wf4Ever model\n- **Documentation**: Demonstrates how all pieces fit together\n- **Interoperability**: Shows mapping to PROV-O and other standards\n- **Real-world example**: Based on actual CWLProv data from scientific workflows\n\n## Use Cases\n\n1. **Scientific Workflow Archival**: Package complete workflow execution for reproducibility\n2. **Provenance Tracking**: Track data lineage from input to output through workflow steps\n3. **Workflow Sharing**: Share not just the workflow definition, but execution traces and results\n4. **Compliance**: Meet FAIR data principles with complete provenance metadata\n\n## Structure\n\nA complete provenance trace contains:\n\n```\nResearch Object\n\u251c\u2500\u2500 Manifest (describes RO)\n\u251c\u2500\u2500 Workflow (wfdesc:Workflow)\n\u2502   \u251c\u2500\u2500 Inputs (wfdesc:Input)\n\u2502   \u251c\u2500\u2500 Outputs (wfdesc:Output)\n\u2502   \u2514\u2500\u2500 Processes (wfdesc:Process)\n\u251c\u2500\u2500 WorkflowRun (wfprov:WorkflowRun)\n\u2502   \u251c\u2500\u2500 Used (input artifacts)\n\u2502   \u251c\u2500\u2500 Generated (output artifacts)\n\u2502   \u251c\u2500\u2500 wasAssociatedWith (agents/engines)\n\u2502   \u2514\u2500\u2500 ProcessRuns (sub-executions)\n\u2514\u2500\u2500 Annotations (metadata, attributions)\n```\n\n## Mapping to Standards\n\n- **PROV-O**: WorkflowRun \u2192 prov:Activity, Artifacts \u2192 prov:Entity\n- **DCAT**: Research Object \u2192 dcat:Dataset\n- **OGC API Processes**: Workflow \u2192 Process description\n- **ORE**: Research Object uses ORE aggregation model\n",
+      "shaclShapes": {},
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever-profiles/complete-provenance-trace/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever-profiles/complete-provenance-trace/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever-profiles/complete-provenance-trace/schema.json"
+      },
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever-profiles/complete-provenance-trace/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever-profiles/complete-provenance-trace/",
+      "rdfData": [],
+      "validationPassed": false,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-wf4ever/blob/master/build/tests/bbr/wf4ever/wf4ever-profiles/complete-provenance-trace/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/markdown/bbr/wf4ever/wf4ever-profiles/complete-provenance-trace/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/build/generateddocs/json-full/bbr/wf4ever/wf4ever-profiles/complete-provenance-trace/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-wf4ever/bblock/ogc.bbr.wf4ever.wf4ever-profiles.complete-provenance-trace"
+        }
+      }
+    }
+  ],
+  "remoteCacheDir": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/_cache"
+}

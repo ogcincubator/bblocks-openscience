@@ -272,7 +272,7 @@
       }
     },
     "rights": "dcat:rights",
-    "@vocab": "https://w3id.org/ogc/stac/assets/",
+    "@vocab": "http://purl.org/wf4ever/wfprov#",
     "assets": {
       "@context": {
         "type": "dct:format"
@@ -419,8 +419,9 @@
       "@id": "prov:qualifiedInfluence",
       "@type": "@id"
     },
-    "activityType": "@type",
+    "provType": "@type",
     "prov:type": {},
+    "activityType": "@type",
     "endedAtTime": {
       "@id": "prov:endedAtTime",
       "@type": "xsd:dateTime"
@@ -861,7 +862,6 @@
     "agentType": "@type",
     "entityType": "@type",
     "featureType": "@type",
-    "provType": "@type",
     "Activity": "prov:Activity",
     "ActivityInfluence": "prov:ActivityInfluence",
     "Agent": "prov:Agent",
@@ -1115,6 +1115,39 @@
       "@type": "@id"
     },
     "name": "rdfs:label",
+    "ProcessRun": "wfprov:ProcessRun",
+    "WorkflowRun": "wfprov:WorkflowRun",
+    "wasOutputFrom": {
+      "@id": "prov:generated",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "describedByProcess": {
+      "@id": "wfprov:describedByProcess",
+      "@type": "@id"
+    },
+    "usedInput": {
+      "@id": "wfprov:usedInput",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "wasPartOfWorkflowRun": {
+      "@id": "wfprov:wasPartOfWorkflowRun",
+      "@type": "@id"
+    },
+    "wasEnactedBy": {
+      "@id": "prov:wasAssociatedWith",
+      "@type": "@id"
+    },
+    "describedByWorkflow": {
+      "@id": "wfprov:describedByWorkflow",
+      "@type": "@id"
+    },
+    "hadSubProcessRun": {
+      "@reverse": "wfprov:wasPartOfWorkflowRun",
+      "@type": "@id",
+      "@container": "@set"
+    },
     "osc:workflow": {},
     "rel": {},
     "href": {
@@ -1138,6 +1171,8 @@
     "foaf": "http://xmlns.com/foaf/0.1/",
     "thns": "https://w3id.org/ogc/stac/themes/",
     "stac": "https://w3id.org/ogc/stac/core/",
+    "wfprov": "http://purl.org/wf4ever/wfprov#",
+    "wfdesc": "http://purl.org/wf4ever/wfdesc#",
     "@version": 1.1
   }
 }

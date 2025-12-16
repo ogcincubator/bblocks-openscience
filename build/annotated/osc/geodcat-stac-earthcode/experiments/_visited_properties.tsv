@@ -27,7 +27,7 @@ path	@id
 /time/resolution	
 /properties/created	http://purl.org/dc/terms/created
 /properties/updated	http://purl.org/dc/terms/modified
-/properties/type	
+/properties/type	@type
 /properties/title	http://purl.org/dc/terms/title
 /properties/description	http://purl.org/dc/terms/description
 /properties/keywords	http://www.w3.org/ns/dcat#keyword
@@ -485,9 +485,10 @@ path	@id
 /properties/qualifiedInfluence/entity	http://www.w3.org/ns/prov#entity
 /properties/qualifiedInfluence/activity	http://www.w3.org/ns/prov#activity
 /properties/qualifiedInfluence/agent	http://www.w3.org/ns/prov#agent
+/properties/provType	@type
+/properties/prov:type	
 /properties/id	@id
 /properties/activityType	@type
-/properties/prov:type	
 /properties/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /properties/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
 /properties/wasInformedBy	http://www.w3.org/ns/prov#wasInformedBy
@@ -514,4 +515,13 @@ path	@id
 /properties/qualifiedAssociation/agent	http://www.w3.org/ns/prov#agent
 /properties/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /properties/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
+/properties/describedByProcess	http://purl.org/wf4ever/wfprov#describedByProcess
+/properties/usedInput	http://purl.org/wf4ever/wfprov#usedInput
+/properties/usedInput/id	
+/properties/startedAtTime	http://www.w3.org/ns/prov#startedAtTime
+/properties/wasPartOfWorkflowRun	http://purl.org/wf4ever/wfprov#wasPartOfWorkflowRun
+/properties/wasEnactedBy	http://www.w3.org/ns/prov#wasAssociatedWith
+/properties/describedByWorkflow	http://purl.org/wf4ever/wfprov#describedByWorkflow
+/properties/hadSubProcessRun	wfprov:wasPartOfWorkflowRun
+/properties/hadSubProcessRun/id	
 /properties/osc:workflow	

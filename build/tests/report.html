@@ -51,7 +51,7 @@
     <body>
         <div class="container">
             <h1 class="title">Building blocks validation report</h1>
-            <small class="datetime">Generated at 2025-12-16T09:00:33.259061+00:00</small>
+            <small class="datetime">Generated at 2025-12-16T09:30:58.817181+00:00</small>
                 <p class="summary fw-semibold text-danger">
                     Number of passing building blocks: 11 / 12 (91.67%)
                 </p>
@@ -77,6 +77,28 @@
                                 </button>
                             </h2>
                             <div class="accordion-collapse collapse " id="bblock-collapse-ogc.osc.ontology.cwlprov">
+                                <div class="accordion-body">
+                                        <div class="alert alert-info mb-0">No tests were found for this building block.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bblock-report" data-bblock-id="ogc.osc.api-profiles.processes.ipt.results" id="bblock-ogc.osc.api-profiles.processes.ipt.results">
+                            <h2 class="accordion-header bblock-title">
+                                <button class="accordion-button collapsed" type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#bblock-collapse-ogc\.osc\.api-profiles\.processes\.ipt\.results">
+                                    <div class="flex-fill">
+                                        Result schema for IPT
+                                        <small class="ms-2 bblock-id">ogc.osc.api-profiles.processes.ipt.results</small>
+                                    </div>
+
+                                    <span class="badge text-bg-success me-2">
+                                            Passed
+                                            (no tests)
+                                    </span>
+                                </button>
+                            </h2>
+                            <div class="accordion-collapse collapse " id="bblock-collapse-ogc.osc.api-profiles.processes.ipt.results">
                                 <div class="accordion-body">
                                         <div class="alert alert-info mb-0">No tests were found for this building block.</div>
                                 </div>
@@ -149,28 +171,6 @@
                                 </button>
                             </h2>
                             <div class="accordion-collapse collapse " id="bblock-collapse-ogc.osc.ontology.openscience">
-                                <div class="accordion-body">
-                                        <div class="alert alert-info mb-0">No tests were found for this building block.</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item bblock-report" data-bblock-id="ogc.osc.api-profiles.processes.ipt.results" id="bblock-ogc.osc.api-profiles.processes.ipt.results">
-                            <h2 class="accordion-header bblock-title">
-                                <button class="accordion-button collapsed" type="button"
-                                    data-bs-toggle="collapse"
-                                    data-bs-target="#bblock-collapse-ogc\.osc\.api-profiles\.processes\.ipt\.results">
-                                    <div class="flex-fill">
-                                        Result schema for IPT
-                                        <small class="ms-2 bblock-id">ogc.osc.api-profiles.processes.ipt.results</small>
-                                    </div>
-
-                                    <span class="badge text-bg-success me-2">
-                                            Passed
-                                            (no tests)
-                                    </span>
-                                </button>
-                            </h2>
-                            <div class="accordion-collapse collapse " id="bblock-collapse-ogc.osc.api-profiles.processes.ipt.results">
                                 <div class="accordion-body">
                                         <div class="alert alert-info mb-0">No tests were found for this building block.</div>
                                 </div>
@@ -271,14 +271,14 @@
 
                                     <span class="badge text-bg-danger me-2">
                                             Tests Failed
-                                            (66.67% passed)
+                                            (0% passed)
                                     </span>
                                 </button>
                             </h2>
                             <div class="accordion-collapse collapse show" id="bblock-collapse-ogc.osc.geodcat-stac-earthcode.experiments">
                                 <div class="accordion-body">
                                         <p class="summary fw-semibold text-danger">
-                                            Test passed: 2 / 3
+                                            Test passed: 0 / 3
                                         </p>
                                         <div class="card mb-2 validation-item ">
                                             <div class="card-body">
@@ -293,7 +293,7 @@
                                                     <a href="https://raw.githubusercontent.com/ESA-EarthCODE/open-science-catalog-metadata/refs/heads/main/experiments/polaris-experiment/record.json" target="_blank">example_1_1.json</a>
                                                     <span class="badge bg-secondary example">Example</span>
                                                     <div class="float-end">
-                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                            <span class="badge text-bg-danger me-2">Failed</span>
                                                     </div>
                                                 </div>
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-3">
@@ -304,7 +304,102 @@
                                                                     <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
                                                                     <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
-                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                                    <div class="font-monospace entry-message section-json_schema text-danger">ValidationError: &#x27;id&#x27; is a required property
+
+Failed validating &#x27;required&#x27; in schema[&#x27;properties&#x27;][&#x27;properties&#x27;][&#x27;allOf&#x27;][0][&#x27;allOf&#x27;][0]:
+    {&#x27;$schema&#x27;: &#x27;https://json-schema.org/draft/2020-12/schema&#x27;,
+     &#x27;allOf&#x27;: [{&#x27;$ref&#x27;: &#x27;https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#/$defs/Activity&#x27;}],
+     &#x27;description&#x27;: &#x27;An execution instance of a process (based on &#x27;
+                    &#x27;prov:Activity)&#x27;,
+     &#x27;properties&#x27;: {&#x27;describedByProcess&#x27;: {&#x27;description&#x27;: &#x27;Links to the &#x27;
+                                                          &#x27;process &#x27;
+                                                          &#x27;description &#x27;
+                                                          &#x27;(wfdesc:Process) &#x27;
+                                                          &#x27;that was &#x27;
+                                                          &#x27;executed&#x27;,
+                                           &#x27;format&#x27;: &#x27;uri&#x27;,
+                                           &#x27;type&#x27;: &#x27;string&#x27;,
+                                           &#x27;x-jsonld-id&#x27;: &#x27;http://purl.org/wf4ever/wfprov#describedByProcess&#x27;,
+                                           &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;},
+                    &#x27;endedAtTime&#x27;: {&#x27;description&#x27;: &#x27;End time of the &#x27;
+                                                   &#x27;execution&#x27;,
+                                    &#x27;format&#x27;: &#x27;date-time&#x27;,
+                                    &#x27;type&#x27;: &#x27;string&#x27;,
+                                    &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#endedAtTime&#x27;,
+                                    &#x27;x-jsonld-type&#x27;: &#x27;http://www.w3.org/2001/XMLSchema#dateTime&#x27;},
+                    &#x27;id&#x27;: {&#x27;description&#x27;: &#x27;Unique identifier for the &#x27;
+                                          &#x27;process run&#x27;,
+                           &#x27;format&#x27;: &#x27;uri&#x27;,
+                           &#x27;type&#x27;: &#x27;string&#x27;,
+                           &#x27;x-jsonld-id&#x27;: &#x27;@id&#x27;},
+                    &#x27;startedAtTime&#x27;: {&#x27;description&#x27;: &#x27;Start time of the &#x27;
+                                                     &#x27;execution&#x27;,
+                                      &#x27;format&#x27;: &#x27;date-time&#x27;,
+                                      &#x27;type&#x27;: &#x27;string&#x27;,
+                                      &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#startedAtTime&#x27;,
+                                      &#x27;x-jsonld-type&#x27;: &#x27;http://www.w3.org/2001/XMLSchema#dateTime&#x27;},
+                    &#x27;type&#x27;: {&#x27;description&#x27;: &#x27;Type indicator (Activity or &#x27;
+                                            &#x27;sub-type)&#x27;,
+                             &#x27;type&#x27;: &#x27;string&#x27;,
+                             &#x27;x-jsonld-id&#x27;: &#x27;@type&#x27;},
+                    &#x27;usedInput&#x27;: {&#x27;description&#x27;: &#x27;Input artifacts used by &#x27;
+                                                 &#x27;this process run&#x27;,
+                                  &#x27;items&#x27;: {&#x27;properties&#x27;: {&#x27;id&#x27;: {&#x27;format&#x27;: &#x27;uri&#x27;,
+                                                                  &#x27;type&#x27;: &#x27;string&#x27;}},
+                                            &#x27;required&#x27;: [&#x27;id&#x27;],
+                                            &#x27;type&#x27;: &#x27;object&#x27;},
+                                  &#x27;type&#x27;: &#x27;array&#x27;,
+                                  &#x27;x-jsonld-container&#x27;: &#x27;@set&#x27;,
+                                  &#x27;x-jsonld-id&#x27;: &#x27;http://purl.org/wf4ever/wfprov#usedInput&#x27;,
+                                  &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;},
+                    &#x27;wasEnactedBy&#x27;: {&#x27;description&#x27;: &#x27;The workflow engine &#x27;
+                                                    &#x27;that enacted this &#x27;
+                                                    &#x27;process run&#x27;,
+                                     &#x27;format&#x27;: &#x27;uri&#x27;,
+                                     &#x27;type&#x27;: &#x27;string&#x27;,
+                                     &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#wasAssociatedWith&#x27;,
+                                     &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;},
+                    &#x27;wasPartOfWorkflowRun&#x27;: {&#x27;description&#x27;: &#x27;The workflow &#x27;
+                                                            &#x27;run that this &#x27;
+                                                            &#x27;process run &#x27;
+                                                            &#x27;was part of&#x27;,
+                                             &#x27;format&#x27;: &#x27;uri&#x27;,
+                                             &#x27;type&#x27;: &#x27;string&#x27;,
+                                             &#x27;x-jsonld-id&#x27;: &#x27;http://purl.org/wf4ever/wfprov#wasPartOfWorkflowRun&#x27;,
+                                             &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;}},
+     &#x27;required&#x27;: [&#x27;id&#x27;],
+     &#x27;type&#x27;: &#x27;object&#x27;,
+     &#x27;x-jsonld-extra-terms&#x27;: {&#x27;ProcessRun&#x27;: &#x27;http://purl.org/wf4ever/wfprov#ProcessRun&#x27;,
+                              &#x27;WorkflowRun&#x27;: &#x27;http://purl.org/wf4ever/wfprov#WorkflowRun&#x27;,
+                              &#x27;wasOutputFrom&#x27;: {&#x27;x-jsonld-container&#x27;: &#x27;@set&#x27;,
+                                                &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#generated&#x27;,
+                                                &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;}},
+     &#x27;x-jsonld-prefixes&#x27;: {&#x27;prov&#x27;: &#x27;http://www.w3.org/ns/prov#&#x27;,
+                           &#x27;wfdesc&#x27;: &#x27;http://purl.org/wf4ever/wfdesc#&#x27;,
+                           &#x27;wfprov&#x27;: &#x27;http://purl.org/wf4ever/wfprov#&#x27;},
+     &#x27;x-jsonld-vocab&#x27;: &#x27;http://purl.org/wf4ever/wfprov#&#x27;}
+
+On instance[&#x27;properties&#x27;]:
+    {&#x27;contacts&#x27;: [{&#x27;contactInstructions&#x27;: &#x27;Contact via EarthCODE&#x27;,
+                   &#x27;links&#x27;: [{&#x27;href&#x27;: &#x27;https://opensciencedata.esa.int/&#x27;,
+                              &#x27;rel&#x27;: &#x27;about&#x27;,
+                              &#x27;type&#x27;: &#x27;text/html&#x27;}],
+                   &#x27;name&#x27;: &#x27;EarthCODE Demo&#x27;,
+                   &#x27;organization&#x27;: &#x27;EarthCODE&#x27;,
+                   &#x27;roles&#x27;: [&#x27;host&#x27;]}],
+     &#x27;created&#x27;: &#x27;2025-02-19T23:00:00Z&#x27;,
+     &#x27;description&#x27;: &#x27;Polar Operational Limit Assessment Risk Index System &#x27;
+                    &#x27;(POLARIS)&#x27;,
+     &#x27;formats&#x27;: [{&#x27;name&#x27;: &#x27;GeoTIFF&#x27;}],
+     &#x27;keywords&#x27;: [&#x27;sea ice&#x27;, &#x27;polar&#x27;],
+     &#x27;license&#x27;: &#x27;CC-BY-SA-4.0&#x27;,
+     &#x27;osc:workflow&#x27;: &#x27;polaris-workflow&#x27;,
+     &#x27;themes&#x27;: [{&#x27;concepts&#x27;: [{&#x27;id&#x27;: &#x27;oceans&#x27;}],
+                 &#x27;scheme&#x27;: &#x27;https://github.com/stac-extensions/osc#theme&#x27;}],
+     &#x27;title&#x27;: &#x27;POLARIS&#x27;,
+     &#x27;type&#x27;: &#x27;experiment&#x27;,
+     &#x27;updated&#x27;: &#x27;2025-02-19T23:00:00Z&#x27;,
+     &#x27;version&#x27;: &#x27;2&#x27;}</div>
                                                                     <div class="font-monospace subsection-title mt-2">SHACL</div>
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
   Validation Report
@@ -330,7 +425,7 @@
                                                     <a href="osc/geodcat-stac-earthcode/experiments/example_2_1.json" target="_blank">example_2_1.json</a>
                                                     <span class="badge bg-secondary example">Example</span>
                                                     <div class="float-end">
-                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                            <span class="badge text-bg-danger me-2">Failed</span>
                                                     </div>
                                                 </div>
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-4">
@@ -341,7 +436,104 @@
                                                                     <div class="font-monospace entry-message section-files ">Output JSON-LD example_2_1.jsonld created</div>
                                                                     <div class="font-monospace entry-message section-files ">Output Turtle example_2_1.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
-                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                                    <div class="font-monospace entry-message section-json_schema text-danger">ValidationError: &#x27;id&#x27; is a required property
+
+Failed validating &#x27;required&#x27; in schema[&#x27;properties&#x27;][&#x27;properties&#x27;][&#x27;allOf&#x27;][0][&#x27;allOf&#x27;][0]:
+    {&#x27;$schema&#x27;: &#x27;https://json-schema.org/draft/2020-12/schema&#x27;,
+     &#x27;allOf&#x27;: [{&#x27;$ref&#x27;: &#x27;https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#/$defs/Activity&#x27;}],
+     &#x27;description&#x27;: &#x27;An execution instance of a process (based on &#x27;
+                    &#x27;prov:Activity)&#x27;,
+     &#x27;properties&#x27;: {&#x27;describedByProcess&#x27;: {&#x27;description&#x27;: &#x27;Links to the &#x27;
+                                                          &#x27;process &#x27;
+                                                          &#x27;description &#x27;
+                                                          &#x27;(wfdesc:Process) &#x27;
+                                                          &#x27;that was &#x27;
+                                                          &#x27;executed&#x27;,
+                                           &#x27;format&#x27;: &#x27;uri&#x27;,
+                                           &#x27;type&#x27;: &#x27;string&#x27;,
+                                           &#x27;x-jsonld-id&#x27;: &#x27;http://purl.org/wf4ever/wfprov#describedByProcess&#x27;,
+                                           &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;},
+                    &#x27;endedAtTime&#x27;: {&#x27;description&#x27;: &#x27;End time of the &#x27;
+                                                   &#x27;execution&#x27;,
+                                    &#x27;format&#x27;: &#x27;date-time&#x27;,
+                                    &#x27;type&#x27;: &#x27;string&#x27;,
+                                    &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#endedAtTime&#x27;,
+                                    &#x27;x-jsonld-type&#x27;: &#x27;http://www.w3.org/2001/XMLSchema#dateTime&#x27;},
+                    &#x27;id&#x27;: {&#x27;description&#x27;: &#x27;Unique identifier for the &#x27;
+                                          &#x27;process run&#x27;,
+                           &#x27;format&#x27;: &#x27;uri&#x27;,
+                           &#x27;type&#x27;: &#x27;string&#x27;,
+                           &#x27;x-jsonld-id&#x27;: &#x27;@id&#x27;},
+                    &#x27;startedAtTime&#x27;: {&#x27;description&#x27;: &#x27;Start time of the &#x27;
+                                                     &#x27;execution&#x27;,
+                                      &#x27;format&#x27;: &#x27;date-time&#x27;,
+                                      &#x27;type&#x27;: &#x27;string&#x27;,
+                                      &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#startedAtTime&#x27;,
+                                      &#x27;x-jsonld-type&#x27;: &#x27;http://www.w3.org/2001/XMLSchema#dateTime&#x27;},
+                    &#x27;type&#x27;: {&#x27;description&#x27;: &#x27;Type indicator (Activity or &#x27;
+                                            &#x27;sub-type)&#x27;,
+                             &#x27;type&#x27;: &#x27;string&#x27;,
+                             &#x27;x-jsonld-id&#x27;: &#x27;@type&#x27;},
+                    &#x27;usedInput&#x27;: {&#x27;description&#x27;: &#x27;Input artifacts used by &#x27;
+                                                 &#x27;this process run&#x27;,
+                                  &#x27;items&#x27;: {&#x27;properties&#x27;: {&#x27;id&#x27;: {&#x27;format&#x27;: &#x27;uri&#x27;,
+                                                                  &#x27;type&#x27;: &#x27;string&#x27;}},
+                                            &#x27;required&#x27;: [&#x27;id&#x27;],
+                                            &#x27;type&#x27;: &#x27;object&#x27;},
+                                  &#x27;type&#x27;: &#x27;array&#x27;,
+                                  &#x27;x-jsonld-container&#x27;: &#x27;@set&#x27;,
+                                  &#x27;x-jsonld-id&#x27;: &#x27;http://purl.org/wf4ever/wfprov#usedInput&#x27;,
+                                  &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;},
+                    &#x27;wasEnactedBy&#x27;: {&#x27;description&#x27;: &#x27;The workflow engine &#x27;
+                                                    &#x27;that enacted this &#x27;
+                                                    &#x27;process run&#x27;,
+                                     &#x27;format&#x27;: &#x27;uri&#x27;,
+                                     &#x27;type&#x27;: &#x27;string&#x27;,
+                                     &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#wasAssociatedWith&#x27;,
+                                     &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;},
+                    &#x27;wasPartOfWorkflowRun&#x27;: {&#x27;description&#x27;: &#x27;The workflow &#x27;
+                                                            &#x27;run that this &#x27;
+                                                            &#x27;process run &#x27;
+                                                            &#x27;was part of&#x27;,
+                                             &#x27;format&#x27;: &#x27;uri&#x27;,
+                                             &#x27;type&#x27;: &#x27;string&#x27;,
+                                             &#x27;x-jsonld-id&#x27;: &#x27;http://purl.org/wf4ever/wfprov#wasPartOfWorkflowRun&#x27;,
+                                             &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;}},
+     &#x27;required&#x27;: [&#x27;id&#x27;],
+     &#x27;type&#x27;: &#x27;object&#x27;,
+     &#x27;x-jsonld-extra-terms&#x27;: {&#x27;ProcessRun&#x27;: &#x27;http://purl.org/wf4ever/wfprov#ProcessRun&#x27;,
+                              &#x27;WorkflowRun&#x27;: &#x27;http://purl.org/wf4ever/wfprov#WorkflowRun&#x27;,
+                              &#x27;wasOutputFrom&#x27;: {&#x27;x-jsonld-container&#x27;: &#x27;@set&#x27;,
+                                                &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#generated&#x27;,
+                                                &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;}},
+     &#x27;x-jsonld-prefixes&#x27;: {&#x27;prov&#x27;: &#x27;http://www.w3.org/ns/prov#&#x27;,
+                           &#x27;wfdesc&#x27;: &#x27;http://purl.org/wf4ever/wfdesc#&#x27;,
+                           &#x27;wfprov&#x27;: &#x27;http://purl.org/wf4ever/wfprov#&#x27;},
+     &#x27;x-jsonld-vocab&#x27;: &#x27;http://purl.org/wf4ever/wfprov#&#x27;}
+
+On instance[&#x27;properties&#x27;]:
+    {&#x27;contacts&#x27;: [{&#x27;contactInstructions&#x27;: &#x27;Contact via website&#x27;,
+                   &#x27;name&#x27;: &#x27;A person&#x27;,
+                   &#x27;organization&#x27;: &#x27;An Org&#x27;,
+                   &#x27;position&#x27;: &#x27;Researcher&#x27;,
+                   &#x27;roles&#x27;: [&#x27;principal investigator&#x27;]},
+                  {&#x27;contactInstructions&#x27;: &#x27;SEE WEBSITE&#x27;,
+                   &#x27;links&#x27;: [{&#x27;href&#x27;: &#x27;https://example.com/&#x27;,
+                              &#x27;rel&#x27;: &#x27;about&#x27;,
+                              &#x27;type&#x27;: &#x27;text/html&#x27;}],
+                   &#x27;name&#x27;: &#x27;An Org&#x27;,
+                   &#x27;roles&#x27;: [&#x27;processor&#x27;]}],
+     &#x27;created&#x27;: &#x27;2025-01-21T18:00:00Z&#x27;,
+     &#x27;description&#x27;: &#x27;Experiment using the water bodies workflow.&#x27;,
+     &#x27;formats&#x27;: [{&#x27;name&#x27;: &#x27;GeoTIFF&#x27;}],
+     &#x27;license&#x27;: &#x27;proprietary&#x27;,
+     &#x27;osc:workflow&#x27;: &#x27;waterbodies&#x27;,
+     &#x27;themes&#x27;: [{&#x27;concepts&#x27;: [{&#x27;id&#x27;: &#x27;land&#x27;}],
+                 &#x27;scheme&#x27;: &#x27;https://github.com/stac-extensions/osc#theme&#x27;}],
+     &#x27;title&#x27;: &#x27;ESA WorldCereal Experiment&#x27;,
+     &#x27;type&#x27;: &#x27;experiment&#x27;,
+     &#x27;updated&#x27;: &#x27;2025-01-21T18:40:00Z&#x27;,
+     &#x27;version&#x27;: &#x27;2&#x27;}</div>
                                                                     <div class="font-monospace subsection-title mt-2">SHACL</div>
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
   Validation Report
@@ -378,13 +570,92 @@
                                                                     <div class="font-monospace entry-message section-files ">Output JSON-LD example_3_1.jsonld created</div>
                                                                     <div class="font-monospace entry-message section-files ">Output Turtle example_3_1.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
-                                                                    <div class="font-monospace entry-message section-json_schema text-danger">ValidationError: &#x27;experiment&#x27; is not one of [&#x27;Activity&#x27;, &#x27;prov:Activity&#x27;]
+                                                                    <div class="font-monospace entry-message section-json_schema text-danger">ValidationError: &#x27;describedByWorkflow&#x27; is a required property
 
-Failed validating &#x27;enum&#x27; in schema[0]:
-    {&#x27;enum&#x27;: [&#x27;Activity&#x27;, &#x27;prov:Activity&#x27;], &#x27;type&#x27;: &#x27;string&#x27;}
+Failed validating &#x27;required&#x27; in schema[&#x27;properties&#x27;][&#x27;properties&#x27;][&#x27;allOf&#x27;][0][&#x27;allOf&#x27;][1]:
+    {&#x27;properties&#x27;: {&#x27;describedByWorkflow&#x27;: {&#x27;description&#x27;: &#x27;Links to the &#x27;
+                                                           &#x27;workflow &#x27;
+                                                           &#x27;description &#x27;
+                                                           &#x27;(wfdesc:Workflow) &#x27;
+                                                           &#x27;that was &#x27;
+                                                           &#x27;executed&#x27;,
+                                            &#x27;format&#x27;: &#x27;uri&#x27;,
+                                            &#x27;type&#x27;: &#x27;string&#x27;,
+                                            &#x27;x-jsonld-id&#x27;: &#x27;http://purl.org/wf4ever/wfprov#describedByWorkflow&#x27;,
+                                            &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;},
+                    &#x27;hadSubProcessRun&#x27;: {&#x27;description&#x27;: &#x27;The process runs &#x27;
+                                                        &#x27;that were part of &#x27;
+                                                        &#x27;this workflow &#x27;
+                                                        &#x27;execution&#x27;,
+                                         &#x27;items&#x27;: {&#x27;properties&#x27;: {&#x27;id&#x27;: {&#x27;format&#x27;: &#x27;uri&#x27;,
+                                                                         &#x27;type&#x27;: &#x27;string&#x27;}},
+                                                   &#x27;required&#x27;: [&#x27;id&#x27;],
+                                                   &#x27;type&#x27;: &#x27;object&#x27;},
+                                         &#x27;type&#x27;: &#x27;array&#x27;,
+                                         &#x27;x-jsonld-container&#x27;: &#x27;@set&#x27;,
+                                         &#x27;x-jsonld-reverse&#x27;: &#x27;wfprov:wasPartOfWorkflowRun&#x27;,
+                                         &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;},
+                    &#x27;wasEnactedBy&#x27;: {&#x27;description&#x27;: &#x27;The workflow engine &#x27;
+                                                    &#x27;that executed this &#x27;
+                                                    &#x27;workflow&#x27;,
+                                     &#x27;format&#x27;: &#x27;uri&#x27;,
+                                     &#x27;type&#x27;: &#x27;string&#x27;,
+                                     &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#wasAssociatedWith&#x27;,
+                                     &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;}},
+     &#x27;required&#x27;: [&#x27;describedByWorkflow&#x27;],
+     &#x27;type&#x27;: &#x27;object&#x27;}
 
-On instance:
-    &#x27;experiment&#x27;</div>
+On instance[&#x27;properties&#x27;]:
+    {&#x27;contacts&#x27;: [{&#x27;contactInstructions&#x27;: &#x27;Contact via website&#x27;,
+                   &#x27;name&#x27;: &#x27;A person&#x27;,
+                   &#x27;organization&#x27;: &#x27;An Org&#x27;,
+                   &#x27;position&#x27;: &#x27;Researcher&#x27;,
+                   &#x27;roles&#x27;: [&#x27;principal investigator&#x27;]},
+                  {&#x27;contactInstructions&#x27;: &#x27;SEE WEBSITE&#x27;,
+                   &#x27;links&#x27;: [{&#x27;href&#x27;: &#x27;https://example.com/&#x27;,
+                              &#x27;rel&#x27;: &#x27;about&#x27;,
+                              &#x27;type&#x27;: &#x27;text/html&#x27;}],
+                   &#x27;name&#x27;: &#x27;An Org&#x27;,
+                   &#x27;roles&#x27;: [&#x27;processor&#x27;]}],
+     &#x27;created&#x27;: &#x27;2025-01-21T18:00:00Z&#x27;,
+     &#x27;description&#x27;: &#x27;Experiment using the water bodies workflow.&#x27;,
+     &#x27;endedAtTime&#x27;: &#x27;2025-01-21T17:59:50Z&#x27;,
+     &#x27;formats&#x27;: [{&#x27;name&#x27;: &#x27;GeoTIFF&#x27;}],
+     &#x27;generated&#x27;: &#x27;https://example.com/open-science-catalog-metadata/products/water-bodies-execution-outputs/collection.json&#x27;,
+     &#x27;id&#x27;: &#x27;water-bodies-execution&#x27;,
+     &#x27;license&#x27;: &#x27;proprietary&#x27;,
+     &#x27;osc:workflow&#x27;: &#x27;waterbodies&#x27;,
+     &#x27;provType&#x27;: [&#x27;Activity&#x27;, &#x27;wfprov:WorkflowRun&#x27;],
+     &#x27;startedAtTime&#x27;: &#x27;2025-01-21T17:40:50Z&#x27;,
+     &#x27;themes&#x27;: [{&#x27;concepts&#x27;: [{&#x27;id&#x27;: &#x27;land&#x27;}],
+                 &#x27;scheme&#x27;: &#x27;https://github.com/stac-extensions/osc#theme&#x27;}],
+     &#x27;title&#x27;: &#x27;Water Bodies Experiment&#x27;,
+     &#x27;type&#x27;: &#x27;experiment&#x27;,
+     &#x27;updated&#x27;: &#x27;2025-01-21T18:40:00Z&#x27;,
+     &#x27;version&#x27;: &#x27;2&#x27;,
+     &#x27;wasAssociatedWith&#x27;: [{&#x27;actedOnBehalfOf&#x27;: {&#x27;agentType&#x27;: &#x27;Organization&#x27;,
+                                                &#x27;name&#x27;: &#x27;An Org&#x27;},
+                            &#x27;agentType&#x27;: &#x27;Person&#x27;,
+                            &#x27;name&#x27;: &#x27;A Person&#x27;}],
+     &#x27;wfprov:describedByWorkflow&#x27;: &#x27;https://example.com/workflows/waterbodies/record.json&#x27;,
+     &#x27;wfprov:usedInput&#x27;: [{&#x27;describedByParameter&#x27;: &#x27;stac_items&#x27;,
+                           &#x27;hadMember&#x27;: [&#x27;https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2B_10TFK_20210713_0_L2A&#x27;,
+                                         &#x27;https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2A_10TFK_20220524_0_L2A&#x27;],
+                           &#x27;type&#x27;: &#x27;wfprov:Artifact&#x27;},
+                          {&#x27;data&#x27;: &#x27;-121.399,39.834,-120.74,40.472&#x27;,
+                           &#x27;describedByParameter&#x27;: &#x27;aoi&#x27;,
+                           &#x27;type&#x27;: &#x27;wfprov:Artifact&#x27;},
+                          {&#x27;data&#x27;: &#x27;EPSG:4326&#x27;,
+                           &#x27;describedByParameter&#x27;: &#x27;epsg&#x27;,
+                           &#x27;type&#x27;: &#x27;wfprov:Artifact&#x27;},
+                          {&#x27;data&#x27;: [&#x27;green&#x27;, &#x27;nir&#x27;],
+                           &#x27;describedByParameter&#x27;: &#x27;bands&#x27;,
+                           &#x27;type&#x27;: &#x27;wfprov:Artifact&#x27;}],
+     &#x27;wfprov:wasEnactedBy&#x27;: {&#x27;id&#x27;: &#x27;eo-data-platform&#x27;,
+                             &#x27;prov:label&#x27;: &#x27;cwltool 3.1.20251031082601&#x27;,
+                             &#x27;type&#x27;: [&#x27;wfprov:WorkfowEngine&#x27;,
+                                      &#x27;prov:SoftwareAgent&#x27;,
+                                      &#x27;prov:Agent&#x27;]}}</div>
                                                                     <div class="font-monospace subsection-title mt-2">SHACL</div>
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
   Validation Report
