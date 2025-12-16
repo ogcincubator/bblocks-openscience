@@ -8,6 +8,13 @@ anyOf:
     - $ref: bblocks://ogc.contrib.stac.extensions.themes
     - $ref: bblocks://ogc.contrib.stac.extensions.osc
   - $ref: bblocks://ogc.geo.geodcat.geodcat-records
+
+# because a Record is a "Feature" then the nested properties property can have
+# properties defining aspects of the prov Activity using the bblock schema for this
+properties:
+  properties:
+    $ref: bblocks://ogc.bbr.wf4ever.wfprov.WorkflowRun
+
 $defs:
   osc:workflow:
     title: Workflow
