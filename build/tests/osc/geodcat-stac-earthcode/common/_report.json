@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.osc.geodcat-stac-earthcode.common - EarthCODE Common STAC profile",
   "bblockName": "EarthCODE Common STAC profile",
   "bblockId": "ogc.osc.geodcat-stac-earthcode.common",
-  "generated": "2025-12-01T10:33:02.377539+00:00",
+  "generated": "2025-12-16T08:58:16.877055+00:00",
   "result": true,
   "items": [
     {
@@ -24,7 +24,7 @@
           "entries": [
             {
               "isError": false,
-              "message": "Using example_1_1.json from examples"
+              "message": "Using example_1_1.json (example_1_1) from examples"
             },
             {
               "op": "jsonld-uplift",
@@ -73,12 +73,12 @@
             {
               "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
               "focusNodes": {
-                "rec:testVarExists": {
+                "rec:testAllVarsInTemplate": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testVarExists: *none*\n"
+              "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
             }
           ]
         }

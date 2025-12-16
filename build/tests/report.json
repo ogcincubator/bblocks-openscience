@@ -1,16 +1,16 @@
 {
   "summary": {
     "total": 12,
-    "passed": 12,
-    "failed": 0,
-    "result": true
+    "passed": 11,
+    "failed": 1,
+    "result": false
   },
   "bblocks": {
     "ogc.osc.ontology.cwlprov": {
       "title": "Validation report for ogc.osc.ontology.cwlprov - CWL Ontology",
       "bblockName": "CWL Ontology",
       "bblockId": "ogc.osc.ontology.cwlprov",
-      "generated": "2025-12-01T10:33:00.082059+00:00",
+      "generated": "2025-12-16T08:58:12.152257+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -24,7 +24,7 @@
       "title": "Validation report for ogc.osc.application-package - Application Package",
       "bblockName": "Application Package",
       "bblockId": "ogc.osc.application-package",
-      "generated": "2025-12-01T10:33:00.135968+00:00",
+      "generated": "2025-12-16T08:58:12.233824+00:00",
       "result": true,
       "items": [
         {
@@ -46,7 +46,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_1_1.yaml from examples"
+                  "message": "Using example_1_1.yaml (example_1_1) from examples"
                 }
               ]
             },
@@ -76,7 +76,7 @@
       "title": "Validation report for ogc.osc.ontology.openscience - Open Science Ontology",
       "bblockName": "Open Science Ontology",
       "bblockId": "ogc.osc.ontology.openscience",
-      "generated": "2025-12-01T10:33:00.139685+00:00",
+      "generated": "2025-12-16T08:58:12.238176+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -90,7 +90,7 @@
       "title": "Validation report for ogc.osc.api-profiles.processes.ipt.results - Result schema for IPT",
       "bblockName": "Result schema for IPT",
       "bblockId": "ogc.osc.api-profiles.processes.ipt.results",
-      "generated": "2025-12-01T10:33:00.148693+00:00",
+      "generated": "2025-12-16T08:58:12.247541+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -104,7 +104,7 @@
       "title": "Validation report for ogc.osc.geodcat-stac-earthcode.common - EarthCODE Common STAC profile",
       "bblockName": "EarthCODE Common STAC profile",
       "bblockId": "ogc.osc.geodcat-stac-earthcode.common",
-      "generated": "2025-12-01T10:33:02.377539+00:00",
+      "generated": "2025-12-16T08:58:16.877055+00:00",
       "result": true,
       "items": [
         {
@@ -126,7 +126,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_1_1.json from examples"
+                  "message": "Using example_1_1.json (example_1_1) from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -175,12 +175,12 @@
                 {
                   "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
                   "focusNodes": {
-                    "rec:testVarExists": {
+                    "rec:testAllVarsInTemplate": {
                       "nodes": []
                     }
                   },
                   "isError": false,
-                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testVarExists: *none*\n"
+                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
                 }
               ]
             }
@@ -198,7 +198,7 @@
       "title": "Validation report for ogc.osc.api-profiles.processes.ipt.execute - Execute (request) schema for IPT",
       "bblockName": "Execute (request) schema for IPT",
       "bblockId": "ogc.osc.api-profiles.processes.ipt.execute",
-      "generated": "2025-12-01T10:33:02.384974+00:00",
+      "generated": "2025-12-16T08:58:16.884462+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -212,8 +212,8 @@
       "title": "Validation report for ogc.osc.geodcat-stac-earthcode.experiments - EarthCODE Experiment",
       "bblockName": "EarthCODE Experiment",
       "bblockId": "ogc.osc.geodcat-stac-earthcode.experiments",
-      "generated": "2025-12-01T10:33:05.537672+00:00",
-      "result": true,
+      "generated": "2025-12-16T08:58:21.836699+00:00",
+      "result": false,
       "items": [
         {
           "source": {
@@ -234,7 +234,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_1_1.json from examples"
+                  "message": "Using example_1_1.json (example_1_1) from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -283,12 +283,170 @@
                 {
                   "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
                   "focusNodes": {
-                    "rec:testVarExists": {
+                    "rec:testAllVarsInTemplate": {
                       "nodes": []
                     }
                   },
                   "isError": false,
-                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testVarExists: *none*\n"
+                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/osc/geodcat-stac-earthcode/experiments/example_2_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/experiments/example_2_1.json",
+            "exampleIndex": 2,
+            "snippetIndex": 1,
+            "language": "application/json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using example_2_1.json (example_2_1) from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_2_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_2_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_2_1.ttl",
+                  "size": 65,
+                  "isError": false,
+                  "message": "Output Turtle example_2_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+                  "focusNodes": {
+                    "rec:testAllVarsInTemplate": {
+                      "nodes": []
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/osc/geodcat-stac-earthcode/experiments/example_3_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/experiments/example_3_1.json",
+            "exampleIndex": 3,
+            "snippetIndex": 1,
+            "language": "application/json"
+          },
+          "result": false,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using example_3_1.json (example_3_1) from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_3_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_3_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_3_1.ttl",
+                  "size": 100,
+                  "isError": false,
+                  "message": "Output Turtle example_3_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": false,
+                  "exception": "ValidationError",
+                  "errorMessage": "'experiment' is not one of ['Activity', 'prov:Activity']",
+                  "isError": true,
+                  "message": "ValidationError: 'experiment' is not one of ['Activity', 'prov:Activity']\n\nFailed validating 'enum' in schema[0]:\n    {'enum': ['Activity', 'prov:Activity'], 'type': 'string'}\n\nOn instance:\n    'experiment'"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+                  "focusNodes": {
+                    "rec:testAllVarsInTemplate": {
+                      "nodes": []
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
                 }
               ]
             }
@@ -297,16 +455,16 @@
       ],
       "globalErrors": {},
       "counts": {
-        "total": 1,
-        "passed": 1,
-        "failed": 0
+        "total": 3,
+        "passed": 2,
+        "failed": 1
       }
     },
     "ogc.osc.geodcat-stac-earthcode.products": {
       "title": "Validation report for ogc.osc.geodcat-stac-earthcode.products - EarthCODE Product",
       "bblockName": "EarthCODE Product",
       "bblockId": "ogc.osc.geodcat-stac-earthcode.products",
-      "generated": "2025-12-01T10:33:07.094506+00:00",
+      "generated": "2025-12-16T08:58:25.096118+00:00",
       "result": true,
       "items": [
         {
@@ -387,12 +545,12 @@
                 {
                   "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
                   "focusNodes": {
-                    "rec:testVarExists": {
+                    "rec:testAllVarsInTemplate": {
                       "nodes": []
                     }
                   },
                   "isError": false,
-                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testVarExists: *none*\n"
+                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
                 }
               ]
             }
@@ -476,12 +634,12 @@
                 {
                   "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
                   "focusNodes": {
-                    "rec:testVarExists": {
+                    "rec:testAllVarsInTemplate": {
                       "nodes": []
                     }
                   },
                   "isError": false,
-                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testVarExists: *none*\n"
+                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
                 }
               ]
             }
@@ -565,12 +723,12 @@
                 {
                   "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
                   "focusNodes": {
-                    "rec:testVarExists": {
+                    "rec:testAllVarsInTemplate": {
                       "nodes": []
                     }
                   },
                   "isError": false,
-                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testVarExists: *none*\n"
+                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
                 }
               ]
             }
@@ -654,12 +812,12 @@
                 {
                   "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
                   "focusNodes": {
-                    "rec:testVarExists": {
+                    "rec:testAllVarsInTemplate": {
                       "nodes": []
                     }
                   },
                   "isError": false,
-                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testVarExists: *none*\n"
+                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
                 }
               ]
             }
@@ -743,12 +901,12 @@
                 {
                   "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
                   "focusNodes": {
-                    "rec:testVarExists": {
+                    "rec:testAllVarsInTemplate": {
                       "nodes": []
                     }
                   },
                   "isError": false,
-                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testVarExists: *none*\n"
+                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
                 }
               ]
             }
@@ -819,12 +977,12 @@
                 {
                   "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
                   "focusNodes": {
-                    "rec:testVarExists": {
+                    "rec:testAllVarsInTemplate": {
                       "nodes": []
                     }
                   },
                   "isError": false,
-                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testVarExists: *none*\n"
+                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
                 }
               ]
             }
@@ -849,7 +1007,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_1_1.json from examples"
+                  "message": "Using example_1_1.json (example_1_1) from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -898,12 +1056,90 @@
                 {
                   "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
                   "focusNodes": {
-                    "rec:testVarExists": {
+                    "rec:testAllVarsInTemplate": {
                       "nodes": []
                     }
                   },
                   "isError": false,
-                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testVarExists: *none*\n"
+                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/osc/geodcat-stac-earthcode/products/example_2_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/products/example_2_1.json",
+            "exampleIndex": 2,
+            "snippetIndex": 1,
+            "language": "application/json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using example_2_1.json (example_2_1) from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_2_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_2_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_2_1.ttl",
+                  "size": 74,
+                  "isError": false,
+                  "message": "Output Turtle example_2_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+                  "focusNodes": {
+                    "rec:testAllVarsInTemplate": {
+                      "nodes": []
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
                 }
               ]
             }
@@ -912,8 +1148,8 @@
       ],
       "globalErrors": {},
       "counts": {
-        "total": 7,
-        "passed": 7,
+        "total": 8,
+        "passed": 8,
         "failed": 0
       }
     },
@@ -921,7 +1157,7 @@
       "title": "Validation report for ogc.osc.geodcat-stac-earthcode.workflows - EarthCODE Workflow",
       "bblockName": "EarthCODE Workflow",
       "bblockId": "ogc.osc.geodcat-stac-earthcode.workflows",
-      "generated": "2025-12-01T10:33:07.539733+00:00",
+      "generated": "2025-12-16T08:58:26.612926+00:00",
       "result": true,
       "items": [
         {
@@ -943,7 +1179,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_1_1.json from examples"
+                  "message": "Using example_1_1.json (example_1_1) from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -992,12 +1228,12 @@
                 {
                   "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
                   "focusNodes": {
-                    "rec:testVarExists": {
+                    "rec:testAllVarsInTemplate": {
                       "nodes": []
                     }
                   },
                   "isError": false,
-                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testVarExists: *none*\n"
+                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
                 }
               ]
             }
@@ -1022,7 +1258,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_2_1.json from examples"
+                  "message": "Using example_2_1.json (example_2_1) from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -1071,12 +1307,12 @@
                 {
                   "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
                   "focusNodes": {
-                    "rec:testVarExists": {
+                    "rec:testAllVarsInTemplate": {
                       "nodes": []
                     }
                   },
                   "isError": false,
-                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testVarExists: *none*\n"
+                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
                 }
               ]
             }
@@ -1101,7 +1337,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_3_1.json from examples"
+                  "message": "Using example_3_1.json (example_3_1) from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -1150,12 +1386,12 @@
                 {
                   "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
                   "focusNodes": {
-                    "rec:testVarExists": {
+                    "rec:testAllVarsInTemplate": {
                       "nodes": []
                     }
                   },
                   "isError": false,
-                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testVarExists: *none*\n"
+                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
                 }
               ]
             }
@@ -1169,8 +1405,7 @@
             "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/workflows/example_4_1.json",
             "exampleIndex": 4,
             "snippetIndex": 1,
-            "language": "application/json",
-            "sourceUrl": "https://raw.githubusercontent.com/ESA-EarthCODE/open-science-catalog-metadata/refs/heads/main/workflows/polaris-workflow/record.json"
+            "language": "application/json"
           },
           "result": true,
           "sections": [
@@ -1180,7 +1415,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_4_1.json from examples"
+                  "message": "Using example_4_1.json (example_4_1) from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -1197,7 +1432,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "example_4_1.ttl",
-                  "size": 41,
+                  "size": 38,
                   "isError": false,
                   "message": "Output Turtle example_4_1.ttl created"
                 }
@@ -1229,12 +1464,91 @@
                 {
                   "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
                   "focusNodes": {
-                    "rec:testVarExists": {
+                    "rec:testAllVarsInTemplate": {
                       "nodes": []
                     }
                   },
                   "isError": false,
-                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testVarExists: *none*\n"
+                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/osc/geodcat-stac-earthcode/workflows/example_5_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/workflows/example_5_1.json",
+            "exampleIndex": 5,
+            "snippetIndex": 1,
+            "language": "application/json",
+            "sourceUrl": "https://raw.githubusercontent.com/ESA-EarthCODE/open-science-catalog-metadata/refs/heads/main/workflows/polaris-workflow/record.json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using example_5_1.json (example_5_1) from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_5_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_5_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_5_1.ttl",
+                  "size": 41,
+                  "isError": false,
+                  "message": "Output Turtle example_5_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+                  "focusNodes": {
+                    "rec:testAllVarsInTemplate": {
+                      "nodes": []
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
                 }
               ]
             }
@@ -1243,8 +1557,8 @@
       ],
       "globalErrors": {},
       "counts": {
-        "total": 4,
-        "passed": 4,
+        "total": 5,
+        "passed": 5,
         "failed": 0
       }
     },
@@ -1252,7 +1566,7 @@
       "title": "Validation report for ogc.osc.api-profiles.processes.ipt.api - IPT Profile of OGC API Processes",
       "bblockName": "IPT Profile of OGC API Processes",
       "bblockId": "ogc.osc.api-profiles.processes.ipt.api",
-      "generated": "2025-12-01T10:33:07.545147+00:00",
+      "generated": "2025-12-16T08:58:26.618693+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -1266,7 +1580,7 @@
       "title": "Validation report for ogc.osc.api-profiles.processes.workflow - Workflow profile of OGC API Processes",
       "bblockName": "Workflow profile of OGC API Processes",
       "bblockId": "ogc.osc.api-profiles.processes.workflow",
-      "generated": "2025-12-01T10:33:07.548717+00:00",
+      "generated": "2025-12-16T08:58:26.622366+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -1280,7 +1594,7 @@
       "title": "Validation report for ogc.osc.api-profiles.processes.ospd - Open Science profile of OGC API Processes",
       "bblockName": "Open Science profile of OGC API Processes",
       "bblockId": "ogc.osc.api-profiles.processes.ospd",
-      "generated": "2025-12-01T10:33:07.575991+00:00",
+      "generated": "2025-12-16T08:58:26.678264+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},

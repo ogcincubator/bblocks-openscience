@@ -111,4 +111,818 @@ path	@id
 /linkTemplates/uriTemplate	https://www.opengis.net/def/ogc-api/records/uriTemplate
 /linkTemplates/varBase	https://www.opengis.net/def/ogc-api/records/varBase
 /linkTemplates/variables	https://www.opengis.net/def/ogc-api/records/hasVariable
+/properties/wasInfluencedBy	http://www.w3.org/ns/prov#wasInfluencedBy
+/properties/wasInfluencedBy/id	@id
+/properties/wasInfluencedBy/type	
+/properties/wasInfluencedBy/activityType	@type
+/properties/wasInfluencedBy/prov:type	
+/properties/wasInfluencedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
+/properties/wasInfluencedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
+/properties/wasInfluencedBy/wasAssociatedWith/href	http://www.w3.org/ns/oa#hasTarget
+/properties/wasInfluencedBy/wasAssociatedWith/rel	http://www.iana.org/assignments/relation
+/properties/wasInfluencedBy/wasAssociatedWith/anchor	
+/properties/wasInfluencedBy/wasAssociatedWith/type	http://purl.org/dc/terms/type
+/properties/wasInfluencedBy/wasAssociatedWith/hreflang	http://purl.org/dc/terms/language
+/properties/wasInfluencedBy/wasAssociatedWith/title	http://www.w3.org/2000/01/rdf-schema#label
+/properties/wasInfluencedBy/wasAssociatedWith/length	http://purl.org/dc/terms/extent
+/properties/wasInfluencedBy/wasAssociatedWith/provType	@type
+/properties/wasInfluencedBy/wasAssociatedWith/agentType	@type
+/properties/wasInfluencedBy/wasAssociatedWith/prov:type	
+/properties/wasInfluencedBy/wasAssociatedWith/name	http://www.w3.org/2000/01/rdf-schema#label
+/properties/wasInfluencedBy/wasAssociatedWith/id	@id
+/properties/wasInfluencedBy/wasAssociatedWith/actedOnBehalfOf	http://www.w3.org/ns/prov#actedOnBehalfOf
+/properties/wasInfluencedBy/wasAssociatedWith/atLocation	http://www.w3.org/ns/prov#atLocation
+/properties/wasInfluencedBy/wasAssociatedWith/qualifiedDelegation	http://www.w3.org/ns/prov#qualifiedDelegation
+/properties/wasInfluencedBy/wasAssociatedWith/qualifiedDelegation/id	@id
+/properties/wasInfluencedBy/wasAssociatedWith/qualifiedDelegation/type	
+/properties/wasInfluencedBy/wasAssociatedWith/qualifiedDelegation/agent	http://www.w3.org/ns/prov#agent
+/properties/wasInfluencedBy/wasAssociatedWith/qualifiedDelegation/hadActivity	http://www.w3.org/ns/prov#hadActivity
+/properties/wasInfluencedBy/wasInformedBy	http://www.w3.org/ns/prov#wasInformedBy
+/properties/wasInfluencedBy/used	http://www.w3.org/ns/prov#used
+/properties/wasInfluencedBy/wasStartedBy	http://www.w3.org/ns/prov#wasStartedBy
+/properties/wasInfluencedBy/wasEndedBy	http://www.w3.org/ns/prov#wasEndedBy
+/properties/wasInfluencedBy/invalidated	http://www.w3.org/ns/prov#invalidated
+/properties/wasInfluencedBy/generated	http://www.w3.org/ns/prov#generated
+/properties/wasInfluencedBy/atLocation	http://www.w3.org/ns/prov#atLocation
+/properties/wasInfluencedBy/qualifiedUsage	http://www.w3.org/ns/prov#qualifiedUsage
+/properties/wasInfluencedBy/qualifiedUsage/id	@id
+/properties/wasInfluencedBy/qualifiedUsage/type	
+/properties/wasInfluencedBy/qualifiedUsage/atTime	http://www.w3.org/ns/prov#atTime
+/properties/wasInfluencedBy/qualifiedUsage/entity	http://www.w3.org/ns/prov#entity
+/properties/wasInfluencedBy/qualifiedCommunication	http://www.w3.org/ns/prov#qualifiedCommunication
+/properties/wasInfluencedBy/qualifiedCommunication/id	@id
+/properties/wasInfluencedBy/qualifiedCommunication/atTime	http://www.w3.org/ns/prov#atTime
+/properties/wasInfluencedBy/qualifiedCommunication/hadRole	http://www.w3.org/ns/prov#hadRole
+/properties/wasInfluencedBy/qualifiedCommunication/influencer	http://www.w3.org/ns/prov#influencer
+/properties/wasInfluencedBy/qualifiedCommunication/hadActivity	http://www.w3.org/ns/prov#hadActivity
+/properties/wasInfluencedBy/qualifiedCommunication/activity	http://www.w3.org/ns/prov#activity
+/properties/wasInfluencedBy/qualifiedCommunication/type	
+/properties/wasInfluencedBy/qualifiedStart	http://www.w3.org/ns/prov#qualifiedStart
+/properties/wasInfluencedBy/qualifiedStart/id	@id
+/properties/wasInfluencedBy/qualifiedStart/type	
+/properties/wasInfluencedBy/qualifiedStart/atTime	http://www.w3.org/ns/prov#atTime
+/properties/wasInfluencedBy/qualifiedStart/entity	http://www.w3.org/ns/prov#entity
+/properties/wasInfluencedBy/qualifiedStart/hadActivity	http://www.w3.org/ns/prov#hadActivity
+/properties/wasInfluencedBy/qualifiedEnd	http://www.w3.org/ns/prov#qualifiedEnd
+/properties/wasInfluencedBy/qualifiedEnd/type	
+/properties/wasInfluencedBy/qualifiedAssociation	http://www.w3.org/ns/prov#qualifiedAssociation
+/properties/wasInfluencedBy/qualifiedAssociation/id	@id
+/properties/wasInfluencedBy/qualifiedAssociation/type	
+/properties/wasInfluencedBy/qualifiedAssociation/agent	http://www.w3.org/ns/prov#agent
+/properties/wasInfluencedBy/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
+/properties/wasInfluencedBy/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
+/properties/qualifiedInfluence	http://www.w3.org/ns/prov#qualifiedInfluence
+/properties/qualifiedInfluence/id	@id
+/properties/qualifiedInfluence/influencer	http://www.w3.org/ns/prov#influencer
+/properties/qualifiedInfluence/entity	http://www.w3.org/ns/prov#entity
+/properties/qualifiedInfluence/activity	http://www.w3.org/ns/prov#activity
+/properties/qualifiedInfluence/agent	http://www.w3.org/ns/prov#agent
+/properties/provType	@type
+/properties/prov:type	
+/properties/hadMember	http://www.w3.org/ns/prov#hadMember
+/properties/id	@id
+/properties/featureType	@type
+/properties/entityType	@type
+/properties/has_provenance	http://purl.org/dc/terms/provenance
+/properties/wasGeneratedBy	http://www.w3.org/ns/prov#wasGeneratedBy
+/properties/wasAttributedTo	http://www.w3.org/ns/prov#wasAttributedTo
+/properties/wasDerivedFrom	http://www.w3.org/ns/prov#wasDerivedFrom
+/properties/alternateOf	http://www.w3.org/ns/prov#alternateOf
+/properties/hadPrimarySource	http://www.w3.org/ns/prov#hadPrimarySource
+/properties/specializationOf	http://www.w3.org/ns/prov#specializationOf
+/properties/wasInvalidatedBy	http://www.w3.org/ns/prov#wasInvalidatedBy
+/properties/wasQuotedFrom	http://www.w3.org/ns/prov#wasQuotedFrom
+/properties/wasRevisionOf	http://www.w3.org/ns/prov#wasRevisionOf
+/properties/atLocation	http://www.w3.org/ns/prov#atLocation
+/properties/links	http://www.w3.org/2000/01/rdf-schema#seeAlso
+/properties/links/href	http://www.w3.org/ns/oa#hasTarget
+/properties/links/rel	http://www.iana.org/assignments/relation
+/properties/links/anchor	
+/properties/links/type	http://purl.org/dc/terms/type
+/properties/links/hreflang	http://purl.org/dc/terms/language
+/properties/links/title	http://www.w3.org/2000/01/rdf-schema#label
+/properties/links/length	http://purl.org/dc/terms/extent
+/properties/qualifiedGeneration	http://www.w3.org/ns/prov#qualifiedGeneration
+/properties/qualifiedGeneration/type	
+/properties/qualifiedInvalidation	http://www.w3.org/ns/prov#qualifiedInvalidation
+/properties/qualifiedInvalidation/type	
+/properties/qualifiedDerivation	http://www.w3.org/ns/prov#qualifiedDerivation
+/properties/qualifiedDerivation/id	@id
+/properties/qualifiedDerivation/type	
+/properties/qualifiedDerivation/hadGeneration	http://www.w3.org/ns/prov#hadGeneration
+/properties/qualifiedDerivation/hadActivity	http://www.w3.org/ns/prov#hadActivity
+/properties/qualifiedDerivation/hadUsage	http://www.w3.org/ns/prov#hadUsage
+/properties/qualifiedDerivation/entity	http://www.w3.org/ns/prov#entity
+/properties/qualifiedAttribution	http://www.w3.org/ns/prov#qualifiedAttribution
+/properties/qualifiedAttribution/id	@id
+/properties/qualifiedAttribution/type	
+/properties/qualifiedAttribution/agent	http://www.w3.org/ns/prov#agent
 /properties/osc:project	
+/properties/wfdesc:hasInput	
+/properties/wfdesc:hasInput/additionalParameters	
+/properties/wfdesc:hasInput/additionalParameters/href	
+/properties/wfdesc:hasInput/additionalParameters/role	
+/properties/wfdesc:hasInput/additionalParameters/title	
+/properties/wfdesc:hasInput/additionalParameters/parameters	
+/properties/wfdesc:hasInput/additionalParameters/parameters/name	
+/properties/wfdesc:hasInput/additionalParameters/parameters/value	
+/properties/wfdesc:hasInput/description	
+/properties/wfdesc:hasInput/keywords	
+/properties/wfdesc:hasInput/metadata	
+/properties/wfdesc:hasInput/metadata/href	
+/properties/wfdesc:hasInput/metadata/role	
+/properties/wfdesc:hasInput/metadata/title	
+/properties/wfdesc:hasInput/title	
+/properties/wfdesc:hasInput/maxOccurs	
+/properties/wfdesc:hasInput/minOccurs	
+/properties/wfdesc:hasInput/schema	
+/properties/wfdesc:hasInput/schema/$ref	
+/properties/wfdesc:hasInput/schema/additionalProperties	
+/properties/wfdesc:hasInput/schema/additionalProperties/$ref	
+/properties/wfdesc:hasInput/schema/additionalProperties/additionalProperties	
+/properties/wfdesc:hasInput/schema/additionalProperties/additionalProperties/$ref	
+/properties/wfdesc:hasInput/schema/additionalProperties/allOf	
+/properties/wfdesc:hasInput/schema/additionalProperties/allOf/$ref	
+/properties/wfdesc:hasInput/schema/additionalProperties/anyOf	
+/properties/wfdesc:hasInput/schema/additionalProperties/anyOf/$ref	
+/properties/wfdesc:hasInput/schema/additionalProperties/contentEncoding	
+/properties/wfdesc:hasInput/schema/additionalProperties/contentMediaType	
+/properties/wfdesc:hasInput/schema/additionalProperties/contentSchema	
+/properties/wfdesc:hasInput/schema/additionalProperties/default	
+/properties/wfdesc:hasInput/schema/additionalProperties/deprecated	
+/properties/wfdesc:hasInput/schema/additionalProperties/description	
+/properties/wfdesc:hasInput/schema/additionalProperties/enum	
+/properties/wfdesc:hasInput/schema/additionalProperties/example	
+/properties/wfdesc:hasInput/schema/additionalProperties/exclusiveMaximum	
+/properties/wfdesc:hasInput/schema/additionalProperties/exclusiveMinimum	
+/properties/wfdesc:hasInput/schema/additionalProperties/format	
+/properties/wfdesc:hasInput/schema/additionalProperties/items	
+/properties/wfdesc:hasInput/schema/additionalProperties/items/$ref	
+/properties/wfdesc:hasInput/schema/additionalProperties/maxItems	
+/properties/wfdesc:hasInput/schema/additionalProperties/maxLength	
+/properties/wfdesc:hasInput/schema/additionalProperties/maxProperties	
+/properties/wfdesc:hasInput/schema/additionalProperties/maximum	
+/properties/wfdesc:hasInput/schema/additionalProperties/minItems	
+/properties/wfdesc:hasInput/schema/additionalProperties/minLength	
+/properties/wfdesc:hasInput/schema/additionalProperties/minProperties	
+/properties/wfdesc:hasInput/schema/additionalProperties/minimum	
+/properties/wfdesc:hasInput/schema/additionalProperties/multipleOf	
+/properties/wfdesc:hasInput/schema/additionalProperties/not	
+/properties/wfdesc:hasInput/schema/additionalProperties/not/$ref	
+/properties/wfdesc:hasInput/schema/additionalProperties/nullable	
+/properties/wfdesc:hasInput/schema/additionalProperties/oneOf	
+/properties/wfdesc:hasInput/schema/additionalProperties/oneOf/$ref	
+/properties/wfdesc:hasInput/schema/additionalProperties/pattern	
+/properties/wfdesc:hasInput/schema/additionalProperties/properties	
+/properties/wfdesc:hasInput/schema/additionalProperties/properties/$ref	
+/properties/wfdesc:hasInput/schema/additionalProperties/readOnly	
+/properties/wfdesc:hasInput/schema/additionalProperties/required	
+/properties/wfdesc:hasInput/schema/additionalProperties/title	
+/properties/wfdesc:hasInput/schema/additionalProperties/type	
+/properties/wfdesc:hasInput/schema/additionalProperties/uniqueItems	
+/properties/wfdesc:hasInput/schema/additionalProperties/writeOnly	
+/properties/wfdesc:hasInput/schema/allOf	
+/properties/wfdesc:hasInput/schema/allOf/$ref	
+/properties/wfdesc:hasInput/schema/allOf/additionalProperties	
+/properties/wfdesc:hasInput/schema/allOf/additionalProperties/$ref	
+/properties/wfdesc:hasInput/schema/allOf/allOf	
+/properties/wfdesc:hasInput/schema/allOf/allOf/$ref	
+/properties/wfdesc:hasInput/schema/allOf/anyOf	
+/properties/wfdesc:hasInput/schema/allOf/anyOf/$ref	
+/properties/wfdesc:hasInput/schema/allOf/contentEncoding	
+/properties/wfdesc:hasInput/schema/allOf/contentMediaType	
+/properties/wfdesc:hasInput/schema/allOf/contentSchema	
+/properties/wfdesc:hasInput/schema/allOf/default	
+/properties/wfdesc:hasInput/schema/allOf/deprecated	
+/properties/wfdesc:hasInput/schema/allOf/description	
+/properties/wfdesc:hasInput/schema/allOf/enum	
+/properties/wfdesc:hasInput/schema/allOf/example	
+/properties/wfdesc:hasInput/schema/allOf/exclusiveMaximum	
+/properties/wfdesc:hasInput/schema/allOf/exclusiveMinimum	
+/properties/wfdesc:hasInput/schema/allOf/format	
+/properties/wfdesc:hasInput/schema/allOf/items	
+/properties/wfdesc:hasInput/schema/allOf/items/$ref	
+/properties/wfdesc:hasInput/schema/allOf/maxItems	
+/properties/wfdesc:hasInput/schema/allOf/maxLength	
+/properties/wfdesc:hasInput/schema/allOf/maxProperties	
+/properties/wfdesc:hasInput/schema/allOf/maximum	
+/properties/wfdesc:hasInput/schema/allOf/minItems	
+/properties/wfdesc:hasInput/schema/allOf/minLength	
+/properties/wfdesc:hasInput/schema/allOf/minProperties	
+/properties/wfdesc:hasInput/schema/allOf/minimum	
+/properties/wfdesc:hasInput/schema/allOf/multipleOf	
+/properties/wfdesc:hasInput/schema/allOf/not	
+/properties/wfdesc:hasInput/schema/allOf/not/$ref	
+/properties/wfdesc:hasInput/schema/allOf/nullable	
+/properties/wfdesc:hasInput/schema/allOf/oneOf	
+/properties/wfdesc:hasInput/schema/allOf/oneOf/$ref	
+/properties/wfdesc:hasInput/schema/allOf/pattern	
+/properties/wfdesc:hasInput/schema/allOf/properties	
+/properties/wfdesc:hasInput/schema/allOf/properties/$ref	
+/properties/wfdesc:hasInput/schema/allOf/readOnly	
+/properties/wfdesc:hasInput/schema/allOf/required	
+/properties/wfdesc:hasInput/schema/allOf/title	
+/properties/wfdesc:hasInput/schema/allOf/type	
+/properties/wfdesc:hasInput/schema/allOf/uniqueItems	
+/properties/wfdesc:hasInput/schema/allOf/writeOnly	
+/properties/wfdesc:hasInput/schema/anyOf	
+/properties/wfdesc:hasInput/schema/anyOf/$ref	
+/properties/wfdesc:hasInput/schema/anyOf/additionalProperties	
+/properties/wfdesc:hasInput/schema/anyOf/additionalProperties/$ref	
+/properties/wfdesc:hasInput/schema/anyOf/allOf	
+/properties/wfdesc:hasInput/schema/anyOf/allOf/$ref	
+/properties/wfdesc:hasInput/schema/anyOf/anyOf	
+/properties/wfdesc:hasInput/schema/anyOf/anyOf/$ref	
+/properties/wfdesc:hasInput/schema/anyOf/contentEncoding	
+/properties/wfdesc:hasInput/schema/anyOf/contentMediaType	
+/properties/wfdesc:hasInput/schema/anyOf/contentSchema	
+/properties/wfdesc:hasInput/schema/anyOf/default	
+/properties/wfdesc:hasInput/schema/anyOf/deprecated	
+/properties/wfdesc:hasInput/schema/anyOf/description	
+/properties/wfdesc:hasInput/schema/anyOf/enum	
+/properties/wfdesc:hasInput/schema/anyOf/example	
+/properties/wfdesc:hasInput/schema/anyOf/exclusiveMaximum	
+/properties/wfdesc:hasInput/schema/anyOf/exclusiveMinimum	
+/properties/wfdesc:hasInput/schema/anyOf/format	
+/properties/wfdesc:hasInput/schema/anyOf/items	
+/properties/wfdesc:hasInput/schema/anyOf/items/$ref	
+/properties/wfdesc:hasInput/schema/anyOf/maxItems	
+/properties/wfdesc:hasInput/schema/anyOf/maxLength	
+/properties/wfdesc:hasInput/schema/anyOf/maxProperties	
+/properties/wfdesc:hasInput/schema/anyOf/maximum	
+/properties/wfdesc:hasInput/schema/anyOf/minItems	
+/properties/wfdesc:hasInput/schema/anyOf/minLength	
+/properties/wfdesc:hasInput/schema/anyOf/minProperties	
+/properties/wfdesc:hasInput/schema/anyOf/minimum	
+/properties/wfdesc:hasInput/schema/anyOf/multipleOf	
+/properties/wfdesc:hasInput/schema/anyOf/not	
+/properties/wfdesc:hasInput/schema/anyOf/not/$ref	
+/properties/wfdesc:hasInput/schema/anyOf/nullable	
+/properties/wfdesc:hasInput/schema/anyOf/oneOf	
+/properties/wfdesc:hasInput/schema/anyOf/oneOf/$ref	
+/properties/wfdesc:hasInput/schema/anyOf/pattern	
+/properties/wfdesc:hasInput/schema/anyOf/properties	
+/properties/wfdesc:hasInput/schema/anyOf/properties/$ref	
+/properties/wfdesc:hasInput/schema/anyOf/readOnly	
+/properties/wfdesc:hasInput/schema/anyOf/required	
+/properties/wfdesc:hasInput/schema/anyOf/title	
+/properties/wfdesc:hasInput/schema/anyOf/type	
+/properties/wfdesc:hasInput/schema/anyOf/uniqueItems	
+/properties/wfdesc:hasInput/schema/anyOf/writeOnly	
+/properties/wfdesc:hasInput/schema/contentEncoding	
+/properties/wfdesc:hasInput/schema/contentMediaType	
+/properties/wfdesc:hasInput/schema/contentSchema	
+/properties/wfdesc:hasInput/schema/default	
+/properties/wfdesc:hasInput/schema/deprecated	
+/properties/wfdesc:hasInput/schema/description	
+/properties/wfdesc:hasInput/schema/enum	
+/properties/wfdesc:hasInput/schema/example	
+/properties/wfdesc:hasInput/schema/exclusiveMaximum	
+/properties/wfdesc:hasInput/schema/exclusiveMinimum	
+/properties/wfdesc:hasInput/schema/format	
+/properties/wfdesc:hasInput/schema/items	
+/properties/wfdesc:hasInput/schema/items/$ref	
+/properties/wfdesc:hasInput/schema/items/additionalProperties	
+/properties/wfdesc:hasInput/schema/items/additionalProperties/$ref	
+/properties/wfdesc:hasInput/schema/items/allOf	
+/properties/wfdesc:hasInput/schema/items/allOf/$ref	
+/properties/wfdesc:hasInput/schema/items/anyOf	
+/properties/wfdesc:hasInput/schema/items/anyOf/$ref	
+/properties/wfdesc:hasInput/schema/items/contentEncoding	
+/properties/wfdesc:hasInput/schema/items/contentMediaType	
+/properties/wfdesc:hasInput/schema/items/contentSchema	
+/properties/wfdesc:hasInput/schema/items/default	
+/properties/wfdesc:hasInput/schema/items/deprecated	
+/properties/wfdesc:hasInput/schema/items/description	
+/properties/wfdesc:hasInput/schema/items/enum	
+/properties/wfdesc:hasInput/schema/items/example	
+/properties/wfdesc:hasInput/schema/items/exclusiveMaximum	
+/properties/wfdesc:hasInput/schema/items/exclusiveMinimum	
+/properties/wfdesc:hasInput/schema/items/format	
+/properties/wfdesc:hasInput/schema/items/items	
+/properties/wfdesc:hasInput/schema/items/items/$ref	
+/properties/wfdesc:hasInput/schema/items/maxItems	
+/properties/wfdesc:hasInput/schema/items/maxLength	
+/properties/wfdesc:hasInput/schema/items/maxProperties	
+/properties/wfdesc:hasInput/schema/items/maximum	
+/properties/wfdesc:hasInput/schema/items/minItems	
+/properties/wfdesc:hasInput/schema/items/minLength	
+/properties/wfdesc:hasInput/schema/items/minProperties	
+/properties/wfdesc:hasInput/schema/items/minimum	
+/properties/wfdesc:hasInput/schema/items/multipleOf	
+/properties/wfdesc:hasInput/schema/items/not	
+/properties/wfdesc:hasInput/schema/items/not/$ref	
+/properties/wfdesc:hasInput/schema/items/nullable	
+/properties/wfdesc:hasInput/schema/items/oneOf	
+/properties/wfdesc:hasInput/schema/items/oneOf/$ref	
+/properties/wfdesc:hasInput/schema/items/pattern	
+/properties/wfdesc:hasInput/schema/items/properties	
+/properties/wfdesc:hasInput/schema/items/properties/$ref	
+/properties/wfdesc:hasInput/schema/items/readOnly	
+/properties/wfdesc:hasInput/schema/items/required	
+/properties/wfdesc:hasInput/schema/items/title	
+/properties/wfdesc:hasInput/schema/items/type	
+/properties/wfdesc:hasInput/schema/items/uniqueItems	
+/properties/wfdesc:hasInput/schema/items/writeOnly	
+/properties/wfdesc:hasInput/schema/maxItems	
+/properties/wfdesc:hasInput/schema/maxLength	
+/properties/wfdesc:hasInput/schema/maxProperties	
+/properties/wfdesc:hasInput/schema/maximum	
+/properties/wfdesc:hasInput/schema/minItems	
+/properties/wfdesc:hasInput/schema/minLength	
+/properties/wfdesc:hasInput/schema/minProperties	
+/properties/wfdesc:hasInput/schema/minimum	
+/properties/wfdesc:hasInput/schema/multipleOf	
+/properties/wfdesc:hasInput/schema/not	
+/properties/wfdesc:hasInput/schema/not/$ref	
+/properties/wfdesc:hasInput/schema/not/additionalProperties	
+/properties/wfdesc:hasInput/schema/not/additionalProperties/$ref	
+/properties/wfdesc:hasInput/schema/not/allOf	
+/properties/wfdesc:hasInput/schema/not/allOf/$ref	
+/properties/wfdesc:hasInput/schema/not/anyOf	
+/properties/wfdesc:hasInput/schema/not/anyOf/$ref	
+/properties/wfdesc:hasInput/schema/not/contentEncoding	
+/properties/wfdesc:hasInput/schema/not/contentMediaType	
+/properties/wfdesc:hasInput/schema/not/contentSchema	
+/properties/wfdesc:hasInput/schema/not/default	
+/properties/wfdesc:hasInput/schema/not/deprecated	
+/properties/wfdesc:hasInput/schema/not/description	
+/properties/wfdesc:hasInput/schema/not/enum	
+/properties/wfdesc:hasInput/schema/not/example	
+/properties/wfdesc:hasInput/schema/not/exclusiveMaximum	
+/properties/wfdesc:hasInput/schema/not/exclusiveMinimum	
+/properties/wfdesc:hasInput/schema/not/format	
+/properties/wfdesc:hasInput/schema/not/items	
+/properties/wfdesc:hasInput/schema/not/items/$ref	
+/properties/wfdesc:hasInput/schema/not/maxItems	
+/properties/wfdesc:hasInput/schema/not/maxLength	
+/properties/wfdesc:hasInput/schema/not/maxProperties	
+/properties/wfdesc:hasInput/schema/not/maximum	
+/properties/wfdesc:hasInput/schema/not/minItems	
+/properties/wfdesc:hasInput/schema/not/minLength	
+/properties/wfdesc:hasInput/schema/not/minProperties	
+/properties/wfdesc:hasInput/schema/not/minimum	
+/properties/wfdesc:hasInput/schema/not/multipleOf	
+/properties/wfdesc:hasInput/schema/not/not	
+/properties/wfdesc:hasInput/schema/not/not/$ref	
+/properties/wfdesc:hasInput/schema/not/nullable	
+/properties/wfdesc:hasInput/schema/not/oneOf	
+/properties/wfdesc:hasInput/schema/not/oneOf/$ref	
+/properties/wfdesc:hasInput/schema/not/pattern	
+/properties/wfdesc:hasInput/schema/not/properties	
+/properties/wfdesc:hasInput/schema/not/properties/$ref	
+/properties/wfdesc:hasInput/schema/not/readOnly	
+/properties/wfdesc:hasInput/schema/not/required	
+/properties/wfdesc:hasInput/schema/not/title	
+/properties/wfdesc:hasInput/schema/not/type	
+/properties/wfdesc:hasInput/schema/not/uniqueItems	
+/properties/wfdesc:hasInput/schema/not/writeOnly	
+/properties/wfdesc:hasInput/schema/nullable	
+/properties/wfdesc:hasInput/schema/oneOf	
+/properties/wfdesc:hasInput/schema/oneOf/$ref	
+/properties/wfdesc:hasInput/schema/oneOf/additionalProperties	
+/properties/wfdesc:hasInput/schema/oneOf/additionalProperties/$ref	
+/properties/wfdesc:hasInput/schema/oneOf/allOf	
+/properties/wfdesc:hasInput/schema/oneOf/allOf/$ref	
+/properties/wfdesc:hasInput/schema/oneOf/anyOf	
+/properties/wfdesc:hasInput/schema/oneOf/anyOf/$ref	
+/properties/wfdesc:hasInput/schema/oneOf/contentEncoding	
+/properties/wfdesc:hasInput/schema/oneOf/contentMediaType	
+/properties/wfdesc:hasInput/schema/oneOf/contentSchema	
+/properties/wfdesc:hasInput/schema/oneOf/default	
+/properties/wfdesc:hasInput/schema/oneOf/deprecated	
+/properties/wfdesc:hasInput/schema/oneOf/description	
+/properties/wfdesc:hasInput/schema/oneOf/enum	
+/properties/wfdesc:hasInput/schema/oneOf/example	
+/properties/wfdesc:hasInput/schema/oneOf/exclusiveMaximum	
+/properties/wfdesc:hasInput/schema/oneOf/exclusiveMinimum	
+/properties/wfdesc:hasInput/schema/oneOf/format	
+/properties/wfdesc:hasInput/schema/oneOf/items	
+/properties/wfdesc:hasInput/schema/oneOf/items/$ref	
+/properties/wfdesc:hasInput/schema/oneOf/maxItems	
+/properties/wfdesc:hasInput/schema/oneOf/maxLength	
+/properties/wfdesc:hasInput/schema/oneOf/maxProperties	
+/properties/wfdesc:hasInput/schema/oneOf/maximum	
+/properties/wfdesc:hasInput/schema/oneOf/minItems	
+/properties/wfdesc:hasInput/schema/oneOf/minLength	
+/properties/wfdesc:hasInput/schema/oneOf/minProperties	
+/properties/wfdesc:hasInput/schema/oneOf/minimum	
+/properties/wfdesc:hasInput/schema/oneOf/multipleOf	
+/properties/wfdesc:hasInput/schema/oneOf/not	
+/properties/wfdesc:hasInput/schema/oneOf/not/$ref	
+/properties/wfdesc:hasInput/schema/oneOf/nullable	
+/properties/wfdesc:hasInput/schema/oneOf/oneOf	
+/properties/wfdesc:hasInput/schema/oneOf/oneOf/$ref	
+/properties/wfdesc:hasInput/schema/oneOf/pattern	
+/properties/wfdesc:hasInput/schema/oneOf/properties	
+/properties/wfdesc:hasInput/schema/oneOf/properties/$ref	
+/properties/wfdesc:hasInput/schema/oneOf/readOnly	
+/properties/wfdesc:hasInput/schema/oneOf/required	
+/properties/wfdesc:hasInput/schema/oneOf/title	
+/properties/wfdesc:hasInput/schema/oneOf/type	
+/properties/wfdesc:hasInput/schema/oneOf/uniqueItems	
+/properties/wfdesc:hasInput/schema/oneOf/writeOnly	
+/properties/wfdesc:hasInput/schema/pattern	
+/properties/wfdesc:hasInput/schema/properties	
+/properties/wfdesc:hasInput/schema/properties/$ref	
+/properties/wfdesc:hasInput/schema/properties/additionalProperties	
+/properties/wfdesc:hasInput/schema/properties/additionalProperties/$ref	
+/properties/wfdesc:hasInput/schema/properties/allOf	
+/properties/wfdesc:hasInput/schema/properties/allOf/$ref	
+/properties/wfdesc:hasInput/schema/properties/anyOf	
+/properties/wfdesc:hasInput/schema/properties/anyOf/$ref	
+/properties/wfdesc:hasInput/schema/properties/contentEncoding	
+/properties/wfdesc:hasInput/schema/properties/contentMediaType	
+/properties/wfdesc:hasInput/schema/properties/contentSchema	
+/properties/wfdesc:hasInput/schema/properties/default	
+/properties/wfdesc:hasInput/schema/properties/deprecated	
+/properties/wfdesc:hasInput/schema/properties/description	
+/properties/wfdesc:hasInput/schema/properties/enum	
+/properties/wfdesc:hasInput/schema/properties/example	
+/properties/wfdesc:hasInput/schema/properties/exclusiveMaximum	
+/properties/wfdesc:hasInput/schema/properties/exclusiveMinimum	
+/properties/wfdesc:hasInput/schema/properties/format	
+/properties/wfdesc:hasInput/schema/properties/items	
+/properties/wfdesc:hasInput/schema/properties/items/$ref	
+/properties/wfdesc:hasInput/schema/properties/maxItems	
+/properties/wfdesc:hasInput/schema/properties/maxLength	
+/properties/wfdesc:hasInput/schema/properties/maxProperties	
+/properties/wfdesc:hasInput/schema/properties/maximum	
+/properties/wfdesc:hasInput/schema/properties/minItems	
+/properties/wfdesc:hasInput/schema/properties/minLength	
+/properties/wfdesc:hasInput/schema/properties/minProperties	
+/properties/wfdesc:hasInput/schema/properties/minimum	
+/properties/wfdesc:hasInput/schema/properties/multipleOf	
+/properties/wfdesc:hasInput/schema/properties/not	
+/properties/wfdesc:hasInput/schema/properties/not/$ref	
+/properties/wfdesc:hasInput/schema/properties/nullable	
+/properties/wfdesc:hasInput/schema/properties/oneOf	
+/properties/wfdesc:hasInput/schema/properties/oneOf/$ref	
+/properties/wfdesc:hasInput/schema/properties/pattern	
+/properties/wfdesc:hasInput/schema/properties/properties	
+/properties/wfdesc:hasInput/schema/properties/properties/$ref	
+/properties/wfdesc:hasInput/schema/properties/readOnly	
+/properties/wfdesc:hasInput/schema/properties/required	
+/properties/wfdesc:hasInput/schema/properties/title	
+/properties/wfdesc:hasInput/schema/properties/type	
+/properties/wfdesc:hasInput/schema/properties/uniqueItems	
+/properties/wfdesc:hasInput/schema/properties/writeOnly	
+/properties/wfdesc:hasInput/schema/readOnly	
+/properties/wfdesc:hasInput/schema/required	
+/properties/wfdesc:hasInput/schema/title	
+/properties/wfdesc:hasInput/schema/type	
+/properties/wfdesc:hasInput/schema/uniqueItems	
+/properties/wfdesc:hasInput/schema/writeOnly	
+/properties/wfdesc:hasOutput	
+/properties/wfdesc:hasOutput/additionalParameters	
+/properties/wfdesc:hasOutput/additionalParameters/href	
+/properties/wfdesc:hasOutput/additionalParameters/role	
+/properties/wfdesc:hasOutput/additionalParameters/title	
+/properties/wfdesc:hasOutput/additionalParameters/parameters	
+/properties/wfdesc:hasOutput/additionalParameters/parameters/name	
+/properties/wfdesc:hasOutput/additionalParameters/parameters/value	
+/properties/wfdesc:hasOutput/description	
+/properties/wfdesc:hasOutput/keywords	
+/properties/wfdesc:hasOutput/metadata	
+/properties/wfdesc:hasOutput/metadata/href	
+/properties/wfdesc:hasOutput/metadata/role	
+/properties/wfdesc:hasOutput/metadata/title	
+/properties/wfdesc:hasOutput/title	
+/properties/wfdesc:hasOutput/schema	
+/properties/wfdesc:hasOutput/schema/$ref	
+/properties/wfdesc:hasOutput/schema/additionalProperties	
+/properties/wfdesc:hasOutput/schema/additionalProperties/$ref	
+/properties/wfdesc:hasOutput/schema/additionalProperties/additionalProperties	
+/properties/wfdesc:hasOutput/schema/additionalProperties/additionalProperties/$ref	
+/properties/wfdesc:hasOutput/schema/additionalProperties/allOf	
+/properties/wfdesc:hasOutput/schema/additionalProperties/allOf/$ref	
+/properties/wfdesc:hasOutput/schema/additionalProperties/anyOf	
+/properties/wfdesc:hasOutput/schema/additionalProperties/anyOf/$ref	
+/properties/wfdesc:hasOutput/schema/additionalProperties/contentEncoding	
+/properties/wfdesc:hasOutput/schema/additionalProperties/contentMediaType	
+/properties/wfdesc:hasOutput/schema/additionalProperties/contentSchema	
+/properties/wfdesc:hasOutput/schema/additionalProperties/default	
+/properties/wfdesc:hasOutput/schema/additionalProperties/deprecated	
+/properties/wfdesc:hasOutput/schema/additionalProperties/description	
+/properties/wfdesc:hasOutput/schema/additionalProperties/enum	
+/properties/wfdesc:hasOutput/schema/additionalProperties/example	
+/properties/wfdesc:hasOutput/schema/additionalProperties/exclusiveMaximum	
+/properties/wfdesc:hasOutput/schema/additionalProperties/exclusiveMinimum	
+/properties/wfdesc:hasOutput/schema/additionalProperties/format	
+/properties/wfdesc:hasOutput/schema/additionalProperties/items	
+/properties/wfdesc:hasOutput/schema/additionalProperties/items/$ref	
+/properties/wfdesc:hasOutput/schema/additionalProperties/maxItems	
+/properties/wfdesc:hasOutput/schema/additionalProperties/maxLength	
+/properties/wfdesc:hasOutput/schema/additionalProperties/maxProperties	
+/properties/wfdesc:hasOutput/schema/additionalProperties/maximum	
+/properties/wfdesc:hasOutput/schema/additionalProperties/minItems	
+/properties/wfdesc:hasOutput/schema/additionalProperties/minLength	
+/properties/wfdesc:hasOutput/schema/additionalProperties/minProperties	
+/properties/wfdesc:hasOutput/schema/additionalProperties/minimum	
+/properties/wfdesc:hasOutput/schema/additionalProperties/multipleOf	
+/properties/wfdesc:hasOutput/schema/additionalProperties/not	
+/properties/wfdesc:hasOutput/schema/additionalProperties/not/$ref	
+/properties/wfdesc:hasOutput/schema/additionalProperties/nullable	
+/properties/wfdesc:hasOutput/schema/additionalProperties/oneOf	
+/properties/wfdesc:hasOutput/schema/additionalProperties/oneOf/$ref	
+/properties/wfdesc:hasOutput/schema/additionalProperties/pattern	
+/properties/wfdesc:hasOutput/schema/additionalProperties/properties	
+/properties/wfdesc:hasOutput/schema/additionalProperties/properties/$ref	
+/properties/wfdesc:hasOutput/schema/additionalProperties/readOnly	
+/properties/wfdesc:hasOutput/schema/additionalProperties/required	
+/properties/wfdesc:hasOutput/schema/additionalProperties/title	
+/properties/wfdesc:hasOutput/schema/additionalProperties/type	
+/properties/wfdesc:hasOutput/schema/additionalProperties/uniqueItems	
+/properties/wfdesc:hasOutput/schema/additionalProperties/writeOnly	
+/properties/wfdesc:hasOutput/schema/allOf	
+/properties/wfdesc:hasOutput/schema/allOf/$ref	
+/properties/wfdesc:hasOutput/schema/allOf/additionalProperties	
+/properties/wfdesc:hasOutput/schema/allOf/additionalProperties/$ref	
+/properties/wfdesc:hasOutput/schema/allOf/allOf	
+/properties/wfdesc:hasOutput/schema/allOf/allOf/$ref	
+/properties/wfdesc:hasOutput/schema/allOf/anyOf	
+/properties/wfdesc:hasOutput/schema/allOf/anyOf/$ref	
+/properties/wfdesc:hasOutput/schema/allOf/contentEncoding	
+/properties/wfdesc:hasOutput/schema/allOf/contentMediaType	
+/properties/wfdesc:hasOutput/schema/allOf/contentSchema	
+/properties/wfdesc:hasOutput/schema/allOf/default	
+/properties/wfdesc:hasOutput/schema/allOf/deprecated	
+/properties/wfdesc:hasOutput/schema/allOf/description	
+/properties/wfdesc:hasOutput/schema/allOf/enum	
+/properties/wfdesc:hasOutput/schema/allOf/example	
+/properties/wfdesc:hasOutput/schema/allOf/exclusiveMaximum	
+/properties/wfdesc:hasOutput/schema/allOf/exclusiveMinimum	
+/properties/wfdesc:hasOutput/schema/allOf/format	
+/properties/wfdesc:hasOutput/schema/allOf/items	
+/properties/wfdesc:hasOutput/schema/allOf/items/$ref	
+/properties/wfdesc:hasOutput/schema/allOf/maxItems	
+/properties/wfdesc:hasOutput/schema/allOf/maxLength	
+/properties/wfdesc:hasOutput/schema/allOf/maxProperties	
+/properties/wfdesc:hasOutput/schema/allOf/maximum	
+/properties/wfdesc:hasOutput/schema/allOf/minItems	
+/properties/wfdesc:hasOutput/schema/allOf/minLength	
+/properties/wfdesc:hasOutput/schema/allOf/minProperties	
+/properties/wfdesc:hasOutput/schema/allOf/minimum	
+/properties/wfdesc:hasOutput/schema/allOf/multipleOf	
+/properties/wfdesc:hasOutput/schema/allOf/not	
+/properties/wfdesc:hasOutput/schema/allOf/not/$ref	
+/properties/wfdesc:hasOutput/schema/allOf/nullable	
+/properties/wfdesc:hasOutput/schema/allOf/oneOf	
+/properties/wfdesc:hasOutput/schema/allOf/oneOf/$ref	
+/properties/wfdesc:hasOutput/schema/allOf/pattern	
+/properties/wfdesc:hasOutput/schema/allOf/properties	
+/properties/wfdesc:hasOutput/schema/allOf/properties/$ref	
+/properties/wfdesc:hasOutput/schema/allOf/readOnly	
+/properties/wfdesc:hasOutput/schema/allOf/required	
+/properties/wfdesc:hasOutput/schema/allOf/title	
+/properties/wfdesc:hasOutput/schema/allOf/type	
+/properties/wfdesc:hasOutput/schema/allOf/uniqueItems	
+/properties/wfdesc:hasOutput/schema/allOf/writeOnly	
+/properties/wfdesc:hasOutput/schema/anyOf	
+/properties/wfdesc:hasOutput/schema/anyOf/$ref	
+/properties/wfdesc:hasOutput/schema/anyOf/additionalProperties	
+/properties/wfdesc:hasOutput/schema/anyOf/additionalProperties/$ref	
+/properties/wfdesc:hasOutput/schema/anyOf/allOf	
+/properties/wfdesc:hasOutput/schema/anyOf/allOf/$ref	
+/properties/wfdesc:hasOutput/schema/anyOf/anyOf	
+/properties/wfdesc:hasOutput/schema/anyOf/anyOf/$ref	
+/properties/wfdesc:hasOutput/schema/anyOf/contentEncoding	
+/properties/wfdesc:hasOutput/schema/anyOf/contentMediaType	
+/properties/wfdesc:hasOutput/schema/anyOf/contentSchema	
+/properties/wfdesc:hasOutput/schema/anyOf/default	
+/properties/wfdesc:hasOutput/schema/anyOf/deprecated	
+/properties/wfdesc:hasOutput/schema/anyOf/description	
+/properties/wfdesc:hasOutput/schema/anyOf/enum	
+/properties/wfdesc:hasOutput/schema/anyOf/example	
+/properties/wfdesc:hasOutput/schema/anyOf/exclusiveMaximum	
+/properties/wfdesc:hasOutput/schema/anyOf/exclusiveMinimum	
+/properties/wfdesc:hasOutput/schema/anyOf/format	
+/properties/wfdesc:hasOutput/schema/anyOf/items	
+/properties/wfdesc:hasOutput/schema/anyOf/items/$ref	
+/properties/wfdesc:hasOutput/schema/anyOf/maxItems	
+/properties/wfdesc:hasOutput/schema/anyOf/maxLength	
+/properties/wfdesc:hasOutput/schema/anyOf/maxProperties	
+/properties/wfdesc:hasOutput/schema/anyOf/maximum	
+/properties/wfdesc:hasOutput/schema/anyOf/minItems	
+/properties/wfdesc:hasOutput/schema/anyOf/minLength	
+/properties/wfdesc:hasOutput/schema/anyOf/minProperties	
+/properties/wfdesc:hasOutput/schema/anyOf/minimum	
+/properties/wfdesc:hasOutput/schema/anyOf/multipleOf	
+/properties/wfdesc:hasOutput/schema/anyOf/not	
+/properties/wfdesc:hasOutput/schema/anyOf/not/$ref	
+/properties/wfdesc:hasOutput/schema/anyOf/nullable	
+/properties/wfdesc:hasOutput/schema/anyOf/oneOf	
+/properties/wfdesc:hasOutput/schema/anyOf/oneOf/$ref	
+/properties/wfdesc:hasOutput/schema/anyOf/pattern	
+/properties/wfdesc:hasOutput/schema/anyOf/properties	
+/properties/wfdesc:hasOutput/schema/anyOf/properties/$ref	
+/properties/wfdesc:hasOutput/schema/anyOf/readOnly	
+/properties/wfdesc:hasOutput/schema/anyOf/required	
+/properties/wfdesc:hasOutput/schema/anyOf/title	
+/properties/wfdesc:hasOutput/schema/anyOf/type	
+/properties/wfdesc:hasOutput/schema/anyOf/uniqueItems	
+/properties/wfdesc:hasOutput/schema/anyOf/writeOnly	
+/properties/wfdesc:hasOutput/schema/contentEncoding	
+/properties/wfdesc:hasOutput/schema/contentMediaType	
+/properties/wfdesc:hasOutput/schema/contentSchema	
+/properties/wfdesc:hasOutput/schema/default	
+/properties/wfdesc:hasOutput/schema/deprecated	
+/properties/wfdesc:hasOutput/schema/description	
+/properties/wfdesc:hasOutput/schema/enum	
+/properties/wfdesc:hasOutput/schema/example	
+/properties/wfdesc:hasOutput/schema/exclusiveMaximum	
+/properties/wfdesc:hasOutput/schema/exclusiveMinimum	
+/properties/wfdesc:hasOutput/schema/format	
+/properties/wfdesc:hasOutput/schema/items	
+/properties/wfdesc:hasOutput/schema/items/$ref	
+/properties/wfdesc:hasOutput/schema/items/additionalProperties	
+/properties/wfdesc:hasOutput/schema/items/additionalProperties/$ref	
+/properties/wfdesc:hasOutput/schema/items/allOf	
+/properties/wfdesc:hasOutput/schema/items/allOf/$ref	
+/properties/wfdesc:hasOutput/schema/items/anyOf	
+/properties/wfdesc:hasOutput/schema/items/anyOf/$ref	
+/properties/wfdesc:hasOutput/schema/items/contentEncoding	
+/properties/wfdesc:hasOutput/schema/items/contentMediaType	
+/properties/wfdesc:hasOutput/schema/items/contentSchema	
+/properties/wfdesc:hasOutput/schema/items/default	
+/properties/wfdesc:hasOutput/schema/items/deprecated	
+/properties/wfdesc:hasOutput/schema/items/description	
+/properties/wfdesc:hasOutput/schema/items/enum	
+/properties/wfdesc:hasOutput/schema/items/example	
+/properties/wfdesc:hasOutput/schema/items/exclusiveMaximum	
+/properties/wfdesc:hasOutput/schema/items/exclusiveMinimum	
+/properties/wfdesc:hasOutput/schema/items/format	
+/properties/wfdesc:hasOutput/schema/items/items	
+/properties/wfdesc:hasOutput/schema/items/items/$ref	
+/properties/wfdesc:hasOutput/schema/items/maxItems	
+/properties/wfdesc:hasOutput/schema/items/maxLength	
+/properties/wfdesc:hasOutput/schema/items/maxProperties	
+/properties/wfdesc:hasOutput/schema/items/maximum	
+/properties/wfdesc:hasOutput/schema/items/minItems	
+/properties/wfdesc:hasOutput/schema/items/minLength	
+/properties/wfdesc:hasOutput/schema/items/minProperties	
+/properties/wfdesc:hasOutput/schema/items/minimum	
+/properties/wfdesc:hasOutput/schema/items/multipleOf	
+/properties/wfdesc:hasOutput/schema/items/not	
+/properties/wfdesc:hasOutput/schema/items/not/$ref	
+/properties/wfdesc:hasOutput/schema/items/nullable	
+/properties/wfdesc:hasOutput/schema/items/oneOf	
+/properties/wfdesc:hasOutput/schema/items/oneOf/$ref	
+/properties/wfdesc:hasOutput/schema/items/pattern	
+/properties/wfdesc:hasOutput/schema/items/properties	
+/properties/wfdesc:hasOutput/schema/items/properties/$ref	
+/properties/wfdesc:hasOutput/schema/items/readOnly	
+/properties/wfdesc:hasOutput/schema/items/required	
+/properties/wfdesc:hasOutput/schema/items/title	
+/properties/wfdesc:hasOutput/schema/items/type	
+/properties/wfdesc:hasOutput/schema/items/uniqueItems	
+/properties/wfdesc:hasOutput/schema/items/writeOnly	
+/properties/wfdesc:hasOutput/schema/maxItems	
+/properties/wfdesc:hasOutput/schema/maxLength	
+/properties/wfdesc:hasOutput/schema/maxProperties	
+/properties/wfdesc:hasOutput/schema/maximum	
+/properties/wfdesc:hasOutput/schema/minItems	
+/properties/wfdesc:hasOutput/schema/minLength	
+/properties/wfdesc:hasOutput/schema/minProperties	
+/properties/wfdesc:hasOutput/schema/minimum	
+/properties/wfdesc:hasOutput/schema/multipleOf	
+/properties/wfdesc:hasOutput/schema/not	
+/properties/wfdesc:hasOutput/schema/not/$ref	
+/properties/wfdesc:hasOutput/schema/not/additionalProperties	
+/properties/wfdesc:hasOutput/schema/not/additionalProperties/$ref	
+/properties/wfdesc:hasOutput/schema/not/allOf	
+/properties/wfdesc:hasOutput/schema/not/allOf/$ref	
+/properties/wfdesc:hasOutput/schema/not/anyOf	
+/properties/wfdesc:hasOutput/schema/not/anyOf/$ref	
+/properties/wfdesc:hasOutput/schema/not/contentEncoding	
+/properties/wfdesc:hasOutput/schema/not/contentMediaType	
+/properties/wfdesc:hasOutput/schema/not/contentSchema	
+/properties/wfdesc:hasOutput/schema/not/default	
+/properties/wfdesc:hasOutput/schema/not/deprecated	
+/properties/wfdesc:hasOutput/schema/not/description	
+/properties/wfdesc:hasOutput/schema/not/enum	
+/properties/wfdesc:hasOutput/schema/not/example	
+/properties/wfdesc:hasOutput/schema/not/exclusiveMaximum	
+/properties/wfdesc:hasOutput/schema/not/exclusiveMinimum	
+/properties/wfdesc:hasOutput/schema/not/format	
+/properties/wfdesc:hasOutput/schema/not/items	
+/properties/wfdesc:hasOutput/schema/not/items/$ref	
+/properties/wfdesc:hasOutput/schema/not/maxItems	
+/properties/wfdesc:hasOutput/schema/not/maxLength	
+/properties/wfdesc:hasOutput/schema/not/maxProperties	
+/properties/wfdesc:hasOutput/schema/not/maximum	
+/properties/wfdesc:hasOutput/schema/not/minItems	
+/properties/wfdesc:hasOutput/schema/not/minLength	
+/properties/wfdesc:hasOutput/schema/not/minProperties	
+/properties/wfdesc:hasOutput/schema/not/minimum	
+/properties/wfdesc:hasOutput/schema/not/multipleOf	
+/properties/wfdesc:hasOutput/schema/not/not	
+/properties/wfdesc:hasOutput/schema/not/not/$ref	
+/properties/wfdesc:hasOutput/schema/not/nullable	
+/properties/wfdesc:hasOutput/schema/not/oneOf	
+/properties/wfdesc:hasOutput/schema/not/oneOf/$ref	
+/properties/wfdesc:hasOutput/schema/not/pattern	
+/properties/wfdesc:hasOutput/schema/not/properties	
+/properties/wfdesc:hasOutput/schema/not/properties/$ref	
+/properties/wfdesc:hasOutput/schema/not/readOnly	
+/properties/wfdesc:hasOutput/schema/not/required	
+/properties/wfdesc:hasOutput/schema/not/title	
+/properties/wfdesc:hasOutput/schema/not/type	
+/properties/wfdesc:hasOutput/schema/not/uniqueItems	
+/properties/wfdesc:hasOutput/schema/not/writeOnly	
+/properties/wfdesc:hasOutput/schema/nullable	
+/properties/wfdesc:hasOutput/schema/oneOf	
+/properties/wfdesc:hasOutput/schema/oneOf/$ref	
+/properties/wfdesc:hasOutput/schema/oneOf/additionalProperties	
+/properties/wfdesc:hasOutput/schema/oneOf/additionalProperties/$ref	
+/properties/wfdesc:hasOutput/schema/oneOf/allOf	
+/properties/wfdesc:hasOutput/schema/oneOf/allOf/$ref	
+/properties/wfdesc:hasOutput/schema/oneOf/anyOf	
+/properties/wfdesc:hasOutput/schema/oneOf/anyOf/$ref	
+/properties/wfdesc:hasOutput/schema/oneOf/contentEncoding	
+/properties/wfdesc:hasOutput/schema/oneOf/contentMediaType	
+/properties/wfdesc:hasOutput/schema/oneOf/contentSchema	
+/properties/wfdesc:hasOutput/schema/oneOf/default	
+/properties/wfdesc:hasOutput/schema/oneOf/deprecated	
+/properties/wfdesc:hasOutput/schema/oneOf/description	
+/properties/wfdesc:hasOutput/schema/oneOf/enum	
+/properties/wfdesc:hasOutput/schema/oneOf/example	
+/properties/wfdesc:hasOutput/schema/oneOf/exclusiveMaximum	
+/properties/wfdesc:hasOutput/schema/oneOf/exclusiveMinimum	
+/properties/wfdesc:hasOutput/schema/oneOf/format	
+/properties/wfdesc:hasOutput/schema/oneOf/items	
+/properties/wfdesc:hasOutput/schema/oneOf/items/$ref	
+/properties/wfdesc:hasOutput/schema/oneOf/maxItems	
+/properties/wfdesc:hasOutput/schema/oneOf/maxLength	
+/properties/wfdesc:hasOutput/schema/oneOf/maxProperties	
+/properties/wfdesc:hasOutput/schema/oneOf/maximum	
+/properties/wfdesc:hasOutput/schema/oneOf/minItems	
+/properties/wfdesc:hasOutput/schema/oneOf/minLength	
+/properties/wfdesc:hasOutput/schema/oneOf/minProperties	
+/properties/wfdesc:hasOutput/schema/oneOf/minimum	
+/properties/wfdesc:hasOutput/schema/oneOf/multipleOf	
+/properties/wfdesc:hasOutput/schema/oneOf/not	
+/properties/wfdesc:hasOutput/schema/oneOf/not/$ref	
+/properties/wfdesc:hasOutput/schema/oneOf/nullable	
+/properties/wfdesc:hasOutput/schema/oneOf/oneOf	
+/properties/wfdesc:hasOutput/schema/oneOf/oneOf/$ref	
+/properties/wfdesc:hasOutput/schema/oneOf/pattern	
+/properties/wfdesc:hasOutput/schema/oneOf/properties	
+/properties/wfdesc:hasOutput/schema/oneOf/properties/$ref	
+/properties/wfdesc:hasOutput/schema/oneOf/readOnly	
+/properties/wfdesc:hasOutput/schema/oneOf/required	
+/properties/wfdesc:hasOutput/schema/oneOf/title	
+/properties/wfdesc:hasOutput/schema/oneOf/type	
+/properties/wfdesc:hasOutput/schema/oneOf/uniqueItems	
+/properties/wfdesc:hasOutput/schema/oneOf/writeOnly	
+/properties/wfdesc:hasOutput/schema/pattern	
+/properties/wfdesc:hasOutput/schema/properties	
+/properties/wfdesc:hasOutput/schema/properties/$ref	
+/properties/wfdesc:hasOutput/schema/properties/additionalProperties	
+/properties/wfdesc:hasOutput/schema/properties/additionalProperties/$ref	
+/properties/wfdesc:hasOutput/schema/properties/allOf	
+/properties/wfdesc:hasOutput/schema/properties/allOf/$ref	
+/properties/wfdesc:hasOutput/schema/properties/anyOf	
+/properties/wfdesc:hasOutput/schema/properties/anyOf/$ref	
+/properties/wfdesc:hasOutput/schema/properties/contentEncoding	
+/properties/wfdesc:hasOutput/schema/properties/contentMediaType	
+/properties/wfdesc:hasOutput/schema/properties/contentSchema	
+/properties/wfdesc:hasOutput/schema/properties/default	
+/properties/wfdesc:hasOutput/schema/properties/deprecated	
+/properties/wfdesc:hasOutput/schema/properties/description	
+/properties/wfdesc:hasOutput/schema/properties/enum	
+/properties/wfdesc:hasOutput/schema/properties/example	
+/properties/wfdesc:hasOutput/schema/properties/exclusiveMaximum	
+/properties/wfdesc:hasOutput/schema/properties/exclusiveMinimum	
+/properties/wfdesc:hasOutput/schema/properties/format	
+/properties/wfdesc:hasOutput/schema/properties/items	
+/properties/wfdesc:hasOutput/schema/properties/items/$ref	
+/properties/wfdesc:hasOutput/schema/properties/maxItems	
+/properties/wfdesc:hasOutput/schema/properties/maxLength	
+/properties/wfdesc:hasOutput/schema/properties/maxProperties	
+/properties/wfdesc:hasOutput/schema/properties/maximum	
+/properties/wfdesc:hasOutput/schema/properties/minItems	
+/properties/wfdesc:hasOutput/schema/properties/minLength	
+/properties/wfdesc:hasOutput/schema/properties/minProperties	
+/properties/wfdesc:hasOutput/schema/properties/minimum	
+/properties/wfdesc:hasOutput/schema/properties/multipleOf	
+/properties/wfdesc:hasOutput/schema/properties/not	
+/properties/wfdesc:hasOutput/schema/properties/not/$ref	
+/properties/wfdesc:hasOutput/schema/properties/nullable	
+/properties/wfdesc:hasOutput/schema/properties/oneOf	
+/properties/wfdesc:hasOutput/schema/properties/oneOf/$ref	
+/properties/wfdesc:hasOutput/schema/properties/pattern	
+/properties/wfdesc:hasOutput/schema/properties/properties	
+/properties/wfdesc:hasOutput/schema/properties/properties/$ref	
+/properties/wfdesc:hasOutput/schema/properties/readOnly	
+/properties/wfdesc:hasOutput/schema/properties/required	
+/properties/wfdesc:hasOutput/schema/properties/title	
+/properties/wfdesc:hasOutput/schema/properties/type	
+/properties/wfdesc:hasOutput/schema/properties/uniqueItems	
+/properties/wfdesc:hasOutput/schema/properties/writeOnly	
+/properties/wfdesc:hasOutput/schema/readOnly	
+/properties/wfdesc:hasOutput/schema/required	
+/properties/wfdesc:hasOutput/schema/title	
+/properties/wfdesc:hasOutput/schema/type	
+/properties/wfdesc:hasOutput/schema/uniqueItems	
+/properties/wfdesc:hasOutput/schema/writeOnly	

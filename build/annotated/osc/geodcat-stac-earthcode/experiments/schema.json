@@ -19,7 +19,19 @@
         "osc:workflow": {
           "$ref": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.json#/$defs/osc:workflow"
         }
-      }
+      },
+      "anyOf": [
+        {
+          "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.json"
+        },
+        {
+          "not": {
+            "required": [
+              "provType"
+            ]
+          }
+        }
+      ]
     },
     "links": {
       "type": "array",

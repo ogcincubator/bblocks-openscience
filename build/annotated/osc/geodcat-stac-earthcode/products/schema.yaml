@@ -3,6 +3,11 @@ description: EarthCode Product
 allOf:
 - $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml
 - anyOf:
+  - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml
+  - not:
+      required:
+      - provType
+- anyOf:
   - $ref: https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/cf/schema.yaml
   - not:
       properties:

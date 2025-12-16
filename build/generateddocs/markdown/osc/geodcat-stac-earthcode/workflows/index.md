@@ -339,8 +339,8 @@ The polarwarp algorithm geolocates, aligns, and warps satellite SAR images using
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <application:> .
-@prefix ns3: <vcs:> .
+@prefix ns2: <vcs:> .
+@prefix ns3: <application:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -349,56 +349,56 @@ The polarwarp algorithm geolocates, aligns, and warps satellite SAR images using
     dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core>,
         <https://raw.githubusercontent.com/EOEPCA/metadata-profile/refs/heads/1.0/schemas/application-type-argo-workflow>,
         <https://stac-extensions.github.io/application/v0.1.0/schema.json> ;
-    rdfs:seeAlso [ rdfs:label "Workflows" ;
-            dcterms:format "application/json" ;
+    rdfs:seeAlso [ rdfs:label "Polarwarp" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/child> ;
+            oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ],
+        [ rdfs:label "Workflows" ;
+            dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://ogc.org/demo/catalog.json> ],
         [ rdfs:label "Open Science Catalog" ;
-            dcterms:format "application/json" ;
+            dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://ogc.org/catalog.json> ],
+        [ rdfs:label "Theme: Cryosphere" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ],
+        [ rdfs:label "EOxHub Workspaces" ;
+            ns3:platform_supports "argo-workflow" ;
+            ns3:preferred_app "argo" ;
+            dcterms:type "text/html" ;
+            ns1:relation <http://www.iana.org/assignments/relation/application-originating-platform> ;
+            oa:hasTarget <https://workspace.cif.hub-otc.eox.at/> ],
+        [ rdfs:label "Trigger workflow via API provided by pygeoapi" ;
+            dcterms:type "text/html" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://harshness-map.gtif.eox.at/processes/execute-polarwarp-gcps> ],
+        [ rdfs:label "Theme: Oceans" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
+        [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/polarwarp/record.json> ],
+        [ rdfs:label "Project: Cerulean Information Factory" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],
         [ rdfs:label "Git source repository" ;
             ns1:relation <http://www.iana.org/assignments/relation/vcs> ;
             oa:hasTarget <https://github.com/gtif-cerulean/polarwarp.git> ;
-            ns3:branch "main" ;
-            ns3:type "git" ],
-        [ rdfs:label "Project: Cerulean Information Factory" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],
-        [ dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/polarwarp/record.json> ],
-        [ rdfs:label "Theme: Oceans" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
-        [ rdfs:label "Theme: Cryosphere" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ],
-        [ rdfs:label "Trigger workflow via API provided by pygeoapi" ;
-            dcterms:format "text/html" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://harshness-map.gtif.eox.at/processes/execute-polarwarp-gcps> ],
-        [ rdfs:label "EOxHub Workspaces" ;
-            ns2:platform_supports "argo-workflow" ;
-            ns2:preferred_app "argo" ;
-            dcterms:format "text/html" ;
-            ns1:relation <http://www.iana.org/assignments/relation/application-originating-platform> ;
-            oa:hasTarget <https://workspace.cif.hub-otc.eox.at/> ],
+            ns2:branch "main" ;
+            ns2:type "git" ],
         [ rdfs:label "Polarwarp workflow" ;
-            ns2:container true ;
-            ns2:language "Python" ;
-            ns2:type "argo-workflow" ;
+            ns3:container true ;
+            ns3:language "Python" ;
+            ns3:type "argo-workflow" ;
             <argo-workflow:> [ ] ;
-            dcterms:format "application/x-argo-workflow-yaml" ;
+            dcterms:type "application/x-argo-workflow-yaml" ;
             ns1:relation <http://www.iana.org/assignments/relation/application> ;
-            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp/blob/main/workflow.yml> ],
-        [ rdfs:label "Polarwarp" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/child> ;
-            oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ] .
+            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp/blob/main/workflow.yml> ] .
 
 
 ```
@@ -632,37 +632,37 @@ The Polar Operational Limit Assessment Risk Indexing System (POLARIS) is a metho
 
 <https://ogc.org/demo/ospd/polaris-workflow> a geojson:Feature ;
     dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core> ;
-    rdfs:seeAlso [ rdfs:label "Project: POLARIS" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/projects/polaris/collection.json> ],
-        [ rdfs:label "Theme: Oceans" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
-        [ rdfs:label "OGC Application Package" ;
-            dcterms:format "application/json" ;
+    rdfs:seeAlso [ rdfs:label "OGC Application Package" ;
+            dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/application> ;
             oa:hasTarget <https://github.com/gtif-cerulean/cerulean-catalog.git> ],
         [ rdfs:label "Open Science Catalog" ;
-            dcterms:format "application/json" ;
+            dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://ogc.org/catalog.json> ],
         [ rdfs:label "POLARIS" ;
-            dcterms:format "application/json" ;
+            dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/child> ;
             oa:hasTarget <https://ogc.org/experiments/polaris-experiment/record.json> ],
         [ rdfs:label "Git source repository" ;
-            dcterms:format "application/json" ;
+            dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/git> ;
             oa:hasTarget <https://github.com/gtif-cerulean/cerulean-catalog.git> ],
-        [ dcterms:format "application/json" ;
+        [ rdfs:label "Workflows" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
+        [ dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/polaris-workflow/record.json> ],
-        [ rdfs:label "Workflows" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://ogc.org/demo/catalog.json> ] .
+        [ rdfs:label "Theme: Oceans" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
+        [ rdfs:label "Project: POLARIS" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/projects/polaris/collection.json> ] .
 
 
 ```
@@ -837,26 +837,403 @@ not accessible at https://osc-staging.earthcode.eox.at/workflows/waterbodies/rec
     dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core>,
         <https://raw.githubusercontent.com/EOEPCA/metadata-profile/refs/heads/1.0/schemas/application-type-ogc-application-package>,
         <https://stac-extensions.github.io/application/v0.1.0/schema.json> ;
-    rdfs:seeAlso [ rdfs:label "Open Science Catalog" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://ogc.org/catalog.json> ],
-        [ rdfs:label "Project: OSPD" ;
-            dcterms:format "application/json" ;
+    rdfs:seeAlso [ rdfs:label "Project: OSPD" ;
+            dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/projects/ospd/collection.json> ],
-        [ rdfs:label "Workflows" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
         [ rdfs:label "OGC Application Package" ;
-            dcterms:format "application/clw+yaml" ;
             dcterms:language "" ;
+            dcterms:type "application/clw+yaml" ;
             ns1:relation <http://www.iana.org/assignments/relation/application> ;
             oa:hasTarget <https://raw.githubusercontent.com/tjellicoe-tpzuk/eo-workflow-examples/refs/heads/main/water-bodies/water-bodies.cwl> ],
-        [ dcterms:format "application/json" ;
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ],
+        [ rdfs:label "Workflows" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
+        [ dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/waterbodies/record.json> ] .
+
+
+```
+
+
+### Water Bodies Detection With Provenance
+The Water Bodies Detection workflow record with mocked-up provenance data added to it.
+
+Some notes:
+  - There is an `properties.id` field because the prov-entity schema requires it, but it duplicates the
+    root `id`.
+  - The link to the CWL is there twice but it's not clear to me which type of link is better.
+  - wf4ever and PROV say little about how inputs are described. This is based on OGC API Processes.
+  - There's potential ambiguity over whether it's describing what arrived at the Processes API,
+    what arrived at the workflow engine or a mix. eg, processing mode may not reach the engine and
+    links may have been dereferenced. Or perhaps this is unimportant. However, both a link to CWL and
+    a link to a Processes API process could be given in one record.
+#### json
+```json
+{
+  "id": "waterbodies",
+  "type": "Feature",
+  "conformsTo": [
+    "http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core",
+    "https://stac-extensions.github.io/application/v0.1.0/schema.json",
+    "https://raw.githubusercontent.com/EOEPCA/metadata-profile/refs/heads/1.0/schemas/application-type-ogc-application-package"
+  ],
+  "geometry": null,
+
+  "properties": {
+    "id": "required-by-prov-Entity-schema",
+    "provType": ["prov:Entity", "prov:Plan", "wfdesc:Workflow"],
+
+    "wfdesc:hasInput": {
+      "aoi": {
+        "title": "area of interest",
+        "description": "area of interest as a bounding box",
+        "schema": {
+          "type": "string",
+          "default": "-121.399,39.834,-120.74,40.472",
+          "pattern": "^-?\\d+(\\.\\d+)?,-?\\d+(\\.\\d+)?, -?\\d+(\\.\\d+)?,-?\\d+(\\.\\d+)?$"
+        }
+      },
+      "epsg": {
+        "title": "EPSG code",
+        "description": "EPSG code",
+        "schema": {
+          "type": "string",
+          "default": "EPSG:4326"
+        }
+      },
+      "stac_items": {
+        "title": "Sentinel-2 STAC items",
+        "description": "list of Sentinel-2 COG STAC items",
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "minItems": 1
+        },
+        "default": [
+          "https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2B_10TFK_20210713_0_L2A",
+          "https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2A_10TFK_20220524_0_L2A"
+        ]
+      },
+      "bands": {
+        "title": "bands used for the NDWI",
+        "description": "bands used for the NDWI",
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 2,
+          "maxItems": 2,
+          "default": ["green", "nir"]
+        }
+      }
+    },
+    "wfdesc:hasOutput": {
+      "stac_catalog": {
+        "title": "STAC Catalog",
+        "description": "STAC Catalog containing the water bodies results",
+        "provType": ["prov:Collection", "prov:Entity"],
+        "schema": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+
+    "title": "Waterbodies",
+    "created": "2025-10-03T09:20:36Z",
+    "osc:project": "ospd",
+    "description": "Waterbodies workflow",
+    "type": "workflow",
+    "resourceLanguages": [],
+    "externalIds": [],
+    "formats": [],
+    "contacts": [
+      {
+        "name": "Tom Jellicoe",
+        "positionName": "Software Developer",
+        "organization": "Telespazio UK",
+        "emails": [
+            {
+                "value": "thomas.jellicoe@telespazio.com"
+            }
+        ]
+      }
+    ],
+    "keywords": [
+      "water",
+      "NDWI",
+      "water bodies",
+      "otsu",
+      "eoepca"
+    ],
+    "language": {
+      "code": ""
+    },
+    "languages": []
+  },
+
+
+  "links": [
+    {
+      "rel": "root",
+      "href": "https://example.com/open-science-catalog-metadata/catalog.json",
+      "type": "application/json",
+      "title": "Open Science Catalog"
+    },
+    {
+      "rel": "parent",
+      "href": "https://example.com/open-science-catalog-metadata/workflows/catalog.json",
+      "type": "application/json",
+      "title": "Workflows"
+    },
+    {
+      "rel": "self",
+      "href": "https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/waterbodies/record.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "related",
+      "href": "https://example.com/open-science-catalog-metadata/projects/ospd/collection.json",
+      "type": "application/json",
+      "title": "Project: OSPD"
+    },
+    {
+      "href": "https://raw.githubusercontent.com/tjellicoe-tpzuk/eo-workflow-examples/refs/heads/main/water-bodies/water-bodies.cwl",
+      "rel": "wfdesc:WorkflowDefinition",
+      "type": "application/cwl+yaml",
+      "title": "OGC Application Package"
+    },
+    {
+      "href": "https://raw.githubusercontent.com/tjellicoe-tpzuk/eo-workflow-examples/refs/heads/main/water-bodies/water-bodies.cwl",
+      "rel": "application",
+      "type": "application/cwl+yaml",
+      "hreflang": "",
+      "title": "OGC Application Package"
+    },
+    {
+      "href": "https://github.com/Terradue/ogc-eo-application-package-hands-on/tree/master/water-bodies",
+      "rel": "git",
+      "title": "Source Code"
+    }
+  ],
+  "linkTemplates": []
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/workflows/context.jsonld",
+  "id": "waterbodies",
+  "type": "Feature",
+  "conformsTo": [
+    "http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core",
+    "https://stac-extensions.github.io/application/v0.1.0/schema.json",
+    "https://raw.githubusercontent.com/EOEPCA/metadata-profile/refs/heads/1.0/schemas/application-type-ogc-application-package"
+  ],
+  "geometry": null,
+  "properties": {
+    "id": "required-by-prov-Entity-schema",
+    "provType": [
+      "prov:Entity",
+      "prov:Plan",
+      "wfdesc:Workflow"
+    ],
+    "wfdesc:hasInput": {
+      "aoi": {
+        "title": "area of interest",
+        "description": "area of interest as a bounding box",
+        "schema": {
+          "type": "string",
+          "default": "-121.399,39.834,-120.74,40.472",
+          "pattern": "^-?\\d+(\\.\\d+)?,-?\\d+(\\.\\d+)?, -?\\d+(\\.\\d+)?,-?\\d+(\\.\\d+)?$"
+        }
+      },
+      "epsg": {
+        "title": "EPSG code",
+        "description": "EPSG code",
+        "schema": {
+          "type": "string",
+          "default": "EPSG:4326"
+        }
+      },
+      "stac_items": {
+        "title": "Sentinel-2 STAC items",
+        "description": "list of Sentinel-2 COG STAC items",
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "minItems": 1
+        },
+        "default": [
+          "https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2B_10TFK_20210713_0_L2A",
+          "https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2A_10TFK_20220524_0_L2A"
+        ]
+      },
+      "bands": {
+        "title": "bands used for the NDWI",
+        "description": "bands used for the NDWI",
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 2,
+          "maxItems": 2,
+          "default": [
+            "green",
+            "nir"
+          ]
+        }
+      }
+    },
+    "wfdesc:hasOutput": {
+      "stac_catalog": {
+        "title": "STAC Catalog",
+        "description": "STAC Catalog containing the water bodies results",
+        "provType": [
+          "prov:Collection",
+          "prov:Entity"
+        ],
+        "schema": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "title": "Waterbodies",
+    "created": "2025-10-03T09:20:36Z",
+    "osc:project": "ospd",
+    "description": "Waterbodies workflow",
+    "type": "workflow",
+    "resourceLanguages": [],
+    "externalIds": [],
+    "formats": [],
+    "contacts": [
+      {
+        "name": "Tom Jellicoe",
+        "positionName": "Software Developer",
+        "organization": "Telespazio UK",
+        "emails": [
+          {
+            "value": "thomas.jellicoe@telespazio.com"
+          }
+        ]
+      }
+    ],
+    "keywords": [
+      "water",
+      "NDWI",
+      "water bodies",
+      "otsu",
+      "eoepca"
+    ],
+    "language": {
+      "code": ""
+    },
+    "languages": []
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "https://example.com/open-science-catalog-metadata/catalog.json",
+      "type": "application/json",
+      "title": "Open Science Catalog"
+    },
+    {
+      "rel": "parent",
+      "href": "https://example.com/open-science-catalog-metadata/workflows/catalog.json",
+      "type": "application/json",
+      "title": "Workflows"
+    },
+    {
+      "rel": "self",
+      "href": "https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/waterbodies/record.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "related",
+      "href": "https://example.com/open-science-catalog-metadata/projects/ospd/collection.json",
+      "type": "application/json",
+      "title": "Project: OSPD"
+    },
+    {
+      "href": "https://raw.githubusercontent.com/tjellicoe-tpzuk/eo-workflow-examples/refs/heads/main/water-bodies/water-bodies.cwl",
+      "rel": "wfdesc:WorkflowDefinition",
+      "type": "application/cwl+yaml",
+      "title": "OGC Application Package"
+    },
+    {
+      "href": "https://raw.githubusercontent.com/tjellicoe-tpzuk/eo-workflow-examples/refs/heads/main/water-bodies/water-bodies.cwl",
+      "rel": "application",
+      "type": "application/cwl+yaml",
+      "hreflang": "",
+      "title": "OGC Application Package"
+    },
+    {
+      "href": "https://github.com/Terradue/ogc-eo-application-package-hands-on/tree/master/water-bodies",
+      "rel": "git",
+      "title": "Source Code"
+    }
+  ],
+  "linkTemplates": []
+}
+```
+
+#### ttl
+```ttl
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://ogc.org/demo/ospd/waterbodies> a geojson:Feature ;
+    dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core>,
+        <https://raw.githubusercontent.com/EOEPCA/metadata-profile/refs/heads/1.0/schemas/application-type-ogc-application-package>,
+        <https://stac-extensions.github.io/application/v0.1.0/schema.json> ;
+    rdfs:seeAlso [ rdfs:label "Project: OSPD" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/open-science-catalog-metadata/projects/ospd/collection.json> ],
+        [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/waterbodies/record.json> ],
+        [ rdfs:label "OGC Application Package" ;
+            dcterms:type "application/cwl+yaml" ;
+            ns1:relation <wfdesc:WorkflowDefinition> ;
+            oa:hasTarget <https://raw.githubusercontent.com/tjellicoe-tpzuk/eo-workflow-examples/refs/heads/main/water-bodies/water-bodies.cwl> ],
+        [ rdfs:label "Workflows" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/open-science-catalog-metadata/workflows/catalog.json> ],
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/open-science-catalog-metadata/catalog.json> ],
+        [ rdfs:label "OGC Application Package" ;
+            dcterms:language "" ;
+            dcterms:type "application/cwl+yaml" ;
+            ns1:relation <http://www.iana.org/assignments/relation/application> ;
+            oa:hasTarget <https://raw.githubusercontent.com/tjellicoe-tpzuk/eo-workflow-examples/refs/heads/main/water-bodies/water-bodies.cwl> ],
+        [ rdfs:label "Source Code" ;
+            ns1:relation <http://www.iana.org/assignments/relation/git> ;
+            oa:hasTarget <https://github.com/Terradue/ogc-eo-application-package-hands-on/tree/master/water-bodies> ] .
 
 
 ```
@@ -1091,37 +1468,37 @@ calculation.
 
 <https://ogc.org/demo/ospd/polaris-workflow> a geojson:Feature ;
     dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core> ;
-    rdfs:seeAlso [ rdfs:label "Open Science Catalog" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://ogc.org/catalog.json> ],
-        [ rdfs:label "Workflows" ;
-            dcterms:format "application/json" ;
+    rdfs:seeAlso [ rdfs:label "Workflows" ;
+            dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://ogc.org/demo/catalog.json> ],
         [ rdfs:label "Git source repository" ;
-            dcterms:format "application/json" ;
+            dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/git> ;
             oa:hasTarget <https://github.com/gtif-cerulean/cerulean-catalog.git> ],
-        [ rdfs:label "POLARIS" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/child> ;
-            oa:hasTarget <https://ogc.org/experiments/polaris-experiment/record.json> ],
-        [ rdfs:label "Theme: Oceans" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
-        [ dcterms:format "application/json" ;
+        [ dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/polaris-workflow/record.json> ],
-        [ rdfs:label "Project: POLARIS" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/projects/polaris/collection.json> ],
         [ rdfs:label "OGC Application Package" ;
-            dcterms:format "application/json" ;
+            dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/application> ;
-            oa:hasTarget <https://github.com/gtif-cerulean/cerulean-catalog.git> ] .
+            oa:hasTarget <https://github.com/gtif-cerulean/cerulean-catalog.git> ],
+        [ rdfs:label "POLARIS" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/child> ;
+            oa:hasTarget <https://ogc.org/experiments/polaris-experiment/record.json> ],
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ],
+        [ rdfs:label "Theme: Oceans" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
+        [ rdfs:label "Project: POLARIS" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/projects/polaris/collection.json> ] .
 
 
 ```
@@ -1132,16 +1509,30 @@ calculation.
 $schema: https://json-schema.org/draft/2020-12/schema
 description: Schema for EarthCODE Workflow
 allOf:
-- anyOf:
-  - $ref: https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/geodcat-records/schema.yaml
+- $ref: https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/geodcat-records/schema.yaml
 properties:
   properties:
     type: object
+    anyOf:
+    - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml
+    - not:
+        required:
+        - provType
     required:
     - osc:project
     properties:
       osc:project:
         $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/$defs/osc:project
+      wfdesc:hasInput:
+        type: object
+        additionalProperties:
+          type: object
+          $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/inputDescription/schema.yaml
+      wfdesc:hasOutput:
+        type: object
+        additionalProperties:
+          type: object
+          $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/outputDescription/schema.yaml
   links:
     type: array
     items:
@@ -1187,7 +1578,6 @@ Links to the schema:
         "language": {
           "@context": {
             "code": {},
-            "name": {},
             "alternate": {},
             "dir": {}
           },
@@ -1196,7 +1586,6 @@ Links to the schema:
         "languages": {
           "@context": {
             "code": {},
-            "name": {},
             "alternate": {},
             "dir": {}
           },
@@ -1206,7 +1595,6 @@ Links to the schema:
         "resourceLanguages": {
           "@context": {
             "code": {},
-            "name": {},
             "alternate": {},
             "dir": {}
           },
@@ -1248,7 +1636,6 @@ Links to the schema:
         "contacts": {
           "@context": {
             "identifier": {},
-            "name": {},
             "position": {},
             "organization": {},
             "logo": {
@@ -1267,16 +1654,8 @@ Links to the schema:
                 "length": "dct:extent"
               }
             },
-            "phones": {
-              "@context": {
-                "value": {}
-              }
-            },
-            "emails": {
-              "@context": {
-                "value": {}
-              }
-            },
+            "phones": {},
+            "emails": {},
             "addresses": {
               "@context": {
                 "deliveryPoint": {},
@@ -1284,22 +1663,6 @@ Links to the schema:
                 "administrativeArea": {},
                 "postalCode": {},
                 "country": {}
-              }
-            },
-            "links": {
-              "@context": {
-                "rel": {
-                  "@context": {
-                    "@base": "http://www.iana.org/assignments/relation/"
-                  },
-                  "@id": "http://www.iana.org/assignments/relation",
-                  "@type": "@id"
-                },
-                "anchor": {},
-                "type": "dct:type",
-                "hreflang": "dct:language",
-                "title": "rdfs:label",
-                "length": "dct:extent"
               }
             },
             "hoursOfService": {},
@@ -1337,10 +1700,11 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "type": "dct:format",
+        "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
-        "length": "dct:extent"
+        "length": "dct:extent",
+        "anchor": {}
       },
       "@id": "rdfs:seeAlso"
     },
@@ -1470,7 +1834,566 @@ Links to the schema:
         "@vocab": "https://www.opengis.net/def/ogc-api/records/"
       }
     },
+    "wasInfluencedBy": {
+      "@context": {
+        "type": "dct:type",
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "anchor": {},
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
+      "@id": "prov:wasInfluencedBy",
+      "@type": "@id"
+    },
+    "qualifiedInfluence": {
+      "@context": {
+        "influencer": {
+          "@context": {
+            "type": "dct:type",
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "anchor": {},
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:influencer",
+          "@type": "@id"
+        },
+        "activity": {
+          "@context": {
+            "type": "dct:type",
+            "wasAssociatedWith": {
+              "@context": {
+                "rel": {
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  },
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id"
+                },
+                "anchor": {},
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
+              },
+              "@id": "prov:wasAssociatedWith",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:activity",
+          "@type": "@id"
+        },
+        "agent": {
+          "@context": {
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "anchor": {},
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:agent",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:qualifiedInfluence",
+      "@type": "@id"
+    },
+    "provType": "@type",
+    "prov:type": {},
+    "hadMember": {
+      "@id": "prov:hadMember",
+      "@type": "@id"
+    },
+    "featureType": "@type",
+    "entityType": "@type",
+    "has_provenance": {
+      "@context": {
+        "type": "dct:type",
+        "wasAssociatedWith": {
+          "@id": "prov:wasAssociatedWith",
+          "@type": "@id",
+          "@context": {
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "anchor": {},
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          }
+        }
+      },
+      "@id": "dct:provenance",
+      "@type": "@id"
+    },
+    "wasGeneratedBy": {
+      "@context": {
+        "type": "dct:type",
+        "wasAssociatedWith": {
+          "@context": {
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "anchor": {},
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:wasAssociatedWith",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:wasGeneratedBy",
+      "@type": "@id"
+    },
+    "wasAttributedTo": {
+      "@context": {
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "anchor": {},
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
+      "@id": "prov:wasAttributedTo",
+      "@type": "@id"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "alternateOf": {
+      "@id": "prov:alternateOf",
+      "@type": "@id"
+    },
+    "hadPrimarySource": {
+      "@id": "prov:hadPrimarySource",
+      "@type": "@id"
+    },
+    "specializationOf": {
+      "@id": "prov:specializationOf",
+      "@type": "@id"
+    },
+    "wasInvalidatedBy": {
+      "@context": {
+        "type": "dct:type",
+        "wasAssociatedWith": {
+          "@context": {
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "anchor": {},
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:wasAssociatedWith",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:wasInvalidatedBy",
+      "@type": "@id"
+    },
+    "wasQuotedFrom": {
+      "@id": "prov:wasQuotedFrom",
+      "@type": "@id"
+    },
+    "wasRevisionOf": {
+      "@id": "prov:wasRevisionOf",
+      "@type": "@id"
+    },
+    "atLocation": {
+      "@id": "prov:atLocation",
+      "@type": "@id"
+    },
+    "qualifiedGeneration": {
+      "@id": "prov:qualifiedGeneration",
+      "@type": "@id"
+    },
+    "qualifiedInvalidation": {
+      "@id": "prov:qualifiedInvalidation",
+      "@type": "@id"
+    },
+    "qualifiedDerivation": {
+      "@context": {
+        "hadActivity": {
+          "@context": {
+            "type": "dct:type",
+            "wasAssociatedWith": {
+              "@context": {
+                "rel": {
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  },
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id"
+                },
+                "anchor": {},
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
+              },
+              "@id": "prov:wasAssociatedWith",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:hadActivity",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:qualifiedDerivation",
+      "@type": "@id"
+    },
+    "qualifiedAttribution": {
+      "@context": {
+        "agent": {
+          "@context": {
+            "type": "dct:type"
+          },
+          "@id": "prov:agent",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:qualifiedAttribution",
+      "@type": "@id"
+    },
+    "activityType": "@type",
+    "agentType": "@type",
+    "Activity": "prov:Activity",
+    "ActivityInfluence": "prov:ActivityInfluence",
+    "Agent": "prov:Agent",
+    "AgentInfluence": "prov:AgentInfluence",
+    "Association": "prov:Association",
+    "Attribution": "prov:Attribution",
+    "Bundle": "prov:Bundle",
+    "Collection": "prov:Collection",
+    "Communication": "prov:Communication",
+    "Delegation": "prov:Delegation",
+    "Derivation": "prov:Derivation",
+    "EmptyCollection": "prov:EmptyCollection",
+    "End": "prov:End",
+    "Entity": "prov:Entity",
+    "EntityInfluence": "prov:EntityInfluence",
+    "Generation": "prov:Generation",
+    "Influence": "prov:Influence",
+    "InstantaneousEvent": "prov:InstantaneousEvent",
+    "Invalidation": "prov:Invalidation",
+    "Location": "prov:Location",
+    "Organization": "prov:Organization",
+    "Person": "prov:Person",
+    "Plan": "prov:Plan",
+    "PrimarySource": "prov:PrimarySource",
+    "Quotation": "prov:Quotation",
+    "Revision": "prov:Revision",
+    "Role": "prov:Role",
+    "SoftwareAgent": "prov:SoftwareAgent",
+    "Start": "prov:Start",
+    "Usage": "prov:Usage",
+    "ServiceDescription": "prov:ServiceDescription",
+    "DirectQueryService": "prov:DirectQueryService",
+    "Accept": "prov:Accept",
+    "Contribute": "prov:Contribute",
+    "Contributor": "prov:Contributor",
+    "Copyright": "prov:Copyright",
+    "Create": "prov:Create",
+    "Creator": "prov:Creator",
+    "Modify": "prov:Modify",
+    "Publish": "prov:Publish",
+    "Publisher": "prov:Publisher",
+    "Replace": "prov:Replace",
+    "RightsAssignment": "prov:RightsAssignment",
+    "RightsHolder": "prov:RightsHolder",
+    "Submit": "prov:Submit",
+    "Dictionary": "prov:Dictionary",
+    "EmptyDictionary": "prov:EmptyDictionary",
+    "KeyEntityPair": "prov:KeyEntityPair",
+    "Insertion": "prov:Insertion",
+    "Removal": "prov:Removal",
+    "atTime": {
+      "@id": "prov:atTime",
+      "@type": "xsd:dateTime"
+    },
+    "endedAtTime": {
+      "@id": "prov:endedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "generatedAtTime": {
+      "@id": "prov:generatedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "invalidatedAtTime": {
+      "@id": "prov:invalidatedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "startedAtTime": {
+      "@id": "prov:startedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "value": "prov:value",
+    "provenanceUriTemplate": "prov:provenanceUriTemplate",
+    "pairKey": {
+      "@id": "prov:pairKey",
+      "@type": "rdfs:Literal"
+    },
+    "removedKey": {
+      "@id": "prov:removedKey",
+      "@type": "rdfs:Literal"
+    },
+    "actedOnBehalfOf": {
+      "@id": "prov:actedOnBehalfOf",
+      "@type": "@id"
+    },
+    "agent": {
+      "@id": "prov:agent",
+      "@type": "@id"
+    },
+    "entity": {
+      "@id": "prov:entity",
+      "@type": "@id"
+    },
+    "generated": {
+      "@id": "prov:generated",
+      "@type": "@id"
+    },
+    "hadActivity": {
+      "@id": "prov:hadActivity",
+      "@type": "@id"
+    },
+    "activity": {
+      "@id": "prov:activity",
+      "@type": "@id"
+    },
+    "hadGeneration": {
+      "@id": "prov:hadGeneration",
+      "@type": "@id"
+    },
+    "hadPlan": {
+      "@id": "prov:hadPlan",
+      "@type": "@id"
+    },
+    "hadRole": {
+      "@id": "prov:hadRole",
+      "@type": "@id"
+    },
+    "hadUsage": {
+      "@id": "prov:hadUsage",
+      "@type": "@id"
+    },
+    "influenced": {
+      "@id": "prov:influenced",
+      "@type": "@id"
+    },
+    "influencer": {
+      "@id": "prov:influencer",
+      "@type": "@id"
+    },
+    "invalidated": {
+      "@id": "prov:invalidated",
+      "@type": "@id"
+    },
+    "qualifiedAssociation": {
+      "@id": "prov:qualifiedAssociation",
+      "@type": "@id"
+    },
+    "qualifiedCommunication": {
+      "@id": "prov:qualifiedCommunication",
+      "@type": "@id"
+    },
+    "qualifiedDelegation": {
+      "@id": "prov:qualifiedDelegation",
+      "@type": "@id"
+    },
+    "qualifiedEnd": {
+      "@id": "prov:qualifiedEnd",
+      "@type": "@id"
+    },
+    "qualifiedPrimarySource": {
+      "@id": "prov:qualifiedPrimarySource",
+      "@type": "@id"
+    },
+    "qualifiedQuotation": {
+      "@id": "prov:qualifiedQuotation",
+      "@type": "@id"
+    },
+    "qualifiedRevision": {
+      "@id": "prov:qualifiedRevision",
+      "@type": "@id"
+    },
+    "qualifiedStart": {
+      "@id": "prov:qualifiedStart",
+      "@type": "@id"
+    },
+    "qualifiedUsage": {
+      "@id": "prov:qualifiedUsage",
+      "@type": "@id"
+    },
+    "used": {
+      "@id": "prov:used",
+      "@type": "@id"
+    },
+    "wasAssociatedWith": {
+      "@id": "prov:wasAssociatedWith",
+      "@type": "@id"
+    },
+    "wasEndedBy": {
+      "@id": "prov:wasEndedBy",
+      "@type": "@id"
+    },
+    "wasInformedBy": {
+      "@id": "prov:wasInformedBy",
+      "@type": "@id"
+    },
+    "wasStartedBy": {
+      "@id": "prov:wasStartedBy",
+      "@type": "@id"
+    },
+    "has_anchor": {
+      "@id": "prov:has_anchor",
+      "@type": "@id"
+    },
+    "has_query_service": {
+      "@id": "prov:has_query_service",
+      "@type": "@id"
+    },
+    "describesService": {
+      "@id": "prov:describesService",
+      "@type": "@id"
+    },
+    "pingback": {
+      "@id": "prov:pingback",
+      "@type": "@id"
+    },
+    "dictionary": {
+      "@id": "prov:dictionary",
+      "@type": "@id"
+    },
+    "derivedByInsertionFrom": {
+      "@id": "prov:derivedByInsertionFrom",
+      "@type": "@id"
+    },
+    "derivedByRemovalFrom": {
+      "@id": "prov:derivedByRemovalFrom",
+      "@type": "@id"
+    },
+    "insertedKeyEntityPair": {
+      "@id": "prov:insertedKeyEntityPair",
+      "@type": "@id"
+    },
+    "hadDictionaryMember": {
+      "@id": "prov:hadDictionaryMember",
+      "@type": "@id"
+    },
+    "pairEntity": {
+      "@id": "prov:pairEntity",
+      "@type": "@id"
+    },
+    "qualifiedInsertion": {
+      "@id": "prov:qualifiedInsertion",
+      "@type": "@id"
+    },
+    "qualifiedRemoval": {
+      "@id": "prov:qualifiedRemoval",
+      "@type": "@id"
+    },
+    "asInBundle": {
+      "@id": "prov:asInBundle",
+      "@type": "@id"
+    },
+    "mentionOf": {
+      "@id": "prov:mentionOf",
+      "@type": "@id"
+    },
+    "name": "rdfs:label",
     "osc:project": {},
+    "additionalParameters": {
+      "@context": {
+        "role": {},
+        "parameters": {}
+      }
+    },
+    "metadata": {
+      "@context": {
+        "role": {}
+      }
+    },
+    "maxOccurs": {},
+    "minOccurs": {},
+    "schema": {
+      "@context": {
+        "$ref": {},
+        "additionalProperties": {},
+        "allOf": {},
+        "anyOf": {},
+        "contentEncoding": {},
+        "contentMediaType": {},
+        "contentSchema": {},
+        "default": {},
+        "deprecated": {},
+        "enum": {},
+        "example": {},
+        "exclusiveMaximum": {},
+        "exclusiveMinimum": {},
+        "format": {},
+        "items": {},
+        "maxItems": {},
+        "maxLength": {},
+        "maxProperties": {},
+        "maximum": {},
+        "minItems": {},
+        "minLength": {},
+        "minProperties": {},
+        "minimum": {},
+        "multipleOf": {},
+        "not": {},
+        "nullable": {},
+        "oneOf": {},
+        "pattern": {},
+        "readOnly": {},
+        "required": {},
+        "uniqueItems": {},
+        "writeOnly": {}
+      }
+    },
+    "wfdesc:hasInput": {},
+    "wfdesc:hasOutput": {},
     "rel": {},
     "href": {
       "@type": "@id",

@@ -3,22 +3,44 @@
   "description": "Schema for EarthCODE Workflow",
   "allOf": [
     {
-      "anyOf": [
-        {
-          "$ref": "https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/geodcat-records/schema.json"
-        }
-      ]
+      "$ref": "https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/geodcat-records/schema.json"
     }
   ],
   "properties": {
     "properties": {
       "type": "object",
+      "anyOf": [
+        {
+          "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.json"
+        },
+        {
+          "not": {
+            "required": [
+              "provType"
+            ]
+          }
+        }
+      ],
       "required": [
         "osc:project"
       ],
       "properties": {
         "osc:project": {
           "$ref": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.json#/$defs/osc:project"
+        },
+        "wfdesc:hasInput": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "$ref": "https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/inputDescription/schema.json"
+          }
+        },
+        "wfdesc:hasOutput": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "$ref": "https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/outputDescription/schema.json"
+          }
         }
       }
     },
