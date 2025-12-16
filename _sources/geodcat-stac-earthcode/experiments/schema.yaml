@@ -5,24 +5,18 @@ allOf:
   - $ref: bblocks://ogc.geo.geodcat.geodcat-records
 properties:
   properties:
+    # because a Record is a "Feature" then the nested properties property can have
+    # properties defining aspects of the prov Activity using the bblock schema for this
+    allOf:
+      - $ref: bblocks://ogc.bbr.wf4ever.wfprov.WorkflowRun
     type: object
     required:
       - osc:workflow
     properties:
       osc:workflow:
         $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common#/$defs/osc:workflow
-    # The `type` field is required to be `experiment` by EarthCODE but prov-activity
-    # requires it to be one of several other values (or a list containing one). The
-    # prov-entity bblock solves this by allowing either a valid type, prov:type or
-    # provType field but prov-activity does not. For that reason, validation fails.
-    # Suggested fix is to update prov-activity to allow it.
-    #
-    # Additionally, OGC Records requires `type` to be a string and not an array.
-    anyOf:
-      - $ref: bblocks://ogc.ogc-utils.prov-activity
-      - not:
-          required:
-            - provType
+    
+
   links:
     type: array
     items:
