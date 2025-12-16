@@ -1,54 +1,50 @@
 {
-  "id": "polaris-workflow",
+  "id": "kindgrove-mangrove-biomass-workflow",
   "type": "Feature",
+  "geometry": null,
   "conformsTo": [
     "http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core"
   ],
-  "geometry": null,
   "properties": {
-    "created": "2025-02-19T23:00:00Z",
-    "updated": "2025-03-03T22:00:00Z",
-    "type": "workflow",
-    "title": "POLARIS",
-    "description": "Polar Operational Limit Assessment Risk Index System (POLARIS) algorithm.",
+    "title": "KindGrove: Mangrove Biomass Estimation",
+    "description": "An interactive Jupyter notebook workflow for estimating mangrove forest biomass and carbon stocks using Sentinel-2 satellite imagery from AWS Open Data Registry. This demonstrates an initial baseline approach that can be augmented with complementary data sources (LiDAR, InSAR, thermal) or integrated with coastal vulnerability assessments depending on project needs.\n\n### Open Data Architecture\n- Sentinel-2 L2A imagery via AWS STAC catalog (no authentication)\n- Cloud-optimized GeoTIFF processing\n- STAC-compliant data discovery\n\n### Validated Scientific Methods\n- Biomass model R\u00b2 = 0.72 (validated against 600+ field plots)\n- Detection accuracy: 85-90% (conservative threshold approach)\n- Uncertainty: \u00b130% (meets IPCC Tier 2 requirements)\n\n### Workflow Stages\n1. Study Area Definition - Interactive location selector\n2. STAC Data Discovery - Query AWS catalog for cloud-free scenes\n3. Vegetation Index Calculation - NDVI, NDWI, SAVI from spectral bands\n4. Mangrove Detection - Threshold-based classification\n5. Biomass Estimation - Allometric model (Biomass = 250.5 \u00d7 NDVI - 75.2)\n6. Carbon Accounting - IPCC-compliant calculations",
+    "osc:type": "workflow",
+    "osc:project": "ospd",
+    "osc:status": "development",
+    "application:type": "cwl-workflow",
+    "application:container": "True",
+    "application:language": "Python",
+    "updated": "2024-07-30T12:00:00Z",
+    "created": "2024-07-30T12:00:00Z",
     "keywords": [
-      "sea ice",
-      "polar"
+      "mangrove",
+      "biomass",
+      "carbon",
+      "sentinel-2",
+      "stac"
     ],
-    "contacts": [
+    "license": "MIT",
+    "version": "1",
+    "themes": [
       {
-        "name": "EarthCODE Demo",
-        "organization": "EarthCODE",
-        "links": [
+        "scheme": "https://github.com/stac-extensions/osc#theme",
+        "concepts": [
           {
-            "rel": "about",
-            "type": "text/html",
-            "href": "https://opensciencedata.esa.int/"
+            "id": "land"
           }
-        ],
-        "contactInstructions": "Contact via EarthCODE",
-        "roles": [
-          "host"
         ]
       }
     ],
-    "themes": [
+    "contacts": [
       {
-        "concepts": [
-          {
-            "id": "oceans"
-          }
+        "name": "Cameron Sajedi",
+        "roles": [
+          "developer"
         ],
-        "scheme": "https://github.com/stac-extensions/osc#theme"
+        "emails": []
       }
     ],
-    "formats": [
-      {
-        "name": "GeoTIFF"
-      }
-    ],
-    "license": "CC-BY-SA-4.0",
-    "osc:project": "polaris"
+    "extent": null
   },
   "linkTemplates": [],
   "links": [
@@ -66,38 +62,36 @@
     },
     {
       "rel": "self",
-      "href": "https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/polaris-workflow/record.json",
+      "href": "../kindgrove-mangrove-biomass-workflow/record.json",
       "type": "application/json"
     },
     {
       "rel": "related",
-      "href": "../../projects/polaris/collection.json",
+      "href": "../../projects/ospd/collection.json",
       "type": "application/json",
-      "title": "Project: POLARIS"
-    },
-    {
-      "rel": "child",
-      "href": "../../experiments/polaris-experiment/record.json",
-      "type": "application/json",
-      "title": "POLARIS"
+      "title": "Project: OSPD"
     },
     {
       "rel": "related",
-      "href": "../../themes/oceans/catalog.json",
+      "href": "../../themes/land/catalog.json",
       "type": "application/json",
-      "title": "Theme: Oceans"
+      "title": "Theme: Land"
+    },
+    {
+      "rel": "vcs",
+      "title": "Git source repository",
+      "href": "https://github.com/starling-foundries/KindGrove",
+      "vcs:type": "git",
+      "vcs:branch": "main"
     },
     {
       "rel": "application",
-      "type": "application/json",
-      "title": "OGC Application Package",
-      "href": "https://github.com/gtif-cerulean/cerulean-catalog.git"
-    },
-    {
-      "rel": "git",
-      "type": "application/json",
-      "title": "Git source repository",
-      "href": "https://github.com/gtif-cerulean/cerulean-catalog.git"
+      "title": "KindGrove Mangrove Biomass Workflow",
+      "href": "https://github.com/starling-foundries/KindGrove/blob/main/mangrove_workflow.cwl",
+      "type": "application/x-cwl",
+      "application:type": "cwl-workflow",
+      "application:container": "True",
+      "application:language": "Python"
     }
   ]
 }

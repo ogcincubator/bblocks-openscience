@@ -2,8 +2,8 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <wfprov:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <wfprov:> .
 @prefix ns3: <osc:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -15,56 +15,56 @@
 
 <https://ogc.org/demo/ospd/eo-data-platform> a prov:Agent,
         prov:SoftwareAgent,
-        ns1:WorkfowEngine ;
+        ns2:WorkfowEngine ;
     prov:label "cwltool 3.1.20251031082601" .
 
 <https://ogc.org/demo/ospd/water-bodies-execution> a prov:Activity,
         geojson:Feature,
         :experiment,
-        ns1:WorkflowRun ;
+        ns2:WorkflowRun ;
     dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core> ;
     dcterms:created "2025-01-21T18:00:00Z" ;
     dcterms:description "Experiment using the water bodies workflow." ;
     dcterms:modified "2025-01-21T18:40:00Z" ;
     dcterms:title "Water Bodies Experiment" ;
-    rdfs:seeAlso [ rdfs:label "Experiments" ;
-            dcterms:format "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/open-science-catalog-metadata/experiments/catalog.json> ],
-        [ rdfs:label "Workflow: Water Bodies" ;
-            dcterms:format "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/open-science-catalog-metadata/workflows/waterbodies/record.json> ],
-        [ rdfs:label "An EO data exploitation platform" ;
-            dcterms:format "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/service> ;
-            oa:hasTarget <https://example.com> ],
-        [ dcterms:format "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+    rdfs:seeAlso [ dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/open-science-catalog-metadata/experiments/water-bodies-execution/record.json> ],
+        [ rdfs:label "Theme: Land" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/open-science-catalog-metadata/themes/land/catalog.json> ],
+        [ rdfs:label "Experiments" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/open-science-catalog-metadata/experiments/catalog.json> ],
         [ rdfs:label "Water Bodies Execution Outputs" ;
             dcterms:format "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/child> ;
+            ns1:relation <http://www.iana.org/assignments/relation/child> ;
             oa:hasTarget <https://example.com/open-science-catalog-metadata/products/water-bodies-execution-outputs/collection.json> ],
         [ rdfs:label "Open Science Catalog" ;
             dcterms:format "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/root> ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/open-science-catalog-metadata/catalog.json> ],
-        [ rdfs:label "Theme: Land" ;
+        [ rdfs:label "An EO data exploitation platform" ;
             dcterms:format "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/open-science-catalog-metadata/themes/land/catalog.json> ] ;
-    dcat:contactPoint [ rdfs:label "An Org" ;
-            :contactInstructions "SEE WEBSITE" ;
-            :links [ dcterms:type "text/html" ;
-                    ns2:relation <http://www.iana.org/assignments/relation/about> ;
-                    oa:hasTarget <https://example.com/> ] ;
-            stac:roles "processor" ],
-        [ rdfs:label "A person" ;
+            ns1:relation <http://www.iana.org/assignments/relation/service> ;
+            oa:hasTarget <https://example.com> ],
+        [ rdfs:label "Workflow: Water Bodies" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/open-science-catalog-metadata/workflows/waterbodies/record.json> ] ;
+    dcat:contactPoint [ rdfs:label "A person" ;
             :contactInstructions "Contact via website" ;
             :organization "An Org" ;
             :position "Researcher" ;
-            stac:roles "principal investigator" ] ;
+            stac:roles "principal investigator" ],
+        [ rdfs:label "An Org" ;
+            :contactInstructions "SEE WEBSITE" ;
+            :links [ dcterms:type "text/html" ;
+                    ns1:relation <http://www.iana.org/assignments/relation/about> ;
+                    oa:hasTarget <https://example.com/> ] ;
+            stac:roles "processor" ] ;
     dcat:license "proprietary" ;
     prov:endedAtTime "2025-01-21T17:59:50+00:00"^^xsd:dateTime ;
     prov:generated <https://example.com/open-science-catalog-metadata/products/water-bodies-execution-outputs/collection.json> ;
@@ -79,20 +79,20 @@
     rec:themes [ thns:concepts [ thns:id "land"^^xsd:string ] ;
             thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
     ns3:workflow "waterbodies" ;
-    ns1:describedByWorkflow "https://example.com/workflows/waterbodies/record.json" ;
-    ns1:usedInput [ a ns1:Artifact ;
-            :data "green",
-                "nir" ;
-            :describedByParameter "bands" ],
-        [ a ns1:Artifact ;
-            :data "EPSG:4326" ;
-            :describedByParameter "epsg" ],
-        [ a ns1:Artifact ;
+    ns2:describedByWorkflow "https://example.com/workflows/waterbodies/record.json" ;
+    ns2:usedInput [ a ns2:Artifact ;
+            :data "-121.399,39.834,-120.74,40.472" ;
+            :describedByParameter "aoi" ],
+        [ a ns2:Artifact ;
             prov:hadMember <https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2A_10TFK_20220524_0_L2A>,
                 <https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2B_10TFK_20210713_0_L2A> ;
             :describedByParameter "stac_items" ],
-        [ a ns1:Artifact ;
-            :data "-121.399,39.834,-120.74,40.472" ;
-            :describedByParameter "aoi" ] ;
-    ns1:wasEnactedBy <https://ogc.org/demo/ospd/eo-data-platform> .
+        [ a ns2:Artifact ;
+            :data "green",
+                "nir" ;
+            :describedByParameter "bands" ],
+        [ a ns2:Artifact ;
+            :data "EPSG:4326" ;
+            :describedByParameter "epsg" ] ;
+    ns2:wasEnactedBy <https://ogc.org/demo/ospd/eo-data-platform> .
 
