@@ -3,6 +3,11 @@ description: 'EarthCode Product'
 allOf:
   - $ref: bblocks://ogc.osc.geodcat-stac-earthcode.common
   - anyOf:
+    - $ref: bblocks://ogc.ogc-utils.prov-entity
+    - not:
+        required:
+          - provType
+  - anyOf:
     - $ref: bblocks://ogc.contrib.stac.extensions.cf
     - not:
         properties:
