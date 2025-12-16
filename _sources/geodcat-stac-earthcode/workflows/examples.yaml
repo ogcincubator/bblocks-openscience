@@ -65,7 +65,21 @@
     calculation.
   snippets:
    - language: json
-     ref: https://raw.githubusercontent.com/ESA-EarthCODE/open-science-catalog-metadata/refs/heads/main/workflows/polaris-workflow/record.json
+     ref: https://esa-earthcode.github.io/open-science-catalog-metadata-staging/workflows/kindgrove-mangrove-biomass-workflow/record.json
      base-uri: https://ogc.org/demo/ospd/
 
+- title: Coastal Vulnerability Index (CVI) Workflow
+  content: |-
+    An automated, reproducible workflow for calculating the Coastal Vulnerability Index (CVI). This system generates coastal transects, fetches satellite data (DEM, Land Cover), computes physical parameters, and classifies coastal risk based on the USGS/NOAA methodology.\n\nThe workflow is implemented in Common Workflow Language (CWL) and runs inside a Docker container, ensuring it can be executed anywhere—from a local laptop to a High-Performance Computing (HPC) cluster or JupyterHub.
+  snippets:
+   - language: json
+     ref: https://esa-earthcode.github.io/open-science-catalog-metadata-staging/workflows/cvi-workflow/record.json
+     base-uri: https://ogc.org/demo/ospd/
 
+- title: ML4Floods Inference for Flood Extent Estimation
+  content: |-
+   ML4Floods inference for flood extent estimation using a pre-trained model on Sentinel-2 or Landsat-9 data. This application is designed to process satellite imagery and delineate flood extents.
+  snippets:
+   - language: json
+     ref: https://esa-earthcode.github.io/open-science-catalog-metadata-staging/workflows/app-ml4floods/record.json
+     base-uri: https://ogc.org/demo/ospd/
