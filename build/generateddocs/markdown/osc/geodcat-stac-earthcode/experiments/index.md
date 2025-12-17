@@ -132,7 +132,7 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 #### jsonld
 ```jsonld
 {
-  "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/context.jsonld",
+  "@context": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/context.jsonld",
   "id": "polaris-experiment",
   "type": "Feature",
   "conformsTo": [
@@ -259,33 +259,33 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/child> ;
             oa:hasTarget <https://ogc.org/products/polaris/collection.json> ],
-        [ rdfs:label "Open Science Catalog" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://ogc.org/catalog.json> ],
-        [ rdfs:label "Theme: Oceans" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
-        [ rdfs:label "Input parameters" ;
-            dcterms:format "application/yaml" ;
-            ns1:relation <http://www.iana.org/assignments/relation/input> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/input.yaml> ],
         [ rdfs:label "Experiments" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://ogc.org/demo/catalog.json> ],
-        [ rdfs:label "Workflow: POLARIS" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/workflows/polaris-workflow/record.json> ],
+        [ dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/experiments/polaris-experiment/item.json> ],
         [ rdfs:label "Execution environment" ;
             dcterms:format "application/yaml" ;
             ns1:relation <http://www.iana.org/assignments/relation/environment> ;
             oa:hasTarget <https://ogc.org/demo/ospd/environment.yaml> ],
-        [ dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/experiments/polaris-experiment/item.json> ] ;
+        [ rdfs:label "Input parameters" ;
+            dcterms:format "application/yaml" ;
+            ns1:relation <http://www.iana.org/assignments/relation/input> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/input.yaml> ],
+        [ rdfs:label "Theme: Oceans" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ],
+        [ rdfs:label "Workflow: POLARIS" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/workflows/polaris-workflow/record.json> ] ;
     :properties [ a :experiment ;
             dcterms:created "2025-02-19T23:00:00Z" ;
             dcterms:description "Polar Operational Limit Assessment Risk Index System (POLARIS)" ;
@@ -310,13 +310,165 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 
 ```
 
+
+### An example of Kind Grove workflow provenance wf4ever
+description of example 
+
+#### turtle
+```turtle
+@prefix kg: <https://example.org/kindgrove/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix wfprov: <http://purl.org/wf4ever/wfprov#> .
+@prefix wfdesc: <http://purl.org/wf4ever/wfdesc#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix schema: <https://schema.org/> .
+@prefix stac: <https://stacspec.org/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+# 1. WORKFLOW INPUTS
+#################################################################
+
+kg:Sentinel2L2A
+    a wfprov:Artifact , stac:Item ;
+    schema:name "Sentinel-2 L2A Multispectral Optical Imagery" ;
+    stac:resolution "10m" ;
+    stac:collection "sentinel-2-l2a" .
+
+kg:AWSSTACCatalog
+    a wfprov:Artifact , stac:Catalog ;
+    schema:name "AWS STAC Catalog (element84)" ;
+    schema:url "https://earth-search.aws.element84.com/v1" .
+
+#################################################################
+# 2. WORKFLOW PROCESSES (PROCESS RUNS)
+#################################################################
+
+kg:KindGroveWorkflow
+    a wfdesc:Workflow , schema:ComputationalWorkflow ;
+    schema:name "KindGrove Mangrove Carbon Assessment Workflow" ;
+    schema:version "1.0" .
+
+kg:KindGroveWorkflowRun
+    a wfprov:WorkflowRun , schema:CreateAction ;
+    wfprov:describedByWorkflow kg:KindGroveWorkflow ;
+    wfprov:wasInitiatedBy kg:CameronSajedi ;
+    prov:startedAtTime "2024-06-01T10:00:00Z"^^xsd:dateTime ;
+    prov:endedAtTime "2024-06-01T10:45:00Z"^^xsd:dateTime .
+
+kg:SelectScenesProcess
+    a wfprov:ProcessRun ;
+    wfprov:usedInput kg:AWSSTACCatalog ;
+    wfprov:usedInput kg:Sentinel2L2A ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
+
+kg:DownloadBandsProcess
+    a wfprov:ProcessRun ;
+    wfprov:usedInput kg:Sentinel2L2A ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
+
+kg:CalculateVegetationIndicesProcess
+    a wfprov:ProcessRun ;
+    wfprov:usedInput kg:Sentinel2L2A ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
+
+kg:ApplyThresholdClassificationProcess
+    a wfprov:ProcessRun ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
+
+kg:DetectedMangroveMaskProcess
+    a wfprov:ProcessRun ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
+
+kg:ApplyAllometricEquationProcess
+    a wfprov:ProcessRun ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
+
+kg:CalculateCarbonStockProcess
+    a wfprov:ProcessRun ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
+
+kg:CalculateCO2EquivalentProcess
+    a wfprov:ProcessRun ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
+
+kg:ExportResultsProcess
+    a wfprov:ProcessRun ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
+
+#################################################################
+# 3. WORKFLOW OUTPUTS
+#################################################################
+
+kg:MangroveMask
+    a wfprov:Artifact ;
+    schema:name "Detected Mangrove Mask" ;
+    prov:wasGeneratedBy kg:DetectedMangroveMaskProcess ;
+    prov:wasDerivedFrom kg:Sentinel2L2A .
+
+kg:CarbonStockEstimate
+    a wfprov:Artifact ;
+    schema:name "Estimated Mangrove Carbon Stock" ;
+    prov:wasGeneratedBy kg:CalculateCarbonStockProcess ;
+    prov:wasDerivedFrom kg:MangroveMask .
+
+kg:CO2EquivalentEstimate
+    a wfprov:Artifact ;
+    schema:name "CO2 Equivalent Estimate" ;
+    prov:wasGeneratedBy kg:CalculateCO2EquivalentProcess ;
+    prov:wasDerivedFrom kg:CarbonStockEstimate .
+
+kg:GeoTIFFRaster
+    a wfprov:Artifact , stac:Asset ;
+    schema:encodingFormat "image/tiff" ;
+    prov:wasGeneratedBy kg:ExportResultsProcess .
+
+kg:CSVSummary
+    a wfprov:Artifact , schema:Dataset ;
+    schema:encodingFormat "text/csv" ;
+    prov:wasGeneratedBy kg:ExportResultsProcess .
+
+kg:InteractiveVisualisation
+    a wfprov:Artifact ;
+    schema:name "Interactive Visualisation Outputs" ;
+    prov:wasGeneratedBy kg:ExportResultsProcess .
+
+#################################################################
+# 4. WORKFLOW AGENT (PERSON, ORGANISATION, ENGINE)
+#################################################################
+
+kg:CameronSajedi
+    a prov:Person , foaf:Person , schema:Person ;
+    schema:name "Cameron Sajedi" ;
+    schema:affiliation kg:StarlingFoundries .
+
+kg:StarlingFoundries
+    a prov:Organization , foaf:Organization , schema:Organization ;
+    schema:name "Starling Foundries" .
+
+kg:JupyterNotebookEngine
+    a wfprov:WorkflowEngine , prov:SoftwareAgent , schema:SoftwareApplication ;
+    schema:name "Jupyter Notebook" ;
+    prov:actedOnBehalfOf kg:CameronSajedi .
+
+```
+
 ## Schema
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
 description: EarthCode Experiment
 allOf:
-- $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml
+- $ref: https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml
 - $ref: https://ogcincubator.github.io/geodcat-ogcapi-records/build/annotated/geo/geodcat/geodcat-records/schema.yaml
 properties:
   properties:
@@ -325,7 +477,7 @@ properties:
     - osc:workflow
     properties:
       osc:workflow:
-        $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/$defs/osc:workflow
+        $ref: https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/$defs/osc:workflow
   links:
     type: array
     items:
@@ -346,14 +498,14 @@ properties:
         properties:
           rel:
             const: environment
-      - $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/$defs/via_links
+      - $ref: https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/$defs/via_links
 
 ```
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/schema.json)
-* JSON version: [schema.json](https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/schema.yaml)
+* YAML version: [schema.yaml](https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/schema.json)
+* JSON version: [schema.json](https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/schema.yaml)
 
 
 # JSON-LD Context
@@ -722,7 +874,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/context.jsonld)
+[context.jsonld](https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/context.jsonld)
 
 ## Sources
 
@@ -736,6 +888,6 @@ You can find the full JSON-LD context here:
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/ogcincubator/bblocks-openscience](https://github.com/ogcincubator/bblocks-openscience)
+* URL: [https://github.com/nenadradosevic/bblocks-openscience](https://github.com/nenadradosevic/bblocks-openscience)
 * Path: `_sources/geodcat-stac-earthcode/experiments`
 

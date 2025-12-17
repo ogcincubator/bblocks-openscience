@@ -272,8 +272,8 @@ allOf:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.json)
-* JSON version: [schema.json](https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.yaml)
+* YAML version: [schema.yaml](https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.json)
+* JSON version: [schema.json](https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.yaml)
 
 
 # JSON-LD Context
@@ -283,7 +283,7 @@ None
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://ogcincubator.github.io/bblocks-openscience/_sources/application-package/context.jsonld)
+[context.jsonld](https://nenadradosevic.github.io/bblocks-openscience/_sources/application-package/context.jsonld)
 
 ## Sources
 
@@ -293,6 +293,6 @@ You can find the full JSON-LD context here:
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/ogcincubator/bblocks-openscience](https://github.com/ogcincubator/bblocks-openscience)
+* URL: [https://github.com/nenadradosevic/bblocks-openscience](https://github.com/nenadradosevic/bblocks-openscience)
 * Path: `_sources/application-package`
 

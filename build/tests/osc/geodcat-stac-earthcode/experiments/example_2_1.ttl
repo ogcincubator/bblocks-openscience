@@ -1,0 +1,118 @@
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix kg: <https://example.org/kindgrove/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema: <https://schema.org/> .
+@prefix stac: <https://stacspec.org/ontology#> .
+@prefix wfdesc: <http://purl.org/wf4ever/wfdesc#> .
+@prefix wfprov: <http://purl.org/wf4ever/wfprov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+kg:ApplyAllometricEquationProcess a wfprov:ProcessRun ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun .
+
+kg:ApplyThresholdClassificationProcess a wfprov:ProcessRun ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun .
+
+kg:CO2EquivalentEstimate a wfprov:Artifact ;
+    prov:wasDerivedFrom kg:CarbonStockEstimate ;
+    prov:wasGeneratedBy kg:CalculateCO2EquivalentProcess ;
+    schema:name "CO2 Equivalent Estimate" .
+
+kg:CSVSummary a wfprov:Artifact,
+        schema:Dataset ;
+    prov:wasGeneratedBy kg:ExportResultsProcess ;
+    schema:encodingFormat "text/csv" .
+
+kg:CalculateVegetationIndicesProcess a wfprov:ProcessRun ;
+    wfprov:usedInput kg:Sentinel2L2A ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun .
+
+kg:DownloadBandsProcess a wfprov:ProcessRun ;
+    wfprov:usedInput kg:Sentinel2L2A ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun .
+
+kg:GeoTIFFRaster a wfprov:Artifact,
+        stac:Asset ;
+    prov:wasGeneratedBy kg:ExportResultsProcess ;
+    schema:encodingFormat "image/tiff" .
+
+kg:InteractiveVisualisation a wfprov:Artifact ;
+    prov:wasGeneratedBy kg:ExportResultsProcess ;
+    schema:name "Interactive Visualisation Outputs" .
+
+kg:SelectScenesProcess a wfprov:ProcessRun ;
+    wfprov:usedInput kg:AWSSTACCatalog,
+        kg:Sentinel2L2A ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun .
+
+kg:AWSSTACCatalog a wfprov:Artifact,
+        stac:Catalog ;
+    schema:name "AWS STAC Catalog (element84)" ;
+    schema:url "https://earth-search.aws.element84.com/v1" .
+
+kg:CalculateCO2EquivalentProcess a wfprov:ProcessRun ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun .
+
+kg:CalculateCarbonStockProcess a wfprov:ProcessRun ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun .
+
+kg:CarbonStockEstimate a wfprov:Artifact ;
+    prov:wasDerivedFrom kg:MangroveMask ;
+    prov:wasGeneratedBy kg:CalculateCarbonStockProcess ;
+    schema:name "Estimated Mangrove Carbon Stock" .
+
+kg:DetectedMangroveMaskProcess a wfprov:ProcessRun ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun .
+
+kg:KindGroveWorkflow a wfdesc:Workflow,
+        schema:ComputationalWorkflow ;
+    schema:name "KindGrove Mangrove Carbon Assessment Workflow" ;
+    schema:version "1.0" .
+
+kg:MangroveMask a wfprov:Artifact ;
+    prov:wasDerivedFrom kg:Sentinel2L2A ;
+    prov:wasGeneratedBy kg:DetectedMangroveMaskProcess ;
+    schema:name "Detected Mangrove Mask" .
+
+kg:StarlingFoundries a prov:Organization,
+        foaf:Organization,
+        schema:Organization ;
+    schema:name "Starling Foundries" .
+
+kg:CameronSajedi a prov:Person,
+        foaf:Person,
+        schema:Person ;
+    schema:affiliation kg:StarlingFoundries ;
+    schema:name "Cameron Sajedi" .
+
+kg:ExportResultsProcess a wfprov:ProcessRun ;
+    wfprov:wasEnactedBy kg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun .
+
+kg:Sentinel2L2A a wfprov:Artifact,
+        stac:Item ;
+    schema:name "Sentinel-2 L2A Multispectral Optical Imagery" ;
+    stac:collection "sentinel-2-l2a" ;
+    stac:resolution "10m" .
+
+kg:JupyterNotebookEngine a wfprov:WorkflowEngine,
+        prov:SoftwareAgent,
+        schema:SoftwareApplication ;
+    prov:actedOnBehalfOf kg:CameronSajedi ;
+    schema:name "Jupyter Notebook" .
+
+kg:KindGroveWorkflowRun a wfprov:WorkflowRun,
+        schema:CreateAction ;
+    wfprov:describedByWorkflow kg:KindGroveWorkflow ;
+    wfprov:wasInitiatedBy kg:CameronSajedi ;
+    prov:endedAtTime "2024-06-01T10:45:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2024-06-01T10:00:00+00:00"^^xsd:dateTime .
+

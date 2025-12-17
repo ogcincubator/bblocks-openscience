@@ -12,6 +12,11 @@
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://ogc.org/catalog.json> ],
+        [ rdfs:label "OGC Application Package" ;
+            dcterms:format "application/clw+yaml" ;
+            dcterms:language "" ;
+            ns1:relation <http://www.iana.org/assignments/relation/application> ;
+            oa:hasTarget <https://raw.githubusercontent.com/tjellicoe-tpzuk/eo-workflow-examples/refs/heads/main/water-bodies/water-bodies.cwl> ],
         [ rdfs:label "Project: OSPD" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
@@ -20,11 +25,6 @@
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://ogc.org/demo/catalog.json> ],
-        [ rdfs:label "OGC Application Package" ;
-            dcterms:format "application/clw+yaml" ;
-            dcterms:language "" ;
-            ns1:relation <http://www.iana.org/assignments/relation/application> ;
-            oa:hasTarget <https://raw.githubusercontent.com/tjellicoe-tpzuk/eo-workflow-examples/refs/heads/main/water-bodies/water-bodies.cwl> ],
         [ dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/waterbodies/record.json> ] .

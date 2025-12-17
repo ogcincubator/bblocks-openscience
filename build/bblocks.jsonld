@@ -1,7 +1,7 @@
 {
   "@context": [
     {
-      "@base": "https://ogcincubator.github.io/bblocks-openscience"
+      "@base": "https://nenadradosevic.github.io/bblocks-openscience"
     },
     {
       "bblocks": "https://www.opengis.net/def/bblocks/",
@@ -147,20 +147,20 @@
   "name": "Building Blocks - Open Science Workflows Building Blocks",
   "abstract": "Building Blocks for FAIR Open Science - profiles of OGC API Processes and various metadata standards to support open, transparent, interoperable and reproducible scientific workflows..\n",
   "description": "This repository is initially aimed to support the [Open Science Persistent Demonstrator](https://www.ogc.org/initiatives/open-science/) pilot, but may be further developed as a set of standards with appropriate working group governance.\n",
-  "modified": "2025-12-01T10:32:53.065223",
+  "modified": "2025-12-17T00:54:02.086866",
   "tooling": {
     "bblocks-postprocess": {
-      "commitId": "\"07a1a91baa1dbde1a32d8591bc63333f7c57a9b9",
-      "shortCommitId": "\"07a1a9",
-      "date": "2025-11-29T00:51:03+00:00\""
+      "commitId": "\"285d0905c7389562143593be3c626b653c2dc093",
+      "shortCommitId": "\"285d09",
+      "date": "2025-12-15T22:36:20+00:00\""
     }
   },
-  "gitRepository": "https://github.com/ogcincubator/bblocks-openscience",
-  "gitHubRepository": "https://github.com/ogcincubator/bblocks-openscience/blob/master/",
-  "baseURL": "https://ogcincubator.github.io/bblocks-openscience/",
-  "viewerURL": "https://ogcincubator.github.io/bblocks-openscience/",
-  "validationReport": "https://ogcincubator.github.io/bblocks-openscience/build/tests/report.html",
-  "validationReportJson": "https://ogcincubator.github.io/bblocks-openscience/build/tests/report.json",
+  "gitRepository": "https://github.com/nenadradosevic/bblocks-openscience",
+  "gitHubRepository": "https://github.com/nenadradosevic/bblocks-openscience/blob/master/",
+  "baseURL": "https://nenadradosevic.github.io/bblocks-openscience/",
+  "viewerURL": "https://nenadradosevic.github.io/bblocks-openscience/",
+  "validationReport": "https://nenadradosevic.github.io/bblocks-openscience/build/tests/report.html",
+  "validationReportJson": "https://nenadradosevic.github.io/bblocks-openscience/build/tests/report.json",
   "imports": [
     "https://opengeospatial.github.io/bblocks/register.json",
     "https://ogcincubator.github.io/bblocks-ogcapi-records/build/register.json",
@@ -169,7 +169,7 @@
     "https://ogcincubator.github.io/bblocks-stac/build/register.json",
     "https://ogcincubator.github.io/cross-domain-model/build/register.json"
   ],
-  "remoteCacheDir": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/_cache",
+  "remoteCacheDir": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/_cache",
   "@type": [
     "skos:ConceptScheme",
     "dcat:Catalog"
@@ -185,7 +185,7 @@
       "itemClass": "model",
       "register": "ogc-incubator",
       "version": "0.1",
-      "dateOfLastChange": "2025-12-01",
+      "dateOfLastChange": "2025-12-17",
       "dependsOn": [
         "bblocks://ogc.ogc-utils.prov"
       ],
@@ -195,21 +195,21 @@
         "OSPD"
       ],
       "shaclShapes": null,
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/ontology/cwlprov/",
+      "sourceFiles": "https://nenadradosevic.github.io/bblocks-openscience/_sources/ontology/cwlprov/",
       "rdfData": [],
       "validationPassed": true,
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/ontology/cwlprov/index.md"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/ontology/cwlprov/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/ontology/cwlprov/index.json"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/ontology/cwlprov/index.json"
         },
         "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.ontology.cwlprov"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.ontology.cwlprov"
         }
       },
       "@id": "bblocks://ogc.osc.ontology.cwlprov",
@@ -224,7 +224,78 @@
       "openAPIDocument": null,
       "profileOf": null,
       "skos:topConceptOf": {
-        "@id": "https://ogcincubator.github.io/bblocks-openscience/"
+        "@id": "https://nenadradosevic.github.io/bblocks-openscience/"
+      }
+    },
+    {
+      "itemIdentifier": "ogc.osc.api-profiles.processes.ipt.results",
+      "status": "under-development",
+      "dateTimeAddition": "2025-10-22T15:29:12.046535",
+      "register": "ogcapi-processes",
+      "version": "0.1",
+      "dateOfLastChange": "2025-12-17",
+      "tags": [
+        "ogcapi-processes",
+        "schema"
+      ],
+      "name": "Result schema for IPT",
+      "abstract": "constraint on results to include provenance object inline",
+      "itemClass": "schema",
+      "shaclShapes": null,
+      "dependsOn": [
+        "bblocks://ogc.api.processes.v1.schemas.qualifiedInputValue",
+        "bblocks://ogc.ogc-utils.prov-entity",
+        "bblocks://ogc.ogc-utils.prov-activity"
+      ],
+      "schema": [
+        {
+          "prof:hasArtifact": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/schema.yaml",
+          "prof:hasRole": "role:schema",
+          "dct:format": "application/yaml",
+          "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
+        },
+        {
+          "prof:hasArtifact": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/schema.json",
+          "prof:hasRole": "role:schema",
+          "dct:format": "application/json",
+          "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
+        }
+      ],
+      "sourceSchema": "https://nenadradosevic.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/results/schema.yaml",
+      "ldContext": {
+        "prof:hasArtifact": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/context.jsonld",
+        "prof:hasRole": "role:mapping",
+        "dct:format": "application/ld+json",
+        "dct:conformsTo": "https://www.w3.org/TR/json-ld11/"
+      },
+      "sourceFiles": "https://nenadradosevic.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/results/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes/ipt/results/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/ipt/results/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.ipt.results"
+        }
+      },
+      "@id": "bblocks://ogc.osc.api-profiles.processes.ipt.results",
+      "@type": [
+        "bblocks:Schema",
+        "skos:Concept",
+        "dcat:Dataset"
+      ],
+      "skos:prefLabel": "Result schema for IPT",
+      "openAPIDocument": null,
+      "profileOf": null,
+      "skos:topConceptOf": {
+        "@id": "https://nenadradosevic.github.io/bblocks-openscience/"
       }
     },
     {
@@ -240,7 +311,7 @@
         "bblocks://ogc.profiles.prov.cwl.provenance"
       ],
       "version": "0.1",
-      "dateOfLastChange": "2025-12-01",
+      "dateOfLastChange": "2025-12-17",
       "link": "https://github.com/opengeospatial/geodcat-ogcapi-records",
       "sources": [
         {
@@ -252,43 +323,43 @@
       "tags": [],
       "shaclShapes": null,
       "ldContext": {
-        "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/_sources/application-package/context.jsonld",
+        "prof:hasArtifact": "https://nenadradosevic.github.io/bblocks-openscience/_sources/application-package/context.jsonld",
         "prof:hasRole": "role:mapping",
         "dct:format": "application/ld+json",
         "dct:conformsTo": "https://www.w3.org/TR/json-ld11/"
       },
       "schema": [
         {
-          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.yaml",
+          "prof:hasArtifact": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.yaml",
           "prof:hasRole": "role:schema",
           "dct:format": "application/yaml",
           "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
         },
         {
-          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.json",
+          "prof:hasArtifact": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.json",
           "prof:hasRole": "role:schema",
           "dct:format": "application/json",
           "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
         }
       ],
-      "sourceSchema": "https://ogcincubator.github.io/bblocks-openscience/_sources/application-package/schema.yaml",
-      "sourceLdContext": "https://ogcincubator.github.io/bblocks-openscience/_sources/application-package/context.jsonld",
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/application-package/",
+      "sourceSchema": "https://nenadradosevic.github.io/bblocks-openscience/_sources/application-package/schema.yaml",
+      "sourceLdContext": "https://nenadradosevic.github.io/bblocks-openscience/_sources/application-package/context.jsonld",
+      "sourceFiles": "https://nenadradosevic.github.io/bblocks-openscience/_sources/application-package/",
       "rdfData": [],
       "validationPassed": true,
-      "testOutputs": "https://github.com/ogcincubator/bblocks-openscience/blob/master/build/tests/osc/application-package/",
+      "testOutputs": "https://github.com/nenadradosevic/bblocks-openscience/blob/master/build/tests/osc/application-package/",
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/application-package/index.md"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/application-package/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/application-package/index.json"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/application-package/index.json"
         },
         "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.application-package"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.application-package"
         }
       },
       "@id": "bblocks://ogc.osc.application-package",
@@ -301,7 +372,7 @@
       "openAPIDocument": null,
       "profileOf": null,
       "skos:topConceptOf": {
-        "@id": "https://ogcincubator.github.io/bblocks-openscience/"
+        "@id": "https://nenadradosevic.github.io/bblocks-openscience/"
       }
     },
     {
@@ -313,10 +384,10 @@
       "itemClass": "model",
       "register": "ogc-incubator",
       "version": "0.1",
-      "dateOfLastChange": "2025-12-01",
+      "dateOfLastChange": "2025-12-17",
       "dependsOn": [
-        "bblocks://ogc.geo.geodcat.dcat",
-        "bblocks://ogc.osc.ontology.cwlprov"
+        "bblocks://ogc.osc.ontology.cwlprov",
+        "bblocks://ogc.geo.geodcat.dcat"
       ],
       "sources": [],
       "scope": "dev",
@@ -324,21 +395,21 @@
         "OSPD"
       ],
       "shaclShapes": null,
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/ontology/openscience/",
+      "sourceFiles": "https://nenadradosevic.github.io/bblocks-openscience/_sources/ontology/openscience/",
       "rdfData": [],
       "validationPassed": true,
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/ontology/openscience/index.md"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/ontology/openscience/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/ontology/openscience/index.json"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/ontology/openscience/index.json"
         },
         "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.ontology.openscience"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.ontology.openscience"
         }
       },
       "@id": "bblocks://ogc.osc.ontology.openscience",
@@ -353,78 +424,7 @@
       "openAPIDocument": null,
       "profileOf": null,
       "skos:topConceptOf": {
-        "@id": "https://ogcincubator.github.io/bblocks-openscience/"
-      }
-    },
-    {
-      "itemIdentifier": "ogc.osc.api-profiles.processes.ipt.results",
-      "status": "under-development",
-      "dateTimeAddition": "2025-10-22T15:29:12.046535",
-      "register": "ogcapi-processes",
-      "version": "0.1",
-      "dateOfLastChange": "2025-12-01",
-      "tags": [
-        "ogcapi-processes",
-        "schema"
-      ],
-      "name": "Result schema for IPT",
-      "abstract": "constraint on results to include provenance object inline",
-      "itemClass": "schema",
-      "shaclShapes": null,
-      "dependsOn": [
-        "bblocks://ogc.ogc-utils.prov-activity",
-        "bblocks://ogc.ogc-utils.prov-entity",
-        "bblocks://ogc.api.processes.v1.schemas.qualifiedInputValue"
-      ],
-      "schema": [
-        {
-          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/schema.yaml",
-          "prof:hasRole": "role:schema",
-          "dct:format": "application/yaml",
-          "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
-        },
-        {
-          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/schema.json",
-          "prof:hasRole": "role:schema",
-          "dct:format": "application/json",
-          "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
-        }
-      ],
-      "sourceSchema": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/results/schema.yaml",
-      "ldContext": {
-        "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/context.jsonld",
-        "prof:hasRole": "role:mapping",
-        "dct:format": "application/ld+json",
-        "dct:conformsTo": "https://www.w3.org/TR/json-ld11/"
-      },
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/results/",
-      "rdfData": [],
-      "validationPassed": true,
-      "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes/ipt/results/index.md"
-        },
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/ipt/results/index.json"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.ipt.results"
-        }
-      },
-      "@id": "bblocks://ogc.osc.api-profiles.processes.ipt.results",
-      "@type": [
-        "bblocks:Schema",
-        "skos:Concept",
-        "dcat:Dataset"
-      ],
-      "skos:prefLabel": "Result schema for IPT",
-      "openAPIDocument": null,
-      "profileOf": null,
-      "skos:topConceptOf": {
-        "@id": "https://ogcincubator.github.io/bblocks-openscience/"
+        "@id": "https://nenadradosevic.github.io/bblocks-openscience/"
       }
     },
     {
@@ -437,15 +437,15 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
+        "bblocks://ogc.contrib.stac.extensions.osc",
+        "bblocks://ogc.geo.geodcat.stac.geodcat-stac-item",
         "bblocks://ogc.contrib.stac.extensions.themes",
         "bblocks://ogc.geo.geodcat.geodcat-records",
-        "bblocks://ogc.ogc-utils.prov",
         "bblocks://ogc.geo.geodcat.stac.geodcat-stac-collection",
-        "bblocks://ogc.contrib.stac.extensions.osc",
-        "bblocks://ogc.geo.geodcat.stac.geodcat-stac-item"
+        "bblocks://ogc.ogc-utils.prov"
       ],
       "version": "0.1",
-      "dateOfLastChange": "2025-12-01",
+      "dateOfLastChange": "2025-12-17",
       "sources": [
         {
           "title": "EarthCODE",
@@ -476,43 +476,43 @@
         }
       ],
       "ldContext": {
-        "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/context.jsonld",
+        "prof:hasArtifact": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/context.jsonld",
         "prof:hasRole": "role:mapping",
         "dct:format": "application/ld+json",
         "dct:conformsTo": "https://www.w3.org/TR/json-ld11/"
       },
       "schema": [
         {
-          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml",
+          "prof:hasArtifact": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml",
           "prof:hasRole": "role:schema",
           "dct:format": "application/yaml",
           "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
         },
         {
-          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.json",
+          "prof:hasArtifact": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.json",
           "prof:hasRole": "role:schema",
           "dct:format": "application/json",
           "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
         }
       ],
-      "sourceSchema": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/common/schema.yaml",
-      "sourceLdContext": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/common/context.jsonld",
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/common/",
+      "sourceSchema": "https://nenadradosevic.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/common/schema.yaml",
+      "sourceLdContext": "https://nenadradosevic.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/common/context.jsonld",
+      "sourceFiles": "https://nenadradosevic.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/common/",
       "rdfData": [],
       "validationPassed": true,
-      "testOutputs": "https://github.com/ogcincubator/bblocks-openscience/blob/master/build/tests/osc/geodcat-stac-earthcode/common/",
+      "testOutputs": "https://github.com/nenadradosevic/bblocks-openscience/blob/master/build/tests/osc/geodcat-stac-earthcode/common/",
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/geodcat-stac-earthcode/common/index.md"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/geodcat-stac-earthcode/common/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/common/index.json"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/common/index.json"
         },
         "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.common"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.common"
         }
       },
       "@id": "bblocks://ogc.osc.geodcat-stac-earthcode.common",
@@ -525,7 +525,7 @@
       "openAPIDocument": null,
       "profileOf": null,
       "skos:topConceptOf": {
-        "@id": "https://ogcincubator.github.io/bblocks-openscience/"
+        "@id": "https://nenadradosevic.github.io/bblocks-openscience/"
       }
     },
     {
@@ -534,7 +534,7 @@
       "dateTimeAddition": "2025-10-22T15:29:12.046535",
       "register": "ogcapi-processes",
       "version": "0.1",
-      "dateOfLastChange": "2025-12-01",
+      "dateOfLastChange": "2025-12-17",
       "tags": [
         "ogcapi-processes",
         "schema"
@@ -548,40 +548,40 @@
       ],
       "schema": [
         {
-          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/schema.yaml",
+          "prof:hasArtifact": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/schema.yaml",
           "prof:hasRole": "role:schema",
           "dct:format": "application/yaml",
           "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
         },
         {
-          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/schema.json",
+          "prof:hasArtifact": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/schema.json",
           "prof:hasRole": "role:schema",
           "dct:format": "application/json",
           "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
         }
       ],
-      "sourceSchema": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/execute/schema.yaml",
+      "sourceSchema": "https://nenadradosevic.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/execute/schema.yaml",
       "ldContext": {
-        "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/context.jsonld",
+        "prof:hasArtifact": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/context.jsonld",
         "prof:hasRole": "role:mapping",
         "dct:format": "application/ld+json",
         "dct:conformsTo": "https://www.w3.org/TR/json-ld11/"
       },
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/execute/",
+      "sourceFiles": "https://nenadradosevic.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/execute/",
       "rdfData": [],
       "validationPassed": true,
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes/ipt/execute/index.md"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes/ipt/execute/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/ipt/execute/index.json"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/ipt/execute/index.json"
         },
         "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.ipt.execute"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.ipt.execute"
         }
       },
       "@id": "bblocks://ogc.osc.api-profiles.processes.ipt.execute",
@@ -594,7 +594,7 @@
       "openAPIDocument": null,
       "profileOf": null,
       "skos:topConceptOf": {
-        "@id": "https://ogcincubator.github.io/bblocks-openscience/"
+        "@id": "https://nenadradosevic.github.io/bblocks-openscience/"
       }
     },
     {
@@ -611,7 +611,7 @@
         "bblocks://ogc.geo.geodcat.geodcat-records"
       ],
       "version": "0.1",
-      "dateOfLastChange": "2025-12-01",
+      "dateOfLastChange": "2025-12-17",
       "link": "https://github.com/opengeospatial/geodcat-ogcapi-records",
       "sources": [
         {
@@ -643,43 +643,43 @@
         }
       ],
       "ldContext": {
-        "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/context.jsonld",
+        "prof:hasArtifact": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/context.jsonld",
         "prof:hasRole": "role:mapping",
         "dct:format": "application/ld+json",
         "dct:conformsTo": "https://www.w3.org/TR/json-ld11/"
       },
       "schema": [
         {
-          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/schema.yaml",
+          "prof:hasArtifact": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/schema.yaml",
           "prof:hasRole": "role:schema",
           "dct:format": "application/yaml",
           "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
         },
         {
-          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/schema.json",
+          "prof:hasArtifact": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/schema.json",
           "prof:hasRole": "role:schema",
           "dct:format": "application/json",
           "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
         }
       ],
-      "sourceSchema": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/schema.yaml",
-      "sourceLdContext": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/context.jsonld",
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/",
+      "sourceSchema": "https://nenadradosevic.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/schema.yaml",
+      "sourceLdContext": "https://nenadradosevic.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/context.jsonld",
+      "sourceFiles": "https://nenadradosevic.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/",
       "rdfData": [],
       "validationPassed": true,
-      "testOutputs": "https://github.com/ogcincubator/bblocks-openscience/blob/master/build/tests/osc/geodcat-stac-earthcode/experiments/",
+      "testOutputs": "https://github.com/nenadradosevic/bblocks-openscience/blob/master/build/tests/osc/geodcat-stac-earthcode/experiments/",
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/geodcat-stac-earthcode/experiments/index.md"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/geodcat-stac-earthcode/experiments/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/experiments/index.json"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/experiments/index.json"
         },
         "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.experiments"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.experiments"
         }
       },
       "@id": "bblocks://ogc.osc.geodcat-stac-earthcode.experiments",
@@ -692,7 +692,7 @@
       "openAPIDocument": null,
       "profileOf": null,
       "skos:topConceptOf": {
-        "@id": "https://ogcincubator.github.io/bblocks-openscience/"
+        "@id": "https://nenadradosevic.github.io/bblocks-openscience/"
       }
     },
     {
@@ -705,11 +705,11 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "bblocks://ogc.contrib.stac.extensions.cf",
-        "bblocks://ogc.osc.geodcat-stac-earthcode.common"
+        "bblocks://ogc.osc.geodcat-stac-earthcode.common",
+        "bblocks://ogc.contrib.stac.extensions.cf"
       ],
       "version": "0.1",
-      "dateOfLastChange": "2025-12-01",
+      "dateOfLastChange": "2025-12-17",
       "link": "https://github.com/opengeospatial/geodcat-ogcapi-records",
       "sources": [
         {
@@ -741,43 +741,43 @@
         }
       ],
       "ldContext": {
-        "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/products/context.jsonld",
+        "prof:hasArtifact": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/products/context.jsonld",
         "prof:hasRole": "role:mapping",
         "dct:format": "application/ld+json",
         "dct:conformsTo": "https://www.w3.org/TR/json-ld11/"
       },
       "schema": [
         {
-          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/products/schema.yaml",
+          "prof:hasArtifact": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/products/schema.yaml",
           "prof:hasRole": "role:schema",
           "dct:format": "application/yaml",
           "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
         },
         {
-          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/products/schema.json",
+          "prof:hasArtifact": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/products/schema.json",
           "prof:hasRole": "role:schema",
           "dct:format": "application/json",
           "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
         }
       ],
-      "sourceSchema": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/products/schema.yaml",
-      "sourceLdContext": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/products/context.jsonld",
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/products/",
+      "sourceSchema": "https://nenadradosevic.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/products/schema.yaml",
+      "sourceLdContext": "https://nenadradosevic.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/products/context.jsonld",
+      "sourceFiles": "https://nenadradosevic.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/products/",
       "rdfData": [],
       "validationPassed": true,
-      "testOutputs": "https://github.com/ogcincubator/bblocks-openscience/blob/master/build/tests/osc/geodcat-stac-earthcode/products/",
+      "testOutputs": "https://github.com/nenadradosevic/bblocks-openscience/blob/master/build/tests/osc/geodcat-stac-earthcode/products/",
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/geodcat-stac-earthcode/products/index.md"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/geodcat-stac-earthcode/products/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/products/index.json"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/products/index.json"
         },
         "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.products"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.products"
         }
       },
       "@id": "bblocks://ogc.osc.geodcat-stac-earthcode.products",
@@ -790,7 +790,7 @@
       "openAPIDocument": null,
       "profileOf": null,
       "skos:topConceptOf": {
-        "@id": "https://ogcincubator.github.io/bblocks-openscience/"
+        "@id": "https://nenadradosevic.github.io/bblocks-openscience/"
       }
     },
     {
@@ -807,7 +807,7 @@
         "bblocks://ogc.geo.geodcat.geodcat-records"
       ],
       "version": "0.1",
-      "dateOfLastChange": "2025-12-01",
+      "dateOfLastChange": "2025-12-17",
       "link": "https://github.com/opengeospatial/geodcat-ogcapi-records",
       "sources": [
         {
@@ -835,43 +835,43 @@
         }
       ],
       "ldContext": {
-        "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/workflows/context.jsonld",
+        "prof:hasArtifact": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/workflows/context.jsonld",
         "prof:hasRole": "role:mapping",
         "dct:format": "application/ld+json",
         "dct:conformsTo": "https://www.w3.org/TR/json-ld11/"
       },
       "schema": [
         {
-          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/workflows/schema.yaml",
+          "prof:hasArtifact": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/workflows/schema.yaml",
           "prof:hasRole": "role:schema",
           "dct:format": "application/yaml",
           "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
         },
         {
-          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/workflows/schema.json",
+          "prof:hasArtifact": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/workflows/schema.json",
           "prof:hasRole": "role:schema",
           "dct:format": "application/json",
           "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
         }
       ],
-      "sourceSchema": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/workflows/schema.yaml",
-      "sourceLdContext": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/workflows/context.jsonld",
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/workflows/",
+      "sourceSchema": "https://nenadradosevic.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/workflows/schema.yaml",
+      "sourceLdContext": "https://nenadradosevic.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/workflows/context.jsonld",
+      "sourceFiles": "https://nenadradosevic.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/workflows/",
       "rdfData": [],
       "validationPassed": true,
-      "testOutputs": "https://github.com/ogcincubator/bblocks-openscience/blob/master/build/tests/osc/geodcat-stac-earthcode/workflows/",
+      "testOutputs": "https://github.com/nenadradosevic/bblocks-openscience/blob/master/build/tests/osc/geodcat-stac-earthcode/workflows/",
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/geodcat-stac-earthcode/workflows/index.md"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/geodcat-stac-earthcode/workflows/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/workflows/index.json"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/workflows/index.json"
         },
         "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.workflows"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.workflows"
         }
       },
       "@id": "bblocks://ogc.osc.geodcat-stac-earthcode.workflows",
@@ -884,7 +884,7 @@
       "openAPIDocument": null,
       "profileOf": null,
       "skos:topConceptOf": {
-        "@id": "https://ogcincubator.github.io/bblocks-openscience/"
+        "@id": "https://nenadradosevic.github.io/bblocks-openscience/"
       }
     },
     {
@@ -895,7 +895,7 @@
       "itemClass": "api",
       "register": "ogcapi-features",
       "version": "0.1",
-      "dateOfLastChange": "2025-12-01",
+      "dateOfLastChange": "2025-12-17",
       "sources": [
         {
           "title": "OGC API Processes",
@@ -913,21 +913,21 @@
       "highlighted": true,
       "abstract": "This is a Profile of the OGC API Processes model with specific requirements to standardise Integrity Provenance and Trust (IPT) aspects/",
       "shaclShapes": null,
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/api/",
+      "sourceFiles": "https://nenadradosevic.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/api/",
       "rdfData": [],
       "validationPassed": true,
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes/ipt/api/index.md"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes/ipt/api/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/ipt/api/index.json"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/ipt/api/index.json"
         },
         "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.ipt.api"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.ipt.api"
         }
       },
       "@id": "bblocks://ogc.osc.api-profiles.processes.ipt.api",
@@ -942,7 +942,7 @@
       "openAPIDocument": null,
       "profileOf": null,
       "skos:topConceptOf": {
-        "@id": "https://ogcincubator.github.io/bblocks-openscience/"
+        "@id": "https://nenadradosevic.github.io/bblocks-openscience/"
       }
     },
     {
@@ -959,7 +959,7 @@
         "bblocks://ogc.osc.application-package"
       ],
       "version": "0.1",
-      "dateOfLastChange": "2025-12-01",
+      "dateOfLastChange": "2025-12-17",
       "link": "https://github.com/opengeospatial/ogcapi-processes",
       "sources": [],
       "scope": "dev",
@@ -971,21 +971,21 @@
         "PROV"
       ],
       "shaclShapes": null,
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/workflow/",
+      "sourceFiles": "https://nenadradosevic.github.io/bblocks-openscience/_sources/api-profiles/processes/workflow/",
       "rdfData": [],
       "validationPassed": true,
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes/workflow/index.md"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes/workflow/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/workflow/index.json"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/workflow/index.json"
         },
         "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.workflow"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.workflow"
         }
       },
       "@id": "bblocks://ogc.osc.api-profiles.processes.workflow",
@@ -1000,7 +1000,7 @@
       "openAPIDocument": null,
       "profileOf": null,
       "skos:topConceptOf": {
-        "@id": "https://ogcincubator.github.io/bblocks-openscience/"
+        "@id": "https://nenadradosevic.github.io/bblocks-openscience/"
       }
     },
     {
@@ -1019,7 +1019,7 @@
         "bblocks://ogc.osc.geodcat-stac-earthcode.products"
       ],
       "version": "0.1",
-      "dateOfLastChange": "2025-12-01",
+      "dateOfLastChange": "2025-12-17",
       "link": "https://github.com/opengeospatial/ogcapi-processes",
       "sources": [],
       "scope": "dev",
@@ -1041,21 +1041,21 @@
           "dct:conformsTo": "shacl:"
         }
       ],
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/ospd/",
+      "sourceFiles": "https://nenadradosevic.github.io/bblocks-openscience/_sources/api-profiles/processes/ospd/",
       "rdfData": [],
       "validationPassed": true,
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes/ospd/index.md"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes/ospd/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/ospd/index.json"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/ospd/index.json"
         },
         "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.ospd"
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.ospd"
         }
       },
       "@id": "bblocks://ogc.osc.api-profiles.processes.ospd",
@@ -1070,7 +1070,7 @@
       "openAPIDocument": null,
       "profileOf": null,
       "skos:topConceptOf": {
-        "@id": "https://ogcincubator.github.io/bblocks-openscience/"
+        "@id": "https://nenadradosevic.github.io/bblocks-openscience/"
       }
     }
   ],
@@ -1079,13 +1079,13 @@
       "@id": "bblocks://ogc.osc.ontology.cwlprov"
     },
     {
+      "@id": "bblocks://ogc.osc.api-profiles.processes.ipt.results"
+    },
+    {
       "@id": "bblocks://ogc.osc.application-package"
     },
     {
       "@id": "bblocks://ogc.osc.ontology.openscience"
-    },
-    {
-      "@id": "bblocks://ogc.osc.api-profiles.processes.ipt.results"
     },
     {
       "@id": "bblocks://ogc.osc.geodcat-stac-earthcode.common"

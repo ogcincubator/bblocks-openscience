@@ -114,7 +114,7 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 #### jsonld
 ```jsonld
 {
-  "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/context.jsonld",
+  "@context": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/context.jsonld",
   "id": "polarwarp",
   "title": "Polarwarp",
   "created": "2025-10-13T16:54:34Z",
@@ -226,16 +226,18 @@ Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM 
     dcterms:extent [ :spatial [ geojson:bbox ( ( -1.809999e-03 4.381454e-04 1.347253e-03 7.574197e-04 ) ) ] ;
             :temporal [ :interval "2025-02-25T00:00:00Z" ] ] ;
     dcterms:title "Polarwarp" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/item.json> ],
-        [ rdfs:label "Experiment: Polarwarp" ;
+    rdfs:seeAlso [ rdfs:label "Products" ;
             dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ],
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
         [ rdfs:label "Project: Cerulean Information Factory" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/item.json> ],
         [ rdfs:label "Theme: Cryosphere" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
@@ -244,12 +246,10 @@ Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM 
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://ogc.org/catalog.json> ],
-        [ rdfs:label "Products" ;
+        [ rdfs:label "Experiment: Polarwarp" ;
             dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ] ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ] ;
     dcat:license "various" ;
     stac:hasExtension "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
         "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
@@ -312,8 +312,8 @@ $defs:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.json)
-* JSON version: [schema.json](https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml)
+* YAML version: [schema.yaml](https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.json)
+* JSON version: [schema.json](https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml)
 
 
 # JSON-LD Context
@@ -680,7 +680,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/context.jsonld)
+[context.jsonld](https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/context.jsonld)
 
 ## Sources
 
@@ -691,6 +691,6 @@ You can find the full JSON-LD context here:
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/ogcincubator/bblocks-openscience](https://github.com/ogcincubator/bblocks-openscience)
+* URL: [https://github.com/nenadradosevic/bblocks-openscience](https://github.com/nenadradosevic/bblocks-openscience)
 * Path: `_sources/geodcat-stac-earthcode/common`
 
