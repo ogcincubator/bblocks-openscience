@@ -10,7 +10,7 @@
       "title": "Validation report for ogc.osc.ontology.cwlprov - CWL Ontology",
       "bblockName": "CWL Ontology",
       "bblockId": "ogc.osc.ontology.cwlprov",
-      "generated": "2025-12-18T00:50:55.836966+00:00",
+      "generated": "2025-12-18T00:52:36.830181+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -24,7 +24,7 @@
       "title": "Validation report for ogc.osc.application-package - Application Package",
       "bblockName": "Application Package",
       "bblockId": "ogc.osc.application-package",
-      "generated": "2025-12-18T00:50:55.887733+00:00",
+      "generated": "2025-12-18T00:52:36.881649+00:00",
       "result": true,
       "items": [
         {
@@ -76,7 +76,7 @@
       "title": "Validation report for ogc.osc.ontology.openscience - Open Science Ontology",
       "bblockName": "Open Science Ontology",
       "bblockId": "ogc.osc.ontology.openscience",
-      "generated": "2025-12-18T00:50:55.891946+00:00",
+      "generated": "2025-12-18T00:52:36.885372+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -90,7 +90,7 @@
       "title": "Validation report for ogc.osc.api-profiles.processes.ipt.results - Result schema for IPT",
       "bblockName": "Result schema for IPT",
       "bblockId": "ogc.osc.api-profiles.processes.ipt.results",
-      "generated": "2025-12-18T00:50:55.901166+00:00",
+      "generated": "2025-12-18T00:52:36.894367+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -104,7 +104,7 @@
       "title": "Validation report for ogc.osc.geodcat-stac-earthcode.common - EarthCODE Common STAC profile",
       "bblockName": "EarthCODE Common STAC profile",
       "bblockId": "ogc.osc.geodcat-stac-earthcode.common",
-      "generated": "2025-12-18T00:50:58.262801+00:00",
+      "generated": "2025-12-18T00:52:38.952285+00:00",
       "result": true,
       "items": [
         {
@@ -198,7 +198,7 @@
       "title": "Validation report for ogc.osc.api-profiles.processes.ipt.execute - Execute (request) schema for IPT",
       "bblockName": "Execute (request) schema for IPT",
       "bblockId": "ogc.osc.api-profiles.processes.ipt.execute",
-      "generated": "2025-12-18T00:50:58.270999+00:00",
+      "generated": "2025-12-18T00:52:38.959680+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -212,7 +212,7 @@
       "title": "Validation report for ogc.osc.geodcat-stac-earthcode.experiments - EarthCODE Experiment",
       "bblockName": "EarthCODE Experiment",
       "bblockId": "ogc.osc.geodcat-stac-earthcode.experiments",
-      "generated": "2025-12-18T00:51:00.108449+00:00",
+      "generated": "2025-12-18T00:52:41.114145+00:00",
       "result": true,
       "items": [
         {
@@ -348,12 +348,63 @@
               ]
             }
           ]
+        },
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/osc/geodcat-stac-earthcode/experiments/example_3_1.jsonld",
+            "url": "https://nenadradosevic.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/experiments/example_3_1.jsonld",
+            "exampleIndex": 3,
+            "snippetIndex": 1,
+            "language": "application/ld+json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_3_1.ttl",
+                  "size": 41,
+                  "isError": false,
+                  "message": "Output Turtle example_3_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+                  "focusNodes": {
+                    "rec:testAllVarsInTemplate": {
+                      "nodes": []
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
+                }
+              ]
+            }
+          ]
         }
       ],
       "globalErrors": {},
       "counts": {
-        "total": 2,
-        "passed": 2,
+        "total": 3,
+        "passed": 3,
         "failed": 0
       }
     },
@@ -361,7 +412,7 @@
       "title": "Validation report for ogc.osc.geodcat-stac-earthcode.products - EarthCODE Product",
       "bblockName": "EarthCODE Product",
       "bblockId": "ogc.osc.geodcat-stac-earthcode.products",
-      "generated": "2025-12-18T00:51:01.440855+00:00",
+      "generated": "2025-12-18T00:52:42.604600+00:00",
       "result": true,
       "items": [
         {
@@ -976,7 +1027,7 @@
       "title": "Validation report for ogc.osc.geodcat-stac-earthcode.workflows - EarthCODE Workflow",
       "bblockName": "EarthCODE Workflow",
       "bblockId": "ogc.osc.geodcat-stac-earthcode.workflows",
-      "generated": "2025-12-18T00:51:01.876577+00:00",
+      "generated": "2025-12-18T00:52:43.036858+00:00",
       "result": true,
       "items": [
         {
@@ -1307,7 +1358,7 @@
       "title": "Validation report for ogc.osc.api-profiles.processes.ipt.api - IPT Profile of OGC API Processes",
       "bblockName": "IPT Profile of OGC API Processes",
       "bblockId": "ogc.osc.api-profiles.processes.ipt.api",
-      "generated": "2025-12-18T00:51:01.882333+00:00",
+      "generated": "2025-12-18T00:52:43.042131+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -1321,7 +1372,7 @@
       "title": "Validation report for ogc.osc.api-profiles.processes.workflow - Workflow profile of OGC API Processes",
       "bblockName": "Workflow profile of OGC API Processes",
       "bblockId": "ogc.osc.api-profiles.processes.workflow",
-      "generated": "2025-12-18T00:51:01.886085+00:00",
+      "generated": "2025-12-18T00:52:43.045668+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -1335,7 +1386,7 @@
       "title": "Validation report for ogc.osc.api-profiles.processes.ospd - Open Science profile of OGC API Processes",
       "bblockName": "Open Science profile of OGC API Processes",
       "bblockId": "ogc.osc.api-profiles.processes.ospd",
-      "generated": "2025-12-18T00:51:01.911937+00:00",
+      "generated": "2025-12-18T00:52:43.075141+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},

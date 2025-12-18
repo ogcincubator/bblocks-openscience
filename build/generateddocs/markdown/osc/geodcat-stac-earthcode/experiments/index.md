@@ -244,8 +244,8 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <osc:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <osc:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
@@ -255,36 +255,36 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 
 <https://ogc.org/demo/ospd/polaris-experiment> a geojson:Feature ;
     dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core> ;
-    rdfs:seeAlso [ rdfs:label "Execution environment" ;
+    rdfs:seeAlso [ rdfs:label "Input parameters" ;
             dcterms:format "application/yaml" ;
-            ns2:relation <http://www.iana.org/assignments/relation/environment> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/environment.yaml> ],
-        [ rdfs:label "Theme: Oceans" ;
-            dcterms:format "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
+            ns1:relation <http://www.iana.org/assignments/relation/input> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/input.yaml> ],
         [ rdfs:label "Experiments" ;
             dcterms:format "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://ogc.org/demo/catalog.json> ],
-        [ rdfs:label "Input parameters" ;
+        [ rdfs:label "Execution environment" ;
             dcterms:format "application/yaml" ;
-            ns2:relation <http://www.iana.org/assignments/relation/input> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/input.yaml> ],
+            ns1:relation <http://www.iana.org/assignments/relation/environment> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/environment.yaml> ],
         [ dcterms:format "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/experiments/polaris-experiment/item.json> ],
-        [ rdfs:label "Open Science Catalog" ;
-            dcterms:format "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://ogc.org/catalog.json> ],
         [ rdfs:label "POLARIS" ;
             dcterms:format "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/child> ;
+            ns1:relation <http://www.iana.org/assignments/relation/child> ;
             oa:hasTarget <https://ogc.org/products/polaris/collection.json> ],
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ],
+        [ rdfs:label "Theme: Oceans" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
         [ rdfs:label "Workflow: POLARIS" ;
             dcterms:format "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/workflows/polaris-workflow/record.json> ] ;
     :properties [ a :experiment ;
             dcterms:created "2025-02-19T23:00:00Z" ;
@@ -293,7 +293,7 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
             dcterms:title "POLARIS" ;
             dcat:contactPoint [ :contactInstructions "Contact via EarthCODE" ;
                     :links [ dcterms:type "text/html" ;
-                            ns2:relation <http://www.iana.org/assignments/relation/about> ;
+                            ns1:relation <http://www.iana.org/assignments/relation/about> ;
                             oa:hasTarget <https://opensciencedata.esa.int/> ] ;
                     :name "EarthCODE Demo" ;
                     :organization "EarthCODE" ;
@@ -305,7 +305,7 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
             rec:format [ rec:name "GeoTIFF" ] ;
             rec:themes [ thns:concepts [ thns:id "oceans"^^xsd:string ] ;
                     thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
-            ns1:workflow "polaris-workflow" ] .
+            ns2:workflow "polaris-workflow" ] .
 
 
 ```
@@ -459,6 +459,126 @@ kg:JupyterNotebookEngine
     a wfprov:WorkflowEngine , prov:SoftwareAgent , schema:SoftwareApplication ;
     schema:name "Jupyter Notebook" ;
     prov:actedOnBehalfOf kg:CameronSajedi .
+
+```
+
+
+### An example of Kind Grove workflow provenance wf4ever
+Kind Grove workflow example and its provenance trace with main steps involved for its execution. 
+
+#### jsonld
+```jsonld
+{
+  "@context": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/context.jsonld",
+  "id": "kindgrove-experiment",
+  "type": "Feature",
+  "conformsTo": [
+    "http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core"
+  ],
+  "geometry": null,
+  "properties": {
+    "created": "2024-06-01T10:00:00Z",
+    "updated": "2024-06-01T10:45:00Z",
+    "type": "experiment",
+    "title": "KindGrove Mangrove Carbon Assessment",
+    "description": "An Earth observation workflow for mangrove detection and carbon stock estimation using Sentinel-2 imagery.",
+    "keywords": [
+      "mangroves",
+      "carbon",
+      "Sentinel-2",
+      "remote sensing",
+      "climate"
+    ],
+    "contacts": [
+      {
+        "name": "Cameron Sajedi",
+        "organization": "Starling Foundries",
+        "roles": ["author", "operator"]
+      }
+    ],
+    "themes": [
+      {
+        "scheme": "https://github.com/stac-extensions/osc#theme",
+        "concepts": [
+          { "id": "ecosystems" },
+          { "id": "climate" }
+        ]
+      }
+    ],
+    "formats": [
+      { "name": "GeoTIFF" },
+      { "name": "CSV" }
+    ],
+    "license": "CC-BY-4.0",
+    "osc:workflow": "kindgrove-workflow",
+    "version": "1.0"
+  },
+  "links": [
+    {
+      "rel": "related",
+      "href": "../workflows/kindgrove-workflow/record.json",
+      "type": "application/json",
+      "title": "Workflow description"
+    },
+    {
+      "rel": "related",
+      "href": "../provenance/kindgrove-run.jsonld",
+      "type": "application/ld+json",
+      "title": "Execution provenance"
+    }
+  ]
+}
+
+```
+
+#### ttl
+```ttl
+@prefix : <https://w3id.org/ogc/stac/assets/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix ns1: <osc:> .
+@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
+@prefix thns: <https://w3id.org/ogc/stac/themes/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://ogc.org/demo/ospd/kindgrove/kindgrove-experiment> a geojson:Feature ;
+    dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core> ;
+    rdfs:seeAlso [ rdfs:label "Execution provenance" ;
+            dcterms:format "application/ld+json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/provenance/kindgrove-run.jsonld> ],
+        [ rdfs:label "Workflow description" ;
+            dcterms:format "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/workflows/kindgrove-workflow/record.json> ] ;
+    :properties [ a :experiment ;
+            dcterms:created "2024-06-01T10:00:00Z" ;
+            dcterms:description "An Earth observation workflow for mangrove detection and carbon stock estimation using Sentinel-2 imagery." ;
+            dcterms:modified "2024-06-01T10:45:00Z" ;
+            dcterms:title "KindGrove Mangrove Carbon Assessment" ;
+            dcat:contactPoint [ :name "Cameron Sajedi" ;
+                    :organization "Starling Foundries" ;
+                    stac:roles "author",
+                        "operator" ] ;
+            dcat:keyword "Sentinel-2",
+                "carbon",
+                "climate",
+                "mangroves",
+                "remote sensing" ;
+            dcat:license "CC-BY-4.0" ;
+            :version "1.0" ;
+            rec:format [ rec:name "CSV" ],
+                [ rec:name "GeoTIFF" ] ;
+            rec:themes [ thns:concepts [ thns:id "climate"^^xsd:string ],
+                        [ thns:id "ecosystems"^^xsd:string ] ;
+                    thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
+            ns1:workflow "kindgrove-workflow" ] .
+
 
 ```
 
