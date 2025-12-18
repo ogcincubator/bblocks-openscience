@@ -1,0 +1,59 @@
+#Workflow must have at least one input and one output
+
+kg:WorkflowRunInputOutputShape
+    a sh:NodeShape ;
+    sh:targetClass wfprov:WorkflowRun ;
+
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "A WorkflowRun must have at least one input artifact and one output artifact." ;
+        sh:select """
+        SELECT $this
+        WHERE {
+            FILTER NOT EXISTS {
+                $this ^wfprov:wasPartOfWorkflowRun ?processIn .
+                ?processIn wfprov:usedInput ?input .
+            }
+            UNION
+            FILTER NOT EXISTS {
+                ?output prov:wasGeneratedBy ?processOut .
+                ?processOut wfprov:wasPartOfWorkflowRun $this .
+            }
+        }
+        """ ;
+    ] .
+
+#Each ProcessRun must use an input OR generate an output
+
+kg:ProcessRunWorkflowMembershipShape
+    a sh:NodeShape ;
+    sh:targetClass wfprov:ProcessRun ;
+
+    sh:property [
+        sh:path wfprov:wasPartOfWorkflowRun ;
+        sh:minCount 1 ;
+        sh:class wfprov:WorkflowRun ;
+        sh:message "Each ProcessRun must be part of exactly one WorkflowRun." ;
+    ] .
+
+
+#Each ProcessRun must use an input OR generate an output
+
+kg:ProcessRunInputOrOutputShape
+    a sh:NodeShape ;
+    sh:targetClass wfprov:ProcessRun ;
+
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "A ProcessRun must either use an input artifact or generate an output artifact." ;
+        sh:select """
+        SELECT $this
+        WHERE {
+            FILTER NOT EXISTS {
+                { $this wfprov:usedInput ?input }
+                UNION
+                { ?output prov:wasGeneratedBy $this }
+            }
+        }
+        """ ;
+    ] .
