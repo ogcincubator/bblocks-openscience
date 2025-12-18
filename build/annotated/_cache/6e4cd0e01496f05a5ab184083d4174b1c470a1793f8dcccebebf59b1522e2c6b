@@ -2,12 +2,12 @@
   "name": "Wf4Ever Building Blocks",
   "abstract": "Building blocks for the Wf4Ever ontologies suite (wfdesc, wfprov, ro, wf4ever) enabling\nworkflow description, provenance tracking, research object aggregation, and specialized artifact types.\n",
   "description": "This repository contains four separate building blocks for the **Wf4Ever ontologies**:\n\n- **wfdesc**: Workflow Description Ontology for describing workflow structure (prospective provenance)\n- **wfprov**: Workflow Provenance Ontology for tracking execution traces (retrospective provenance)\n- **ro**: Research Object Ontology for packaging and aggregating research artifacts\n- **wf4ever**: Extension ontology providing specialized artifact types (File, Dataset, Document, Image) and process types (WebServiceProcess, WorkflowResearchObject)\n\nAll examples are based on real CWL (Common Workflow Language) provenance data from\nscientific workflow executions.\n",
-  "modified": "2025-11-12T08:22:23.502852",
+  "modified": "2025-12-16T11:59:04.190996",
   "tooling": {
     "bblocks-postprocess": {
-      "commitId": "\"4fa4cc94cf7d37823107d163051f795337c61afb",
-      "shortCommitId": "\"4fa4cc",
-      "date": "2025-11-11T09:16:12+00:00\""
+      "commitId": "\"285d0905c7389562143593be3c626b653c2dc093",
+      "shortCommitId": "\"285d09",
+      "date": "2025-12-15T22:36:20+00:00\""
     }
   },
   "gitRepository": "https://github.com/ogcincubator/bblocks-wf4ever",
@@ -160,6 +160,7 @@
         "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/ro/SemanticAnnotation/schema.json"
       },
       "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/ro/SemanticAnnotation/schema.yaml",
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/ro/SemanticAnnotation/context.jsonld",
       "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/ro/SemanticAnnotation/",
       "rdfData": [],
       "validationPassed": true,
@@ -268,6 +269,7 @@
         "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/Dataset/schema.json"
       },
       "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/Dataset/schema.yaml",
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/Dataset/context.jsonld",
       "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/Dataset/",
       "rdfData": [],
       "validationPassed": true,
@@ -319,6 +321,7 @@
         "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/Document/schema.json"
       },
       "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/Document/schema.yaml",
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/Document/context.jsonld",
       "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/Document/",
       "rdfData": [],
       "validationPassed": true,
@@ -370,6 +373,7 @@
         "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/File/schema.json"
       },
       "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/File/schema.yaml",
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/File/context.jsonld",
       "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/File/",
       "rdfData": [],
       "validationPassed": true,
@@ -421,6 +425,7 @@
         "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/Image/schema.json"
       },
       "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/Image/schema.yaml",
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/Image/context.jsonld",
       "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/Image/",
       "rdfData": [],
       "validationPassed": true,
@@ -472,6 +477,7 @@
         "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/WebServiceProcess/schema.json"
       },
       "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/WebServiceProcess/schema.yaml",
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/WebServiceProcess/context.jsonld",
       "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/WebServiceProcess/",
       "rdfData": [],
       "validationPassed": true,
@@ -576,6 +582,7 @@
         "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/Artifact/schema.json"
       },
       "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/Artifact/schema.yaml",
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/Artifact/context.jsonld",
       "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/Artifact/",
       "rdfData": [],
       "validationPassed": true,
@@ -629,6 +636,7 @@
         "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/WorkflowInstance/schema.json"
       },
       "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/WorkflowInstance/schema.yaml",
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wfdesc/WorkflowInstance/context.jsonld",
       "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wfdesc/WorkflowInstance/",
       "rdfData": [],
       "validationPassed": true,
@@ -1055,8 +1063,8 @@
       "maturity": "development",
       "scope": "unstable",
       "dependsOn": [
-        "ogc.bbr.wf4ever.wfprov",
         "ogc.bbr.wf4ever.wfdesc",
+        "ogc.bbr.wf4ever.wfprov",
         "ogc.bbr.wf4ever.ro"
       ],
       "tags": [
@@ -1073,6 +1081,7 @@
         "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/schema.json"
       },
       "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/schema.yaml",
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/context.jsonld",
       "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/",
       "rdfData": [],
       "validationPassed": true,
@@ -1271,8 +1280,8 @@
       "version": "1.0",
       "dateOfLastChange": "2025-11-12",
       "dependsOn": [
-        "ogc.bbr.wf4ever.wfdesc.Input",
-        "ogc.bbr.wf4ever.wfdesc.Output"
+        "ogc.bbr.wf4ever.wfdesc.Output",
+        "ogc.bbr.wf4ever.wfdesc.Input"
       ],
       "sources": [
         {
@@ -1326,8 +1335,8 @@
       "version": "1.0",
       "dateOfLastChange": "2025-11-12",
       "dependsOn": [
-        "ogc.bbr.wf4ever.wfdesc.Input",
-        "ogc.bbr.wf4ever.wfdesc.Output"
+        "ogc.bbr.wf4ever.wfdesc.Output",
+        "ogc.bbr.wf4ever.wfdesc.Input"
       ],
       "sources": [
         {
@@ -1385,8 +1394,8 @@
         "ogc.bbr.wf4ever.wfdesc.Process"
       ],
       "dependsOn": [
-        "ogc.bbr.wf4ever.wfdesc.DataLink",
         "ogc.bbr.wf4ever.wfdesc.Process",
+        "ogc.bbr.wf4ever.wfdesc.DataLink",
         "ogc.api.processes.v1.schemas.process"
       ],
       "sources": [
@@ -1449,9 +1458,9 @@
       "maturity": "development",
       "scope": "unstable",
       "dependsOn": [
-        "ogc.bbr.wf4ever.wfprov.WorkflowEngine",
-        "ogc.bbr.wf4ever.wfprov.Artifact",
         "ogc.bbr.wf4ever.wfdesc.Process",
+        "ogc.bbr.wf4ever.wfprov.Artifact",
+        "ogc.bbr.wf4ever.wfprov.WorkflowEngine",
         "ogc.ogc-utils.prov"
       ],
       "tags": [
@@ -1522,6 +1531,7 @@
         "application/json": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/WorkflowResearchObject/schema.json"
       },
       "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/WorkflowResearchObject/schema.yaml",
+      "ldContext": "https://ogcincubator.github.io/bblocks-wf4ever/build/annotated/bbr/wf4ever/wf4ever/WorkflowResearchObject/context.jsonld",
       "sourceFiles": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever/WorkflowResearchObject/",
       "rdfData": [],
       "validationPassed": true,
@@ -1625,10 +1635,10 @@
       "sourceSchema": "https://ogcincubator.github.io/bblocks-wf4ever/_sources/wf4ever-profiles/complete-provenance-trace/schema.yaml",
       "sourceContext": "context.jsonld",
       "dependsOn": [
-        "ogc.bbr.wf4ever.ro.Manifest",
+        "ogc.bbr.wf4ever.wfprov.WorkflowRun",
         "ogc.bbr.wf4ever.wfdesc.Workflow",
         "ogc.bbr.wf4ever.ro.ResearchObject",
-        "ogc.bbr.wf4ever.wfprov.WorkflowRun"
+        "ogc.bbr.wf4ever.ro.Manifest"
       ],
       "tags": [
         "provenance",

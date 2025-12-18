@@ -3,15 +3,22 @@
 {
   "itemIdentifier": "ogc.osc.ontology.openscience",
   "name": "Open Science Ontology",
+  "highlighted": true,
   "abstract": "A modular standards-based ontology for describing interoperable and reproduceable scientific workflows.",
   "status": "under-development",
   "dateTimeAddition": "2023-09-18T00:00:00Z",
   "itemClass": "model",
   "register": "ogc-incubator",
   "version": "0.1",
-  "dateOfLastChange": "2025-12-16",
+  "dateOfLastChange": "2025-12-18",
   "dependsOn": [
+    "ogc.bbr.wf4ever.wfdesc.Workflow",
+    "ogc.contrib.stac.core-ontology",
+    "ogc.bbr.wf4ever.ro.ResearchObject",
+    "ogc.contrib.stac.extensions.cf-ontology",
+    "ogc.contrib.stac.extensions.osc-ontology",
     "ogc.osc.ontology.cwlprov",
+    "ogc.contrib.stac.extensions.processes-ontology",
     "ogc.geo.geodcat.dcat"
   ],
   "sources": [],
@@ -23,7 +30,7 @@
   "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/ontology/openscience/",
   "rdfData": [],
   "validationPassed": true,
-  "description": "## OpenScience Ontology\n\nThis is a placeholder for an \"Open Science Ontology\" supporting description of interoperable scientific workflows.\n\nThis ontology will be based on canonical common ontologies where appropriate, and be mapped to various implementing APIs and metadata standards as required to establish common semantics of elements appearing within a reproduceable and interoperable scientific workflow ecosystem.",
+  "description": "## OpenScience Ontology\n\nAn \"Open Science Ontology\" supporting description of interoperable scientific workflows.\n\nThis ontology is based on canonical common ontologies where appropriate, and can be mapped to various implementing APIs and metadata standards as required to establish common semantics of elements appearing within a reproduceable and interoperable scientific workflow ecosystem.\n\nThis ontology is modular and includes two related types of ontologies:\n\n1. Conceptual ontologies such as DCAT, PROV and WF4ever which describe common concepts\n2. Structure description ontologies - designed to be mapped by JSON-LD to JSON schema elements, and providing detailed documentation about the implicit semantics of these schemas.\n\nIn combination, these ontologies allow interoperable APIs and data exchange formats to be fully described, at both the structural level and how these relate to standard semantic models for such concepts. ",
   "annotatedSchema": null,
   "gitRepository": "https://github.com/ogcincubator/bblocks-openscience",
   "gitPath": "_sources/ontology/openscience"
