@@ -255,14 +255,21 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 
 <https://ogc.org/demo/ospd/polaris-experiment> a geojson:Feature ;
     dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core> ;
-    rdfs:seeAlso [ rdfs:label "Experiments" ;
+    rdfs:seeAlso [ dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/experiments/polaris-experiment/item.json> ],
+        [ rdfs:label "Open Science Catalog" ;
             dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ],
         [ rdfs:label "Input parameters" ;
             dcterms:format "application/yaml" ;
             ns1:relation <http://www.iana.org/assignments/relation/input> ;
             oa:hasTarget <https://ogc.org/demo/ospd/input.yaml> ],
+        [ rdfs:label "Experiments" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
         [ rdfs:label "Theme: Oceans" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
@@ -271,21 +278,14 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
             dcterms:format "application/yaml" ;
             ns1:relation <http://www.iana.org/assignments/relation/environment> ;
             oa:hasTarget <https://ogc.org/demo/ospd/environment.yaml> ],
-        [ rdfs:label "POLARIS" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/child> ;
-            oa:hasTarget <https://ogc.org/products/polaris/collection.json> ],
-        [ rdfs:label "Open Science Catalog" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://ogc.org/catalog.json> ],
-        [ dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/experiments/polaris-experiment/item.json> ],
         [ rdfs:label "Workflow: POLARIS" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/workflows/polaris-workflow/record.json> ] ;
+            oa:hasTarget <https://ogc.org/workflows/polaris-workflow/record.json> ],
+        [ rdfs:label "POLARIS" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/child> ;
+            oa:hasTarget <https://ogc.org/products/polaris/collection.json> ] ;
     :properties [ a :experiment ;
             dcterms:created "2025-02-19T23:00:00Z" ;
             dcterms:description "Polar Operational Limit Assessment Risk Index System (POLARIS)" ;
@@ -316,150 +316,311 @@ Kind Grove workflow example and its provenance trace with main steps involved fo
 
 #### turtle
 ```turtle
-@prefix kg: <https://example.org/kindgrove/> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix wfprov: <http://purl.org/wf4ever/wfprov#> .
-@prefix wfdesc: <http://purl.org/wf4ever/wfdesc#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix schema: <https://schema.org/> .
-@prefix stac: <https://w3id.org/ogc/stac/core/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX schema: <https://schema.org/>
+PREFIX stac: <https://w3id.org/ogc/stac/core/>
+PREFIX wfdesc: <http://purl.org/wf4ever/wfdesc#>
+PREFIX wfkg: <https://example.org/kindgrove/>
+PREFIX wfprov: <http://purl.org/wf4ever/wfprov#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-#################################################################
-# 1. WORKFLOW INPUTS
-#################################################################
-
-kg:Sentinel2L2A
-    a wfprov:Artifact , stac:Item ;
-    schema:name "Sentinel-2 L2A Multispectral Optical Imagery" ;
-    stac:resolution "10m" ;
-    stac:collection "sentinel-2-l2a" .
-
-kg:AWSSTACCatalog
-    a wfprov:Artifact , stac:Catalog ;
-    schema:name "AWS STAC Catalog (element84)" ;
-    schema:url "https://earth-search.aws.element84.com/v1" .
-
-#################################################################
-# 2. WORKFLOW PROCESSES (PROCESS RUNS)
-#################################################################
-
-kg:KindGroveWorkflow
-    a wfdesc:Workflow , schema:ComputationalWorkflow ;
-    schema:name "KindGrove Mangrove Carbon Assessment Workflow" ;
-    schema:version "1.0" .
-
-kg:KindGroveWorkflowRun
-    a wfprov:WorkflowRun , schema:CreateAction ;
-    wfprov:describedByWorkflow kg:KindGroveWorkflow ;
-    wfprov:wasInitiatedBy kg:CameronSajedi ;
-    prov:startedAtTime "2024-06-01T10:00:00Z"^^xsd:dateTime ;
-    prov:endedAtTime "2024-06-01T10:45:00Z"^^xsd:dateTime .
-
-kg:SelectScenesProcess
+wfkg:DefineStudyAreaRun
     a wfprov:ProcessRun ;
-    wfprov:usedInput kg:AWSSTACCatalog ;
-    wfprov:usedInput kg:Sentinel2L2A ;
-    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
-    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
+    wfprov:describedByProcess wfkg:DefineStudyAreaProcess ;
+    wfprov:hasSubProcessRun
+        wfkg:AddCenterPointRun ,
+        wfkg:AddInfoAnnotationRun ,
+        wfkg:AddStudyAreaBoundaryRun ,
+        wfkg:CreateBoundingBoxRun ,
+        wfkg:CreateLocationSelectorWidgetRun ,
+        wfkg:CreateMapRun ,
+        wfkg:DisplayStudyAreaRun ,
+        wfkg:GetSelectedSiteRun ;
+    wfprov:usedInput
+        wfkg:DateRange ,
+        wfkg:StudyArea ;
+    wfprov:wasEnactedBy wfkg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun wfkg:KindGroveWorkflowRun ;
+.
 
-kg:DownloadBandsProcess
-    a wfprov:ProcessRun ;
-    wfprov:usedInput kg:Sentinel2L2A ;
-    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
-    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
-
-kg:CalculateVegetationIndicesProcess
-    a wfprov:ProcessRun ;
-    wfprov:usedInput kg:Sentinel2L2A ;
-    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
-    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
-
-kg:ApplyThresholdClassificationProcess
-    a wfprov:ProcessRun ;
-    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
-    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
-
-kg:DetectedMangroveMaskProcess
-    a wfprov:ProcessRun ;
-    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
-    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
-
-kg:ApplyAllometricEquationProcess
-    a wfprov:ProcessRun ;
-    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
-    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
-
-kg:CalculateCarbonStockProcess
-    a wfprov:ProcessRun ;
-    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
-    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
-
-kg:CalculateCO2EquivalentProcess
-    a wfprov:ProcessRun ;
-    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
-    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
-
-kg:ExportResultsProcess
-    a wfprov:ProcessRun ;
-    wfprov:wasPartOfWorkflowRun kg:KindGroveWorkflowRun ;
-    wfprov:wasEnactedBy kg:JupyterNotebookEngine .
-
-#################################################################
-# 3. WORKFLOW OUTPUTS
-#################################################################
-
-kg:MangroveMask
+wfkg:InteractiveVisualisation
     a wfprov:Artifact ;
-    schema:name "Detected Mangrove Mask" ;
-    prov:wasGeneratedBy kg:DetectedMangroveMaskProcess ;
-    prov:wasDerivedFrom kg:Sentinel2L2A .
+    wfprov:wasOutputFrom wfkg:DisplaySummaryReportRun ;
+    schema:encodingFormat "text/html" ;
+    schema:name "HTML Summary Report" ;
+.
 
-kg:CarbonStockEstimate
+wfkg:AWSSTACCatalog
+    a
+        wfprov:Artifact ,
+        stac:Catalog ;
+    schema:name "AWS STAC Catalog" ;
+    schema:url "https://earth-search.aws.element84.com/v1" ;
+.
+
+wfkg:AllometricEquationDesc
+    a wfdesc:Process ;
+.
+
+wfkg:AllometricEquationRun
+    a wfprov:ProcessRun ;
+    wfprov:describedByProcess wfkg:AllometricEquationDesc ;
+    wfprov:usedInput
+        wfkg:MangroveMask ,
+        wfkg:NDVI ;
+    wfprov:wasEnactedBy wfkg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun wfkg:KindGroveWorkflowRun ;
+.
+
+wfkg:BiomassEstimate
     a wfprov:Artifact ;
-    schema:name "Estimated Mangrove Carbon Stock" ;
-    prov:wasGeneratedBy kg:CalculateCarbonStockProcess ;
-    prov:wasDerivedFrom kg:MangroveMask .
+    wfdesc:wasOutputFrom wfkg:AllometricEquationRun ;
+.
 
-kg:CO2EquivalentEstimate
+wfkg:CO2EquivalentDesc
+    a wfdesc:Process ;
+.
+
+wfkg:CO2EquivalentEstimate
     a wfprov:Artifact ;
-    schema:name "CO2 Equivalent Estimate" ;
-    prov:wasGeneratedBy kg:CalculateCO2EquivalentProcess ;
-    prov:wasDerivedFrom kg:CarbonStockEstimate .
+    wfdesc:wasOutputFrom wfkg:CO2EquivalentRun ;
+.
 
-kg:GeoTIFFRaster
-    a wfprov:Artifact , stac:Asset ;
-    schema:encodingFormat "image/tiff" ;
-    prov:wasGeneratedBy kg:ExportResultsProcess .
+wfkg:CO2EquivalentRun
+    a wfprov:ProcessRun ;
+    wfprov:describedByProcess wfkg:CO2EquivalentDesc ;
+    wfprov:usedInput wfkg:CarbonStockEstimate ;
+    wfprov:wasEnactedBy wfkg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun wfkg:KindGroveWorkflowRun ;
+.
 
-kg:CSVSummary
-    a wfprov:Artifact , schema:Dataset ;
+wfkg:CSVSummary
+    a wfprov:Artifact ;
+    wfdesc:wasOutputFrom wfkg:ExportResultsRun ;
     schema:encodingFormat "text/csv" ;
-    prov:wasGeneratedBy kg:ExportResultsProcess .
+.
 
-kg:InteractiveVisualisation
+wfkg:CalculateIndicesProcessDesc
+    a wfdesc:Process ;
+.
+
+wfkg:CarbonStockDesc
+    a wfdesc:Process ;
+.
+
+wfkg:CarbonStockEstimate
     a wfprov:Artifact ;
-    schema:name "Interactive Visualisation Outputs" ;
-    prov:wasGeneratedBy kg:ExportResultsProcess .
+    wfdesc:wasOutputFrom wfkg:CarbonStockRun ;
+.
 
-#################################################################
-# 4. WORKFLOW AGENT (PERSON, ORGANISATION, ENGINE)
-#################################################################
+wfkg:CarbonStockRun
+    a wfprov:ProcessRun ;
+    wfprov:describedByProcess wfkg:CarbonStockDesc ;
+    wfprov:usedInput wfkg:BiomassEstimate ;
+    wfprov:wasEnactedBy wfkg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun wfkg:KindGroveWorkflowRun ;
+.
 
-kg:CameronSajedi
-    a prov:Person , foaf:Person , schema:Person ;
+wfkg:DefineStudyAreaProcess
+    a wfdesc:Process ;
+.
+
+wfkg:DisplaySummaryReportRun
+    a wfprov:ProcessRun ;
+    wfprov:usedInput
+        wfkg:CSVSummary ,
+        wfkg:GeoTIFFRaster ;
+    prov:endedAtTime "2024-06-01T10:46:00+00:00"^^xsd:dateTime ;
+.
+
+wfkg:DownloadBandsProcessDesc
+    a wfdesc:Process ;
+.
+
+wfkg:ExportResultsDesc
+    a wfdesc:Process ;
+.
+
+wfkg:GeoTIFFRaster
+    a wfprov:Artifact ;
+    wfdesc:wasOutputFrom wfkg:ExportResultsRun ;
+    schema:encodingFormat "image/tiff" ;
+.
+
+wfkg:GreenBand
+    a wfprov:Artifact ;
+    wfdesc:wasOutputFrom wfkg:DownloadBandsRun ;
+.
+
+wfkg:KindGroveWorkflow
+    a
+        wfdesc:Workflow ,
+        schema:ComputationalWorkflow ;
+    schema:name "KindGrove Mangrove Carbon Assessment Workflow" ;
+    schema:version "1.0" ;
+.
+
+wfkg:Myanmar
+    a schema:Country ;
+    schema:name "Myanmar" ;
+.
+
+wfkg:NDWI
+    a wfprov:Artifact ;
+    wfdesc:wasOutputFrom wfkg:CalculateIndicesRun ;
+.
+
+wfkg:NIRBand
+    a wfprov:Artifact ;
+    wfdesc:wasOutputFrom wfkg:DownloadBandsRun ;
+.
+
+wfkg:RedBand
+    a wfprov:Artifact ;
+    wfdesc:wasOutputFrom wfkg:DownloadBandsRun ;
+.
+
+wfkg:SAVI
+    a wfprov:Artifact ;
+    wfdesc:wasOutputFrom wfkg:CalculateIndicesRun ;
+.
+
+wfkg:SelectScenesProcessDesc
+    a wfdesc:Process ;
+.
+
+wfkg:SelectScenesRun
+    a wfprov:ProcessRun ;
+    wfprov:describedByProcess wfkg:SelectScenesProcessDesc ;
+    wfprov:usedInput
+        wfkg:DateRange ,
+        wfkg:Sentinel2L2A ,
+        wfkg:StudyArea ;
+    wfprov:wasEnactedBy wfkg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun wfkg:KindGroveWorkflowRun ;
+.
+
+wfkg:SelectedScene
+    a wfprov:Artifact ;
+    wfdesc:wasOutputFrom wfkg:SelectScenesRun ;
+    schema:description "Lowest cloud cover Sentinel-2 scene" ;
+.
+
+wfkg:Sentinel2L2A
+    a
+        wfprov:Artifact ,
+        stac:Collection ;
+    schema:distribution wfkg:Sentinel2L2A_AWSS3Distribution ;
+    schema:isPartOf wfkg:AWSSTACCatalog ;
+    schema:name "Sentinel-2 L2A Multispectral Optical Imagery" ;
+.
+
+wfkg:Sentinel2L2A_AWSS3Distribution
+    a schema:DataDownload ;
+    schema:contentUrl "s3://sentinel-inventory/sentinel-s2-l2a/" ;
+    schema:isAccessibleForFree true ;
+    schema:name "Sentinel-2 L2A AWS Open Data Registry (S3)" ;
+    schema:provider "AWS Open Data Registry" ;
+.
+
+wfkg:StarlingFoundries
+    a prov:Organization ;
+    schema:name "Starling Foundries" ;
+.
+
+wfkg:StudyAreaGeometry
+    a schema:GeoShape ;
+    schema:box "95.15 15.9 95.35 16.1" ;
+    schema:center "95.25 16.0" ;
+    schema:polygon "95.15 15.9 95.35 15.9 95.35 16.1 95.15 16.1 95.15 15.9" ;
+.
+
+wfkg:ThresholdClassificationDesc
+    a wfdesc:Process ;
+.
+
+wfkg:ThresholdClassificationRun
+    a wfprov:ProcessRun ;
+    wfprov:describedByProcess wfkg:ThresholdClassificationDesc ;
+    wfprov:usedInput
+        wfkg:NDVI ,
+        wfkg:NDWI ,
+        wfkg:SAVI ;
+    wfprov:wasEnactedBy wfkg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun wfkg:KindGroveWorkflowRun ;
+.
+
+wfkg:CameronSajedi
+    a prov:Person ;
+    schema:affiliation wfkg:StarlingFoundries ;
     schema:name "Cameron Sajedi" ;
-    schema:affiliation kg:StarlingFoundries .
+.
 
-kg:StarlingFoundries
-    a prov:Organization , foaf:Organization , schema:Organization ;
-    schema:name "Starling Foundries" .
+wfkg:DateRange
+    a wfprov:Artifact ;
+    schema:description "Temporal range for satellite query" ;
+.
 
-kg:JupyterNotebookEngine
-    a wfprov:WorkflowEngine , prov:SoftwareAgent , schema:SoftwareApplication ;
+wfkg:ExportResultsRun
+    a wfprov:ProcessRun ;
+    wfprov:describedByProcess wfkg:ExportResultsDesc ;
+    wfprov:usedInput
+        wfkg:CO2EquivalentEstimate ,
+        wfkg:MangroveMask ;
+    wfprov:wasEnactedBy wfkg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun wfkg:KindGroveWorkflowRun ;
+.
+
+wfkg:MangroveMask
+    a wfprov:Artifact ;
+    wfdesc:wasOutputFrom wfkg:ThresholdClassificationRun ;
+.
+
+wfkg:NDVI
+    a wfprov:Artifact ;
+    wfdesc:wasOutputFrom wfkg:CalculateIndicesRun ;
+.
+
+wfkg:StudyArea
+    a wfprov:Artifact ;
+    schema:containedInPlace wfkg:Myanmar ;
+    schema:description "1,800 acres of mangrove restoration in Ayeyarwady Delta" ;
+    schema:geo wfkg:StudyAreaGeometry ;
+    schema:name "Thor Heyerdahl Climate Park" ;
+.
+
+wfkg:CalculateIndicesRun
+    a wfprov:ProcessRun ;
+    wfprov:describedByProcess wfkg:CalculateIndicesProcessDesc ;
+    wfprov:usedInput
+        wfkg:GreenBand ,
+        wfkg:NIRBand ,
+        wfkg:RedBand ;
+    wfprov:wasEnactedBy wfkg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun wfkg:KindGroveWorkflowRun ;
+.
+
+wfkg:DownloadBandsRun
+    a wfprov:ProcessRun ;
+    wfprov:describedByProcess wfkg:DownloadBandsProcessDesc ;
+    wfprov:usedInput wfkg:SelectedScene ;
+    wfprov:wasEnactedBy wfkg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun wfkg:KindGroveWorkflowRun ;
+.
+
+wfkg:JupyterNotebookEngine
+    a wfprov:WorkflowEngine ;
+    prov:actedOnBehalfOf wfkg:CameronSajedi ;
     schema:name "Jupyter Notebook" ;
-    prov:actedOnBehalfOf kg:CameronSajedi .
+.
 
+wfkg:KindGroveWorkflowRun
+    a wfprov:WorkflowRun ;
+    wfprov:describedByWorkflow wfkg:KindGroveWorkflow ;
+    wfprov:wasInitiatedBy wfkg:CameronSajedi ;
+    prov:endedAtTime "2024-06-01T10:45:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2024-06-01T10:00:00+00:00"^^xsd:dateTime ;
+.
 
 ```
 
@@ -549,14 +710,14 @@ Kind Grove workflow example and its provenance trace with main steps involved fo
 
 <https://ogc.org/demo/ospd/kindgrove/kindgrove-experiment> a geojson:Feature ;
     dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core> ;
-    rdfs:seeAlso [ rdfs:label "Workflow description" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/workflows/kindgrove-workflow/record.json> ],
-        [ rdfs:label "Execution provenance" ;
+    rdfs:seeAlso [ rdfs:label "Execution provenance" ;
             dcterms:format "application/ld+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/provenance/kindgrove-run.jsonld> ] ;
+            oa:hasTarget <https://ogc.org/demo/ospd/provenance/kindgrove-run.jsonld> ],
+        [ rdfs:label "Workflow description" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/workflows/kindgrove-workflow/record.json> ] ;
     :properties [ a :experiment ;
             dcterms:created "2024-06-01T10:00:00Z" ;
             dcterms:description "An Earth observation workflow for mangrove detection and carbon stock estimation using Sentinel-2 imagery." ;
@@ -573,8 +734,8 @@ Kind Grove workflow example and its provenance trace with main steps involved fo
                 "remote sensing" ;
             dcat:license "CC-BY-4.0" ;
             :version "1.0" ;
-            rec:format [ rec:name "GeoTIFF" ],
-                [ rec:name "CSV" ] ;
+            rec:format [ rec:name "CSV" ],
+                [ rec:name "GeoTIFF" ] ;
             rec:themes [ thns:concepts [ thns:id "ecosystems"^^xsd:string ],
                         [ thns:id "climate"^^xsd:string ] ;
                     thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;

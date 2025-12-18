@@ -13,14 +13,14 @@
 
 <https://ogc.org/demo/ospd/kindgrove/kindgrove-experiment> a geojson:Feature ;
     dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core> ;
-    rdfs:seeAlso [ rdfs:label "Workflow description" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/workflows/kindgrove-workflow/record.json> ],
-        [ rdfs:label "Execution provenance" ;
+    rdfs:seeAlso [ rdfs:label "Execution provenance" ;
             dcterms:format "application/ld+json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/provenance/kindgrove-run.jsonld> ] ;
+            oa:hasTarget <https://ogc.org/demo/ospd/provenance/kindgrove-run.jsonld> ],
+        [ rdfs:label "Workflow description" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/workflows/kindgrove-workflow/record.json> ] ;
     :properties [ a :experiment ;
             dcterms:created "2024-06-01T10:00:00Z" ;
             dcterms:description "An Earth observation workflow for mangrove detection and carbon stock estimation using Sentinel-2 imagery." ;
@@ -37,8 +37,8 @@
                 "remote sensing" ;
             dcat:license "CC-BY-4.0" ;
             :version "1.0" ;
-            rec:format [ rec:name "GeoTIFF" ],
-                [ rec:name "CSV" ] ;
+            rec:format [ rec:name "CSV" ],
+                [ rec:name "GeoTIFF" ] ;
             rec:themes [ thns:concepts [ thns:id "ecosystems"^^xsd:string ],
                         [ thns:id "climate"^^xsd:string ] ;
                     thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
