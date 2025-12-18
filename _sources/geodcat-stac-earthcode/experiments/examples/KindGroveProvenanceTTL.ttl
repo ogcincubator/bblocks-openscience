@@ -4,7 +4,7 @@
 @prefix wfdesc: <http://purl.org/wf4ever/wfdesc#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix schema: <https://schema.org/> .
-@prefix stac: <https://stacspec.org/ontology#> .
+@prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 #################################################################
@@ -141,3 +141,4 @@ kg:JupyterNotebookEngine
     a wfprov:WorkflowEngine , prov:SoftwareAgent , schema:SoftwareApplication ;
     schema:name "Jupyter Notebook" ;
     prov:actedOnBehalfOf kg:CameronSajedi .
+
