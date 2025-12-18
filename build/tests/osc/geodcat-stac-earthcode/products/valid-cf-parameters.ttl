@@ -23,6 +23,14 @@ Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM 
     dct:title "Polarwarp" ;
     rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/via> ;
             oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
+        [ rdfs:label "Project: Cerulean Information Factory" ;
+            dct:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <file:///projects/cerulean-information-factory/collection.json> ],
+        [ rdfs:label "Products" ;
+            dct:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <file:///github/catalog.json> ],
         [ rdfs:label "Theme: Cryosphere" ;
             dct:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/related> ;
@@ -33,14 +41,6 @@ Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM 
             dct:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <file:///catalog.json> ],
-        [ rdfs:label "Project: Cerulean Information Factory" ;
-            dct:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <file:///projects/cerulean-information-factory/collection.json> ],
-        [ rdfs:label "Products" ;
-            dct:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <file:///github/catalog.json> ],
         [ rdfs:label "Experiment: Polarwarp" ;
             dct:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/related> ;
