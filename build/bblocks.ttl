@@ -14,18 +14,18 @@
 
 <https://nenadradosevic.github.io/bblocks-openscience/build/bblocks.ttl> a prov:Entity ;
     dct:format "text/turtle" ;
-    prov:wasAttributedTo _:N3f5a9c065a89439e910eb740b6e207ae ;
+    prov:wasAttributedTo _:N460c4bd700384e46a41c8f7247f670e0 ;
     prov:wasGeneratedBy [ a prov:Activity ;
-            prov:endedAtTime "2025-12-18T04:08:31.676306"^^xsd:dateTime ;
-            prov:startedAtTime "2025-12-18T04:08:31.588548"^^xsd:dateTime ;
+            prov:endedAtTime "2025-12-18T23:15:56.305687"^^xsd:dateTime ;
+            prov:startedAtTime "2025-12-18T23:15:56.215584"^^xsd:dateTime ;
             prov:used [ a prov:Entity ;
-                    dct:format "application/json" ;
-                    dct:hasVersion "git:c3f795e8f51f384460fa0ce7a0dbff0236078446" ;
-                    rdfs:seeAlso <https://nenadradosevic.github.io/bblocks-openscience/build/register.json> ],
-                [ a prov:Entity ;
                     dct:format "application/yaml" ;
-                    rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ] ;
-            prov:wasAssociatedWith _:N3f5a9c065a89439e910eb740b6e207ae ] .
+                    rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ],
+                [ a prov:Entity ;
+                    dct:format "application/json" ;
+                    dct:hasVersion "git:06fa25348e722739b5b50dd36325729b7e66e81c" ;
+                    rdfs:seeAlso <https://nenadradosevic.github.io/bblocks-openscience/build/register.json> ] ;
+            prov:wasAssociatedWith _:N460c4bd700384e46a41c8f7247f670e0 ] .
 
 <bblocks://ogc.osc.api-profiles.processes.ospd> a skos:Concept,
         dcat:Dataset,
@@ -68,12 +68,12 @@
     rdfs:label "Open Science Ontology" ;
     dct:abstract "A modular standards-based ontology for describing interoperable and reproduceable scientific workflows."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-09-18T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.ontology.openscience> ],
-        [ dct:format "text/markdown" ;
+    dct:description [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/ontology/openscience/index.md> ],
         [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/ontology/openscience/index.json> ] ;
+            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/ontology/openscience/index.json> ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.ontology.openscience> ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2025-12-18"^^xsd:date ;
     skos:inScheme <https://nenadradosevic.github.io/bblocks-openscience/> ;
@@ -100,10 +100,10 @@
     rdfs:label "IPT Profile of OGC API Processes" ;
     dct:abstract "This is a Profile of the OGC API Processes model with specific requirements to standardise Integrity Provenance and Trust (IPT) aspects/"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2024-03-22T11:40:00+01:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.ipt.api> ],
-        [ dct:format "application/json" ;
+    dct:description [ dct:format "application/json" ;
             rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/ipt/api/index.json> ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.ipt.api> ],
         [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes/ipt/api/index.md> ] ;
     dct:hasVersion "0.1" ;
@@ -124,10 +124,10 @@
         bblocks:Schema ;
     rdfs:label "Execute (request) schema for IPT" ;
     dct:created "2025-10-22T15:29:12.046535"^^xsd:dateTime ;
-    dct:description [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.ipt.execute> ],
-        [ dct:format "text/markdown" ;
+    dct:description [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes/ipt/execute/index.md> ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.ipt.execute> ],
         [ dct:format "application/json" ;
             rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/ipt/execute/index.json> ] ;
     dct:hasVersion "0.1" ;
@@ -138,16 +138,16 @@
     dcat:keyword "ogcapi-processes",
         "schema" ;
     prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/json" ;
-            prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/schema.json> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/schema.yaml> ;
             prof:hasRole role:schema ],
         [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
             dct:format "application/ld+json" ;
             prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/context.jsonld> ;
             prof:hasRole role:mapping ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/schema.yaml> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/schema.json> ;
             prof:hasRole role:schema ] ;
     bblocks:dependsOn <bblocks://ogc.api.processes.v1.schemas.execute>,
         <bblocks://ogc.ogc-utils.iri-or-curie> ;
@@ -160,12 +160,12 @@
     rdfs:label "Result schema for IPT" ;
     dct:abstract "constraint on results to include provenance object inline"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2025-10-22T15:29:12.046535"^^xsd:dateTime ;
-    dct:description [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes/ipt/results/index.md> ],
+    dct:description [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/ipt/results/index.json> ],
         [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.ipt.results> ],
-        [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/ipt/results/index.json> ] ;
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes/ipt/results/index.md> ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2025-12-18"^^xsd:date ;
     skos:inScheme <https://nenadradosevic.github.io/bblocks-openscience/> ;
@@ -173,14 +173,14 @@
     skos:topConceptOf <https://nenadradosevic.github.io/bblocks-openscience/> ;
     dcat:keyword "ogcapi-processes",
         "schema" ;
-    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/schema.yaml> ;
-            prof:hasRole role:schema ],
-        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
             dct:format "application/ld+json" ;
             prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/context.jsonld> ;
             prof:hasRole role:mapping ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/schema.yaml> ;
+            prof:hasRole role:schema ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/schema.json> ;
@@ -199,10 +199,10 @@
     dct:created "2023-09-18T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes/workflow/index.md> ],
-        [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.workflow> ],
         [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/workflow/index.json> ] ;
+            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/workflow/index.json> ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.workflow> ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2025-12-18"^^xsd:date ;
     skos:inScheme <https://nenadradosevic.github.io/bblocks-openscience/> ;
@@ -227,10 +227,10 @@
     dct:created "2023-09-18T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.application-package> ],
-        [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/application-package/index.json> ],
         [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/application-package/index.md> ] ;
+            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/application-package/index.md> ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/application-package/index.json> ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2025-12-18"^^xsd:date ;
     dct:source <https://github.com/eoap> ;
@@ -241,14 +241,14 @@
             dct:format "application/json" ;
             prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.json> ;
             prof:hasRole role:schema ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.yaml> ;
-            prof:hasRole role:schema ],
         [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
             dct:format "application/ld+json" ;
             prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/_sources/application-package/context.jsonld> ;
-            prof:hasRole role:mapping ] ;
+            prof:hasRole role:mapping ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.yaml> ;
+            prof:hasRole role:schema ] ;
     bblocks:dependsOn <bblocks://ogc.profiles.prov.cwl.provenance> ;
     bblocks:hasSourceJsonLdContext <https://nenadradosevic.github.io/bblocks-openscience/_sources/application-package/context.jsonld> ;
     bblocks:scope <http://www.opengis.net/def/bblocks/scope/dev> ;
@@ -261,12 +261,12 @@
     rdfs:label "EarthCODE Experiment" ;
     dct:abstract "EarthCODE metadata profile linked to semantic models"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-09-18T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/markdown" ;
+    dct:description [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.experiments> ],
+        [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/geodcat-stac-earthcode/experiments/index.md> ],
         [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/experiments/index.json> ],
-        [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.experiments> ] ;
+            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/experiments/index.json> ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2025-12-18"^^xsd:date ;
     dct:source <http://www.opengis.net/def/metamodel/profiles/geodcat> ;
@@ -278,15 +278,7 @@
         "Records",
         "STAC",
         "profile" ;
-    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/json" ;
-            prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/schema.json> ;
-            prof:hasRole role:schema ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/schema.yaml> ;
-            prof:hasRole role:schema ],
-        [ dct:conformsTo shacl: ;
+    prof:hasResource [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.api.records.v1.schemas.linkTemplate> ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl> ;
@@ -294,7 +286,15 @@
         [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
             dct:format "application/ld+json" ;
             prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/context.jsonld> ;
-            prof:hasRole role:mapping ] ;
+            prof:hasRole role:mapping ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/schema.yaml> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/schema.json> ;
+            prof:hasRole role:schema ] ;
     bblocks:dependsOn <bblocks://ogc.geo.geodcat.geodcat-records>,
         <bblocks://ogc.osc.geodcat-stac-earthcode.common> ;
     bblocks:hasSourceJsonLdContext <https://nenadradosevic.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/context.jsonld> ;
@@ -308,12 +308,12 @@
     rdfs:label "EarthCODE Product" ;
     dct:abstract "EarthCODE metadata profile linked to semantic models"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-09-18T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/products/index.json> ],
+    dct:description [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.products> ],
         [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/geodcat-stac-earthcode/products/index.md> ],
-        [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.products> ] ;
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/products/index.json> ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2025-12-18"^^xsd:date ;
     dct:source <http://www.opengis.net/def/metamodel/profiles/geodcat> ;
@@ -325,15 +325,7 @@
         "Records",
         "STAC",
         "profile" ;
-    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/products/context.jsonld> ;
-            prof:hasRole role:mapping ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/products/schema.yaml> ;
-            prof:hasRole role:schema ],
-        [ dct:conformsTo shacl: ;
+    prof:hasResource [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.api.records.v1.schemas.linkTemplate> ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl> ;
@@ -341,7 +333,15 @@
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/products/schema.json> ;
-            prof:hasRole role:schema ] ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/products/schema.yaml> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/products/context.jsonld> ;
+            prof:hasRole role:mapping ] ;
     bblocks:dependsOn <bblocks://ogc.contrib.stac.extensions.cf>,
         <bblocks://ogc.osc.geodcat-stac-earthcode.common> ;
     bblocks:hasSourceJsonLdContext <https://nenadradosevic.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/products/context.jsonld> ;
@@ -355,10 +355,10 @@
     rdfs:label "EarthCODE Workflow" ;
     dct:abstract "EarthCODE metadata profile linked to semantic models"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-09-18T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/workflows/index.json> ],
-        [ dct:format "text/html" ;
+    dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.workflows> ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/workflows/index.json> ],
         [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/geodcat-stac-earthcode/workflows/index.md> ] ;
     dct:hasVersion "0.1" ;
@@ -372,23 +372,23 @@
         "Records",
         "STAC",
         "profile" ;
-    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/workflows/context.jsonld> ;
-            prof:hasRole role:mapping ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/json" ;
-            prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/workflows/schema.json> ;
-            prof:hasRole role:schema ],
+    prof:hasResource [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.api.records.v1.schemas.linkTemplate> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl> ;
+            prof:hasRole role:validation ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/yaml" ;
             prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/workflows/schema.yaml> ;
             prof:hasRole role:schema ],
-        [ dct:conformsTo shacl: ;
-            dct:format "text/turtle" ;
-            rdfs:seeAlso <bblocks://ogc.api.records.v1.schemas.linkTemplate> ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl> ;
-            prof:hasRole role:validation ] ;
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/workflows/schema.json> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/workflows/context.jsonld> ;
+            prof:hasRole role:mapping ] ;
     bblocks:dependsOn <bblocks://ogc.geo.geodcat.geodcat-records>,
         <bblocks://ogc.osc.geodcat-stac-earthcode.common> ;
     bblocks:hasSourceJsonLdContext <https://nenadradosevic.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/workflows/context.jsonld> ;
@@ -402,12 +402,12 @@
     rdfs:label "CWL Ontology" ;
     dct:abstract "Ontology describing the Common Workflow Language (CWL) model"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-09-18T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.ontology.cwlprov> ],
-        [ dct:format "application/json" ;
+    dct:description [ dct:format "application/json" ;
             rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/ontology/cwlprov/index.json> ],
         [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/ontology/cwlprov/index.md> ] ;
+            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/ontology/cwlprov/index.md> ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.ontology.cwlprov> ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2025-12-18"^^xsd:date ;
     skos:inScheme <https://nenadradosevic.github.io/bblocks-openscience/> ;
@@ -427,12 +427,12 @@
     rdfs:label "EarthCODE Common STAC profile" ;
     dct:abstract "EarthCODE metadata profile linked to semantic models"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-09-18T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
+    dct:description [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/geodcat-stac-earthcode/common/index.md> ],
+        [ dct:format "application/json" ;
             rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/geodcat-stac-earthcode/common/index.json> ],
         [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.common> ],
-        [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/geodcat-stac-earthcode/common/index.md> ] ;
+            rdfs:isDefinedBy <https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.geodcat-stac-earthcode.common> ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2025-12-18"^^xsd:date ;
     dct:source <https://earthcode.esa.int/>,
@@ -445,7 +445,15 @@
         "Records",
         "STAC",
         "profile" ;
-    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/context.jsonld> ;
+            prof:hasRole role:mapping ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.json> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/yaml" ;
             prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml> ;
             prof:hasRole role:schema ],
@@ -453,15 +461,7 @@
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.api.records.v1.schemas.linkTemplate> ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl> ;
-            prof:hasRole role:validation ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/json" ;
-            prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.json> ;
-            prof:hasRole role:schema ],
-        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/context.jsonld> ;
-            prof:hasRole role:mapping ] ;
+            prof:hasRole role:validation ] ;
     bblocks:dependsOn <bblocks://ogc.contrib.stac.extensions.osc>,
         <bblocks://ogc.contrib.stac.extensions.themes>,
         <bblocks://ogc.geo.geodcat.geodcat-records>,
@@ -480,7 +480,7 @@
 """^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:description """This repository is initially aimed to support the [Open Science Persistent Demonstrator](https://www.ogc.org/initiatives/open-science/) pilot, but may be further developed as a set of standards with appropriate working group governance.
 """^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
-    dct:modified "2025-12-18T04:08:06.668901"^^xsd:dateTime ;
+    dct:modified "2025-12-18T23:15:41.207760"^^xsd:dateTime ;
     owl:imports <https://ogcincubator.github.io/bblocks-ogcapi-processes/build/register.json>,
         <https://ogcincubator.github.io/bblocks-ogcapi-records/build/register.json>,
         <https://ogcincubator.github.io/bblocks-stac/build/register.json>,
@@ -503,7 +503,7 @@
     foaf:homepage <https://nenadradosevic.github.io/bblocks-openscience/> ;
     bblocks:hasValidationReport <https://nenadradosevic.github.io/bblocks-openscience/build/tests/report.html> .
 
-_:N3f5a9c065a89439e910eb740b6e207ae a prov:Agent,
+_:N460c4bd700384e46a41c8f7247f670e0 a prov:Agent,
         schema:SoftwareApplication ;
     rdfs:label "OGC-NA tools" ;
     dct:hasVersion "0.5.3" ;

@@ -2,7 +2,7 @@
   "name": "Open Science Workflows Building Blocks",
   "abstract": "Building Blocks for FAIR Open Science - profiles of OGC API Processes and various metadata standards to support open, transparent, interoperable and reproducible scientific workflows..\n",
   "description": "This repository is initially aimed to support the [Open Science Persistent Demonstrator](https://www.ogc.org/initiatives/open-science/) pilot, but may be further developed as a set of standards with appropriate working group governance.\n",
-  "modified": "2025-12-18T04:08:06.668901",
+  "modified": "2025-12-18T23:15:41.207760",
   "tooling": {
     "bblocks-postprocess": {
       "commitId": "\"285d0905c7389562143593be3c626b653c2dc093",
@@ -123,8 +123,8 @@
       "version": "0.1",
       "dateOfLastChange": "2025-12-18",
       "dependsOn": [
-        "ogc.osc.ontology.cwlprov",
-        "ogc.geo.geodcat.dcat"
+        "ogc.geo.geodcat.dcat",
+        "ogc.osc.ontology.cwlprov"
       ],
       "sources": [],
       "scope": "dev",
@@ -166,9 +166,9 @@
       "itemClass": "schema",
       "shaclShapes": {},
       "dependsOn": [
+        "ogc.api.processes.v1.schemas.qualifiedInputValue",
         "ogc.ogc-utils.prov-activity",
-        "ogc.ogc-utils.prov-entity",
-        "ogc.api.processes.v1.schemas.qualifiedInputValue"
+        "ogc.ogc-utils.prov-entity"
       ],
       "schema": {
         "application/yaml": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/schema.yaml",
@@ -204,12 +204,12 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.geo.geodcat.stac.geodcat-stac-item",
-        "ogc.ogc-utils.prov",
-        "ogc.contrib.stac.extensions.themes",
         "ogc.geo.geodcat.stac.geodcat-stac-collection",
         "ogc.geo.geodcat.geodcat-records",
-        "ogc.contrib.stac.extensions.osc"
+        "ogc.contrib.stac.extensions.themes",
+        "ogc.ogc-utils.prov",
+        "ogc.contrib.stac.extensions.osc",
+        "ogc.geo.geodcat.stac.geodcat-stac-item"
       ],
       "version": "0.1",
       "dateOfLastChange": "2025-12-18",
@@ -314,8 +314,8 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.osc.geodcat-stac-earthcode.common",
-        "ogc.geo.geodcat.geodcat-records"
+        "ogc.geo.geodcat.geodcat-records",
+        "ogc.osc.geodcat-stac-earthcode.common"
       ],
       "version": "0.1",
       "dateOfLastChange": "2025-12-18",
@@ -379,8 +379,8 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.osc.geodcat-stac-earthcode.common",
-        "ogc.contrib.stac.extensions.cf"
+        "ogc.contrib.stac.extensions.cf",
+        "ogc.osc.geodcat-stac-earthcode.common"
       ],
       "version": "0.1",
       "dateOfLastChange": "2025-12-18",
@@ -444,8 +444,8 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.osc.geodcat-stac-earthcode.common",
-        "ogc.geo.geodcat.geodcat-records"
+        "ogc.geo.geodcat.geodcat-records",
+        "ogc.osc.geodcat-stac-earthcode.common"
       ],
       "version": "0.1",
       "dateOfLastChange": "2025-12-18",
@@ -511,8 +511,8 @@
         }
       ],
       "dependsOn": [
-        "ogc.osc.api-profiles.processes.ipt.execute",
-        "ogc.osc.api-profiles.processes.ipt.results"
+        "ogc.osc.api-profiles.processes.ipt.results",
+        "ogc.osc.api-profiles.processes.ipt.execute"
       ],
       "tags": [
         "ogcapi-processes",
@@ -593,10 +593,10 @@
       "itemClass": "api",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.osc.api-profiles.processes.workflow",
         "ogc.osc.geodcat-stac-earthcode.products",
-        "ogc.osc.geodcat-stac-earthcode.experiments",
-        "ogc.osc.geodcat-stac-earthcode.workflows"
+        "ogc.osc.api-profiles.processes.workflow",
+        "ogc.osc.geodcat-stac-earthcode.workflows",
+        "ogc.osc.geodcat-stac-earthcode.experiments"
       ],
       "version": "0.1",
       "dateOfLastChange": "2025-12-18",
