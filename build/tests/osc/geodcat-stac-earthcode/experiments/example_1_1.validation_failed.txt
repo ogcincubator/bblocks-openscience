@@ -1,5 +1,5 @@
 Validation report for ogc.osc.geodcat-stac-earthcode.experiments - EarthCODE Experiment
-Generated 2025-12-19T01:12:44.926320+00:00
+Generated 2025-12-19T01:16:15.400834+00:00
 === Files ===
 Using example_1_1.json (example_1_1) from examples
 JSON-LD context is present - uplifting
@@ -12,12 +12,10 @@ Validation passed
 === End JSON Schema ===
 
 === SHACL ===
-Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
-  Validation Report
-  Conforms: True
-  
-Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
- - Shape rec:testAllVarsInTemplate: *none*
 
+** Validation error **
+Error processing _sources/geodcat-stac-earthcode/experiments/rules.shacl: at line 3 of <>:
+Bad syntax (Prefix "kg:" not bound) at ^ in:
+"b'#Workflow must have at least one input and one output\r\n\r\n'^b'kg:WorkflowRunInputOutputShape\r\n    a sh:NodeShape ;\r\n    sh'..."
 === End SHACL ===
 
