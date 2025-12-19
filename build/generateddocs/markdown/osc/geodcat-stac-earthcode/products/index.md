@@ -213,8 +213,8 @@ The EarthCODE OSC has requirements which are not captured here
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <osc:> .
+@prefix ns1: <osc:> .
+@prefix ns2: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -231,39 +231,39 @@ Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM 
             :temporal [ :interval "2025-02-25T00:00:00Z" ] ] ;
     dcterms:format "Collection" ;
     dcterms:title "Polarwarp" ;
-    rdfs:seeAlso [ rdfs:label "Products" ;
+    rdfs:seeAlso [ rdfs:label "Open Science Catalog" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
-        [ rdfs:label "Open Science Catalog" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            ns2:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://ogc.org/catalog.json> ],
-        [ rdfs:label "Project: Cerulean Information Factory" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],
         [ rdfs:label "Experiment: Polarwarp" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ],
+        [ ns2:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/item.json> ],
+        [ ns2:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
         [ rdfs:label "Theme: Cryosphere" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/item.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ] ;
+        [ rdfs:label "Products" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
+        [ rdfs:label "Project: Cerulean Information Factory" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ] ;
     dcat:license "various" ;
     stac:hasExtension "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
         "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
     rec:themes [ thns:concepts [ thns:id "cryosphere"^^xsd:string ] ;
             thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
-    ns2:project "cerulean-information-factory" ;
-    ns2:status "completed" ;
-    ns2:type "product" .
+    ns1:project "cerulean-information-factory" ;
+    ns1:status "completed" ;
+    ns1:type "product" .
 
 
 ```
@@ -326,8 +326,7 @@ Links to the schema:
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
-        },
-        "geometries": {}
+        }
       },
       "@id": "geojson:geometry"
     },
@@ -347,11 +346,7 @@ Links to the schema:
         "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
-        "length": "dct:extent",
-        "anchor": {},
-        "method": {},
-        "headers": {},
-        "body": {}
+        "length": "dct:extent"
       },
       "@id": "rdfs:seeAlso"
     },
@@ -360,15 +355,7 @@ Links to the schema:
       "@id": "dct:conformsTo",
       "@type": "@id"
     },
-    "time": {
-      "@context": {
-        "date": {},
-        "timestamp": {},
-        "interval": {},
-        "resolution": {}
-      },
-      "@id": "dct:temporal"
-    },
+    "time": "dct:temporal",
     "linkTemplates": {
       "@context": {
         "rel": {
@@ -412,9 +399,7 @@ Links to the schema:
       "@id": "rec:language",
       "@context": {
         "code": "rec:languageCode",
-        "name": "skos:prefLabel",
-        "alternate": {},
-        "dir": {}
+        "name": "skos:prefLabel"
       }
     },
     "languages": {
@@ -422,9 +407,7 @@ Links to the schema:
       "@id": "rec:languages",
       "@context": {
         "code": "rec:languageCode",
-        "name": "skos:prefLabel",
-        "alternate": {},
-        "dir": {}
+        "name": "skos:prefLabel"
       }
     },
     "resourceLanguages": {
@@ -432,9 +415,7 @@ Links to the schema:
       "@id": "rec:resourceLanguages",
       "@context": {
         "code": "rec:languageCode",
-        "name": "skos:prefLabel",
-        "alternate": {},
-        "dir": {}
+        "name": "skos:prefLabel"
       }
     },
     "externalIds": {
@@ -479,9 +460,6 @@ Links to the schema:
       "@id": "dcat:contactPoint",
       "@type": "@id",
       "@context": {
-        "identifier": {},
-        "position": {},
-        "organization": {},
         "logo": {
           "@context": {
             "rel": {
@@ -491,34 +469,12 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "type": "dct:type",
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
           }
-        },
-        "phones": {
-          "@context": {
-            "value": {}
-          }
-        },
-        "emails": {
-          "@context": {
-            "value": {}
-          }
-        },
-        "addresses": {
-          "@context": {
-            "deliveryPoint": {},
-            "city": {},
-            "administrativeArea": {},
-            "postalCode": {},
-            "country": {}
-          }
-        },
-        "hoursOfService": {},
-        "contactInstructions": {}
+        }
       }
     },
     "license": "dcat:license",
@@ -531,42 +487,30 @@ Links to the schema:
         "@vocab": "https://www.opengis.net/def/ogc-api/records/"
       }
     },
-    "collection": {},
     "stac_extensions": "stac:hasExtension",
     "roles": {
       "@id": "stac:roles",
       "@container": "@set"
     },
-    "bands": {},
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
-    "start_datetime": {},
-    "end_datetime": {},
-    "data_type": {},
-    "nodata": {},
-    "statistics": {
-      "@context": {
-        "minimum": {},
-        "maximum": {},
-        "mean": {},
-        "stddev": {},
-        "count": {},
-        "valid_percent": {}
-      }
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
     },
-    "unit": {},
-    "platform": {},
-    "instruments": {},
-    "constellation": {},
-    "mission": {},
-    "gsd": {},
-    "providers": {
-      "@context": {
-        "url": {}
-      }
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
     },
+    "unit": {
+      "@context": {
+        "@base": "http://qudt.org/vocab/unit/"
+      },
+      "@id": "qudt:hasUnit"
+    },
+    "providers": "stac:hasProvider",
     "rights": "dcat:rights",
     "@vocab": "https://w3id.org/ogc/stac/assets/",
     "assets": {
@@ -575,26 +519,10 @@ Links to the schema:
     },
     "stac_version": "stac:version",
     "media_type": "dct:format",
-    "extent": {
-      "@id": "dct:extent",
-      "@context": {
-        "spatial": {},
-        "temporal": {
-          "@context": {
-            "interval": {}
-          }
-        }
-      }
-    },
+    "extent": "dct:extent",
     "item_assets": {
       "@context": {
         "type": "@type"
-      }
-    },
-    "summaries": {
-      "@context": {
-        "minimum": {},
-        "maximum": {}
       }
     },
     "concepts": {
@@ -607,15 +535,6 @@ Links to the schema:
       }
     },
     "scheme": "thns:scheme",
-    "osc:type": {},
-    "osc:status": {},
-    "osc:project": {},
-    "osc:region": {},
-    "osc:variables": {},
-    "osc:missions": {},
-    "osc:experiment": {},
-    "osc:workflows": {},
-    "cf:parameter": {},
     "name": "cf:name",
     "href": {
       "@type": "@id",

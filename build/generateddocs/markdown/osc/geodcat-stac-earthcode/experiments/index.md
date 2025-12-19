@@ -258,10 +258,6 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
     rdfs:seeAlso [ dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/experiments/polaris-experiment/item.json> ],
-        [ rdfs:label "Open Science Catalog" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://ogc.org/catalog.json> ],
         [ rdfs:label "Input parameters" ;
             dcterms:format "application/yaml" ;
             ns1:relation <http://www.iana.org/assignments/relation/input> ;
@@ -274,6 +270,14 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ],
+        [ rdfs:label "POLARIS" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/child> ;
+            oa:hasTarget <https://ogc.org/products/polaris/collection.json> ],
         [ rdfs:label "Execution environment" ;
             dcterms:format "application/yaml" ;
             ns1:relation <http://www.iana.org/assignments/relation/environment> ;
@@ -281,11 +285,7 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
         [ rdfs:label "Workflow: POLARIS" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/workflows/polaris-workflow/record.json> ],
-        [ rdfs:label "POLARIS" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/child> ;
-            oa:hasTarget <https://ogc.org/products/polaris/collection.json> ] ;
+            oa:hasTarget <https://ogc.org/workflows/polaris-workflow/record.json> ] ;
     :properties [ a :experiment ;
             dcterms:created "2025-02-19T23:00:00Z" ;
             dcterms:description "Polar Operational Limit Assessment Risk Index System (POLARIS)" ;
@@ -710,14 +710,14 @@ Kind Grove workflow example and its provenance trace with main steps involved fo
 
 <https://ogc.org/demo/ospd/kindgrove/kindgrove-experiment> a geojson:Feature ;
     dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core> ;
-    rdfs:seeAlso [ rdfs:label "Execution provenance" ;
-            dcterms:format "application/ld+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/provenance/kindgrove-run.jsonld> ],
-        [ rdfs:label "Workflow description" ;
+    rdfs:seeAlso [ rdfs:label "Workflow description" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/workflows/kindgrove-workflow/record.json> ] ;
+            oa:hasTarget <https://ogc.org/demo/ospd/workflows/kindgrove-workflow/record.json> ],
+        [ rdfs:label "Execution provenance" ;
+            dcterms:format "application/ld+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/provenance/kindgrove-run.jsonld> ] ;
     :properties [ a :experiment ;
             dcterms:created "2024-06-01T10:00:00Z" ;
             dcterms:description "An Earth observation workflow for mangrove detection and carbon stock estimation using Sentinel-2 imagery." ;
@@ -734,10 +734,10 @@ Kind Grove workflow example and its provenance trace with main steps involved fo
                 "remote sensing" ;
             dcat:license "CC-BY-4.0" ;
             :version "1.0" ;
-            rec:format [ rec:name "CSV" ],
-                [ rec:name "GeoTIFF" ] ;
-            rec:themes [ thns:concepts [ thns:id "ecosystems"^^xsd:string ],
-                        [ thns:id "climate"^^xsd:string ] ;
+            rec:format [ rec:name "GeoTIFF" ],
+                [ rec:name "CSV" ] ;
+            rec:themes [ thns:concepts [ thns:id "climate"^^xsd:string ],
+                        [ thns:id "ecosystems"^^xsd:string ] ;
                     thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
             ns2:workflow "kindgrove-workflow" ] .
 
@@ -810,14 +810,12 @@ Links to the schema:
     },
     "type": "@type",
     "id": "@id",
-    "properties": {},
     "geometry": {
       "@context": {
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
-        },
-        "geometries": {}
+        }
       },
       "@id": "geojson:geometry"
     },
@@ -837,11 +835,7 @@ Links to the schema:
         "type": "dct:format",
         "hreflang": "dct:language",
         "title": "rdfs:label",
-        "length": "dct:extent",
-        "anchor": {},
-        "method": {},
-        "headers": {},
-        "body": {}
+        "length": "dct:extent"
       },
       "@id": "rdfs:seeAlso"
     },
@@ -850,15 +844,7 @@ Links to the schema:
       "@id": "dct:conformsTo",
       "@type": "@id"
     },
-    "time": {
-      "@context": {
-        "date": {},
-        "timestamp": {},
-        "interval": {},
-        "resolution": {}
-      },
-      "@id": "dct:temporal"
-    },
+    "time": "dct:temporal",
     "linkTemplates": {
       "@context": {
         "rel": {
@@ -903,9 +889,7 @@ Links to the schema:
       "@id": "rec:language",
       "@context": {
         "code": "rec:languageCode",
-        "name": "skos:prefLabel",
-        "alternate": {},
-        "dir": {}
+        "name": "skos:prefLabel"
       }
     },
     "languages": {
@@ -913,9 +897,7 @@ Links to the schema:
       "@id": "rec:languages",
       "@context": {
         "code": "rec:languageCode",
-        "name": "skos:prefLabel",
-        "alternate": {},
-        "dir": {}
+        "name": "skos:prefLabel"
       }
     },
     "resourceLanguages": {
@@ -923,9 +905,7 @@ Links to the schema:
       "@id": "rec:resourceLanguages",
       "@context": {
         "code": "rec:languageCode",
-        "name": "skos:prefLabel",
-        "alternate": {},
-        "dir": {}
+        "name": "skos:prefLabel"
       }
     },
     "externalIds": {
@@ -970,10 +950,6 @@ Links to the schema:
       "@id": "dcat:contactPoint",
       "@type": "@id",
       "@context": {
-        "identifier": {},
-        "name": {},
-        "position": {},
-        "organization": {},
         "logo": {
           "@context": {
             "rel": {
@@ -983,30 +959,10 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "type": "dct:type",
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
-          }
-        },
-        "phones": {
-          "@context": {
-            "value": {}
-          }
-        },
-        "emails": {
-          "@context": {
-            "value": {}
-          }
-        },
-        "addresses": {
-          "@context": {
-            "deliveryPoint": {},
-            "city": {},
-            "administrativeArea": {},
-            "postalCode": {},
-            "country": {}
           }
         },
         "links": {
@@ -1018,15 +974,12 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "type": "dct:type",
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
           }
-        },
-        "hoursOfService": {},
-        "contactInstructions": {}
+        }
       }
     },
     "license": "dcat:license",
@@ -1039,47 +992,24 @@ Links to the schema:
         "@vocab": "https://www.opengis.net/def/ogc-api/records/"
       }
     },
-    "collection": {},
     "stac_extensions": "stac:hasExtension",
     "roles": {
       "@id": "stac:roles",
       "@container": "@set"
     },
-    "bands": {
-      "@context": {
-        "name": {}
-      }
-    },
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
-    "start_datetime": {},
-    "end_datetime": {},
-    "data_type": {},
-    "nodata": {},
-    "statistics": {
-      "@context": {
-        "minimum": {},
-        "maximum": {},
-        "mean": {},
-        "stddev": {},
-        "count": {},
-        "valid_percent": {}
-      }
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
     },
-    "unit": {},
-    "platform": {},
-    "instruments": {},
-    "constellation": {},
-    "mission": {},
-    "gsd": {},
-    "providers": {
-      "@context": {
-        "name": {},
-        "url": {}
-      }
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
     },
+    "providers": "stac:hasProvider",
     "rights": "dcat:rights",
     "@vocab": "https://w3id.org/ogc/stac/assets/",
     "assets": {
@@ -1091,24 +1021,7 @@ Links to the schema:
     },
     "stac_version": "stac:version",
     "media_type": "dct:format",
-    "extent": {
-      "@id": "dct:extent",
-      "@context": {
-        "spatial": {},
-        "temporal": {
-          "@context": {
-            "interval": {}
-          }
-        }
-      }
-    },
-    "item_assets": {},
-    "summaries": {
-      "@context": {
-        "minimum": {},
-        "maximum": {}
-      }
-    },
+    "extent": "dct:extent",
     "concepts": {
       "@id": "thns:concepts",
       "@container": "@set",
@@ -1119,16 +1032,6 @@ Links to the schema:
       }
     },
     "scheme": "thns:scheme",
-    "osc:type": {},
-    "osc:status": {},
-    "osc:project": {},
-    "osc:region": {},
-    "osc:variables": {},
-    "osc:missions": {},
-    "osc:experiment": {},
-    "osc:workflows": {},
-    "osc:workflow": {},
-    "rel": {},
     "href": {
       "@type": "@id",
       "@id": "oa:hasTarget"

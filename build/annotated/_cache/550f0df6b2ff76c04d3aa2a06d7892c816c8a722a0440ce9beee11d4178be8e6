@@ -3,12 +3,12 @@
   "abstract": "These [Building Blocks](https://ogcincubator.github.io/bblocks-docs/) provide a validation and documentation wrapper over STAC and extension schemas, and aid in transparent re-use of STAC elements",
   "description": "Allows for validation and testing of STAC examples.\n\n**STAC extends OGC API Records** (i.e. Records is designed to be compatible with the prior STAC mode) - this packaging supports validation of STAC extensions against underlying Records, Features and Common elements.\n\nSupports definition and testing of transformations to/from STAC from other formats.\n\nImplementers can fork this repository and add additional examples in the `tests/` directory of each Building Block and run validation processes locally.\n\nProvides a framework for documentation and testing of additional extensions.\n",
   "sparqlEndpoint": "https://defs-dev.opengis.net/fuseki/sparql",
-  "modified": "2025-12-18T06:04:58.758506",
+  "modified": "2025-12-19T00:28:48.151614",
   "tooling": {
     "bblocks-postprocess": {
       "commitId": "\"285d0905c7389562143593be3c626b653c2dc093",
       "shortCommitId": "\"285d09",
-      "date": "2025-12-15T22:36:20+00:00\""
+      "date": "2025-12-19T00:24:46+00:00\""
     }
   },
   "gitRepository": "https://github.com/ogcincubator/bblocks-stac",
@@ -398,8 +398,8 @@
       "dependsOn": [
         "ogc.contrib.stac.components.assets",
         "ogc.ogc-utils.json-link",
-        "ogc.geo.features.feature",
-        "ogc.api.records.v1.schemas.recordGeoJSON"
+        "ogc.api.records.v1.schemas.recordGeoJSON",
+        "ogc.geo.features.feature"
       ],
       "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item/context.jsonld",
       "schema": {
@@ -868,8 +868,8 @@
         ]
       },
       "dependsOn": [
-        "ogc.api.records.v1.schemas.theme",
         "ogc.contrib.stac.item",
+        "ogc.api.records.v1.schemas.theme",
         "ogc.contrib.stac.collection"
       ],
       "ldContext": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/extensions/themes/context.jsonld",
@@ -1171,9 +1171,9 @@
         ]
       },
       "dependsOn": [
-        "ogc.geo.features.feature",
+        "ogc.contrib.stac.item",
         "ogc.api.records.v1.schemas.recordGeoJSON",
-        "ogc.contrib.stac.item"
+        "ogc.geo.features.feature"
       ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-v1-0-0/schema.yaml",
@@ -1228,9 +1228,9 @@
         ]
       },
       "dependsOn": [
-        "ogc.geo.features.feature",
+        "ogc.contrib.stac.item",
         "ogc.api.records.v1.schemas.recordGeoJSON",
-        "ogc.contrib.stac.item"
+        "ogc.geo.features.feature"
       ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblocks-stac/build/annotated/contrib/stac/item-v1-1-0/schema.yaml",
@@ -1269,12 +1269,12 @@
       "version": "1.4.0",
       "dateOfLastChange": "2025-12-18",
       "dependsOn": [
-        "ogc.contrib.stac.item",
-        "ogc.contrib.stac.extensions.eo",
-        "ogc.contrib.stac.extensions.processing",
-        "ogc.contrib.stac.collection",
         "ogc.contrib.stac.extensions.raster",
-        "ogc.contrib.stac.extensions.classification"
+        "ogc.contrib.stac.item",
+        "ogc.contrib.stac.extensions.processing",
+        "ogc.contrib.stac.extensions.classification",
+        "ogc.contrib.stac.extensions.eo",
+        "ogc.contrib.stac.collection"
       ],
       "sources": [
         {
