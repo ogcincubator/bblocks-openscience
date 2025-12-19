@@ -1,15 +1,17 @@
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix wfprov: <http://purl.org/wf4ever/wfprov#> .
-@prefix wfdesc: <http://purl.org/wf4ever/wfdesc#> .
-@base <https://www.ogc.org/rules/template/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix wfprov:  <http://purl.org/wf4ever/wfprov#> .
+@prefix wfdesc:  <http://purl.org/wf4ever/wfdesc#> .
+@base <https://www.ogc.org/rules/kindgrove/> .
 
-wfkg:ProcessRunShape
+<#processRunDescription>
     a sh:NodeShape ;
     sh:targetClass wfprov:ProcessRun ;
+    sh:message "Each ProcessRun must be described by a wfdesc:Process." ;
     sh:property [
         sh:path wfprov:describedByProcess ;
         sh:class wfdesc:Process ;
-        sh:minCount 1 ;
-        sh:message "Each ProcessRun must be described by exactly one wfdesc:Process." ;
+        sh:minCount 1
     ] .
-
