@@ -1,6 +1,7 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix wfprov: <http://purl.org/wf4ever/wfprov#> .
 @prefix wfdesc: <http://purl.org/wf4ever/wfdesc#> .
+@base <https://www.ogc.org/rules/template/> .
 
 wfkg:ProcessRunShape
     a sh:NodeShape ;
@@ -11,3 +12,4 @@ wfkg:ProcessRunShape
         sh:minCount 1 ;
         sh:message "Each ProcessRun must be described by exactly one wfdesc:Process." ;
     ] .
+
