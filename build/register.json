@@ -2,7 +2,7 @@
   "name": "Open Science Workflows Building Blocks",
   "abstract": "Building Blocks for FAIR Open Science - profiles of OGC API Processes and various metadata standards to support open, transparent, interoperable and reproducible scientific workflows..\n",
   "description": "This repository is initially aimed to support the [Open Science Persistent Demonstrator](https://www.ogc.org/initiatives/open-science/) pilot, but may be further developed as a set of standards with appropriate working group governance.\n",
-  "modified": "2025-12-19T01:32:25.401588",
+  "modified": "2025-12-19T01:38:39.751127",
   "tooling": {
     "bblocks-postprocess": {
       "commitId": "\"285d0905c7389562143593be3c626b653c2dc093",
@@ -166,8 +166,8 @@
       "itemClass": "schema",
       "shaclShapes": {},
       "dependsOn": [
-        "ogc.ogc-utils.prov-entity",
         "ogc.ogc-utils.prov-activity",
+        "ogc.ogc-utils.prov-entity",
         "ogc.api.processes.v1.schemas.qualifiedInputValue"
       ],
       "schema": {
@@ -204,12 +204,12 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.contrib.stac.extensions.themes",
         "ogc.contrib.stac.extensions.osc",
+        "ogc.geo.geodcat.geodcat-records",
+        "ogc.contrib.stac.extensions.themes",
         "ogc.geo.geodcat.stac.geodcat-stac-item",
         "ogc.geo.geodcat.stac.geodcat-stac-collection",
-        "ogc.ogc-utils.prov",
-        "ogc.geo.geodcat.geodcat-records"
+        "ogc.ogc-utils.prov"
       ],
       "version": "0.1",
       "dateOfLastChange": "2025-12-19",
@@ -513,8 +513,8 @@
         }
       ],
       "dependsOn": [
-        "ogc.osc.api-profiles.processes.ipt.execute",
-        "ogc.osc.api-profiles.processes.ipt.results"
+        "ogc.osc.api-profiles.processes.ipt.results",
+        "ogc.osc.api-profiles.processes.ipt.execute"
       ],
       "tags": [
         "ogcapi-processes",
@@ -551,8 +551,8 @@
       "itemClass": "api",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.osc.api-profiles.processes.ipt.api",
-        "ogc.osc.application-package"
+        "ogc.osc.application-package",
+        "ogc.osc.api-profiles.processes.ipt.api"
       ],
       "version": "0.1",
       "dateOfLastChange": "2025-12-19",
@@ -595,10 +595,10 @@
       "itemClass": "api",
       "register": "ogc-incubator",
       "dependsOn": [
+        "ogc.osc.api-profiles.processes.workflow",
         "ogc.osc.geodcat-stac-earthcode.experiments",
-        "ogc.osc.geodcat-stac-earthcode.workflows",
         "ogc.osc.geodcat-stac-earthcode.products",
-        "ogc.osc.api-profiles.processes.workflow"
+        "ogc.osc.geodcat-stac-earthcode.workflows"
       ],
       "version": "0.1",
       "dateOfLastChange": "2025-12-19",
