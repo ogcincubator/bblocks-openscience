@@ -46,14 +46,3 @@ wfkg:ArtifactProvenanceShape
     ) ;
     sh:message "Each Artifact should be linked to a ProcessRun that produced it." ;
 .
-
-<#processRunDescription>
-    a sh:NodeShape ;
-    sh:targetClass wfprov:ProcessRun ;
-    sh:message "Each ProcessRun must be described by a wfdesc:Process." ;
-    sh:property [
-        sh:path wfprov:describedByProcess ;
-        sh:class wfdesc:Process ;
-        sh:minCount 1
-    ] .
-
