@@ -20,10 +20,16 @@ Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM 
     dcterms:extent [ :spatial [ geojson:bbox ( ( -1.809999e-03 4.381454e-04 1.347253e-03 7.574197e-04 ) ) ] ;
             :temporal [ :interval "2025-02-25T00:00:00Z" ] ] ;
     dcterms:title "Polarwarp" ;
-    rdfs:seeAlso [ rdfs:label "Open Science Catalog" ;
+    rdfs:seeAlso [ rdfs:label "Theme: Cryosphere" ;
             dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://ogc.org/catalog.json> ],
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/item.json> ],
+        [ rdfs:label "Project: Cerulean Information Factory" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],
         [ rdfs:label "Experiment: Polarwarp" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
@@ -32,18 +38,12 @@ Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM 
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://ogc.org/demo/catalog.json> ],
-        [ rdfs:label "Theme: Cryosphere" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/via> ;
             oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
-        [ rdfs:label "Project: Cerulean Information Factory" ;
+        [ rdfs:label "Open Science Catalog" ;
             dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/item.json> ] ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ] ;
     dcat:license "various" ;
     stac:hasExtension "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
         "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
