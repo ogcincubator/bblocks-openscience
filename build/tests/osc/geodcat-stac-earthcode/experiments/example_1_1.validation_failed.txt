@@ -1,0 +1,21 @@
+Validation report for ogc.osc.geodcat-stac-earthcode.experiments - EarthCODE Experiment
+Generated 2025-12-19T02:04:29.430339+00:00
+=== Files ===
+Using example_1_1.json (example_1_1) from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+
+=== SHACL ===
+
+** Validation error **
+Error processing _sources/geodcat-stac-earthcode/experiments/rules.shacl: at line 9 of <>:
+Bad syntax (Prefix "wfkg:" not bound) at ^ in:
+"...b'desc#> .\r\n@base <https://www.ogc.org/rules/kindgrove/> .\r\n\r\n'^b'wfkg:ProcessRunShape\r\n    a sh:NodeShape ;\r\n    sh:targetCla'..."
+=== End SHACL ===
+
