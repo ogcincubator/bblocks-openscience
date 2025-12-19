@@ -37,10 +37,10 @@
                 "remote sensing" ;
             dcat:license "CC-BY-4.0" ;
             :version "1.0" ;
-            rec:format [ rec:name "GeoTIFF" ],
-                [ rec:name "CSV" ] ;
-            rec:themes [ thns:concepts [ thns:id "ecosystems"^^xsd:string ],
-                        [ thns:id "climate"^^xsd:string ] ;
+            rec:format [ rec:name "CSV" ],
+                [ rec:name "GeoTIFF" ] ;
+            rec:themes [ thns:concepts [ thns:id "climate"^^xsd:string ],
+                        [ thns:id "ecosystems"^^xsd:string ] ;
                     thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
             ns2:workflow "kindgrove-workflow" ] .
 

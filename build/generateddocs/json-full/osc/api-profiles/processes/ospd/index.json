@@ -10,10 +10,10 @@
   "itemClass": "api",
   "register": "ogc-incubator",
   "dependsOn": [
-    "ogc.osc.geodcat-stac-earthcode.workflows",
-    "ogc.osc.api-profiles.processes.workflow",
+    "ogc.osc.geodcat-stac-earthcode.experiments",
     "ogc.osc.geodcat-stac-earthcode.products",
-    "ogc.osc.geodcat-stac-earthcode.experiments"
+    "ogc.osc.api-profiles.processes.workflow",
+    "ogc.osc.geodcat-stac-earthcode.workflows"
   ],
   "version": "0.1",
   "dateOfLastChange": "2025-12-19",
@@ -28,11 +28,11 @@
     "PROV"
   ],
   "shaclShapes": {
-    "ogc.api.records.v1.schemas.linkTemplate": [
-      "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
-    ],
     "ogc.osc.geodcat-stac-earthcode.experiments": [
       "https://nenadradosevic.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/rules.shacl"
+    ],
+    "ogc.api.records.v1.schemas.linkTemplate": [
+      "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
     ]
   },
   "sourceFiles": "https://nenadradosevic.github.io/bblocks-openscience/_sources/api-profiles/processes/ospd/",
