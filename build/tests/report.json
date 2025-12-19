@@ -1,16 +1,30 @@
 {
   "summary": {
     "total": 12,
-    "passed": 11,
-    "failed": 1,
-    "result": false
+    "passed": 12,
+    "failed": 0,
+    "result": true
   },
   "bblocks": {
     "ogc.osc.ontology.cwlprov": {
       "title": "Validation report for ogc.osc.ontology.cwlprov - CWL Ontology",
       "bblockName": "CWL Ontology",
       "bblockId": "ogc.osc.ontology.cwlprov",
-      "generated": "2025-12-19T01:38:51.239976+00:00",
+      "generated": "2025-12-19T01:42:49.134562+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "counts": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      }
+    },
+    "ogc.osc.api-profiles.processes.ipt.results": {
+      "title": "Validation report for ogc.osc.api-profiles.processes.ipt.results - Result schema for IPT",
+      "bblockName": "Result schema for IPT",
+      "bblockId": "ogc.osc.api-profiles.processes.ipt.results",
+      "generated": "2025-12-19T01:42:49.170335+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -24,7 +38,7 @@
       "title": "Validation report for ogc.osc.application-package - Application Package",
       "bblockName": "Application Package",
       "bblockId": "ogc.osc.application-package",
-      "generated": "2025-12-19T01:38:51.308460+00:00",
+      "generated": "2025-12-19T01:42:49.302213+00:00",
       "result": true,
       "items": [
         {
@@ -76,21 +90,7 @@
       "title": "Validation report for ogc.osc.ontology.openscience - Open Science Ontology",
       "bblockName": "Open Science Ontology",
       "bblockId": "ogc.osc.ontology.openscience",
-      "generated": "2025-12-19T01:38:51.312706+00:00",
-      "result": true,
-      "items": [],
-      "globalErrors": {},
-      "counts": {
-        "total": 0,
-        "passed": 0,
-        "failed": 0
-      }
-    },
-    "ogc.osc.api-profiles.processes.ipt.results": {
-      "title": "Validation report for ogc.osc.api-profiles.processes.ipt.results - Result schema for IPT",
-      "bblockName": "Result schema for IPT",
-      "bblockId": "ogc.osc.api-profiles.processes.ipt.results",
-      "generated": "2025-12-19T01:38:51.321782+00:00",
+      "generated": "2025-12-19T01:42:49.306136+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -104,7 +104,7 @@
       "title": "Validation report for ogc.osc.geodcat-stac-earthcode.common - EarthCODE Common STAC profile",
       "bblockName": "EarthCODE Common STAC profile",
       "bblockId": "ogc.osc.geodcat-stac-earthcode.common",
-      "generated": "2025-12-19T01:38:54.073793+00:00",
+      "generated": "2025-12-19T01:42:53.156850+00:00",
       "result": true,
       "items": [
         {
@@ -198,7 +198,7 @@
       "title": "Validation report for ogc.osc.api-profiles.processes.ipt.execute - Execute (request) schema for IPT",
       "bblockName": "Execute (request) schema for IPT",
       "bblockId": "ogc.osc.api-profiles.processes.ipt.execute",
-      "generated": "2025-12-19T01:38:54.080850+00:00",
+      "generated": "2025-12-19T01:42:53.163633+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -212,8 +212,8 @@
       "title": "Validation report for ogc.osc.geodcat-stac-earthcode.experiments - EarthCODE Experiment",
       "bblockName": "EarthCODE Experiment",
       "bblockId": "ogc.osc.geodcat-stac-earthcode.experiments",
-      "generated": "2025-12-19T01:38:56.865103+00:00",
-      "result": false,
+      "generated": "2025-12-19T01:42:56.376707+00:00",
+      "result": true,
       "items": [
         {
           "source": {
@@ -226,7 +226,7 @@
             "language": "application/json",
             "sourceUrl": "https://raw.githubusercontent.com/ESA-EarthCODE/open-science-catalog-metadata/refs/heads/main/experiments/polaris-experiment/record.json"
           },
-          "result": false,
+          "result": true,
           "sections": [
             {
               "name": "FILES",
@@ -272,44 +272,42 @@
             {
               "name": "SHACL",
               "title": "SHACL",
-              "entries": []
-            }
-          ]
-        },
-        {
-          "source": {
-            "type": "EXAMPLE",
-            "requireFail": false,
-            "filename": "build/tests/osc/geodcat-stac-earthcode/experiments/example_2_1.ttl",
-            "url": "https://nenadradosevic.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/experiments/example_2_1.ttl",
-            "exampleIndex": 2,
-            "snippetIndex": 1,
-            "language": "text/turtle"
-          },
-          "result": false,
-          "sections": [
-            {
-              "name": "FILES",
-              "title": "Files",
               "entries": [
                 {
+                  "op": "shacl-report",
+                  "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
                   "isError": false,
-                  "message": "Using example_2_1 from examples"
+                  "message": "Validation result for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
                 },
                 {
-                  "op": "ttl-create",
-                  "empty": false,
-                  "filename": "example_2_1.ttl",
-                  "size": 152,
+                  "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
+                  "focusNodes": {
+                    "<https://www.ogc.org/rules/kindgrove/#processRunDescription>": {
+                      "nodes": []
+                    }
+                  },
                   "isError": false,
-                  "message": "Output Turtle example_2_1.ttl created"
+                  "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#processRunDescription>: *none*\n"
+                },
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+                  "focusNodes": {
+                    "rec:testAllVarsInTemplate": {
+                      "nodes": []
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
                 }
               ]
-            },
-            {
-              "name": "SHACL",
-              "title": "SHACL",
-              "entries": []
             }
           ]
         },
@@ -323,7 +321,7 @@
             "snippetIndex": 1,
             "language": "application/ld+json"
           },
-          "result": false,
+          "result": true,
           "sections": [
             {
               "name": "FILES",
@@ -342,28 +340,58 @@
             {
               "name": "SHACL",
               "title": "SHACL",
-              "entries": []
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
+                  "focusNodes": {
+                    "<https://www.ogc.org/rules/kindgrove/#processRunDescription>": {
+                      "nodes": []
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#processRunDescription>: *none*\n"
+                },
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+                  "focusNodes": {
+                    "rec:testAllVarsInTemplate": {
+                      "nodes": []
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
+                }
+              ]
             }
           ]
         }
       ],
-      "globalErrors": {
-        "SHACL": {
-          "isError": true,
-          "message": "Error processing _sources/geodcat-stac-earthcode/experiments/rules.shacl: at line 6 of <>:\nBad syntax (Prefix \"wfkg:\" not bound) at ^ in:\n\"...b'fdesc#> .\\r\\n@base <https://www.ogc.org/rules/template/> .\\r\\n\\r\\n'^b'wfkg:ProcessRunShape\\r\\n    a sh:NodeShape ;\\r\\n    sh:targetCla'...\""
-        }
-      },
+      "globalErrors": {},
       "counts": {
-        "total": 3,
-        "passed": 0,
-        "failed": 3
+        "total": 2,
+        "passed": 2,
+        "failed": 0
       }
     },
     "ogc.osc.geodcat-stac-earthcode.products": {
       "title": "Validation report for ogc.osc.geodcat-stac-earthcode.products - EarthCODE Product",
       "bblockName": "EarthCODE Product",
       "bblockId": "ogc.osc.geodcat-stac-earthcode.products",
-      "generated": "2025-12-19T01:38:58.626311+00:00",
+      "generated": "2025-12-19T01:42:58.086747+00:00",
       "result": true,
       "items": [
         {
@@ -978,7 +1006,7 @@
       "title": "Validation report for ogc.osc.geodcat-stac-earthcode.workflows - EarthCODE Workflow",
       "bblockName": "EarthCODE Workflow",
       "bblockId": "ogc.osc.geodcat-stac-earthcode.workflows",
-      "generated": "2025-12-19T01:38:59.320023+00:00",
+      "generated": "2025-12-19T01:42:58.679883+00:00",
       "result": true,
       "items": [
         {
@@ -1309,7 +1337,7 @@
       "title": "Validation report for ogc.osc.api-profiles.processes.ipt.api - IPT Profile of OGC API Processes",
       "bblockName": "IPT Profile of OGC API Processes",
       "bblockId": "ogc.osc.api-profiles.processes.ipt.api",
-      "generated": "2025-12-19T01:38:59.325514+00:00",
+      "generated": "2025-12-19T01:42:58.685202+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -1323,7 +1351,7 @@
       "title": "Validation report for ogc.osc.api-profiles.processes.workflow - Workflow profile of OGC API Processes",
       "bblockName": "Workflow profile of OGC API Processes",
       "bblockId": "ogc.osc.api-profiles.processes.workflow",
-      "generated": "2025-12-19T01:38:59.329122+00:00",
+      "generated": "2025-12-19T01:42:58.688772+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -1337,7 +1365,7 @@
       "title": "Validation report for ogc.osc.api-profiles.processes.ospd - Open Science profile of OGC API Processes",
       "bblockName": "Open Science profile of OGC API Processes",
       "bblockId": "ogc.osc.api-profiles.processes.ospd",
-      "generated": "2025-12-19T01:38:59.375671+00:00",
+      "generated": "2025-12-19T01:42:58.713578+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
