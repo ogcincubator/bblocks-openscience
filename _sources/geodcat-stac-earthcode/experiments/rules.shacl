@@ -38,7 +38,7 @@
 # Derived artifacts must point to a ProcessRun
 ############################################################
 
-<#DerivedArtifactProvenanceShape>
+<#ArtifactProvenanceShape>
     a sh:NodeShape ;
     sh:targetSubjectsOf wfprov:wasOutputFrom ;
     sh:targetSubjectsOf wfdesc:wasOutputFrom ;
@@ -46,6 +46,7 @@
     sh:property [
         sh:path [ sh:alternativePath ( wfprov:wasOutputFrom wfdesc:wasOutputFrom ) ] ;
         sh:class wfprov:ProcessRun ;
-        sh:minCount 1
+        sh:minCount 1 ;
     ] .
+
 
