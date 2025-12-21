@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.osc.geodcat-stac-earthcode.experiments - EarthCODE Experiment",
   "bblockName": "EarthCODE Experiment",
   "bblockId": "ogc.osc.geodcat-stac-earthcode.experiments",
-  "generated": "2025-12-21T14:13:10.821310+00:00",
+  "generated": "2025-12-21T14:20:31.876180+00:00",
   "result": false,
   "items": [
     {
@@ -73,24 +73,24 @@
             {
               "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
               "focusNodes": {
-                "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
-                  "nodes": []
-                },
                 "<https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
                 },
                 "<https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>/sh:or/rdf:first": {
                   "nodes": []
                 },
+                "<https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
                 "<https://www.ogc.org/rules/kindgrove/#ProcessRunShape>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>/sh:or/rdf:rest/rdf:first: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>/sh:or/rdf:first: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n"
+              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>/sh:or/rdf:first: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>/sh:or/rdf:rest/rdf:first: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -150,63 +150,72 @@
             {
               "op": "shacl-report",
               "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/kindgrove/AllometricEquationRun> ;\n            sh:resultMessage \"Derived artifacts must be linked to a ProcessRun that produced them.\" ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:OrConstraintComponent ;\n            sh:sourceShape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape> ;\n            sh:value <https://example.org/kindgrove/AllometricEquationRun> ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/kindgrove/CO2EquivalentRun> ;\n            sh:resultMessage \"Derived artifacts must be linked to a ProcessRun that produced them.\" ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:OrConstraintComponent ;\n            sh:sourceShape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape> ;\n            sh:value <https://example.org/kindgrove/CO2EquivalentRun> ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/kindgrove/CarbonStockRun> ;\n            sh:resultMessage \"Derived artifacts must be linked to a ProcessRun that produced them.\" ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:OrConstraintComponent ;\n            sh:sourceShape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape> ;\n            sh:value <https://example.org/kindgrove/CarbonStockRun> ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/kindgrove/ThresholdClassificationRun> ;\n            sh:resultMessage \"Derived artifacts must be linked to a ProcessRun that produced them.\" ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:OrConstraintComponent ;\n            sh:sourceShape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape> ;\n            sh:value <https://example.org/kindgrove/ThresholdClassificationRun> ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/kindgrove/CalculateIndicesRun> ;\n            sh:resultMessage \"Derived artifacts must be linked to a ProcessRun that produced them.\" ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:OrConstraintComponent ;\n            sh:sourceShape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape> ;\n            sh:value <https://example.org/kindgrove/CalculateIndicesRun> ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/kindgrove/ExportResultsRun> ;\n            sh:resultMessage \"Derived artifacts must be linked to a ProcessRun that produced them.\" ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:OrConstraintComponent ;\n            sh:sourceShape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape> ;\n            sh:value <https://example.org/kindgrove/ExportResultsRun> ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/kindgrove/DisplaySummaryReportRun> ;\n            sh:resultMessage \"Derived artifacts must be linked to a ProcessRun that produced them.\" ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:OrConstraintComponent ;\n            sh:sourceShape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape> ;\n            sh:value <https://example.org/kindgrove/DisplaySummaryReportRun> ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/kindgrove/SelectScenesRun> ;\n            sh:resultMessage \"Derived artifacts must be linked to a ProcessRun that produced them.\" ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:OrConstraintComponent ;\n            sh:sourceShape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape> ;\n            sh:value <https://example.org/kindgrove/SelectScenesRun> ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/kindgrove/DownloadBandsRun> ;\n            sh:resultMessage \"Derived artifacts must be linked to a ProcessRun that produced them.\" ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:OrConstraintComponent ;\n            sh:sourceShape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape> ;\n            sh:value <https://example.org/kindgrove/DownloadBandsRun> ] .\n\n",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/kindgrove/Sentinel2L2A> ;\n            sh:resultMessage \"Derived artifacts must be linked to a ProcessRun that produced them.\" ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:OrConstraintComponent ;\n            sh:sourceShape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape> ;\n            sh:value <https://example.org/kindgrove/Sentinel2L2A> ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/kindgrove/DateRange> ;\n            sh:resultMessage \"Derived artifacts must be linked to a ProcessRun that produced them.\" ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:OrConstraintComponent ;\n            sh:sourceShape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape> ;\n            sh:value <https://example.org/kindgrove/DateRange> ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/kindgrove/StudyArea> ;\n            sh:resultMessage \"Derived artifacts must be linked to a ProcessRun that produced them.\" ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:OrConstraintComponent ;\n            sh:sourceShape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape> ;\n            sh:value <https://example.org/kindgrove/StudyArea> ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/kindgrove/AWSSTACCatalog> ;\n            sh:resultMessage \"Derived artifacts must be linked to a ProcessRun that produced them.\" ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:OrConstraintComponent ;\n            sh:sourceShape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape> ;\n            sh:value <https://example.org/kindgrove/AWSSTACCatalog> ] .\n\n",
               "isError": true,
-              "message": "Validation result for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n  Validation Report\n  Conforms: False\n  Results (9):\n  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>\n  \tFocus Node: wfkg:ExportResultsRun\n  \tValue Node: wfkg:ExportResultsRun\n  \tMessage: Derived artifacts must be linked to a ProcessRun that produced them.\n  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>\n  \tFocus Node: wfkg:AllometricEquationRun\n  \tValue Node: wfkg:AllometricEquationRun\n  \tMessage: Derived artifacts must be linked to a ProcessRun that produced them.\n  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>\n  \tFocus Node: wfkg:DownloadBandsRun\n  \tValue Node: wfkg:DownloadBandsRun\n  \tMessage: Derived artifacts must be linked to a ProcessRun that produced them.\n  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>\n  \tFocus Node: wfkg:ThresholdClassificationRun\n  \tValue Node: wfkg:ThresholdClassificationRun\n  \tMessage: Derived artifacts must be linked to a ProcessRun that produced them.\n  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>\n  \tFocus Node: wfkg:SelectScenesRun\n  \tValue Node: wfkg:SelectScenesRun\n  \tMessage: Derived artifacts must be linked to a ProcessRun that produced them.\n  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>\n  \tFocus Node: wfkg:DisplaySummaryReportRun\n  \tValue Node: wfkg:DisplaySummaryReportRun\n  \tMessage: Derived artifacts must be linked to a ProcessRun that produced them.\n  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>\n  \tFocus Node: wfkg:CalculateIndicesRun\n  \tValue Node: wfkg:CalculateIndicesRun\n  \tMessage: Derived artifacts must be linked to a ProcessRun that produced them.\n  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>\n  \tFocus Node: wfkg:CarbonStockRun\n  \tValue Node: wfkg:CarbonStockRun\n  \tMessage: Derived artifacts must be linked to a ProcessRun that produced them.\n  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>\n  \tFocus Node: wfkg:CO2EquivalentRun\n  \tValue Node: wfkg:CO2EquivalentRun\n  \tMessage: Derived artifacts must be linked to a ProcessRun that produced them.\n  "
+              "message": "Validation result for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n  Validation Report\n  Conforms: False\n  Results (4):\n  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>\n  \tFocus Node: wfkg:DateRange\n  \tValue Node: wfkg:DateRange\n  \tMessage: Derived artifacts must be linked to a ProcessRun that produced them.\n  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>\n  \tFocus Node: wfkg:Sentinel2L2A\n  \tValue Node: wfkg:Sentinel2L2A\n  \tMessage: Derived artifacts must be linked to a ProcessRun that produced them.\n  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>\n  \tFocus Node: wfkg:AWSSTACCatalog\n  \tValue Node: wfkg:AWSSTACCatalog\n  \tMessage: Derived artifacts must be linked to a ProcessRun that produced them.\n  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>\n  \tFocus Node: wfkg:StudyArea\n  \tValue Node: wfkg:StudyArea\n  \tMessage: Derived artifacts must be linked to a ProcessRun that produced them.\n  "
             },
             {
               "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
               "focusNodes": {
-                "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
-                  "nodes": [
-                    "wfkg:DefineStudyAreaRun",
-                    "wfkg:ExportResultsRun",
-                    "wfkg:DownloadBandsRun",
-                    "wfkg:CO2EquivalentRun",
-                    "wfkg:ThresholdClassificationRun",
-                    "wfkg:SelectScenesRun",
-                    "wfkg:DisplaySummaryReportRun",
-                    "wfkg:CalculateIndicesRun",
-                    "wfkg:CarbonStockRun",
-                    "wfkg:AllometricEquationRun"
-                  ]
-                },
                 "<https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>": {
                   "nodes": [
-                    "wfkg:ExportResultsRun",
-                    "wfkg:AllometricEquationRun",
-                    "wfkg:DownloadBandsRun",
-                    "wfkg:ThresholdClassificationRun",
-                    "wfkg:SelectScenesRun",
-                    "wfkg:DisplaySummaryReportRun",
-                    "wfkg:CalculateIndicesRun",
-                    "wfkg:CarbonStockRun",
-                    "wfkg:CO2EquivalentRun"
+                    "wfkg:DateRange",
+                    "wfkg:GreenBand",
+                    "wfkg:Sentinel2L2A",
+                    "wfkg:CSVSummary",
+                    "wfkg:MangroveMask",
+                    "wfkg:BiomassEstimate",
+                    "wfkg:AWSSTACCatalog",
+                    "wfkg:SelectedScene",
+                    "wfkg:NIRBand",
+                    "wfkg:RedBand",
+                    "wfkg:CarbonStockEstimate",
+                    "wfkg:CO2EquivalentEstimate",
+                    "wfkg:SAVI",
+                    "wfkg:InteractiveVisualisation",
+                    "wfkg:StudyArea",
+                    "wfkg:NDWI",
+                    "wfkg:GeoTIFFRaster",
+                    "wfkg:NDVI"
                   ]
-                },
-                "<https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
                 },
                 "<https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>/sh:or/rdf:first": {
                   "nodes": []
                 },
+                "<https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
                 "<https://www.ogc.org/rules/kindgrove/#ProcessRunShape>": {
                   "nodes": [
-                    "wfkg:DefineStudyAreaRun",
                     "wfkg:ExportResultsRun",
-                    "wfkg:DownloadBandsRun",
+                    "wfkg:AllometricEquationRun",
                     "wfkg:CO2EquivalentRun",
-                    "wfkg:ThresholdClassificationRun",
                     "wfkg:SelectScenesRun",
                     "wfkg:DisplaySummaryReportRun",
+                    "wfkg:DefineStudyAreaRun",
+                    "wfkg:DownloadBandsRun",
+                    "wfkg:ThresholdClassificationRun",
                     "wfkg:CalculateIndicesRun",
-                    "wfkg:CarbonStockRun",
-                    "wfkg:AllometricEquationRun"
+                    "wfkg:CarbonStockRun"
+                  ]
+                },
+                "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
+                  "nodes": [
+                    "wfkg:ExportResultsRun",
+                    "wfkg:AllometricEquationRun",
+                    "wfkg:CO2EquivalentRun",
+                    "wfkg:SelectScenesRun",
+                    "wfkg:DisplaySummaryReportRun",
+                    "wfkg:DefineStudyAreaRun",
+                    "wfkg:DownloadBandsRun",
+                    "wfkg:ThresholdClassificationRun",
+                    "wfkg:CalculateIndicesRun",
+                    "wfkg:CarbonStockRun"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: wfkg:DefineStudyAreaRun,wfkg:ExportResultsRun,wfkg:DownloadBandsRun,wfkg:CO2EquivalentRun,wfkg:ThresholdClassificationRun,wfkg:SelectScenesRun,wfkg:DisplaySummaryReportRun,wfkg:CalculateIndicesRun,wfkg:CarbonStockRun,wfkg:AllometricEquationRun\n - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>: wfkg:ExportResultsRun,wfkg:AllometricEquationRun,wfkg:DownloadBandsRun,wfkg:ThresholdClassificationRun,wfkg:SelectScenesRun,wfkg:DisplaySummaryReportRun,wfkg:CalculateIndicesRun,wfkg:CarbonStockRun,wfkg:CO2EquivalentRun\n - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>/sh:or/rdf:rest/rdf:first: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>/sh:or/rdf:first: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: wfkg:DefineStudyAreaRun,wfkg:ExportResultsRun,wfkg:DownloadBandsRun,wfkg:CO2EquivalentRun,wfkg:ThresholdClassificationRun,wfkg:SelectScenesRun,wfkg:DisplaySummaryReportRun,wfkg:CalculateIndicesRun,wfkg:CarbonStockRun,wfkg:AllometricEquationRun\n"
+              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>: wfkg:DateRange,wfkg:GreenBand,wfkg:Sentinel2L2A,wfkg:CSVSummary,wfkg:MangroveMask,wfkg:BiomassEstimate,wfkg:AWSSTACCatalog,wfkg:SelectedScene,wfkg:NIRBand,wfkg:RedBand,wfkg:CarbonStockEstimate,wfkg:CO2EquivalentEstimate,wfkg:SAVI,wfkg:InteractiveVisualisation,wfkg:StudyArea,wfkg:NDWI,wfkg:GeoTIFFRaster,wfkg:NDVI\n - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>/sh:or/rdf:first: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>/sh:or/rdf:rest/rdf:first: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: wfkg:ExportResultsRun,wfkg:AllometricEquationRun,wfkg:CO2EquivalentRun,wfkg:SelectScenesRun,wfkg:DisplaySummaryReportRun,wfkg:DefineStudyAreaRun,wfkg:DownloadBandsRun,wfkg:ThresholdClassificationRun,wfkg:CalculateIndicesRun,wfkg:CarbonStockRun\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: wfkg:ExportResultsRun,wfkg:AllometricEquationRun,wfkg:CO2EquivalentRun,wfkg:SelectScenesRun,wfkg:DisplaySummaryReportRun,wfkg:DefineStudyAreaRun,wfkg:DownloadBandsRun,wfkg:ThresholdClassificationRun,wfkg:CalculateIndicesRun,wfkg:CarbonStockRun\n"
             },
             {
               "op": "shacl-report",
@@ -285,24 +294,24 @@
             {
               "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
               "focusNodes": {
-                "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
-                  "nodes": []
-                },
                 "<https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
                 },
                 "<https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>/sh:or/rdf:first": {
                   "nodes": []
                 },
+                "<https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
                 "<https://www.ogc.org/rules/kindgrove/#ProcessRunShape>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>/sh:or/rdf:rest/rdf:first: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>/sh:or/rdf:first: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n"
+              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>/sh:or/rdf:first: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>/sh:or/rdf:rest/rdf:first: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n"
             },
             {
               "op": "shacl-report",
