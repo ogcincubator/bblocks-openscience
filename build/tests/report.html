@@ -51,7 +51,7 @@
     <body>
         <div class="container">
             <h1 class="title">Building blocks validation report</h1>
-            <small class="datetime">Generated at 2025-12-21T14:20:34.314893+00:00</small>
+            <small class="datetime">Generated at 2025-12-21T14:24:06.498344+00:00</small>
                 <p class="summary fw-semibold text-danger">
                     Number of passing building blocks: 11 / 12 (91.67%)
                 </p>
@@ -311,11 +311,13 @@
   Conforms: True
   </div>
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:
+ - Shape _:n96e1e8b4e4dc46e08e40b2f4b201749ab8: *none*
+ - Shape _:n96e1e8b4e4dc46e08e40b2f4b201749ab7: *none*
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape&gt;/sh:or/rdf:rest/rdf:first: *none*
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape&gt;: *none*
  - Shape &lt;https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape&gt;: *none*
  - Shape &lt;https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape&gt;/sh:or/rdf:first: *none*
- - Shape &lt;https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape&gt;/sh:or/rdf:rest/rdf:first: *none*
  - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunShape&gt;: *none*
- - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape&gt;: *none*
 </div>
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
   Validation Report
@@ -357,34 +359,36 @@
   Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
   	Severity: sh:Violation
   	Source Shape: &lt;https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape&gt;
-  	Focus Node: wfkg:DateRange
-  	Value Node: wfkg:DateRange
-  	Message: Derived artifacts must be linked to a ProcessRun that produced them.
-  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
-  	Severity: sh:Violation
-  	Source Shape: &lt;https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape&gt;
   	Focus Node: wfkg:Sentinel2L2A
   	Value Node: wfkg:Sentinel2L2A
-  	Message: Derived artifacts must be linked to a ProcessRun that produced them.
+  	Message: If an artifact is derived, it must be linked to a ProcessRun that produced it.
   Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
   	Severity: sh:Violation
   	Source Shape: &lt;https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape&gt;
   	Focus Node: wfkg:AWSSTACCatalog
   	Value Node: wfkg:AWSSTACCatalog
-  	Message: Derived artifacts must be linked to a ProcessRun that produced them.
+  	Message: If an artifact is derived, it must be linked to a ProcessRun that produced it.
   Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
   	Severity: sh:Violation
   	Source Shape: &lt;https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape&gt;
   	Focus Node: wfkg:StudyArea
   	Value Node: wfkg:StudyArea
-  	Message: Derived artifacts must be linked to a ProcessRun that produced them.
+  	Message: If an artifact is derived, it must be linked to a ProcessRun that produced it.
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: &lt;https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape&gt;
+  	Focus Node: wfkg:DateRange
+  	Value Node: wfkg:DateRange
+  	Message: If an artifact is derived, it must be linked to a ProcessRun that produced it.
   </div>
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:
- - Shape &lt;https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape&gt;: wfkg:DateRange,wfkg:GreenBand,wfkg:Sentinel2L2A,wfkg:CSVSummary,wfkg:MangroveMask,wfkg:BiomassEstimate,wfkg:AWSSTACCatalog,wfkg:SelectedScene,wfkg:NIRBand,wfkg:RedBand,wfkg:CarbonStockEstimate,wfkg:CO2EquivalentEstimate,wfkg:SAVI,wfkg:InteractiveVisualisation,wfkg:StudyArea,wfkg:NDWI,wfkg:GeoTIFFRaster,wfkg:NDVI
- - Shape &lt;https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape&gt;/sh:or/rdf:first: *none*
+ - Shape _:n96e1e8b4e4dc46e08e40b2f4b201749ab8: *none*
+ - Shape _:n96e1e8b4e4dc46e08e40b2f4b201749ab7: *none*
  - Shape &lt;https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape&gt;/sh:or/rdf:rest/rdf:first: *none*
- - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunShape&gt;: wfkg:ExportResultsRun,wfkg:AllometricEquationRun,wfkg:CO2EquivalentRun,wfkg:SelectScenesRun,wfkg:DisplaySummaryReportRun,wfkg:DefineStudyAreaRun,wfkg:DownloadBandsRun,wfkg:ThresholdClassificationRun,wfkg:CalculateIndicesRun,wfkg:CarbonStockRun
- - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape&gt;: wfkg:ExportResultsRun,wfkg:AllometricEquationRun,wfkg:CO2EquivalentRun,wfkg:SelectScenesRun,wfkg:DisplaySummaryReportRun,wfkg:DefineStudyAreaRun,wfkg:DownloadBandsRun,wfkg:ThresholdClassificationRun,wfkg:CalculateIndicesRun,wfkg:CarbonStockRun
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape&gt;: wfkg:ThresholdClassificationRun,wfkg:CO2EquivalentRun,wfkg:CalculateIndicesRun,wfkg:CarbonStockRun,wfkg:ExportResultsRun,wfkg:AllometricEquationRun,wfkg:DisplaySummaryReportRun,wfkg:DownloadBandsRun,wfkg:SelectScenesRun,wfkg:DefineStudyAreaRun
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape&gt;: wfkg:CO2EquivalentEstimate,wfkg:Sentinel2L2A,wfkg:SelectedScene,wfkg:AWSSTACCatalog,wfkg:StudyArea,wfkg:NDWI,wfkg:GeoTIFFRaster,wfkg:NIRBand,wfkg:InteractiveVisualisation,wfkg:CarbonStockEstimate,wfkg:SAVI,wfkg:GreenBand,wfkg:RedBand,wfkg:BiomassEstimate,wfkg:MangroveMask,wfkg:CSVSummary,wfkg:NDVI,wfkg:DateRange
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape&gt;/sh:or/rdf:first: *none*
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunShape&gt;: wfkg:ThresholdClassificationRun,wfkg:CO2EquivalentRun,wfkg:CalculateIndicesRun,wfkg:CarbonStockRun,wfkg:ExportResultsRun,wfkg:AllometricEquationRun,wfkg:DisplaySummaryReportRun,wfkg:DownloadBandsRun,wfkg:SelectScenesRun,wfkg:DefineStudyAreaRun
 </div>
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
   Validation Report
@@ -426,11 +430,13 @@
   Conforms: True
   </div>
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:
+ - Shape _:n96e1e8b4e4dc46e08e40b2f4b201749ab8: *none*
+ - Shape _:n96e1e8b4e4dc46e08e40b2f4b201749ab7: *none*
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape&gt;/sh:or/rdf:rest/rdf:first: *none*
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape&gt;: *none*
  - Shape &lt;https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape&gt;: *none*
  - Shape &lt;https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape&gt;/sh:or/rdf:first: *none*
- - Shape &lt;https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape&gt;/sh:or/rdf:rest/rdf:first: *none*
  - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunShape&gt;: *none*
- - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape&gt;: *none*
 </div>
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
   Validation Report
