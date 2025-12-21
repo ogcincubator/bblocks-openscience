@@ -26,25 +26,16 @@
         sh:message "Each ProcessRun must be associated with a WorkflowRun." ;
     ] .
 
-<#ArtifactProvenanceShape>
+<#DerivedArtifactProvenanceShape>
     a sh:NodeShape ;
     sh:targetClass wfprov:Artifact ;
-    sh:or (
-        [
-            sh:property [
-                sh:path wfprov:wasOutputFrom ;
-                sh:class wfprov:ProcessRun ;
-                sh:minCount 1 ;
-            ]
-        ]
-        [
-            sh:property [
-                sh:path wfdesc:wasOutputFrom ;
-                sh:class wfprov:ProcessRun ;
-                sh:minCount 1 ;
-            ]
-        ]
-    ) ;
-    sh:message "Each Artifact should be linked to a ProcessRun that produced it." ;
-.
-
+    sh:message "Derived artifacts must be linked to a ProcessRun that produced them." ;
+    sh:property [
+        sh:path wfdesc:wasOutputFrom ;
+        sh:class wfprov:ProcessRun ;
+        sh:minCount 1
+    ] ;
+    sh:condition [
+        sh:path wfdesc:wasOutputFrom ;
+        sh:minCount 1
+    ] .
