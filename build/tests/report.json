@@ -10,7 +10,7 @@
       "title": "Validation report for ogc.osc.ontology.cwlprov - CWL Ontology",
       "bblockName": "CWL Ontology",
       "bblockId": "ogc.osc.ontology.cwlprov",
-      "generated": "2025-12-21T14:29:10.207747+00:00",
+      "generated": "2025-12-21T14:33:32.027348+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -24,7 +24,7 @@
       "title": "Validation report for ogc.osc.application-package - Application Package",
       "bblockName": "Application Package",
       "bblockId": "ogc.osc.application-package",
-      "generated": "2025-12-21T14:29:10.270111+00:00",
+      "generated": "2025-12-21T14:33:32.095610+00:00",
       "result": true,
       "items": [
         {
@@ -76,7 +76,7 @@
       "title": "Validation report for ogc.osc.ontology.openscience - Open Science Ontology",
       "bblockName": "Open Science Ontology",
       "bblockId": "ogc.osc.ontology.openscience",
-      "generated": "2025-12-21T14:29:10.274522+00:00",
+      "generated": "2025-12-21T14:33:32.100085+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -90,7 +90,7 @@
       "title": "Validation report for ogc.osc.api-profiles.processes.ipt.results - Result schema for IPT",
       "bblockName": "Result schema for IPT",
       "bblockId": "ogc.osc.api-profiles.processes.ipt.results",
-      "generated": "2025-12-21T14:29:10.284143+00:00",
+      "generated": "2025-12-21T14:33:32.109856+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -104,7 +104,7 @@
       "title": "Validation report for ogc.osc.geodcat-stac-earthcode.common - EarthCODE Common STAC profile",
       "bblockName": "EarthCODE Common STAC profile",
       "bblockId": "ogc.osc.geodcat-stac-earthcode.common",
-      "generated": "2025-12-21T14:29:12.140129+00:00",
+      "generated": "2025-12-21T14:33:34.579814+00:00",
       "result": true,
       "items": [
         {
@@ -198,7 +198,7 @@
       "title": "Validation report for ogc.osc.api-profiles.processes.ipt.execute - Execute (request) schema for IPT",
       "bblockName": "Execute (request) schema for IPT",
       "bblockId": "ogc.osc.api-profiles.processes.ipt.execute",
-      "generated": "2025-12-21T14:29:12.147186+00:00",
+      "generated": "2025-12-21T14:33:34.586958+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -212,7 +212,7 @@
       "title": "Validation report for ogc.osc.geodcat-stac-earthcode.experiments - EarthCODE Experiment",
       "bblockName": "EarthCODE Experiment",
       "bblockId": "ogc.osc.geodcat-stac-earthcode.experiments",
-      "generated": "2025-12-21T14:29:14.943702+00:00",
+      "generated": "2025-12-21T14:33:37.941852+00:00",
       "result": true,
       "items": [
         {
@@ -365,51 +365,51 @@
                       "nodes": [
                         "wfkg:CarbonStockRun",
                         "wfkg:DownloadBandsRun",
-                        "wfkg:SelectScenesRun",
-                        "wfkg:DisplaySummaryReportRun",
+                        "wfkg:ExportResultsRun",
+                        "wfkg:CO2EquivalentRun",
+                        "wfkg:CalculateIndicesRun",
                         "wfkg:DefineStudyAreaRun",
                         "wfkg:AllometricEquationRun",
                         "wfkg:ThresholdClassificationRun",
-                        "wfkg:CO2EquivalentRun",
-                        "wfkg:CalculateIndicesRun",
-                        "wfkg:ExportResultsRun"
+                        "wfkg:SelectScenesRun",
+                        "wfkg:DisplaySummaryReportRun"
                       ]
                     },
                     "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
                       "nodes": [
                         "wfkg:CarbonStockRun",
                         "wfkg:DownloadBandsRun",
-                        "wfkg:SelectScenesRun",
-                        "wfkg:DisplaySummaryReportRun",
+                        "wfkg:ExportResultsRun",
+                        "wfkg:CO2EquivalentRun",
+                        "wfkg:CalculateIndicesRun",
                         "wfkg:DefineStudyAreaRun",
                         "wfkg:AllometricEquationRun",
                         "wfkg:ThresholdClassificationRun",
-                        "wfkg:CO2EquivalentRun",
-                        "wfkg:CalculateIndicesRun",
-                        "wfkg:ExportResultsRun"
+                        "wfkg:SelectScenesRun",
+                        "wfkg:DisplaySummaryReportRun"
                       ]
                     },
                     "<https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>": {
                       "nodes": [
-                        "wfkg:SAVI",
-                        "wfkg:CSVSummary",
                         "wfkg:CarbonStockEstimate",
-                        "wfkg:GreenBand",
-                        "wfkg:NDVI",
-                        "wfkg:BiomassEstimate",
-                        "wfkg:GeoTIFFRaster",
-                        "wfkg:MangroveMask",
                         "wfkg:CO2EquivalentEstimate",
                         "wfkg:InteractiveVisualisation",
                         "wfkg:NDWI",
-                        "wfkg:RedBand",
                         "wfkg:SelectedScene",
-                        "wfkg:NIRBand"
+                        "wfkg:CSVSummary",
+                        "wfkg:BiomassEstimate",
+                        "wfkg:GreenBand",
+                        "wfkg:RedBand",
+                        "wfkg:NIRBand",
+                        "wfkg:GeoTIFFRaster",
+                        "wfkg:MangroveMask",
+                        "wfkg:NDVI",
+                        "wfkg:SAVI"
                       ]
                     }
                   },
                   "isError": false,
-                  "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: wfkg:CarbonStockRun,wfkg:DownloadBandsRun,wfkg:SelectScenesRun,wfkg:DisplaySummaryReportRun,wfkg:DefineStudyAreaRun,wfkg:AllometricEquationRun,wfkg:ThresholdClassificationRun,wfkg:CO2EquivalentRun,wfkg:CalculateIndicesRun,wfkg:ExportResultsRun\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: wfkg:CarbonStockRun,wfkg:DownloadBandsRun,wfkg:SelectScenesRun,wfkg:DisplaySummaryReportRun,wfkg:DefineStudyAreaRun,wfkg:AllometricEquationRun,wfkg:ThresholdClassificationRun,wfkg:CO2EquivalentRun,wfkg:CalculateIndicesRun,wfkg:ExportResultsRun\n - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>: wfkg:SAVI,wfkg:CSVSummary,wfkg:CarbonStockEstimate,wfkg:GreenBand,wfkg:NDVI,wfkg:BiomassEstimate,wfkg:GeoTIFFRaster,wfkg:MangroveMask,wfkg:CO2EquivalentEstimate,wfkg:InteractiveVisualisation,wfkg:NDWI,wfkg:RedBand,wfkg:SelectedScene,wfkg:NIRBand\n"
+                  "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: wfkg:CarbonStockRun,wfkg:DownloadBandsRun,wfkg:ExportResultsRun,wfkg:CO2EquivalentRun,wfkg:CalculateIndicesRun,wfkg:DefineStudyAreaRun,wfkg:AllometricEquationRun,wfkg:ThresholdClassificationRun,wfkg:SelectScenesRun,wfkg:DisplaySummaryReportRun\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: wfkg:CarbonStockRun,wfkg:DownloadBandsRun,wfkg:ExportResultsRun,wfkg:CO2EquivalentRun,wfkg:CalculateIndicesRun,wfkg:DefineStudyAreaRun,wfkg:AllometricEquationRun,wfkg:ThresholdClassificationRun,wfkg:SelectScenesRun,wfkg:DisplaySummaryReportRun\n - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>: wfkg:CarbonStockEstimate,wfkg:CO2EquivalentEstimate,wfkg:InteractiveVisualisation,wfkg:NDWI,wfkg:SelectedScene,wfkg:CSVSummary,wfkg:BiomassEstimate,wfkg:GreenBand,wfkg:RedBand,wfkg:NIRBand,wfkg:GeoTIFFRaster,wfkg:MangroveMask,wfkg:NDVI,wfkg:SAVI\n"
                 },
                 {
                   "op": "shacl-report",
@@ -534,7 +534,7 @@
       "title": "Validation report for ogc.osc.geodcat-stac-earthcode.products - EarthCODE Product",
       "bblockName": "EarthCODE Product",
       "bblockId": "ogc.osc.geodcat-stac-earthcode.products",
-      "generated": "2025-12-21T14:29:16.921925+00:00",
+      "generated": "2025-12-21T14:33:39.688804+00:00",
       "result": true,
       "items": [
         {
@@ -1149,7 +1149,7 @@
       "title": "Validation report for ogc.osc.geodcat-stac-earthcode.workflows - EarthCODE Workflow",
       "bblockName": "EarthCODE Workflow",
       "bblockId": "ogc.osc.geodcat-stac-earthcode.workflows",
-      "generated": "2025-12-21T14:29:17.564376+00:00",
+      "generated": "2025-12-21T14:33:40.250320+00:00",
       "result": true,
       "items": [
         {
@@ -1480,7 +1480,7 @@
       "title": "Validation report for ogc.osc.api-profiles.processes.ipt.api - IPT Profile of OGC API Processes",
       "bblockName": "IPT Profile of OGC API Processes",
       "bblockId": "ogc.osc.api-profiles.processes.ipt.api",
-      "generated": "2025-12-21T14:29:17.569820+00:00",
+      "generated": "2025-12-21T14:33:40.255882+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -1494,7 +1494,7 @@
       "title": "Validation report for ogc.osc.api-profiles.processes.workflow - Workflow profile of OGC API Processes",
       "bblockName": "Workflow profile of OGC API Processes",
       "bblockId": "ogc.osc.api-profiles.processes.workflow",
-      "generated": "2025-12-21T14:29:17.573463+00:00",
+      "generated": "2025-12-21T14:33:40.259695+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -1508,7 +1508,7 @@
       "title": "Validation report for ogc.osc.api-profiles.processes.ospd - Open Science profile of OGC API Processes",
       "bblockName": "Open Science profile of OGC API Processes",
       "bblockId": "ogc.osc.api-profiles.processes.ospd",
-      "generated": "2025-12-21T14:29:17.616305+00:00",
+      "generated": "2025-12-21T14:33:40.297850+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
