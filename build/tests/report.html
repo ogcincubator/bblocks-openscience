@@ -51,7 +51,7 @@
     <body>
         <div class="container">
             <h1 class="title">Building blocks validation report</h1>
-            <small class="datetime">Generated at 2025-12-19T02:08:14.237350+00:00</small>
+            <small class="datetime">Generated at 2025-12-21T11:41:06.534270+00:00</small>
                 <p class="summary fw-semibold text-danger">
                     Number of passing building blocks: 11 / 12 (91.67%)
                 </p>
@@ -122,7 +122,7 @@
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-1">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using example_1_1.yaml (example_1_1) from examples</div>
+                                                                    <div class="font-monospace entry-message section-files ">Using example_1_1.yaml from examples</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
                                                                     <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                     </div>
@@ -216,7 +216,7 @@
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-2">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using example_1_1.json (example_1_1) from examples</div>
+                                                                    <div class="font-monospace entry-message section-files ">Using example_1_1.json from examples</div>
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
                                                                     <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
                                                                     <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
@@ -271,30 +271,15 @@
 
                                     <span class="badge text-bg-danger me-2">
                                             Tests Failed
-                                            (0% passed)
+                                            (66.67% passed)
                                     </span>
                                 </button>
                             </h2>
                             <div class="accordion-collapse collapse show" id="bblock-collapse-ogc.osc.geodcat-stac-earthcode.experiments">
                                 <div class="accordion-body">
                                         <p class="summary fw-semibold text-danger">
-                                            Test passed: 0 / 3
+                                            Test passed: 2 / 3
                                         </p>
-                                        <div class="card mb-2 global-validation-item validation-item">
-                                            <div class="card-body">
-                                                <div class="card-title">
-                                                    Building block global validation errors
-                                                    <div class="float-end">
-                                                        <span class="badge text-bg-danger me-2">Failed</span>
-                                                    </div>
-                                                </div>
-                                                <div class="card-text text-danger">
-                                                        <div class="font-monospace entry-message section-shacl">Error processing _sources/geodcat-stac-earthcode/experiments/rules.shacl: at line 9 of &lt;&gt;:
-Bad syntax (Prefix &quot;wfkg:&quot; not bound) at ^ in:
-&quot;...b&#x27;desc#&gt; .\r\n@base &lt;https://www.ogc.org/rules/kindgrove/&gt; .\r\n\r\n&#x27;^b&#x27;wfkg:ProcessRunShape\r\n    a sh:NodeShape ;\r\n    sh:targetCla&#x27;...&quot;</div>
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="card mb-2 validation-item ">
                                             <div class="card-body">
                                                 <div class="card-title mb-0">
@@ -308,19 +293,37 @@ Bad syntax (Prefix &quot;wfkg:&quot; not bound) at ^ in:
                                                     <a href="https://raw.githubusercontent.com/ESA-EarthCODE/open-science-catalog-metadata/refs/heads/main/experiments/polaris-experiment/record.json" target="_blank">example_1_1.json</a>
                                                     <span class="badge bg-secondary example">Example</span>
                                                     <div class="float-end">
-                                                            <span class="badge text-bg-danger me-2">Failed</span>
+                                                            <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
                                                 </div>
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-3">
                                                     <div class="validation-text-inner">
-                                                            <div class="font-monospace entry-message text-danger">Note: Test failed because there are global validation errors.</div>
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using example_1_1.json (example_1_1) from examples</div>
+                                                                    <div class="font-monospace entry-message section-files ">Using example_1_1.json from examples</div>
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
                                                                     <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
                                                                     <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
                                                                     <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                                    <div class="font-monospace subsection-title mt-2">SHACL</div>
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for _sources/geodcat-stac-earthcode/experiments/rules.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;: *none*
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;/sh:or/rdf:first: *none*
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;/sh:or/rdf:rest/rdf:first: *none*
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunShape&gt;: *none*
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape&gt;: *none*
+</div>
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
+ - Shape rec:testAllVarsInTemplate: *none*
+</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -343,10 +346,65 @@ Bad syntax (Prefix &quot;wfkg:&quot; not bound) at ^ in:
                                                 </div>
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-4">
                                                     <div class="validation-text-inner">
-                                                            <div class="font-monospace entry-message text-danger">Note: Test failed because there are global validation errors.</div>
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using example_2_1 from examples</div>
+                                                                    <div class="font-monospace entry-message section-files ">Using example_2_1.ttl from examples</div>
                                                                     <div class="font-monospace entry-message section-files ">Output Turtle example_2_1.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">SHACL</div>
+                                                                    <div class="font-monospace entry-message section-shacl text-danger">Validation result for _sources/geodcat-stac-earthcode/experiments/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (6):
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;
+  	Focus Node: wfkg:StudyArea
+  	Value Node: wfkg:StudyArea
+  	Message: Each Artifact should be linked to a ProcessRun that produced it.
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;
+  	Focus Node: wfkg:AWSSTACCatalog
+  	Value Node: wfkg:AWSSTACCatalog
+  	Message: Each Artifact should be linked to a ProcessRun that produced it.
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;
+  	Focus Node: wfkg:Sentinel2L2A
+  	Value Node: wfkg:Sentinel2L2A
+  	Message: Each Artifact should be linked to a ProcessRun that produced it.
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;
+  	Focus Node: wfkg:DateRange
+  	Value Node: wfkg:DateRange
+  	Message: Each Artifact should be linked to a ProcessRun that produced it.
+  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class wfdesc:Process ; sh:message Literal(&quot;Each ProcessRun must be described by exactly one wfdesc:Process.&quot;) ; sh:minCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:path wfprov:describedByProcess ]
+  	Focus Node: wfkg:DisplaySummaryReportRun
+  	Result Path: wfprov:describedByProcess
+  	Message: Each ProcessRun must be described by exactly one wfdesc:Process.
+  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class wfprov:WorkflowRun ; sh:message Literal(&quot;Each ProcessRun must be associated with a WorkflowRun.&quot;) ; sh:minCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:path wfprov:wasPartOfWorkflowRun ]
+  	Focus Node: wfkg:DisplaySummaryReportRun
+  	Result Path: wfprov:wasPartOfWorkflowRun
+  	Message: Each ProcessRun must be associated with a WorkflowRun.
+  </div>
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;: wfkg:StudyArea,wfkg:CSVSummary,wfkg:SAVI,wfkg:AWSSTACCatalog,wfkg:Sentinel2L2A,wfkg:NDWI,wfkg:SelectedScene,wfkg:GeoTIFFRaster,wfkg:CarbonStockEstimate,wfkg:BiomassEstimate,wfkg:CO2EquivalentEstimate,wfkg:RedBand,wfkg:DateRange,wfkg:NIRBand,wfkg:NDVI,wfkg:MangroveMask,wfkg:GreenBand,wfkg:InteractiveVisualisation
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;/sh:or/rdf:first: *none*
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;/sh:or/rdf:rest/rdf:first: *none*
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunShape&gt;: wfkg:CarbonStockRun,wfkg:SelectScenesRun,wfkg:AllometricEquationRun,wfkg:ExportResultsRun,wfkg:CO2EquivalentRun,wfkg:DownloadBandsRun,wfkg:CalculateIndicesRun,wfkg:ThresholdClassificationRun,wfkg:DefineStudyAreaRun,wfkg:DisplaySummaryReportRun
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape&gt;: wfkg:CarbonStockRun,wfkg:SelectScenesRun,wfkg:AllometricEquationRun,wfkg:ExportResultsRun,wfkg:CO2EquivalentRun,wfkg:DownloadBandsRun,wfkg:CalculateIndicesRun,wfkg:ThresholdClassificationRun,wfkg:DefineStudyAreaRun,wfkg:DisplaySummaryReportRun
+</div>
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
+ - Shape rec:testAllVarsInTemplate: *none*
+</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -364,14 +422,35 @@ Bad syntax (Prefix &quot;wfkg:&quot; not bound) at ^ in:
                                                     <a href="osc/geodcat-stac-earthcode/experiments/example_3_1.jsonld" target="_blank">example_3_1.jsonld</a>
                                                     <span class="badge bg-secondary example">Example</span>
                                                     <div class="float-end">
-                                                            <span class="badge text-bg-danger me-2">Failed</span>
+                                                            <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
                                                 </div>
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-5">
                                                     <div class="validation-text-inner">
-                                                            <div class="font-monospace entry-message text-danger">Note: Test failed because there are global validation errors.</div>
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                    <div class="font-monospace entry-message section-files ">Using example_3_1.jsonld from examples</div>
                                                                     <div class="font-monospace entry-message section-files ">Output Turtle example_3_1.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                                    <div class="font-monospace subsection-title mt-2">SHACL</div>
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for _sources/geodcat-stac-earthcode/experiments/rules.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;: *none*
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;/sh:or/rdf:first: *none*
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;/sh:or/rdf:rest/rdf:first: *none*
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunShape&gt;: *none*
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape&gt;: *none*
+</div>
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
+ - Shape rec:testAllVarsInTemplate: *none*
+</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -972,7 +1051,7 @@ On instance:
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-12">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using example_1_1.json (example_1_1) from examples</div>
+                                                                    <div class="font-monospace entry-message section-files ">Using example_1_1.json from examples</div>
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
                                                                     <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
                                                                     <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
@@ -1033,7 +1112,7 @@ On instance:
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-13">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using example_1_1.json (example_1_1) from examples</div>
+                                                                    <div class="font-monospace entry-message section-files ">Using example_1_1.json from examples</div>
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
                                                                     <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
                                                                     <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
@@ -1070,7 +1149,7 @@ On instance:
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-14">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using example_2_1.json (example_2_1) from examples</div>
+                                                                    <div class="font-monospace entry-message section-files ">Using example_2_1.json from examples</div>
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
                                                                     <div class="font-monospace entry-message section-files ">Output JSON-LD example_2_1.jsonld created</div>
                                                                     <div class="font-monospace entry-message section-files ">Output Turtle example_2_1.ttl created</div>
@@ -1107,7 +1186,7 @@ On instance:
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-15">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using example_3_1.json (example_3_1) from examples</div>
+                                                                    <div class="font-monospace entry-message section-files ">Using example_3_1.json from examples</div>
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
                                                                     <div class="font-monospace entry-message section-files ">Output JSON-LD example_3_1.jsonld created</div>
                                                                     <div class="font-monospace entry-message section-files ">Output Turtle example_3_1.ttl created</div>
@@ -1144,7 +1223,7 @@ On instance:
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-16">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using example_4_1.json (example_4_1) from examples</div>
+                                                                    <div class="font-monospace entry-message section-files ">Using example_4_1.json from examples</div>
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
                                                                     <div class="font-monospace entry-message section-files ">Output JSON-LD example_4_1.jsonld created</div>
                                                                     <div class="font-monospace entry-message section-files ">Output Turtle example_4_1.ttl created</div>

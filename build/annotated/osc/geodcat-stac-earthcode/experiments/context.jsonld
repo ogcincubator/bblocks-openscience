@@ -198,10 +198,6 @@
       }
     },
     "stac_extensions": "stac:hasExtension",
-    "roles": {
-      "@id": "stac:roles",
-      "@container": "@set"
-    },
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
@@ -216,10 +212,13 @@
     },
     "providers": "stac:hasProvider",
     "rights": "dcat:rights",
-    "@vocab": "https://w3id.org/ogc/stac/assets/",
     "assets": {
       "@context": {
-        "type": "dct:format"
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
       },
       "@id": "stac:hasAsset",
       "@container": "@set"

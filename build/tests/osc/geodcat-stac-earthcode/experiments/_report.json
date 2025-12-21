@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.osc.geodcat-stac-earthcode.experiments - EarthCODE Experiment",
   "bblockName": "EarthCODE Experiment",
   "bblockId": "ogc.osc.geodcat-stac-earthcode.experiments",
-  "generated": "2025-12-19T02:08:12.021176+00:00",
+  "generated": "2025-12-21T11:41:02.921233+00:00",
   "result": false,
   "items": [
     {
@@ -16,7 +16,7 @@
         "language": "application/json",
         "sourceUrl": "https://raw.githubusercontent.com/ESA-EarthCODE/open-science-catalog-metadata/refs/heads/main/experiments/polaris-experiment/record.json"
       },
-      "result": false,
+      "result": true,
       "sections": [
         {
           "name": "FILES",
@@ -24,7 +24,7 @@
           "entries": [
             {
               "isError": false,
-              "message": "Using example_1_1.json (example_1_1) from examples"
+              "message": "Using example_1_1.json from examples"
             },
             {
               "op": "jsonld-uplift",
@@ -41,7 +41,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_1_1.ttl",
-              "size": 67,
+              "size": 41,
               "isError": false,
               "message": "Output Turtle example_1_1.ttl created"
             }
@@ -62,7 +62,54 @@
         {
           "name": "SHACL",
           "title": "SHACL",
-          "entries": []
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
+              "focusNodes": {
+                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/kindgrove/#ProcessRunShape>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>/sh:or/rdf:first: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>/sh:or/rdf:rest/rdf:first: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+              "focusNodes": {
+                "rec:testAllVarsInTemplate": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
+            }
+          ]
         }
       ]
     },
@@ -84,7 +131,7 @@
           "entries": [
             {
               "isError": false,
-              "message": "Using example_2_1 from examples"
+              "message": "Using example_2_1.ttl from examples"
             },
             {
               "op": "ttl-create",
@@ -99,7 +146,95 @@
         {
           "name": "SHACL",
           "title": "SHACL",
-          "entries": []
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix wfdesc: <http://purl.org/wf4ever/wfdesc#> .\n@prefix wfprov: <http://purl.org/wf4ever/wfprov#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/kindgrove/AWSSTACCatalog> ;\n            sh:resultMessage \"Each Artifact should be linked to a ProcessRun that produced it.\" ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:OrConstraintComponent ;\n            sh:sourceShape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape> ;\n            sh:value <https://example.org/kindgrove/AWSSTACCatalog> ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/kindgrove/DateRange> ;\n            sh:resultMessage \"Each Artifact should be linked to a ProcessRun that produced it.\" ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:OrConstraintComponent ;\n            sh:sourceShape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape> ;\n            sh:value <https://example.org/kindgrove/DateRange> ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/kindgrove/DisplaySummaryReportRun> ;\n            sh:resultMessage \"Each ProcessRun must be described by exactly one wfdesc:Process.\" ;\n            sh:resultPath wfprov:describedByProcess ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:class wfdesc:Process ;\n                    sh:message \"Each ProcessRun must be described by exactly one wfdesc:Process.\" ;\n                    sh:minCount 1 ;\n                    sh:path wfprov:describedByProcess ] ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/kindgrove/Sentinel2L2A> ;\n            sh:resultMessage \"Each Artifact should be linked to a ProcessRun that produced it.\" ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:OrConstraintComponent ;\n            sh:sourceShape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape> ;\n            sh:value <https://example.org/kindgrove/Sentinel2L2A> ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/kindgrove/StudyArea> ;\n            sh:resultMessage \"Each Artifact should be linked to a ProcessRun that produced it.\" ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:OrConstraintComponent ;\n            sh:sourceShape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape> ;\n            sh:value <https://example.org/kindgrove/StudyArea> ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/kindgrove/DisplaySummaryReportRun> ;\n            sh:resultMessage \"Each ProcessRun must be associated with a WorkflowRun.\" ;\n            sh:resultPath wfprov:wasPartOfWorkflowRun ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:class wfprov:WorkflowRun ;\n                    sh:message \"Each ProcessRun must be associated with a WorkflowRun.\" ;\n                    sh:minCount 1 ;\n                    sh:path wfprov:wasPartOfWorkflowRun ] ] .\n\n",
+              "isError": true,
+              "message": "Validation result for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n  Validation Report\n  Conforms: False\n  Results (6):\n  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>\n  \tFocus Node: wfkg:StudyArea\n  \tValue Node: wfkg:StudyArea\n  \tMessage: Each Artifact should be linked to a ProcessRun that produced it.\n  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>\n  \tFocus Node: wfkg:AWSSTACCatalog\n  \tValue Node: wfkg:AWSSTACCatalog\n  \tMessage: Each Artifact should be linked to a ProcessRun that produced it.\n  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>\n  \tFocus Node: wfkg:Sentinel2L2A\n  \tValue Node: wfkg:Sentinel2L2A\n  \tMessage: Each Artifact should be linked to a ProcessRun that produced it.\n  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>\n  \tFocus Node: wfkg:DateRange\n  \tValue Node: wfkg:DateRange\n  \tMessage: Each Artifact should be linked to a ProcessRun that produced it.\n  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: [ sh:class wfdesc:Process ; sh:message Literal(\"Each ProcessRun must be described by exactly one wfdesc:Process.\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path wfprov:describedByProcess ]\n  \tFocus Node: wfkg:DisplaySummaryReportRun\n  \tResult Path: wfprov:describedByProcess\n  \tMessage: Each ProcessRun must be described by exactly one wfdesc:Process.\n  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: [ sh:class wfprov:WorkflowRun ; sh:message Literal(\"Each ProcessRun must be associated with a WorkflowRun.\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path wfprov:wasPartOfWorkflowRun ]\n  \tFocus Node: wfkg:DisplaySummaryReportRun\n  \tResult Path: wfprov:wasPartOfWorkflowRun\n  \tMessage: Each ProcessRun must be associated with a WorkflowRun.\n  "
+            },
+            {
+              "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
+              "focusNodes": {
+                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
+                  "nodes": [
+                    "wfkg:StudyArea",
+                    "wfkg:CSVSummary",
+                    "wfkg:SAVI",
+                    "wfkg:AWSSTACCatalog",
+                    "wfkg:Sentinel2L2A",
+                    "wfkg:NDWI",
+                    "wfkg:SelectedScene",
+                    "wfkg:GeoTIFFRaster",
+                    "wfkg:CarbonStockEstimate",
+                    "wfkg:BiomassEstimate",
+                    "wfkg:CO2EquivalentEstimate",
+                    "wfkg:RedBand",
+                    "wfkg:DateRange",
+                    "wfkg:NIRBand",
+                    "wfkg:NDVI",
+                    "wfkg:MangroveMask",
+                    "wfkg:GreenBand",
+                    "wfkg:InteractiveVisualisation"
+                  ]
+                },
+                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/kindgrove/#ProcessRunShape>": {
+                  "nodes": [
+                    "wfkg:CarbonStockRun",
+                    "wfkg:SelectScenesRun",
+                    "wfkg:AllometricEquationRun",
+                    "wfkg:ExportResultsRun",
+                    "wfkg:CO2EquivalentRun",
+                    "wfkg:DownloadBandsRun",
+                    "wfkg:CalculateIndicesRun",
+                    "wfkg:ThresholdClassificationRun",
+                    "wfkg:DefineStudyAreaRun",
+                    "wfkg:DisplaySummaryReportRun"
+                  ]
+                },
+                "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
+                  "nodes": [
+                    "wfkg:CarbonStockRun",
+                    "wfkg:SelectScenesRun",
+                    "wfkg:AllometricEquationRun",
+                    "wfkg:ExportResultsRun",
+                    "wfkg:CO2EquivalentRun",
+                    "wfkg:DownloadBandsRun",
+                    "wfkg:CalculateIndicesRun",
+                    "wfkg:ThresholdClassificationRun",
+                    "wfkg:DefineStudyAreaRun",
+                    "wfkg:DisplaySummaryReportRun"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: wfkg:StudyArea,wfkg:CSVSummary,wfkg:SAVI,wfkg:AWSSTACCatalog,wfkg:Sentinel2L2A,wfkg:NDWI,wfkg:SelectedScene,wfkg:GeoTIFFRaster,wfkg:CarbonStockEstimate,wfkg:BiomassEstimate,wfkg:CO2EquivalentEstimate,wfkg:RedBand,wfkg:DateRange,wfkg:NIRBand,wfkg:NDVI,wfkg:MangroveMask,wfkg:GreenBand,wfkg:InteractiveVisualisation\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>/sh:or/rdf:first: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>/sh:or/rdf:rest/rdf:first: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: wfkg:CarbonStockRun,wfkg:SelectScenesRun,wfkg:AllometricEquationRun,wfkg:ExportResultsRun,wfkg:CO2EquivalentRun,wfkg:DownloadBandsRun,wfkg:CalculateIndicesRun,wfkg:ThresholdClassificationRun,wfkg:DefineStudyAreaRun,wfkg:DisplaySummaryReportRun\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: wfkg:CarbonStockRun,wfkg:SelectScenesRun,wfkg:AllometricEquationRun,wfkg:ExportResultsRun,wfkg:CO2EquivalentRun,wfkg:DownloadBandsRun,wfkg:CalculateIndicesRun,wfkg:ThresholdClassificationRun,wfkg:DefineStudyAreaRun,wfkg:DisplaySummaryReportRun\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+              "focusNodes": {
+                "rec:testAllVarsInTemplate": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
+            }
+          ]
         }
       ]
     },
@@ -113,12 +248,16 @@
         "snippetIndex": 1,
         "language": "application/ld+json"
       },
-      "result": false,
+      "result": true,
       "sections": [
         {
           "name": "FILES",
           "title": "Files",
           "entries": [
+            {
+              "isError": false,
+              "message": "Using example_3_1.jsonld from examples"
+            },
             {
               "op": "ttl-create",
               "empty": false,
@@ -130,22 +269,76 @@
           ]
         },
         {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
+            }
+          ]
+        },
+        {
           "name": "SHACL",
           "title": "SHACL",
-          "entries": []
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
+              "focusNodes": {
+                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/kindgrove/#ProcessRunShape>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>/sh:or/rdf:first: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>/sh:or/rdf:rest/rdf:first: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+              "focusNodes": {
+                "rec:testAllVarsInTemplate": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
+            }
+          ]
         }
       ]
     }
   ],
-  "globalErrors": {
-    "SHACL": {
-      "isError": true,
-      "message": "Error processing _sources/geodcat-stac-earthcode/experiments/rules.shacl: at line 9 of <>:\nBad syntax (Prefix \"wfkg:\" not bound) at ^ in:\n\"...b'desc#> .\\r\\n@base <https://www.ogc.org/rules/kindgrove/> .\\r\\n\\r\\n'^b'wfkg:ProcessRunShape\\r\\n    a sh:NodeShape ;\\r\\n    sh:targetCla'...\""
-    }
-  },
+  "globalErrors": {},
   "counts": {
     "total": 3,
-    "passed": 0,
-    "failed": 3
+    "passed": 2,
+    "failed": 1
   }
 }

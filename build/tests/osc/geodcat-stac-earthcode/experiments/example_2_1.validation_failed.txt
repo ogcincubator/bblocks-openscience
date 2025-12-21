@@ -1,15 +1,67 @@
 Validation report for ogc.osc.geodcat-stac-earthcode.experiments - EarthCODE Experiment
-Generated 2025-12-19T02:08:11.898149+00:00
+Generated 2025-12-21T11:41:02.739105+00:00
 === Files ===
-Using example_2_1 from examples
+Using example_2_1.ttl from examples
 Output Turtle example_2_1.ttl created
 === End Files ===
 
 === SHACL ===
 
 ** Validation error **
-Error processing _sources/geodcat-stac-earthcode/experiments/rules.shacl: at line 9 of <>:
-Bad syntax (Prefix "wfkg:" not bound) at ^ in:
-"...b'desc#> .\r\n@base <https://www.ogc.org/rules/kindgrove/> .\r\n\r\n'^b'wfkg:ProcessRunShape\r\n    a sh:NodeShape ;\r\n    sh:targetCla'..."
+Validation result for _sources/geodcat-stac-earthcode/experiments/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (6):
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>
+  	Focus Node: wfkg:StudyArea
+  	Value Node: wfkg:StudyArea
+  	Message: Each Artifact should be linked to a ProcessRun that produced it.
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>
+  	Focus Node: wfkg:AWSSTACCatalog
+  	Value Node: wfkg:AWSSTACCatalog
+  	Message: Each Artifact should be linked to a ProcessRun that produced it.
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>
+  	Focus Node: wfkg:Sentinel2L2A
+  	Value Node: wfkg:Sentinel2L2A
+  	Message: Each Artifact should be linked to a ProcessRun that produced it.
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>
+  	Focus Node: wfkg:DateRange
+  	Value Node: wfkg:DateRange
+  	Message: Each Artifact should be linked to a ProcessRun that produced it.
+  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class wfdesc:Process ; sh:message Literal("Each ProcessRun must be described by exactly one wfdesc:Process.") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path wfprov:describedByProcess ]
+  	Focus Node: wfkg:DisplaySummaryReportRun
+  	Result Path: wfprov:describedByProcess
+  	Message: Each ProcessRun must be described by exactly one wfdesc:Process.
+  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class wfprov:WorkflowRun ; sh:message Literal("Each ProcessRun must be associated with a WorkflowRun.") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path wfprov:wasPartOfWorkflowRun ]
+  	Focus Node: wfkg:DisplaySummaryReportRun
+  	Result Path: wfprov:wasPartOfWorkflowRun
+  	Message: Each ProcessRun must be associated with a WorkflowRun.
+  
+Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:
+ - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: wfkg:StudyArea,wfkg:CSVSummary,wfkg:SAVI,wfkg:AWSSTACCatalog,wfkg:Sentinel2L2A,wfkg:NDWI,wfkg:SelectedScene,wfkg:GeoTIFFRaster,wfkg:CarbonStockEstimate,wfkg:BiomassEstimate,wfkg:CO2EquivalentEstimate,wfkg:RedBand,wfkg:DateRange,wfkg:NIRBand,wfkg:NDVI,wfkg:MangroveMask,wfkg:GreenBand,wfkg:InteractiveVisualisation
+ - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>/sh:or/rdf:first: *none*
+ - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>/sh:or/rdf:rest/rdf:first: *none*
+ - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: wfkg:CarbonStockRun,wfkg:SelectScenesRun,wfkg:AllometricEquationRun,wfkg:ExportResultsRun,wfkg:CO2EquivalentRun,wfkg:DownloadBandsRun,wfkg:CalculateIndicesRun,wfkg:ThresholdClassificationRun,wfkg:DefineStudyAreaRun,wfkg:DisplaySummaryReportRun
+ - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: wfkg:CarbonStockRun,wfkg:SelectScenesRun,wfkg:AllometricEquationRun,wfkg:ExportResultsRun,wfkg:CO2EquivalentRun,wfkg:DownloadBandsRun,wfkg:CalculateIndicesRun,wfkg:ThresholdClassificationRun,wfkg:DefineStudyAreaRun,wfkg:DisplaySummaryReportRun
+
+Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
+ - Shape rec:testAllVarsInTemplate: *none*
+
 === End SHACL ===
 
