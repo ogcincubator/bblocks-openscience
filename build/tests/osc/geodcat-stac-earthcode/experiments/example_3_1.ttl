@@ -6,12 +6,12 @@
 
 <https://ogc.org/demo/ospd/kindgrove/kindgrove-experiment> a geojson:Feature ;
     dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core> ;
-    rdfs:seeAlso [ rdfs:label "Execution provenance" ;
-            dcterms:format "application/ld+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/provenance/kindgrove-run.jsonld> ],
-        [ rdfs:label "Workflow description" ;
+    rdfs:seeAlso [ rdfs:label "Workflow description" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/workflows/kindgrove-workflow/record.json> ] .
+            oa:hasTarget <https://ogc.org/demo/ospd/workflows/kindgrove-workflow/record.json> ],
+        [ rdfs:label "Execution provenance" ;
+            dcterms:format "application/ld+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/provenance/kindgrove-run.jsonld> ] .
 

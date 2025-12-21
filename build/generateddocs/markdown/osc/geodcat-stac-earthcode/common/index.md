@@ -222,17 +222,7 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.""" ;
     dcterms:extent [ ] ;
     dcterms:title "Polarwarp" ;
-    rdfs:seeAlso [ rdfs:label "Experiment: Polarwarp" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ],
-        [ rdfs:label "Open Science Catalog" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://ogc.org/catalog.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
-        [ rdfs:label "Project: Cerulean Information Factory" ;
+    rdfs:seeAlso [ rdfs:label "Project: Cerulean Information Factory" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],
@@ -244,6 +234,16 @@ Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM 
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://ogc.org/demo/catalog.json> ],
+        [ rdfs:label "Experiment: Polarwarp" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://ogc.org/demo/ospd/item.json> ] ;
     dcat:license "various" ;

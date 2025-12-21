@@ -248,25 +248,22 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 
 <https://ogc.org/demo/ospd/polaris-experiment> a geojson:Feature ;
     dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core> ;
-    rdfs:seeAlso [ rdfs:label "Theme: Oceans" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
+    rdfs:seeAlso [ rdfs:label "Input parameters" ;
+            dcterms:format "application/yaml" ;
+            ns1:relation <http://www.iana.org/assignments/relation/input> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/input.yaml> ],
         [ rdfs:label "Open Science Catalog" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://ogc.org/catalog.json> ],
-        [ rdfs:label "Execution environment" ;
-            dcterms:format "application/yaml" ;
-            ns1:relation <http://www.iana.org/assignments/relation/environment> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/environment.yaml> ],
         [ rdfs:label "Experiments" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://ogc.org/demo/catalog.json> ],
-        [ dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/experiments/polaris-experiment/item.json> ],
+        [ rdfs:label "Execution environment" ;
+            dcterms:format "application/yaml" ;
+            ns1:relation <http://www.iana.org/assignments/relation/environment> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/environment.yaml> ],
         [ rdfs:label "Workflow: POLARIS" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
@@ -275,10 +272,13 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/child> ;
             oa:hasTarget <https://ogc.org/products/polaris/collection.json> ],
-        [ rdfs:label "Input parameters" ;
-            dcterms:format "application/yaml" ;
-            ns1:relation <http://www.iana.org/assignments/relation/input> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/input.yaml> ] .
+        [ rdfs:label "Theme: Oceans" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
+        [ dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/experiments/polaris-experiment/item.json> ] .
 
 
 ```
@@ -682,14 +682,14 @@ Kind Grove workflow example and its provenance trace with main steps involved fo
 
 <https://ogc.org/demo/ospd/kindgrove/kindgrove-experiment> a geojson:Feature ;
     dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core> ;
-    rdfs:seeAlso [ rdfs:label "Execution provenance" ;
-            dcterms:format "application/ld+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/provenance/kindgrove-run.jsonld> ],
-        [ rdfs:label "Workflow description" ;
+    rdfs:seeAlso [ rdfs:label "Workflow description" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/workflows/kindgrove-workflow/record.json> ] .
+            oa:hasTarget <https://ogc.org/demo/ospd/workflows/kindgrove-workflow/record.json> ],
+        [ rdfs:label "Execution provenance" ;
+            dcterms:format "application/ld+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/provenance/kindgrove-run.jsonld> ] .
 
 
 ```
