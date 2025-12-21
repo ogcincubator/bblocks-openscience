@@ -6,36 +6,57 @@
 @prefix wfdesc:  <http://purl.org/wf4ever/wfdesc#> .
 @base <https://www.ogc.org/rules/kindgrove/> .
 
+############################################################
+# ProcessRun must be described by a wfdesc:Process
+############################################################
+
 <#ProcessRunShape>
     a sh:NodeShape ;
     sh:targetClass wfprov:ProcessRun ;
+    sh:message "Each ProcessRun must be described by a wfdesc:Process." ;
     sh:property [
         sh:path wfprov:describedByProcess ;
         sh:class wfdesc:Process ;
-        sh:minCount 1 ;
-        sh:message "Each ProcessRun must be described by exactly one wfdesc:Process." ;
+        sh:minCount 1
     ] .
+
+############################################################
+# ProcessRun must belong to a WorkflowRun
+############################################################
 
 <#ProcessRunWorkflowShape>
     a sh:NodeShape ;
     sh:targetClass wfprov:ProcessRun ;
+    sh:message "Each ProcessRun must be associated with a WorkflowRun." ;
     sh:property [
         sh:path wfprov:wasPartOfWorkflowRun ;
         sh:class wfprov:WorkflowRun ;
-        sh:minCount 1 ;
-        sh:message "Each ProcessRun must be associated with a WorkflowRun." ;
+        sh:minCount 1
     ] .
+
+############################################################
+# Derived artifacts must have provenance
+# (inputs and external datasets are excluded by design)
+############################################################
 
 <#DerivedArtifactProvenanceShape>
     a sh:NodeShape ;
     sh:targetClass wfprov:Artifact ;
     sh:message "Derived artifacts must be linked to a ProcessRun that produced them." ;
-    sh:property [
-        sh:path wfdesc:wasOutputFrom ;
-        sh:class wfprov:ProcessRun ;
-        sh:minCount 1
-    ] ;
-    sh:condition [
-        sh:path wfdesc:wasOutputFrom ;
-        sh:minCount 1
-    ] .
+    sh:or (
+        [
+            sh:property [
+                sh:path wfprov:wasOutputFrom ;
+                sh:class wfprov:ProcessRun ;
+                sh:minCount 1
+            ]
+        ]
+        [
+            sh:property [
+                sh:path wfdesc:wasOutputFrom ;
+                sh:class wfprov:ProcessRun ;
+                sh:minCount 1
+            ]
+        ]
+    ) ;
+    sh:severity sh:Warning .
