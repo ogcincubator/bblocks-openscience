@@ -51,7 +51,7 @@
     <body>
         <div class="container">
             <h1 class="title">Building blocks validation report</h1>
-            <small class="datetime">Generated at 2025-12-21T13:42:54.687497+00:00</small>
+            <small class="datetime">Generated at 2025-12-21T13:46:06.287854+00:00</small>
                 <p class="summary fw-semibold text-danger">
                     Number of passing building blocks: 11 / 12 (91.67%)
                 </p>
@@ -311,11 +311,9 @@
   Conforms: True
   </div>
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:
- - Shape &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;: *none*
  - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape&gt;: *none*
  - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunShape&gt;: *none*
- - Shape &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;/sh:or/rdf:rest/rdf:first: *none*
- - Shape &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;/sh:or/rdf:first: *none*
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape&gt;: *none*
 </div>
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
   Validation Report
@@ -353,31 +351,7 @@
                                                                     <div class="font-monospace entry-message section-shacl text-danger">Validation result for _sources/geodcat-stac-earthcode/experiments/rules.shacl:
   Validation Report
   Conforms: False
-  Results (5):
-  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
-  	Severity: sh:Violation
-  	Source Shape: &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;
-  	Focus Node: wfkg:StudyArea
-  	Value Node: wfkg:StudyArea
-  	Message: Each Artifact should be linked to a ProcessRun that produced it.
-  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
-  	Severity: sh:Violation
-  	Source Shape: &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;
-  	Focus Node: wfkg:Sentinel2L2A
-  	Value Node: wfkg:Sentinel2L2A
-  	Message: Each Artifact should be linked to a ProcessRun that produced it.
-  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
-  	Severity: sh:Violation
-  	Source Shape: &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;
-  	Focus Node: wfkg:AWSSTACCatalog
-  	Value Node: wfkg:AWSSTACCatalog
-  	Message: Each Artifact should be linked to a ProcessRun that produced it.
-  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
-  	Severity: sh:Violation
-  	Source Shape: &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;
-  	Focus Node: wfkg:DateRange
-  	Value Node: wfkg:DateRange
-  	Message: Each Artifact should be linked to a ProcessRun that produced it.
+  Results (6):
   Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
   	Severity: sh:Violation
   	Source Shape: [ sh:class wfdesc:Process ; sh:message Literal(&quot;Each ProcessRun must be described by exactly one wfdesc:Process.&quot;) ; sh:minCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:path wfprov:describedByProcess ]
@@ -385,13 +359,41 @@
   	Value Node: wfkg:DisplaySummaryReportDesc
   	Result Path: wfprov:describedByProcess
   	Message: Each ProcessRun must be described by exactly one wfdesc:Process.
+  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class wfprov:ProcessRun ; sh:minCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:path wfdesc:wasOutputFrom ]
+  	Focus Node: wfkg:Sentinel2L2A
+  	Result Path: wfdesc:wasOutputFrom
+  	Message: Less than 1 values on wfkg:Sentinel2L2A-&gt;wfdesc:wasOutputFrom
+  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class wfprov:ProcessRun ; sh:minCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:path wfdesc:wasOutputFrom ]
+  	Focus Node: wfkg:DateRange
+  	Result Path: wfdesc:wasOutputFrom
+  	Message: Less than 1 values on wfkg:DateRange-&gt;wfdesc:wasOutputFrom
+  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class wfprov:ProcessRun ; sh:minCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:path wfdesc:wasOutputFrom ]
+  	Focus Node: wfkg:AWSSTACCatalog
+  	Result Path: wfdesc:wasOutputFrom
+  	Message: Less than 1 values on wfkg:AWSSTACCatalog-&gt;wfdesc:wasOutputFrom
+  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class wfprov:ProcessRun ; sh:minCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:path wfdesc:wasOutputFrom ]
+  	Focus Node: wfkg:StudyArea
+  	Result Path: wfdesc:wasOutputFrom
+  	Message: Less than 1 values on wfkg:StudyArea-&gt;wfdesc:wasOutputFrom
+  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class wfprov:ProcessRun ; sh:minCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:path wfdesc:wasOutputFrom ]
+  	Focus Node: wfkg:InteractiveVisualisation
+  	Result Path: wfdesc:wasOutputFrom
+  	Message: Less than 1 values on wfkg:InteractiveVisualisation-&gt;wfdesc:wasOutputFrom
   </div>
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:
- - Shape &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;: wfkg:StudyArea,wfkg:Sentinel2L2A,wfkg:AWSSTACCatalog,wfkg:CarbonStockEstimate,wfkg:RedBand,wfkg:CO2EquivalentEstimate,wfkg:DateRange,wfkg:SAVI,wfkg:NIRBand,wfkg:MangroveMask,wfkg:NDVI,wfkg:InteractiveVisualisation,wfkg:CSVSummary,wfkg:NDWI,wfkg:GreenBand,wfkg:GeoTIFFRaster,wfkg:SelectedScene,wfkg:BiomassEstimate
- - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape&gt;: wfkg:ExportResultsRun,wfkg:CalculateIndicesRun,wfkg:DisplaySummaryReportRun,wfkg:CO2EquivalentRun,wfkg:DefineStudyAreaRun,wfkg:CarbonStockRun,wfkg:ThresholdClassificationRun,wfkg:DownloadBandsRun,wfkg:AllometricEquationRun,wfkg:SelectScenesRun
- - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunShape&gt;: wfkg:ExportResultsRun,wfkg:CalculateIndicesRun,wfkg:DisplaySummaryReportRun,wfkg:CO2EquivalentRun,wfkg:DefineStudyAreaRun,wfkg:CarbonStockRun,wfkg:ThresholdClassificationRun,wfkg:DownloadBandsRun,wfkg:AllometricEquationRun,wfkg:SelectScenesRun
- - Shape &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;/sh:or/rdf:rest/rdf:first: *none*
- - Shape &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;/sh:or/rdf:first: *none*
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape&gt;: wfkg:ExportResultsRun,wfkg:DownloadBandsRun,wfkg:CalculateIndicesRun,wfkg:DisplaySummaryReportRun,wfkg:CO2EquivalentRun,wfkg:AllometricEquationRun,wfkg:SelectScenesRun,wfkg:CarbonStockRun,wfkg:DefineStudyAreaRun,wfkg:ThresholdClassificationRun
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunShape&gt;: wfkg:ExportResultsRun,wfkg:DownloadBandsRun,wfkg:CalculateIndicesRun,wfkg:DisplaySummaryReportRun,wfkg:CO2EquivalentRun,wfkg:AllometricEquationRun,wfkg:SelectScenesRun,wfkg:CarbonStockRun,wfkg:DefineStudyAreaRun,wfkg:ThresholdClassificationRun
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape&gt;: wfkg:CSVSummary,wfkg:Sentinel2L2A,wfkg:BiomassEstimate,wfkg:GreenBand,wfkg:DateRange,wfkg:AWSSTACCatalog,wfkg:NIRBand,wfkg:CarbonStockEstimate,wfkg:RedBand,wfkg:SAVI,wfkg:StudyArea,wfkg:InteractiveVisualisation,wfkg:NDWI,wfkg:CO2EquivalentEstimate,wfkg:MangroveMask,wfkg:NDVI,wfkg:GeoTIFFRaster,wfkg:SelectedScene
 </div>
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
   Validation Report
@@ -433,11 +435,9 @@
   Conforms: True
   </div>
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:
- - Shape &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;: *none*
  - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape&gt;: *none*
  - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunShape&gt;: *none*
- - Shape &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;/sh:or/rdf:rest/rdf:first: *none*
- - Shape &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;/sh:or/rdf:first: *none*
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape&gt;: *none*
 </div>
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
   Validation Report
