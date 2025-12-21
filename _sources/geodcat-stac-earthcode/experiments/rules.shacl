@@ -35,13 +35,12 @@
     ] .
 
 ############################################################
-# Derived artifacts (ONLY) must have provenance
+# Derived Artifact Provenance (CORRECTED)
 ############################################################
 
 <#DerivedArtifactProvenanceShape>
     a sh:NodeShape ;
-    sh:targetObjectsOf wfprov:wasOutputFrom ;
-    sh:targetObjectsOf wfdesc:wasOutputFrom ;
+    sh:targetClass wfprov:Artifact ;
     sh:message "Derived artifacts must be linked to a ProcessRun that produced them." ;
     sh:or (
         [
