@@ -73,14 +73,6 @@ wfkg:CarbonStockRun a wfprov:ProcessRun ;
 
 wfkg:DefineStudyAreaProcess a wfdesc:Process .
 
-wfkg:DisplaySummaryReportRun a wfdesc:Process,
-        wfprov:ProcessRun ;
-    wfprov:describedByProcess wfkg:DisplaySummaryReportDesc ;
-    wfprov:usedInput wfkg:CSVSummary,
-        wfkg:GeoTIFFRaster ;
-    wfprov:wasPartOfWorkflowRun wfkg:KindGroveWorkflowRun ;
-    prov:endedAtTime "2024-06-01T10:46:00+00:00"^^xsd:dateTime .
-
 wfkg:DownloadBandsProcessDesc a wfdesc:Process .
 
 wfkg:ExportResultsDesc a wfdesc:Process .
@@ -162,6 +154,14 @@ wfkg:CameronSajedi a prov:Person ;
 
 wfkg:DateRange a wfprov:Artifact ;
     schema:description "Temporal range for satellite query" .
+
+wfkg:DisplaySummaryReportRun a wfdesc:Process,
+        wfprov:ProcessRun ;
+    wfprov:describedByProcess wfkg:DisplaySummaryReportRun ;
+    wfprov:usedInput wfkg:CSVSummary,
+        wfkg:GeoTIFFRaster ;
+    wfprov:wasPartOfWorkflowRun wfkg:KindGroveWorkflowRun ;
+    prov:endedAtTime "2024-06-01T10:46:00+00:00"^^xsd:dateTime .
 
 wfkg:ExportResultsRun a wfprov:ProcessRun ;
     wfprov:describedByProcess wfkg:ExportResultsDesc ;

@@ -1,5 +1,5 @@
 Validation report for ogc.osc.geodcat-stac-earthcode.experiments - EarthCODE Experiment
-Generated 2025-12-21T14:02:11.005370+00:00
+Generated 2025-12-21T14:09:33.836288+00:00
 === Files ===
 Using example_2_1.ttl from examples
 Output Turtle example_2_1.ttl created
@@ -11,25 +11,12 @@ Output Turtle example_2_1.ttl created
 Validation result for _sources/geodcat-stac-earthcode/experiments/rules.shacl:
   Validation Report
   Conforms: False
-  Results (5):
-  Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
-  	Severity: sh:Violation
-  	Source Shape: [ sh:class wfdesc:Process ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path wfprov:describedByProcess ]
-  	Focus Node: wfkg:DisplaySummaryReportRun
-  	Value Node: wfkg:DisplaySummaryReportDesc
-  	Result Path: wfprov:describedByProcess
-  	Message: Value does not have class wfdesc:Process
+  Results (4):
   Validation Result in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
   	Severity: sh:Warning
   	Source Shape: <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>
-  	Focus Node: wfkg:AWSSTACCatalog
-  	Value Node: wfkg:AWSSTACCatalog
-  	Message: Derived artifacts must be linked to a ProcessRun that produced them.
-  Validation Result in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
-  	Severity: sh:Warning
-  	Source Shape: <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>
-  	Focus Node: wfkg:Sentinel2L2A
-  	Value Node: wfkg:Sentinel2L2A
+  	Focus Node: wfkg:DateRange
+  	Value Node: wfkg:DateRange
   	Message: Derived artifacts must be linked to a ProcessRun that produced them.
   Validation Result in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
   	Severity: sh:Warning
@@ -40,16 +27,22 @@ Validation result for _sources/geodcat-stac-earthcode/experiments/rules.shacl:
   Validation Result in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
   	Severity: sh:Warning
   	Source Shape: <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>
-  	Focus Node: wfkg:DateRange
-  	Value Node: wfkg:DateRange
+  	Focus Node: wfkg:Sentinel2L2A
+  	Value Node: wfkg:Sentinel2L2A
+  	Message: Derived artifacts must be linked to a ProcessRun that produced them.
+  Validation Result in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Warning
+  	Source Shape: <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>
+  	Focus Node: wfkg:AWSSTACCatalog
+  	Value Node: wfkg:AWSSTACCatalog
   	Message: Derived artifacts must be linked to a ProcessRun that produced them.
   
 Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:
- - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: wfkg:SelectScenesRun,wfkg:DownloadBandsRun,wfkg:CO2EquivalentRun,wfkg:AllometricEquationRun,wfkg:DefineStudyAreaRun,wfkg:ThresholdClassificationRun,wfkg:CalculateIndicesRun,wfkg:ExportResultsRun,wfkg:CarbonStockRun,wfkg:DisplaySummaryReportRun
- - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>/sh:or/rdf:first: *none*
+ - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: wfkg:CO2EquivalentRun,wfkg:SelectScenesRun,wfkg:DisplaySummaryReportRun,wfkg:ExportResultsRun,wfkg:DefineStudyAreaRun,wfkg:CarbonStockRun,wfkg:ThresholdClassificationRun,wfkg:AllometricEquationRun,wfkg:CalculateIndicesRun,wfkg:DownloadBandsRun
  - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>/sh:or/rdf:rest/rdf:first: *none*
- - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: wfkg:SelectScenesRun,wfkg:DownloadBandsRun,wfkg:CO2EquivalentRun,wfkg:AllometricEquationRun,wfkg:DefineStudyAreaRun,wfkg:ThresholdClassificationRun,wfkg:CalculateIndicesRun,wfkg:ExportResultsRun,wfkg:CarbonStockRun,wfkg:DisplaySummaryReportRun
- - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>: wfkg:MangroveMask,wfkg:InteractiveVisualisation,wfkg:SelectedScene,wfkg:GeoTIFFRaster,wfkg:AWSSTACCatalog,wfkg:RedBand,wfkg:CarbonStockEstimate,wfkg:GreenBand,wfkg:CSVSummary,wfkg:SAVI,wfkg:Sentinel2L2A,wfkg:BiomassEstimate,wfkg:NDWI,wfkg:CO2EquivalentEstimate,wfkg:StudyArea,wfkg:NDVI,wfkg:NIRBand,wfkg:DateRange
+ - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>: wfkg:SelectedScene,wfkg:CO2EquivalentEstimate,wfkg:DateRange,wfkg:SAVI,wfkg:GreenBand,wfkg:NDVI,wfkg:CSVSummary,wfkg:MangroveMask,wfkg:NDWI,wfkg:RedBand,wfkg:StudyArea,wfkg:GeoTIFFRaster,wfkg:Sentinel2L2A,wfkg:CarbonStockEstimate,wfkg:InteractiveVisualisation,wfkg:BiomassEstimate,wfkg:NIRBand,wfkg:AWSSTACCatalog
+ - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: wfkg:CO2EquivalentRun,wfkg:SelectScenesRun,wfkg:DisplaySummaryReportRun,wfkg:ExportResultsRun,wfkg:DefineStudyAreaRun,wfkg:CarbonStockRun,wfkg:ThresholdClassificationRun,wfkg:AllometricEquationRun,wfkg:CalculateIndicesRun,wfkg:DownloadBandsRun
+ - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>/sh:or/rdf:first: *none*
 
 Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
   Validation Report
