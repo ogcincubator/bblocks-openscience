@@ -35,34 +35,16 @@
     ] .
 
 ############################################################
-# Derived artifact provenance (CORRECT)
+# Derived artifacts must point to a ProcessRun
 ############################################################
 
 <#DerivedArtifactProvenanceShape>
     a sh:NodeShape ;
-    sh:targetClass wfprov:Artifact ;
-    sh:message "If an artifact is derived, it must be linked to a ProcessRun that produced it." ;
-    sh:or (
-        [
-            sh:property [
-                sh:path wfprov:wasOutputFrom ;
-                sh:class wfprov:ProcessRun ;
-                sh:minCount 1
-            ]
-        ]
-        [
-            sh:property [
-                sh:path wfdesc:wasOutputFrom ;
-                sh:class wfprov:ProcessRun ;
-                sh:minCount 1
-            ]
-        ]
-        [
-            sh:not [
-                sh:or (
-                    [ sh:path wfprov:wasOutputFrom ]
-                    [ sh:path wfdesc:wasOutputFrom ]
-                )
-            ]
-        ]
-    ) .
+    sh:targetSubjectsOf wfprov:wasOutputFrom ;
+    sh:targetSubjectsOf wfdesc:wasOutputFrom ;
+    sh:message "Derived artifacts must be linked to a ProcessRun that produced them." ;
+    sh:property [
+        sh:path [ sh:alternativePath ( wfprov:wasOutputFrom wfdesc:wasOutputFrom ) ] ;
+        sh:class wfprov:ProcessRun ;
+        sh:minCount 1
+    ] .
