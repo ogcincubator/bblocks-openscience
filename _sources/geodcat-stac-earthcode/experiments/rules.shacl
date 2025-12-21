@@ -6,7 +6,7 @@
 @prefix wfdesc:  <http://purl.org/wf4ever/wfdesc#> .
 @base <https://www.ogc.org/rules/kindgrove/> .
 
-wfkg:ProcessRunShape
+<#ProcessRunShape>
     a sh:NodeShape ;
     sh:targetClass wfprov:ProcessRun ;
     sh:property [
@@ -16,7 +16,7 @@ wfkg:ProcessRunShape
         sh:message "Each ProcessRun must be described by exactly one wfdesc:Process." ;
     ] .
 
-wfkg:ProcessRunWorkflowShape
+<#ProcessRunWorkflowShape>
     a sh:NodeShape ;
     sh:targetClass wfprov:ProcessRun ;
     sh:property [
@@ -25,7 +25,8 @@ wfkg:ProcessRunWorkflowShape
         sh:minCount 1 ;
         sh:message "Each ProcessRun must be associated with a WorkflowRun." ;
     ] .
-wfkg:ArtifactProvenanceShape
+
+<#ArtifactProvenanceShape>
     a sh:NodeShape ;
     sh:targetClass wfprov:Artifact ;
     sh:or (
@@ -46,3 +47,4 @@ wfkg:ArtifactProvenanceShape
     ) ;
     sh:message "Each Artifact should be linked to a ProcessRun that produced it." ;
 .
+
