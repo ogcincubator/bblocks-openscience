@@ -1,5 +1,5 @@
 Validation report for ogc.osc.geodcat-stac-earthcode.experiments - EarthCODE Experiment
-Generated 2025-12-21T13:50:34.490924+00:00
+Generated 2025-12-21T14:02:11.064802+00:00
 === Files ===
 Using example_3_1.jsonld from examples
 Output Turtle example_3_1.ttl created
@@ -16,6 +16,8 @@ Validation result for _sources/geodcat-stac-earthcode/experiments/rules.shacl:
   
 Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:
  - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*
+ - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>/sh:or/rdf:first: *none*
+ - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>/sh:or/rdf:rest/rdf:first: *none*
  - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*
  - Shape <https://www.ogc.org/rules/kindgrove/#DerivedArtifactProvenanceShape>: *none*
 

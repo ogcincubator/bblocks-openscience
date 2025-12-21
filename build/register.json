@@ -2,7 +2,7 @@
   "name": "Open Science Workflows Building Blocks",
   "abstract": "Building Blocks for FAIR Open Science - profiles of OGC API Processes and various metadata standards to support open, transparent, interoperable and reproducible scientific workflows..\n",
   "description": "This repository is initially aimed to support the [Open Science Persistent Demonstrator](https://www.ogc.org/initiatives/open-science/) pilot, but may be further developed as a set of standards with appropriate working group governance.\n",
-  "modified": "2025-12-21T13:50:16.065903",
+  "modified": "2025-12-21T14:02:00.095030",
   "tooling": {
     "bblocks-postprocess": {
       "commitId": "\"e6969c7215954cfc2f96581b2ff7141121c79c60",
@@ -113,50 +113,6 @@
       }
     },
     {
-      "itemIdentifier": "ogc.osc.api-profiles.processes.ipt.results",
-      "status": "under-development",
-      "dateTimeAddition": "2025-10-22T15:29:12.046535",
-      "register": "ogcapi-processes",
-      "version": "0.1",
-      "dateOfLastChange": "2025-12-21",
-      "tags": [
-        "ogcapi-processes",
-        "schema"
-      ],
-      "name": "Result schema for IPT",
-      "abstract": "constraint on results to include provenance object inline",
-      "itemClass": "schema",
-      "shaclShapes": {},
-      "dependsOn": [
-        "ogc.ogc-utils.prov-entity",
-        "ogc.api.processes.v1.schemas.qualifiedInputValue",
-        "ogc.ogc-utils.prov-activity"
-      ],
-      "schema": {
-        "application/yaml": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/schema.yaml",
-        "application/json": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/schema.json"
-      },
-      "sourceSchema": "https://nenadradosevic.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/results/schema.yaml",
-      "ldContext": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/context.jsonld",
-      "sourceFiles": "https://nenadradosevic.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/results/",
-      "rdfData": [],
-      "validationPassed": true,
-      "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes/ipt/results/index.md"
-        },
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/ipt/results/index.json"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.ipt.results"
-        }
-      }
-    },
-    {
       "itemIdentifier": "ogc.osc.ontology.openscience",
       "name": "Open Science Ontology",
       "abstract": "A modular standards-based ontology for describing interoperable and reproduceable scientific workflows.",
@@ -195,6 +151,50 @@
       }
     },
     {
+      "itemIdentifier": "ogc.osc.api-profiles.processes.ipt.results",
+      "status": "under-development",
+      "dateTimeAddition": "2025-10-22T15:29:12.046535",
+      "register": "ogcapi-processes",
+      "version": "0.1",
+      "dateOfLastChange": "2025-12-21",
+      "tags": [
+        "ogcapi-processes",
+        "schema"
+      ],
+      "name": "Result schema for IPT",
+      "abstract": "constraint on results to include provenance object inline",
+      "itemClass": "schema",
+      "shaclShapes": {},
+      "dependsOn": [
+        "ogc.ogc-utils.prov-entity",
+        "ogc.ogc-utils.prov-activity",
+        "ogc.api.processes.v1.schemas.qualifiedInputValue"
+      ],
+      "schema": {
+        "application/yaml": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/schema.yaml",
+        "application/json": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/schema.json"
+      },
+      "sourceSchema": "https://nenadradosevic.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/results/schema.yaml",
+      "ldContext": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/context.jsonld",
+      "sourceFiles": "https://nenadradosevic.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/results/",
+      "rdfData": [],
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes/ipt/results/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/ipt/results/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://nenadradosevic.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.ipt.results"
+        }
+      }
+    },
+    {
       "itemIdentifier": "ogc.osc.geodcat-stac-earthcode.common",
       "name": "EarthCODE Common STAC profile",
       "highlighted": true,
@@ -204,12 +204,12 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.contrib.stac.extensions.osc",
+        "ogc.geo.geodcat.geodcat-records",
         "ogc.ogc-utils.prov",
         "ogc.geo.geodcat.stac.geodcat-stac-item",
-        "ogc.geo.geodcat.geodcat-records",
-        "ogc.contrib.stac.extensions.themes",
-        "ogc.geo.geodcat.stac.geodcat-stac-collection"
+        "ogc.contrib.stac.extensions.osc",
+        "ogc.geo.geodcat.stac.geodcat-stac-collection",
+        "ogc.contrib.stac.extensions.themes"
       ],
       "version": "0.1",
       "dateOfLastChange": "2025-12-21",
@@ -277,8 +277,8 @@
       "itemClass": "schema",
       "shaclShapes": {},
       "dependsOn": [
-        "ogc.ogc-utils.iri-or-curie",
-        "ogc.api.processes.v1.schemas.execute"
+        "ogc.api.processes.v1.schemas.execute",
+        "ogc.ogc-utils.iri-or-curie"
       ],
       "schema": {
         "application/yaml": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/schema.yaml",
@@ -381,8 +381,8 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.contrib.stac.extensions.cf",
-        "ogc.osc.geodcat-stac-earthcode.common"
+        "ogc.osc.geodcat-stac-earthcode.common",
+        "ogc.contrib.stac.extensions.cf"
       ],
       "version": "0.1",
       "dateOfLastChange": "2025-12-21",
@@ -513,8 +513,8 @@
         }
       ],
       "dependsOn": [
-        "ogc.osc.api-profiles.processes.ipt.results",
-        "ogc.osc.api-profiles.processes.ipt.execute"
+        "ogc.osc.api-profiles.processes.ipt.execute",
+        "ogc.osc.api-profiles.processes.ipt.results"
       ],
       "tags": [
         "ogcapi-processes",
@@ -551,8 +551,8 @@
       "itemClass": "api",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.osc.application-package",
-        "ogc.osc.api-profiles.processes.ipt.api"
+        "ogc.osc.api-profiles.processes.ipt.api",
+        "ogc.osc.application-package"
       ],
       "version": "0.1",
       "dateOfLastChange": "2025-12-21",
@@ -595,10 +595,10 @@
       "itemClass": "api",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.osc.geodcat-stac-earthcode.workflows",
         "ogc.osc.geodcat-stac-earthcode.products",
+        "ogc.osc.geodcat-stac-earthcode.experiments",
         "ogc.osc.api-profiles.processes.workflow",
-        "ogc.osc.geodcat-stac-earthcode.experiments"
+        "ogc.osc.geodcat-stac-earthcode.workflows"
       ],
       "version": "0.1",
       "dateOfLastChange": "2025-12-21",
