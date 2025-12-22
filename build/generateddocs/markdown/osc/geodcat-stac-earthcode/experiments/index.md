@@ -248,7 +248,6 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
-@prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix thns: <https://w3id.org/ogc/stac/themes/> .
 @prefix wfprov: <http://purl.org/wf4ever/wfprov#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -267,7 +266,7 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
                             ns1:relation <http://www.iana.org/assignments/relation/about> ;
                             oa:hasTarget <https://opensciencedata.esa.int/> ] ;
                     wfprov:organization "EarthCODE" ;
-                    stac:roles "host" ] ;
+                    wfprov:roles "host" ] ;
             dcat:keyword "polar",
                 "sea ice" ;
             dcat:license "CC-BY-SA-4.0" ;
@@ -275,18 +274,14 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
             rec:themes [ thns:concepts [ thns:id "oceans"^^xsd:string ] ;
                     thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
             ns2:workflow "polaris-workflow" ] ;
-    rdfs:seeAlso [ rdfs:label "Theme: Oceans" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
-        [ rdfs:label "Workflow: POLARIS" ;
+    rdfs:seeAlso [ rdfs:label "Workflow: POLARIS" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/workflows/polaris-workflow/record.json> ],
-        [ rdfs:label "Experiments" ;
+        [ rdfs:label "Theme: Oceans" ;
             dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
         [ rdfs:label "POLARIS" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/child> ;
@@ -302,10 +297,426 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
             dcterms:format "application/yaml" ;
             ns1:relation <http://www.iana.org/assignments/relation/environment> ;
             oa:hasTarget <https://ogc.org/demo/ospd/environment.yaml> ],
+        [ rdfs:label "Experiments" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
         [ rdfs:label "Open Science Catalog" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://ogc.org/catalog.json> ] .
+
+
+```
+
+
+### An example of Kind Grove workflow provenance wf4ever
+Kind Grove workflow example and its provenance trace with main steps involved for its execution. 
+
+#### turtle
+```turtle
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX schema: <https://schema.org/>
+PREFIX stac: <https://w3id.org/ogc/stac/core/>
+PREFIX wfdesc: <http://purl.org/wf4ever/wfdesc#>
+PREFIX wfkg: <https://example.org/kindgrove/>
+PREFIX wfprov: <http://purl.org/wf4ever/wfprov#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+wfkg:DefineStudyAreaRun
+    a wfprov:ProcessRun ;
+    wfprov:describedByProcess wfkg:DefineStudyAreaProcess ;
+    wfprov:hasSubProcessRun
+        wfkg:AddCenterPointRun ,
+        wfkg:AddInfoAnnotationRun ,
+        wfkg:AddStudyAreaBoundaryRun ,
+        wfkg:CreateBoundingBoxRun ,
+        wfkg:CreateLocationSelectorWidgetRun ,
+        wfkg:CreateMapRun ,
+        wfkg:DisplayStudyAreaRun ,
+        wfkg:GetSelectedSiteRun ;
+    wfprov:usedInput
+        wfkg:DateRange ,
+        wfkg:StudyArea ;
+    wfprov:wasEnactedBy wfkg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun wfkg:KindGroveWorkflowRun ;
+.
+
+wfkg:InteractiveVisualisation
+    a wfprov:Artifact ;
+    wfprov:wasOutputFrom wfkg:DisplaySummaryReportRun ;
+    schema:encodingFormat "text/html" ;
+    schema:name "HTML Summary Report" ;
+.
+
+wfkg:AWSSTACCatalog
+    a
+        wfprov:Artifact ,
+        stac:Catalog ;
+    schema:name "AWS STAC Catalog" ;
+    schema:url "https://earth-search.aws.element84.com/v1" ;
+.
+
+wfkg:AllometricEquationDesc
+    a wfdesc:Process ;
+.
+
+wfkg:AllometricEquationRun
+    a wfprov:ProcessRun ;
+    wfprov:describedByProcess wfkg:AllometricEquationDesc ;
+    wfprov:usedInput
+        wfkg:MangroveMask ,
+        wfkg:NDVI ;
+    wfprov:wasEnactedBy wfkg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun wfkg:KindGroveWorkflowRun ;
+.
+
+wfkg:BiomassEstimate
+    a wfprov:Artifact ;
+    wfdesc:wasOutputFrom wfkg:AllometricEquationRun ;
+.
+
+wfkg:CO2EquivalentDesc
+    a wfdesc:Process ;
+.
+
+wfkg:CO2EquivalentEstimate
+    a wfprov:Artifact ;
+    wfdesc:wasOutputFrom wfkg:CO2EquivalentRun ;
+.
+
+wfkg:CO2EquivalentRun
+    a wfprov:ProcessRun ;
+    wfprov:describedByProcess wfkg:CO2EquivalentDesc ;
+    wfprov:usedInput wfkg:CarbonStockEstimate ;
+    wfprov:wasEnactedBy wfkg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun wfkg:KindGroveWorkflowRun ;
+.
+
+wfkg:CSVSummary
+    a wfprov:Artifact ;
+    wfdesc:wasOutputFrom wfkg:ExportResultsRun ;
+    schema:encodingFormat "text/csv" ;
+.
+
+wfkg:CalculateIndicesProcessDesc
+    a wfdesc:Process ;
+.
+
+wfkg:CarbonStockDesc
+    a wfdesc:Process ;
+.
+
+wfkg:CarbonStockEstimate
+    a wfprov:Artifact ;
+    wfdesc:wasOutputFrom wfkg:CarbonStockRun ;
+.
+
+wfkg:CarbonStockRun
+    a wfprov:ProcessRun ;
+    wfprov:describedByProcess wfkg:CarbonStockDesc ;
+    wfprov:usedInput wfkg:BiomassEstimate ;
+    wfprov:wasEnactedBy wfkg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun wfkg:KindGroveWorkflowRun ;
+.
+
+wfkg:DefineStudyAreaProcess
+    a wfdesc:Process ;
+
+.
+
+wfkg:DisplaySummaryReportRun
+    a wfdesc:Process ;
+.
+
+wfkg:DisplaySummaryReportRun
+    a wfprov:ProcessRun ;
+    wfprov:describedByProcess wfkg:DisplaySummaryReportRun ;
+    wfprov:usedInput
+        wfkg:CSVSummary ,
+        wfkg:GeoTIFFRaster ;
+    wfprov:wasPartOfWorkflowRun wfkg:KindGroveWorkflowRun ;
+    prov:endedAtTime "2024-06-01T10:46:00+00:00"^^xsd:dateTime ;
+.
+
+wfkg:DownloadBandsProcessDesc
+    a wfdesc:Process ;
+.
+
+wfkg:ExportResultsDesc
+    a wfdesc:Process ;
+.
+
+wfkg:GeoTIFFRaster
+    a wfprov:Artifact ;
+    wfdesc:wasOutputFrom wfkg:ExportResultsRun ;
+    schema:encodingFormat "image/tiff" ;
+.
+
+wfkg:GreenBand
+    a wfprov:Artifact ;
+    wfdesc:wasOutputFrom wfkg:DownloadBandsRun ;
+.
+
+wfkg:KindGroveWorkflow
+    a
+        wfdesc:Workflow ,
+        schema:ComputationalWorkflow ;
+    schema:name "KindGrove Mangrove Carbon Assessment Workflow" ;
+    schema:version "1.0" ;
+.
+
+wfkg:Myanmar
+    a schema:Country ;
+    schema:name "Myanmar" ;
+.
+
+wfkg:NDWI
+    a wfprov:Artifact ;
+    wfdesc:wasOutputFrom wfkg:CalculateIndicesRun ;
+.
+
+wfkg:NIRBand
+    a wfprov:Artifact ;
+    wfdesc:wasOutputFrom wfkg:DownloadBandsRun ;
+.
+
+wfkg:RedBand
+    a wfprov:Artifact ;
+    wfdesc:wasOutputFrom wfkg:DownloadBandsRun ;
+.
+
+wfkg:SAVI
+    a wfprov:Artifact ;
+    wfdesc:wasOutputFrom wfkg:CalculateIndicesRun ;
+.
+
+wfkg:SelectScenesProcessDesc
+    a wfdesc:Process ;
+.
+
+wfkg:SelectScenesRun
+    a wfprov:ProcessRun ;
+    wfprov:describedByProcess wfkg:SelectScenesProcessDesc ;
+    wfprov:usedInput
+        wfkg:DateRange ,
+        wfkg:Sentinel2L2A ,
+        wfkg:StudyArea ;
+    wfprov:wasEnactedBy wfkg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun wfkg:KindGroveWorkflowRun ;
+.
+
+wfkg:SelectedScene
+    a wfprov:Artifact ;
+    wfdesc:wasOutputFrom wfkg:SelectScenesRun ;
+    schema:description "Lowest cloud cover Sentinel-2 scene" ;
+.
+
+wfkg:Sentinel2L2A
+    a
+        wfprov:Artifact ,
+        stac:Collection ;
+    schema:distribution wfkg:Sentinel2L2A_AWSS3Distribution ;
+    schema:isPartOf wfkg:AWSSTACCatalog ;
+    schema:name "Sentinel-2 L2A Multispectral Optical Imagery" ;
+.
+
+wfkg:Sentinel2L2A_AWSS3Distribution
+    a schema:DataDownload ;
+    schema:contentUrl "s3://sentinel-inventory/sentinel-s2-l2a/" ;
+    schema:isAccessibleForFree true ;
+    schema:name "Sentinel-2 L2A AWS Open Data Registry (S3)" ;
+    schema:provider "AWS Open Data Registry" ;
+.
+
+wfkg:StarlingFoundries
+    a prov:Organization ;
+    schema:name "Starling Foundries" ;
+.
+
+wfkg:StudyAreaGeometry
+    a schema:GeoShape ;
+    schema:box "95.15 15.9 95.35 16.1" ;
+    schema:center "95.25 16.0" ;
+    schema:polygon "95.15 15.9 95.35 15.9 95.35 16.1 95.15 16.1 95.15 15.9" ;
+.
+
+wfkg:ThresholdClassificationDesc
+    a wfdesc:Process ;
+.
+
+wfkg:ThresholdClassificationRun
+    a wfprov:ProcessRun ;
+    wfprov:describedByProcess wfkg:ThresholdClassificationDesc ;
+    wfprov:usedInput
+        wfkg:NDVI ,
+        wfkg:NDWI ,
+        wfkg:SAVI ;
+    wfprov:wasEnactedBy wfkg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun wfkg:KindGroveWorkflowRun ;
+.
+
+wfkg:CameronSajedi
+    a prov:Person ;
+    schema:affiliation wfkg:StarlingFoundries ;
+    schema:name "Cameron Sajedi" ;
+.
+
+wfkg:DateRange
+    a wfprov:Artifact ;
+    schema:description "Temporal range for satellite query" ;
+.
+
+wfkg:ExportResultsRun
+    a wfprov:ProcessRun ;
+    wfprov:describedByProcess wfkg:ExportResultsDesc ;
+    wfprov:usedInput
+        wfkg:CO2EquivalentEstimate ,
+        wfkg:MangroveMask ;
+    wfprov:wasEnactedBy wfkg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun wfkg:KindGroveWorkflowRun ;
+.
+
+wfkg:MangroveMask
+    a wfprov:Artifact ;
+    wfdesc:wasOutputFrom wfkg:ThresholdClassificationRun ;
+.
+
+wfkg:NDVI
+    a wfprov:Artifact ;
+    wfdesc:wasOutputFrom wfkg:CalculateIndicesRun ;
+.
+
+wfkg:StudyArea
+    a wfprov:Artifact ;
+    schema:containedInPlace wfkg:Myanmar ;
+    schema:description "1,800 acres of mangrove restoration in Ayeyarwady Delta" ;
+    schema:geo wfkg:StudyAreaGeometry ;
+    schema:name "Thor Heyerdahl Climate Park" ;
+.
+
+wfkg:CalculateIndicesRun
+    a wfprov:ProcessRun ;
+    wfprov:describedByProcess wfkg:CalculateIndicesProcessDesc ;
+    wfprov:usedInput
+        wfkg:GreenBand ,
+        wfkg:NIRBand ,
+        wfkg:RedBand ;
+    wfprov:wasEnactedBy wfkg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun wfkg:KindGroveWorkflowRun ;
+.
+
+wfkg:DownloadBandsRun
+    a wfprov:ProcessRun ;
+    wfprov:describedByProcess wfkg:DownloadBandsProcessDesc ;
+    wfprov:usedInput wfkg:SelectedScene ;
+    wfprov:wasEnactedBy wfkg:JupyterNotebookEngine ;
+    wfprov:wasPartOfWorkflowRun wfkg:KindGroveWorkflowRun ;
+.
+
+wfkg:JupyterNotebookEngine
+    a wfprov:WorkflowEngine ;
+    prov:actedOnBehalfOf wfkg:CameronSajedi ;
+    schema:name "Jupyter Notebook" ;
+.
+
+wfkg:KindGroveWorkflowRun
+    a wfprov:WorkflowRun ;
+    wfprov:describedByWorkflow wfkg:KindGroveWorkflow ;
+    wfprov:wasInitiatedBy wfkg:CameronSajedi ;
+    prov:endedAtTime "2024-06-01T10:45:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2024-06-01T10:00:00+00:00"^^xsd:dateTime ;
+.
+
+```
+
+
+### An example of Kind Grove workflow provenance wf4ever
+Kind Grove workflow example and its provenance trace with main steps involved for its execution. 
+
+#### jsonld
+```jsonld
+{
+  "@context": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/context.jsonld",
+  "id": "kindgrove-experiment",
+  "type": "Feature",
+  "conformsTo": [
+    "http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core"
+  ],
+  "geometry": null,
+  "properties": {
+    "created": "2024-06-01T10:00:00Z",
+    "updated": "2024-06-01T10:45:00Z",
+    "type": "experiment",
+    "title": "KindGrove Mangrove Carbon Assessment",
+    "description": "An Earth observation workflow for mangrove detection and carbon stock estimation using Sentinel-2 imagery.",
+    "keywords": [
+      "mangroves",
+      "carbon",
+      "Sentinel-2",
+      "remote sensing",
+      "climate"
+    ],
+    "contacts": [
+      {
+        "name": "Cameron Sajedi",
+        "organization": "Starling Foundries",
+        "roles": ["author", "operator"]
+      }
+    ],
+    "themes": [
+      {
+        "scheme": "https://github.com/stac-extensions/osc#theme",
+        "concepts": [
+          { "id": "ecosystems" },
+          { "id": "climate" }
+        ]
+      }
+    ],
+    "formats": [
+      { "name": "GeoTIFF" },
+      { "name": "CSV" }
+    ],
+    "license": "CC-BY-4.0",
+    "osc:workflow": "kindgrove-workflow",
+    "version": "1.0"
+  },
+  "links": [
+    {
+      "rel": "related",
+      "href": "../workflows/kindgrove-workflow/record.json",
+      "type": "application/json",
+      "title": "Workflow description"
+    },
+    {
+      "rel": "related",
+      "href": "../provenance/kindgrove-run.jsonld",
+      "type": "application/ld+json",
+      "title": "Execution provenance"
+    }
+  ]
+}
+
+```
+
+#### ttl
+```ttl
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://ogc.org/demo/ospd/kindgrove/kindgrove-experiment> a geojson:Feature ;
+    dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core> ;
+    rdfs:seeAlso [ rdfs:label "Workflow description" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/workflows/kindgrove-workflow/record.json> ],
+        [ rdfs:label "Execution provenance" ;
+            dcterms:format "application/ld+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/provenance/kindgrove-run.jsonld> ] .
 
 
 ```
@@ -536,7 +947,6 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
-@prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix thns: <https://w3id.org/ogc/stac/themes/> .
 @prefix wfprov: <http://purl.org/wf4ever/wfprov#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -554,44 +964,44 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
                     wfprov:links [ dcterms:type "text/html" ;
                             ns1:relation <http://www.iana.org/assignments/relation/about> ;
                             oa:hasTarget <https://example.com/> ] ;
-                    stac:roles "processor" ],
+                    wfprov:roles "processor" ],
                 [ rdfs:label "A person" ;
                     wfprov:contactInstructions "Contact via website" ;
                     wfprov:organization "An Org" ;
                     wfprov:position "Researcher" ;
-                    stac:roles "principal investigator" ] ;
+                    wfprov:roles "principal investigator" ] ;
             dcat:license "proprietary" ;
             rec:format [ rec:name "GeoTIFF" ] ;
             rec:themes [ thns:concepts [ thns:id "land"^^xsd:string ] ;
                     thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
             ns2:workflow "waterbodies" ] ;
-    rdfs:seeAlso [ dcterms:format "application/json" ;
+    rdfs:seeAlso [ rdfs:label "Open Science Catalog" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/open-science-catalog-metadata/catalog.json> ],
+        [ dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://example.com/open-science-catalog-metadata/experiments/water-bodies-execution/record.json> ],
-        [ rdfs:label "Water Bodies Execution Outputs" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/child> ;
-            oa:hasTarget <https://example.com/open-science-catalog-metadata/products/water-bodies-execution-outputs/collection.json> ],
         [ rdfs:label "An EO data exploitation platform" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/service> ;
             oa:hasTarget <https://example.com> ],
-        [ rdfs:label "Workflow: Water Bodies" ;
+        [ rdfs:label "Experiments" ;
             dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/workflows/waterbodies/record.json> ],
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/open-science-catalog-metadata/experiments/catalog.json> ],
         [ rdfs:label "Theme: Land" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://example.com/open-science-catalog-metadata/themes/land/catalog.json> ],
-        [ rdfs:label "Open Science Catalog" ;
+        [ rdfs:label "Water Bodies Execution Outputs" ;
             dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/open-science-catalog-metadata/catalog.json> ],
-        [ rdfs:label "Experiments" ;
+            ns1:relation <http://www.iana.org/assignments/relation/child> ;
+            oa:hasTarget <https://example.com/open-science-catalog-metadata/products/water-bodies-execution-outputs/collection.json> ],
+        [ rdfs:label "Workflow: Water Bodies" ;
             dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/open-science-catalog-metadata/experiments/catalog.json> ] .
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/workflows/waterbodies/record.json> ] .
 
 
 ```
@@ -956,7 +1366,6 @@ Some notes:
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
-@prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix thns: <https://w3id.org/ogc/stac/themes/> .
 @prefix wfprov: <http://purl.org/wf4ever/wfprov#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -978,59 +1387,59 @@ Some notes:
     wfprov:describedByWorkflow "https://example.com/workflows/waterbodies/record.json" ;
     wfprov:properties <https://ogc.org/demo/ospd/water-bodies-execution> ;
     wfprov:usedInput [ a wfprov:Artifact ;
-            wfprov:data "EPSG:4326" ;
-            wfprov:describedByParameter "epsg" ],
+            wfprov:describedByParameter "stac_items" ;
+            prov:hadMember <https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2A_10TFK_20220524_0_L2A>,
+                <https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2B_10TFK_20210713_0_L2A> ],
         [ a wfprov:Artifact ;
             wfprov:data "-121.399,39.834,-120.74,40.472" ;
             wfprov:describedByParameter "aoi" ],
         [ a wfprov:Artifact ;
+            wfprov:data "EPSG:4326" ;
+            wfprov:describedByParameter "epsg" ],
+        [ a wfprov:Artifact ;
             wfprov:data "green",
                 "nir" ;
-            wfprov:describedByParameter "bands" ],
-        [ a wfprov:Artifact ;
-            wfprov:describedByParameter "stac_items" ;
-            prov:hadMember <https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2A_10TFK_20220524_0_L2A>,
-                <https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2B_10TFK_20210713_0_L2A> ] ;
+            wfprov:describedByParameter "bands" ] ;
     wfprov:version "2" ;
     wfprov:wasEnactedBy <https://ogc.org/demo/ospd/eo-data-platform> ;
-    rdfs:seeAlso [ rdfs:label "An EO data exploitation platform" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/service> ;
-            oa:hasTarget <https://example.com> ],
-        [ rdfs:label "Theme: Land" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/open-science-catalog-metadata/themes/land/catalog.json> ],
-        [ rdfs:label "Open Science Catalog" ;
+    rdfs:seeAlso [ rdfs:label "Open Science Catalog" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/open-science-catalog-metadata/catalog.json> ],
-        [ rdfs:label "Water Bodies Execution Outputs" ;
+        [ rdfs:label "An EO data exploitation platform" ;
             dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/child> ;
-            oa:hasTarget <https://example.com/open-science-catalog-metadata/products/water-bodies-execution-outputs/collection.json> ],
+            ns1:relation <http://www.iana.org/assignments/relation/service> ;
+            oa:hasTarget <https://example.com> ],
         [ rdfs:label "Experiments" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/open-science-catalog-metadata/experiments/catalog.json> ],
+        [ rdfs:label "Water Bodies Execution Outputs" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/child> ;
+            oa:hasTarget <https://example.com/open-science-catalog-metadata/products/water-bodies-execution-outputs/collection.json> ],
+        [ rdfs:label "Theme: Land" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/open-science-catalog-metadata/themes/land/catalog.json> ],
+        [ dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/open-science-catalog-metadata/experiments/water-bodies-execution/record.json> ],
         [ rdfs:label "Workflow: Water Bodies" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/open-science-catalog-metadata/workflows/waterbodies/record.json> ],
-        [ dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/open-science-catalog-metadata/experiments/water-bodies-execution/record.json> ] ;
-    dcat:contactPoint [ rdfs:label "An Org" ;
+            oa:hasTarget <https://example.com/open-science-catalog-metadata/workflows/waterbodies/record.json> ] ;
+    dcat:contactPoint [ rdfs:label "A person" ;
+            wfprov:contactInstructions "Contact via website" ;
+            wfprov:organization "An Org" ;
+            wfprov:position "Researcher" ;
+            wfprov:roles "principal investigator" ],
+        [ rdfs:label "An Org" ;
             wfprov:contactInstructions "SEE WEBSITE" ;
             wfprov:links [ dcterms:type "text/html" ;
                     ns1:relation <http://www.iana.org/assignments/relation/about> ;
                     oa:hasTarget <https://example.com/> ] ;
-            stac:roles "processor" ],
-        [ rdfs:label "A person" ;
-            wfprov:contactInstructions "Contact via website" ;
-            wfprov:organization "An Org" ;
-            wfprov:position "Researcher" ;
-            stac:roles "principal investigator" ] ;
+            wfprov:roles "processor" ] ;
     dcat:license "proprietary" ;
     prov:endedAtTime "2025-01-21T17:59:50+00:00"^^xsd:dateTime ;
     prov:generated <https://example.com/open-science-catalog-metadata/products/water-bodies-execution-outputs/collection.json> ;
@@ -1115,14 +1524,12 @@ Links to the schema:
     },
     "type": "@type",
     "id": "@id",
-    "properties": {},
     "geometry": {
       "@context": {
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
-        },
-        "geometries": {}
+        }
       },
       "@id": "geojson:geometry"
     },
@@ -1142,11 +1549,7 @@ Links to the schema:
         "type": "dct:format",
         "hreflang": "dct:language",
         "title": "rdfs:label",
-        "length": "dct:extent",
-        "anchor": {},
-        "method": {},
-        "headers": {},
-        "body": {}
+        "length": "dct:extent"
       },
       "@id": "rdfs:seeAlso"
     },
@@ -1155,15 +1558,7 @@ Links to the schema:
       "@id": "dct:conformsTo",
       "@type": "@id"
     },
-    "time": {
-      "@context": {
-        "date": {},
-        "timestamp": {},
-        "interval": {},
-        "resolution": {}
-      },
-      "@id": "dct:temporal"
-    },
+    "time": "dct:temporal",
     "linkTemplates": {
       "@context": {
         "rel": {
@@ -1208,9 +1603,7 @@ Links to the schema:
       "@id": "rec:language",
       "@context": {
         "code": "rec:languageCode",
-        "name": "skos:prefLabel",
-        "alternate": {},
-        "dir": {}
+        "name": "skos:prefLabel"
       }
     },
     "languages": {
@@ -1218,9 +1611,7 @@ Links to the schema:
       "@id": "rec:languages",
       "@context": {
         "code": "rec:languageCode",
-        "name": "skos:prefLabel",
-        "alternate": {},
-        "dir": {}
+        "name": "skos:prefLabel"
       }
     },
     "resourceLanguages": {
@@ -1228,9 +1619,7 @@ Links to the schema:
       "@id": "rec:resourceLanguages",
       "@context": {
         "code": "rec:languageCode",
-        "name": "skos:prefLabel",
-        "alternate": {},
-        "dir": {}
+        "name": "skos:prefLabel"
       }
     },
     "externalIds": {
@@ -1275,9 +1664,6 @@ Links to the schema:
       "@id": "dcat:contactPoint",
       "@type": "@id",
       "@context": {
-        "identifier": {},
-        "position": {},
-        "organization": {},
         "logo": {
           "@context": {
             "rel": {
@@ -1287,22 +1673,10 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "type": "dct:type",
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
-          }
-        },
-        "phones": {},
-        "emails": {},
-        "addresses": {
-          "@context": {
-            "deliveryPoint": {},
-            "city": {},
-            "administrativeArea": {},
-            "postalCode": {},
-            "country": {}
           }
         },
         "links": {
@@ -1314,15 +1688,12 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "type": "dct:type",
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
           }
-        },
-        "hoursOfService": {},
-        "contactInstructions": {}
+        }
       }
     },
     "license": "dcat:license",
@@ -1335,71 +1706,35 @@ Links to the schema:
         "@vocab": "https://www.opengis.net/def/ogc-api/records/"
       }
     },
-    "collection": {},
     "stac_extensions": "stac:hasExtension",
-    "roles": {
-      "@id": "stac:roles",
-      "@container": "@set"
-    },
-    "bands": {},
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
-    "start_datetime": {},
-    "end_datetime": {},
-    "data_type": {},
-    "nodata": {},
-    "statistics": {
-      "@context": {
-        "minimum": {},
-        "maximum": {},
-        "mean": {},
-        "stddev": {},
-        "count": {},
-        "valid_percent": {}
-      }
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
     },
-    "unit": {},
-    "platform": {},
-    "instruments": {},
-    "constellation": {},
-    "mission": {},
-    "gsd": {},
-    "providers": {
-      "@context": {
-        "url": {}
-      }
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
     },
+    "providers": "stac:hasProvider",
     "rights": "dcat:rights",
-    "@vocab": "http://purl.org/wf4ever/wfprov#",
     "assets": {
       "@context": {
-        "type": "dct:format"
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
       },
       "@id": "stac:hasAsset",
       "@container": "@set"
     },
     "stac_version": "stac:version",
     "media_type": "dct:format",
-    "extent": {
-      "@id": "dct:extent",
-      "@context": {
-        "spatial": {},
-        "temporal": {
-          "@context": {
-            "interval": {}
-          }
-        }
-      }
-    },
-    "item_assets": {},
-    "summaries": {
-      "@context": {
-        "minimum": {},
-        "maximum": {}
-      }
-    },
+    "extent": "dct:extent",
     "concepts": {
       "@id": "thns:concepts",
       "@container": "@set",
@@ -1410,14 +1745,7 @@ Links to the schema:
       }
     },
     "scheme": "thns:scheme",
-    "osc:type": {},
-    "osc:status": {},
-    "osc:project": {},
-    "osc:region": {},
-    "osc:variables": {},
-    "osc:missions": {},
-    "osc:experiment": {},
-    "osc:workflows": {},
+    "@vocab": "http://purl.org/wf4ever/wfprov#",
     "wasInfluencedBy": {
       "@context": {
         "type": "dct:type",
@@ -1428,7 +1756,6 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "anchor": {},
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent"
@@ -1448,7 +1775,6 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -1468,7 +1794,6 @@ Links to the schema:
                   "@id": "http://www.iana.org/assignments/relation",
                   "@type": "@id"
                 },
-                "anchor": {},
                 "hreflang": "dct:language",
                 "title": "rdfs:label",
                 "length": "dct:extent"
@@ -1487,7 +1812,6 @@ Links to the schema:
                   "@id": "http://www.iana.org/assignments/relation",
                   "@type": "@id"
                 },
-                "anchor": {},
                 "hreflang": "dct:language",
                 "title": "rdfs:label",
                 "length": "dct:extent"
@@ -1506,7 +1830,6 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "type": "dct:type",
             "hreflang": "dct:language",
             "title": "rdfs:label",
@@ -1520,7 +1843,6 @@ Links to the schema:
       "@type": "@id"
     },
     "provType": "@type",
-    "prov:type": {},
     "activityType": "@type",
     "endedAtTime": {
       "@id": "prov:endedAtTime",
@@ -1535,7 +1857,6 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "anchor": {},
         "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
@@ -1560,7 +1881,6 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -1579,7 +1899,6 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -1601,7 +1920,6 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -1620,7 +1938,6 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -1642,7 +1959,6 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -1661,7 +1977,6 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -1683,7 +1998,6 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -1702,7 +2016,6 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -1724,7 +2037,6 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -1743,7 +2055,6 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -1781,7 +2092,6 @@ Links to the schema:
                       "@id": "http://www.iana.org/assignments/relation",
                       "@type": "@id"
                     },
-                    "anchor": {},
                     "hreflang": "dct:language",
                     "title": "rdfs:label",
                     "length": "dct:extent"
@@ -1802,7 +2112,6 @@ Links to the schema:
                   "@id": "http://www.iana.org/assignments/relation",
                   "@type": "@id"
                 },
-                "anchor": {},
                 "hreflang": "dct:language",
                 "title": "rdfs:label",
                 "length": "dct:extent"
@@ -1823,7 +2132,6 @@ Links to the schema:
                           "@id": "http://www.iana.org/assignments/relation",
                           "@type": "@id"
                         },
-                        "anchor": {},
                         "hreflang": "dct:language",
                         "title": "rdfs:label",
                         "length": "dct:extent"
@@ -1863,7 +2171,6 @@ Links to the schema:
                       "@id": "http://www.iana.org/assignments/relation",
                       "@type": "@id"
                     },
-                    "anchor": {},
                     "hreflang": "dct:language",
                     "title": "rdfs:label",
                     "length": "dct:extent"
@@ -1884,7 +2191,6 @@ Links to the schema:
                   "@id": "http://www.iana.org/assignments/relation",
                   "@type": "@id"
                 },
-                "anchor": {},
                 "hreflang": "dct:language",
                 "title": "rdfs:label",
                 "length": "dct:extent"
@@ -1905,7 +2211,6 @@ Links to the schema:
                           "@id": "http://www.iana.org/assignments/relation",
                           "@type": "@id"
                         },
-                        "anchor": {},
                         "hreflang": "dct:language",
                         "title": "rdfs:label",
                         "length": "dct:extent"
@@ -1942,7 +2247,6 @@ Links to the schema:
                   "@id": "http://www.iana.org/assignments/relation",
                   "@type": "@id"
                 },
-                "anchor": {},
                 "type": "dct:type",
                 "hreflang": "dct:language",
                 "title": "rdfs:label",
@@ -2248,8 +2552,6 @@ Links to the schema:
       "@type": "@id",
       "@container": "@set"
     },
-    "osc:workflow": {},
-    "rel": {},
     "href": {
       "@type": "@id",
       "@id": "oa:hasTarget"
@@ -2284,10 +2586,7 @@ You can find the full JSON-LD context here:
 ## Sources
 
 * [GeoDCAT Specification](http://www.opengis.net/def/metamodel/profiles/geodcat)
-* [EarthCODE]({
-      "title": "GeoDCAT Specification",
-      "link": "http://www.opengis.net/def/metamodel/profiles/geodcat"
-    },)
+* [EarthCODE](https://earthcode.esa.int/)
 
 # For developers
 

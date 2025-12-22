@@ -1,42 +1,85 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix geojson: <https://purl.org/geojson/vocab#> .
-@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns1: <application:> .
 @prefix ns2: <vcs:> .
-@prefix ns3: <application:> .
+@prefix ns3: <http://www.iana.org/assignments/> .
+@prefix ns4: <osc:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix proc: <https://w3id.org/ogc/api/processes/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
+@prefix thns: <https://w3id.org/ogc/stac/themes/> .
 
-<https://ogc.org/demo/ospd/kindgrove-mangrove-biomass-workflow> a geojson:Feature ;
-    dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core> ;
-    rdfs:seeAlso [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://ogc.org/demo/kindgrove-mangrove-biomass-workflow/record.json> ],
-        [ rdfs:label "Theme: Land" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/land/catalog.json> ],
+<https://ogc.org/demo/ospd/kindgrove-mangrove-biomass-workflow> dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core> ;
+    rdfs:seeAlso [ rdfs:label "Git source repository" ;
+            ns3:relation <http://www.iana.org/assignments/relation/vcs> ;
+            oa:hasTarget <https://github.com/starling-foundries/KindGrove> ;
+            ns2:branch "main" ;
+            ns2:type "git" ],
         [ rdfs:label "Workflows" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            ns3:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://ogc.org/demo/catalog.json> ],
+        [ rdfs:label "Theme: Land" ;
+            dcterms:type "application/json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/themes/land/catalog.json> ],
+        [ dcterms:type "application/json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://ogc.org/demo/kindgrove-mangrove-biomass-workflow/record.json> ],
         [ rdfs:label "Open Science Catalog" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            ns3:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://ogc.org/catalog.json> ],
         [ rdfs:label "Project: OSPD" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            ns3:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/projects/ospd/collection.json> ],
         [ rdfs:label "KindGrove Mangrove Biomass Workflow" ;
-            ns3:container "True" ;
-            ns3:language "Python" ;
-            ns3:type "cwl-workflow" ;
+            ns1:container "True" ;
+            ns1:language "Python" ;
+            ns1:type "cwl-workflow" ;
             dcterms:type "application/x-cwl" ;
-            ns1:relation <http://www.iana.org/assignments/relation/application> ;
-            oa:hasTarget <https://github.com/starling-foundries/KindGrove/blob/main/mangrove_workflow.cwl> ],
-        [ rdfs:label "Git source repository" ;
-            ns1:relation <http://www.iana.org/assignments/relation/vcs> ;
-            oa:hasTarget <https://github.com/starling-foundries/KindGrove> ;
-            ns2:branch "main" ;
-            ns2:type "git" ] .
+            ns3:relation <http://www.iana.org/assignments/relation/application> ;
+            oa:hasTarget <https://github.com/starling-foundries/KindGrove/blob/main/mangrove_workflow.cwl> ] ;
+    proc:properties [ ns1:container "True" ;
+            ns1:language "Python" ;
+            ns1:type "cwl-workflow" ;
+            dcterms:created "2024-07-30T12:00:00Z" ;
+            dcterms:description """An interactive Jupyter notebook workflow for estimating mangrove forest biomass and carbon stocks using Sentinel-2 satellite imagery from AWS Open Data Registry. This demonstrates an initial baseline approach that can be augmented with complementary data sources (LiDAR, InSAR, thermal) or integrated with coastal vulnerability assessments depending on project needs.
+
+### Open Data Architecture
+- Sentinel-2 L2A imagery via AWS STAC catalog (no authentication)
+- Cloud-optimized GeoTIFF processing
+- STAC-compliant data discovery
+
+### Validated Scientific Methods
+- Biomass model R² = 0.72 (validated against 600+ field plots)
+- Detection accuracy: 85-90% (conservative threshold approach)
+- Uncertainty: ±30% (meets IPCC Tier 2 requirements)
+
+### Workflow Stages
+1. Study Area Definition - Interactive location selector
+2. STAC Data Discovery - Query AWS catalog for cloud-free scenes
+3. Vegetation Index Calculation - NDVI, NDWI, SAVI from spectral bands
+4. Mangrove Detection - Threshold-based classification
+5. Biomass Estimation - Allometric model (Biomass = 250.5 × NDVI - 75.2)
+6. Carbon Accounting - IPCC-compliant calculations""" ;
+            dcterms:modified "2024-07-30T12:00:00Z" ;
+            dcterms:title "KindGrove: Mangrove Biomass Estimation" ;
+            dcat:contactPoint [ rdfs:label "Cameron Sajedi" ;
+                    proc:roles "developer" ] ;
+            dcat:keyword "biomass",
+                "carbon",
+                "mangrove",
+                "sentinel-2",
+                "stac" ;
+            dcat:license "MIT" ;
+            proc:version "1" ;
+            rec:themes [ thns:concepts [ thns:id "land" ] ;
+                    thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
+            ns4:project "ospd" ;
+            ns4:status "development" ;
+            ns4:type "workflow" ] ;
+    proc:type "Feature" .
 

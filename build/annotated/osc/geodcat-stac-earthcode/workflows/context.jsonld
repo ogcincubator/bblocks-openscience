@@ -13,36 +13,10 @@
       "@container": "@set",
       "@id": "geojson:features"
     },
-    "type": "@type",
+    "type": "proc:type",
     "id": "@id",
     "properties": {
       "@context": {
-        "language": {
-          "@context": {
-            "code": {},
-            "alternate": {},
-            "dir": {}
-          },
-          "@id": "rec:language"
-        },
-        "languages": {
-          "@context": {
-            "code": {},
-            "alternate": {},
-            "dir": {}
-          },
-          "@container": "@set",
-          "@id": "rec:languages"
-        },
-        "resourceLanguages": {
-          "@context": {
-            "code": {},
-            "alternate": {},
-            "dir": {}
-          },
-          "@container": "@set",
-          "@id": "rec:resourceLanguages"
-        },
         "externalIds": {
           "@context": {
             "scheme": "rec:scheme",
@@ -77,9 +51,6 @@
         },
         "contacts": {
           "@context": {
-            "identifier": {},
-            "position": {},
-            "organization": {},
             "logo": {
               "@context": {
                 "rel": {
@@ -89,27 +60,12 @@
                   "@id": "http://www.iana.org/assignments/relation",
                   "@type": "@id"
                 },
-                "anchor": {},
                 "type": "dct:type",
                 "hreflang": "dct:language",
                 "title": "rdfs:label",
                 "length": "dct:extent"
               }
-            },
-            "phones": {},
-            "emails": {},
-            "addresses": {
-              "@context": {
-                "deliveryPoint": {},
-                "city": {},
-                "administrativeArea": {},
-                "postalCode": {},
-                "country": {}
-              }
-            },
-            "hoursOfService": {},
-            "contactInstructions": {},
-            "roles": {}
+            }
           },
           "@container": "@set",
           "@id": "dcat:contactPoint",
@@ -121,11 +77,11 @@
     },
     "geometry": {
       "@context": {
+        "type": "@type",
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
-        },
-        "geometries": {}
+        }
       },
       "@id": "geojson:geometry"
     },
@@ -145,8 +101,7 @@
         "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
-        "length": "dct:extent",
-        "anchor": {}
+        "length": "dct:extent"
       },
       "@id": "rdfs:seeAlso"
     },
@@ -155,15 +110,7 @@
       "@id": "dct:conformsTo",
       "@type": "@id"
     },
-    "time": {
-      "@context": {
-        "date": {},
-        "timestamp": {},
-        "interval": {},
-        "resolution": {}
-      },
-      "@id": "dct:temporal"
-    },
+    "time": "dct:temporal",
     "linkTemplates": {
       "@context": {
         "rel": {
@@ -286,7 +233,6 @@
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "anchor": {},
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent"
@@ -306,7 +252,6 @@
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -326,7 +271,6 @@
                   "@id": "http://www.iana.org/assignments/relation",
                   "@type": "@id"
                 },
-                "anchor": {},
                 "hreflang": "dct:language",
                 "title": "rdfs:label",
                 "length": "dct:extent"
@@ -347,7 +291,6 @@
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "type": "dct:type",
             "hreflang": "dct:language",
             "title": "rdfs:label",
@@ -361,7 +304,6 @@
       "@type": "@id"
     },
     "provType": "@type",
-    "prov:type": {},
     "hadMember": {
       "@id": "prov:hadMember",
       "@type": "@id"
@@ -382,7 +324,6 @@
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -404,7 +345,6 @@
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -425,7 +365,6 @@
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "anchor": {},
         "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
@@ -462,7 +401,6 @@
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -508,7 +446,6 @@
                   "@id": "http://www.iana.org/assignments/relation",
                   "@type": "@id"
                 },
-                "anchor": {},
                 "hreflang": "dct:language",
                 "title": "rdfs:label",
                 "length": "dct:extent"
@@ -784,59 +721,63 @@
       "@type": "@id"
     },
     "name": "rdfs:label",
-    "osc:project": {},
-    "additionalParameters": {
-      "@context": {
-        "role": {},
-        "parameters": {}
-      }
-    },
-    "metadata": {
-      "@context": {
-        "role": {}
-      }
-    },
-    "maxOccurs": {},
-    "minOccurs": {},
+    "@vocab": "https://w3id.org/ogc/api/processes/",
+    "maxOccurs": "proc:maxOccurs",
+    "minOccurs": "proc:minOccurs",
     "schema": {
       "@context": {
-        "$ref": {},
-        "additionalProperties": {},
-        "allOf": {},
-        "anyOf": {},
-        "contentEncoding": {},
-        "contentMediaType": {},
-        "contentSchema": {},
-        "default": {},
-        "deprecated": {},
-        "enum": {},
-        "example": {},
-        "exclusiveMaximum": {},
-        "exclusiveMinimum": {},
-        "format": {},
-        "items": {},
-        "maxItems": {},
-        "maxLength": {},
-        "maxProperties": {},
-        "maximum": {},
-        "minItems": {},
-        "minLength": {},
-        "minProperties": {},
-        "minimum": {},
-        "multipleOf": {},
-        "not": {},
-        "nullable": {},
-        "oneOf": {},
-        "pattern": {},
-        "readOnly": {},
-        "required": {},
-        "uniqueItems": {},
-        "writeOnly": {}
-      }
+        "@vocab": "https://w3id.org/ogc/api/schema/",
+        "additionalProperties": {
+          "@context": {
+            "@vocab": "https://w3id.org/ogc/api/schema/"
+          }
+        },
+        "allOf": {
+          "@context": {
+            "@vocab": "https://w3id.org/ogc/api/schema/"
+          }
+        },
+        "anyOf": {
+          "@context": {
+            "@vocab": "https://w3id.org/ogc/api/schema/"
+          }
+        },
+        "items": {
+          "@context": {
+            "@vocab": "https://w3id.org/ogc/api/schema/"
+          }
+        },
+        "not": {
+          "@context": {
+            "@vocab": "https://w3id.org/ogc/api/schema/"
+          }
+        },
+        "oneOf": {
+          "@context": {
+            "@vocab": "https://w3id.org/ogc/api/schema/"
+          }
+        },
+        "properties": {
+          "@context": {
+            "@vocab": "https://w3id.org/ogc/api/schema/"
+          }
+        }
+      },
+      "@id": "proc:schema"
     },
-    "wfdesc:hasInput": {},
-    "wfdesc:hasOutput": {},
-    "rel": {},
+    "nullable": "proc:nullable",
+    "$ref": {
+      "@id": "proc:ref",
+      "@type": "@id"
+    },
+    "default": {
+      "@id": "proc:default",
+      "@type": "@json"
+    },
+    "enum": {
+      "@id": "proc:enum",
+      "@container": "@set"
+    },
     "href": {
       "@type": "@id",
       "@id": "oa:hasTarget"
@@ -857,6 +798,7 @@
     "prov": "http://www.w3.org/ns/prov#",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "thns": "https://w3id.org/ogc/stac/themes/",
+    "proc": "https://w3id.org/ogc/api/processes/",
     "@version": 1.1
   }
 }

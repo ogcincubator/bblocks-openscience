@@ -10,7 +10,7 @@
       "title": "Validation report for ogc.osc.ontology.cwlprov - CWL Ontology",
       "bblockName": "CWL Ontology",
       "bblockId": "ogc.osc.ontology.cwlprov",
-      "generated": "2025-12-18T06:30:01.954658+00:00",
+      "generated": "2025-12-22T04:17:06.501826+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -24,7 +24,7 @@
       "title": "Validation report for ogc.osc.application-package - Application Package",
       "bblockName": "Application Package",
       "bblockId": "ogc.osc.application-package",
-      "generated": "2025-12-18T06:30:02.052255+00:00",
+      "generated": "2025-12-22T04:17:06.572010+00:00",
       "result": true,
       "items": [
         {
@@ -46,7 +46,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_1_1.yaml (example_1_1) from examples"
+                  "message": "Using example_1_1.yaml from examples"
                 }
               ]
             },
@@ -76,7 +76,7 @@
       "title": "Validation report for ogc.osc.api-profiles.processes.ipt.results - Result schema for IPT",
       "bblockName": "Result schema for IPT",
       "bblockId": "ogc.osc.api-profiles.processes.ipt.results",
-      "generated": "2025-12-18T06:30:02.062723+00:00",
+      "generated": "2025-12-22T04:17:06.581892+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -90,7 +90,7 @@
       "title": "Validation report for ogc.osc.ontology.openscience - Open Science Ontology",
       "bblockName": "Open Science Ontology",
       "bblockId": "ogc.osc.ontology.openscience",
-      "generated": "2025-12-18T06:30:02.067093+00:00",
+      "generated": "2025-12-22T04:17:06.585889+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -104,7 +104,7 @@
       "title": "Validation report for ogc.osc.geodcat-stac-earthcode.common - EarthCODE Common STAC profile",
       "bblockName": "EarthCODE Common STAC profile",
       "bblockId": "ogc.osc.geodcat-stac-earthcode.common",
-      "generated": "2025-12-18T06:30:03.856790+00:00",
+      "generated": "2025-12-22T04:17:09.991332+00:00",
       "result": true,
       "items": [
         {
@@ -126,7 +126,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_1_1.json (example_1_1) from examples"
+                  "message": "Using example_1_1.json from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -143,7 +143,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "example_1_1.ttl",
-                  "size": 61,
+                  "size": 47,
                   "isError": false,
                   "message": "Output Turtle example_1_1.ttl created"
                 }
@@ -198,7 +198,7 @@
       "title": "Validation report for ogc.osc.api-profiles.processes.ipt.execute - Execute (request) schema for IPT",
       "bblockName": "Execute (request) schema for IPT",
       "bblockId": "ogc.osc.api-profiles.processes.ipt.execute",
-      "generated": "2025-12-18T06:30:03.864749+00:00",
+      "generated": "2025-12-22T04:17:09.998713+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -212,7 +212,7 @@
       "title": "Validation report for ogc.osc.geodcat-stac-earthcode.experiments - EarthCODE Experiment",
       "bblockName": "EarthCODE Experiment",
       "bblockId": "ogc.osc.geodcat-stac-earthcode.experiments",
-      "generated": "2025-12-18T06:30:06.149486+00:00",
+      "generated": "2025-12-22T04:17:13.274657+00:00",
       "result": false,
       "items": [
         {
@@ -234,7 +234,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_1_1.json (example_1_1) from examples"
+                  "message": "Using example_1_1.json from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -277,84 +277,27 @@
               "entries": [
                 {
                   "op": "shacl-report",
-                  "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+                  "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
                   "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
                   "isError": false,
-                  "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+                  "message": "Validation result for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
                 },
                 {
-                  "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+                  "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
                   "focusNodes": {
-                    "rec:testAllVarsInTemplate": {
+                    "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
+                      "nodes": []
+                    },
+                    "<https://www.ogc.org/rules/kindgrove/#ProcessRunShape>": {
+                      "nodes": []
+                    },
+                    "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
                       "nodes": []
                     }
                   },
                   "isError": false,
-                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "source": {
-            "type": "EXAMPLE",
-            "requireFail": false,
-            "filename": "build/tests/osc/geodcat-stac-earthcode/experiments/example_2_1.json",
-            "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/experiments/example_2_1.json",
-            "exampleIndex": 2,
-            "snippetIndex": 1,
-            "language": "application/json"
-          },
-          "result": false,
-          "sections": [
-            {
-              "name": "FILES",
-              "title": "Files",
-              "entries": [
-                {
-                  "isError": false,
-                  "message": "Using example_2_1.json (example_2_1) from examples"
+                  "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n"
                 },
-                {
-                  "op": "jsonld-uplift",
-                  "isError": false,
-                  "message": "JSON-LD context is present - uplifting"
-                },
-                {
-                  "op": "jsonld-create",
-                  "filename": "example_2_1.jsonld",
-                  "isError": false,
-                  "message": "Output JSON-LD example_2_1.jsonld created"
-                },
-                {
-                  "op": "ttl-create",
-                  "empty": false,
-                  "filename": "example_2_1.ttl",
-                  "size": 65,
-                  "isError": false,
-                  "message": "Output Turtle example_2_1.ttl created"
-                }
-              ]
-            },
-            {
-              "name": "JSON_SCHEMA",
-              "title": "JSON Schema",
-              "entries": [
-                {
-                  "op": "validation",
-                  "result": false,
-                  "exception": "ValidationError",
-                  "errorMessage": "'id' is a required property",
-                  "isError": true,
-                  "message": "ValidationError: 'id' is a required property\n\nFailed validating 'required' in schema['properties']['properties']['allOf'][0]['allOf'][0]:\n    {'$schema': 'https://json-schema.org/draft/2020-12/schema',\n     'allOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#/$defs/Activity'}],\n     'description': 'An execution instance of a process (based on '\n                    'prov:Activity)',\n     'properties': {'describedByProcess': {'description': 'Links to the '\n                                                          'process '\n                                                          'description '\n                                                          '(wfdesc:Process) '\n                                                          'that was '\n                                                          'executed',\n                                           'format': 'uri',\n                                           'type': 'string',\n                                           'x-jsonld-id': 'http://purl.org/wf4ever/wfprov#describedByProcess',\n                                           'x-jsonld-type': '@id'},\n                    'endedAtTime': {'description': 'End time of the '\n                                                   'execution',\n                                    'format': 'date-time',\n                                    'type': 'string',\n                                    'x-jsonld-id': 'http://www.w3.org/ns/prov#endedAtTime',\n                                    'x-jsonld-type': 'http://www.w3.org/2001/XMLSchema#dateTime'},\n                    'id': {'description': 'Unique identifier for the '\n                                          'process run',\n                           'format': 'uri',\n                           'type': 'string',\n                           'x-jsonld-id': '@id'},\n                    'startedAtTime': {'description': 'Start time of the '\n                                                     'execution',\n                                      'format': 'date-time',\n                                      'type': 'string',\n                                      'x-jsonld-id': 'http://www.w3.org/ns/prov#startedAtTime',\n                                      'x-jsonld-type': 'http://www.w3.org/2001/XMLSchema#dateTime'},\n                    'type': {'description': 'Type indicator (Activity or '\n                                            'sub-type)',\n                             'type': 'string',\n                             'x-jsonld-id': '@type'},\n                    'usedInput': {'description': 'Input artifacts used by '\n                                                 'this process run',\n                                  'items': {'properties': {'id': {'format': 'uri',\n                                                                  'type': 'string'}},\n                                            'required': ['id'],\n                                            'type': 'object'},\n                                  'type': 'array',\n                                  'x-jsonld-container': '@set',\n                                  'x-jsonld-id': 'http://purl.org/wf4ever/wfprov#usedInput',\n                                  'x-jsonld-type': '@id'},\n                    'wasEnactedBy': {'description': 'The workflow engine '\n                                                    'that enacted this '\n                                                    'process run',\n                                     'format': 'uri',\n                                     'type': 'string',\n                                     'x-jsonld-id': 'http://www.w3.org/ns/prov#wasAssociatedWith',\n                                     'x-jsonld-type': '@id'},\n                    'wasPartOfWorkflowRun': {'description': 'The workflow '\n                                                            'run that this '\n                                                            'process run '\n                                                            'was part of',\n                                             'format': 'uri',\n                                             'type': 'string',\n                                             'x-jsonld-id': 'http://purl.org/wf4ever/wfprov#wasPartOfWorkflowRun',\n                                             'x-jsonld-type': '@id'}},\n     'required': ['id'],\n     'type': 'object',\n     'x-jsonld-extra-terms': {'ProcessRun': 'http://purl.org/wf4ever/wfprov#ProcessRun',\n                              'WorkflowRun': 'http://purl.org/wf4ever/wfprov#WorkflowRun',\n                              'wasOutputFrom': {'x-jsonld-container': '@set',\n                                                'x-jsonld-id': 'http://www.w3.org/ns/prov#generated',\n                                                'x-jsonld-type': '@id'}},\n     'x-jsonld-prefixes': {'prov': 'http://www.w3.org/ns/prov#',\n                           'wfdesc': 'http://purl.org/wf4ever/wfdesc#',\n                           'wfprov': 'http://purl.org/wf4ever/wfprov#'},\n     'x-jsonld-vocab': 'http://purl.org/wf4ever/wfprov#'}\n\nOn instance['properties']:\n    {'contacts': [{'contactInstructions': 'Contact via website',\n                   'name': 'A person',\n                   'organization': 'An Org',\n                   'position': 'Researcher',\n                   'roles': ['principal investigator']},\n                  {'contactInstructions': 'SEE WEBSITE',\n                   'links': [{'href': 'https://example.com/',\n                              'rel': 'about',\n                              'type': 'text/html'}],\n                   'name': 'An Org',\n                   'roles': ['processor']}],\n     'created': '2025-01-21T18:00:00Z',\n     'description': 'Experiment using the water bodies workflow.',\n     'formats': [{'name': 'GeoTIFF'}],\n     'license': 'proprietary',\n     'osc:workflow': 'waterbodies',\n     'themes': [{'concepts': [{'id': 'land'}],\n                 'scheme': 'https://github.com/stac-extensions/osc#theme'}],\n     'title': 'ESA WorldCereal Experiment',\n     'type': 'experiment',\n     'updated': '2025-01-21T18:40:00Z',\n     'version': '2'}"
-                }
-              ]
-            },
-            {
-              "name": "SHACL",
-              "title": "SHACL",
-              "entries": [
                 {
                   "op": "shacl-report",
                   "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
@@ -380,9 +323,216 @@
           "source": {
             "type": "EXAMPLE",
             "requireFail": false,
-            "filename": "build/tests/osc/geodcat-stac-earthcode/experiments/example_3_1.json",
-            "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/experiments/example_3_1.json",
+            "filename": "build/tests/osc/geodcat-stac-earthcode/experiments/example_2_1.ttl",
+            "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/experiments/example_2_1.ttl",
+            "exampleIndex": 2,
+            "snippetIndex": 1,
+            "language": "text/turtle"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using example_2_1.ttl from examples"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_2_1.ttl",
+                  "size": 155,
+                  "isError": false,
+                  "message": "Output Turtle example_2_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
+                  "focusNodes": {
+                    "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
+                      "nodes": [
+                        "wfkg:BiomassEstimate",
+                        "wfkg:GreenBand",
+                        "wfkg:NIRBand",
+                        "wfkg:SelectedScene",
+                        "wfkg:InteractiveVisualisation",
+                        "wfkg:RedBand",
+                        "wfkg:SAVI",
+                        "wfkg:MangroveMask",
+                        "wfkg:CarbonStockEstimate",
+                        "wfkg:NDVI",
+                        "wfkg:CSVSummary",
+                        "wfkg:NDWI",
+                        "wfkg:CO2EquivalentEstimate",
+                        "wfkg:GeoTIFFRaster"
+                      ]
+                    },
+                    "<https://www.ogc.org/rules/kindgrove/#ProcessRunShape>": {
+                      "nodes": [
+                        "wfkg:SelectScenesRun",
+                        "wfkg:CO2EquivalentRun",
+                        "wfkg:AllometricEquationRun",
+                        "wfkg:CalculateIndicesRun",
+                        "wfkg:DefineStudyAreaRun",
+                        "wfkg:DisplaySummaryReportRun",
+                        "wfkg:DownloadBandsRun",
+                        "wfkg:ExportResultsRun",
+                        "wfkg:ThresholdClassificationRun",
+                        "wfkg:CarbonStockRun"
+                      ]
+                    },
+                    "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
+                      "nodes": [
+                        "wfkg:SelectScenesRun",
+                        "wfkg:CO2EquivalentRun",
+                        "wfkg:AllometricEquationRun",
+                        "wfkg:CalculateIndicesRun",
+                        "wfkg:DefineStudyAreaRun",
+                        "wfkg:DisplaySummaryReportRun",
+                        "wfkg:DownloadBandsRun",
+                        "wfkg:ExportResultsRun",
+                        "wfkg:ThresholdClassificationRun",
+                        "wfkg:CarbonStockRun"
+                      ]
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: wfkg:BiomassEstimate,wfkg:GreenBand,wfkg:NIRBand,wfkg:SelectedScene,wfkg:InteractiveVisualisation,wfkg:RedBand,wfkg:SAVI,wfkg:MangroveMask,wfkg:CarbonStockEstimate,wfkg:NDVI,wfkg:CSVSummary,wfkg:NDWI,wfkg:CO2EquivalentEstimate,wfkg:GeoTIFFRaster\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: wfkg:SelectScenesRun,wfkg:CO2EquivalentRun,wfkg:AllometricEquationRun,wfkg:CalculateIndicesRun,wfkg:DefineStudyAreaRun,wfkg:DisplaySummaryReportRun,wfkg:DownloadBandsRun,wfkg:ExportResultsRun,wfkg:ThresholdClassificationRun,wfkg:CarbonStockRun\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: wfkg:SelectScenesRun,wfkg:CO2EquivalentRun,wfkg:AllometricEquationRun,wfkg:CalculateIndicesRun,wfkg:DefineStudyAreaRun,wfkg:DisplaySummaryReportRun,wfkg:DownloadBandsRun,wfkg:ExportResultsRun,wfkg:ThresholdClassificationRun,wfkg:CarbonStockRun\n"
+                },
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+                  "focusNodes": {
+                    "rec:testAllVarsInTemplate": {
+                      "nodes": []
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/osc/geodcat-stac-earthcode/experiments/example_3_1.jsonld",
+            "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/experiments/example_3_1.jsonld",
             "exampleIndex": 3,
+            "snippetIndex": 1,
+            "language": "application/ld+json"
+          },
+          "result": false,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using example_3_1.jsonld from examples"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_3_1.ttl",
+                  "size": 12,
+                  "isError": false,
+                  "message": "Output Turtle example_3_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": false,
+                  "exception": "ValidationError",
+                  "errorMessage": "'id' is a required property",
+                  "isError": true,
+                  "message": "ValidationError: 'id' is a required property\n\nFailed validating 'required' in schema['properties']['properties']['allOf'][0]['allOf'][0]:\n    {'$schema': 'https://json-schema.org/draft/2020-12/schema',\n     'allOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#/$defs/Activity'}],\n     'description': 'An execution instance of a process (based on '\n                    'prov:Activity)',\n     'properties': {'describedByProcess': {'description': 'Links to the '\n                                                          'process '\n                                                          'description '\n                                                          '(wfdesc:Process) '\n                                                          'that was '\n                                                          'executed',\n                                           'format': 'uri',\n                                           'type': 'string',\n                                           'x-jsonld-id': 'http://purl.org/wf4ever/wfprov#describedByProcess',\n                                           'x-jsonld-type': '@id'},\n                    'endedAtTime': {'description': 'End time of the '\n                                                   'execution',\n                                    'format': 'date-time',\n                                    'type': 'string',\n                                    'x-jsonld-id': 'http://www.w3.org/ns/prov#endedAtTime',\n                                    'x-jsonld-type': 'http://www.w3.org/2001/XMLSchema#dateTime'},\n                    'id': {'description': 'Unique identifier for the '\n                                          'process run',\n                           'format': 'uri',\n                           'type': 'string',\n                           'x-jsonld-id': '@id'},\n                    'startedAtTime': {'description': 'Start time of the '\n                                                     'execution',\n                                      'format': 'date-time',\n                                      'type': 'string',\n                                      'x-jsonld-id': 'http://www.w3.org/ns/prov#startedAtTime',\n                                      'x-jsonld-type': 'http://www.w3.org/2001/XMLSchema#dateTime'},\n                    'type': {'description': 'Type indicator (Activity or '\n                                            'sub-type)',\n                             'type': 'string',\n                             'x-jsonld-id': '@type'},\n                    'usedInput': {'description': 'Input artifacts used by '\n                                                 'this process run',\n                                  'items': {'properties': {'id': {'format': 'uri',\n                                                                  'type': 'string'}},\n                                            'required': ['id'],\n                                            'type': 'object'},\n                                  'type': 'array',\n                                  'x-jsonld-container': '@set',\n                                  'x-jsonld-id': 'http://purl.org/wf4ever/wfprov#usedInput',\n                                  'x-jsonld-type': '@id'},\n                    'wasEnactedBy': {'description': 'The workflow engine '\n                                                    'that enacted this '\n                                                    'process run',\n                                     'format': 'uri',\n                                     'type': 'string',\n                                     'x-jsonld-id': 'http://www.w3.org/ns/prov#wasAssociatedWith',\n                                     'x-jsonld-type': '@id'},\n                    'wasPartOfWorkflowRun': {'description': 'The workflow '\n                                                            'run that this '\n                                                            'process run '\n                                                            'was part of',\n                                             'format': 'uri',\n                                             'type': 'string',\n                                             'x-jsonld-id': 'http://purl.org/wf4ever/wfprov#wasPartOfWorkflowRun',\n                                             'x-jsonld-type': '@id'}},\n     'required': ['id'],\n     'type': 'object',\n     'x-jsonld-extra-terms': {'ProcessRun': 'http://purl.org/wf4ever/wfprov#ProcessRun',\n                              'WorkflowRun': 'http://purl.org/wf4ever/wfprov#WorkflowRun',\n                              'wasOutputFrom': {'x-jsonld-container': '@set',\n                                                'x-jsonld-id': 'http://www.w3.org/ns/prov#generated',\n                                                'x-jsonld-type': '@id'}},\n     'x-jsonld-prefixes': {'prov': 'http://www.w3.org/ns/prov#',\n                           'wfdesc': 'http://purl.org/wf4ever/wfdesc#',\n                           'wfprov': 'http://purl.org/wf4ever/wfprov#'},\n     'x-jsonld-vocab': 'http://purl.org/wf4ever/wfprov#'}\n\nOn instance['properties']:\n    {'contacts': [{'name': 'Cameron Sajedi',\n                   'organization': 'Starling Foundries',\n                   'roles': ['author', 'operator']}],\n     'created': '2024-06-01T10:00:00Z',\n     'description': 'An Earth observation workflow for mangrove detection '\n                    'and carbon stock estimation using Sentinel-2 imagery.',\n     'formats': [{'name': 'GeoTIFF'}, {'name': 'CSV'}],\n     'keywords': ['mangroves',\n                  'carbon',\n                  'Sentinel-2',\n                  'remote sensing',\n                  'climate'],\n     'license': 'CC-BY-4.0',\n     'osc:workflow': 'kindgrove-workflow',\n     'themes': [{'concepts': [{'id': 'ecosystems'}, {'id': 'climate'}],\n                 'scheme': 'https://github.com/stac-extensions/osc#theme'}],\n     'title': 'KindGrove Mangrove Carbon Assessment',\n     'type': 'experiment',\n     'updated': '2024-06-01T10:45:00Z',\n     'version': '1.0'}"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
+                  "focusNodes": {
+                    "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
+                      "nodes": []
+                    },
+                    "<https://www.ogc.org/rules/kindgrove/#ProcessRunShape>": {
+                      "nodes": []
+                    },
+                    "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
+                      "nodes": []
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n"
+                },
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+                  "focusNodes": {
+                    "rec:testAllVarsInTemplate": {
+                      "nodes": []
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/osc/geodcat-stac-earthcode/experiments/example_4_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/experiments/example_4_1.json",
+            "exampleIndex": 4,
             "snippetIndex": 1,
             "language": "application/json"
           },
@@ -394,7 +544,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_3_1.json (example_3_1) from examples"
+                  "message": "Using example_4_1.json from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -403,17 +553,120 @@
                 },
                 {
                   "op": "jsonld-create",
-                  "filename": "example_3_1.jsonld",
+                  "filename": "example_4_1.jsonld",
                   "isError": false,
-                  "message": "Output JSON-LD example_3_1.jsonld created"
+                  "message": "Output JSON-LD example_4_1.jsonld created"
                 },
                 {
                   "op": "ttl-create",
                   "empty": false,
-                  "filename": "example_3_1.ttl",
+                  "filename": "example_4_1.ttl",
+                  "size": 65,
+                  "isError": false,
+                  "message": "Output Turtle example_4_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": false,
+                  "exception": "ValidationError",
+                  "errorMessage": "'id' is a required property",
+                  "isError": true,
+                  "message": "ValidationError: 'id' is a required property\n\nFailed validating 'required' in schema['properties']['properties']['allOf'][0]['allOf'][0]:\n    {'$schema': 'https://json-schema.org/draft/2020-12/schema',\n     'allOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#/$defs/Activity'}],\n     'description': 'An execution instance of a process (based on '\n                    'prov:Activity)',\n     'properties': {'describedByProcess': {'description': 'Links to the '\n                                                          'process '\n                                                          'description '\n                                                          '(wfdesc:Process) '\n                                                          'that was '\n                                                          'executed',\n                                           'format': 'uri',\n                                           'type': 'string',\n                                           'x-jsonld-id': 'http://purl.org/wf4ever/wfprov#describedByProcess',\n                                           'x-jsonld-type': '@id'},\n                    'endedAtTime': {'description': 'End time of the '\n                                                   'execution',\n                                    'format': 'date-time',\n                                    'type': 'string',\n                                    'x-jsonld-id': 'http://www.w3.org/ns/prov#endedAtTime',\n                                    'x-jsonld-type': 'http://www.w3.org/2001/XMLSchema#dateTime'},\n                    'id': {'description': 'Unique identifier for the '\n                                          'process run',\n                           'format': 'uri',\n                           'type': 'string',\n                           'x-jsonld-id': '@id'},\n                    'startedAtTime': {'description': 'Start time of the '\n                                                     'execution',\n                                      'format': 'date-time',\n                                      'type': 'string',\n                                      'x-jsonld-id': 'http://www.w3.org/ns/prov#startedAtTime',\n                                      'x-jsonld-type': 'http://www.w3.org/2001/XMLSchema#dateTime'},\n                    'type': {'description': 'Type indicator (Activity or '\n                                            'sub-type)',\n                             'type': 'string',\n                             'x-jsonld-id': '@type'},\n                    'usedInput': {'description': 'Input artifacts used by '\n                                                 'this process run',\n                                  'items': {'properties': {'id': {'format': 'uri',\n                                                                  'type': 'string'}},\n                                            'required': ['id'],\n                                            'type': 'object'},\n                                  'type': 'array',\n                                  'x-jsonld-container': '@set',\n                                  'x-jsonld-id': 'http://purl.org/wf4ever/wfprov#usedInput',\n                                  'x-jsonld-type': '@id'},\n                    'wasEnactedBy': {'description': 'The workflow engine '\n                                                    'that enacted this '\n                                                    'process run',\n                                     'format': 'uri',\n                                     'type': 'string',\n                                     'x-jsonld-id': 'http://www.w3.org/ns/prov#wasAssociatedWith',\n                                     'x-jsonld-type': '@id'},\n                    'wasPartOfWorkflowRun': {'description': 'The workflow '\n                                                            'run that this '\n                                                            'process run '\n                                                            'was part of',\n                                             'format': 'uri',\n                                             'type': 'string',\n                                             'x-jsonld-id': 'http://purl.org/wf4ever/wfprov#wasPartOfWorkflowRun',\n                                             'x-jsonld-type': '@id'}},\n     'required': ['id'],\n     'type': 'object',\n     'x-jsonld-extra-terms': {'ProcessRun': 'http://purl.org/wf4ever/wfprov#ProcessRun',\n                              'WorkflowRun': 'http://purl.org/wf4ever/wfprov#WorkflowRun',\n                              'wasOutputFrom': {'x-jsonld-container': '@set',\n                                                'x-jsonld-id': 'http://www.w3.org/ns/prov#generated',\n                                                'x-jsonld-type': '@id'}},\n     'x-jsonld-prefixes': {'prov': 'http://www.w3.org/ns/prov#',\n                           'wfdesc': 'http://purl.org/wf4ever/wfdesc#',\n                           'wfprov': 'http://purl.org/wf4ever/wfprov#'},\n     'x-jsonld-vocab': 'http://purl.org/wf4ever/wfprov#'}\n\nOn instance['properties']:\n    {'contacts': [{'contactInstructions': 'Contact via website',\n                   'name': 'A person',\n                   'organization': 'An Org',\n                   'position': 'Researcher',\n                   'roles': ['principal investigator']},\n                  {'contactInstructions': 'SEE WEBSITE',\n                   'links': [{'href': 'https://example.com/',\n                              'rel': 'about',\n                              'type': 'text/html'}],\n                   'name': 'An Org',\n                   'roles': ['processor']}],\n     'created': '2025-01-21T18:00:00Z',\n     'description': 'Experiment using the water bodies workflow.',\n     'formats': [{'name': 'GeoTIFF'}],\n     'license': 'proprietary',\n     'osc:workflow': 'waterbodies',\n     'themes': [{'concepts': [{'id': 'land'}],\n                 'scheme': 'https://github.com/stac-extensions/osc#theme'}],\n     'title': 'ESA WorldCereal Experiment',\n     'type': 'experiment',\n     'updated': '2025-01-21T18:40:00Z',\n     'version': '2'}"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
+                  "focusNodes": {
+                    "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
+                      "nodes": []
+                    },
+                    "<https://www.ogc.org/rules/kindgrove/#ProcessRunShape>": {
+                      "nodes": []
+                    },
+                    "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
+                      "nodes": []
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n"
+                },
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
+                  "focusNodes": {
+                    "rec:testAllVarsInTemplate": {
+                      "nodes": []
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/osc/geodcat-stac-earthcode/experiments/example_5_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/experiments/example_5_1.json",
+            "exampleIndex": 5,
+            "snippetIndex": 1,
+            "language": "application/json"
+          },
+          "result": false,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using example_5_1.json from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_5_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_5_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_5_1.ttl",
                   "size": 100,
                   "isError": false,
-                  "message": "Output Turtle example_3_1.ttl created"
+                  "message": "Output Turtle example_5_1.ttl created"
                 }
               ]
             },
@@ -435,6 +688,29 @@
               "name": "SHACL",
               "title": "SHACL",
               "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
+                  "focusNodes": {
+                    "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
+                      "nodes": []
+                    },
+                    "<https://www.ogc.org/rules/kindgrove/#ProcessRunShape>": {
+                      "nodes": []
+                    },
+                    "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
+                      "nodes": []
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n"
+                },
                 {
                   "op": "shacl-report",
                   "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
@@ -459,16 +735,16 @@
       ],
       "globalErrors": {},
       "counts": {
-        "total": 3,
-        "passed": 0,
-        "failed": 3
+        "total": 5,
+        "passed": 1,
+        "failed": 4
       }
     },
     "ogc.osc.geodcat-stac-earthcode.products": {
       "title": "Validation report for ogc.osc.geodcat-stac-earthcode.products - EarthCODE Product",
       "bblockName": "EarthCODE Product",
       "bblockId": "ogc.osc.geodcat-stac-earthcode.products",
-      "generated": "2025-12-18T06:30:07.437319+00:00",
+      "generated": "2025-12-22T04:17:15.353724+00:00",
       "result": true,
       "items": [
         {
@@ -515,7 +791,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "empty-themes-fail.ttl",
-                  "size": 57,
+                  "size": 43,
                   "isError": false,
                   "message": "Output Turtle empty-themes-fail.ttl created"
                 }
@@ -604,7 +880,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "invalid-cf-parameters-fail.ttl",
-                  "size": 62,
+                  "size": 48,
                   "isError": false,
                   "message": "Output Turtle invalid-cf-parameters-fail.ttl created"
                 }
@@ -693,7 +969,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "invalid-osc-status-fail.ttl",
-                  "size": 61,
+                  "size": 47,
                   "isError": false,
                   "message": "Output Turtle invalid-osc-status-fail.ttl created"
                 }
@@ -782,7 +1058,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "missing-project-fail.ttl",
-                  "size": 60,
+                  "size": 46,
                   "isError": false,
                   "message": "Output Turtle missing-project-fail.ttl created"
                 }
@@ -871,7 +1147,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "missing-type-fail.ttl",
-                  "size": 60,
+                  "size": 46,
                   "isError": false,
                   "message": "Output Turtle missing-type-fail.ttl created"
                 }
@@ -949,7 +1225,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "valid-cf-parameters.ttl",
-                  "size": 67,
+                  "size": 51,
                   "isError": false,
                   "message": "Output Turtle valid-cf-parameters.ttl created"
                 }
@@ -1011,7 +1287,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_1_1.json (example_1_1) from examples"
+                  "message": "Using example_1_1.json from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -1028,7 +1304,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "example_1_1.ttl",
-                  "size": 61,
+                  "size": 47,
                   "isError": false,
                   "message": "Output Turtle example_1_1.ttl created"
                 }
@@ -1089,7 +1365,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_2_1.json (example_2_1) from examples"
+                  "message": "Using example_2_1.json from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -1106,7 +1382,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "example_2_1.ttl",
-                  "size": 74,
+                  "size": 58,
                   "isError": false,
                   "message": "Output Turtle example_2_1.ttl created"
                 }
@@ -1161,7 +1437,7 @@
       "title": "Validation report for ogc.osc.geodcat-stac-earthcode.workflows - EarthCODE Workflow",
       "bblockName": "EarthCODE Workflow",
       "bblockId": "ogc.osc.geodcat-stac-earthcode.workflows",
-      "generated": "2025-12-18T06:30:08.238166+00:00",
+      "generated": "2025-12-22T04:17:16.469849+00:00",
       "result": true,
       "items": [
         {
@@ -1183,7 +1459,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_1_1.json (example_1_1) from examples"
+                  "message": "Using example_1_1.json from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -1200,7 +1476,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "example_1_1.ttl",
-                  "size": 65,
+                  "size": 98,
                   "isError": false,
                   "message": "Output Turtle example_1_1.ttl created"
                 }
@@ -1262,7 +1538,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_2_1.json (example_2_1) from examples"
+                  "message": "Using example_2_1.json from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -1279,7 +1555,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "example_2_1.ttl",
-                  "size": 41,
+                  "size": 66,
                   "isError": false,
                   "message": "Output Turtle example_2_1.ttl created"
                 }
@@ -1341,7 +1617,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_3_1.json (example_3_1) from examples"
+                  "message": "Using example_3_1.json from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -1358,7 +1634,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "example_3_1.ttl",
-                  "size": 29,
+                  "size": 40,
                   "isError": false,
                   "message": "Output Turtle example_3_1.ttl created"
                 }
@@ -1419,7 +1695,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_4_1.json (example_4_1) from examples"
+                  "message": "Using example_4_1.json from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -1436,7 +1712,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "example_4_1.ttl",
-                  "size": 38,
+                  "size": 103,
                   "isError": false,
                   "message": "Output Turtle example_4_1.ttl created"
                 }
@@ -1498,7 +1774,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_5_1.json (example_5_1) from examples"
+                  "message": "Using example_5_1.json from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -1515,7 +1791,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "example_5_1.ttl",
-                  "size": 40,
+                  "size": 65,
                   "isError": false,
                   "message": "Output Turtle example_5_1.ttl created"
                 }
@@ -1577,7 +1853,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_6_1.json (example_6_1) from examples"
+                  "message": "Using example_6_1.json from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -1594,7 +1870,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "example_6_1.ttl",
-                  "size": 41,
+                  "size": 68,
                   "isError": false,
                   "message": "Output Turtle example_6_1.ttl created"
                 }
@@ -1656,7 +1932,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_7_1.json (example_7_1) from examples"
+                  "message": "Using example_7_1.json from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -1673,7 +1949,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "example_7_1.ttl",
-                  "size": 44,
+                  "size": 71,
                   "isError": false,
                   "message": "Output Turtle example_7_1.ttl created"
                 }
@@ -1728,7 +2004,7 @@
       "title": "Validation report for ogc.osc.api-profiles.processes.ipt.api - IPT Profile of OGC API Processes",
       "bblockName": "IPT Profile of OGC API Processes",
       "bblockId": "ogc.osc.api-profiles.processes.ipt.api",
-      "generated": "2025-12-18T06:30:08.244867+00:00",
+      "generated": "2025-12-22T04:17:16.476233+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -1742,7 +2018,7 @@
       "title": "Validation report for ogc.osc.api-profiles.processes.workflow - Workflow profile of OGC API Processes",
       "bblockName": "Workflow profile of OGC API Processes",
       "bblockId": "ogc.osc.api-profiles.processes.workflow",
-      "generated": "2025-12-18T06:30:08.248621+00:00",
+      "generated": "2025-12-22T04:17:16.479855+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -1756,7 +2032,7 @@
       "title": "Validation report for ogc.osc.api-profiles.processes.ospd - Open Science profile of OGC API Processes",
       "bblockName": "Open Science profile of OGC API Processes",
       "bblockId": "ogc.osc.api-profiles.processes.ospd",
-      "generated": "2025-12-18T06:30:08.272891+00:00",
+      "generated": "2025-12-22T04:17:16.528596+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},

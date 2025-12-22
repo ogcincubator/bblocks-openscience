@@ -1,0 +1,119 @@
+Validation report for ogc.osc.geodcat-stac-earthcode.experiments - EarthCODE Experiment
+Generated 2025-12-22T04:17:13.274578+00:00
+=== Files ===
+Using example_5_1.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_5_1.jsonld created
+Output Turtle example_5_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: 'describedByWorkflow' is a required property
+
+Failed validating 'required' in schema['properties']['properties']['allOf'][0]['allOf'][1]:
+    {'properties': {'describedByWorkflow': {'description': 'Links to the '
+                                                           'workflow '
+                                                           'description '
+                                                           '(wfdesc:Workflow) '
+                                                           'that was '
+                                                           'executed',
+                                            'format': 'uri',
+                                            'type': 'string',
+                                            'x-jsonld-id': 'http://purl.org/wf4ever/wfprov#describedByWorkflow',
+                                            'x-jsonld-type': '@id'},
+                    'hadSubProcessRun': {'description': 'The process runs '
+                                                        'that were part of '
+                                                        'this workflow '
+                                                        'execution',
+                                         'items': {'properties': {'id': {'format': 'uri',
+                                                                         'type': 'string'}},
+                                                   'required': ['id'],
+                                                   'type': 'object'},
+                                         'type': 'array',
+                                         'x-jsonld-container': '@set',
+                                         'x-jsonld-reverse': 'wfprov:wasPartOfWorkflowRun',
+                                         'x-jsonld-type': '@id'},
+                    'wasEnactedBy': {'description': 'The workflow engine '
+                                                    'that executed this '
+                                                    'workflow',
+                                     'format': 'uri',
+                                     'type': 'string',
+                                     'x-jsonld-id': 'http://www.w3.org/ns/prov#wasAssociatedWith',
+                                     'x-jsonld-type': '@id'}},
+     'required': ['describedByWorkflow'],
+     'type': 'object'}
+
+On instance['properties']:
+    {'contacts': [{'contactInstructions': 'Contact via website',
+                   'name': 'A person',
+                   'organization': 'An Org',
+                   'position': 'Researcher',
+                   'roles': ['principal investigator']},
+                  {'contactInstructions': 'SEE WEBSITE',
+                   'links': [{'href': 'https://example.com/',
+                              'rel': 'about',
+                              'type': 'text/html'}],
+                   'name': 'An Org',
+                   'roles': ['processor']}],
+     'created': '2025-01-21T18:00:00Z',
+     'description': 'Experiment using the water bodies workflow.',
+     'endedAtTime': '2025-01-21T17:59:50Z',
+     'formats': [{'name': 'GeoTIFF'}],
+     'generated': 'https://example.com/open-science-catalog-metadata/products/water-bodies-execution-outputs/collection.json',
+     'id': 'water-bodies-execution',
+     'license': 'proprietary',
+     'osc:workflow': 'waterbodies',
+     'provType': ['Activity', 'wfprov:WorkflowRun'],
+     'startedAtTime': '2025-01-21T17:40:50Z',
+     'themes': [{'concepts': [{'id': 'land'}],
+                 'scheme': 'https://github.com/stac-extensions/osc#theme'}],
+     'title': 'Water Bodies Experiment',
+     'type': 'experiment',
+     'updated': '2025-01-21T18:40:00Z',
+     'version': '2',
+     'wasAssociatedWith': [{'actedOnBehalfOf': {'agentType': 'Organization',
+                                                'name': 'An Org'},
+                            'agentType': 'Person',
+                            'name': 'A Person'}],
+     'wfprov:describedByWorkflow': 'https://example.com/workflows/waterbodies/record.json',
+     'wfprov:usedInput': [{'describedByParameter': 'stac_items',
+                           'hadMember': ['https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2B_10TFK_20210713_0_L2A',
+                                         'https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2A_10TFK_20220524_0_L2A'],
+                           'type': 'wfprov:Artifact'},
+                          {'data': '-121.399,39.834,-120.74,40.472',
+                           'describedByParameter': 'aoi',
+                           'type': 'wfprov:Artifact'},
+                          {'data': 'EPSG:4326',
+                           'describedByParameter': 'epsg',
+                           'type': 'wfprov:Artifact'},
+                          {'data': ['green', 'nir'],
+                           'describedByParameter': 'bands',
+                           'type': 'wfprov:Artifact'}],
+     'wfprov:wasEnactedBy': {'id': 'eo-data-platform',
+                             'prov:label': 'cwltool 3.1.20251031082601',
+                             'type': ['wfprov:WorkfowEngine',
+                                      'prov:SoftwareAgent',
+                                      'prov:Agent']}}
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/geodcat-stac-earthcode/experiments/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:
+ - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: *none*
+ - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*
+ - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*
+
+Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
+ - Shape rec:testAllVarsInTemplate: *none*
+
+=== End SHACL ===
+

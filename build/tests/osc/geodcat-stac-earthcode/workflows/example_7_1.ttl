@@ -1,27 +1,40 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix ns2: <application:> .
-@prefix ns3: <vcs:> .
+@prefix ns3: <osc:> .
+@prefix ns4: <vcs:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix proc: <https://w3id.org/ogc/api/processes/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
+@prefix thns: <https://w3id.org/ogc/stac/themes/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://ogc.org/demo/ospd/app-ml4floods> a geojson:Feature ;
-    dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core>,
+<https://ogc.org/demo/ospd/app-ml4floods> dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core>,
         <https://stac-extensions.github.io/eo/v1.0.0/schema.json>,
         <https://stac-extensions.github.io/osc/v1.0.0/schema.json>,
         <https://stac-extensions.github.io/version/v1.0.0/schema.json>,
         <https://stacspec.org/STAC-api.html> ;
-    rdfs:seeAlso [ rdfs:label "Git source repository" ;
-            ns1:relation <http://www.iana.org/assignments/relation/vcs> ;
-            oa:hasTarget <https://github.com/eoap/app-ml4floods> ;
-            ns3:branch "main" ;
-            ns3:type "git" ],
+    rdfs:seeAlso [ rdfs:label "ML4Floods Inference Workflow" ;
+            ns2:container true ;
+            ns2:language "Python" ;
+            ns2:type "cwl-workflow" ;
+            dcterms:type "application/cwl" ;
+            ns1:relation <http://www.iana.org/assignments/relation/application> ;
+            oa:hasTarget <https://github.com/eoap/app-ml4floods/blob/main/cwl-workflow/app-ml4floods.cwl> ],
+        [ rdfs:label "Theme: Land" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/themes/land/catalog.json> ],
         [ rdfs:label "Project: OSPD" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/projects/ospd/collection.json> ],
+        [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://ogc.org/demo/workflows/app-ml4floods/record.json> ],
         [ rdfs:label "Open Science Catalog" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
@@ -30,18 +43,32 @@
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://ogc.org/demo/catalog.json> ],
-        [ rdfs:label "Theme: Land" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/land/catalog.json> ],
-        [ rdfs:label "ML4Floods Inference Workflow" ;
-            ns2:container true ;
+        [ rdfs:label "Git source repository" ;
+            ns1:relation <http://www.iana.org/assignments/relation/vcs> ;
+            oa:hasTarget <https://github.com/eoap/app-ml4floods> ;
+            ns4:branch "main" ;
+            ns4:type "git" ] ;
+    proc:properties [ ns2:container true ;
             ns2:language "Python" ;
             ns2:type "cwl-workflow" ;
-            dcterms:type "application/cwl" ;
-            ns1:relation <http://www.iana.org/assignments/relation/application> ;
-            oa:hasTarget <https://github.com/eoap/app-ml4floods/blob/main/cwl-workflow/app-ml4floods.cwl> ],
-        [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://ogc.org/demo/workflows/app-ml4floods/record.json> ] .
+            dcterms:created "2024-07-30T12:34:56Z" ;
+            dcterms:description "ML4Floods inference for flood extent estimation using a pre-trained model on Sentinel-2 or Landsat-9 data. This application is designed to process satellite imagery and delineate flood extents." ;
+            dcterms:modified "2024-07-30T12:34:56Z" ;
+            dcterms:title "ML4Floods Inference for Flood Extent Estimation" ;
+            dcat:contactPoint [ rdfs:label "Fabrice Brito" ;
+                    proc:emails [ prov:value "fabrice.brito@terradue.com" ] ;
+                    proc:roles "developer" ] ;
+            dcat:keyword "Landsat-9",
+                "ML4Floods",
+                "Sentinel-2",
+                "flood mapping",
+                "remote sensing" ;
+            dcat:license "MIT" ;
+            proc:version "1" ;
+            rec:themes [ thns:concepts [ thns:id "land" ] ;
+                    thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
+            ns3:project "ospd" ;
+            ns3:status "completed" ;
+            ns3:type "workflow" ] ;
+    proc:type "Feature" .
 

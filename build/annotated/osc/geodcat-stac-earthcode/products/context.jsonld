@@ -13,17 +13,15 @@
       "@container": "@set",
       "@id": "geojson:features"
     },
-    "type": "dct:format",
+    "type": "@type",
     "id": "@id",
     "properties": "@nest",
     "geometry": {
       "@context": {
-        "type": "@type",
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
-        },
-        "geometries": {}
+        }
       },
       "@id": "geojson:geometry"
     },
@@ -43,11 +41,7 @@
         "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
-        "length": "dct:extent",
-        "anchor": {},
-        "method": {},
-        "headers": {},
-        "body": {}
+        "length": "dct:extent"
       },
       "@id": "rdfs:seeAlso"
     },
@@ -56,15 +50,7 @@
       "@id": "dct:conformsTo",
       "@type": "@id"
     },
-    "time": {
-      "@context": {
-        "date": {},
-        "timestamp": {},
-        "interval": {},
-        "resolution": {}
-      },
-      "@id": "dct:temporal"
-    },
+    "time": "dct:temporal",
     "linkTemplates": {
       "@context": {
         "rel": {
@@ -74,6 +60,7 @@
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
+        "type": "dct:format",
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent",
@@ -108,9 +95,7 @@
       "@id": "rec:language",
       "@context": {
         "code": "rec:languageCode",
-        "name": "skos:prefLabel",
-        "alternate": {},
-        "dir": {}
+        "name": "skos:prefLabel"
       }
     },
     "languages": {
@@ -118,9 +103,7 @@
       "@id": "rec:languages",
       "@context": {
         "code": "rec:languageCode",
-        "name": "skos:prefLabel",
-        "alternate": {},
-        "dir": {}
+        "name": "skos:prefLabel"
       }
     },
     "resourceLanguages": {
@@ -128,9 +111,7 @@
       "@id": "rec:resourceLanguages",
       "@context": {
         "code": "rec:languageCode",
-        "name": "skos:prefLabel",
-        "alternate": {},
-        "dir": {}
+        "name": "skos:prefLabel"
       }
     },
     "externalIds": {
@@ -175,9 +156,6 @@
       "@id": "dcat:contactPoint",
       "@type": "@id",
       "@context": {
-        "identifier": {},
-        "position": {},
-        "organization": {},
         "logo": {
           "@context": {
             "rel": {
@@ -187,26 +165,12 @@
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "type": "dct:type",
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
           }
-        },
-        "phones": {},
-        "emails": {},
-        "addresses": {
-          "@context": {
-            "deliveryPoint": {},
-            "city": {},
-            "administrativeArea": {},
-            "postalCode": {},
-            "country": {}
-          }
-        },
-        "hoursOfService": {},
-        "contactInstructions": {}
+        }
       }
     },
     "license": "dcat:license",
@@ -219,72 +183,41 @@
         "@vocab": "https://www.opengis.net/def/ogc-api/records/"
       }
     },
-    "collection": {},
     "stac_extensions": "stac:hasExtension",
-    "roles": {
-      "@id": "stac:roles",
-      "@container": "@set"
-    },
-    "bands": {},
     "datetime": {
       "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
-    "start_datetime": {},
-    "end_datetime": {},
-    "data_type": {},
-    "nodata": {},
-    "statistics": {
-      "@context": {
-        "minimum": {},
-        "maximum": {},
-        "mean": {},
-        "stddev": {},
-        "count": {},
-        "valid_percent": {}
-      }
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
     },
-    "unit": {},
-    "platform": {},
-    "instruments": {},
-    "constellation": {},
-    "mission": {},
-    "gsd": {},
-    "providers": {
-      "@context": {
-        "url": {}
-      }
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
     },
+    "unit": {
+      "@context": {
+        "@base": "http://qudt.org/vocab/unit/"
+      },
+      "@id": "qudt:hasUnit"
+    },
+    "providers": "stac:hasProvider",
     "rights": "dcat:rights",
-    "@vocab": "https://w3id.org/ogc/stac/assets/",
     "assets": {
+      "@context": {
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
+      },
       "@id": "stac:hasAsset",
       "@container": "@set"
     },
     "stac_version": "stac:version",
     "media_type": "dct:format",
-    "extent": {
-      "@id": "dct:extent",
-      "@context": {
-        "spatial": {},
-        "temporal": {
-          "@context": {
-            "interval": {}
-          }
-        }
-      }
-    },
-    "item_assets": {
-      "@context": {
-        "type": "@type"
-      }
-    },
-    "summaries": {
-      "@context": {
-        "minimum": {},
-        "maximum": {}
-      }
-    },
+    "extent": "dct:extent",
     "concepts": {
       "@id": "thns:concepts",
       "@container": "@set",
@@ -295,14 +228,6 @@
       }
     },
     "scheme": "thns:scheme",
-    "osc:type": {},
-    "osc:status": {},
-    "osc:project": {},
-    "osc:region": {},
-    "osc:variables": {},
-    "osc:missions": {},
-    "osc:experiment": {},
-    "osc:workflows": {},
     "wasInfluencedBy": {
       "@context": {
         "type": "dct:type",
@@ -314,7 +239,6 @@
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "anchor": {},
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent"
@@ -335,7 +259,6 @@
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -355,7 +278,6 @@
                   "@id": "http://www.iana.org/assignments/relation",
                   "@type": "@id"
                 },
-                "anchor": {},
                 "hreflang": "dct:language",
                 "title": "rdfs:label",
                 "length": "dct:extent"
@@ -377,7 +299,6 @@
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "type": "dct:type",
             "hreflang": "dct:language",
             "title": "rdfs:label",
@@ -392,7 +313,6 @@
       "@type": "@id"
     },
     "provType": "@type",
-    "prov:type": {},
     "hadMember": {
       "@id": "prov:hadMember",
       "@type": "@id"
@@ -414,7 +334,6 @@
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -436,7 +355,6 @@
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -458,7 +376,6 @@
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "anchor": {},
         "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
@@ -496,7 +413,6 @@
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -543,7 +459,6 @@
                   "@id": "http://www.iana.org/assignments/relation",
                   "@type": "@id"
                 },
-                "anchor": {},
                 "hreflang": "dct:language",
                 "title": "rdfs:label",
                 "length": "dct:extent",
@@ -834,7 +749,6 @@
       "@type": "@id"
     },
     "name": "cf:name",
-    "cf:parameter": {},
     "href": {
       "@type": "@id",
       "@id": "oa:hasTarget"

@@ -6,7 +6,6 @@
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
-@prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix thns: <https://w3id.org/ogc/stac/themes/> .
 @prefix wfprov: <http://purl.org/wf4ever/wfprov#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -25,7 +24,7 @@
                             ns1:relation <http://www.iana.org/assignments/relation/about> ;
                             oa:hasTarget <https://opensciencedata.esa.int/> ] ;
                     wfprov:organization "EarthCODE" ;
-                    stac:roles "host" ] ;
+                    wfprov:roles "host" ] ;
             dcat:keyword "polar",
                 "sea ice" ;
             dcat:license "CC-BY-SA-4.0" ;
@@ -33,18 +32,14 @@
             rec:themes [ thns:concepts [ thns:id "oceans"^^xsd:string ] ;
                     thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
             ns2:workflow "polaris-workflow" ] ;
-    rdfs:seeAlso [ rdfs:label "Theme: Oceans" ;
-            dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
-        [ rdfs:label "Workflow: POLARIS" ;
+    rdfs:seeAlso [ rdfs:label "Workflow: POLARIS" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/workflows/polaris-workflow/record.json> ],
-        [ rdfs:label "Experiments" ;
+        [ rdfs:label "Theme: Oceans" ;
             dcterms:format "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
         [ rdfs:label "POLARIS" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/child> ;
@@ -60,6 +55,10 @@
             dcterms:format "application/yaml" ;
             ns1:relation <http://www.iana.org/assignments/relation/environment> ;
             oa:hasTarget <https://ogc.org/demo/ospd/environment.yaml> ],
+        [ rdfs:label "Experiments" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
         [ rdfs:label "Open Science Catalog" ;
             dcterms:format "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;

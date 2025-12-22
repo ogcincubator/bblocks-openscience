@@ -1,21 +1,28 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <wfdesc:> .
+@prefix ns3: <https://w3id.org/ogc/api/schema/> .
+@prefix ns4: <osc:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix proc: <https://w3id.org/ogc/api/processes/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://ogc.org/demo/ospd/waterbodies> a geojson:Feature ;
-    dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core>,
+<https://ogc.org/demo/ospd/waterbodies> dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core>,
         <https://raw.githubusercontent.com/EOEPCA/metadata-profile/refs/heads/1.0/schemas/application-type-ogc-application-package>,
         <https://stac-extensions.github.io/application/v0.1.0/schema.json> ;
-    rdfs:seeAlso [ rdfs:label "OGC Application Package" ;
-            dcterms:type "application/cwl+yaml" ;
-            ns1:relation <wfdesc:WorkflowDefinition> ;
-            oa:hasTarget <https://raw.githubusercontent.com/tjellicoe-tpzuk/eo-workflow-examples/refs/heads/main/water-bodies/water-bodies.cwl> ],
-        [ rdfs:label "Open Science Catalog" ;
+    rdfs:seeAlso [ rdfs:label "Project: OSPD" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/open-science-catalog-metadata/catalog.json> ],
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/open-science-catalog-metadata/projects/ospd/collection.json> ],
+        [ rdfs:label "OGC Application Package" ;
+            dcterms:type "application/cwl+yaml" ;
+            ns1:relation ns2:WorkflowDefinition ;
+            oa:hasTarget <https://raw.githubusercontent.com/tjellicoe-tpzuk/eo-workflow-examples/refs/heads/main/water-bodies/water-bodies.cwl> ],
         [ dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/waterbodies/record.json> ],
@@ -23,16 +30,66 @@
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/open-science-catalog-metadata/workflows/catalog.json> ],
-        [ rdfs:label "Project: OSPD" ;
+        [ rdfs:label "Open Science Catalog" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/open-science-catalog-metadata/projects/ospd/collection.json> ],
-        [ rdfs:label "Source Code" ;
-            ns1:relation <http://www.iana.org/assignments/relation/git> ;
-            oa:hasTarget <https://github.com/Terradue/ogc-eo-application-package-hands-on/tree/master/water-bodies> ],
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://example.com/open-science-catalog-metadata/catalog.json> ],
         [ rdfs:label "OGC Application Package" ;
             dcterms:language "" ;
             dcterms:type "application/cwl+yaml" ;
             ns1:relation <http://www.iana.org/assignments/relation/application> ;
-            oa:hasTarget <https://raw.githubusercontent.com/tjellicoe-tpzuk/eo-workflow-examples/refs/heads/main/water-bodies/water-bodies.cwl> ] .
+            oa:hasTarget <https://raw.githubusercontent.com/tjellicoe-tpzuk/eo-workflow-examples/refs/heads/main/water-bodies/water-bodies.cwl> ],
+        [ rdfs:label "Source Code" ;
+            ns1:relation <http://www.iana.org/assignments/relation/git> ;
+            oa:hasTarget <https://github.com/Terradue/ogc-eo-application-package-hands-on/tree/master/water-bodies> ] ;
+    proc:properties <https://ogc.org/demo/ospd/required-by-prov-Entity-schema> ;
+    proc:type "Feature" .
+
+<https://ogc.org/demo/ospd/required-by-prov-Entity-schema> a prov:Entity,
+        prov:Plan,
+        ns2:Workflow ;
+    dcterms:created "2025-10-03T09:20:36Z" ;
+    dcterms:description "Waterbodies workflow" ;
+    dcterms:title "Waterbodies" ;
+    dcat:contactPoint [ rdfs:label "Tom Jellicoe" ;
+            proc:emails [ prov:value "thomas.jellicoe@telespazio.com" ] ;
+            proc:organization "Telespazio UK" ;
+            proc:positionName "Software Developer" ] ;
+    dcat:keyword "NDWI",
+        "eoepca",
+        "otsu",
+        "water",
+        "water bodies" ;
+    proc:type "workflow" ;
+    rec:language [ rec:languageCode "" ] ;
+    ns4:project "ospd" ;
+    ns2:hasInput [ proc:aoi [ dcterms:description "area of interest as a bounding box" ;
+                    dcterms:title "area of interest" ;
+                    proc:schema [ proc:default "\"-121.399,39.834,-120.74,40.472\""^^rdf:JSON ;
+                            proc:type "string" ;
+                            ns3:pattern "^-?\\d+(\\.\\d+)?,-?\\d+(\\.\\d+)?, -?\\d+(\\.\\d+)?,-?\\d+(\\.\\d+)?$" ] ] ;
+            proc:bands [ dcterms:description "bands used for the NDWI" ;
+                    dcterms:title "bands used for the NDWI" ;
+                    proc:schema [ proc:default "[\"green\",\"nir\"]"^^rdf:JSON ;
+                            proc:type "array" ;
+                            ns3:items [ proc:type "string" ] ;
+                            ns3:maxItems 2 ;
+                            ns3:minItems 2 ] ] ;
+            proc:epsg [ dcterms:description "EPSG code" ;
+                    dcterms:title "EPSG code" ;
+                    proc:schema [ proc:default "\"EPSG:4326\""^^rdf:JSON ;
+                            proc:type "string" ] ] ;
+            proc:stac_items [ dcterms:description "list of Sentinel-2 COG STAC items" ;
+                    dcterms:title "Sentinel-2 STAC items" ;
+                    proc:default "[\"https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2B_10TFK_20210713_0_L2A\",\"https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2A_10TFK_20220524_0_L2A\"]"^^rdf:JSON ;
+                    proc:schema [ proc:type "array" ;
+                            ns3:items [ proc:type "string" ;
+                                    ns3:format "uri" ] ;
+                            ns3:minItems 1 ] ] ] ;
+    ns2:hasOutput [ proc:stac_catalog [ a prov:Collection,
+                        prov:Entity ;
+                    dcterms:description "STAC Catalog containing the water bodies results" ;
+                    dcterms:title "STAC Catalog" ;
+                    proc:schema [ proc:type "string" ;
+                            ns3:format "uri" ] ] ] .
 

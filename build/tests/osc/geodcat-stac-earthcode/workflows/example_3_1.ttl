@@ -1,21 +1,19 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <osc:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix proc: <https://w3id.org/ogc/api/processes/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
 
-<https://ogc.org/demo/ospd/waterbodies> a geojson:Feature ;
-    dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core>,
+<https://ogc.org/demo/ospd/waterbodies> dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core>,
         <https://raw.githubusercontent.com/EOEPCA/metadata-profile/refs/heads/1.0/schemas/application-type-ogc-application-package>,
         <https://stac-extensions.github.io/application/v0.1.0/schema.json> ;
     rdfs:seeAlso [ rdfs:label "Workflows" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://ogc.org/demo/catalog.json> ],
-        [ rdfs:label "Open Science Catalog" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://ogc.org/catalog.json> ],
         [ rdfs:label "OGC Application Package" ;
             dcterms:language "" ;
             dcterms:type "application/clw+yaml" ;
@@ -27,5 +25,18 @@
             oa:hasTarget <https://ogc.org/projects/ospd/collection.json> ],
         [ dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/waterbodies/record.json> ] .
+            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/waterbodies/record.json> ],
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ] ;
+    proc:properties [ dcterms:created "2025-10-03T09:20:36Z" ;
+            dcterms:description "Waterbodies workflow" ;
+            dcterms:title "Waterbodies" ;
+            dcat:contactPoint [ rdfs:label "Garin Smith" ;
+                    proc:organization "Telespazio UK LTD" ] ;
+            proc:type "dataset" ;
+            rec:language [ rec:languageCode "" ] ;
+            ns2:project "ospd" ] ;
+    proc:type "Feature" .
 
