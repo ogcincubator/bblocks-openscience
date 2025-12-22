@@ -1,0 +1,52 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix wfprov:  <http://purl.org/wf4ever/wfprov#> .
+@prefix wfdesc:  <http://purl.org/wf4ever/wfdesc#> .
+@base <https://www.ogc.org/rules/kindgrove/> .
+
+############################################################
+# ProcessRun must be described by a wfdesc:Process
+############################################################
+
+<#ProcessRunShape>
+    a sh:NodeShape ;
+    sh:targetClass wfprov:ProcessRun ;
+    sh:message "Each ProcessRun must be described by a wfdesc:Process." ;
+    sh:property [
+        sh:path wfprov:describedByProcess ;
+        sh:class wfdesc:Process ;
+        sh:minCount 1
+    ] .
+
+############################################################
+# ProcessRun must belong to a WorkflowRun
+############################################################
+
+<#ProcessRunWorkflowShape>
+    a sh:NodeShape ;
+    sh:targetClass wfprov:ProcessRun ;
+    sh:message "Each ProcessRun must be associated with a WorkflowRun." ;
+    sh:property [
+        sh:path wfprov:wasPartOfWorkflowRun ;
+        sh:class wfprov:WorkflowRun ;
+        sh:minCount 1
+    ] .
+
+############################################################
+# Derived artifacts must point to a ProcessRun
+############################################################
+
+<#ArtifactProvenanceShape>
+    a sh:NodeShape ;
+    sh:targetSubjectsOf wfprov:wasOutputFrom ;
+    sh:targetSubjectsOf wfdesc:wasOutputFrom ;
+    sh:message "Derived artifacts must be linked to a ProcessRun that produced them." ;
+    sh:property [
+        sh:path [ sh:alternativePath ( wfprov:wasOutputFrom wfdesc:wasOutputFrom ) ] ;
+        sh:class wfprov:ProcessRun ;
+        sh:minCount 1 ;
+    ] .
+
+

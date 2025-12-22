@@ -1,0 +1,60 @@
+{
+  "@context": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/context.jsonld",
+  "id": "kindgrove-experiment",
+  "type": "Feature",
+  "conformsTo": [
+    "http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core"
+  ],
+  "geometry": null,
+  "properties": {
+    "created": "2024-06-01T10:00:00Z",
+    "updated": "2024-06-01T10:45:00Z",
+    "type": "experiment",
+    "title": "KindGrove Mangrove Carbon Assessment",
+    "description": "An Earth observation workflow for mangrove detection and carbon stock estimation using Sentinel-2 imagery.",
+    "keywords": [
+      "mangroves",
+      "carbon",
+      "Sentinel-2",
+      "remote sensing",
+      "climate"
+    ],
+    "contacts": [
+      {
+        "name": "Cameron Sajedi",
+        "organization": "Starling Foundries",
+        "roles": ["author", "operator"]
+      }
+    ],
+    "themes": [
+      {
+        "scheme": "https://github.com/stac-extensions/osc#theme",
+        "concepts": [
+          { "id": "ecosystems" },
+          { "id": "climate" }
+        ]
+      }
+    ],
+    "formats": [
+      { "name": "GeoTIFF" },
+      { "name": "CSV" }
+    ],
+    "license": "CC-BY-4.0",
+    "osc:workflow": "kindgrove-workflow",
+    "version": "1.0"
+  },
+  "links": [
+    {
+      "rel": "related",
+      "href": "../workflows/kindgrove-workflow/record.json",
+      "type": "application/json",
+      "title": "Workflow description"
+    },
+    {
+      "rel": "related",
+      "href": "../provenance/kindgrove-run.jsonld",
+      "type": "application/ld+json",
+      "title": "Execution provenance"
+    }
+  ]
+}
