@@ -24,24 +24,24 @@ Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM 
             dct:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <file:///github/catalog.json> ],
-        [ rdfs:label "Project: Cerulean Information Factory" ;
+        [ rdfs:label "Open Science Catalog" ;
             dct:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <file:///projects/cerulean-information-factory/collection.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <file:///github/workspace/item.json> ],
-        [ rdfs:label "Experiment: Polarwarp" ;
-            dct:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <file:///experiments/polarwarp/record.json> ],
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <file:///catalog.json> ],
         [ rdfs:label "Theme: Cryosphere" ;
             dct:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <file:///themes/cryosphere/catalog.json> ],
-        [ rdfs:label "Open Science Catalog" ;
+        [ rdfs:label "Experiment: Polarwarp" ;
             dct:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <file:///catalog.json> ] ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <file:///experiments/polarwarp/record.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <file:///github/workspace/item.json> ],
+        [ rdfs:label "Project: Cerulean Information Factory" ;
+            dct:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <file:///projects/cerulean-information-factory/collection.json> ] ;
     dcat:license "various" ;
     cf:parameter [ dct:description "Sea Ice Concentration" ;
             cf:name "sea_ice_concentration" ] ;

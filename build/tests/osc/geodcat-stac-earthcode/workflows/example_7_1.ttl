@@ -1,9 +1,9 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <application:> .
-@prefix ns3: <osc:> .
-@prefix ns4: <vcs:> .
+@prefix ns2: <osc:> .
+@prefix ns3: <vcs:> .
+@prefix ns4: <application:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix proc: <https://w3id.org/ogc/api/processes/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -17,28 +17,24 @@
         <https://stac-extensions.github.io/osc/v1.0.0/schema.json>,
         <https://stac-extensions.github.io/version/v1.0.0/schema.json>,
         <https://stacspec.org/STAC-api.html> ;
-    rdfs:seeAlso [ rdfs:label "ML4Floods Inference Workflow" ;
-            ns2:container true ;
-            ns2:language "Python" ;
-            ns2:type "cwl-workflow" ;
-            dcterms:type "application/cwl" ;
-            ns1:relation <http://www.iana.org/assignments/relation/application> ;
-            oa:hasTarget <https://github.com/eoap/app-ml4floods/blob/main/cwl-workflow/app-ml4floods.cwl> ],
+    rdfs:seeAlso [ rdfs:label "Project: OSPD" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/projects/ospd/collection.json> ],
         [ rdfs:label "Theme: Land" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/themes/land/catalog.json> ],
-        [ rdfs:label "Project: OSPD" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/projects/ospd/collection.json> ],
+        [ rdfs:label "ML4Floods Inference Workflow" ;
+            ns4:container true ;
+            ns4:language "Python" ;
+            ns4:type "cwl-workflow" ;
+            dcterms:type "application/cwl" ;
+            ns1:relation <http://www.iana.org/assignments/relation/application> ;
+            oa:hasTarget <https://github.com/eoap/app-ml4floods/blob/main/cwl-workflow/app-ml4floods.cwl> ],
         [ dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://ogc.org/demo/workflows/app-ml4floods/record.json> ],
-        [ rdfs:label "Open Science Catalog" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://ogc.org/catalog.json> ],
         [ rdfs:label "Workflows" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
@@ -46,11 +42,15 @@
         [ rdfs:label "Git source repository" ;
             ns1:relation <http://www.iana.org/assignments/relation/vcs> ;
             oa:hasTarget <https://github.com/eoap/app-ml4floods> ;
-            ns4:branch "main" ;
-            ns4:type "git" ] ;
-    proc:properties [ ns2:container true ;
-            ns2:language "Python" ;
-            ns2:type "cwl-workflow" ;
+            ns3:branch "main" ;
+            ns3:type "git" ],
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ] ;
+    proc:properties [ ns4:container true ;
+            ns4:language "Python" ;
+            ns4:type "cwl-workflow" ;
             dcterms:created "2024-07-30T12:34:56Z" ;
             dcterms:description "ML4Floods inference for flood extent estimation using a pre-trained model on Sentinel-2 or Landsat-9 data. This application is designed to process satellite imagery and delineate flood extents." ;
             dcterms:modified "2024-07-30T12:34:56Z" ;
@@ -67,8 +67,8 @@
             proc:version "1" ;
             rec:themes [ thns:concepts [ thns:id "land" ] ;
                     thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
-            ns3:project "ospd" ;
-            ns3:status "completed" ;
-            ns3:type "workflow" ] ;
+            ns2:project "ospd" ;
+            ns2:status "completed" ;
+            ns2:type "workflow" ] ;
     proc:type "Feature" .
 

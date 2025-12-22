@@ -17,13 +17,7 @@
 Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.""" ;
     dct:extent [ ] ;
     dct:title "Polarwarp" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <file:///github/workspace/item.json> ],
-        [ rdfs:label "Open Science Catalog" ;
-            dct:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <file:///catalog.json> ],
-        [ rdfs:label "Project: Cerulean Information Factory" ;
+    rdfs:seeAlso [ rdfs:label "Project: Cerulean Information Factory" ;
             dct:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <file:///projects/cerulean-information-factory/collection.json> ],
@@ -33,6 +27,8 @@ Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM 
             oa:hasTarget <file:///github/catalog.json> ],
         [ ns1:relation <http://www.iana.org/assignments/relation/via> ;
             oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <file:///github/workspace/item.json> ],
         [ rdfs:label "Theme: Cryosphere" ;
             dct:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
@@ -40,7 +36,11 @@ Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM 
         [ rdfs:label "Experiment: Polarwarp" ;
             dct:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <file:///experiments/polarwarp/record.json> ] ;
+            oa:hasTarget <file:///experiments/polarwarp/record.json> ],
+        [ rdfs:label "Open Science Catalog" ;
+            dct:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <file:///catalog.json> ] ;
     dcat:license "various" ;
     stac:hasExtension "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
         "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
