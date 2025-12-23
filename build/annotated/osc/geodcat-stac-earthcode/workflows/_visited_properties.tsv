@@ -112,10 +112,9 @@ path	@id
 /linkTemplates/varBase	https://www.opengis.net/def/ogc-api/records/varBase
 /linkTemplates/variables	https://www.opengis.net/def/ogc-api/records/hasVariable
 /properties/wasInfluencedBy	http://www.w3.org/ns/prov#wasInfluencedBy
+/properties/wasInfluencedBy/id	@id
 /properties/wasInfluencedBy/provType	@type
 /properties/wasInfluencedBy/prov:type	
-/properties/wasInfluencedBy/type	
-/properties/wasInfluencedBy/id	@id
 /properties/wasInfluencedBy/activityType	@type
 /properties/wasInfluencedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /properties/wasInfluencedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -126,8 +125,8 @@ path	@id
 /properties/wasInfluencedBy/wasAssociatedWith/hreflang	http://purl.org/dc/terms/language
 /properties/wasInfluencedBy/wasAssociatedWith/title	http://www.w3.org/2000/01/rdf-schema#label
 /properties/wasInfluencedBy/wasAssociatedWith/length	http://purl.org/dc/terms/extent
-/properties/wasInfluencedBy/wasAssociatedWith/provType	@type
 /properties/wasInfluencedBy/wasAssociatedWith/agentType	@type
+/properties/wasInfluencedBy/wasAssociatedWith/provType	@type
 /properties/wasInfluencedBy/wasAssociatedWith/prov:type	
 /properties/wasInfluencedBy/wasAssociatedWith/name	http://www.w3.org/2000/01/rdf-schema#label
 /properties/wasInfluencedBy/wasAssociatedWith/id	@id
@@ -178,10 +177,10 @@ path	@id
 /properties/qualifiedInfluence/entity	http://www.w3.org/ns/prov#entity
 /properties/qualifiedInfluence/activity	http://www.w3.org/ns/prov#activity
 /properties/qualifiedInfluence/agent	http://www.w3.org/ns/prov#agent
-/properties/provType	@type
-/properties/prov:type	
 /properties/hadMember	http://www.w3.org/ns/prov#hadMember
 /properties/id	@id
+/properties/provType	@type
+/properties/prov:type	
 /properties/featureType	@type
 /properties/entityType	@type
 /properties/has_provenance	http://purl.org/dc/terms/provenance
@@ -589,7 +588,7 @@ path	@id
 /properties/wfdesc:hasOutput/metadata/role	
 /properties/wfdesc:hasOutput/metadata/title	
 /properties/wfdesc:hasOutput/title	
-/properties/wfdesc:hasOutput/schema	
+/properties/wfdesc:hasOutput/schema	https://w3id.org/ogc/api/processes/schema
 /properties/wfdesc:hasOutput/schema/$ref	
 /properties/wfdesc:hasOutput/schema/additionalProperties	
 /properties/wfdesc:hasOutput/schema/additionalProperties/$ref	

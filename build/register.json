@@ -2,12 +2,12 @@
   "name": "Open Science Workflows Building Blocks",
   "abstract": "Building Blocks for FAIR Open Science - profiles of OGC API Processes and various metadata standards to support open, transparent, interoperable and reproducible scientific workflows..\n",
   "description": "This repository is initially aimed to support the [Open Science Persistent Demonstrator](https://www.ogc.org/initiatives/open-science/) pilot, but may be further developed as a set of standards with appropriate working group governance.\n",
-  "modified": "2025-12-22T06:25:34.438714",
+  "modified": "2025-12-23T10:51:20.183375",
   "tooling": {
     "bblocks-postprocess": {
-      "commitId": "\"e6969c7215954cfc2f96581b2ff7141121c79c60",
-      "shortCommitId": "\"e6969c",
-      "date": "2025-12-19T12:40:12+00:00\""
+      "commitId": "\"12464416e050ab82480099f0e7dea7f860a85c0a",
+      "shortCommitId": "\"124644",
+      "date": "2025-12-22T10:53:32+00:00\""
     }
   },
   "gitRepository": "https://github.com/ogcincubator/bblocks-openscience",
@@ -129,9 +129,9 @@
       "itemClass": "schema",
       "shaclShapes": {},
       "dependsOn": [
-        "ogc.api.processes.v1.schemas.qualifiedInputValue",
+        "ogc.ogc-utils.prov-activity",
         "ogc.ogc-utils.prov-entity",
-        "ogc.ogc-utils.prov-activity"
+        "ogc.api.processes.v1.schemas.qualifiedInputValue"
       ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/schema.yaml",
@@ -169,14 +169,14 @@
       "version": "0.1",
       "dateOfLastChange": "2025-12-22",
       "dependsOn": [
-        "ogc.bbr.wf4ever.wfdesc.Workflow",
-        "ogc.contrib.stac.extensions.processes-ontology",
         "ogc.geo.geodcat.dcat",
+        "ogc.contrib.stac.extensions.processes-ontology",
         "ogc.contrib.stac.extensions.osc-ontology",
-        "ogc.bbr.wf4ever.ro.ResearchObject",
         "ogc.osc.ontology.cwlprov",
-        "ogc.contrib.stac.extensions.cf-ontology",
-        "ogc.contrib.stac.core-ontology"
+        "ogc.bbr.wf4ever.wfdesc.Workflow",
+        "ogc.contrib.stac.core-ontology",
+        "ogc.bbr.wf4ever.ro.ResearchObject",
+        "ogc.contrib.stac.extensions.cf-ontology"
       ],
       "sources": [],
       "scope": "dev",
@@ -212,11 +212,11 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.contrib.stac.extensions.themes",
-        "ogc.geo.geodcat.stac.geodcat-stac-item",
         "ogc.geo.geodcat.stac.geodcat-stac-collection",
         "ogc.geo.geodcat.geodcat-records",
         "ogc.contrib.stac.extensions.osc",
+        "ogc.geo.geodcat.stac.geodcat-stac-item",
+        "ogc.contrib.stac.extensions.themes",
         "ogc.ogc-utils.prov"
       ],
       "version": "0.1",
@@ -321,8 +321,8 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.bbr.wf4ever.wfprov.WorkflowRun",
         "ogc.geo.geodcat.geodcat-records",
+        "ogc.bbr.wf4ever.wfprov.WorkflowRun",
         "ogc.osc.geodcat-stac-earthcode.common"
       ],
       "version": "0.1",
@@ -363,7 +363,7 @@
       "sourceLdContext": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/context.jsonld",
       "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/",
       "rdfData": [],
-      "validationPassed": false,
+      "validationPassed": true,
       "testOutputs": "https://github.com/ogcincubator/bblocks-openscience/blob/master/build/tests/osc/geodcat-stac-earthcode/experiments/",
       "documentation": {
         "markdown": {
@@ -390,8 +390,8 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.ogc-utils.prov-entity",
         "ogc.contrib.stac.extensions.cf",
+        "ogc.ogc-utils.prov-entity",
         "ogc.osc.geodcat-stac-earthcode.common"
       ],
       "version": "0.1",
@@ -456,10 +456,10 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
+        "ogc.api.processes.v1.schemas.outputDescription",
+        "ogc.osc.geodcat-stac-earthcode.common",
         "ogc.api.processes.v1.schemas.inputDescription",
         "ogc.geo.geodcat.geodcat-records",
-        "ogc.osc.geodcat-stac-earthcode.common",
-        "ogc.api.processes.v1.schemas.outputDescription",
         "ogc.ogc-utils.prov-entity"
       ],
       "version": "0.1",
@@ -526,8 +526,8 @@
         }
       ],
       "dependsOn": [
-        "ogc.osc.api-profiles.processes.ipt.execute",
-        "ogc.osc.api-profiles.processes.ipt.results"
+        "ogc.osc.api-profiles.processes.ipt.results",
+        "ogc.osc.api-profiles.processes.ipt.execute"
       ],
       "tags": [
         "ogcapi-processes",
@@ -564,8 +564,8 @@
       "itemClass": "api",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.osc.application-package",
-        "ogc.osc.api-profiles.processes.ipt.api"
+        "ogc.osc.api-profiles.processes.ipt.api",
+        "ogc.osc.application-package"
       ],
       "version": "0.1",
       "dateOfLastChange": "2025-12-22",
@@ -609,9 +609,9 @@
       "register": "ogc-incubator",
       "dependsOn": [
         "ogc.osc.geodcat-stac-earthcode.experiments",
+        "ogc.osc.api-profiles.processes.workflow",
         "ogc.osc.geodcat-stac-earthcode.workflows",
-        "ogc.osc.geodcat-stac-earthcode.products",
-        "ogc.osc.api-profiles.processes.workflow"
+        "ogc.osc.geodcat-stac-earthcode.products"
       ],
       "version": "0.1",
       "dateOfLastChange": "2025-12-22",

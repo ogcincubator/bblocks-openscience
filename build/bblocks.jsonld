@@ -155,12 +155,12 @@
   "name": "Building Blocks - Open Science Workflows Building Blocks",
   "abstract": "Building Blocks for FAIR Open Science - profiles of OGC API Processes and various metadata standards to support open, transparent, interoperable and reproducible scientific workflows..\n",
   "description": "This repository is initially aimed to support the [Open Science Persistent Demonstrator](https://www.ogc.org/initiatives/open-science/) pilot, but may be further developed as a set of standards with appropriate working group governance.\n",
-  "modified": "2025-12-22T06:25:34.438714",
+  "modified": "2025-12-23T10:51:20.183375",
   "tooling": {
     "bblocks-postprocess": {
-      "commitId": "\"e6969c7215954cfc2f96581b2ff7141121c79c60",
-      "shortCommitId": "\"e6969c",
-      "date": "2025-12-19T12:40:12+00:00\""
+      "commitId": "\"12464416e050ab82480099f0e7dea7f860a85c0a",
+      "shortCommitId": "\"124644",
+      "date": "2025-12-22T10:53:32+00:00\""
     }
   },
   "gitRepository": "https://github.com/ogcincubator/bblocks-openscience",
@@ -331,9 +331,9 @@
       "itemClass": "schema",
       "shaclShapes": null,
       "dependsOn": [
-        "bblocks://ogc.api.processes.v1.schemas.qualifiedInputValue",
+        "bblocks://ogc.ogc-utils.prov-activity",
         "bblocks://ogc.ogc-utils.prov-entity",
-        "bblocks://ogc.ogc-utils.prov-activity"
+        "bblocks://ogc.api.processes.v1.schemas.qualifiedInputValue"
       ],
       "schema": [
         {
@@ -399,14 +399,14 @@
       "version": "0.1",
       "dateOfLastChange": "2025-12-22",
       "dependsOn": [
-        "bblocks://ogc.bbr.wf4ever.wfdesc.Workflow",
-        "bblocks://ogc.contrib.stac.extensions.processes-ontology",
         "bblocks://ogc.geo.geodcat.dcat",
+        "bblocks://ogc.contrib.stac.extensions.processes-ontology",
         "bblocks://ogc.contrib.stac.extensions.osc-ontology",
-        "bblocks://ogc.bbr.wf4ever.ro.ResearchObject",
         "bblocks://ogc.osc.ontology.cwlprov",
-        "bblocks://ogc.contrib.stac.extensions.cf-ontology",
-        "bblocks://ogc.contrib.stac.core-ontology"
+        "bblocks://ogc.bbr.wf4ever.wfdesc.Workflow",
+        "bblocks://ogc.contrib.stac.core-ontology",
+        "bblocks://ogc.bbr.wf4ever.ro.ResearchObject",
+        "bblocks://ogc.contrib.stac.extensions.cf-ontology"
       ],
       "sources": [],
       "scope": "dev",
@@ -457,11 +457,11 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "bblocks://ogc.contrib.stac.extensions.themes",
-        "bblocks://ogc.geo.geodcat.stac.geodcat-stac-item",
         "bblocks://ogc.geo.geodcat.stac.geodcat-stac-collection",
         "bblocks://ogc.geo.geodcat.geodcat-records",
         "bblocks://ogc.contrib.stac.extensions.osc",
+        "bblocks://ogc.geo.geodcat.stac.geodcat-stac-item",
+        "bblocks://ogc.contrib.stac.extensions.themes",
         "bblocks://ogc.ogc-utils.prov"
       ],
       "version": "0.1",
@@ -624,8 +624,8 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "bblocks://ogc.bbr.wf4ever.wfprov.WorkflowRun",
         "bblocks://ogc.geo.geodcat.geodcat-records",
+        "bblocks://ogc.bbr.wf4ever.wfprov.WorkflowRun",
         "bblocks://ogc.osc.geodcat-stac-earthcode.common"
       ],
       "version": "0.1",
@@ -693,7 +693,7 @@
       "sourceLdContext": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/context.jsonld",
       "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/",
       "rdfData": [],
-      "validationPassed": false,
+      "validationPassed": true,
       "testOutputs": "https://github.com/ogcincubator/bblocks-openscience/blob/master/build/tests/osc/geodcat-stac-earthcode/experiments/",
       "documentation": {
         "markdown": {
@@ -733,8 +733,8 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "bblocks://ogc.ogc-utils.prov-entity",
         "bblocks://ogc.contrib.stac.extensions.cf",
+        "bblocks://ogc.ogc-utils.prov-entity",
         "bblocks://ogc.osc.geodcat-stac-earthcode.common"
       ],
       "version": "0.1",
@@ -833,10 +833,10 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
+        "bblocks://ogc.api.processes.v1.schemas.outputDescription",
+        "bblocks://ogc.osc.geodcat-stac-earthcode.common",
         "bblocks://ogc.api.processes.v1.schemas.inputDescription",
         "bblocks://ogc.geo.geodcat.geodcat-records",
-        "bblocks://ogc.osc.geodcat-stac-earthcode.common",
-        "bblocks://ogc.api.processes.v1.schemas.outputDescription",
         "bblocks://ogc.ogc-utils.prov-entity"
       ],
       "version": "0.1",
@@ -937,8 +937,8 @@
         }
       ],
       "dependsOn": [
-        "bblocks://ogc.osc.api-profiles.processes.ipt.execute",
-        "bblocks://ogc.osc.api-profiles.processes.ipt.results"
+        "bblocks://ogc.osc.api-profiles.processes.ipt.results",
+        "bblocks://ogc.osc.api-profiles.processes.ipt.execute"
       ],
       "tags": [
         "ogcapi-processes",
@@ -990,8 +990,8 @@
       "itemClass": "api",
       "register": "ogc-incubator",
       "dependsOn": [
-        "bblocks://ogc.osc.application-package",
-        "bblocks://ogc.osc.api-profiles.processes.ipt.api"
+        "bblocks://ogc.osc.api-profiles.processes.ipt.api",
+        "bblocks://ogc.osc.application-package"
       ],
       "version": "0.1",
       "dateOfLastChange": "2025-12-22",
@@ -1050,9 +1050,9 @@
       "register": "ogc-incubator",
       "dependsOn": [
         "bblocks://ogc.osc.geodcat-stac-earthcode.experiments",
+        "bblocks://ogc.osc.api-profiles.processes.workflow",
         "bblocks://ogc.osc.geodcat-stac-earthcode.workflows",
-        "bblocks://ogc.osc.geodcat-stac-earthcode.products",
-        "bblocks://ogc.osc.api-profiles.processes.workflow"
+        "bblocks://ogc.osc.geodcat-stac-earthcode.products"
       ],
       "version": "0.1",
       "dateOfLastChange": "2025-12-22",
