@@ -1,0 +1,57 @@
+
+
+{
+  "itemIdentifier": "ogc.osc.ogcapi-processes.profiled-api",
+  "name": "Custom OGC API processes instance",
+  "abstract": "An example of an OGC API Processes implementation using building blocks",
+  "status": "under-development",
+  "dateTimeAddition": "2025-12-17T00:00:00Z",
+  "itemClass": "api",
+  "register": "ogc-incubator",
+  "version": "1.0",
+  "dateOfLastChange": "2026-01-13",
+  "maturity": "development",
+  "tags": [
+    "examples",
+    "ogc api",
+    "ogc api processes"
+  ],
+  "isProfileOf": [
+    "ogc.api.processes.v1.api"
+  ],
+  "extensionPoints": {
+    "baseBuildingBlock": "ogc.api.processes.v1.api",
+    "extensions": {
+      "ogc.api.processes.v1.schemas.inputDescription": "ogc.osc.ogcapi-processes.profiled-api.schemas.inputDescriptions",
+      "ogc.api.processes.v1.schemas.outputDescription": "ogc.osc.ogcapi-processes.profiled-api.schemas.outputDescriptions"
+    }
+  },
+  "shaclShapes": {},
+  "dependsOn": [
+    "ogc.api.processes.v1.responses.ExecuteAsync",
+    "ogc.api.processes.v1.schemas.execute",
+    "ogc.api.processes.v1.paths.JobList",
+    "ogc.osc.ogcapi-processes.profiled-api.schemas.buffer-geometry.processDescription",
+    "ogc.api.processes.v1.schemas.outputDescription",
+    "ogc.api.processes.v1.paths.ProcessList",
+    "ogc.api.processes.v1.api",
+    "ogc.api.processes.v1.parameters.jobId",
+    "ogc.api.processes.v1.schemas.inputDescription",
+    "ogc.api.processes.v1.paths.LandingPage",
+    "ogc.osc.ogcapi-processes.profiled-api.schemas.inputDescriptions",
+    "ogc.osc.ogcapi-processes.profiled-api.schemas.buffer-geometry.outputSchema",
+    "ogc.api.processes.v1.responses.NotFound",
+    "ogc.api.processes.v1.responses.ServerError",
+    "ogc.api.processes.v1.paths.Conformance",
+    "ogc.osc.ogcapi-processes.profiled-api.schemas.buffer-geometry.inputSchema",
+    "ogc.osc.ogcapi-processes.profiled-api.schemas.outputDescriptions"
+  ],
+  "sourceOpenAPIDocument": "https://ogcincubator.github.io/bblocks-openscience/_sources/ogcapi-processes/profiled-api/openapi.yaml",
+  "openAPIDocument": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/ogcapi-processes/profiled-api/openapi.yaml",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/ogcapi-processes/profiled-api/",
+  "rdfData": [],
+  "validationPassed": true,
+  "annotatedSchema": null,
+  "gitRepository": "https://github.com/ogcincubator/bblocks-openscience",
+  "gitPath": "_sources/ogcapi-processes/profiled-api"
+}

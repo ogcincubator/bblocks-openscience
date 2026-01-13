@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "required": [
+    "geometry",
+    "distance"
+  ],
+  "properties": {
+    "geometry": {
+      "allOf": [
+        {
+          "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/geo/common/data_types/geojson/schema.json"
+        },
+        {
+          "required": [
+            "type",
+            "coordinates"
+          ],
+          "properties": {
+            "type": {
+              "enum": [
+                "Point",
+                "LineString",
+                "polygon"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "distance": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "number"
+        },
+        "minimum": {
+          "type": "number",
+          "example": 0
+        }
+      }
+    },
+    "units": {
+      "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json",
+      "enum": [
+        "meters",
+        "kilometers",
+        "feet",
+        "miles"
+      ],
+      "default": "meters"
+    }
+  }
+}

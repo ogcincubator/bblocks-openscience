@@ -206,13 +206,14 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 ```ttl
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <osc:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <osc:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
 @prefix stac: <https://w3id.org/ogc/stac/core/> .
 @prefix thns: <https://w3id.org/ogc/stac/themes/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://ogc.org/demo/ospd/polarwarp> a <https://ogc.org/demo/ospd/Collection> ;
     dcterms:created "2025-10-13T16:54:34Z" ;
@@ -221,39 +222,39 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.""" ;
     dcterms:extent [ ] ;
     dcterms:title "Polarwarp" ;
-    rdfs:seeAlso [ rdfs:label "Experiment: Polarwarp" ;
+    rdfs:seeAlso [ rdfs:label "Theme: Cryosphere" ;
             dcterms:format "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ],
-        [ rdfs:label "Theme: Cryosphere" ;
-            dcterms:format "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ],
-        [ rdfs:label "Project: Cerulean Information Factory" ;
-            dcterms:format "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/item.json> ],
         [ rdfs:label "Open Science Catalog" ;
             dcterms:format "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/root> ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://ogc.org/catalog.json> ],
-        [ ns2:relation <http://www.iana.org/assignments/relation/via> ;
+        [ ns1:relation <http://www.iana.org/assignments/relation/via> ;
             oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
-        [ ns2:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/item.json> ],
         [ rdfs:label "Products" ;
             dcterms:format "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://ogc.org/demo/catalog.json> ] ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
+        [ rdfs:label "Project: Cerulean Information Factory" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],
+        [ rdfs:label "Experiment: Polarwarp" ;
+            dcterms:format "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ] ;
     dcat:license "various" ;
     stac:hasExtension "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
         "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
     stac:version "1.0.0" ;
-    rec:themes [ thns:concepts [ thns:id "cryosphere" ] ;
+    rec:themes [ thns:concepts [ thns:id "cryosphere"^^xsd:string ] ;
             thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
-    ns1:project "cerulean-information-factory" ;
-    ns1:status "completed" ;
-    ns1:type "product" .
+    ns2:project "cerulean-information-factory" ;
+    ns2:status "completed" ;
+    ns2:type "product" .
 
 
 ```
@@ -337,15 +338,14 @@ Links to the schema:
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
-        },
-        "bbox": {
-          "@container": "@list",
-          "@id": "geojson:bbox"
         }
       },
       "@id": "geojson:geometry"
     },
-    "bbox": "geojson:bbox",
+    "bbox": {
+      "@container": "@list",
+      "@id": "geojson:bbox"
+    },
     "links": {
       "@context": {
         "rel": {
@@ -409,86 +409,66 @@ Links to the schema:
       "@id": "dcat:keyword"
     },
     "language": {
+      "@id": "rec:language",
       "@context": {
         "code": "rec:languageCode",
         "name": "skos:prefLabel"
-      },
-      "@id": "rec:language"
+      }
     },
     "languages": {
+      "@container": "@set",
+      "@id": "rec:languages",
       "@context": {
         "code": "rec:languageCode",
         "name": "skos:prefLabel"
-      },
-      "@container": "@set",
-      "@id": "rec:languages"
+      }
     },
     "resourceLanguages": {
+      "@container": "@set",
+      "@id": "rec:resourceLanguages",
       "@context": {
         "code": "rec:languageCode",
         "name": "skos:prefLabel"
-      },
-      "@container": "@set",
-      "@id": "rec:resourceLanguages"
+      }
     },
     "externalIds": {
+      "@container": "@set",
+      "@id": "rec:scopedIdentifier",
       "@context": {
         "scheme": "rec:scheme",
         "value": "rec:id"
-      },
-      "@container": "@set",
-      "@id": "rec:scopedIdentifier"
+      }
     },
     "themes": {
+      "@container": "@set",
+      "@id": "rec:themes",
       "@context": {
         "concepts": {
-          "@context": {
-            "id": "thns:id",
-            "url": "@id"
-          },
           "@id": "thns:concepts",
+          "@context": {
+            "id": {
+              "@type": "xsd:string",
+              "@id": "thns:id"
+            },
+            "url": {
+              "@type": "@id",
+              "@id": "@id"
+            }
+          },
           "@container": "@set"
         }
-      },
-      "@container": "@set",
-      "@id": "rec:themes"
+      }
     },
     "formats": {
+      "@id": "rec:format",
       "@context": {
         "name": "rec:name",
         "mediaType": "rec:mediaType"
       },
       "@container": "@set",
-      "@id": "rec:format",
       "@type": "@id"
     },
     "contacts": {
-      "@context": {
-        "logo": {
-          "@context": {
-            "rel": "http://www.iana.org/assignments/relation",
-            "type": "dct:type",
-            "hreflang": "dct:language",
-            "title": "rdfs:label",
-            "length": "dct:extent"
-          }
-        },
-        "links": {
-          "@context": {
-            "rel": {
-              "@context": {
-                "@base": "http://www.iana.org/assignments/relation/"
-              },
-              "@id": "http://www.iana.org/assignments/relation",
-              "@type": "@id"
-            },
-            "type": "dct:type",
-            "hreflang": "dct:language",
-            "title": "rdfs:label",
-            "length": "dct:extent"
-          }
-        }
-      },
       "@container": "@set",
       "@id": "dcat:contactPoint",
       "@type": "@id"
@@ -504,21 +484,33 @@ Links to the schema:
       }
     },
     "stac_extensions": "stac:hasExtension",
-    "datetime": "dct:date",
-    "start_datetime": "stac:start_datetime",
-    "end_datetime": "stac:end_datetime",
+    "datetime": {
+      "@id": "dct:date",
+      "@type": "xsd:dateTime"
+    },
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
     "providers": "stac:hasProvider",
+    "rights": "dcat:rights",
     "assets": {
       "@context": {
         "type": "dct:format",
-        "roles": "stac:roles"
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
       },
       "@id": "stac:hasAsset",
       "@container": "@set"
     },
     "stac_version": "stac:version",
     "media_type": "dct:format",
-    "rights": "dcat:rights",
     "extent": "dct:extent",
     "concepts": {
       "@id": "thns:concepts",

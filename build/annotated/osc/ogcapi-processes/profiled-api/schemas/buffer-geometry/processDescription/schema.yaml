@@ -1,0 +1,9 @@
+allOf:
+- $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/process/schema.yaml
+- properties:
+    inputs:
+      $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/ogcapi-processes/profiled-api/schemas/buffer-geometry/inputDescription/schema.yaml
+      additionalProperties: false
+    outputs:
+      $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/ogcapi-processes/profiled-api/schemas/buffer-geometry/outputDescription/schema.yaml
+      additionalProperties: false

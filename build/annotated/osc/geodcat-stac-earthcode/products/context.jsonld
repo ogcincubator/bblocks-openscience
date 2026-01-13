@@ -18,11 +18,17 @@
     "properties": "@nest",
     "geometry": {
       "@context": {
-        "coordinates": "geojson:coordinates"
+        "coordinates": {
+          "@container": "@list",
+          "@id": "geojson:coordinates"
+        }
       },
       "@id": "geojson:geometry"
     },
-    "bbox": "geojson:bbox",
+    "bbox": {
+      "@container": "@list",
+      "@id": "geojson:bbox"
+    },
     "links": {
       "@context": {
         "rel": {
@@ -33,8 +39,8 @@
           "@type": "@id"
         },
         "type": "dct:type",
-        "title": "rdfs:label",
         "hreflang": "dct:language",
+        "title": "rdfs:label",
         "length": "dct:extent"
       },
       "@id": "rdfs:seeAlso"
@@ -73,80 +79,84 @@
     },
     "created": "dct:created",
     "updated": "dct:modified",
-    "title": "dct:title",
-    "description": "dct:description",
-    "keywords": "dct:subject",
+    "title": {
+      "@container": "@set",
+      "@id": "dct:title"
+    },
+    "description": {
+      "@container": "@set",
+      "@id": "dct:description"
+    },
+    "keywords": {
+      "@container": "@set",
+      "@id": "dcat:keyword"
+    },
     "language": {
+      "@id": "rec:language",
       "@context": {
         "code": "rec:languageCode",
         "name": "skos:prefLabel"
-      },
-      "@id": "rec:language"
+      }
     },
     "languages": {
+      "@container": "@set",
+      "@id": "rec:languages",
       "@context": {
         "code": "rec:languageCode",
         "name": "skos:prefLabel"
-      },
-      "@container": "@set",
-      "@id": "rec:languages"
+      }
     },
     "resourceLanguages": {
+      "@container": "@set",
+      "@id": "rec:resourceLanguages",
       "@context": {
         "code": "rec:languageCode",
         "name": "skos:prefLabel"
-      },
-      "@container": "@set",
-      "@id": "rec:resourceLanguages"
+      }
     },
     "externalIds": {
+      "@container": "@set",
+      "@id": "rec:scopedIdentifier",
       "@context": {
         "scheme": "rec:scheme",
         "value": "rec:id"
-      },
-      "@container": "@set",
-      "@id": "rec:scopedIdentifier"
+      }
     },
     "themes": {
+      "@container": "@set",
+      "@id": "rec:themes",
       "@context": {
         "concepts": {
-          "@context": {
-            "id": "thns:id",
-            "url": "@id"
-          },
           "@id": "thns:concepts",
+          "@context": {
+            "id": {
+              "@type": "xsd:string",
+              "@id": "thns:id"
+            },
+            "url": {
+              "@type": "@id",
+              "@id": "@id"
+            }
+          },
           "@container": "@set"
         }
-      },
-      "@container": "@set",
-      "@id": "rec:themes"
+      }
     },
     "formats": {
+      "@id": "rec:format",
       "@context": {
         "name": "rec:name",
         "mediaType": "rec:mediaType"
       },
       "@container": "@set",
-      "@id": "rec:format",
       "@type": "@id"
     },
     "contacts": {
-      "@context": {
-        "logo": {
-          "@context": {
-            "rel": "http://www.iana.org/assignments/relation",
-            "type": "dct:type",
-            "hreflang": "dct:language",
-            "title": "rdfs:label",
-            "length": "dct:extent"
-          }
-        }
-      },
       "@container": "@set",
       "@id": "dcat:contactPoint",
       "@type": "@id"
     },
-    "license": "dct:license",
+    "license": "dcat:license",
     "accessrights": "dct:accessRights",
     "variables": {
       "@container": "@id",
@@ -157,20 +167,39 @@
       }
     },
     "stac_extensions": "stac:hasExtension",
-    "datetime": "dct:date",
-    "start_datetime": "stac:start_datetime",
-    "end_datetime": "stac:end_datetime",
+    "datetime": {
+      "@id": "dct:date",
+      "@type": "xsd:dateTime"
+    },
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
     "unit": {
-      "@id": "qudt:hasUnit",
       "@context": {
         "@base": "http://qudt.org/vocab/unit/"
-      }
+      },
+      "@id": "qudt:hasUnit"
     },
     "providers": "stac:hasProvider",
-    "assets": "stac:hasAsset",
+    "rights": "dcat:rights",
+    "assets": {
+      "@context": {
+        "type": "dct:format",
+        "roles": {
+          "@id": "stac:roles",
+          "@container": "@set"
+        }
+      },
+      "@id": "stac:hasAsset",
+      "@container": "@set"
+    },
     "stac_version": "stac:version",
     "media_type": "dct:format",
-    "rights": "dcat:rights",
     "extent": "dct:extent",
     "concepts": {
       "@id": "thns:concepts",
@@ -277,6 +306,8 @@
       "@context": {
         "name": "rdfs:label",
         "wasAssociatedWith": {
+          "@id": "prov:wasAssociatedWith",
+          "@type": "@id",
           "@context": {
             "rel": {
               "@context": {
@@ -289,9 +320,7 @@
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
-          },
-          "@id": "prov:wasAssociatedWith",
-          "@type": "@id"
+          }
         }
       },
       "@id": "dct:provenance",

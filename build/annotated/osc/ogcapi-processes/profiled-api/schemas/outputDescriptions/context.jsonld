@@ -1,0 +1,28 @@
+{
+  "@context": {
+    "@vocab": "https://w3id.org/ogc/api/processes/",
+    "schema": "proc:schema",
+    "title": "dct:title",
+    "description": "dct:description",
+    "keywords": "proc:keywords",
+    "nullable": "proc:nullable",
+    "type": "proc:type",
+    "$ref": {
+      "@id": "proc:ref",
+      "@type": "@id"
+    },
+    "default": {
+      "@id": "proc:default",
+      "@type": "@json"
+    },
+    "minOccurs": "proc:minOccurs",
+    "maxOccurs": "proc:maxOccurs",
+    "enum": {
+      "@id": "proc:enum",
+      "@container": "@set"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "proc": "https://w3id.org/ogc/api/processes/",
+    "@version": 1.1
+  }
+}

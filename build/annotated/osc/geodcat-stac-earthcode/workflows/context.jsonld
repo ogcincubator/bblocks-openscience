@@ -17,14 +17,6 @@
     "id": "@id",
     "properties": {
       "@context": {
-        "title": {
-          "@container": "@set",
-          "@id": "dct:title"
-        },
-        "description": {
-          "@container": "@set",
-          "@id": "dct:description"
-        },
         "keywords": {
           "@container": "@set",
           "@id": "dcat:keyword"
@@ -65,7 +57,13 @@
           "@context": {
             "logo": {
               "@context": {
-                "rel": "http://www.iana.org/assignments/relation",
+                "rel": {
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  },
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id"
+                },
                 "type": "dct:type",
                 "hreflang": "dct:language",
                 "title": "rdfs:label",
@@ -87,15 +85,14 @@
         "coordinates": {
           "@container": "@list",
           "@id": "geojson:coordinates"
-        },
-        "bbox": {
-          "@container": "@list",
-          "@id": "geojson:bbox"
         }
       },
       "@id": "geojson:geometry"
     },
-    "bbox": "geojson:bbox",
+    "bbox": {
+      "@container": "@list",
+      "@id": "geojson:bbox"
+    },
     "links": {
       "@context": {
         "rel": {
@@ -146,6 +143,18 @@
     },
     "created": "dct:created",
     "updated": "dct:modified",
+    "title": {
+      "@container": "@set",
+      "@id": "dct:title"
+    },
+    "description": {
+      "@container": "@set",
+      "@id": "dct:description"
+    },
+    "keywords": {
+      "@container": "@set",
+      "@id": "proc:keywords"
+    },
     "language": {
       "@id": "rec:language",
       "@context": {
@@ -308,6 +317,8 @@
     "has_provenance": {
       "@context": {
         "wasAssociatedWith": {
+          "@id": "prov:wasAssociatedWith",
+          "@type": "@id",
           "@context": {
             "rel": {
               "@context": {
@@ -320,9 +331,7 @@
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
-          },
-          "@id": "prov:wasAssociatedWith",
-          "@type": "@id"
+          }
         }
       },
       "@id": "dct:provenance",
@@ -712,42 +721,7 @@
     "minOccurs": "proc:minOccurs",
     "schema": {
       "@context": {
-        "@vocab": "https://w3id.org/ogc/api/schema/",
-        "additionalProperties": {
-          "@context": {
-            "@vocab": "https://w3id.org/ogc/api/schema/"
-          }
-        },
-        "allOf": {
-          "@context": {
-            "@vocab": "https://w3id.org/ogc/api/schema/"
-          }
-        },
-        "anyOf": {
-          "@context": {
-            "@vocab": "https://w3id.org/ogc/api/schema/"
-          }
-        },
-        "items": {
-          "@context": {
-            "@vocab": "https://w3id.org/ogc/api/schema/"
-          }
-        },
-        "not": {
-          "@context": {
-            "@vocab": "https://w3id.org/ogc/api/schema/"
-          }
-        },
-        "oneOf": {
-          "@context": {
-            "@vocab": "https://w3id.org/ogc/api/schema/"
-          }
-        },
-        "properties": {
-          "@context": {
-            "@vocab": "https://w3id.org/ogc/api/schema/"
-          }
-        }
+        "@vocab": "https://w3id.org/ogc/api/schema/"
       },
       "@id": "proc:schema"
     },

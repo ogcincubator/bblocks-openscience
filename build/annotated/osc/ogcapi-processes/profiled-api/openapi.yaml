@@ -1,0 +1,120 @@
+openapi: 3.1.0
+info:
+  title: A sample OGC API - Processes 1.0 implementation
+  version: 1.0.0
+  description: This is a sample implementation of OGC API - Processes 1.0 using Building
+    Blocks.
+  contact:
+    name: Open Geospatial Consortium (OGC)
+    email: avillar@ogc.org
+    url: https://github.com/avillar
+  license:
+    name: Apache License, Version 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.txt
+paths:
+  /:
+    $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/paths/LandingPage/openapi.yaml
+  /conformance:
+    $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/paths/Conformance/openapi.yaml
+  /processes:
+    $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/paths/ProcessList/openapi.yaml
+  /processes/buffer-geometry:
+    get:
+      summary: Get buffer-geometry process description
+      description: Retrieves detailed information about the buffer-geometry process
+      operationId: getBufferGeometryProcess
+      tags:
+      - Processes
+      responses:
+        '200':
+          description: Buffer geometry process description
+          content:
+            application/json:
+              schema:
+                $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/ogcapi-processes/profiled-api/schemas/buffer-geometry/processDescription/schema.yaml
+  /processes/buffer-geometry/execution:
+    post:
+      summary: Execute buffer-geometry process
+      description: Creates a buffer polygon around a geometry at a specified distance
+      operationId: executeBufferGeometry
+      tags:
+      - Execution
+      parameters:
+      - name: Prefer
+        in: header
+        required: false
+        schema:
+          type: string
+          enum:
+          - respond-async
+          - wait=10
+        description: Execution preference (async or sync with timeout)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/execute/schema.yaml
+              - required:
+                - inputs
+                properties:
+                  inputs:
+                    $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/ogcapi-processes/profiled-api/schemas/buffer-geometry/inputSchema/schema.yaml
+            example:
+              inputs:
+                geometry:
+                  type: Point
+                  coordinates:
+                  - -122.4194
+                  - 37.7749
+                distance: 1000
+                units: meters
+      responses:
+        '200':
+          description: Synchronous execution completed
+          content:
+            application/json:
+              schema:
+                properties:
+                  outputs:
+                    $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/ogcapi-processes/profiled-api/schemas/buffer-geometry/outputSchema/schema.yaml
+        201:
+          $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/responses/ExecuteAsync/schema.yaml
+        404:
+          $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/responses/NotFound/schema.yaml
+        500:
+          $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/responses/ServerError/schema.yaml
+  /jobs:
+    $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/paths/JobList/openapi.yaml
+  /jobs/{jobId}:
+    $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/api/openapi.yaml
+  /jobs/{jobId}/results:
+    get:
+      summary: retrieve the result(s) of a job
+      description: 'Lists available results of a job. In case of a failure, lists
+        exceptions instead.
+
+
+        For more information, see [Section 7.13](https://docs.ogc.org/is/18-062/18-062.html#sc_retrieve_job_results).
+
+        '
+      operationId: getResult
+      tags:
+      - Result
+      parameters:
+      - $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/parameters/jobId/openapi.yaml
+      responses:
+        200:
+          description: Job results
+          content:
+            application/json:
+              schema:
+                $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/ogcapi-processes/profiled-api/schemas/outputDescriptions/schema.yaml
+        404:
+          $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/responses/NotFound/schema.yaml
+        500:
+          $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/responses/ServerError/schema.yaml
+servers:
+- description: Example server
+  url: http://example.org/ogcapi

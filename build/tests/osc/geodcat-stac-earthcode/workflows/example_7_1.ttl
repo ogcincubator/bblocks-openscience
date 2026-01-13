@@ -1,9 +1,9 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <application:> .
+@prefix ns1: <http://www.iana.org/assignments/> .
 @prefix ns2: <osc:> .
-@prefix ns3: <http://www.iana.org/assignments/> .
-@prefix ns4: <vcs:> .
+@prefix ns3: <vcs:> .
+@prefix ns4: <application:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix proc: <https://w3id.org/ogc/api/processes/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -17,40 +17,40 @@
         <https://stac-extensions.github.io/osc/v1.0.0/schema.json>,
         <https://stac-extensions.github.io/version/v1.0.0/schema.json>,
         <https://stacspec.org/STAC-api.html> ;
-    rdfs:seeAlso [ rdfs:label "Open Science Catalog" ;
-            dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://ogc.org/catalog.json> ],
-        [ dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://ogc.org/demo/workflows/app-ml4floods/record.json> ],
-        [ rdfs:label "Git source repository" ;
-            ns3:relation <http://www.iana.org/assignments/relation/vcs> ;
+    rdfs:seeAlso [ rdfs:label "Git source repository" ;
+            ns1:relation <http://www.iana.org/assignments/relation/vcs> ;
             oa:hasTarget <https://github.com/eoap/app-ml4floods> ;
-            ns4:branch "main" ;
-            ns4:type "git" ],
+            ns3:branch "main" ;
+            ns3:type "git" ],
+        [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://ogc.org/demo/workflows/app-ml4floods/record.json> ],
         [ rdfs:label "Theme: Land" ;
             dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/related> ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/themes/land/catalog.json> ],
+        [ rdfs:label "Workflows" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
         [ rdfs:label "ML4Floods Inference Workflow" ;
-            ns1:container true ;
-            ns1:language "Python" ;
-            ns1:type "cwl-workflow" ;
+            ns4:container true ;
+            ns4:language "Python" ;
+            ns4:type "cwl-workflow" ;
             dcterms:type "application/cwl" ;
-            ns3:relation <http://www.iana.org/assignments/relation/application> ;
+            ns1:relation <http://www.iana.org/assignments/relation/application> ;
             oa:hasTarget <https://github.com/eoap/app-ml4floods/blob/main/cwl-workflow/app-ml4floods.cwl> ],
         [ rdfs:label "Project: OSPD" ;
             dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/related> ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/projects/ospd/collection.json> ],
-        [ rdfs:label "Workflows" ;
+        [ rdfs:label "Open Science Catalog" ;
             dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://ogc.org/demo/catalog.json> ] ;
-    proc:properties [ ns1:container true ;
-            ns1:language "Python" ;
-            ns1:type "cwl-workflow" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ] ;
+    proc:properties [ ns4:container true ;
+            ns4:language "Python" ;
+            ns4:type "cwl-workflow" ;
             dcterms:created "2024-07-30T12:34:56Z" ;
             dcterms:description "ML4Floods inference for flood extent estimation using a pre-trained model on Sentinel-2 or Landsat-9 data. This application is designed to process satellite imagery and delineate flood extents." ;
             dcterms:modified "2024-07-30T12:34:56Z" ;
