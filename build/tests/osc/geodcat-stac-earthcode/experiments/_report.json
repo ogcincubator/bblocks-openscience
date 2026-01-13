@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.osc.geodcat-stac-earthcode.experiments - EarthCODE Experiment",
   "bblockName": "EarthCODE Experiment",
   "bblockId": "ogc.osc.geodcat-stac-earthcode.experiments",
-  "generated": "2026-01-13T12:19:48.278113+00:00",
+  "generated": "2026-01-13T22:11:32.845161+00:00",
   "result": true,
   "items": [
     {
@@ -73,18 +73,18 @@
             {
               "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
               "focusNodes": {
-                "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
+                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
                   "nodes": []
                 },
                 "<https://www.ogc.org/rules/kindgrove/#ProcessRunShape>": {
                   "nodes": []
                 },
-                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
+                "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: *none*\n"
+              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -151,55 +151,55 @@
             {
               "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
               "focusNodes": {
-                "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
+                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
                   "nodes": [
-                    "wfkg:ExportResultsRun",
-                    "wfkg:CalculateIndicesRun",
-                    "wfkg:CarbonStockRun",
-                    "wfkg:DownloadBandsRun",
-                    "wfkg:DefineStudyAreaRun",
-                    "wfkg:ThresholdClassificationRun",
-                    "wfkg:SelectScenesRun",
-                    "wfkg:AllometricEquationRun",
-                    "wfkg:CO2EquivalentRun",
-                    "wfkg:DisplaySummaryReportRun"
+                    "wfkg:SelectedScene",
+                    "wfkg:NDWI",
+                    "wfkg:MangroveMask",
+                    "wfkg:NIRBand",
+                    "wfkg:RedBand",
+                    "wfkg:SAVI",
+                    "wfkg:GreenBand",
+                    "wfkg:BiomassEstimate",
+                    "wfkg:CarbonStockEstimate",
+                    "wfkg:NDVI",
+                    "wfkg:GeoTIFFRaster",
+                    "wfkg:CO2EquivalentEstimate",
+                    "wfkg:InteractiveVisualisation",
+                    "wfkg:CSVSummary"
                   ]
                 },
                 "<https://www.ogc.org/rules/kindgrove/#ProcessRunShape>": {
                   "nodes": [
-                    "wfkg:ExportResultsRun",
                     "wfkg:CalculateIndicesRun",
-                    "wfkg:CarbonStockRun",
                     "wfkg:DownloadBandsRun",
-                    "wfkg:DefineStudyAreaRun",
-                    "wfkg:ThresholdClassificationRun",
+                    "wfkg:ExportResultsRun",
+                    "wfkg:CO2EquivalentRun",
                     "wfkg:SelectScenesRun",
                     "wfkg:AllometricEquationRun",
-                    "wfkg:CO2EquivalentRun",
-                    "wfkg:DisplaySummaryReportRun"
+                    "wfkg:ThresholdClassificationRun",
+                    "wfkg:DisplaySummaryReportRun",
+                    "wfkg:DefineStudyAreaRun",
+                    "wfkg:CarbonStockRun"
                   ]
                 },
-                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
+                "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
                   "nodes": [
-                    "wfkg:CarbonStockEstimate",
-                    "wfkg:RedBand",
-                    "wfkg:GreenBand",
-                    "wfkg:InteractiveVisualisation",
-                    "wfkg:SAVI",
-                    "wfkg:MangroveMask",
-                    "wfkg:BiomassEstimate",
-                    "wfkg:CSVSummary",
-                    "wfkg:GeoTIFFRaster",
-                    "wfkg:NDVI",
-                    "wfkg:CO2EquivalentEstimate",
-                    "wfkg:NDWI",
-                    "wfkg:SelectedScene",
-                    "wfkg:NIRBand"
+                    "wfkg:CalculateIndicesRun",
+                    "wfkg:DownloadBandsRun",
+                    "wfkg:ExportResultsRun",
+                    "wfkg:CO2EquivalentRun",
+                    "wfkg:SelectScenesRun",
+                    "wfkg:AllometricEquationRun",
+                    "wfkg:ThresholdClassificationRun",
+                    "wfkg:DisplaySummaryReportRun",
+                    "wfkg:DefineStudyAreaRun",
+                    "wfkg:CarbonStockRun"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: wfkg:ExportResultsRun,wfkg:CalculateIndicesRun,wfkg:CarbonStockRun,wfkg:DownloadBandsRun,wfkg:DefineStudyAreaRun,wfkg:ThresholdClassificationRun,wfkg:SelectScenesRun,wfkg:AllometricEquationRun,wfkg:CO2EquivalentRun,wfkg:DisplaySummaryReportRun\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: wfkg:ExportResultsRun,wfkg:CalculateIndicesRun,wfkg:CarbonStockRun,wfkg:DownloadBandsRun,wfkg:DefineStudyAreaRun,wfkg:ThresholdClassificationRun,wfkg:SelectScenesRun,wfkg:AllometricEquationRun,wfkg:CO2EquivalentRun,wfkg:DisplaySummaryReportRun\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: wfkg:CarbonStockEstimate,wfkg:RedBand,wfkg:GreenBand,wfkg:InteractiveVisualisation,wfkg:SAVI,wfkg:MangroveMask,wfkg:BiomassEstimate,wfkg:CSVSummary,wfkg:GeoTIFFRaster,wfkg:NDVI,wfkg:CO2EquivalentEstimate,wfkg:NDWI,wfkg:SelectedScene,wfkg:NIRBand\n"
+              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: wfkg:SelectedScene,wfkg:NDWI,wfkg:MangroveMask,wfkg:NIRBand,wfkg:RedBand,wfkg:SAVI,wfkg:GreenBand,wfkg:BiomassEstimate,wfkg:CarbonStockEstimate,wfkg:NDVI,wfkg:GeoTIFFRaster,wfkg:CO2EquivalentEstimate,wfkg:InteractiveVisualisation,wfkg:CSVSummary\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: wfkg:CalculateIndicesRun,wfkg:DownloadBandsRun,wfkg:ExportResultsRun,wfkg:CO2EquivalentRun,wfkg:SelectScenesRun,wfkg:AllometricEquationRun,wfkg:ThresholdClassificationRun,wfkg:DisplaySummaryReportRun,wfkg:DefineStudyAreaRun,wfkg:CarbonStockRun\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: wfkg:CalculateIndicesRun,wfkg:DownloadBandsRun,wfkg:ExportResultsRun,wfkg:CO2EquivalentRun,wfkg:SelectScenesRun,wfkg:AllometricEquationRun,wfkg:ThresholdClassificationRun,wfkg:DisplaySummaryReportRun,wfkg:DefineStudyAreaRun,wfkg:CarbonStockRun\n"
             },
             {
               "op": "shacl-report",
@@ -278,18 +278,18 @@
             {
               "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
               "focusNodes": {
-                "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
+                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
                   "nodes": []
                 },
                 "<https://www.ogc.org/rules/kindgrove/#ProcessRunShape>": {
                   "nodes": []
                 },
-                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
+                "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: *none*\n"
+              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -379,18 +379,18 @@
             {
               "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
               "focusNodes": {
-                "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
+                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
                   "nodes": []
                 },
                 "<https://www.ogc.org/rules/kindgrove/#ProcessRunShape>": {
                   "nodes": []
                 },
-                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
+                "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: *none*\n"
+              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -480,18 +480,18 @@
             {
               "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
               "focusNodes": {
-                "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
+                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
                   "nodes": []
                 },
                 "<https://www.ogc.org/rules/kindgrove/#ProcessRunShape>": {
                   "nodes": []
                 },
-                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
+                "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: *none*\n"
+              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n"
             },
             {
               "op": "shacl-report",

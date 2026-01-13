@@ -1,8 +1,8 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ns1: <application:> .
-@prefix ns2: <vcs:> .
-@prefix ns3: <http://www.iana.org/assignments/> .
+@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns3: <vcs:> .
 @prefix ns4: <osc:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix proc: <https://w3id.org/ogc/api/processes/> .
@@ -12,36 +12,36 @@
 
 <https://ogc.org/demo/ospd/kindgrove-mangrove-biomass-workflow> dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core> ;
     rdfs:seeAlso [ rdfs:label "Git source repository" ;
-            ns3:relation <http://www.iana.org/assignments/relation/vcs> ;
+            ns2:relation <http://www.iana.org/assignments/relation/vcs> ;
             oa:hasTarget <https://github.com/starling-foundries/KindGrove> ;
-            ns2:branch "main" ;
-            ns2:type "git" ],
+            ns3:branch "main" ;
+            ns3:type "git" ],
         [ rdfs:label "Workflows" ;
             dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/parent> ;
+            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://ogc.org/demo/catalog.json> ],
         [ rdfs:label "Project: OSPD" ;
             dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/related> ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/projects/ospd/collection.json> ],
         [ dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/self> ;
+            ns2:relation <http://www.iana.org/assignments/relation/self> ;
             oa:hasTarget <https://ogc.org/demo/kindgrove-mangrove-biomass-workflow/record.json> ],
+        [ rdfs:label "Theme: Land" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/themes/land/catalog.json> ],
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ],
         [ rdfs:label "KindGrove Mangrove Biomass Workflow" ;
             ns1:container "True" ;
             ns1:language "Python" ;
             ns1:type "cwl-workflow" ;
             dcterms:type "application/x-cwl" ;
-            ns3:relation <http://www.iana.org/assignments/relation/application> ;
-            oa:hasTarget <https://github.com/starling-foundries/KindGrove/blob/main/mangrove_workflow.cwl> ],
-        [ rdfs:label "Theme: Land" ;
-            dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/land/catalog.json> ],
-        [ rdfs:label "Open Science Catalog" ;
-            dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://ogc.org/catalog.json> ] ;
+            ns2:relation <http://www.iana.org/assignments/relation/application> ;
+            oa:hasTarget <https://github.com/starling-foundries/KindGrove/blob/main/mangrove_workflow.cwl> ] ;
     proc:properties [ ns1:container "True" ;
             ns1:language "Python" ;
             ns1:type "cwl-workflow" ;

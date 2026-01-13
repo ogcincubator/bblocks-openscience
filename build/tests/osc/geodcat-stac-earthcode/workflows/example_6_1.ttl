@@ -1,9 +1,9 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <osc:> .
+@prefix ns1: <vcs:> .
 @prefix ns2: <application:> .
 @prefix ns3: <http://www.iana.org/assignments/> .
-@prefix ns4: <vcs:> .
+@prefix ns4: <osc:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix proc: <https://w3id.org/ogc/api/processes/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -14,19 +14,17 @@
 
 <https://ogc.org/demo/ospd/cvi-workflow> dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core>,
         <https://stac-extensions.github.io/osc/v1.0.0/schema.json> ;
-    rdfs:seeAlso [ rdfs:label "Project: OSPD" ;
-            dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/projects/ospd/collection.json> ],
-        [ rdfs:label "Git source repository" ;
-            ns3:relation <http://www.iana.org/assignments/relation/vcs> ;
-            oa:hasTarget <https://github.com/hartis-org/cvi-workflow> ;
-            ns4:branch "main" ;
-            ns4:type "git" ],
+    rdfs:seeAlso [ dcterms:type "application/json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/cvi-workflow/record.json> ],
         [ rdfs:label "Theme: Oceans" ;
             dcterms:type "application/json" ;
             ns3:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
+        [ rdfs:label "Project: OSPD" ;
+            dcterms:type "application/json" ;
+            ns3:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/projects/ospd/collection.json> ],
         [ rdfs:label "Coastal Vulnerability Index (CVI) Workflow" ;
             ns2:container true ;
             ns2:language "Python" ;
@@ -34,13 +32,15 @@
             dcterms:type "application/x-cwl" ;
             ns3:relation <http://www.iana.org/assignments/relation/application> ;
             oa:hasTarget <https://github.com/hartis-org/cvi-workflow/blob/main/cvi_workflow.cwl> ],
-        [ dcterms:type "application/json" ;
-            ns3:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/cvi-workflow/record.json> ],
         [ rdfs:label "Workflows" ;
             dcterms:type "application/json" ;
             ns3:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://ogc.org/demo/catalog.json> ],
+        [ rdfs:label "Git source repository" ;
+            ns3:relation <http://www.iana.org/assignments/relation/vcs> ;
+            oa:hasTarget <https://github.com/hartis-org/cvi-workflow> ;
+            ns1:branch "main" ;
+            ns1:type "git" ],
         [ rdfs:label "Open Science Catalog" ;
             dcterms:type "application/json" ;
             ns3:relation <http://www.iana.org/assignments/relation/root> ;
@@ -66,8 +66,8 @@ The workflow is implemented in Common Workflow Language (CWL) and runs inside a 
             proc:version "1" ;
             rec:themes [ thns:concepts [ thns:id "oceans" ] ;
                     thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
-            ns1:project "ospd" ;
-            ns1:status "completed" ;
-            ns1:type "workflow" ] ;
+            ns4:project "ospd" ;
+            ns4:status "completed" ;
+            ns4:type "workflow" ] ;
     proc:type "Feature" .
 
