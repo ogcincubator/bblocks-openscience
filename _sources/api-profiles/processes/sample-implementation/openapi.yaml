@@ -35,7 +35,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: bblocks://ogc.osc.ogcapi-processes.profiled-api.schemas.buffer-geometry.processDescription
+                $ref: bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.processDescription
 
   /processes/buffer-geometry/execution:
     post:
@@ -64,7 +64,7 @@ paths:
                 - required: [inputs]
                   properties:
                     inputs:
-                      $ref: bblocks://ogc.osc.ogcapi-processes.profiled-api.schemas.buffer-geometry.inputSchema
+                      $ref: bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputSchema
             example:
               inputs:
                 geometry:
@@ -80,7 +80,7 @@ paths:
               schema:
                 properties:
                   outputs:
-                    $ref: bblocks://ogc.osc.ogcapi-processes.profiled-api.schemas.buffer-geometry.outputSchema
+                    $ref: bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputSchema
         201:
           $ref: "bblocks://ogc.api.processes.v1.responses.ExecuteAsync"
         404:
@@ -112,7 +112,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: bblocks://ogc.osc.ogcapi-processes.profiled-api.schemas.outputDescriptions
+                $ref: bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.outputDescriptions
         404:
           $ref: "bblocks://ogc.api.processes.v1.responses.NotFound"
         500:

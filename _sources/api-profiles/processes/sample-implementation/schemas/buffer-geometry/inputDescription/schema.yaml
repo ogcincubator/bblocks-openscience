@@ -15,7 +15,7 @@ properties:
         type: integer
         const: 1
       schema:
-        $ref: bblocks://ogc.osc.ogcapi-processes.profiled-api.schemas.buffer-geometry.inputSchema#/properties/geometry
+        $ref: bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputSchema#/properties/geometry
   distance:
     type: object
     properties:
@@ -32,7 +32,7 @@ properties:
         type: integer
         const: 1
       schema:
-        $ref: bblocks://ogc.osc.ogcapi-processes.profiled-api.schemas.buffer-geometry.inputSchema#/properties/distance
+        $ref: bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputSchema#/properties/distance
   units:
     type: object
     properties:
@@ -48,4 +48,4 @@ properties:
         type: integer
         const: 1
       schema:
-        $ref: bblocks://ogc.osc.ogcapi-processes.profiled-api.schemas.buffer-geometry.inputSchema#/properties/units
+        $ref: bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputSchema#/properties/units
