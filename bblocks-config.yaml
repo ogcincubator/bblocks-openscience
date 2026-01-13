@@ -29,10 +29,8 @@ schema-oas30-downcompile: False
 #   Authentication can be set through the sparql_username and sparql_password GitHub Workflow inputs
 #   (see .github/workflow/process-bblocks.yml)
 #
-# sparql:
-#   push: https://example.com/gsp           # SPARQL Graph Store Protocol endpoint for uploading data
-#   graph: https://my.bblocks.example.com/  # SPARQL Graph where data will be uploaded
-#                                           #  if left empty, the base URL for the publication will be used
-#   query: https://example.com/sparql       # SPARQL query endpoint where data will be available
-#   resources:                              # Additional resources to upload apart from building block metadata
-#      ontologies: true                     #   Whether to upload ontology files to the triplestore
+sparql:
+  push: https://defs-dev.opengis.net/fuseki/data
+  query: https://defs-dev.opengis.net/fuseki/query
+  resources:                              # Additional resources to upload apart from building block metadata
+     ontologies: true                     #   Whether to upload ontology files to the triplestore
