@@ -1,0 +1,77 @@
+{
+  "allOf": [
+    {
+      "$ref": "https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/inputDescription/schema.json"
+    }
+  ],
+  "type": "object",
+  "properties": {
+    "geometry": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "const": "Area for the buffer geometry"
+        },
+        "minOccurs": {
+          "type": "integer",
+          "const": 1
+        },
+        "maxOccurs": {
+          "type": "integer",
+          "const": 1
+        },
+        "schema": {
+          "$ref": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputSchema/schema.json#/properties/geometry"
+        }
+      }
+    },
+    "distance": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "const": "Buffer Distance"
+        },
+        "description": {
+          "type": "string",
+          "const": "The distance from the geometry to create the buffer"
+        },
+        "minOccurs": {
+          "type": "integer",
+          "const": 1
+        },
+        "maxOccurs": {
+          "type": "integer",
+          "const": 1
+        },
+        "schema": {
+          "$ref": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputSchema/schema.json#/properties/distance"
+        }
+      }
+    },
+    "units": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "example": "Distance Units"
+        },
+        "description": {
+          "type": "string"
+        },
+        "minOccurs": {
+          "type": "integer",
+          "const": 0
+        },
+        "maxOccurs": {
+          "type": "integer",
+          "const": 1
+        },
+        "schema": {
+          "$ref": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputSchema/schema.json#/properties/units"
+        }
+      }
+    }
+  }
+}

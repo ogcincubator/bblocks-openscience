@@ -1,0 +1,57 @@
+
+
+{
+  "itemIdentifier": "ogc.osc.api-profiles.processes.sample-implementation",
+  "name": "Custom OGC API processes instance",
+  "abstract": "An example of an OGC API Processes implementation using building blocks",
+  "status": "under-development",
+  "dateTimeAddition": "2025-12-17T00:00:00Z",
+  "itemClass": "api",
+  "register": "ogc-incubator",
+  "version": "1.0",
+  "dateOfLastChange": "2026-01-13",
+  "maturity": "development",
+  "tags": [
+    "examples",
+    "ogc api",
+    "ogc api processes"
+  ],
+  "isProfileOf": [
+    "ogc.api.processes.v1.api"
+  ],
+  "extensionPoints": {
+    "baseBuildingBlock": "ogc.api.processes.v1.api",
+    "extensions": {
+      "ogc.api.processes.v1.schemas.inputDescription": "ogc.osc.api-profiles.processes.sample-implementation.schemas.inputDescriptions",
+      "ogc.api.processes.v1.schemas.outputDescription": "ogc.osc.api-profiles.processes.sample-implementation.schemas.outputDescriptions"
+    }
+  },
+  "shaclShapes": {},
+  "dependsOn": [
+    "ogc.osc.api-profiles.processes.sample-implementation.schemas.inputDescriptions",
+    "ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.processDescription",
+    "ogc.api.processes.v1.parameters.jobId",
+    "ogc.api.processes.v1.responses.ServerError",
+    "ogc.api.processes.v1.paths.LandingPage",
+    "ogc.osc.api-profiles.processes.sample-implementation.schemas.outputDescriptions",
+    "ogc.api.processes.v1.paths.Conformance",
+    "ogc.api.processes.v1.schemas.outputDescription",
+    "ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputSchema",
+    "ogc.api.processes.v1.paths.ProcessList",
+    "ogc.api.processes.v1.responses.NotFound",
+    "ogc.api.processes.v1.schemas.execute",
+    "ogc.api.processes.v1.schemas.inputDescription",
+    "ogc.api.processes.v1.responses.ExecuteAsync",
+    "ogc.api.processes.v1.paths.JobList",
+    "ogc.api.processes.v1.api",
+    "ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputSchema"
+  ],
+  "sourceOpenAPIDocument": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/sample-implementation/openapi.yaml",
+  "openAPIDocument": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/openapi.yaml",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/sample-implementation/",
+  "rdfData": [],
+  "validationPassed": true,
+  "annotatedSchema": null,
+  "gitRepository": "https://github.com/ogcincubator/bblocks-openscience",
+  "gitPath": "_sources/api-profiles/processes/sample-implementation"
+}

@@ -1,0 +1,26 @@
+allOf:
+- $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/outputDescription/schema.yaml
+properties:
+  schema:
+    type: object
+    properties:
+      bufferedGeometry:
+        type: object
+        properties:
+          title:
+            type: string
+            const: Buffered Geometry
+          description:
+            type: string
+          schema:
+            $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputSchema/schema.yaml#/properties/bufferedGeometry
+      area:
+        type: object
+        properties:
+          title:
+            type: string
+            const: Buffer Area
+          description:
+            type: string
+          schema:
+            $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputSchema/schema.yaml#/properties/area

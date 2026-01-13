@@ -1,0 +1,31 @@
+
+
+{
+  "itemIdentifier": "ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputSchema",
+  "name": "Buffer geometry process output schema",
+  "abstract": "Output schema for the buffer geometry process",
+  "status": "under-development",
+  "dateTimeAddition": "2025-12-17T00:00:00Z",
+  "itemClass": "schema",
+  "register": "ogc-incubator",
+  "version": "1.0",
+  "dateOfLastChange": "2026-01-13",
+  "maturity": "development",
+  "tags": [
+    "examples",
+    "ogc api",
+    "ogc api processes"
+  ],
+  "shaclShapes": {},
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputSchema/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputSchema/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputSchema/schema.yaml",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputSchema/",
+  "rdfData": [],
+  "validationPassed": true,
+  "annotatedSchema": "type: object\nproperties:\n  bufferedGeometry:\n    type: object\n    properties:\n      type:\n        type: string\n        const: Polygon\n      coordinates:\n        type: array\n        minItems: 2\n        items:\n          type: number\n  area:\n    type: number\n    minimum: 0\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-openscience",
+  "gitPath": "_sources/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputSchema"
+}
