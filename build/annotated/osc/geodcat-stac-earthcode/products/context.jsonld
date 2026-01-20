@@ -167,26 +167,6 @@
       }
     },
     "stac_extensions": "stac:hasExtension",
-    "datetime": {
-      "@id": "dct:date",
-      "@type": "xsd:dateTime"
-    },
-    "start_datetime": {
-      "@id": "stac:start_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "end_datetime": {
-      "@id": "stac:end_datetime",
-      "@type": "xsd:dateTime"
-    },
-    "unit": {
-      "@context": {
-        "@base": "http://qudt.org/vocab/unit/"
-      },
-      "@id": "qudt:hasUnit"
-    },
-    "providers": "stac:hasProvider",
-    "rights": "dcat:rights",
     "assets": {
       "@context": {
         "type": "dct:format",
@@ -199,8 +179,21 @@
       "@container": "@set"
     },
     "stac_version": "stac:version",
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "providers": "stac:hasProvider",
     "media_type": "dct:format",
     "extent": "dct:extent",
+    "datetime": {
+      "@id": "dct:date",
+      "@type": "xsd:dateTime"
+    },
     "concepts": {
       "@id": "thns:concepts",
       "@container": "@set",
@@ -731,6 +724,12 @@
       "@type": "@id"
     },
     "name": "cf:name",
+    "unit": {
+      "@id": "qudt:hasUnit",
+      "@context": {
+        "@base": "http://qudt.org/vocab/unit/"
+      }
+    },
     "href": {
       "@type": "@id",
       "@id": "oa:hasTarget"
@@ -754,6 +753,7 @@
     "stac": "https://w3id.org/ogc/stac/core/",
     "cf": "https://w3id.org/ogc/stac/cf/",
     "qudt": "http://qudt.org/schema/qudt/",
+    "rights": "dcat:rights",
     "@version": 1.1
   }
 }

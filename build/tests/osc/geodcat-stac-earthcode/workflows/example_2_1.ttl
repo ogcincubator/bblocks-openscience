@@ -1,63 +1,64 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <osc:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <osc:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix proc: <https://w3id.org/ogc/api/processes/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
 @prefix thns: <https://w3id.org/ogc/stac/themes/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://ogc.org/demo/ospd/polaris-workflow> dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core> ;
-    rdfs:seeAlso [ rdfs:label "POLARIS" ;
+    dcterms:created "2025-02-19T23:00:00Z" ;
+    dcterms:description "Polar Operational Limit Assessment Risk Index System (POLARIS) algorithm." ;
+    dcterms:modified "2025-03-03T22:00:00Z" ;
+    dcterms:title "POLARIS" ;
+    rdfs:seeAlso [ rdfs:label "Git source repository" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/child> ;
-            oa:hasTarget <https://ogc.org/experiments/polaris-experiment/record.json> ],
+            ns1:relation <http://www.iana.org/assignments/relation/git> ;
+            oa:hasTarget <https://github.com/gtif-cerulean/cerulean-catalog.git> ],
         [ rdfs:label "Workflows" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://ogc.org/demo/catalog.json> ],
         [ rdfs:label "Project: POLARIS" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/projects/polaris/collection.json> ],
+        [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/polaris-workflow/record.json> ],
+        [ rdfs:label "POLARIS" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/child> ;
+            oa:hasTarget <https://ogc.org/experiments/polaris-experiment/record.json> ],
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ],
         [ rdfs:label "OGC Application Package" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/application> ;
+            ns1:relation <http://www.iana.org/assignments/relation/application> ;
             oa:hasTarget <https://github.com/gtif-cerulean/cerulean-catalog.git> ],
         [ rdfs:label "Theme: Oceans" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
-        [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/polaris-workflow/record.json> ],
-        [ rdfs:label "Open Science Catalog" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://ogc.org/catalog.json> ],
-        [ rdfs:label "Git source repository" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/git> ;
-            oa:hasTarget <https://github.com/gtif-cerulean/cerulean-catalog.git> ] ;
-    proc:properties [ dcterms:created "2025-02-19T23:00:00Z" ;
-            dcterms:description "Polar Operational Limit Assessment Risk Index System (POLARIS) algorithm." ;
-            dcterms:modified "2025-03-03T22:00:00Z" ;
-            dcterms:title "POLARIS" ;
-            dcat:contactPoint [ rdfs:label "EarthCODE Demo" ;
-                    rdfs:seeAlso [ dcterms:type "text/html" ;
-                            ns2:relation <http://www.iana.org/assignments/relation/about> ;
-                            oa:hasTarget <https://opensciencedata.esa.int/> ] ;
-                    proc:contactInstructions "Contact via EarthCODE" ;
-                    proc:organization "EarthCODE" ;
-                    proc:roles "host" ] ;
-            dcat:keyword "polar",
-                "sea ice" ;
-            dcat:license "CC-BY-SA-4.0" ;
-            proc:type "workflow" ;
-            rec:format [ rec:name "GeoTIFF" ] ;
-            rec:themes [ thns:concepts [ thns:id "oceans" ] ;
-                    thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
-            ns1:project "polaris" ] ;
-    proc:type "Feature" .
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ] ;
+    dcat:contactPoint [ rdfs:label "EarthCODE Demo" ;
+            rdfs:seeAlso [ dcterms:type "text/html" ;
+                    ns1:relation <http://www.iana.org/assignments/relation/about> ;
+                    oa:hasTarget <https://opensciencedata.esa.int/> ] ;
+            proc:contactInstructions "Contact via EarthCODE" ;
+            proc:organization "EarthCODE" ;
+            proc:roles "host" ] ;
+    dcat:keyword "polar",
+        "sea ice" ;
+    dcat:license "CC-BY-SA-4.0" ;
+    proc:type "Feature",
+        "workflow" ;
+    rec:format [ rec:name "GeoTIFF" ] ;
+    rec:themes [ thns:concepts [ thns:id "oceans"^^xsd:string ] ;
+            thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
+    ns2:project "polaris" .
 

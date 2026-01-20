@@ -31,7 +31,6 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
-    "value": "prov:value",
     "wasInfluencedBy": {
       "@context": {
         "href": {
@@ -278,6 +277,7 @@ Links to the schema:
       "@id": "prov:startedAtTime",
       "@type": "xsd:dateTime"
     },
+    "value": "prov:value",
     "provenanceUriTemplate": "prov:provenanceUriTemplate",
     "pairKey": {
       "@id": "prov:pairKey",

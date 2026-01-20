@@ -1,7 +1,7 @@
 Validation report for ogc.osc.geodcat-stac-earthcode.experiments - EarthCODE Experiment
-Generated 2026-01-13T22:11:32.467911+00:00
+Generated 2026-01-20T05:30:00.314308+00:00
 === Files ===
-Using example_2_1.ttl from examples
+Using examples/KindGroveProvenance.ttl from examples
 Output Turtle example_2_1.ttl created
 === End Files ===
 
@@ -11,9 +11,9 @@ Validation result for _sources/geodcat-stac-earthcode/experiments/rules.shacl:
   Conforms: True
   
 Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:
- - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: wfkg:SelectedScene,wfkg:NDWI,wfkg:MangroveMask,wfkg:NIRBand,wfkg:RedBand,wfkg:SAVI,wfkg:GreenBand,wfkg:BiomassEstimate,wfkg:CarbonStockEstimate,wfkg:NDVI,wfkg:GeoTIFFRaster,wfkg:CO2EquivalentEstimate,wfkg:InteractiveVisualisation,wfkg:CSVSummary
- - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: wfkg:CalculateIndicesRun,wfkg:DownloadBandsRun,wfkg:ExportResultsRun,wfkg:CO2EquivalentRun,wfkg:SelectScenesRun,wfkg:AllometricEquationRun,wfkg:ThresholdClassificationRun,wfkg:DisplaySummaryReportRun,wfkg:DefineStudyAreaRun,wfkg:CarbonStockRun
- - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: wfkg:CalculateIndicesRun,wfkg:DownloadBandsRun,wfkg:ExportResultsRun,wfkg:CO2EquivalentRun,wfkg:SelectScenesRun,wfkg:AllometricEquationRun,wfkg:ThresholdClassificationRun,wfkg:DisplaySummaryReportRun,wfkg:DefineStudyAreaRun,wfkg:CarbonStockRun
+ - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: wfkg:CalculateIndicesRun,wfkg:DisplaySummaryReportRun,wfkg:CO2EquivalentRun,wfkg:CarbonStockRun,wfkg:ThresholdClassificationRun,wfkg:DownloadBandsRun,wfkg:AllometricEquationRun,wfkg:SelectScenesRun,wfkg:ExportResultsRun,wfkg:DefineStudyAreaRun
+ - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: wfkg:CarbonStockEstimate,wfkg:NIRBand,wfkg:SelectedScene,wfkg:NDWI,wfkg:MangroveMask,wfkg:RedBand,wfkg:SAVI,wfkg:InteractiveVisualisation,wfkg:CSVSummary,wfkg:BiomassEstimate,wfkg:NDVI,wfkg:GreenBand,wfkg:CO2EquivalentEstimate,wfkg:GeoTIFFRaster
+ - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: wfkg:CalculateIndicesRun,wfkg:DisplaySummaryReportRun,wfkg:CO2EquivalentRun,wfkg:CarbonStockRun,wfkg:ThresholdClassificationRun,wfkg:DownloadBandsRun,wfkg:AllometricEquationRun,wfkg:SelectScenesRun,wfkg:ExportResultsRun,wfkg:DefineStudyAreaRun
 
 Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
   Validation Report

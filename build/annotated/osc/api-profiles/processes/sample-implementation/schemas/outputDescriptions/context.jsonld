@@ -1,7 +1,12 @@
 {
   "@context": {
     "@vocab": "https://w3id.org/ogc/api/processes/",
-    "schema": "proc:schema",
+    "schema": {
+      "@context": {
+        "@vocab": "https://w3id.org/ogc/api/schema/"
+      },
+      "@id": "proc:schema"
+    },
     "title": "dct:title",
     "description": "dct:description",
     "keywords": "proc:keywords",

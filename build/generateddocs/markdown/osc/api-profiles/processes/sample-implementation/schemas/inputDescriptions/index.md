@@ -52,46 +52,8 @@ Links to the schema:
       "@id": "proc:enum",
       "@container": "@set"
     },
-    "geometry": {
-      "@context": {
-        "schema": {
-          "@context": {
-            "type": "@type",
-            "id": "@id",
-            "properties": "@nest",
-            "geometry": {
-              "@context": {
-                "coordinates": {
-                  "@container": "@list",
-                  "@id": "geojson:coordinates"
-                }
-              },
-              "@id": "geojson:geometry"
-            },
-            "bbox": {
-              "@container": "@list",
-              "@id": "geojson:bbox"
-            }
-          }
-        }
-      }
-    },
-    "Feature": "geojson:Feature",
-    "FeatureCollection": "geojson:FeatureCollection",
-    "GeometryCollection": "geojson:GeometryCollection",
-    "LineString": "geojson:LineString",
-    "MultiLineString": "geojson:MultiLineString",
-    "MultiPoint": "geojson:MultiPoint",
-    "MultiPolygon": "geojson:MultiPolygon",
-    "Point": "geojson:Point",
-    "Polygon": "geojson:Polygon",
-    "features": {
-      "@container": "@set",
-      "@id": "geojson:features"
-    },
     "dct": "http://purl.org/dc/terms/",
     "proc": "https://w3id.org/ogc/api/processes/",
-    "geojson": "https://purl.org/geojson/vocab#",
     "@version": 1.1
   }
 }

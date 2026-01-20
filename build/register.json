@@ -3,12 +3,12 @@
   "abstract": "Building Blocks for FAIR Open Science - profiles of OGC API Processes and various metadata standards to support open, transparent, interoperable and reproducible scientific workflows..\n",
   "description": "This repository is initially aimed to support the [Open Science Persistent Demonstrator](https://www.ogc.org/initiatives/open-science/) pilot, but may be further developed as a set of standards with appropriate working group governance.\n",
   "sparqlEndpoint": "https://defs-dev.opengis.net/fuseki/query",
-  "modified": "2026-01-13T22:11:13.111258",
+  "modified": "2026-01-20T05:29:33.223531",
   "tooling": {
     "bblocks-postprocess": {
-      "commitId": "\"e31f9b7205a141a60831e312d473ddf981d03c99",
-      "shortCommitId": "\"e31f9b",
-      "date": "2026-01-13T14:30:58+00:00\""
+      "commitId": "\"da938c570c326dad590b43582182bcf06cc63198",
+      "shortCommitId": "\"da938c",
+      "date": "2026-01-19T11:49:34+00:00\""
     }
   },
   "gitRepository": "https://github.com/ogcincubator/bblocks-openscience",
@@ -85,8 +85,8 @@
       ],
       "shaclShapes": {},
       "dependsOn": [
-        "ogc.ogc-utils.iri-or-curie",
-        "ogc.geo.common.data_types.geojson"
+        "ogc.geo.common.data_types.geojson",
+        "ogc.ogc-utils.iri-or-curie"
       ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputSchema/schema.yaml",
@@ -306,8 +306,8 @@
       "shaclShapes": {},
       "dependsOn": [
         "ogc.api.processes.v1.schemas.qualifiedInputValue",
-        "ogc.ogc-utils.prov-activity",
-        "ogc.ogc-utils.prov-entity"
+        "ogc.ogc-utils.prov-entity",
+        "ogc.ogc-utils.prov-activity"
       ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/schema.yaml",
@@ -396,8 +396,8 @@
       "shaclShapes": {},
       "dependsOn": [
         "ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputDescription",
-        "ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputDescription",
-        "ogc.api.processes.v1.schemas.process"
+        "ogc.api.processes.v1.schemas.process",
+        "ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputDescription"
       ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/processDescription/schema.yaml",
@@ -479,14 +479,14 @@
       "version": "0.1",
       "dateOfLastChange": "2026-01-13",
       "dependsOn": [
+        "ogc.bbr.wf4ever.wfdesc.Workflow",
         "ogc.contrib.stac.extensions.processes-ontology",
+        "ogc.geo.geodcat.dcat",
         "ogc.contrib.stac.extensions.osc-ontology",
         "ogc.contrib.stac.core-ontology",
         "ogc.bbr.wf4ever.ro.ResearchObject",
-        "ogc.geo.geodcat.dcat",
-        "ogc.bbr.wf4ever.wfdesc.Workflow",
-        "ogc.contrib.stac.extensions.cf-ontology",
-        "ogc.osc.ontology.cwlprov"
+        "ogc.osc.ontology.cwlprov",
+        "ogc.contrib.stac.extensions.cf-ontology"
       ],
       "sources": [],
       "scope": "dev",
@@ -524,10 +524,10 @@
       "dependsOn": [
         "ogc.geo.geodcat.geodcat-records",
         "ogc.contrib.stac.extensions.osc",
-        "ogc.geo.geodcat.stac.geodcat-stac-collection",
+        "ogc.ogc-utils.prov",
         "ogc.contrib.stac.extensions.themes",
-        "ogc.geo.geodcat.stac.geodcat-stac-item",
-        "ogc.ogc-utils.prov"
+        "ogc.geo.geodcat.stac.geodcat-stac-collection",
+        "ogc.geo.geodcat.stac.geodcat-stac-item"
       ],
       "version": "0.1",
       "dateOfLastChange": "2026-01-13",
@@ -595,8 +595,8 @@
       "itemClass": "schema",
       "shaclShapes": {},
       "dependsOn": [
-        "ogc.ogc-utils.iri-or-curie",
-        "ogc.api.processes.v1.schemas.execute"
+        "ogc.api.processes.v1.schemas.execute",
+        "ogc.ogc-utils.iri-or-curie"
       ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/schema.yaml",
@@ -631,9 +631,9 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.bbr.wf4ever.wfprov.WorkflowRun",
         "ogc.osc.geodcat-stac-earthcode.common",
-        "ogc.geo.geodcat.geodcat-records"
+        "ogc.geo.geodcat.geodcat-records",
+        "ogc.bbr.wf4ever.wfprov.WorkflowRun"
       ],
       "version": "0.1",
       "dateOfLastChange": "2026-01-13",
@@ -701,8 +701,8 @@
       "register": "ogc-incubator",
       "dependsOn": [
         "ogc.osc.geodcat-stac-earthcode.common",
-        "ogc.ogc-utils.prov-entity",
-        "ogc.contrib.stac.extensions.cf"
+        "ogc.contrib.stac.extensions.cf",
+        "ogc.ogc-utils.prov-entity"
       ],
       "version": "0.1",
       "dateOfLastChange": "2026-01-13",
@@ -766,11 +766,11 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
+        "ogc.geo.geodcat.geodcat-records",
         "ogc.osc.geodcat-stac-earthcode.common",
         "ogc.ogc-utils.prov-entity",
-        "ogc.api.processes.v1.schemas.inputDescription",
         "ogc.api.processes.v1.schemas.outputDescription",
-        "ogc.geo.geodcat.geodcat-records"
+        "ogc.api.processes.v1.schemas.inputDescription"
       ],
       "version": "0.1",
       "dateOfLastChange": "2026-01-13",
@@ -836,8 +836,8 @@
         }
       ],
       "dependsOn": [
-        "ogc.osc.api-profiles.processes.ipt.results",
-        "ogc.osc.api-profiles.processes.ipt.execute"
+        "ogc.osc.api-profiles.processes.ipt.execute",
+        "ogc.osc.api-profiles.processes.ipt.results"
       ],
       "tags": [
         "ogcapi-processes",
@@ -874,8 +874,8 @@
       "itemClass": "api",
       "register": "ogc-incubator",
       "dependsOn": [
-        "ogc.osc.application-package",
-        "ogc.osc.api-profiles.processes.ipt.api"
+        "ogc.osc.api-profiles.processes.ipt.api",
+        "ogc.osc.application-package"
       ],
       "version": "0.1",
       "dateOfLastChange": "2026-01-13",
@@ -919,9 +919,9 @@
       "register": "ogc-incubator",
       "dependsOn": [
         "ogc.osc.geodcat-stac-earthcode.products",
+        "ogc.osc.geodcat-stac-earthcode.experiments",
         "ogc.osc.geodcat-stac-earthcode.workflows",
-        "ogc.osc.api-profiles.processes.workflow",
-        "ogc.osc.geodcat-stac-earthcode.experiments"
+        "ogc.osc.api-profiles.processes.workflow"
       ],
       "version": "0.1",
       "dateOfLastChange": "2026-01-13",
@@ -989,23 +989,23 @@
       },
       "shaclShapes": {},
       "dependsOn": [
-        "ogc.api.processes.v1.paths.ProcessList",
-        "ogc.api.processes.v1.api",
-        "ogc.api.processes.v1.schemas.inputDescription",
-        "ogc.api.processes.v1.schemas.outputDescription",
-        "ogc.api.processes.v1.responses.ExecuteAsync",
-        "ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputSchema",
-        "ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.processDescription",
-        "ogc.api.processes.v1.paths.JobList",
         "ogc.api.processes.v1.schemas.execute",
-        "ogc.api.processes.v1.responses.ServerError",
-        "ogc.api.processes.v1.parameters.jobId",
-        "ogc.osc.api-profiles.processes.sample-implementation.schemas.inputDescriptions",
-        "ogc.api.processes.v1.paths.LandingPage",
-        "ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputSchema",
+        "ogc.api.processes.v1.schemas.outputDescription",
+        "ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputSchema",
         "ogc.api.processes.v1.responses.NotFound",
+        "ogc.api.processes.v1.paths.JobList",
+        "ogc.osc.api-profiles.processes.sample-implementation.schemas.inputDescriptions",
+        "ogc.api.processes.v1.responses.ServerError",
+        "ogc.api.processes.v1.api",
+        "ogc.api.processes.v1.responses.ExecuteAsync",
         "ogc.osc.api-profiles.processes.sample-implementation.schemas.outputDescriptions",
-        "ogc.api.processes.v1.paths.Conformance"
+        "ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputSchema",
+        "ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.processDescription",
+        "ogc.api.processes.v1.paths.Conformance",
+        "ogc.api.processes.v1.paths.ProcessList",
+        "ogc.api.processes.v1.schemas.inputDescription",
+        "ogc.api.processes.v1.parameters.jobId",
+        "ogc.api.processes.v1.paths.LandingPage"
       ],
       "sourceOpenAPIDocument": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/sample-implementation/openapi.yaml",
       "openAPIDocument": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/openapi.yaml",

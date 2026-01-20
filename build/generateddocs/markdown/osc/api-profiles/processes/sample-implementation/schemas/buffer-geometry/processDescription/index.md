@@ -33,6 +33,9 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
+    "title": "dct:title",
+    "description": "dct:description",
+    "keywords": "proc:keywords",
     "nullable": "proc:nullable",
     "type": "proc:type",
     "$ref": {

@@ -96,7 +96,7 @@
         "@id": "bblocks:dependsOn",
         "@type": "@id"
       },
-      "profileOf": {
+      "isProfileOf": {
         "@id": "prof:isProfileOf",
         "@type": "@id"
       },
@@ -153,6 +153,14 @@
       "links": {
         "@id": "prof:hasResource",
         "@context": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/context.jsonld"
+      },
+      "concept": {
+        "@id": "skos:closeMatch",
+        "@type": "@id"
+      },
+      "rdfType": {
+        "@id": "rdfs:subClassOf",
+        "@type": "@id"
       }
     }
   ],
@@ -160,12 +168,12 @@
   "abstract": "Building Blocks for FAIR Open Science - profiles of OGC API Processes and various metadata standards to support open, transparent, interoperable and reproducible scientific workflows..\n",
   "description": "This repository is initially aimed to support the [Open Science Persistent Demonstrator](https://www.ogc.org/initiatives/open-science/) pilot, but may be further developed as a set of standards with appropriate working group governance.\n",
   "sparqlEndpoint": "https://defs-dev.opengis.net/fuseki/query",
-  "modified": "2026-01-13T22:11:13.111258",
+  "modified": "2026-01-20T05:29:33.223531",
   "tooling": {
     "bblocks-postprocess": {
-      "commitId": "\"e31f9b7205a141a60831e312d473ddf981d03c99",
-      "shortCommitId": "\"e31f9b",
-      "date": "2026-01-13T14:30:58+00:00\""
+      "commitId": "\"da938c570c326dad590b43582182bcf06cc63198",
+      "shortCommitId": "\"da938c",
+      "date": "2026-01-19T11:49:34+00:00\""
     }
   },
   "gitRepository": "https://github.com/ogcincubator/bblocks-openscience",
@@ -206,7 +214,8 @@
   ],
   "@type": [
     "skos:ConceptScheme",
-    "dcat:Catalog"
+    "dcat:Catalog",
+    "bblocks:BBlocksRegister"
   ],
   "skos:prefLabel": "Building Blocks - Open Science Workflows Building Blocks",
   "hasConcepts": [
@@ -263,14 +272,15 @@
       "@type": [
         "bblocks:Schema",
         "skos:Concept",
-        "dcat:Dataset"
+        "dcat:Dataset",
+        "bblocks:BBlock"
       ],
       "skos:prefLabel": "Buffer geometry process output schema",
       "ldContext": null,
       "openAPIDocument": null,
       "ontology": null,
       "dependsOn": null,
-      "profileOf": null,
+      "isProfileOf": null,
       "skos:topConceptOf": {
         "@id": "https://ogcincubator.github.io/bblocks-openscience/"
       }
@@ -293,8 +303,8 @@
       ],
       "shaclShapes": null,
       "dependsOn": [
-        "bblocks://ogc.ogc-utils.iri-or-curie",
-        "bblocks://ogc.geo.common.data_types.geojson"
+        "bblocks://ogc.geo.common.data_types.geojson",
+        "bblocks://ogc.ogc-utils.iri-or-curie"
       ],
       "schema": [
         {
@@ -338,12 +348,13 @@
       "@type": [
         "bblocks:Schema",
         "skos:Concept",
-        "dcat:Dataset"
+        "dcat:Dataset",
+        "bblocks:BBlock"
       ],
       "skos:prefLabel": "Buffer geometry process input schema",
       "openAPIDocument": null,
       "ontology": null,
-      "profileOf": null,
+      "isProfileOf": null,
       "skos:topConceptOf": {
         "@id": "https://ogcincubator.github.io/bblocks-openscience/"
       }
@@ -388,14 +399,15 @@
       "@type": [
         "bblocks:Model",
         "skos:Concept",
-        "dcat:Dataset"
+        "dcat:Dataset",
+        "bblocks:BBlock"
       ],
       "skos:prefLabel": "CWL Ontology",
       "ldContext": null,
       "schema": null,
       "openAPIDocument": null,
       "ontology": null,
-      "profileOf": null,
+      "isProfileOf": null,
       "skos:topConceptOf": {
         "@id": "https://ogcincubator.github.io/bblocks-openscience/"
       }
@@ -463,12 +475,13 @@
       "@type": [
         "bblocks:Schema",
         "skos:Concept",
-        "dcat:Dataset"
+        "dcat:Dataset",
+        "bblocks:BBlock"
       ],
       "skos:prefLabel": "Buffer geometry process input description",
       "openAPIDocument": null,
       "ontology": null,
-      "profileOf": null,
+      "isProfileOf": null,
       "skos:topConceptOf": {
         "@id": "https://ogcincubator.github.io/bblocks-openscience/"
       }
@@ -536,12 +549,13 @@
       "@type": [
         "bblocks:Schema",
         "skos:Concept",
-        "dcat:Dataset"
+        "dcat:Dataset",
+        "bblocks:BBlock"
       ],
       "skos:prefLabel": "Buffer geometry process output description",
       "openAPIDocument": null,
       "ontology": null,
-      "profileOf": null,
+      "isProfileOf": null,
       "skos:topConceptOf": {
         "@id": "https://ogcincubator.github.io/bblocks-openscience/"
       }
@@ -614,12 +628,13 @@
       "@type": [
         "bblocks:Schema",
         "skos:Concept",
-        "dcat:Dataset"
+        "dcat:Dataset",
+        "bblocks:BBlock"
       ],
       "skos:prefLabel": "Application Package",
       "openAPIDocument": null,
       "ontology": null,
-      "profileOf": null,
+      "isProfileOf": null,
       "skos:topConceptOf": {
         "@id": "https://ogcincubator.github.io/bblocks-openscience/"
       }
@@ -641,8 +656,8 @@
       "shaclShapes": null,
       "dependsOn": [
         "bblocks://ogc.api.processes.v1.schemas.qualifiedInputValue",
-        "bblocks://ogc.ogc-utils.prov-activity",
-        "bblocks://ogc.ogc-utils.prov-entity"
+        "bblocks://ogc.ogc-utils.prov-entity",
+        "bblocks://ogc.ogc-utils.prov-activity"
       ],
       "schema": [
         {
@@ -686,12 +701,13 @@
       "@type": [
         "bblocks:Schema",
         "skos:Concept",
-        "dcat:Dataset"
+        "dcat:Dataset",
+        "bblocks:BBlock"
       ],
       "skos:prefLabel": "Result schema for IPT",
       "openAPIDocument": null,
       "ontology": null,
-      "profileOf": null,
+      "isProfileOf": null,
       "skos:topConceptOf": {
         "@id": "https://ogcincubator.github.io/bblocks-openscience/"
       }
@@ -758,12 +774,13 @@
       "@type": [
         "bblocks:Schema",
         "skos:Concept",
-        "dcat:Dataset"
+        "dcat:Dataset",
+        "bblocks:BBlock"
       ],
       "skos:prefLabel": "Example OGC API Processes instance input descriptions",
       "openAPIDocument": null,
       "ontology": null,
-      "profileOf": null,
+      "isProfileOf": null,
       "skos:topConceptOf": {
         "@id": "https://ogcincubator.github.io/bblocks-openscience/"
       }
@@ -787,8 +804,8 @@
       "shaclShapes": null,
       "dependsOn": [
         "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputDescription",
-        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputDescription",
-        "bblocks://ogc.api.processes.v1.schemas.process"
+        "bblocks://ogc.api.processes.v1.schemas.process",
+        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputDescription"
       ],
       "schema": [
         {
@@ -832,12 +849,13 @@
       "@type": [
         "bblocks:Schema",
         "skos:Concept",
-        "dcat:Dataset"
+        "dcat:Dataset",
+        "bblocks:BBlock"
       ],
       "skos:prefLabel": "Buffer geometry process description",
       "openAPIDocument": null,
       "ontology": null,
-      "profileOf": null,
+      "isProfileOf": null,
       "skos:topConceptOf": {
         "@id": "https://ogcincubator.github.io/bblocks-openscience/"
       }
@@ -904,12 +922,13 @@
       "@type": [
         "bblocks:Schema",
         "skos:Concept",
-        "dcat:Dataset"
+        "dcat:Dataset",
+        "bblocks:BBlock"
       ],
       "skos:prefLabel": "Example OGC API Processes instance output descriptions",
       "openAPIDocument": null,
       "ontology": null,
-      "profileOf": null,
+      "isProfileOf": null,
       "skos:topConceptOf": {
         "@id": "https://ogcincubator.github.io/bblocks-openscience/"
       }
@@ -926,14 +945,14 @@
       "version": "0.1",
       "dateOfLastChange": "2026-01-13",
       "dependsOn": [
+        "bblocks://ogc.bbr.wf4ever.wfdesc.Workflow",
         "bblocks://ogc.contrib.stac.extensions.processes-ontology",
+        "bblocks://ogc.geo.geodcat.dcat",
         "bblocks://ogc.contrib.stac.extensions.osc-ontology",
         "bblocks://ogc.contrib.stac.core-ontology",
         "bblocks://ogc.bbr.wf4ever.ro.ResearchObject",
-        "bblocks://ogc.geo.geodcat.dcat",
-        "bblocks://ogc.bbr.wf4ever.wfdesc.Workflow",
-        "bblocks://ogc.contrib.stac.extensions.cf-ontology",
-        "bblocks://ogc.osc.ontology.cwlprov"
+        "bblocks://ogc.osc.ontology.cwlprov",
+        "bblocks://ogc.contrib.stac.extensions.cf-ontology"
       ],
       "sources": [],
       "scope": "dev",
@@ -962,14 +981,15 @@
       "@type": [
         "bblocks:Model",
         "skos:Concept",
-        "dcat:Dataset"
+        "dcat:Dataset",
+        "bblocks:BBlock"
       ],
       "skos:prefLabel": "Open Science Ontology",
       "ldContext": null,
       "schema": null,
       "openAPIDocument": null,
       "ontology": null,
-      "profileOf": null,
+      "isProfileOf": null,
       "skos:topConceptOf": {
         "@id": "https://ogcincubator.github.io/bblocks-openscience/"
       }
@@ -986,10 +1006,10 @@
       "dependsOn": [
         "bblocks://ogc.geo.geodcat.geodcat-records",
         "bblocks://ogc.contrib.stac.extensions.osc",
-        "bblocks://ogc.geo.geodcat.stac.geodcat-stac-collection",
+        "bblocks://ogc.ogc-utils.prov",
         "bblocks://ogc.contrib.stac.extensions.themes",
-        "bblocks://ogc.geo.geodcat.stac.geodcat-stac-item",
-        "bblocks://ogc.ogc-utils.prov"
+        "bblocks://ogc.geo.geodcat.stac.geodcat-stac-collection",
+        "bblocks://ogc.geo.geodcat.stac.geodcat-stac-item"
       ],
       "version": "0.1",
       "dateOfLastChange": "2026-01-13",
@@ -1066,12 +1086,13 @@
       "@type": [
         "bblocks:Schema",
         "skos:Concept",
-        "dcat:Dataset"
+        "dcat:Dataset",
+        "bblocks:BBlock"
       ],
       "skos:prefLabel": "EarthCODE Common STAC profile",
       "openAPIDocument": null,
       "ontology": null,
-      "profileOf": null,
+      "isProfileOf": null,
       "skos:topConceptOf": {
         "@id": "https://ogcincubator.github.io/bblocks-openscience/"
       }
@@ -1091,8 +1112,8 @@
       "itemClass": "schema",
       "shaclShapes": null,
       "dependsOn": [
-        "bblocks://ogc.ogc-utils.iri-or-curie",
-        "bblocks://ogc.api.processes.v1.schemas.execute"
+        "bblocks://ogc.api.processes.v1.schemas.execute",
+        "bblocks://ogc.ogc-utils.iri-or-curie"
       ],
       "schema": [
         {
@@ -1130,13 +1151,14 @@
       "@type": [
         "bblocks:Schema",
         "skos:Concept",
-        "dcat:Dataset"
+        "dcat:Dataset",
+        "bblocks:BBlock"
       ],
       "skos:prefLabel": "Execute (request) schema for IPT",
       "ldContext": null,
       "openAPIDocument": null,
       "ontology": null,
-      "profileOf": null,
+      "isProfileOf": null,
       "skos:topConceptOf": {
         "@id": "https://ogcincubator.github.io/bblocks-openscience/"
       }
@@ -1151,9 +1173,9 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "bblocks://ogc.bbr.wf4ever.wfprov.WorkflowRun",
         "bblocks://ogc.osc.geodcat-stac-earthcode.common",
-        "bblocks://ogc.geo.geodcat.geodcat-records"
+        "bblocks://ogc.geo.geodcat.geodcat-records",
+        "bblocks://ogc.bbr.wf4ever.wfprov.WorkflowRun"
       ],
       "version": "0.1",
       "dateOfLastChange": "2026-01-13",
@@ -1240,12 +1262,13 @@
       "@type": [
         "bblocks:Schema",
         "skos:Concept",
-        "dcat:Dataset"
+        "dcat:Dataset",
+        "bblocks:BBlock"
       ],
       "skos:prefLabel": "EarthCODE Experiment",
       "openAPIDocument": null,
       "ontology": null,
-      "profileOf": null,
+      "isProfileOf": null,
       "skos:topConceptOf": {
         "@id": "https://ogcincubator.github.io/bblocks-openscience/"
       }
@@ -1261,8 +1284,8 @@
       "register": "ogc-incubator",
       "dependsOn": [
         "bblocks://ogc.osc.geodcat-stac-earthcode.common",
-        "bblocks://ogc.ogc-utils.prov-entity",
-        "bblocks://ogc.contrib.stac.extensions.cf"
+        "bblocks://ogc.contrib.stac.extensions.cf",
+        "bblocks://ogc.ogc-utils.prov-entity"
       ],
       "version": "0.1",
       "dateOfLastChange": "2026-01-13",
@@ -1340,12 +1363,13 @@
       "@type": [
         "bblocks:Schema",
         "skos:Concept",
-        "dcat:Dataset"
+        "dcat:Dataset",
+        "bblocks:BBlock"
       ],
       "skos:prefLabel": "EarthCODE Product",
       "openAPIDocument": null,
       "ontology": null,
-      "profileOf": null,
+      "isProfileOf": null,
       "skos:topConceptOf": {
         "@id": "https://ogcincubator.github.io/bblocks-openscience/"
       }
@@ -1360,11 +1384,11 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
+        "bblocks://ogc.geo.geodcat.geodcat-records",
         "bblocks://ogc.osc.geodcat-stac-earthcode.common",
         "bblocks://ogc.ogc-utils.prov-entity",
-        "bblocks://ogc.api.processes.v1.schemas.inputDescription",
         "bblocks://ogc.api.processes.v1.schemas.outputDescription",
-        "bblocks://ogc.geo.geodcat.geodcat-records"
+        "bblocks://ogc.api.processes.v1.schemas.inputDescription"
       ],
       "version": "0.1",
       "dateOfLastChange": "2026-01-13",
@@ -1438,12 +1462,13 @@
       "@type": [
         "bblocks:Schema",
         "skos:Concept",
-        "dcat:Dataset"
+        "dcat:Dataset",
+        "bblocks:BBlock"
       ],
       "skos:prefLabel": "EarthCODE Workflow",
       "openAPIDocument": null,
       "ontology": null,
-      "profileOf": null,
+      "isProfileOf": null,
       "skos:topConceptOf": {
         "@id": "https://ogcincubator.github.io/bblocks-openscience/"
       }
@@ -1464,8 +1489,8 @@
         }
       ],
       "dependsOn": [
-        "bblocks://ogc.osc.api-profiles.processes.ipt.results",
-        "bblocks://ogc.osc.api-profiles.processes.ipt.execute"
+        "bblocks://ogc.osc.api-profiles.processes.ipt.execute",
+        "bblocks://ogc.osc.api-profiles.processes.ipt.results"
       ],
       "tags": [
         "ogcapi-processes",
@@ -1495,14 +1520,15 @@
       "@type": [
         "bblocks:Api",
         "skos:Concept",
-        "dcat:Dataset"
+        "dcat:Dataset",
+        "bblocks:BBlock"
       ],
       "skos:prefLabel": "IPT Profile of OGC API Processes",
       "ldContext": null,
       "schema": null,
       "openAPIDocument": null,
       "ontology": null,
-      "profileOf": null,
+      "isProfileOf": null,
       "skos:topConceptOf": {
         "@id": "https://ogcincubator.github.io/bblocks-openscience/"
       }
@@ -1517,8 +1543,8 @@
       "itemClass": "api",
       "register": "ogc-incubator",
       "dependsOn": [
-        "bblocks://ogc.osc.application-package",
-        "bblocks://ogc.osc.api-profiles.processes.ipt.api"
+        "bblocks://ogc.osc.api-profiles.processes.ipt.api",
+        "bblocks://ogc.osc.application-package"
       ],
       "version": "0.1",
       "dateOfLastChange": "2026-01-13",
@@ -1554,14 +1580,15 @@
       "@type": [
         "bblocks:Api",
         "skos:Concept",
-        "dcat:Dataset"
+        "dcat:Dataset",
+        "bblocks:BBlock"
       ],
       "skos:prefLabel": "Workflow profile of OGC API Processes",
       "ldContext": null,
       "schema": null,
       "openAPIDocument": null,
       "ontology": null,
-      "profileOf": null,
+      "isProfileOf": null,
       "skos:topConceptOf": {
         "@id": "https://ogcincubator.github.io/bblocks-openscience/"
       }
@@ -1577,9 +1604,9 @@
       "register": "ogc-incubator",
       "dependsOn": [
         "bblocks://ogc.osc.geodcat-stac-earthcode.products",
+        "bblocks://ogc.osc.geodcat-stac-earthcode.experiments",
         "bblocks://ogc.osc.geodcat-stac-earthcode.workflows",
-        "bblocks://ogc.osc.api-profiles.processes.workflow",
-        "bblocks://ogc.osc.geodcat-stac-earthcode.experiments"
+        "bblocks://ogc.osc.api-profiles.processes.workflow"
       ],
       "version": "0.1",
       "dateOfLastChange": "2026-01-13",
@@ -1634,14 +1661,15 @@
       "@type": [
         "bblocks:Api",
         "skos:Concept",
-        "dcat:Dataset"
+        "dcat:Dataset",
+        "bblocks:BBlock"
       ],
       "skos:prefLabel": "Open Science profile of OGC API Processes",
       "ldContext": null,
       "schema": null,
       "openAPIDocument": null,
       "ontology": null,
-      "profileOf": null,
+      "isProfileOf": null,
       "skos:topConceptOf": {
         "@id": "https://ogcincubator.github.io/bblocks-openscience/"
       }
@@ -1663,7 +1691,7 @@
         "ogc api processes"
       ],
       "isProfileOf": [
-        "ogc.api.processes.v1.api"
+        "bblocks://ogc.api.processes.v1.api"
       ],
       "extensionPoints": {
         "baseBuildingBlock": "ogc.api.processes.v1.api",
@@ -1674,23 +1702,23 @@
       },
       "shaclShapes": null,
       "dependsOn": [
-        "bblocks://ogc.api.processes.v1.paths.ProcessList",
-        "bblocks://ogc.api.processes.v1.api",
-        "bblocks://ogc.api.processes.v1.schemas.inputDescription",
-        "bblocks://ogc.api.processes.v1.schemas.outputDescription",
-        "bblocks://ogc.api.processes.v1.responses.ExecuteAsync",
-        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputSchema",
-        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.processDescription",
-        "bblocks://ogc.api.processes.v1.paths.JobList",
         "bblocks://ogc.api.processes.v1.schemas.execute",
-        "bblocks://ogc.api.processes.v1.responses.ServerError",
-        "bblocks://ogc.api.processes.v1.parameters.jobId",
-        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.inputDescriptions",
-        "bblocks://ogc.api.processes.v1.paths.LandingPage",
-        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputSchema",
+        "bblocks://ogc.api.processes.v1.schemas.outputDescription",
+        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputSchema",
         "bblocks://ogc.api.processes.v1.responses.NotFound",
+        "bblocks://ogc.api.processes.v1.paths.JobList",
+        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.inputDescriptions",
+        "bblocks://ogc.api.processes.v1.responses.ServerError",
+        "bblocks://ogc.api.processes.v1.api",
+        "bblocks://ogc.api.processes.v1.responses.ExecuteAsync",
         "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.outputDescriptions",
-        "bblocks://ogc.api.processes.v1.paths.Conformance"
+        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputSchema",
+        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.processDescription",
+        "bblocks://ogc.api.processes.v1.paths.Conformance",
+        "bblocks://ogc.api.processes.v1.paths.ProcessList",
+        "bblocks://ogc.api.processes.v1.schemas.inputDescription",
+        "bblocks://ogc.api.processes.v1.parameters.jobId",
+        "bblocks://ogc.api.processes.v1.paths.LandingPage"
       ],
       "sourceOpenAPIDocument": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/sample-implementation/openapi.yaml",
       "openAPIDocument": {
@@ -1720,13 +1748,13 @@
       "@type": [
         "bblocks:Api",
         "skos:Concept",
-        "dcat:Dataset"
+        "dcat:Dataset",
+        "bblocks:BBlock"
       ],
       "skos:prefLabel": "Custom OGC API processes instance",
       "ldContext": null,
       "schema": null,
       "ontology": null,
-      "profileOf": null,
       "skos:topConceptOf": {
         "@id": "https://ogcincubator.github.io/bblocks-openscience/"
       }
