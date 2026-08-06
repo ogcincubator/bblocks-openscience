@@ -283,7 +283,7 @@ None
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://ogcincubator.github.io/bblocks-openscience/_sources/application-package/context.jsonld)
+[context.jsonld](/github/workspace/_sources/application-package/context.jsonld)
 
 ## Sources
 
