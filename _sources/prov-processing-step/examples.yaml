@@ -1,0 +1,61 @@
+- title: Reprojection of a gridded precipitation dataset
+  description: >-
+    A single reprojection step, transforming a gridded precipitation dataset
+    from a geographic CRS to a projected CRS. Reprojection was the one
+    operation common to every workflow presented at the OSPD 2026 kick-off,
+    which makes it the natural first candidate for the process-type register.
+  snippets:
+    - language: json
+      code: |
+        {
+          "id": "urn:aganitha:step:reproject:20260805T101500Z",
+          "processType": "https://example.org/ospd/process-types/reprojection",
+          "label": "Reproject precipitation grid to national projected CRS",
+          "startedAtTime": "2026-08-05T10:15:00Z",
+          "endedAtTime": "2026-08-05T10:15:42Z",
+          "used": [
+            {
+              "entity": "urn:aganitha:dataset:precip-daily-geographic",
+              "role": "sourceGrid",
+              "mediaType": "application/x-netcdf"
+            }
+          ],
+          "generated": [
+            {
+              "entity": "urn:aganitha:dataset:precip-daily-projected",
+              "role": "targetGrid",
+              "mediaType": "application/x-netcdf"
+            }
+          ],
+          "wasAssociatedWith": [
+            "https://gdal.org/"
+          ],
+          "parameters": {
+            "sourceCrs": "EPSG:4326",
+            "targetCrs": "EPSG:7755",
+            "resamplingMethod": "bilinear"
+          }
+        }
+
+- title: Minimal conforming step
+  description: >-
+    The smallest document that satisfies this profile.
+  snippets:
+    - language: json
+      code: |
+        {
+          "id": "urn:example:step:0001",
+          "processType": "https://example.org/ospd/process-types/reprojection",
+          "used": [
+            {
+              "entity": "urn:example:input:0001",
+              "role": "sourceGrid"
+            }
+          ],
+          "generated": [
+            {
+              "entity": "urn:example:output:0001",
+              "role": "targetGrid"
+            }
+          ]
+        }

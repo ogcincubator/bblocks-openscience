@@ -1,0 +1,85 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Geospatial Processing Step Provenance
+description: >-
+  A single geospatial processing step, expressed as a constrained profile of
+  PROV-O. Narrows the general PROV building block to the black-box view
+  required for workflow profiling.
+
+allOf:
+  - $ref: bblocks://ogc.ogc-utils.prov
+  - type: object
+    required:
+      - id
+      - processType
+      - used
+      - generated
+    properties:
+
+      id:
+        description: Stable identifier for this processing step activity.
+        type: string
+        format: uri
+
+      processType:
+        description: >-
+          Identifier of the registered process type this step is an instance
+          of, resolved against the OSPD process-type register.
+        type: string
+        format: uri
+
+      label:
+        description: Human-readable name for this step.
+        type: string
+
+      startedAtTime:
+        type: string
+        format: date-time
+
+      endedAtTime:
+        type: string
+        format: date-time
+
+      used:
+        description: Entities consumed by this step.
+        type: array
+        minItems: 1
+        items:
+          $ref: '#/$defs/roleReference'
+
+      generated:
+        description: Entities produced by this step.
+        type: array
+        minItems: 1
+        items:
+          $ref: '#/$defs/roleReference'
+
+      wasAssociatedWith:
+        description: Software agent responsible for executing this step.
+        type: array
+        items:
+          type: string
+          format: uri
+
+      parameters:
+        description: >-
+          Parameter values that determined the behaviour of this step.
+        type: object
+        additionalProperties: true
+
+$defs:
+
+  roleReference:
+    description: >-
+      A reference to an entity together with the role it played in this step.
+    type: object
+    required:
+      - entity
+      - role
+    properties:
+      entity:
+        type: string
+        format: uri
+      role:
+        type: string
+      mediaType:
+        type: string
