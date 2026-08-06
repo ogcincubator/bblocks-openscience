@@ -1,9 +1,4 @@
-- title: An example demonstrating a basic EarthCODE Experiment
-
-  snippets:
-    - language: json
-      ref: https://raw.githubusercontent.com/ESA-EarthCODE/open-science-catalog-metadata/refs/heads/main/experiments/polaris-experiment/record.json
-      base-uri: https://ogc.org/demo/ospd/
+examples:
 
 
 - title: An example of Kind Grove workflow provenance wf4ever
@@ -56,4 +51,13 @@
   snippets:
     - language: json
       ref: examples/water-bodies-prov.json
+      base-uri: https://ogc.org/demo/ospd/
+
+
+broken-examples:
+- title: An example demonstrating a basic EarthCODE Experiment
+
+  snippets:
+    - language: json
+      ref: https://raw.githubusercontent.com/ESA-EarthCODE/open-science-catalog-metadata/refs/heads/main/experiments/polaris-experiment/record.json
       base-uri: https://ogc.org/demo/ospd/
