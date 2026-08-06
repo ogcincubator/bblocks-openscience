@@ -9,27 +9,20 @@
       code: |
         {
           "id": "urn:aganitha:step:reproject:20260805T101500Z",
+          "provType": "Activity",
           "processType": "https://example.org/ospd/process-types/reprojection",
           "label": "Reproject precipitation grid to national projected CRS",
           "startedAtTime": "2026-08-05T10:15:00Z",
           "endedAtTime": "2026-08-05T10:15:42Z",
-          "used": [
+          "used": ["urn:aganitha:dataset:precip-daily-geographic"],
+          "generated": ["urn:aganitha:dataset:precip-daily-projected"],
+          "qualifiedUsage": [
             {
               "entity": "urn:aganitha:dataset:precip-daily-geographic",
-              "role": "sourceGrid",
-              "mediaType": "application/x-netcdf"
+              "hadRole": "https://example.org/ospd/roles/sourceGrid"
             }
           ],
-          "generated": [
-            {
-              "entity": "urn:aganitha:dataset:precip-daily-projected",
-              "role": "targetGrid",
-              "mediaType": "application/x-netcdf"
-            }
-          ],
-          "wasAssociatedWith": [
-            "https://gdal.org/"
-          ],
+          "wasAssociatedWith": ["https://gdal.org/"],
           "parameters": {
             "sourceCrs": "EPSG:4326",
             "targetCrs": "EPSG:7755",
@@ -45,17 +38,8 @@
       code: |
         {
           "id": "urn:example:step:0001",
+          "provType": "Activity",
           "processType": "https://example.org/ospd/process-types/reprojection",
-          "used": [
-            {
-              "entity": "urn:example:input:0001",
-              "role": "sourceGrid"
-            }
-          ],
-          "generated": [
-            {
-              "entity": "urn:example:output:0001",
-              "role": "targetGrid"
-            }
-          ]
+          "used": ["urn:example:input:0001"],
+          "generated": ["urn:example:output:0001"]
         }
