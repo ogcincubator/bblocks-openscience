@@ -24,11 +24,16 @@ allOf:
         description: >-
           Identifier of the registered process type this step is an instance
           of. This is the link that PROV-O and OGC API - Processes Part 5 do
-          not themselves provide.
+          not themselves provide. Bound to dct:type rather than a newly
+          minted term, so the value resolves as a governed concept in the
+          process-type register.
         type: string
+        x-jsonld-id: http://purl.org/dc/terms/type
+        x-jsonld-type: '@id'
 
       label:
         type: string
+        x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#label
 
       startedAtTime:
         type: string
@@ -77,6 +82,9 @@ allOf:
         description: >-
           Parameter values that determined the behaviour of this step. Keys
           SHOULD be drawn from the parameter terms declared by the registered
-          process type.
+          process type. Deliberately left unbound in the JSON-LD context:
+          how parameters should be typed depends on whether process types
+          are registered coarsely or as parameterised subtypes, which is
+          still an open question for the register design.
         type: object
         additionalProperties: true
