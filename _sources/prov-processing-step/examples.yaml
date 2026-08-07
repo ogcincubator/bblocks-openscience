@@ -1,33 +1,229 @@
-- title: Reprojection of a gridded precipitation dataset
+- title: Ingest of mandal-level vegetation and soil moisture
   description: >-
-    A single reprojection step, transforming a gridded precipitation dataset
-    from a geographic CRS to a projected CRS. Reprojection was the one
-    operation common to every workflow presented at the OSPD 2026 kick-off,
-    which makes it the natural first candidate for the process-type register.
+    Retrieval of source observations into the workflow. Ingest is where
+    external provenance ends and workflow provenance begins: the generated
+    entity is the first thing downstream steps can cite.
   snippets:
     - language: json
       code: |
         {
-          "id": "urn:aganitha:step:reproject:20260805T101500Z",
+          "id": "urn:aganitha:step:ingest-dicra:20260807T060000Z",
           "provType": "Activity",
-          "processType": "https://example.org/ospd/process-types/reprojection",
-          "label": "Reproject precipitation grid to national projected CRS",
-          "startedAtTime": "2026-08-05T10:15:00Z",
-          "endedAtTime": "2026-08-05T10:15:42Z",
-          "used": ["urn:aganitha:dataset:precip-daily-geographic"],
-          "generated": ["urn:aganitha:dataset:precip-daily-projected"],
+          "processType": "https://example.org/ospd/process-types/ingest",
+          "label": "Ingest mandal NDVI and soil moisture",
+          "startedAtTime": "2026-08-07T06:00:00Z",
+          "endedAtTime": "2026-08-07T06:03:41Z",
+          "used": ["urn:aganitha:source:dicra-mandal-archive"],
+          "generated": ["urn:aganitha:dataset:mandal-ndvi-sm-merged"],
           "qualifiedUsage": [
             {
-              "entity": "urn:aganitha:dataset:precip-daily-geographic",
-              "hadRole": "https://example.org/ospd/roles/sourceGrid"
+              "entity": "urn:aganitha:source:dicra-mandal-archive",
+              "hadRole": "https://example.org/ospd/roles/sourceArchive"
+            }
+          ]
+        }
+
+- title: Normalisation of vegetation index to a condition index
+  description: >-
+    Rescaling an observed index against its own historical extremes. The
+    reference extrema are inputs rather than inline constants, so the period
+    they were derived from is recoverable from the provenance.
+  snippets:
+    - language: json
+      code: |
+        {
+          "id": "urn:aganitha:step:vci:20260807T061000Z",
+          "provType": "Activity",
+          "processType": "https://example.org/ospd/process-types/index-normalisation",
+          "label": "Compute vegetation condition index from NDVI",
+          "used": [
+            "urn:aganitha:dataset:mandal-ndvi-sm-merged",
+            "urn:aganitha:reference:ndvi-extrema"
+          ],
+          "generated": ["urn:aganitha:dataset:vci"],
+          "qualifiedUsage": [
+            {
+              "entity": "urn:aganitha:dataset:mandal-ndvi-sm-merged",
+              "hadRole": "https://example.org/ospd/roles/observedIndex"
+            },
+            {
+              "entity": "urn:aganitha:reference:ndvi-extrema",
+              "hadRole": "https://example.org/ospd/roles/normalisationReference"
+            }
+          ]
+        }
+
+- title: Weighted composition of a combined drought index
+  description: >-
+    Combination of two condition indices under fixed weights. Both inputs
+    share the same role, and the weights are step parameters rather than
+    properties of the process type — a case that bears directly on how
+    finely process types should be registered.
+  snippets:
+    - language: json
+      code: |
+        {
+          "id": "urn:aganitha:step:cdsi:20260807T062000Z",
+          "provType": "Activity",
+          "processType": "https://example.org/ospd/process-types/index-composition",
+          "label": "Compose combined drought severity index",
+          "used": [
+            "urn:aganitha:dataset:vci",
+            "urn:aganitha:dataset:smdi"
+          ],
+          "generated": ["urn:aganitha:dataset:cdsi"],
+          "qualifiedUsage": [
+            {
+              "entity": "urn:aganitha:dataset:vci",
+              "hadRole": "https://example.org/ospd/roles/indexComponent"
+            },
+            {
+              "entity": "urn:aganitha:dataset:smdi",
+              "hadRole": "https://example.org/ospd/roles/indexComponent"
             }
           ],
-          "wasAssociatedWith": ["https://gdal.org/"],
           "parameters": {
-            "sourceCrs": "EPSG:4326",
-            "targetCrs": "EPSG:7755",
-            "resamplingMethod": "bilinear"
+            "weights": { "vci": 0.6, "smdi": 0.4 }
           }
+        }
+
+- title: Classification into drought severity classes
+  description: >-
+    Assignment of continuous index values to discrete classes. The class
+    scheme is an input entity, so the thresholds applied are recoverable
+    from the provenance without reading the code.
+  snippets:
+    - language: json
+      code: |
+        {
+          "id": "urn:aganitha:step:classify:20260807T063000Z",
+          "provType": "Activity",
+          "processType": "https://example.org/ospd/process-types/classification",
+          "label": "Classify drought severity",
+          "used": [
+            "urn:aganitha:dataset:cdsi",
+            "urn:aganitha:scheme:drought-severity-classes"
+          ],
+          "generated": ["urn:aganitha:dataset:drought-classes"],
+          "qualifiedUsage": [
+            {
+              "entity": "urn:aganitha:dataset:cdsi",
+              "hadRole": "https://example.org/ospd/roles/inputField"
+            },
+            {
+              "entity": "urn:aganitha:scheme:drought-severity-classes",
+              "hadRole": "https://example.org/ospd/roles/classificationScheme"
+            }
+          ],
+          "parameters": {
+            "classBreaks": [0.30, 0.45, 0.60, 0.75]
+          }
+        }
+
+- title: Standardised precipitation index over an accumulation window
+  description: >-
+    Derivation of a standardised index from an accumulated series against a
+    fitted reference period. Two entities of the same kind distinguished
+    only by role — the case where entity references alone would be
+    ambiguous and qualifiedUsage does real work.
+  snippets:
+    - language: json
+      code: |
+        {
+          "id": "urn:aganitha:step:spi:20260807T064000Z",
+          "provType": "Activity",
+          "processType": "https://example.org/ospd/process-types/standardised-index",
+          "label": "Compute standardised precipitation index",
+          "used": [
+            "urn:aganitha:dataset:precipitation-series",
+            "urn:aganitha:dataset:precipitation-reference-period"
+          ],
+          "generated": ["urn:aganitha:dataset:spi"],
+          "qualifiedUsage": [
+            {
+              "entity": "urn:aganitha:dataset:precipitation-series",
+              "hadRole": "https://example.org/ospd/roles/inputSeries"
+            },
+            {
+              "entity": "urn:aganitha:dataset:precipitation-reference-period",
+              "hadRole": "https://example.org/ospd/roles/fittingReference"
+            }
+          ]
+        }
+
+- title: Model training as a processing step
+  description: >-
+    Training a predictive model, expressed as an ordinary processing
+    activity. The generated entity is a fitted model rather than a data
+    product, and the fold assignment is an input entity so the spatial
+    cross-validation design is recoverable from the provenance.
+
+    This is the case the profile is least obviously shaped for, and the
+    reason it is included: if a trained model cannot be expressed as an
+    entity generated by an activity, the profile cannot describe machine
+    learning workflows at all.
+  snippets:
+    - language: json
+      code: |
+        {
+          "id": "urn:aganitha:step:train:20260807T070000Z",
+          "provType": "Activity",
+          "processType": "https://example.org/ospd/process-types/model-training",
+          "label": "Train drought prediction model with spatial cross-validation",
+          "used": [
+            "urn:aganitha:dataset:training-features",
+            "urn:aganitha:dataset:drought-labels",
+            "urn:aganitha:partition:district-folds"
+          ],
+          "generated": [
+            "urn:aganitha:model:drought-classifier",
+            "urn:aganitha:report:validation-metrics"
+          ],
+          "qualifiedUsage": [
+            {
+              "entity": "urn:aganitha:dataset:training-features",
+              "hadRole": "https://example.org/ospd/roles/trainingFeatures"
+            },
+            {
+              "entity": "urn:aganitha:dataset:drought-labels",
+              "hadRole": "https://example.org/ospd/roles/trainingTarget"
+            },
+            {
+              "entity": "urn:aganitha:partition:district-folds",
+              "hadRole": "https://example.org/ospd/roles/validationPartition"
+            }
+          ]
+        }
+
+- title: Inference using a trained model
+  description: >-
+    Applying a fitted model to produce a projection. The same model entity
+    that was generated by training is here consumed as an input — the
+    round trip that makes model provenance chainable, and something no
+    purely data-oriented profile has to handle.
+  snippets:
+    - language: json
+      code: |
+        {
+          "id": "urn:aganitha:step:project:20260807T071500Z",
+          "provType": "Activity",
+          "processType": "https://example.org/ospd/process-types/model-inference",
+          "label": "Generate forward drought projection",
+          "used": [
+            "urn:aganitha:model:drought-classifier",
+            "urn:aganitha:dataset:projection-drivers"
+          ],
+          "generated": ["urn:aganitha:dataset:drought-projection"],
+          "qualifiedUsage": [
+            {
+              "entity": "urn:aganitha:model:drought-classifier",
+              "hadRole": "https://example.org/ospd/roles/fittedModel"
+            },
+            {
+              "entity": "urn:aganitha:dataset:projection-drivers",
+              "hadRole": "https://example.org/ospd/roles/inferenceInput"
+            }
+          ]
         }
 
 - title: Minimal conforming step
@@ -39,7 +235,7 @@
         {
           "id": "urn:example:step:0001",
           "provType": "Activity",
-          "processType": "https://example.org/ospd/process-types/reprojection",
+          "processType": "https://example.org/ospd/process-types/ingest",
           "used": ["urn:example:input:0001"],
           "generated": ["urn:example:output:0001"]
         }
