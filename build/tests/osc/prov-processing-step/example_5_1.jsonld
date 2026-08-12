@@ -1,0 +1,32 @@
+{
+  "@context": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/prov-processing-step/context.jsonld",
+  "id": "urn:aganitha:step:classify:20260807T063000Z",
+  "provType": "Activity",
+  "processType": "https://example.org/ospd/process-types/classification",
+  "label": "Classify drought severity",
+  "used": [
+    "urn:aganitha:dataset:cdsi",
+    "urn:aganitha:scheme:drought-severity-classes"
+  ],
+  "generated": [
+    "urn:aganitha:dataset:drought-classes"
+  ],
+  "qualifiedUsage": [
+    {
+      "entity": "urn:aganitha:dataset:cdsi",
+      "hadRole": "https://example.org/ospd/roles/inputField"
+    },
+    {
+      "entity": "urn:aganitha:scheme:drought-severity-classes",
+      "hadRole": "https://example.org/ospd/roles/classificationScheme"
+    }
+  ],
+  "parameters": {
+    "classBreaks": [
+      0.3,
+      0.45,
+      0.6,
+      0.75
+    ]
+  }
+}

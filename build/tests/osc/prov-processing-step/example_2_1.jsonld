@@ -1,0 +1,24 @@
+{
+  "@context": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/prov-processing-step/context.jsonld",
+  "id": "urn:aganitha:step:vci:20260807T061000Z",
+  "provType": "Activity",
+  "processType": "https://example.org/ospd/process-types/index-normalisation",
+  "label": "Compute vegetation condition index from NDVI",
+  "used": [
+    "urn:aganitha:dataset:mandal-ndvi-sm-merged",
+    "urn:aganitha:reference:ndvi-extrema"
+  ],
+  "generated": [
+    "urn:aganitha:dataset:vci"
+  ],
+  "qualifiedUsage": [
+    {
+      "entity": "urn:aganitha:dataset:mandal-ndvi-sm-merged",
+      "hadRole": "https://example.org/ospd/roles/observedIndex"
+    },
+    {
+      "entity": "urn:aganitha:reference:ndvi-extrema",
+      "hadRole": "https://example.org/ospd/roles/normalisationReference"
+    }
+  ]
+}

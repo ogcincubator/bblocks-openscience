@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.osc.geodcat-stac-earthcode.experiments - EarthCODE Experiment",
   "bblockName": "EarthCODE Experiment",
   "bblockId": "ogc.osc.geodcat-stac-earthcode.experiments",
-  "generated": "2026-08-06T01:07:12.476087+00:00",
+  "generated": "2026-08-12T14:40:55.219025+00:00",
   "result": true,
   "items": [
     {
@@ -10,7 +10,7 @@
         "type": "EXAMPLE",
         "requireFail": false,
         "filename": "build/tests/osc/geodcat-stac-earthcode/experiments/example_1_1.ttl",
-        "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/experiments/example_1_1.ttl",
+        "url": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/tests/osc/geodcat-stac-earthcode/experiments/example_1_1.ttl",
         "exampleIndex": 1,
         "snippetIndex": 1,
         "language": "text/turtle"
@@ -49,55 +49,55 @@
             {
               "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
               "focusNodes": {
-                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
-                  "nodes": [
-                    "wfkg:SAVI",
-                    "wfkg:CSVSummary",
-                    "wfkg:GreenBand",
-                    "wfkg:NDVI",
-                    "wfkg:GeoTIFFRaster",
-                    "wfkg:CarbonStockEstimate",
-                    "wfkg:NDWI",
-                    "wfkg:MangroveMask",
-                    "wfkg:RedBand",
-                    "wfkg:CO2EquivalentEstimate",
-                    "wfkg:BiomassEstimate",
-                    "wfkg:SelectedScene",
-                    "wfkg:NIRBand",
-                    "wfkg:InteractiveVisualisation"
-                  ]
-                },
                 "<https://www.ogc.org/rules/kindgrove/#ProcessRunShape>": {
                   "nodes": [
-                    "wfkg:ThresholdClassificationRun",
-                    "wfkg:CarbonStockRun",
-                    "wfkg:DefineStudyAreaRun",
-                    "wfkg:DownloadBandsRun",
+                    "wfkg:AllometricEquationRun",
                     "wfkg:SelectScenesRun",
-                    "wfkg:DisplaySummaryReportRun",
                     "wfkg:CO2EquivalentRun",
                     "wfkg:ExportResultsRun",
                     "wfkg:CalculateIndicesRun",
-                    "wfkg:AllometricEquationRun"
+                    "wfkg:DisplaySummaryReportRun",
+                    "wfkg:CarbonStockRun",
+                    "wfkg:DownloadBandsRun",
+                    "wfkg:DefineStudyAreaRun",
+                    "wfkg:ThresholdClassificationRun"
                   ]
                 },
                 "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
                   "nodes": [
-                    "wfkg:ThresholdClassificationRun",
-                    "wfkg:CarbonStockRun",
-                    "wfkg:DefineStudyAreaRun",
-                    "wfkg:DownloadBandsRun",
+                    "wfkg:AllometricEquationRun",
                     "wfkg:SelectScenesRun",
-                    "wfkg:DisplaySummaryReportRun",
                     "wfkg:CO2EquivalentRun",
                     "wfkg:ExportResultsRun",
                     "wfkg:CalculateIndicesRun",
-                    "wfkg:AllometricEquationRun"
+                    "wfkg:DisplaySummaryReportRun",
+                    "wfkg:CarbonStockRun",
+                    "wfkg:DownloadBandsRun",
+                    "wfkg:DefineStudyAreaRun",
+                    "wfkg:ThresholdClassificationRun"
+                  ]
+                },
+                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
+                  "nodes": [
+                    "wfkg:BiomassEstimate",
+                    "wfkg:CSVSummary",
+                    "wfkg:NDVI",
+                    "wfkg:CarbonStockEstimate",
+                    "wfkg:RedBand",
+                    "wfkg:InteractiveVisualisation",
+                    "wfkg:CO2EquivalentEstimate",
+                    "wfkg:SAVI",
+                    "wfkg:GeoTIFFRaster",
+                    "wfkg:NIRBand",
+                    "wfkg:NDWI",
+                    "wfkg:MangroveMask",
+                    "wfkg:GreenBand",
+                    "wfkg:SelectedScene"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: wfkg:SAVI,wfkg:CSVSummary,wfkg:GreenBand,wfkg:NDVI,wfkg:GeoTIFFRaster,wfkg:CarbonStockEstimate,wfkg:NDWI,wfkg:MangroveMask,wfkg:RedBand,wfkg:CO2EquivalentEstimate,wfkg:BiomassEstimate,wfkg:SelectedScene,wfkg:NIRBand,wfkg:InteractiveVisualisation\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: wfkg:ThresholdClassificationRun,wfkg:CarbonStockRun,wfkg:DefineStudyAreaRun,wfkg:DownloadBandsRun,wfkg:SelectScenesRun,wfkg:DisplaySummaryReportRun,wfkg:CO2EquivalentRun,wfkg:ExportResultsRun,wfkg:CalculateIndicesRun,wfkg:AllometricEquationRun\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: wfkg:ThresholdClassificationRun,wfkg:CarbonStockRun,wfkg:DefineStudyAreaRun,wfkg:DownloadBandsRun,wfkg:SelectScenesRun,wfkg:DisplaySummaryReportRun,wfkg:CO2EquivalentRun,wfkg:ExportResultsRun,wfkg:CalculateIndicesRun,wfkg:AllometricEquationRun\n"
+              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: wfkg:AllometricEquationRun,wfkg:SelectScenesRun,wfkg:CO2EquivalentRun,wfkg:ExportResultsRun,wfkg:CalculateIndicesRun,wfkg:DisplaySummaryReportRun,wfkg:CarbonStockRun,wfkg:DownloadBandsRun,wfkg:DefineStudyAreaRun,wfkg:ThresholdClassificationRun\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: wfkg:AllometricEquationRun,wfkg:SelectScenesRun,wfkg:CO2EquivalentRun,wfkg:ExportResultsRun,wfkg:CalculateIndicesRun,wfkg:DisplaySummaryReportRun,wfkg:CarbonStockRun,wfkg:DownloadBandsRun,wfkg:DefineStudyAreaRun,wfkg:ThresholdClassificationRun\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: wfkg:BiomassEstimate,wfkg:CSVSummary,wfkg:NDVI,wfkg:CarbonStockEstimate,wfkg:RedBand,wfkg:InteractiveVisualisation,wfkg:CO2EquivalentEstimate,wfkg:SAVI,wfkg:GeoTIFFRaster,wfkg:NIRBand,wfkg:NDWI,wfkg:MangroveMask,wfkg:GreenBand,wfkg:SelectedScene\n"
             },
             {
               "op": "shacl-report",
@@ -109,7 +109,7 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:FeatureShape": {
+                "geojson:LinkShape": {
                   "nodes": []
                 },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
@@ -118,15 +118,15 @@
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "geojson:GeometryShape": {
+                "geojson:FeatureShape": {
                   "nodes": []
                 },
-                "geojson:LinkShape": {
+                "geojson:GeometryShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:FeatureShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:FeatureShape: *none*\n - Shape geojson:GeometryShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -154,7 +154,7 @@
         "type": "EXAMPLE",
         "requireFail": false,
         "filename": "build/tests/osc/geodcat-stac-earthcode/experiments/example_2_1.jsonld",
-        "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/experiments/example_2_1.jsonld",
+        "url": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/tests/osc/geodcat-stac-earthcode/experiments/example_2_1.jsonld",
         "exampleIndex": 2,
         "snippetIndex": 1,
         "language": "application/ld+json"
@@ -205,18 +205,18 @@
             {
               "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
               "focusNodes": {
-                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
-                  "nodes": []
-                },
                 "<https://www.ogc.org/rules/kindgrove/#ProcessRunShape>": {
                   "nodes": []
                 },
                 "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
                   "nodes": []
+                },
+                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n"
+              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -228,10 +228,8 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:FeatureShape": {
-                  "nodes": [
-                    "<https://ogc.org/demo/ospd/kindgrove/kindgrove-experiment>"
-                  ]
+                "geojson:LinkShape": {
+                  "nodes": []
                 },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
@@ -239,15 +237,17 @@
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "geojson:GeometryShape": {
-                  "nodes": []
+                "geojson:FeatureShape": {
+                  "nodes": [
+                    "<https://ogc.org/demo/ospd/kindgrove/kindgrove-experiment>"
+                  ]
                 },
-                "geojson:LinkShape": {
+                "geojson:GeometryShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:FeatureShape: <https://ogc.org/demo/ospd/kindgrove/kindgrove-experiment>\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://ogc.org/demo/ospd/kindgrove/kindgrove-experiment>\n - Shape geojson:GeometryShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -275,7 +275,7 @@
         "type": "EXAMPLE",
         "requireFail": false,
         "filename": "build/tests/osc/geodcat-stac-earthcode/experiments/example_3_1.json",
-        "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/experiments/example_3_1.json",
+        "url": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/tests/osc/geodcat-stac-earthcode/experiments/example_3_1.json",
         "exampleIndex": 3,
         "snippetIndex": 1,
         "language": "application/json"
@@ -337,18 +337,18 @@
             {
               "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
               "focusNodes": {
-                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
-                  "nodes": []
-                },
                 "<https://www.ogc.org/rules/kindgrove/#ProcessRunShape>": {
                   "nodes": []
                 },
                 "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
                   "nodes": []
+                },
+                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n"
+              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -360,10 +360,8 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:FeatureShape": {
-                  "nodes": [
-                    "<https://ogc.org/demo/ospd/water-bodies-execution>"
-                  ]
+                "geojson:LinkShape": {
+                  "nodes": []
                 },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
@@ -371,15 +369,17 @@
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "geojson:GeometryShape": {
-                  "nodes": []
+                "geojson:FeatureShape": {
+                  "nodes": [
+                    "<https://ogc.org/demo/ospd/water-bodies-execution>"
+                  ]
                 },
-                "geojson:LinkShape": {
+                "geojson:GeometryShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:FeatureShape: <https://ogc.org/demo/ospd/water-bodies-execution>\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://ogc.org/demo/ospd/water-bodies-execution>\n - Shape geojson:GeometryShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -407,7 +407,7 @@
         "type": "EXAMPLE",
         "requireFail": false,
         "filename": "build/tests/osc/geodcat-stac-earthcode/experiments/example_4_1.json",
-        "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/experiments/example_4_1.json",
+        "url": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/tests/osc/geodcat-stac-earthcode/experiments/example_4_1.json",
         "exampleIndex": 4,
         "snippetIndex": 1,
         "language": "application/json"
@@ -469,18 +469,18 @@
             {
               "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
               "focusNodes": {
-                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
-                  "nodes": []
-                },
                 "<https://www.ogc.org/rules/kindgrove/#ProcessRunShape>": {
                   "nodes": []
                 },
                 "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
                   "nodes": []
+                },
+                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n"
+              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -492,10 +492,8 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:FeatureShape": {
-                  "nodes": [
-                    "<https://ogc.org/demo/ospd/water-bodies-execution>"
-                  ]
+                "geojson:LinkShape": {
+                  "nodes": []
                 },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
@@ -503,15 +501,17 @@
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "geojson:GeometryShape": {
-                  "nodes": []
+                "geojson:FeatureShape": {
+                  "nodes": [
+                    "<https://ogc.org/demo/ospd/water-bodies-execution>"
+                  ]
                 },
-                "geojson:LinkShape": {
+                "geojson:GeometryShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:FeatureShape: <https://ogc.org/demo/ospd/water-bodies-execution>\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://ogc.org/demo/ospd/water-bodies-execution>\n - Shape geojson:GeometryShape: *none*\n"
             },
             {
               "op": "shacl-report",

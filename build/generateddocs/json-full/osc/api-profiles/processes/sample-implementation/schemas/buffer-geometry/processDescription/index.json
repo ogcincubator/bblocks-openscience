@@ -9,7 +9,7 @@
   "itemClass": "schema",
   "register": "ogc-incubator",
   "version": "1.0",
-  "dateOfLastChange": "2026-08-06",
+  "dateOfLastChange": "2026-08-12",
   "maturity": "development",
   "tags": [
     "examples",
@@ -18,20 +18,20 @@
   ],
   "shaclShapes": {},
   "dependsOn": [
-    "ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputDescription",
+    "ogc.api.processes.v1.schemas.process",
     "ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputDescription",
-    "ogc.api.processes.v1.schemas.process"
+    "ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputDescription"
   ],
   "schema": {
-    "application/yaml": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/processDescription/schema.yaml",
-    "application/json": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/processDescription/schema.json"
+    "application/yaml": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/processDescription/schema.yaml",
+    "application/json": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/processDescription/schema.json"
   },
-  "sourceSchema": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/sample-implementation/schemas/buffer-geometry/processDescription/schema.yaml",
-  "ldContext": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/processDescription/context.jsonld",
-  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/processDescription/resolvedProperties.json",
-  "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/sample-implementation/schemas/buffer-geometry/processDescription/",
+  "sourceSchema": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/_sources/api-profiles/processes/sample-implementation/schemas/buffer-geometry/processDescription/schema.yaml",
+  "ldContext": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/processDescription/context.jsonld",
+  "resolvedSchemaProperties": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/processDescription/resolvedProperties.json",
+  "sourceFiles": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/_sources/api-profiles/processes/sample-implementation/schemas/buffer-geometry/processDescription/",
   "validationPassed": true,
-  "annotatedSchema": "allOf:\n- $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/process/schema.yaml\n- properties:\n    inputs:\n      $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputDescription/schema.yaml\n      additionalProperties: false\n    outputs:\n      $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputDescription/schema.yaml\n      additionalProperties: false\n",
-  "gitRepository": "https://github.com/ogcincubator/bblocks-openscience",
+  "annotatedSchema": "allOf:\n- $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/process/schema.yaml\n- properties:\n    inputs:\n      $ref: https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputDescription/schema.yaml\n      additionalProperties: false\n    outputs:\n      $ref: https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputDescription/schema.yaml\n      additionalProperties: false\n",
+  "gitRepository": "https://github.com/nsnarayanam/bblocks-openscience",
   "gitPath": "_sources/api-profiles/processes/sample-implementation/schemas/buffer-geometry/processDescription"
 }

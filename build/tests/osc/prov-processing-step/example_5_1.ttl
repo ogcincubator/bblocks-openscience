@@ -1,0 +1,15 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<urn:aganitha:step:classify:20260807T063000Z> a prov:Activity ;
+    rdfs:label "Classify drought severity" ;
+    dct:type <https://example.org/ospd/process-types/classification> ;
+    prov:generated <urn:aganitha:dataset:drought-classes> ;
+    prov:qualifiedUsage [ prov:entity <urn:aganitha:scheme:drought-severity-classes> ;
+            prov:hadRole <https://example.org/ospd/roles/classificationScheme> ],
+        [ prov:entity <urn:aganitha:dataset:cdsi> ;
+            prov:hadRole <https://example.org/ospd/roles/inputField> ] ;
+    prov:used <urn:aganitha:dataset:cdsi>,
+        <urn:aganitha:scheme:drought-severity-classes> .
+

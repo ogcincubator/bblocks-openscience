@@ -1,0 +1,24 @@
+{
+  "@context": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/prov-processing-step/context.jsonld",
+  "id": "urn:aganitha:step:spi:20260807T064000Z",
+  "provType": "Activity",
+  "processType": "https://example.org/ospd/process-types/standardised-index",
+  "label": "Compute standardised precipitation index",
+  "used": [
+    "urn:aganitha:dataset:precipitation-series",
+    "urn:aganitha:dataset:precipitation-reference-period"
+  ],
+  "generated": [
+    "urn:aganitha:dataset:spi"
+  ],
+  "qualifiedUsage": [
+    {
+      "entity": "urn:aganitha:dataset:precipitation-series",
+      "hadRole": "https://example.org/ospd/roles/inputSeries"
+    },
+    {
+      "entity": "urn:aganitha:dataset:precipitation-reference-period",
+      "hadRole": "https://example.org/ospd/roles/fittingReference"
+    }
+  ]
+}
