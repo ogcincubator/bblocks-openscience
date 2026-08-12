@@ -1,20 +1,13 @@
-#!/usr/bin/env bash
-# Creates a "clean" branch of a Building Blocks register fork, excluding all
-# changes in the build/ directory (and fork-only config overrides), so that
-# it can be used to open a Pull Request against the upstream register without
-# generated-artifact merge conflicts.
-#
-# See https://opengeospatial.github.io/bblocks-docs/build/contribution for details.
+#!/bin/bash
 
 usage() {
-  echo "Usage: $0 [-u upstreamRemote] [-f forkRemote] [-b upstreamBranch] [-d buildDirectory] [-t tempBranch] [-P]"
+  echo "Usage: $0 [-u upstreamRemote] [-f forkRemote] [-b upstreamBranch] [-d buildDirectory] [-t tempBranch]"
   echo
   echo "Options:"
   echo "  -u    Upstream remote name (default: 'fork-parent')"
   echo "  -f    Fork remote name (default: 'origin')"
   echo "  -b    Upstream branch (default: 'main' or 'master')"
   echo "  -d    Build directory (default: 'build')"
-  echo "  -t    Name for the temporary clean branch (default: randomly generated)"
   echo "  -P    Do not push to remote"
   echo "  -h    Show this help message"
   exit 1
@@ -36,7 +29,7 @@ while getopts "u:f:b:d:t:Ph" opt; do
     P) PUSH_TO_REMOTE=;;
     t) TMP_BRANCH="$OPTARG";;
     h) usage ;;
-    \?) usage ;;
+    \?) echo "Invalid option: -$OPTARG" >&2 ;;
   esac
 done
 
@@ -65,21 +58,11 @@ elif command -v git-filter-repo >/dev/null 2>&1; then
 elif git filter-repo --help >/dev/null 2>&1; then
     FILTER_REPO_CMD="git filter-repo"
 else
-    # Download the latest released version to a temp location
-    LATEST_TAG=$(curl -sSfL https://api.github.com/repos/newren/git-filter-repo/releases/latest \
-        | sed -n 's/.*"tag_name": *"\([^"]*\)".*/\1/p')
-    if [[ -z "$LATEST_TAG" ]]; then
-        echo "Could not determine the latest git-filter-repo release." >&2
-        exit 1
-    fi
+    # Download to temp location
     TMP_DIR=$(mktemp -d)
     FILTER_REPO_CMD="$TMP_DIR/git-filter-repo"
-    if ! curl -sSfL -o "$FILTER_REPO_CMD" \
-        "https://raw.githubusercontent.com/newren/git-filter-repo/${LATEST_TAG}/git-filter-repo"; then
-      echo "Failed to download git-filter-repo ${LATEST_TAG}." >&2
-      rm -rf "$TMP_DIR"
-      exit 1
-    fi
+    curl -L -o "$FILTER_REPO_CMD" \
+        https://github.com/newren/git-filter-repo/raw/refs/heads/main/git-filter-repo
     chmod +x "$FILTER_REPO_CMD"
     trap_add "rm -rf \"$TMP_DIR\""
 fi
@@ -112,7 +95,7 @@ fi
 git checkout -b "$TMP_BRANCH"
 
 if [[ -z "${UPSTREAM_BRANCH}" ]]; then
-  if git rev-parse --verify --quiet "${UPSTREAM_REMOTE}"/main >/dev/null; then
+  if git rev-parse --verify --quiet "${UPSTREAM_REMOTE}"/main; then
     UPSTREAM_BRANCH=main
   else
     UPSTREAM_BRANCH=master
@@ -127,16 +110,11 @@ if [[ -n "$PUSH_TO_REMOTE" ]]; then
   git push "${FORK_REMOTE}" "${TMP_BRANCH}"
   echo "Branch created and changed pushed"
 
-  # Strip a trailing .git suffix, then split "owner/repo" on the last slash/colon.
-  UPSTREAM_PATH="${UPSTREAM_URL#git@github.com:}"
-  UPSTREAM_PATH="${UPSTREAM_PATH#https://github.com/}"
-  UPSTREAM_PATH="${UPSTREAM_PATH%.git}"
-
-  FORK_PATH="${FORK_URL#git@github.com:}"
-  FORK_PATH="${FORK_PATH#https://github.com/}"
-  FORK_PATH="${FORK_PATH%.git}"
-
-  PR_URL="https://github.com/${UPSTREAM_PATH}/compare/${UPSTREAM_BRANCH}...${FORK_PATH%%/*}:${FORK_PATH#*/}:${TMP_BRANCH}?expand=1"
+  # UPSTREAM_USER_REPO is slash-separated
+  UPSTREAM_USER_REPO=$(echo "$UPSTREAM_URL" | sed -E 's#(git@github.com:|https://github.com/)([^.]+)(\.git)?#\2#')
+  # FORK_USER_REPO is colon-separated
+  FORK_USER_REPO=$(echo "$FORK_URL" | sed -E 's#(git@github.com:|https://github.com/)([^/]+)/([^.]+)(\.git)?#\2:\3#')
+  PR_URL="https://github.com/${UPSTREAM_USER_REPO}/compare/${UPSTREAM_BRANCH}...${FORK_USER_REPO}:${TMP_BRANCH}?expand=1"
   echo ""
   echo "========"
   echo "You can use the following URL to create the Pull Request:"

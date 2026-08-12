@@ -33,9 +33,6 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
-    "title": "dct:title",
-    "description": "dct:description",
-    "keywords": "proc:keywords",
     "nullable": "proc:nullable",
     "type": "proc:type",
     "$ref": {
@@ -52,8 +49,22 @@ Links to the schema:
     },
     "minOccurs": "proc:minOccurs",
     "maxOccurs": "proc:maxOccurs",
+    "Feature": "geojson:Feature",
+    "FeatureCollection": "geojson:FeatureCollection",
+    "GeometryCollection": "geojson:GeometryCollection",
+    "LineString": "geojson:LineString",
+    "MultiLineString": "geojson:MultiLineString",
+    "MultiPoint": "geojson:MultiPoint",
+    "MultiPolygon": "geojson:MultiPolygon",
+    "Point": "geojson:Point",
+    "Polygon": "geojson:Polygon",
+    "features": {
+      "@container": "@set",
+      "@id": "geojson:features"
+    },
     "dct": "http://purl.org/dc/terms/",
     "proc": "https://w3id.org/ogc/api/processes/",
+    "geojson": "https://purl.org/geojson/vocab#",
     "@version": 1.1
   }
 }
