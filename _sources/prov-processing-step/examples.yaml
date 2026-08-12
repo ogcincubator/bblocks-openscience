@@ -53,6 +53,37 @@
           ]
         }
 
+- title: Normalisation of soil moisture to a deficit index
+  description: >-
+    The companion to the vegetation index step, and the piece that closes
+    the gap in the chain: without it, the combined index consumes an entity
+    no recorded activity produced, so a consumer walking the provenance
+    backwards hits a dead end.
+  snippets:
+    - language: json
+      code: |
+        {
+          "id": "urn:aganitha:step:smdi:20260807T061500Z",
+          "provType": "Activity",
+          "processType": "https://example.org/ospd/process-types/index-normalisation",
+          "label": "Compute soil moisture deficit index",
+          "used": [
+            "urn:aganitha:dataset:mandal-ndvi-sm-merged",
+            "urn:aganitha:reference:soil-moisture-extrema"
+          ],
+          "generated": ["urn:aganitha:dataset:smdi"],
+          "qualifiedUsage": [
+            {
+              "entity": "urn:aganitha:dataset:mandal-ndvi-sm-merged",
+              "hadRole": "https://example.org/ospd/roles/observedIndex"
+            },
+            {
+              "entity": "urn:aganitha:reference:soil-moisture-extrema",
+              "hadRole": "https://example.org/ospd/roles/normalisationReference"
+            }
+          ]
+        }
+
 - title: Weighted composition of a combined drought index
   description: >-
     Combination of two condition indices under fixed weights. Both inputs
@@ -171,8 +202,9 @@
           "processType": "https://example.org/ospd/process-types/model-training",
           "label": "Train drought prediction model with spatial cross-validation",
           "used": [
-            "urn:aganitha:dataset:training-features",
-            "urn:aganitha:dataset:drought-labels",
+            "urn:aganitha:dataset:cdsi",
+            "urn:aganitha:dataset:spi",
+            "urn:aganitha:dataset:drought-classes",
             "urn:aganitha:partition:district-folds"
           ],
           "generated": [
@@ -181,11 +213,15 @@
           ],
           "qualifiedUsage": [
             {
-              "entity": "urn:aganitha:dataset:training-features",
+              "entity": "urn:aganitha:dataset:cdsi",
               "hadRole": "https://example.org/ospd/roles/trainingFeatures"
             },
             {
-              "entity": "urn:aganitha:dataset:drought-labels",
+              "entity": "urn:aganitha:dataset:spi",
+              "hadRole": "https://example.org/ospd/roles/trainingFeatures"
+            },
+            {
+              "entity": "urn:aganitha:dataset:drought-classes",
               "hadRole": "https://example.org/ospd/roles/trainingTarget"
             },
             {
@@ -211,7 +247,7 @@
           "label": "Generate forward drought projection",
           "used": [
             "urn:aganitha:model:drought-classifier",
-            "urn:aganitha:dataset:projection-drivers"
+            "urn:aganitha:dataset:cdsi"
           ],
           "generated": ["urn:aganitha:dataset:drought-projection"],
           "qualifiedUsage": [
@@ -220,7 +256,7 @@
               "hadRole": "https://example.org/ospd/roles/fittedModel"
             },
             {
-              "entity": "urn:aganitha:dataset:projection-drivers",
+              "entity": "urn:aganitha:dataset:cdsi",
               "hadRole": "https://example.org/ospd/roles/inferenceInput"
             }
           ]
