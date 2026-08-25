@@ -1,31 +1,14 @@
 Validation report for ogc.osc.geodcat-stac-earthcode.products - EarthCODE Product
-Generated 2026-08-25T07:43:54.056216+00:00
-=== General ===
-Test was expected to fail and it did.
-=== End General ===
-
+Generated 2026-08-25T07:43:54.333551+00:00
 === Files ===
-Using invalid-cf-parameters-fail.json from test resources
+Using examples/water-bodies-with-provenance.json from examples
 JSON-LD context is present - uplifting
-Output JSON-LD invalid-cf-parameters-fail.jsonld created
-Output Turtle invalid-cf-parameters-fail.ttl created
+Output JSON-LD example_2_1.jsonld created
+Output Turtle example_2_1.ttl created
 === End Files ===
 
 === JSON Schema ===
-
-** Validation error **
-ValidationError: [] is too short
-
-Failed validating 'minItems' in schema[0]['allOf'][0]['properties']['cf:parameter']:
-    {'items': {'properties': {'name': {'minLength': 1, 'type': 'string'},
-                              'unit': {'type': 'string'}},
-               'required': ['name'],
-               'type': 'object'},
-     'minItems': 1,
-     'type': 'array'}
-
-On instance['cf:parameter']:
-    []
+Validation passed
 === End JSON Schema ===
 
 === SHACL ===
@@ -82,25 +65,25 @@ Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/exten
   Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
   	Severity: sh:Violation
   	Source Shape: [ sh:class skos:Concept ; sh:in ( osc:planned osc:ongoing osc:completed ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path osc:status ]
-  	Focus Node: <file:///github/workspace/polarwarp>
+  	Focus Node: <https://ogc.org/demo/ospd/water-bodies>
   	Value Node: osc:ongoing
   	Result Path: osc:status
   	Message: Value does not have class skos:Concept
   Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
   	Severity: sh:Violation
   	Source Shape: [ sh:class skos:Concept ; sh:in ( osc:project-type osc:product-type ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path osc:type ]
-  	Focus Node: <file:///github/workspace/polarwarp>
+  	Focus Node: <https://ogc.org/demo/ospd/water-bodies>
   	Value Node: osc:product-type
   	Result Path: osc:type
   	Message: Value does not have class skos:Concept
   
 Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
- - Shape osc:ExperimentShape: *none*
- - Shape osc:StatusShape: <file:///github/workspace/polarwarp>
- - Shape osc:ProjectShape: <file:///github/workspace/polarwarp>
+ - Shape osc:ExperimentShape: <https://ogc.org/demo/ospd/water-bodies>
+ - Shape osc:StatusShape: <https://ogc.org/demo/ospd/water-bodies>
+ - Shape osc:ProjectShape: <https://ogc.org/demo/ospd/water-bodies>
  - Shape osc:WorkflowsShape: *none*
- - Shape osc:TypeShape: <file:///github/workspace/polarwarp>
- - Shape osc:RegionShape: *none*
+ - Shape osc:TypeShape: <https://ogc.org/demo/ospd/water-bodies>
+ - Shape osc:RegionShape: <https://ogc.org/demo/ospd/water-bodies>
  - Shape osc:VariablesShape: *none*
  - Shape osc:MissionsShape: *none*
 

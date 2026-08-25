@@ -74,15 +74,21 @@ Collection of output descriptions
 
 A modular standards-based ontology for describing interoperable and reproduceable scientific workflows.
 
+### `ogc.osc.api-profiles.processes.ipt.execute` — Execute (request) schema for IPT
+
+**Type:** schema
+
 ### `ogc.osc.geodcat-stac-earthcode.common` — EarthCODE Common STAC profile
 
 **Type:** schema
 
 EarthCODE metadata profile linked to semantic models
 
-### `ogc.osc.api-profiles.processes.ipt.execute` — Execute (request) schema for IPT
+### `ogc.osc.api-profiles.processes.ipt.api` — IPT Profile of OGC API Processes
 
-**Type:** schema
+**Type:** api
+
+This is a Profile of the OGC API Processes model with specific requirements to standardise Integrity Provenance and Trust (IPT) aspects/
 
 ### `ogc.osc.geodcat-stac-earthcode.experiments` — EarthCODE Experiment
 
@@ -101,12 +107,6 @@ EarthCODE metadata profile linked to semantic models
 **Type:** schema
 
 EarthCODE metadata profile linked to semantic models
-
-### `ogc.osc.api-profiles.processes.ipt.api` — IPT Profile of OGC API Processes
-
-**Type:** api
-
-This is a Profile of the OGC API Processes model with specific requirements to standardise Integrity Provenance and Trust (IPT) aspects/
 
 ### `ogc.osc.api-profiles.processes.workflow` — Workflow profile of OGC API Processes
 

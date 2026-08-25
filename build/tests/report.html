@@ -64,9 +64,9 @@
     <body>
         <div class="container">
             <h1 class="title">Building blocks validation report</h1>
-            <small class="datetime">Generated at 2026-08-06T01:07:14.377204+00:00</small>
-                <p class="summary fw-semibold text-success">
-                    Number of passing building blocks: 20 / 20 (100%)
+            <small class="datetime">Generated at 2026-08-25T07:43:56.513519+00:00</small>
+                <p class="summary fw-semibold text-danger">
+                    Number of passing building blocks: 18 / 20 (90%)
                 </p>
             <div class="text-end small" id="expand-collapse">
                 <a href="#" class="expand-all">Expand all</a>
@@ -359,9 +359,32 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item bblock-report" data-bblock-id="ogc.osc.geodcat-stac-earthcode.common" id="bblock-ogc.osc.geodcat-stac-earthcode.common">
+                        <div class="accordion-item bblock-report" data-bblock-id="ogc.osc.api-profiles.processes.ipt.execute" id="bblock-ogc.osc.api-profiles.processes.ipt.execute">
                             <h2 class="accordion-header bblock-title anchor-container">
                                 <button class="accordion-button collapsed" type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#bblock-collapse-ogc\.osc\.api-profiles\.processes\.ipt\.execute">
+                                    <div class="flex-fill">
+                                        Execute (request) schema for IPT
+                                        <small class="ms-2 bblock-id">ogc.osc.api-profiles.processes.ipt.execute</small>
+                                        <a class="anchor" href="#bblock-ogc.osc.api-profiles.processes.ipt.execute">¶</a>
+                                    </div>
+
+                                    <span class="badge text-bg-success me-2">
+                                            Passed
+                                            (no tests)
+                                    </span>
+                                </button>
+                            </h2>
+                            <div class="accordion-collapse collapse " id="bblock-collapse-ogc.osc.api-profiles.processes.ipt.execute">
+                                <div class="accordion-body">
+                                        <div class="alert alert-info mb-0">No tests were found for this building block.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bblock-report" data-bblock-id="ogc.osc.geodcat-stac-earthcode.common" id="bblock-ogc.osc.geodcat-stac-earthcode.common">
+                            <h2 class="accordion-header bblock-title anchor-container">
+                                <button class="accordion-button " type="button"
                                     data-bs-toggle="collapse"
                                     data-bs-target="#bblock-collapse-ogc\.osc\.geodcat-stac-earthcode\.common">
                                     <div class="flex-fill">
@@ -370,16 +393,16 @@
                                         <a class="anchor" href="#bblock-ogc.osc.geodcat-stac-earthcode.common">¶</a>
                                     </div>
 
-                                    <span class="badge text-bg-success me-2">
-                                            Passed
-                                            (100% passed)
+                                    <span class="badge text-bg-danger me-2">
+                                            Tests Failed
+                                            (0% passed)
                                     </span>
                                 </button>
                             </h2>
-                            <div class="accordion-collapse collapse " id="bblock-collapse-ogc.osc.geodcat-stac-earthcode.common">
+                            <div class="accordion-collapse collapse show" id="bblock-collapse-ogc.osc.geodcat-stac-earthcode.common">
                                 <div class="accordion-body">
-                                        <p class="summary fw-semibold text-success">
-                                            Test passed: 1 / 1
+                                        <p class="summary fw-semibold text-danger">
+                                            Test passed: 0 / 1
                                         </p>
                                         <div class="card mb-2 validation-item " id="item-ogc.osc.geodcat-stac-earthcode.common-1">
                                             <div class="card-body">
@@ -395,7 +418,7 @@
                                                     <span class="badge bg-secondary example">Example</span>
                                                     <a class="anchor" href="#item-ogc.osc.geodcat-stac-earthcode.common-1">¶</a>
                                                     <div class="float-end">
-                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                            <span class="badge text-bg-danger me-2">Failed</span>
                                                     </div>
                                                 </div>
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-2">
@@ -417,6 +440,27 @@
                                                                     <div class="font-monospace subsection-title mt-2">SHACL</div>
                                                                 
                                                                     
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+ - Shape stac:CollectionShape: *none*
+ - Shape stac:ItemShape: *none*
+ - Shape stac:AssetShape: *none*
+ - Shape stac:LinkShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+ - Shape assets:RolesShape: *none*
+</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
   Validation Report
   Conforms: True
@@ -424,10 +468,10 @@
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
  - Shape geojson:FeatureShape: *none*
- - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
  - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape geojson:GeometryShape: *none*
  - Shape geojson:LinkShape: *none*
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
+ - Shape geojson:GeometryShape: *none*
 </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
@@ -438,6 +482,48 @@
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
  - Shape rec:testAllVarsInTemplate: *none*
 </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+ - Shape thns:ConceptShape: *none*
+ - Shape thns:SchemesUsageShape: *none*
+ - Shape thns:ThemeShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl text-danger">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+  Validation Report
+  Conforms: False
+  Results (2):
+  Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class skos:Concept ; sh:in ( osc:planned osc:ongoing osc:completed ) ; sh:maxCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:minCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:path osc:status ]
+  	Focus Node: &lt;https://ogc.org/demo/ospd/polarwarp&gt;
+  	Value Node: osc:completed
+  	Result Path: osc:status
+  	Message: Value does not have class skos:Concept
+  Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class skos:Concept ; sh:in ( osc:project-type osc:product-type ) ; sh:maxCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:minCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:path osc:type ]
+  	Focus Node: &lt;https://ogc.org/demo/ospd/polarwarp&gt;
+  	Value Node: osc:product-type
+  	Result Path: osc:type
+  	Message: Value does not have class skos:Concept
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+ - Shape osc:ExperimentShape: *none*
+ - Shape osc:StatusShape: &lt;https://ogc.org/demo/ospd/polarwarp&gt;
+ - Shape osc:ProjectShape: &lt;https://ogc.org/demo/ospd/polarwarp&gt;
+ - Shape osc:WorkflowsShape: *none*
+ - Shape osc:TypeShape: &lt;https://ogc.org/demo/ospd/polarwarp&gt;
+ - Shape osc:RegionShape: *none*
+ - Shape osc:VariablesShape: *none*
+ - Shape osc:MissionsShape: *none*
+</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -445,15 +531,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item bblock-report" data-bblock-id="ogc.osc.api-profiles.processes.ipt.execute" id="bblock-ogc.osc.api-profiles.processes.ipt.execute">
+                        <div class="accordion-item bblock-report" data-bblock-id="ogc.osc.api-profiles.processes.ipt.api" id="bblock-ogc.osc.api-profiles.processes.ipt.api">
                             <h2 class="accordion-header bblock-title anchor-container">
                                 <button class="accordion-button collapsed" type="button"
                                     data-bs-toggle="collapse"
-                                    data-bs-target="#bblock-collapse-ogc\.osc\.api-profiles\.processes\.ipt\.execute">
+                                    data-bs-target="#bblock-collapse-ogc\.osc\.api-profiles\.processes\.ipt\.api">
                                     <div class="flex-fill">
-                                        Execute (request) schema for IPT
-                                        <small class="ms-2 bblock-id">ogc.osc.api-profiles.processes.ipt.execute</small>
-                                        <a class="anchor" href="#bblock-ogc.osc.api-profiles.processes.ipt.execute">¶</a>
+                                        IPT Profile of OGC API Processes
+                                        <small class="ms-2 bblock-id">ogc.osc.api-profiles.processes.ipt.api</small>
+                                        <a class="anchor" href="#bblock-ogc.osc.api-profiles.processes.ipt.api">¶</a>
                                     </div>
 
                                     <span class="badge text-bg-success me-2">
@@ -462,7 +548,7 @@
                                     </span>
                                 </button>
                             </h2>
-                            <div class="accordion-collapse collapse " id="bblock-collapse-ogc.osc.api-profiles.processes.ipt.execute">
+                            <div class="accordion-collapse collapse " id="bblock-collapse-ogc.osc.api-profiles.processes.ipt.api">
                                 <div class="accordion-body">
                                         <div class="alert alert-info mb-0">No tests were found for this building block.</div>
                                 </div>
@@ -524,9 +610,9 @@
   </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:
- - Shape &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;: wfkg:SAVI,wfkg:CSVSummary,wfkg:GreenBand,wfkg:NDVI,wfkg:GeoTIFFRaster,wfkg:CarbonStockEstimate,wfkg:NDWI,wfkg:MangroveMask,wfkg:RedBand,wfkg:CO2EquivalentEstimate,wfkg:BiomassEstimate,wfkg:SelectedScene,wfkg:NIRBand,wfkg:InteractiveVisualisation
- - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunShape&gt;: wfkg:ThresholdClassificationRun,wfkg:CarbonStockRun,wfkg:DefineStudyAreaRun,wfkg:DownloadBandsRun,wfkg:SelectScenesRun,wfkg:DisplaySummaryReportRun,wfkg:CO2EquivalentRun,wfkg:ExportResultsRun,wfkg:CalculateIndicesRun,wfkg:AllometricEquationRun
- - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape&gt;: wfkg:ThresholdClassificationRun,wfkg:CarbonStockRun,wfkg:DefineStudyAreaRun,wfkg:DownloadBandsRun,wfkg:SelectScenesRun,wfkg:DisplaySummaryReportRun,wfkg:CO2EquivalentRun,wfkg:ExportResultsRun,wfkg:CalculateIndicesRun,wfkg:AllometricEquationRun
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape&gt;: wfkg:RedBand,wfkg:NIRBand,wfkg:CarbonStockEstimate,wfkg:BiomassEstimate,wfkg:CSVSummary,wfkg:SAVI,wfkg:NDVI,wfkg:SelectedScene,wfkg:GeoTIFFRaster,wfkg:GreenBand,wfkg:MangroveMask,wfkg:NDWI,wfkg:CO2EquivalentEstimate,wfkg:InteractiveVisualisation
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunShape&gt;: wfkg:SelectScenesRun,wfkg:CO2EquivalentRun,wfkg:ExportResultsRun,wfkg:DownloadBandsRun,wfkg:DisplaySummaryReportRun,wfkg:AllometricEquationRun,wfkg:ThresholdClassificationRun,wfkg:CarbonStockRun,wfkg:DefineStudyAreaRun,wfkg:CalculateIndicesRun
+ - Shape &lt;https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape&gt;: wfkg:SelectScenesRun,wfkg:CO2EquivalentRun,wfkg:ExportResultsRun,wfkg:DownloadBandsRun,wfkg:DisplaySummaryReportRun,wfkg:AllometricEquationRun,wfkg:ThresholdClassificationRun,wfkg:CarbonStockRun,wfkg:DefineStudyAreaRun,wfkg:CalculateIndicesRun
 </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
@@ -535,11 +621,11 @@
   </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
  - Shape geojson:FeatureShape: *none*
  - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
- - Shape geojson:GeometryShape: *none*
  - Shape geojson:LinkShape: *none*
+ - Shape geojson:GeometryShape: *none*
 </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
@@ -549,6 +635,54 @@
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
  - Shape rec:testAllVarsInTemplate: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+ - Shape stac:CollectionShape: wfkg:Sentinel2L2A
+ - Shape stac:ItemShape: *none*
+ - Shape stac:AssetShape: *none*
+ - Shape stac:LinkShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+ - Shape assets:RolesShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+ - Shape thns:ConceptShape: *none*
+ - Shape thns:SchemesUsageShape: *none*
+ - Shape thns:ThemeShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+ - Shape osc:ExperimentShape: *none*
+ - Shape osc:StatusShape: *none*
+ - Shape osc:ProjectShape: *none*
+ - Shape osc:WorkflowsShape: *none*
+ - Shape osc:TypeShape: *none*
+ - Shape osc:RegionShape: *none*
+ - Shape osc:VariablesShape: *none*
+ - Shape osc:MissionsShape: *none*
 </div>
                                                     </div>
                                                 </div>
@@ -603,11 +737,11 @@
   </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
  - Shape geojson:FeatureShape: &lt;https://ogc.org/demo/ospd/kindgrove/kindgrove-experiment&gt;
  - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
- - Shape geojson:GeometryShape: *none*
  - Shape geojson:LinkShape: *none*
+ - Shape geojson:GeometryShape: *none*
 </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
@@ -617,6 +751,54 @@
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
  - Shape rec:testAllVarsInTemplate: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+ - Shape stac:CollectionShape: *none*
+ - Shape stac:ItemShape: *none*
+ - Shape stac:AssetShape: *none*
+ - Shape stac:LinkShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+ - Shape assets:RolesShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+ - Shape thns:ConceptShape: *none*
+ - Shape thns:SchemesUsageShape: *none*
+ - Shape thns:ThemeShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+ - Shape osc:ExperimentShape: *none*
+ - Shape osc:StatusShape: *none*
+ - Shape osc:ProjectShape: *none*
+ - Shape osc:WorkflowsShape: *none*
+ - Shape osc:TypeShape: *none*
+ - Shape osc:RegionShape: *none*
+ - Shape osc:VariablesShape: *none*
+ - Shape osc:MissionsShape: *none*
 </div>
                                                     </div>
                                                 </div>
@@ -675,11 +857,11 @@
   </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
  - Shape geojson:FeatureShape: &lt;https://ogc.org/demo/ospd/water-bodies-execution&gt;
  - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
- - Shape geojson:GeometryShape: *none*
  - Shape geojson:LinkShape: *none*
+ - Shape geojson:GeometryShape: *none*
 </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
@@ -689,6 +871,54 @@
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
  - Shape rec:testAllVarsInTemplate: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+ - Shape stac:CollectionShape: *none*
+ - Shape stac:ItemShape: *none*
+ - Shape stac:AssetShape: *none*
+ - Shape stac:LinkShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+ - Shape assets:RolesShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+ - Shape thns:ConceptShape: *none*
+ - Shape thns:SchemesUsageShape: *none*
+ - Shape thns:ThemeShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+ - Shape osc:ExperimentShape: *none*
+ - Shape osc:StatusShape: *none*
+ - Shape osc:ProjectShape: *none*
+ - Shape osc:WorkflowsShape: *none*
+ - Shape osc:TypeShape: *none*
+ - Shape osc:RegionShape: *none*
+ - Shape osc:VariablesShape: *none*
+ - Shape osc:MissionsShape: *none*
 </div>
                                                     </div>
                                                 </div>
@@ -747,11 +977,11 @@
   </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
  - Shape geojson:FeatureShape: &lt;https://ogc.org/demo/ospd/water-bodies-execution&gt;
  - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
- - Shape geojson:GeometryShape: *none*
  - Shape geojson:LinkShape: *none*
+ - Shape geojson:GeometryShape: *none*
 </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
@@ -762,6 +992,54 @@
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
  - Shape rec:testAllVarsInTemplate: *none*
 </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+ - Shape stac:CollectionShape: *none*
+ - Shape stac:ItemShape: *none*
+ - Shape stac:AssetShape: *none*
+ - Shape stac:LinkShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+ - Shape assets:RolesShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+ - Shape thns:ConceptShape: *none*
+ - Shape thns:SchemesUsageShape: *none*
+ - Shape thns:ThemeShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+ - Shape osc:ExperimentShape: *none*
+ - Shape osc:StatusShape: *none*
+ - Shape osc:ProjectShape: *none*
+ - Shape osc:WorkflowsShape: *none*
+ - Shape osc:TypeShape: *none*
+ - Shape osc:RegionShape: *none*
+ - Shape osc:VariablesShape: *none*
+ - Shape osc:MissionsShape: *none*
+</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -771,7 +1049,7 @@
                         </div>
                         <div class="accordion-item bblock-report" data-bblock-id="ogc.osc.geodcat-stac-earthcode.products" id="bblock-ogc.osc.geodcat-stac-earthcode.products">
                             <h2 class="accordion-header bblock-title anchor-container">
-                                <button class="accordion-button collapsed" type="button"
+                                <button class="accordion-button " type="button"
                                     data-bs-toggle="collapse"
                                     data-bs-target="#bblock-collapse-ogc\.osc\.geodcat-stac-earthcode\.products">
                                     <div class="flex-fill">
@@ -780,16 +1058,16 @@
                                         <a class="anchor" href="#bblock-ogc.osc.geodcat-stac-earthcode.products">¶</a>
                                     </div>
 
-                                    <span class="badge text-bg-success me-2">
-                                            Passed
-                                            (100% passed)
+                                    <span class="badge text-bg-danger me-2">
+                                            Tests Failed
+                                            (62.5% passed)
                                     </span>
                                 </button>
                             </h2>
-                            <div class="accordion-collapse collapse " id="bblock-collapse-ogc.osc.geodcat-stac-earthcode.products">
+                            <div class="accordion-collapse collapse show" id="bblock-collapse-ogc.osc.geodcat-stac-earthcode.products">
                                 <div class="accordion-body">
-                                        <p class="summary fw-semibold text-success">
-                                            Test passed: 8 / 8
+                                        <p class="summary fw-semibold text-danger">
+                                            Test passed: 5 / 8
                                         </p>
                                         <div class="card mb-2 validation-item require-fail" id="item-ogc.osc.geodcat-stac-earthcode.products-1">
                                             <div class="card-body">
@@ -908,17 +1186,38 @@ On instance:
                                                                     <div class="font-monospace subsection-title mt-2">SHACL</div>
                                                                 
                                                                     
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+ - Shape stac:CollectionShape: *none*
+ - Shape stac:ItemShape: *none*
+ - Shape stac:AssetShape: *none*
+ - Shape stac:LinkShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+ - Shape assets:RolesShape: *none*
+</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
   Validation Report
   Conforms: True
   </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
- - Shape geojson:FeatureShape: *none*
- - Shape geojson:GeometryShape: *none*
- - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
- - Shape geojson:LinkShape: *none*
  - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape geojson:FeatureShape: *none*
+ - Shape geojson:LinkShape: *none*
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
+ - Shape geojson:GeometryShape: *none*
 </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
@@ -928,6 +1227,58 @@ On instance:
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
  - Shape rec:testAllVarsInTemplate: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+ - Shape thns:ConceptShape: *none*
+ - Shape thns:SchemesUsageShape: *none*
+ - Shape thns:ThemeShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl text-danger">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+  Validation Report
+  Conforms: False
+  Results (2):
+  Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class skos:Concept ; sh:in ( osc:planned osc:ongoing osc:completed ) ; sh:maxCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:minCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:path osc:status ]
+  	Focus Node: &lt;file:///github/workspace/polarwarp&gt;
+  	Value Node: osc:completed
+  	Result Path: osc:status
+  	Message: Value does not have class skos:Concept
+  Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class skos:Concept ; sh:in ( osc:project-type osc:product-type ) ; sh:maxCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:minCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:path osc:type ]
+  	Focus Node: &lt;file:///github/workspace/polarwarp&gt;
+  	Value Node: osc:product-type
+  	Result Path: osc:type
+  	Message: Value does not have class skos:Concept
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+ - Shape osc:ExperimentShape: *none*
+ - Shape osc:StatusShape: &lt;file:///github/workspace/polarwarp&gt;
+ - Shape osc:ProjectShape: &lt;file:///github/workspace/polarwarp&gt;
+ - Shape osc:WorkflowsShape: *none*
+ - Shape osc:TypeShape: &lt;file:///github/workspace/polarwarp&gt;
+ - Shape osc:RegionShape: *none*
+ - Shape osc:VariablesShape: *none*
+ - Shape osc:MissionsShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl:
+ - Shape cf:ParameterShape: *none*
+ - Shape cf:ObjectShape: *none*
 </div>
                                                     </div>
                                                 </div>
@@ -985,17 +1336,38 @@ On instance[&#x27;cf:parameter&#x27;]:
                                                                     <div class="font-monospace subsection-title mt-2">SHACL</div>
                                                                 
                                                                     
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+ - Shape stac:CollectionShape: *none*
+ - Shape stac:ItemShape: *none*
+ - Shape stac:AssetShape: *none*
+ - Shape stac:LinkShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+ - Shape assets:RolesShape: *none*
+</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
   Validation Report
   Conforms: True
   </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
- - Shape geojson:FeatureShape: *none*
- - Shape geojson:GeometryShape: *none*
- - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
- - Shape geojson:LinkShape: *none*
  - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape geojson:FeatureShape: *none*
+ - Shape geojson:LinkShape: *none*
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
+ - Shape geojson:GeometryShape: *none*
 </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
@@ -1005,6 +1377,58 @@ On instance[&#x27;cf:parameter&#x27;]:
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
  - Shape rec:testAllVarsInTemplate: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+ - Shape thns:ConceptShape: *none*
+ - Shape thns:SchemesUsageShape: *none*
+ - Shape thns:ThemeShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl text-danger">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+  Validation Report
+  Conforms: False
+  Results (2):
+  Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class skos:Concept ; sh:in ( osc:planned osc:ongoing osc:completed ) ; sh:maxCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:minCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:path osc:status ]
+  	Focus Node: &lt;file:///github/workspace/polarwarp&gt;
+  	Value Node: osc:ongoing
+  	Result Path: osc:status
+  	Message: Value does not have class skos:Concept
+  Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class skos:Concept ; sh:in ( osc:project-type osc:product-type ) ; sh:maxCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:minCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:path osc:type ]
+  	Focus Node: &lt;file:///github/workspace/polarwarp&gt;
+  	Value Node: osc:product-type
+  	Result Path: osc:type
+  	Message: Value does not have class skos:Concept
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+ - Shape osc:ExperimentShape: *none*
+ - Shape osc:StatusShape: &lt;file:///github/workspace/polarwarp&gt;
+ - Shape osc:ProjectShape: &lt;file:///github/workspace/polarwarp&gt;
+ - Shape osc:WorkflowsShape: *none*
+ - Shape osc:TypeShape: &lt;file:///github/workspace/polarwarp&gt;
+ - Shape osc:RegionShape: *none*
+ - Shape osc:VariablesShape: *none*
+ - Shape osc:MissionsShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl:
+ - Shape cf:ParameterShape: *none*
+ - Shape cf:ObjectShape: *none*
 </div>
                                                     </div>
                                                 </div>
@@ -1128,17 +1552,38 @@ On instance:
                                                                     <div class="font-monospace subsection-title mt-2">SHACL</div>
                                                                 
                                                                     
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+ - Shape stac:CollectionShape: *none*
+ - Shape stac:ItemShape: *none*
+ - Shape stac:AssetShape: *none*
+ - Shape stac:LinkShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+ - Shape assets:RolesShape: *none*
+</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
   Validation Report
   Conforms: True
   </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
- - Shape geojson:FeatureShape: *none*
- - Shape geojson:GeometryShape: *none*
- - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
- - Shape geojson:LinkShape: *none*
  - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape geojson:FeatureShape: *none*
+ - Shape geojson:LinkShape: *none*
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
+ - Shape geojson:GeometryShape: *none*
 </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
@@ -1148,6 +1593,51 @@ On instance:
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
  - Shape rec:testAllVarsInTemplate: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+ - Shape thns:ConceptShape: *none*
+ - Shape thns:SchemesUsageShape: *none*
+ - Shape thns:ThemeShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl text-danger">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+  Validation Report
+  Conforms: False
+  Results (1):
+  Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class skos:Concept ; sh:in ( osc:project-type osc:product-type ) ; sh:maxCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:minCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:path osc:type ]
+  	Focus Node: &lt;file:///github/workspace/polarwarp&gt;
+  	Value Node: osc:product-type
+  	Result Path: osc:type
+  	Message: Value does not have class skos:Concept
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+ - Shape osc:ExperimentShape: *none*
+ - Shape osc:StatusShape: *none*
+ - Shape osc:ProjectShape: &lt;file:///github/workspace/polarwarp&gt;
+ - Shape osc:WorkflowsShape: *none*
+ - Shape osc:TypeShape: &lt;file:///github/workspace/polarwarp&gt;
+ - Shape osc:RegionShape: *none*
+ - Shape osc:VariablesShape: *none*
+ - Shape osc:MissionsShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl:
+ - Shape cf:ParameterShape: *none*
+ - Shape cf:ObjectShape: *none*
 </div>
                                                     </div>
                                                 </div>
@@ -1270,17 +1760,38 @@ On instance:
                                                                     <div class="font-monospace subsection-title mt-2">SHACL</div>
                                                                 
                                                                     
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+ - Shape stac:CollectionShape: *none*
+ - Shape stac:ItemShape: *none*
+ - Shape stac:AssetShape: *none*
+ - Shape stac:LinkShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+ - Shape assets:RolesShape: *none*
+</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
   Validation Report
   Conforms: True
   </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
- - Shape geojson:FeatureShape: *none*
- - Shape geojson:GeometryShape: *none*
- - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
- - Shape geojson:LinkShape: *none*
  - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape geojson:FeatureShape: *none*
+ - Shape geojson:LinkShape: *none*
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
+ - Shape geojson:GeometryShape: *none*
 </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
@@ -1290,6 +1801,58 @@ On instance:
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
  - Shape rec:testAllVarsInTemplate: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+ - Shape thns:ConceptShape: *none*
+ - Shape thns:SchemesUsageShape: *none*
+ - Shape thns:ThemeShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl text-danger">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+  Validation Report
+  Conforms: False
+  Results (2):
+  Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class skos:Concept ; sh:in ( osc:planned osc:ongoing osc:completed ) ; sh:maxCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:minCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:path osc:status ]
+  	Focus Node: &lt;file:///github/workspace/polarwarp&gt;
+  	Value Node: osc:ongoing
+  	Result Path: osc:status
+  	Message: Value does not have class skos:Concept
+  Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class skos:Concept ; sh:in ( osc:project-type osc:product-type ) ; sh:maxCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:minCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:path osc:type ]
+  	Focus Node: &lt;file:///github/workspace/polarwarp&gt;
+  	Value Node: osc:product-type
+  	Result Path: osc:type
+  	Message: Value does not have class skos:Concept
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+ - Shape osc:ExperimentShape: *none*
+ - Shape osc:StatusShape: &lt;file:///github/workspace/polarwarp&gt;
+ - Shape osc:ProjectShape: *none*
+ - Shape osc:WorkflowsShape: *none*
+ - Shape osc:TypeShape: &lt;file:///github/workspace/polarwarp&gt;
+ - Shape osc:RegionShape: *none*
+ - Shape osc:VariablesShape: *none*
+ - Shape osc:MissionsShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl:
+ - Shape cf:ParameterShape: *none*
+ - Shape cf:ObjectShape: *none*
 </div>
                                                     </div>
                                                 </div>
@@ -1412,17 +1975,38 @@ On instance:
                                                                     <div class="font-monospace subsection-title mt-2">SHACL</div>
                                                                 
                                                                     
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+ - Shape stac:CollectionShape: *none*
+ - Shape stac:ItemShape: *none*
+ - Shape stac:AssetShape: *none*
+ - Shape stac:LinkShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+ - Shape assets:RolesShape: *none*
+</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
   Validation Report
   Conforms: True
   </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
- - Shape geojson:FeatureShape: *none*
- - Shape geojson:GeometryShape: *none*
- - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
- - Shape geojson:LinkShape: *none*
  - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape geojson:FeatureShape: *none*
+ - Shape geojson:LinkShape: *none*
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
+ - Shape geojson:GeometryShape: *none*
 </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
@@ -1432,6 +2016,51 @@ On instance:
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
  - Shape rec:testAllVarsInTemplate: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+ - Shape thns:ConceptShape: *none*
+ - Shape thns:SchemesUsageShape: *none*
+ - Shape thns:ThemeShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl text-danger">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+  Validation Report
+  Conforms: False
+  Results (1):
+  Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class skos:Concept ; sh:in ( osc:planned osc:ongoing osc:completed ) ; sh:maxCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:minCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:path osc:status ]
+  	Focus Node: &lt;file:///github/workspace/polarwarp&gt;
+  	Value Node: osc:ongoing
+  	Result Path: osc:status
+  	Message: Value does not have class skos:Concept
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+ - Shape osc:ExperimentShape: *none*
+ - Shape osc:StatusShape: &lt;file:///github/workspace/polarwarp&gt;
+ - Shape osc:ProjectShape: &lt;file:///github/workspace/polarwarp&gt;
+ - Shape osc:WorkflowsShape: *none*
+ - Shape osc:TypeShape: *none*
+ - Shape osc:RegionShape: *none*
+ - Shape osc:VariablesShape: *none*
+ - Shape osc:MissionsShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl:
+ - Shape cf:ParameterShape: *none*
+ - Shape cf:ObjectShape: *none*
 </div>
                                                     </div>
                                                 </div>
@@ -1451,7 +2080,7 @@ On instance:
                                                     <span class="badge bg-secondary test_resource">Test resource</span>
                                                     <a class="anchor" href="#item-ogc.osc.geodcat-stac-earthcode.products-6">¶</a>
                                                     <div class="float-end">
-                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                            <span class="badge text-bg-danger me-2">Failed</span>
                                                     </div>
                                                 </div>
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-12">
@@ -1473,17 +2102,38 @@ On instance:
                                                                     <div class="font-monospace subsection-title mt-2">SHACL</div>
                                                                 
                                                                     
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+ - Shape stac:CollectionShape: *none*
+ - Shape stac:ItemShape: *none*
+ - Shape stac:AssetShape: *none*
+ - Shape stac:LinkShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+ - Shape assets:RolesShape: *none*
+</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
   Validation Report
   Conforms: True
   </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
- - Shape geojson:FeatureShape: *none*
- - Shape geojson:GeometryShape: *none*
- - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
- - Shape geojson:LinkShape: *none*
  - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape geojson:FeatureShape: *none*
+ - Shape geojson:LinkShape: *none*
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
+ - Shape geojson:GeometryShape: *none*
 </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
@@ -1493,6 +2143,58 @@ On instance:
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
  - Shape rec:testAllVarsInTemplate: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+ - Shape thns:ConceptShape: *none*
+ - Shape thns:SchemesUsageShape: *none*
+ - Shape thns:ThemeShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl text-danger">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+  Validation Report
+  Conforms: False
+  Results (2):
+  Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class skos:Concept ; sh:in ( osc:planned osc:ongoing osc:completed ) ; sh:maxCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:minCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:path osc:status ]
+  	Focus Node: &lt;file:///github/workspace/polarwarp&gt;
+  	Value Node: osc:ongoing
+  	Result Path: osc:status
+  	Message: Value does not have class skos:Concept
+  Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class skos:Concept ; sh:in ( osc:project-type osc:product-type ) ; sh:maxCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:minCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:path osc:type ]
+  	Focus Node: &lt;file:///github/workspace/polarwarp&gt;
+  	Value Node: osc:product-type
+  	Result Path: osc:type
+  	Message: Value does not have class skos:Concept
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+ - Shape osc:ExperimentShape: *none*
+ - Shape osc:StatusShape: &lt;file:///github/workspace/polarwarp&gt;
+ - Shape osc:ProjectShape: &lt;file:///github/workspace/polarwarp&gt;
+ - Shape osc:WorkflowsShape: *none*
+ - Shape osc:TypeShape: &lt;file:///github/workspace/polarwarp&gt;
+ - Shape osc:RegionShape: *none*
+ - Shape osc:VariablesShape: *none*
+ - Shape osc:MissionsShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl:
+ - Shape cf:ParameterShape: &lt;file:///github/workspace/polarwarp&gt;
+ - Shape cf:ObjectShape: *none*
 </div>
                                                     </div>
                                                 </div>
@@ -1512,7 +2214,7 @@ On instance:
                                                     <span class="badge bg-secondary example">Example</span>
                                                     <a class="anchor" href="#item-ogc.osc.geodcat-stac-earthcode.products-7">¶</a>
                                                     <div class="float-end">
-                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                            <span class="badge text-bg-danger me-2">Failed</span>
                                                     </div>
                                                 </div>
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-13">
@@ -1534,17 +2236,38 @@ On instance:
                                                                     <div class="font-monospace subsection-title mt-2">SHACL</div>
                                                                 
                                                                     
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+ - Shape stac:CollectionShape: *none*
+ - Shape stac:ItemShape: *none*
+ - Shape stac:AssetShape: *none*
+ - Shape stac:LinkShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+ - Shape assets:RolesShape: *none*
+</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
   Validation Report
   Conforms: True
   </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
- - Shape geojson:FeatureShape: *none*
- - Shape geojson:GeometryShape: *none*
- - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
- - Shape geojson:LinkShape: *none*
  - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape geojson:FeatureShape: *none*
+ - Shape geojson:LinkShape: *none*
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
+ - Shape geojson:GeometryShape: *none*
 </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
@@ -1554,6 +2277,58 @@ On instance:
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
  - Shape rec:testAllVarsInTemplate: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+ - Shape thns:ConceptShape: *none*
+ - Shape thns:SchemesUsageShape: *none*
+ - Shape thns:ThemeShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl text-danger">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+  Validation Report
+  Conforms: False
+  Results (2):
+  Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class skos:Concept ; sh:in ( osc:planned osc:ongoing osc:completed ) ; sh:maxCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:minCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:path osc:status ]
+  	Focus Node: &lt;https://ogc.org/demo/ospd/polarwarp&gt;
+  	Value Node: osc:completed
+  	Result Path: osc:status
+  	Message: Value does not have class skos:Concept
+  Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class skos:Concept ; sh:in ( osc:project-type osc:product-type ) ; sh:maxCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:minCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:path osc:type ]
+  	Focus Node: &lt;https://ogc.org/demo/ospd/polarwarp&gt;
+  	Value Node: osc:product-type
+  	Result Path: osc:type
+  	Message: Value does not have class skos:Concept
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+ - Shape osc:ExperimentShape: *none*
+ - Shape osc:StatusShape: &lt;https://ogc.org/demo/ospd/polarwarp&gt;
+ - Shape osc:ProjectShape: &lt;https://ogc.org/demo/ospd/polarwarp&gt;
+ - Shape osc:WorkflowsShape: *none*
+ - Shape osc:TypeShape: &lt;https://ogc.org/demo/ospd/polarwarp&gt;
+ - Shape osc:RegionShape: *none*
+ - Shape osc:VariablesShape: *none*
+ - Shape osc:MissionsShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl:
+ - Shape cf:ParameterShape: *none*
+ - Shape cf:ObjectShape: *none*
 </div>
                                                     </div>
                                                 </div>
@@ -1573,7 +2348,7 @@ On instance:
                                                     <span class="badge bg-secondary example">Example</span>
                                                     <a class="anchor" href="#item-ogc.osc.geodcat-stac-earthcode.products-8">¶</a>
                                                     <div class="float-end">
-                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                            <span class="badge text-bg-danger me-2">Failed</span>
                                                     </div>
                                                 </div>
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-14">
@@ -1595,17 +2370,38 @@ On instance:
                                                                     <div class="font-monospace subsection-title mt-2">SHACL</div>
                                                                 
                                                                     
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+ - Shape stac:CollectionShape: *none*
+ - Shape stac:ItemShape: *none*
+ - Shape stac:AssetShape: *none*
+ - Shape stac:LinkShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+ - Shape assets:RolesShape: *none*
+</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
   Validation Report
   Conforms: True
   </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
- - Shape geojson:FeatureShape: *none*
- - Shape geojson:GeometryShape: *none*
- - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
- - Shape geojson:LinkShape: *none*
  - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape geojson:FeatureShape: *none*
+ - Shape geojson:LinkShape: *none*
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
+ - Shape geojson:GeometryShape: *none*
 </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
@@ -1615,6 +2411,58 @@ On instance:
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
  - Shape rec:testAllVarsInTemplate: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+ - Shape thns:ConceptShape: *none*
+ - Shape thns:SchemesUsageShape: *none*
+ - Shape thns:ThemeShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl text-danger">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+  Validation Report
+  Conforms: False
+  Results (2):
+  Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class skos:Concept ; sh:in ( osc:planned osc:ongoing osc:completed ) ; sh:maxCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:minCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:path osc:status ]
+  	Focus Node: &lt;https://ogc.org/demo/ospd/water-bodies&gt;
+  	Value Node: osc:ongoing
+  	Result Path: osc:status
+  	Message: Value does not have class skos:Concept
+  Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class skos:Concept ; sh:in ( osc:project-type osc:product-type ) ; sh:maxCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:minCount Literal(&quot;1&quot;, datatype=xsd:integer) ; sh:path osc:type ]
+  	Focus Node: &lt;https://ogc.org/demo/ospd/water-bodies&gt;
+  	Value Node: osc:product-type
+  	Result Path: osc:type
+  	Message: Value does not have class skos:Concept
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+ - Shape osc:ExperimentShape: &lt;https://ogc.org/demo/ospd/water-bodies&gt;
+ - Shape osc:StatusShape: &lt;https://ogc.org/demo/ospd/water-bodies&gt;
+ - Shape osc:ProjectShape: &lt;https://ogc.org/demo/ospd/water-bodies&gt;
+ - Shape osc:WorkflowsShape: *none*
+ - Shape osc:TypeShape: &lt;https://ogc.org/demo/ospd/water-bodies&gt;
+ - Shape osc:RegionShape: &lt;https://ogc.org/demo/ospd/water-bodies&gt;
+ - Shape osc:VariablesShape: *none*
+ - Shape osc:MissionsShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl:
+ - Shape cf:ParameterShape: *none*
+ - Shape cf:ObjectShape: *none*
 </div>
                                                     </div>
                                                 </div>
@@ -1681,17 +2529,38 @@ On instance:
                                                                     <div class="font-monospace subsection-title mt-2">SHACL</div>
                                                                 
                                                                     
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+ - Shape stac:CollectionShape: *none*
+ - Shape stac:ItemShape: *none*
+ - Shape stac:AssetShape: *none*
+ - Shape stac:LinkShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+ - Shape assets:RolesShape: *none*
+</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
   Validation Report
   Conforms: True
   </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
+ - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
  - Shape geojson:FeatureShape: *none*
  - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
- - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape geojson:GeometryShape: *none*
  - Shape geojson:LinkShape: *none*
+ - Shape geojson:GeometryShape: *none*
 </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
@@ -1701,6 +2570,33 @@ On instance:
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
  - Shape rec:testAllVarsInTemplate: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+ - Shape thns:ConceptShape: *none*
+ - Shape thns:SchemesUsageShape: *none*
+ - Shape thns:ThemeShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+ - Shape osc:ExperimentShape: *none*
+ - Shape osc:StatusShape: *none*
+ - Shape osc:ProjectShape: *none*
+ - Shape osc:WorkflowsShape: *none*
+ - Shape osc:TypeShape: *none*
+ - Shape osc:RegionShape: *none*
+ - Shape osc:VariablesShape: *none*
+ - Shape osc:MissionsShape: *none*
 </div>
                                                     </div>
                                                 </div>
@@ -1742,17 +2638,38 @@ On instance:
                                                                     <div class="font-monospace subsection-title mt-2">SHACL</div>
                                                                 
                                                                     
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+ - Shape stac:CollectionShape: *none*
+ - Shape stac:ItemShape: *none*
+ - Shape stac:AssetShape: *none*
+ - Shape stac:LinkShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+ - Shape assets:RolesShape: *none*
+</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
   Validation Report
   Conforms: True
   </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
+ - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
  - Shape geojson:FeatureShape: *none*
  - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
- - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape geojson:GeometryShape: *none*
  - Shape geojson:LinkShape: *none*
+ - Shape geojson:GeometryShape: *none*
 </div>
                                                                     
                                                                     <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
@@ -1763,33 +2680,37 @@ On instance:
                                                                     <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
  - Shape rec:testAllVarsInTemplate: *none*
 </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+ - Shape thns:ConceptShape: *none*
+ - Shape thns:SchemesUsageShape: *none*
+ - Shape thns:ThemeShape: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+ - Shape osc:ExperimentShape: *none*
+ - Shape osc:StatusShape: *none*
+ - Shape osc:ProjectShape: *none*
+ - Shape osc:WorkflowsShape: *none*
+ - Shape osc:TypeShape: *none*
+ - Shape osc:RegionShape: *none*
+ - Shape osc:VariablesShape: *none*
+ - Shape osc:MissionsShape: *none*
+</div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item bblock-report" data-bblock-id="ogc.osc.api-profiles.processes.ipt.api" id="bblock-ogc.osc.api-profiles.processes.ipt.api">
-                            <h2 class="accordion-header bblock-title anchor-container">
-                                <button class="accordion-button collapsed" type="button"
-                                    data-bs-toggle="collapse"
-                                    data-bs-target="#bblock-collapse-ogc\.osc\.api-profiles\.processes\.ipt\.api">
-                                    <div class="flex-fill">
-                                        IPT Profile of OGC API Processes
-                                        <small class="ms-2 bblock-id">ogc.osc.api-profiles.processes.ipt.api</small>
-                                        <a class="anchor" href="#bblock-ogc.osc.api-profiles.processes.ipt.api">¶</a>
-                                    </div>
-
-                                    <span class="badge text-bg-success me-2">
-                                            Passed
-                                            (no tests)
-                                    </span>
-                                </button>
-                            </h2>
-                            <div class="accordion-collapse collapse " id="bblock-collapse-ogc.osc.api-profiles.processes.ipt.api">
-                                <div class="accordion-body">
-                                        <div class="alert alert-info mb-0">No tests were found for this building block.</div>
                                 </div>
                             </div>
                         </div>

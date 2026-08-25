@@ -1,31 +1,14 @@
 Validation report for ogc.osc.geodcat-stac-earthcode.products - EarthCODE Product
-Generated 2026-08-25T07:43:54.056216+00:00
-=== General ===
-Test was expected to fail and it did.
-=== End General ===
-
+Generated 2026-08-25T07:43:54.242609+00:00
 === Files ===
-Using invalid-cf-parameters-fail.json from test resources
+Using valid-cf-parameters.json from test resources
 JSON-LD context is present - uplifting
-Output JSON-LD invalid-cf-parameters-fail.jsonld created
-Output Turtle invalid-cf-parameters-fail.ttl created
+Output JSON-LD valid-cf-parameters.jsonld created
+Output Turtle valid-cf-parameters.ttl created
 === End Files ===
 
 === JSON Schema ===
-
-** Validation error **
-ValidationError: [] is too short
-
-Failed validating 'minItems' in schema[0]['allOf'][0]['properties']['cf:parameter']:
-    {'items': {'properties': {'name': {'minLength': 1, 'type': 'string'},
-                              'unit': {'type': 'string'}},
-               'required': ['name'],
-               'type': 'object'},
-     'minItems': 1,
-     'type': 'array'}
-
-On instance['cf:parameter']:
-    []
+Validation passed
 === End JSON Schema ===
 
 === SHACL ===
@@ -109,7 +92,7 @@ Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/exten
   Conforms: True
   
 Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl:
- - Shape cf:ParameterShape: *none*
+ - Shape cf:ParameterShape: <file:///github/workspace/polarwarp>
  - Shape cf:ObjectShape: *none*
 
 === End SHACL ===

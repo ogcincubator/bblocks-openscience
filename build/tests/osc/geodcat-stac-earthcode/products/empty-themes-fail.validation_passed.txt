@@ -1,5 +1,5 @@
 Validation report for ogc.osc.geodcat-stac-earthcode.products - EarthCODE Product
-Generated 2026-08-06T01:07:13.546000+00:00
+Generated 2026-08-25T07:43:53.947110+00:00
 === General ===
 Test was expected to fail and it did.
 === End General ===
@@ -94,16 +94,33 @@ On instance:
 === End JSON Schema ===
 
 === SHACL ===
+Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl:
+ - Shape stac:CollectionShape: *none*
+ - Shape stac:ItemShape: *none*
+ - Shape stac:AssetShape: *none*
+ - Shape stac:LinkShape: *none*
+
+Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl:
+ - Shape assets:RolesShape: *none*
+
 Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
- - Shape geojson:FeatureShape: *none*
- - Shape geojson:GeometryShape: *none*
- - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
- - Shape geojson:LinkShape: *none*
  - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape geojson:FeatureShape: *none*
+ - Shape geojson:LinkShape: *none*
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
+ - Shape geojson:GeometryShape: *none*
 
 Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
   Validation Report
@@ -111,6 +128,54 @@ Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sou
   
 Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:
  - Shape rec:testAllVarsInTemplate: *none*
+
+Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl:
+ - Shape thns:ConceptShape: *none*
+ - Shape thns:SchemesUsageShape: *none*
+ - Shape thns:ThemeShape: *none*
+
+
+** Validation error **
+Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+  Validation Report
+  Conforms: False
+  Results (2):
+  Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class skos:Concept ; sh:in ( osc:planned osc:ongoing osc:completed ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path osc:status ]
+  	Focus Node: <file:///github/workspace/polarwarp>
+  	Value Node: osc:completed
+  	Result Path: osc:status
+  	Message: Value does not have class skos:Concept
+  Constraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: [ sh:class skos:Concept ; sh:in ( osc:project-type osc:product-type ) ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path osc:type ]
+  	Focus Node: <file:///github/workspace/polarwarp>
+  	Value Node: osc:product-type
+  	Result Path: osc:type
+  	Message: Value does not have class skos:Concept
+  
+Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl:
+ - Shape osc:ExperimentShape: *none*
+ - Shape osc:StatusShape: <file:///github/workspace/polarwarp>
+ - Shape osc:ProjectShape: <file:///github/workspace/polarwarp>
+ - Shape osc:WorkflowsShape: *none*
+ - Shape osc:TypeShape: <file:///github/workspace/polarwarp>
+ - Shape osc:RegionShape: *none*
+ - Shape osc:VariablesShape: *none*
+ - Shape osc:MissionsShape: *none*
+
+Validation result for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl:
+ - Shape cf:ParameterShape: *none*
+ - Shape cf:ObjectShape: *none*
 
 === End SHACL ===
 
