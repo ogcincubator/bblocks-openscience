@@ -20,12 +20,6 @@ Output schema for the buffer geometry process
 
 Input schema for the buffer geometry process
 
-### `ogc.osc.ontology.cwlprov` — CWL Ontology
-
-**Type:** model
-
-Ontology describing the Common Workflow Language (CWL) model
-
 ### `ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputDescription` — Buffer geometry process input description
 
 **Type:** schema
@@ -38,11 +32,11 @@ Description for the inputs of the buffer geometry process
 
 Description for the output of the buffer geometry process
 
-### `ogc.osc.application-package` — Application Package
+### `ogc.osc.ontology.cwlprov` — CWL Ontology
 
-**Type:** schema
+**Type:** model
 
-Earth Observation Application Package. 
+Ontology describing the Common Workflow Language (CWL) model
 
 ### `ogc.osc.api-profiles.processes.ipt.results` — Result schema for IPT
 
@@ -67,6 +61,12 @@ Description of the buffer geometry process
 **Type:** schema
 
 Collection of output descriptions
+
+### `ogc.osc.application-package` — Application Package
+
+**Type:** schema
+
+Earth Observation Application Package. 
 
 ### `ogc.osc.ontology.openscience` — Open Science Ontology
 

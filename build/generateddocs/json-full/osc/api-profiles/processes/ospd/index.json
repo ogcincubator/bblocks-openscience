@@ -11,12 +11,12 @@
   "register": "ogc-incubator",
   "dependsOn": [
     "ogc.osc.geodcat-stac-earthcode.experiments",
-    "ogc.osc.geodcat-stac-earthcode.workflows",
     "ogc.osc.geodcat-stac-earthcode.products",
+    "ogc.osc.geodcat-stac-earthcode.workflows",
     "ogc.osc.api-profiles.processes.workflow"
   ],
   "version": "0.1",
-  "dateOfLastChange": "2026-08-25",
+  "dateOfLastChange": "2023-09-18",
   "link": "https://github.com/opengeospatial/ogcapi-processes",
   "sources": [],
   "scope": "dev",
@@ -31,17 +31,17 @@
     "ogc.osc.geodcat-stac-earthcode.experiments": [
       "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/rules.shacl"
     ],
-    "ogc.geo.features.feature": [
-      "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
-    ],
-    "ogc.api.records.v1.schemas.linkTemplate": [
-      "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
-    ],
     "ogc.contrib.stac.core-ontology": [
       "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
     ],
     "ogc.contrib.stac.components.assets-ontology": [
       "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl"
+    ],
+    "ogc.geo.features.feature": [
+      "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+    ],
+    "ogc.api.records.v1.schemas.linkTemplate": [
+      "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
     ],
     "ogc.contrib.stac.extensions.themes-ontology": [
       "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl"
