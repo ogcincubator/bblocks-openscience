@@ -2,20 +2,20 @@
   "title": "Validation report for ogc.osc.geodcat-stac-earthcode.experiments - EarthCODE Experiment",
   "bblockName": "EarthCODE Experiment",
   "bblockId": "ogc.osc.geodcat-stac-earthcode.experiments",
-  "generated": "2026-08-12T14:40:55.219025+00:00",
-  "result": true,
+  "generated": "2026-08-26T04:42:47.258468+00:00",
+  "result": false,
   "items": [
     {
       "source": {
         "type": "EXAMPLE",
         "requireFail": false,
         "filename": "build/tests/osc/geodcat-stac-earthcode/experiments/example_1_1.ttl",
-        "url": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/tests/osc/geodcat-stac-earthcode/experiments/example_1_1.ttl",
+        "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/experiments/example_1_1.ttl",
         "exampleIndex": 1,
         "snippetIndex": 1,
         "language": "text/turtle"
       },
-      "result": true,
+      "result": false,
       "sections": [
         {
           "name": "FILES",
@@ -38,114 +38,7 @@
         {
           "name": "SHACL",
           "title": "SHACL",
-          "entries": [
-            {
-              "op": "shacl-report",
-              "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
-              "focusNodes": {
-                "<https://www.ogc.org/rules/kindgrove/#ProcessRunShape>": {
-                  "nodes": [
-                    "wfkg:AllometricEquationRun",
-                    "wfkg:SelectScenesRun",
-                    "wfkg:CO2EquivalentRun",
-                    "wfkg:ExportResultsRun",
-                    "wfkg:CalculateIndicesRun",
-                    "wfkg:DisplaySummaryReportRun",
-                    "wfkg:CarbonStockRun",
-                    "wfkg:DownloadBandsRun",
-                    "wfkg:DefineStudyAreaRun",
-                    "wfkg:ThresholdClassificationRun"
-                  ]
-                },
-                "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
-                  "nodes": [
-                    "wfkg:AllometricEquationRun",
-                    "wfkg:SelectScenesRun",
-                    "wfkg:CO2EquivalentRun",
-                    "wfkg:ExportResultsRun",
-                    "wfkg:CalculateIndicesRun",
-                    "wfkg:DisplaySummaryReportRun",
-                    "wfkg:CarbonStockRun",
-                    "wfkg:DownloadBandsRun",
-                    "wfkg:DefineStudyAreaRun",
-                    "wfkg:ThresholdClassificationRun"
-                  ]
-                },
-                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
-                  "nodes": [
-                    "wfkg:BiomassEstimate",
-                    "wfkg:CSVSummary",
-                    "wfkg:NDVI",
-                    "wfkg:CarbonStockEstimate",
-                    "wfkg:RedBand",
-                    "wfkg:InteractiveVisualisation",
-                    "wfkg:CO2EquivalentEstimate",
-                    "wfkg:SAVI",
-                    "wfkg:GeoTIFFRaster",
-                    "wfkg:NIRBand",
-                    "wfkg:NDWI",
-                    "wfkg:MangroveMask",
-                    "wfkg:GreenBand",
-                    "wfkg:SelectedScene"
-                  ]
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: wfkg:AllometricEquationRun,wfkg:SelectScenesRun,wfkg:CO2EquivalentRun,wfkg:ExportResultsRun,wfkg:CalculateIndicesRun,wfkg:DisplaySummaryReportRun,wfkg:CarbonStockRun,wfkg:DownloadBandsRun,wfkg:DefineStudyAreaRun,wfkg:ThresholdClassificationRun\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: wfkg:AllometricEquationRun,wfkg:SelectScenesRun,wfkg:CO2EquivalentRun,wfkg:ExportResultsRun,wfkg:CalculateIndicesRun,wfkg:DisplaySummaryReportRun,wfkg:CarbonStockRun,wfkg:DownloadBandsRun,wfkg:DefineStudyAreaRun,wfkg:ThresholdClassificationRun\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: wfkg:BiomassEstimate,wfkg:CSVSummary,wfkg:NDVI,wfkg:CarbonStockEstimate,wfkg:RedBand,wfkg:InteractiveVisualisation,wfkg:CO2EquivalentEstimate,wfkg:SAVI,wfkg:GeoTIFFRaster,wfkg:NIRBand,wfkg:NDWI,wfkg:MangroveMask,wfkg:GreenBand,wfkg:SelectedScene\n"
-            },
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-              "focusNodes": {
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:FeatureShape": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:FeatureShape: *none*\n - Shape geojson:GeometryShape: *none*\n"
-            },
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
-              "focusNodes": {
-                "rec:testAllVarsInTemplate": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
-            }
-          ]
+          "entries": []
         }
       ]
     },
@@ -154,12 +47,12 @@
         "type": "EXAMPLE",
         "requireFail": false,
         "filename": "build/tests/osc/geodcat-stac-earthcode/experiments/example_2_1.jsonld",
-        "url": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/tests/osc/geodcat-stac-earthcode/experiments/example_2_1.jsonld",
+        "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/experiments/example_2_1.jsonld",
         "exampleIndex": 2,
         "snippetIndex": 1,
         "language": "application/ld+json"
       },
-      "result": true,
+      "result": false,
       "sections": [
         {
           "name": "FILES",
@@ -194,79 +87,7 @@
         {
           "name": "SHACL",
           "title": "SHACL",
-          "entries": [
-            {
-              "op": "shacl-report",
-              "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
-              "focusNodes": {
-                "<https://www.ogc.org/rules/kindgrove/#ProcessRunShape>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: *none*\n"
-            },
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-              "focusNodes": {
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:FeatureShape": {
-                  "nodes": [
-                    "<https://ogc.org/demo/ospd/kindgrove/kindgrove-experiment>"
-                  ]
-                },
-                "geojson:GeometryShape": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://ogc.org/demo/ospd/kindgrove/kindgrove-experiment>\n - Shape geojson:GeometryShape: *none*\n"
-            },
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
-              "focusNodes": {
-                "rec:testAllVarsInTemplate": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
-            }
-          ]
+          "entries": []
         }
       ]
     },
@@ -275,12 +96,12 @@
         "type": "EXAMPLE",
         "requireFail": false,
         "filename": "build/tests/osc/geodcat-stac-earthcode/experiments/example_3_1.json",
-        "url": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/tests/osc/geodcat-stac-earthcode/experiments/example_3_1.json",
+        "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/experiments/example_3_1.json",
         "exampleIndex": 3,
         "snippetIndex": 1,
         "language": "application/json"
       },
-      "result": true,
+      "result": false,
       "sections": [
         {
           "name": "FILES",
@@ -326,79 +147,7 @@
         {
           "name": "SHACL",
           "title": "SHACL",
-          "entries": [
-            {
-              "op": "shacl-report",
-              "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
-              "focusNodes": {
-                "<https://www.ogc.org/rules/kindgrove/#ProcessRunShape>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: *none*\n"
-            },
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-              "focusNodes": {
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:FeatureShape": {
-                  "nodes": [
-                    "<https://ogc.org/demo/ospd/water-bodies-execution>"
-                  ]
-                },
-                "geojson:GeometryShape": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://ogc.org/demo/ospd/water-bodies-execution>\n - Shape geojson:GeometryShape: *none*\n"
-            },
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
-              "focusNodes": {
-                "rec:testAllVarsInTemplate": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
-            }
-          ]
+          "entries": []
         }
       ]
     },
@@ -407,12 +156,12 @@
         "type": "EXAMPLE",
         "requireFail": false,
         "filename": "build/tests/osc/geodcat-stac-earthcode/experiments/example_4_1.json",
-        "url": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/tests/osc/geodcat-stac-earthcode/experiments/example_4_1.json",
+        "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/experiments/example_4_1.json",
         "exampleIndex": 4,
         "snippetIndex": 1,
         "language": "application/json"
       },
-      "result": true,
+      "result": false,
       "sections": [
         {
           "name": "FILES",
@@ -458,87 +207,20 @@
         {
           "name": "SHACL",
           "title": "SHACL",
-          "entries": [
-            {
-              "op": "shacl-report",
-              "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "_sources/geodcat-stac-earthcode/experiments/rules.shacl",
-              "focusNodes": {
-                "<https://www.ogc.org/rules/kindgrove/#ProcessRunShape>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for _sources/geodcat-stac-earthcode/experiments/rules.shacl:\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ProcessRunWorkflowShape>: *none*\n - Shape <https://www.ogc.org/rules/kindgrove/#ArtifactProvenanceShape>: *none*\n"
-            },
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-              "focusNodes": {
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:FeatureShape": {
-                  "nodes": [
-                    "<https://ogc.org/demo/ospd/water-bodies-execution>"
-                  ]
-                },
-                "geojson:GeometryShape": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://ogc.org/demo/ospd/water-bodies-execution>\n - Shape geojson:GeometryShape: *none*\n"
-            },
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
-              "focusNodes": {
-                "rec:testAllVarsInTemplate": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
-            }
-          ]
+          "entries": []
         }
       ]
     }
   ],
-  "globalErrors": {},
+  "globalErrors": {
+    "SHACL": {
+      "isError": true,
+      "message": "Error processing skos.ttl: [Errno 2] No such file or directory: '/github/skos.ttl'"
+    }
+  },
   "counts": {
     "total": 4,
-    "passed": 4,
-    "failed": 0
+    "passed": 0,
+    "failed": 4
   }
 }

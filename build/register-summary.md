@@ -44,12 +44,6 @@ Ontology describing the Common Workflow Language (CWL) model
 
 A profile of the PROV-O building block constrained to the description of a single geospatial processing step, with a required link to a registered process type.
 
-### `ogc.osc.api-profiles.processes.ipt.results` — Result schema for IPT
-
-**Type:** schema
-
-constraint on results to include provenance object inline
-
 ### `ogc.osc.api-profiles.processes.sample-implementation.schemas.inputDescriptions` — Example OGC API Processes instance input descriptions
 
 **Type:** schema
@@ -74,11 +68,21 @@ Collection of output descriptions
 
 Earth Observation Application Package. 
 
+### `ogc.osc.api-profiles.processes.ipt.results` — Result schema for IPT
+
+**Type:** schema
+
+constraint on results to include provenance object inline
+
 ### `ogc.osc.ontology.openscience` — Open Science Ontology
 
 **Type:** model
 
 A modular standards-based ontology for describing interoperable and reproduceable scientific workflows.
+
+### `ogc.osc.api-profiles.processes.ipt.execute` — Execute (request) schema for IPT
+
+**Type:** schema
 
 ### `ogc.osc.geodcat-stac-earthcode.common` — EarthCODE Common STAC profile
 
@@ -86,9 +90,11 @@ A modular standards-based ontology for describing interoperable and reproduceabl
 
 EarthCODE metadata profile linked to semantic models
 
-### `ogc.osc.api-profiles.processes.ipt.execute` — Execute (request) schema for IPT
+### `ogc.osc.api-profiles.processes.ipt.api` — IPT Profile of OGC API Processes
 
-**Type:** schema
+**Type:** api
+
+This is a Profile of the OGC API Processes model with specific requirements to standardise Integrity Provenance and Trust (IPT) aspects/
 
 ### `ogc.osc.geodcat-stac-earthcode.experiments` — EarthCODE Experiment
 
@@ -107,12 +113,6 @@ EarthCODE metadata profile linked to semantic models
 **Type:** schema
 
 EarthCODE metadata profile linked to semantic models
-
-### `ogc.osc.api-profiles.processes.ipt.api` — IPT Profile of OGC API Processes
-
-**Type:** api
-
-This is a Profile of the OGC API Processes model with specific requirements to standardise Integrity Provenance and Trust (IPT) aspects/
 
 ### `ogc.osc.api-profiles.processes.workflow` — Workflow profile of OGC API Processes
 

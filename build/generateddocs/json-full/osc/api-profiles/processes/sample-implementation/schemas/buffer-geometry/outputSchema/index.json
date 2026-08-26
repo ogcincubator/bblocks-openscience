@@ -9,7 +9,7 @@
   "itemClass": "schema",
   "register": "ogc-incubator",
   "version": "1.0",
-  "dateOfLastChange": "2026-08-12",
+  "dateOfLastChange": "2026-08-26",
   "maturity": "development",
   "tags": [
     "examples",
@@ -18,12 +18,12 @@
   ],
   "shaclShapes": {},
   "schema": {
-    "application/yaml": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputSchema/schema.yaml",
-    "application/json": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputSchema/schema.json"
+    "application/yaml": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputSchema/schema.yaml",
+    "application/json": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputSchema/schema.json"
   },
-  "sourceSchema": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/_sources/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputSchema/schema.yaml",
-  "resolvedSchemaProperties": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputSchema/resolvedProperties.json",
-  "sourceFiles": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/_sources/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputSchema/",
+  "sourceSchema": "https://nsnarayanam.github.io/bblocks-openscience/_sources/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputSchema/schema.yaml",
+  "resolvedSchemaProperties": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputSchema/resolvedProperties.json",
+  "sourceFiles": "https://nsnarayanam.github.io/bblocks-openscience/_sources/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputSchema/",
   "validationPassed": true,
   "annotatedSchema": "type: object\nproperties:\n  bufferedGeometry:\n    type: object\n    properties:\n      type:\n        type: string\n        const: Polygon\n      coordinates:\n        type: array\n        minItems: 2\n        items:\n          type: number\n  area:\n    type: number\n    minimum: 0\n",
   "gitRepository": "https://github.com/nsnarayanam/bblocks-openscience",

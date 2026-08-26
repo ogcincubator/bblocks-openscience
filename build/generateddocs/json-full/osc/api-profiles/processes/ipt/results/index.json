@@ -6,7 +6,7 @@
   "dateTimeAddition": "2025-10-22T15:29:12.046535",
   "register": "ogcapi-processes",
   "version": "0.1",
-  "dateOfLastChange": "2026-08-12",
+  "dateOfLastChange": "2026-08-26",
   "tags": [
     "ogcapi-processes",
     "schema"
@@ -17,17 +17,17 @@
   "shaclShapes": {},
   "dependsOn": [
     "ogc.api.processes.v1.schemas.qualifiedInputValue",
-    "ogc.ogc-utils.prov-activity",
-    "ogc.ogc-utils.prov-entity"
+    "ogc.ogc-utils.prov-entity",
+    "ogc.ogc-utils.prov-activity"
   ],
   "schema": {
-    "application/yaml": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/api-profiles/processes/ipt/results/schema.yaml",
-    "application/json": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/api-profiles/processes/ipt/results/schema.json"
+    "application/yaml": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/schema.yaml",
+    "application/json": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/schema.json"
   },
-  "sourceSchema": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/_sources/api-profiles/processes/ipt/results/schema.yaml",
-  "ldContext": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/api-profiles/processes/ipt/results/context.jsonld",
-  "resolvedSchemaProperties": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/api-profiles/processes/ipt/results/resolvedProperties.json",
-  "sourceFiles": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/_sources/api-profiles/processes/ipt/results/",
+  "sourceSchema": "https://nsnarayanam.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/results/schema.yaml",
+  "ldContext": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/context.jsonld",
+  "resolvedSchemaProperties": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/resolvedProperties.json",
+  "sourceFiles": "https://nsnarayanam.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/results/",
   "validationPassed": true,
   "annotatedSchema": "allOf:\n- $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/qualifiedInputValue/schema.yaml\nproperties:\n  value:\n    oneOf:\n    - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml\n    - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml\n",
   "gitRepository": "https://github.com/nsnarayanam/bblocks-openscience",

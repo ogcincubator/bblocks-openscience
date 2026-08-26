@@ -27,7 +27,7 @@ properties:
         type: integer
         const: 1
       schema:
-        $ref: https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputSchema/schema.yaml#/properties/geometry
+        $ref: https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputSchema/schema.yaml#/properties/geometry
   distance:
     type: object
     properties:
@@ -44,7 +44,7 @@ properties:
         type: integer
         const: 1
       schema:
-        $ref: https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputSchema/schema.yaml#/properties/distance
+        $ref: https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputSchema/schema.yaml#/properties/distance
   units:
     type: object
     properties:
@@ -60,14 +60,14 @@ properties:
         type: integer
         const: 1
       schema:
-        $ref: https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputSchema/schema.yaml#/properties/units
+        $ref: https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputSchema/schema.yaml#/properties/units
 
 ```
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputDescription/schema.json)
-* JSON version: [schema.json](https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputDescription/schema.yaml)
+* YAML version: [schema.yaml](https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputDescription/schema.json)
+* JSON version: [schema.json](https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputDescription/schema.yaml)
 
 
 # JSON-LD Context
@@ -123,7 +123,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputDescription/context.jsonld)
+[context.jsonld](https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputDescription/context.jsonld)
 
 
 # For developers

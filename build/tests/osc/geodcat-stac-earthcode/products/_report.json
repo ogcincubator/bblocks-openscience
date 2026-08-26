@@ -2,30 +2,19 @@
   "title": "Validation report for ogc.osc.geodcat-stac-earthcode.products - EarthCODE Product",
   "bblockName": "EarthCODE Product",
   "bblockId": "ogc.osc.geodcat-stac-earthcode.products",
-  "generated": "2026-08-12T14:40:57.477206+00:00",
-  "result": true,
+  "generated": "2026-08-26T04:42:49.793134+00:00",
+  "result": false,
   "items": [
     {
       "source": {
         "type": "TEST_RESOURCE",
         "requireFail": true,
         "filename": "_sources/geodcat-stac-earthcode/products/tests/empty-themes-fail.json",
-        "url": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/_sources/geodcat-stac-earthcode/products/tests/empty-themes-fail.json",
+        "url": "https://nsnarayanam.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/products/tests/empty-themes-fail.json",
         "language": "json"
       },
-      "result": true,
+      "result": false,
       "sections": [
-        {
-          "name": "GENERAL",
-          "title": "General",
-          "entries": [
-            {
-              "op": "require-fail",
-              "isError": false,
-              "message": "Test was expected to fail and it did."
-            }
-          ]
-        },
         {
           "name": "FILES",
           "title": "Files",
@@ -72,54 +61,7 @@
         {
           "name": "SHACL",
           "title": "SHACL",
-          "entries": [
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-              "focusNodes": {
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:FeatureShape": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:FeatureShape: *none*\n - Shape geojson:GeometryShape: *none*\n"
-            },
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
-              "focusNodes": {
-                "rec:testAllVarsInTemplate": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
-            }
-          ]
+          "entries": []
         }
       ]
     },
@@ -128,22 +70,11 @@
         "type": "TEST_RESOURCE",
         "requireFail": true,
         "filename": "_sources/geodcat-stac-earthcode/products/tests/invalid-cf-parameters-fail.json",
-        "url": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/_sources/geodcat-stac-earthcode/products/tests/invalid-cf-parameters-fail.json",
+        "url": "https://nsnarayanam.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/products/tests/invalid-cf-parameters-fail.json",
         "language": "json"
       },
-      "result": true,
+      "result": false,
       "sections": [
-        {
-          "name": "GENERAL",
-          "title": "General",
-          "entries": [
-            {
-              "op": "require-fail",
-              "isError": false,
-              "message": "Test was expected to fail and it did."
-            }
-          ]
-        },
         {
           "name": "FILES",
           "title": "Files",
@@ -190,54 +121,7 @@
         {
           "name": "SHACL",
           "title": "SHACL",
-          "entries": [
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-              "focusNodes": {
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:FeatureShape": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:FeatureShape: *none*\n - Shape geojson:GeometryShape: *none*\n"
-            },
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
-              "focusNodes": {
-                "rec:testAllVarsInTemplate": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
-            }
-          ]
+          "entries": []
         }
       ]
     },
@@ -246,22 +130,11 @@
         "type": "TEST_RESOURCE",
         "requireFail": true,
         "filename": "_sources/geodcat-stac-earthcode/products/tests/invalid-osc-status-fail.json",
-        "url": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/_sources/geodcat-stac-earthcode/products/tests/invalid-osc-status-fail.json",
+        "url": "https://nsnarayanam.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/products/tests/invalid-osc-status-fail.json",
         "language": "json"
       },
-      "result": true,
+      "result": false,
       "sections": [
-        {
-          "name": "GENERAL",
-          "title": "General",
-          "entries": [
-            {
-              "op": "require-fail",
-              "isError": false,
-              "message": "Test was expected to fail and it did."
-            }
-          ]
-        },
         {
           "name": "FILES",
           "title": "Files",
@@ -285,7 +158,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "invalid-osc-status-fail.ttl",
-              "size": 47,
+              "size": 46,
               "isError": false,
               "message": "Output Turtle invalid-osc-status-fail.ttl created"
             }
@@ -308,54 +181,7 @@
         {
           "name": "SHACL",
           "title": "SHACL",
-          "entries": [
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-              "focusNodes": {
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:FeatureShape": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:FeatureShape: *none*\n - Shape geojson:GeometryShape: *none*\n"
-            },
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
-              "focusNodes": {
-                "rec:testAllVarsInTemplate": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
-            }
-          ]
+          "entries": []
         }
       ]
     },
@@ -364,22 +190,11 @@
         "type": "TEST_RESOURCE",
         "requireFail": true,
         "filename": "_sources/geodcat-stac-earthcode/products/tests/missing-project-fail.json",
-        "url": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/_sources/geodcat-stac-earthcode/products/tests/missing-project-fail.json",
+        "url": "https://nsnarayanam.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/products/tests/missing-project-fail.json",
         "language": "json"
       },
-      "result": true,
+      "result": false,
       "sections": [
-        {
-          "name": "GENERAL",
-          "title": "General",
-          "entries": [
-            {
-              "op": "require-fail",
-              "isError": false,
-              "message": "Test was expected to fail and it did."
-            }
-          ]
-        },
         {
           "name": "FILES",
           "title": "Files",
@@ -426,54 +241,7 @@
         {
           "name": "SHACL",
           "title": "SHACL",
-          "entries": [
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-              "focusNodes": {
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:FeatureShape": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:FeatureShape: *none*\n - Shape geojson:GeometryShape: *none*\n"
-            },
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
-              "focusNodes": {
-                "rec:testAllVarsInTemplate": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
-            }
-          ]
+          "entries": []
         }
       ]
     },
@@ -482,22 +250,11 @@
         "type": "TEST_RESOURCE",
         "requireFail": true,
         "filename": "_sources/geodcat-stac-earthcode/products/tests/missing-type-fail.json",
-        "url": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/_sources/geodcat-stac-earthcode/products/tests/missing-type-fail.json",
+        "url": "https://nsnarayanam.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/products/tests/missing-type-fail.json",
         "language": "json"
       },
-      "result": true,
+      "result": false,
       "sections": [
-        {
-          "name": "GENERAL",
-          "title": "General",
-          "entries": [
-            {
-              "op": "require-fail",
-              "isError": false,
-              "message": "Test was expected to fail and it did."
-            }
-          ]
-        },
         {
           "name": "FILES",
           "title": "Files",
@@ -544,54 +301,7 @@
         {
           "name": "SHACL",
           "title": "SHACL",
-          "entries": [
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-              "focusNodes": {
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:FeatureShape": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:FeatureShape: *none*\n - Shape geojson:GeometryShape: *none*\n"
-            },
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
-              "focusNodes": {
-                "rec:testAllVarsInTemplate": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
-            }
-          ]
+          "entries": []
         }
       ]
     },
@@ -600,10 +310,10 @@
         "type": "TEST_RESOURCE",
         "requireFail": false,
         "filename": "_sources/geodcat-stac-earthcode/products/tests/valid-cf-parameters.json",
-        "url": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/_sources/geodcat-stac-earthcode/products/tests/valid-cf-parameters.json",
+        "url": "https://nsnarayanam.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/products/tests/valid-cf-parameters.json",
         "language": "json"
       },
-      "result": true,
+      "result": false,
       "sections": [
         {
           "name": "FILES",
@@ -649,54 +359,7 @@
         {
           "name": "SHACL",
           "title": "SHACL",
-          "entries": [
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-              "focusNodes": {
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:FeatureShape": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:FeatureShape: *none*\n - Shape geojson:GeometryShape: *none*\n"
-            },
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
-              "focusNodes": {
-                "rec:testAllVarsInTemplate": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
-            }
-          ]
+          "entries": []
         }
       ]
     },
@@ -705,13 +368,13 @@
         "type": "EXAMPLE",
         "requireFail": false,
         "filename": "build/tests/osc/geodcat-stac-earthcode/products/example_1_1.json",
-        "url": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/tests/osc/geodcat-stac-earthcode/products/example_1_1.json",
+        "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/products/example_1_1.json",
         "exampleIndex": 1,
         "snippetIndex": 1,
         "language": "application/json",
         "sourceUrl": "https://esa-earthcode.github.io/open-science-catalog-metadata-staging/products/polarwarp/collection.json"
       },
-      "result": true,
+      "result": false,
       "sections": [
         {
           "name": "FILES",
@@ -757,54 +420,7 @@
         {
           "name": "SHACL",
           "title": "SHACL",
-          "entries": [
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-              "focusNodes": {
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:FeatureShape": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:FeatureShape: *none*\n - Shape geojson:GeometryShape: *none*\n"
-            },
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
-              "focusNodes": {
-                "rec:testAllVarsInTemplate": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
-            }
-          ]
+          "entries": []
         }
       ]
     },
@@ -813,12 +429,12 @@
         "type": "EXAMPLE",
         "requireFail": false,
         "filename": "build/tests/osc/geodcat-stac-earthcode/products/example_2_1.json",
-        "url": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/tests/osc/geodcat-stac-earthcode/products/example_2_1.json",
+        "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/products/example_2_1.json",
         "exampleIndex": 2,
         "snippetIndex": 1,
         "language": "application/json"
       },
-      "result": true,
+      "result": false,
       "sections": [
         {
           "name": "FILES",
@@ -864,62 +480,20 @@
         {
           "name": "SHACL",
           "title": "SHACL",
-          "entries": [
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-              "focusNodes": {
-                "geojson:LinkShape": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:FeatureShape": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:FeatureShape: *none*\n - Shape geojson:GeometryShape: *none*\n"
-            },
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl",
-              "focusNodes": {
-                "rec:testAllVarsInTemplate": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl:\n - Shape rec:testAllVarsInTemplate: *none*\n"
-            }
-          ]
+          "entries": []
         }
       ]
     }
   ],
-  "globalErrors": {},
+  "globalErrors": {
+    "SHACL": {
+      "isError": true,
+      "message": "Error processing skos.ttl: [Errno 2] No such file or directory: '/github/skos.ttl'"
+    }
+  },
   "counts": {
     "total": 8,
-    "passed": 8,
-    "failed": 0
+    "passed": 0,
+    "failed": 8
   }
 }

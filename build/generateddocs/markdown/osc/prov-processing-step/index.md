@@ -57,7 +57,7 @@ Technologies, Workflow Profiler).
 #### jsonld
 ```jsonld
 {
-  "@context": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/prov-processing-step/context.jsonld",
+  "@context": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/context.jsonld",
   "id": "urn:aganitha:step:ingest-dicra:20260807T060000Z",
   "provType": "Activity",
   "processType": "https://example.org/ospd/process-types/ingest",
@@ -130,7 +130,7 @@ Technologies, Workflow Profiler).
 #### jsonld
 ```jsonld
 {
-  "@context": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/prov-processing-step/context.jsonld",
+  "@context": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/context.jsonld",
   "id": "urn:aganitha:step:vci:20260807T061000Z",
   "provType": "Activity",
   "processType": "https://example.org/ospd/process-types/index-normalisation",
@@ -206,7 +206,7 @@ Technologies, Workflow Profiler).
 #### jsonld
 ```jsonld
 {
-  "@context": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/prov-processing-step/context.jsonld",
+  "@context": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/context.jsonld",
   "id": "urn:aganitha:step:smdi:20260807T061500Z",
   "provType": "Activity",
   "processType": "https://example.org/ospd/process-types/index-normalisation",
@@ -241,10 +241,10 @@ Technologies, Workflow Profiler).
     rdfs:label "Compute soil moisture deficit index" ;
     dct:type <https://example.org/ospd/process-types/index-normalisation> ;
     prov:generated <urn:aganitha:dataset:smdi> ;
-    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:mandal-ndvi-sm-merged> ;
-            prov:hadRole <https://example.org/ospd/roles/observedIndex> ],
-        [ prov:entity <urn:aganitha:reference:soil-moisture-extrema> ;
-            prov:hadRole <https://example.org/ospd/roles/normalisationReference> ] ;
+    prov:qualifiedUsage [ prov:entity <urn:aganitha:reference:soil-moisture-extrema> ;
+            prov:hadRole <https://example.org/ospd/roles/normalisationReference> ],
+        [ prov:entity <urn:aganitha:dataset:mandal-ndvi-sm-merged> ;
+            prov:hadRole <https://example.org/ospd/roles/observedIndex> ] ;
     prov:used <urn:aganitha:dataset:mandal-ndvi-sm-merged>,
         <urn:aganitha:reference:soil-moisture-extrema> .
 
@@ -285,7 +285,7 @@ Technologies, Workflow Profiler).
 #### jsonld
 ```jsonld
 {
-  "@context": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/prov-processing-step/context.jsonld",
+  "@context": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/context.jsonld",
   "id": "urn:aganitha:step:cdsi:20260807T062000Z",
   "provType": "Activity",
   "processType": "https://example.org/ospd/process-types/index-composition",
@@ -370,7 +370,7 @@ Technologies, Workflow Profiler).
 #### jsonld
 ```jsonld
 {
-  "@context": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/prov-processing-step/context.jsonld",
+  "@context": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/context.jsonld",
   "id": "urn:aganitha:step:classify:20260807T063000Z",
   "provType": "Activity",
   "processType": "https://example.org/ospd/process-types/classification",
@@ -454,7 +454,7 @@ Technologies, Workflow Profiler).
 #### jsonld
 ```jsonld
 {
-  "@context": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/prov-processing-step/context.jsonld",
+  "@context": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/context.jsonld",
   "id": "urn:aganitha:step:spi:20260807T064000Z",
   "provType": "Activity",
   "processType": "https://example.org/ospd/process-types/standardised-index",
@@ -489,10 +489,10 @@ Technologies, Workflow Profiler).
     rdfs:label "Compute standardised precipitation index" ;
     dct:type <https://example.org/ospd/process-types/standardised-index> ;
     prov:generated <urn:aganitha:dataset:spi> ;
-    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:precipitation-reference-period> ;
-            prov:hadRole <https://example.org/ospd/roles/fittingReference> ],
-        [ prov:entity <urn:aganitha:dataset:precipitation-series> ;
-            prov:hadRole <https://example.org/ospd/roles/inputSeries> ] ;
+    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:precipitation-series> ;
+            prov:hadRole <https://example.org/ospd/roles/inputSeries> ],
+        [ prov:entity <urn:aganitha:dataset:precipitation-reference-period> ;
+            prov:hadRole <https://example.org/ospd/roles/fittingReference> ] ;
     prov:used <urn:aganitha:dataset:precipitation-reference-period>,
         <urn:aganitha:dataset:precipitation-series> .
 
@@ -543,7 +543,7 @@ Technologies, Workflow Profiler).
 #### jsonld
 ```jsonld
 {
-  "@context": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/prov-processing-step/context.jsonld",
+  "@context": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/context.jsonld",
   "id": "urn:aganitha:step:train:20260807T070000Z",
   "provType": "Activity",
   "processType": "https://example.org/ospd/process-types/model-training",
@@ -590,12 +590,12 @@ Technologies, Workflow Profiler).
     dct:type <https://example.org/ospd/process-types/model-training> ;
     prov:generated <urn:aganitha:model:drought-classifier>,
         <urn:aganitha:report:validation-metrics> ;
-    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:cdsi> ;
+    prov:qualifiedUsage [ prov:entity <urn:aganitha:partition:district-folds> ;
+            prov:hadRole <https://example.org/ospd/roles/validationPartition> ],
+        [ prov:entity <urn:aganitha:dataset:cdsi> ;
             prov:hadRole <https://example.org/ospd/roles/trainingFeatures> ],
         [ prov:entity <urn:aganitha:dataset:spi> ;
             prov:hadRole <https://example.org/ospd/roles/trainingFeatures> ],
-        [ prov:entity <urn:aganitha:partition:district-folds> ;
-            prov:hadRole <https://example.org/ospd/roles/validationPartition> ],
         [ prov:entity <urn:aganitha:dataset:drought-classes> ;
             prov:hadRole <https://example.org/ospd/roles/trainingTarget> ] ;
     prov:used <urn:aganitha:dataset:cdsi>,
@@ -637,7 +637,7 @@ Technologies, Workflow Profiler).
 #### jsonld
 ```jsonld
 {
-  "@context": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/prov-processing-step/context.jsonld",
+  "@context": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/context.jsonld",
   "id": "urn:aganitha:step:project:20260807T071500Z",
   "provType": "Activity",
   "processType": "https://example.org/ospd/process-types/model-inference",
@@ -672,10 +672,10 @@ Technologies, Workflow Profiler).
     rdfs:label "Generate forward drought projection" ;
     dct:type <https://example.org/ospd/process-types/model-inference> ;
     prov:generated <urn:aganitha:dataset:drought-projection> ;
-    prov:qualifiedUsage [ prov:entity <urn:aganitha:model:drought-classifier> ;
-            prov:hadRole <https://example.org/ospd/roles/fittedModel> ],
-        [ prov:entity <urn:aganitha:dataset:cdsi> ;
-            prov:hadRole <https://example.org/ospd/roles/inferenceInput> ] ;
+    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:cdsi> ;
+            prov:hadRole <https://example.org/ospd/roles/inferenceInput> ],
+        [ prov:entity <urn:aganitha:model:drought-classifier> ;
+            prov:hadRole <https://example.org/ospd/roles/fittedModel> ] ;
     prov:used <urn:aganitha:dataset:cdsi>,
         <urn:aganitha:model:drought-classifier> .
 
@@ -699,7 +699,7 @@ Technologies, Workflow Profiler).
 #### jsonld
 ```jsonld
 {
-  "@context": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/prov-processing-step/context.jsonld",
+  "@context": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/context.jsonld",
   "id": "urn:example:step:0001",
   "provType": "Activity",
   "processType": "https://example.org/ospd/process-types/ingest",
@@ -806,8 +806,8 @@ allOf:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/prov-processing-step/schema.json)
-* JSON version: [schema.json](https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/prov-processing-step/schema.yaml)
+* YAML version: [schema.yaml](https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/schema.json)
+* JSON version: [schema.json](https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/schema.yaml)
 
 
 # JSON-LD Context
@@ -1175,7 +1175,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/prov-processing-step/context.jsonld)
+[context.jsonld](https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/context.jsonld)
 
 
 # For developers

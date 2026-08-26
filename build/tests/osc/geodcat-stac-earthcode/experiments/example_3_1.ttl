@@ -2,8 +2,8 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <osc:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix osc: <https://w3id.org/ogc/stac/osc/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
 @prefix thns: <https://w3id.org/ogc/stac/themes/> .
@@ -18,10 +18,9 @@
     dcterms:modified "2025-01-21T18:40:00Z" ;
     dcterms:title "ESA WorldCereal Experiment" ;
     wfprov:version "2" ;
-    rdfs:seeAlso [ rdfs:label "Workflow: Water Bodies" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/workflows/waterbodies/record.json> ],
+    rdfs:seeAlso [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://example.com/open-science-catalog-metadata/experiments/water-bodies-execution/record.json> ],
         [ rdfs:label "Water Bodies Execution Outputs" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/child> ;
@@ -30,21 +29,22 @@
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://example.com/open-science-catalog-metadata/themes/land/catalog.json> ],
-        [ rdfs:label "An EO data exploitation platform" ;
+        [ rdfs:label "Experiments" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/service> ;
-            oa:hasTarget <https://example.com> ],
-        [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://example.com/open-science-catalog-metadata/experiments/water-bodies-execution/record.json> ],
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://example.com/open-science-catalog-metadata/experiments/catalog.json> ],
         [ rdfs:label "Open Science Catalog" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/open-science-catalog-metadata/catalog.json> ],
-        [ rdfs:label "Experiments" ;
+        [ rdfs:label "Workflow: Water Bodies" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://example.com/open-science-catalog-metadata/experiments/catalog.json> ] ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/workflows/waterbodies/record.json> ],
+        [ rdfs:label "An EO data exploitation platform" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/service> ;
+            oa:hasTarget <https://example.com> ] ;
     dcat:contactPoint [ rdfs:label "A person" ;
             wfprov:contactInstructions "Contact via website" ;
             wfprov:organization "An Org" ;
@@ -57,8 +57,8 @@
                     ns1:relation <http://www.iana.org/assignments/relation/about> ;
                     oa:hasTarget <https://example.com/> ] ] ;
     dcat:license "proprietary" ;
+    osc:workflow "waterbodies" ;
     rec:format [ rec:name "GeoTIFF" ] ;
     rec:themes [ thns:concepts [ thns:id "land"^^xsd:string ] ;
-            thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
-    ns2:workflow "waterbodies" .
+            thns:scheme "https://github.com/stac-extensions/osc#theme" ] .
 

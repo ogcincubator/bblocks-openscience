@@ -6,10 +6,10 @@
     rdfs:label "Compute standardised precipitation index" ;
     dct:type <https://example.org/ospd/process-types/standardised-index> ;
     prov:generated <urn:aganitha:dataset:spi> ;
-    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:precipitation-reference-period> ;
-            prov:hadRole <https://example.org/ospd/roles/fittingReference> ],
-        [ prov:entity <urn:aganitha:dataset:precipitation-series> ;
-            prov:hadRole <https://example.org/ospd/roles/inputSeries> ] ;
+    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:precipitation-series> ;
+            prov:hadRole <https://example.org/ospd/roles/inputSeries> ],
+        [ prov:entity <urn:aganitha:dataset:precipitation-reference-period> ;
+            prov:hadRole <https://example.org/ospd/roles/fittingReference> ] ;
     prov:used <urn:aganitha:dataset:precipitation-reference-period>,
         <urn:aganitha:dataset:precipitation-series> .
 

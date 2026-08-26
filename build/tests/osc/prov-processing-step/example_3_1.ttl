@@ -6,10 +6,10 @@
     rdfs:label "Compute soil moisture deficit index" ;
     dct:type <https://example.org/ospd/process-types/index-normalisation> ;
     prov:generated <urn:aganitha:dataset:smdi> ;
-    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:mandal-ndvi-sm-merged> ;
-            prov:hadRole <https://example.org/ospd/roles/observedIndex> ],
-        [ prov:entity <urn:aganitha:reference:soil-moisture-extrema> ;
-            prov:hadRole <https://example.org/ospd/roles/normalisationReference> ] ;
+    prov:qualifiedUsage [ prov:entity <urn:aganitha:reference:soil-moisture-extrema> ;
+            prov:hadRole <https://example.org/ospd/roles/normalisationReference> ],
+        [ prov:entity <urn:aganitha:dataset:mandal-ndvi-sm-merged> ;
+            prov:hadRole <https://example.org/ospd/roles/observedIndex> ] ;
     prov:used <urn:aganitha:dataset:mandal-ndvi-sm-merged>,
         <urn:aganitha:reference:soil-moisture-extrema> .
 

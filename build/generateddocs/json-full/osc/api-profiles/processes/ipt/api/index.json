@@ -8,7 +8,7 @@
   "itemClass": "api",
   "register": "ogcapi-features",
   "version": "0.1",
-  "dateOfLastChange": "2026-08-12",
+  "dateOfLastChange": "2026-08-26",
   "sources": [
     {
       "title": "OGC API Processes",
@@ -26,7 +26,7 @@
   "highlighted": true,
   "abstract": "This is a Profile of the OGC API Processes model with specific requirements to standardise Integrity Provenance and Trust (IPT) aspects/",
   "shaclShapes": {},
-  "sourceFiles": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/_sources/api-profiles/processes/ipt/api/",
+  "sourceFiles": "https://nsnarayanam.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/api/",
   "validationPassed": true,
   "description": "## IPT Profile\n\nThe IPT profile supports canonical mechanisms for handling Integrity, Provenance and Trust.\n\nSpecifically this profile:\n\n1. allows a client to nominate IRI identifier for the prov:Activity\n2. allows a client to nominate IRI for the Process Service as an prov:Agent\n3. allows a client to nominate an IRI for the result object\n4. Defines how a provenance trace can be return by reference or inline in the result as a prov:Entity\n\nThese constraints are defined by specialisations of input and output descriptions.\n\nTodo: define how the OpenAPI document refines the base.",
   "annotatedSchema": null,

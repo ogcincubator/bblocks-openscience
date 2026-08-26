@@ -14,7 +14,7 @@ properties:
     - osc:project
     properties:
       osc:project:
-        $ref: https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/$defs/osc:project
+        $ref: https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/$defs/osc:project
       wfdesc:hasInput:
         type: object
         additionalProperties:
@@ -35,4 +35,4 @@ properties:
             not:
               enum:
               - via
-      - $ref: https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/$defs/via_links
+      - $ref: https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml#/$defs/via_links

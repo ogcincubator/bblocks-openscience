@@ -7,12 +7,12 @@
     dct:type <https://example.org/ospd/process-types/model-training> ;
     prov:generated <urn:aganitha:model:drought-classifier>,
         <urn:aganitha:report:validation-metrics> ;
-    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:cdsi> ;
+    prov:qualifiedUsage [ prov:entity <urn:aganitha:partition:district-folds> ;
+            prov:hadRole <https://example.org/ospd/roles/validationPartition> ],
+        [ prov:entity <urn:aganitha:dataset:cdsi> ;
             prov:hadRole <https://example.org/ospd/roles/trainingFeatures> ],
         [ prov:entity <urn:aganitha:dataset:spi> ;
             prov:hadRole <https://example.org/ospd/roles/trainingFeatures> ],
-        [ prov:entity <urn:aganitha:partition:district-folds> ;
-            prov:hadRole <https://example.org/ospd/roles/validationPartition> ],
         [ prov:entity <urn:aganitha:dataset:drought-classes> ;
             prov:hadRole <https://example.org/ospd/roles/trainingTarget> ] ;
     prov:used <urn:aganitha:dataset:cdsi>,

@@ -170,9 +170,11 @@
     "assets": {
       "@context": {
         "@vocab": "https://w3id.org/ogc/stac/assets/",
+        "href": "@id",
         "type": "dct:format",
         "roles": {
-          "@id": "stac:roles",
+          "@id": "stac:hasAssetroles",
+          "@type": "xsd:string",
           "@container": "@set"
         }
       },
@@ -183,6 +185,21 @@
       "@id": "dct:date",
       "@type": "xsd:dateTime"
     },
+    "start_datetime": {
+      "@id": "stac:start_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "end_datetime": {
+      "@id": "stac:end_datetime",
+      "@type": "xsd:dateTime"
+    },
+    "unit": {
+      "@context": {
+        "@base": "http://qudt.org/vocab/unit/"
+      },
+      "@id": "qudt:hasUnit"
+    },
+    "providers": "stac:hasProvider",
     "stac_version": "stac:version",
     "media_type": "dct:format",
     "extent": "dct:extent",
@@ -190,12 +207,57 @@
       "@id": "thns:concepts",
       "@container": "@set",
       "@context": {
-        "name": "thns:name",
         "id": "thns:id",
+        "title": "thns:name",
+        "description": "thns:description",
         "url": "@id"
       }
     },
     "scheme": "thns:scheme",
+    "osc:type": {
+      "@id": "osc:type",
+      "@type": "@vocab",
+      "@context": {
+        "project": "osc:project-type",
+        "product": "osc:product-type"
+      }
+    },
+    "osc:status": {
+      "@id": "osc:status",
+      "@type": "@vocab",
+      "@context": {
+        "planned": "osc:planned",
+        "ongoing": "osc:ongoing",
+        "completed": "osc:completed"
+      }
+    },
+    "osc:project": {
+      "@id": "osc:project",
+      "@type": "xsd:string"
+    },
+    "osc:region": {
+      "@id": "osc:region",
+      "@type": "xsd:string"
+    },
+    "osc:variables": {
+      "@id": "osc:variables",
+      "@type": "xsd:string",
+      "@container": "@set"
+    },
+    "osc:missions": {
+      "@id": "osc:missions",
+      "@type": "xsd:string",
+      "@container": "@set"
+    },
+    "osc:experiment": {
+      "@id": "osc:experiment",
+      "@type": "xsd:string"
+    },
+    "osc:workflows": {
+      "@id": "osc:workflows",
+      "@type": "xsd:string",
+      "@container": "@set"
+    },
     "wasInfluencedBy": {
       "@context": {
         "name": "rdfs:label"
@@ -698,6 +760,7 @@
     "foaf": "http://xmlns.com/foaf/0.1/",
     "thns": "https://w3id.org/ogc/stac/themes/",
     "stac": "https://w3id.org/ogc/stac/core/",
+    "osc": "https://w3id.org/ogc/stac/osc/",
     "cf": "https://w3id.org/ogc/stac/cf/",
     "qudt": "http://qudt.org/schema/qudt/",
     "rights": "dcat:rights",

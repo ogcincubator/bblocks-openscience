@@ -6,7 +6,7 @@
   "dateTimeAddition": "2025-10-22T15:29:12.046535",
   "register": "ogcapi-processes",
   "version": "0.1",
-  "dateOfLastChange": "2026-08-12",
+  "dateOfLastChange": "2026-08-26",
   "tags": [
     "ogcapi-processes",
     "schema"
@@ -19,12 +19,12 @@
     "ogc.ogc-utils.iri-or-curie"
   ],
   "schema": {
-    "application/yaml": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/api-profiles/processes/ipt/execute/schema.yaml",
-    "application/json": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/api-profiles/processes/ipt/execute/schema.json"
+    "application/yaml": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/schema.yaml",
+    "application/json": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/schema.json"
   },
-  "sourceSchema": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/_sources/api-profiles/processes/ipt/execute/schema.yaml",
-  "resolvedSchemaProperties": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/api-profiles/processes/ipt/execute/resolvedProperties.json",
-  "sourceFiles": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/_sources/api-profiles/processes/ipt/execute/",
+  "sourceSchema": "https://nsnarayanam.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/execute/schema.yaml",
+  "resolvedSchemaProperties": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/resolvedProperties.json",
+  "sourceFiles": "https://nsnarayanam.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/execute/",
   "validationPassed": true,
   "annotatedSchema": "allOf:\n- $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/execute/schema.yaml\nproperties:\n  inputs:\n    activity_id:\n      $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.yaml\n    result_id:\n      $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.yaml\n    agent_id:\n      $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.yaml\nrequired:\n- activity_id\n",
   "gitRepository": "https://github.com/nsnarayanam/bblocks-openscience",

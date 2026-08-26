@@ -272,8 +272,8 @@ allOf:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/application-package/schema.json)
-* JSON version: [schema.json](https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/application-package/schema.yaml)
+* YAML version: [schema.yaml](https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.json)
+* JSON version: [schema.json](https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.yaml)
 
 
 # JSON-LD Context
