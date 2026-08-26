@@ -1,0 +1,29 @@
+{
+  "id": "urn:aganitha:step:cdsi:20260807T062000Z",
+  "provType": "Activity",
+  "processType": "https://example.org/ospd/process-types/index-composition",
+  "label": "Compose combined drought severity index",
+  "used": [
+    "urn:aganitha:dataset:vci",
+    "urn:aganitha:dataset:smdi"
+  ],
+  "generated": [
+    "urn:aganitha:dataset:cdsi"
+  ],
+  "qualifiedUsage": [
+    {
+      "entity": "urn:aganitha:dataset:vci",
+      "hadRole": "https://example.org/ospd/roles/indexComponent"
+    },
+    {
+      "entity": "urn:aganitha:dataset:smdi",
+      "hadRole": "https://example.org/ospd/roles/indexComponent"
+    }
+  ],
+  "parameters": {
+    "weights": {
+      "vci": 0.6,
+      "smdi": 0.4
+    }
+  }
+}

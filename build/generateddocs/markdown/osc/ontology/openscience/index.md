@@ -26,6 +26,6 @@ In combination, these ontologies allow interoperable APIs and data exchange form
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/ogcincubator/bblocks-openscience](https://github.com/ogcincubator/bblocks-openscience)
+* URL: [https://github.com/nsnarayanam/bblocks-openscience](https://github.com/nsnarayanam/bblocks-openscience)
 * Path: `_sources/ontology/openscience`
 

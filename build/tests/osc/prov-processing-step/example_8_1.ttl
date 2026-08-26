@@ -1,0 +1,15 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<urn:aganitha:step:project:20260807T071500Z> a prov:Activity ;
+    rdfs:label "Generate forward drought projection" ;
+    dct:type <https://example.org/ospd/process-types/model-inference> ;
+    prov:generated <urn:aganitha:dataset:drought-projection> ;
+    prov:qualifiedUsage [ prov:entity <urn:aganitha:model:drought-classifier> ;
+            prov:hadRole <https://example.org/ospd/roles/fittedModel> ],
+        [ prov:entity <urn:aganitha:dataset:cdsi> ;
+            prov:hadRole <https://example.org/ospd/roles/inferenceInput> ] ;
+    prov:used <urn:aganitha:dataset:cdsi>,
+        <urn:aganitha:model:drought-classifier> .
+

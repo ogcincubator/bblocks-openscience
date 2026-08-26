@@ -1,0 +1,24 @@
+{
+  "@context": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/prov-processing-step/context.jsonld",
+  "id": "urn:aganitha:step:project:20260807T071500Z",
+  "provType": "Activity",
+  "processType": "https://example.org/ospd/process-types/model-inference",
+  "label": "Generate forward drought projection",
+  "used": [
+    "urn:aganitha:model:drought-classifier",
+    "urn:aganitha:dataset:cdsi"
+  ],
+  "generated": [
+    "urn:aganitha:dataset:drought-projection"
+  ],
+  "qualifiedUsage": [
+    {
+      "entity": "urn:aganitha:model:drought-classifier",
+      "hadRole": "https://example.org/ospd/roles/fittedModel"
+    },
+    {
+      "entity": "urn:aganitha:dataset:cdsi",
+      "hadRole": "https://example.org/ospd/roles/inferenceInput"
+    }
+  ]
+}

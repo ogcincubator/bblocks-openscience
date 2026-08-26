@@ -1,0 +1,21 @@
+{
+  "@context": "https://raw.githubusercontent.com/nsnarayanam/bblocks-openscience/undefined/build/annotated/osc/prov-processing-step/context.jsonld",
+  "id": "urn:aganitha:step:ingest-dicra:20260807T060000Z",
+  "provType": "Activity",
+  "processType": "https://example.org/ospd/process-types/ingest",
+  "label": "Ingest mandal NDVI and soil moisture",
+  "startedAtTime": "2026-08-07T06:00:00Z",
+  "endedAtTime": "2026-08-07T06:03:41Z",
+  "used": [
+    "urn:aganitha:source:dicra-mandal-archive"
+  ],
+  "generated": [
+    "urn:aganitha:dataset:mandal-ndvi-sm-merged"
+  ],
+  "qualifiedUsage": [
+    {
+      "entity": "urn:aganitha:source:dicra-mandal-archive",
+      "hadRole": "https://example.org/ospd/roles/sourceArchive"
+    }
+  ]
+}
