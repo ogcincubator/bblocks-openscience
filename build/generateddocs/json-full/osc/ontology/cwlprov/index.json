@@ -9,7 +9,7 @@
   "itemClass": "model",
   "register": "ogc-incubator",
   "version": "0.1",
-  "dateOfLastChange": "2023-09-18",
+  "dateOfLastChange": "2026-09-09",
   "dependsOn": [
     "ogc.ogc-utils.prov"
   ],
@@ -18,7 +18,11 @@
   "tags": [
     "OSPD"
   ],
-  "shaclShapes": {},
+  "shaclShapes": {
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+    ]
+  },
   "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/ontology/cwlprov/",
   "validationPassed": true,
   "description": "## CWL Ontology\n\nsee \n\nhttps://github.com/common-workflow-language/cwlprov/\n\nwhere is the actual ontology published? ",

@@ -61,6 +61,16 @@
           "link": "@id"
         }
       },
+      "license": {
+        "@id": "dct:license",
+        "@context": {
+          "name": "rdfs:label",
+          "url": {
+            "@id": "rdfs:seeAlso",
+            "@type": "@id"
+          }
+        }
+      },
       "schema": {
         "@id": "prof:hasResource",
         "@type": "@id"
@@ -195,12 +205,12 @@
   "abstract": "Building Blocks for FAIR Open Science - profiles of OGC API Processes and various metadata standards to support open, transparent, interoperable and reproducible scientific workflows..\n",
   "description": "This repository is initially aimed to support the [Open Science Persistent Demonstrator](https://www.ogc.org/initiatives/open-science/) pilot, but may be further developed as a set of standards with appropriate working group governance.\n",
   "sparqlEndpoint": "https://defs-dev.opengis.net/fuseki/query",
-  "modified": "2026-08-25T08:58:08.591629",
+  "modified": "2026-09-09T13:23:43.675148",
   "tooling": {
     "bblocks-postprocess": {
-      "commitId": "\"d5ae6f4bd95e268894921440229917592e2976c4",
-      "shortCommitId": "\"d5ae6f",
-      "date": "2026-08-25T08:35:43+00:00\""
+      "commitId": "\"5f1ec548149bd0b447b0781f2ce00e5fbe4566e0",
+      "shortCommitId": "\"5f1ec5",
+      "date": "2026-09-08T21:44:17+00:00\""
     }
   },
   "gitRepository": "https://github.com/ogcincubator/bblocks-openscience",
@@ -255,7 +265,7 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "version": "1.0",
-      "dateOfLastChange": "2025-12-17",
+      "dateOfLastChange": "2026-09-09",
       "maturity": "development",
       "tags": [
         "examples",
@@ -322,7 +332,7 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "version": "1.0",
-      "dateOfLastChange": "2025-12-17",
+      "dateOfLastChange": "2026-09-09",
       "maturity": "development",
       "tags": [
         "examples",
@@ -397,7 +407,7 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "version": "1.0",
-      "dateOfLastChange": "2025-12-17",
+      "dateOfLastChange": "2026-09-09",
       "maturity": "development",
       "tags": [
         "examples",
@@ -472,7 +482,7 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "version": "1.0",
-      "dateOfLastChange": "2025-12-17",
+      "dateOfLastChange": "2026-09-09",
       "maturity": "development",
       "tags": [
         "examples",
@@ -547,7 +557,7 @@
       "itemClass": "model",
       "register": "ogc-incubator",
       "version": "0.1",
-      "dateOfLastChange": "2023-09-18",
+      "dateOfLastChange": "2026-09-09",
       "dependsOn": [
         "bblocks://ogc.ogc-utils.prov"
       ],
@@ -556,7 +566,17 @@
       "tags": [
         "OSPD"
       ],
-      "shaclShapes": null,
+      "shaclShapes": [
+        {
+          "prof:hasArtifact": [
+            "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.model.cross-domain.prov",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        }
+      ],
       "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/ontology/cwlprov/",
       "validationPassed": true,
       "documentation": {
@@ -597,7 +617,7 @@
       "dateTimeAddition": "2025-10-22T15:29:12.046535",
       "register": "ogcapi-processes",
       "version": "0.1",
-      "dateOfLastChange": "2025-10-22",
+      "dateOfLastChange": "2026-09-09",
       "tags": [
         "ogcapi-processes",
         "schema"
@@ -605,11 +625,21 @@
       "name": "Result schema for IPT",
       "abstract": "constraint on results to include provenance object inline",
       "itemClass": "schema",
-      "shaclShapes": null,
+      "shaclShapes": [
+        {
+          "prof:hasArtifact": [
+            "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.model.cross-domain.prov",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        }
+      ],
       "dependsOn": [
-        "bblocks://ogc.ogc-utils.prov-activity",
+        "bblocks://ogc.api.processes.v1.schemas.qualifiedInputValue",
         "bblocks://ogc.ogc-utils.prov-entity",
-        "bblocks://ogc.api.processes.v1.schemas.qualifiedInputValue"
+        "bblocks://ogc.ogc-utils.prov-activity"
       ],
       "schema": [
         {
@@ -674,7 +704,7 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "version": "1.0",
-      "dateOfLastChange": "2025-12-17",
+      "dateOfLastChange": "2026-09-09",
       "maturity": "development",
       "tags": [
         "examples",
@@ -748,7 +778,7 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "version": "1.0",
-      "dateOfLastChange": "2025-12-17",
+      "dateOfLastChange": "2026-09-09",
       "maturity": "development",
       "tags": [
         "examples",
@@ -758,8 +788,8 @@
       "shaclShapes": null,
       "dependsOn": [
         "bblocks://ogc.api.processes.v1.schemas.process",
-        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputDescription",
-        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputDescription"
+        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputDescription",
+        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputDescription"
       ],
       "schema": [
         {
@@ -824,7 +854,7 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "version": "1.0",
-      "dateOfLastChange": "2025-12-17",
+      "dateOfLastChange": "2026-09-09",
       "maturity": "development",
       "tags": [
         "examples",
@@ -902,7 +932,7 @@
         "bblocks://ogc.profiles.prov.cwl.provenance"
       ],
       "version": "0.1",
-      "dateOfLastChange": "2023-09-18",
+      "dateOfLastChange": "2026-09-09",
       "link": "https://github.com/opengeospatial/geodcat-ogcapi-records",
       "sources": [
         {
@@ -912,7 +942,17 @@
       ],
       "scope": "dev",
       "tags": [],
-      "shaclShapes": null,
+      "shaclShapes": [
+        {
+          "prof:hasArtifact": [
+            "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.model.cross-domain.prov",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        }
+      ],
       "ldContext": {
         "prof:hasArtifact": "/github/workspace/_sources/application-package/context.jsonld",
         "prof:hasRole": "role:mapping",
@@ -979,16 +1019,16 @@
       "itemClass": "model",
       "register": "ogc-incubator",
       "version": "0.1",
-      "dateOfLastChange": "2023-09-18",
+      "dateOfLastChange": "2026-09-09",
       "dependsOn": [
         "bblocks://ogc.contrib.stac.extensions.processing-ontology",
-        "bblocks://ogc.contrib.stac.extensions.cf-ontology",
-        "bblocks://ogc.osc.ontology.cwlprov",
         "bblocks://ogc.bbr.wf4ever.wfdesc.Workflow",
-        "bblocks://ogc.bbr.wf4ever.ro.ResearchObject",
+        "bblocks://ogc.osc.ontology.cwlprov",
         "bblocks://ogc.geo.geodcat.dcat",
+        "bblocks://ogc.contrib.stac.extensions.osc-ontology",
         "bblocks://ogc.contrib.stac.core-ontology",
-        "bblocks://ogc.contrib.stac.extensions.osc-ontology"
+        "bblocks://ogc.contrib.stac.extensions.cf-ontology",
+        "bblocks://ogc.bbr.wf4ever.ro.ResearchObject"
       ],
       "sources": [],
       "scope": "dev",
@@ -1007,9 +1047,18 @@
         },
         {
           "prof:hasArtifact": [
-            "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl"
+            "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
           ],
-          "rdfs:seeAlso": "bblocks://ogc.contrib.stac.extensions.cf-ontology",
+          "rdfs:seeAlso": "bblocks://ogc.model.cross-domain.prov",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        },
+        {
+          "prof:hasArtifact": [
+            "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.contrib.stac.extensions.osc-ontology",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
@@ -1025,9 +1074,9 @@
         },
         {
           "prof:hasArtifact": [
-            "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl"
+            "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl"
           ],
-          "rdfs:seeAlso": "bblocks://ogc.contrib.stac.extensions.osc-ontology",
+          "rdfs:seeAlso": "bblocks://ogc.contrib.stac.extensions.cf-ontology",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
@@ -1073,7 +1122,7 @@
       "dateTimeAddition": "2025-10-22T15:29:12.046535",
       "register": "ogcapi-processes",
       "version": "0.1",
-      "dateOfLastChange": "2025-10-22",
+      "dateOfLastChange": "2026-09-09",
       "tags": [
         "ogcapi-processes",
         "schema"
@@ -1144,15 +1193,15 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "bblocks://ogc.geo.geodcat.stac.geodcat-stac-collection",
         "bblocks://ogc.ogc-utils.prov",
         "bblocks://ogc.geo.geodcat.stac.geodcat-stac-item",
         "bblocks://ogc.geo.geodcat.geodcat-records",
+        "bblocks://ogc.geo.geodcat.stac.geodcat-stac-collection",
         "bblocks://ogc.contrib.stac.extensions.themes",
         "bblocks://ogc.contrib.stac.extensions.osc"
       ],
       "version": "0.1",
-      "dateOfLastChange": "2023-09-18",
+      "dateOfLastChange": "2026-09-09",
       "sources": [
         {
           "title": "EarthCODE",
@@ -1174,18 +1223,18 @@
       "shaclShapes": [
         {
           "prof:hasArtifact": [
-            "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
+            "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
           ],
-          "rdfs:seeAlso": "bblocks://ogc.contrib.stac.core-ontology",
+          "rdfs:seeAlso": "bblocks://ogc.model.cross-domain.prov",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
         },
         {
           "prof:hasArtifact": [
-            "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl"
+            "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
           ],
-          "rdfs:seeAlso": "bblocks://ogc.contrib.stac.components.assets-ontology",
+          "rdfs:seeAlso": "bblocks://ogc.api.records.v1.schemas.linkTemplate",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
@@ -1201,9 +1250,18 @@
         },
         {
           "prof:hasArtifact": [
-            "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
+            "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
           ],
-          "rdfs:seeAlso": "bblocks://ogc.api.records.v1.schemas.linkTemplate",
+          "rdfs:seeAlso": "bblocks://ogc.contrib.stac.core-ontology",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        },
+        {
+          "prof:hasArtifact": [
+            "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.contrib.stac.components.assets-ontology",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
@@ -1251,7 +1309,7 @@
       "sourceLdContext": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/common/context.jsonld",
       "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/resolvedProperties.json",
       "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/common/",
-      "validationPassed": false,
+      "validationPassed": true,
       "testOutputs": "https://github.com/ogcincubator/bblocks-openscience/blob/master/build/tests/osc/geodcat-stac-earthcode/common/",
       "documentation": {
         "markdown": {
@@ -1291,7 +1349,7 @@
       "itemClass": "api",
       "register": "ogcapi-features",
       "version": "0.1",
-      "dateOfLastChange": "2024-03-22",
+      "dateOfLastChange": "2026-09-09",
       "sources": [
         {
           "title": "OGC API Processes",
@@ -1299,8 +1357,8 @@
         }
       ],
       "dependsOn": [
-        "bblocks://ogc.osc.api-profiles.processes.ipt.execute",
-        "bblocks://ogc.osc.api-profiles.processes.ipt.results"
+        "bblocks://ogc.osc.api-profiles.processes.ipt.results",
+        "bblocks://ogc.osc.api-profiles.processes.ipt.execute"
       ],
       "tags": [
         "ogcapi-processes",
@@ -1308,7 +1366,17 @@
       ],
       "highlighted": true,
       "abstract": "This is a Profile of the OGC API Processes model with specific requirements to standardise Integrity Provenance and Trust (IPT) aspects/",
-      "shaclShapes": null,
+      "shaclShapes": [
+        {
+          "prof:hasArtifact": [
+            "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.model.cross-domain.prov",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        }
+      ],
       "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/ipt/api/",
       "validationPassed": true,
       "documentation": {
@@ -1353,12 +1421,12 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "bblocks://ogc.bbr.wf4ever.wfprov.WorkflowRun",
         "bblocks://ogc.osc.geodcat-stac-earthcode.common",
-        "bblocks://ogc.geo.geodcat.geodcat-records"
+        "bblocks://ogc.geo.geodcat.geodcat-records",
+        "bblocks://ogc.bbr.wf4ever.wfprov.WorkflowRun"
       ],
       "version": "0.1",
-      "dateOfLastChange": "2023-09-18",
+      "dateOfLastChange": "2026-09-09",
       "link": "https://github.com/opengeospatial/geodcat-ogcapi-records",
       "sources": [
         {
@@ -1390,18 +1458,18 @@
         },
         {
           "prof:hasArtifact": [
-            "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
+            "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
           ],
-          "rdfs:seeAlso": "bblocks://ogc.contrib.stac.core-ontology",
+          "rdfs:seeAlso": "bblocks://ogc.model.cross-domain.prov",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
         },
         {
           "prof:hasArtifact": [
-            "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl"
+            "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
           ],
-          "rdfs:seeAlso": "bblocks://ogc.contrib.stac.components.assets-ontology",
+          "rdfs:seeAlso": "bblocks://ogc.api.records.v1.schemas.linkTemplate",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
@@ -1417,9 +1485,18 @@
         },
         {
           "prof:hasArtifact": [
-            "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
+            "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
           ],
-          "rdfs:seeAlso": "bblocks://ogc.api.records.v1.schemas.linkTemplate",
+          "rdfs:seeAlso": "bblocks://ogc.contrib.stac.core-ontology",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        },
+        {
+          "prof:hasArtifact": [
+            "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.contrib.stac.components.assets-ontology",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
@@ -1467,7 +1544,7 @@
       "sourceLdContext": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/context.jsonld",
       "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/resolvedProperties.json",
       "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/",
-      "validationPassed": false,
+      "validationPassed": true,
       "testOutputs": "https://github.com/ogcincubator/bblocks-openscience/blob/master/build/tests/osc/geodcat-stac-earthcode/experiments/",
       "documentation": {
         "markdown": {
@@ -1509,12 +1586,12 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
+        "bblocks://ogc.osc.geodcat-stac-earthcode.common",
         "bblocks://ogc.contrib.stac.extensions.cf",
-        "bblocks://ogc.ogc-utils.prov-entity",
-        "bblocks://ogc.osc.geodcat-stac-earthcode.common"
+        "bblocks://ogc.ogc-utils.prov-entity"
       ],
       "version": "0.1",
-      "dateOfLastChange": "2023-09-18",
+      "dateOfLastChange": "2026-09-09",
       "link": "https://github.com/opengeospatial/geodcat-ogcapi-records",
       "sources": [
         {
@@ -1537,9 +1614,27 @@
       "shaclShapes": [
         {
           "prof:hasArtifact": [
-            "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl"
+            "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
           ],
-          "rdfs:seeAlso": "bblocks://ogc.contrib.stac.extensions.cf-ontology",
+          "rdfs:seeAlso": "bblocks://ogc.model.cross-domain.prov",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        },
+        {
+          "prof:hasArtifact": [
+            "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.api.records.v1.schemas.linkTemplate",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        },
+        {
+          "prof:hasArtifact": [
+            "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.geo.features.feature",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
@@ -1564,24 +1659,6 @@
         },
         {
           "prof:hasArtifact": [
-            "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
-          ],
-          "rdfs:seeAlso": "bblocks://ogc.geo.features.feature",
-          "prof:hasRole": "role:validation",
-          "dct:format": "text/turtle",
-          "dct:conformsTo": "shacl:"
-        },
-        {
-          "prof:hasArtifact": [
-            "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
-          ],
-          "rdfs:seeAlso": "bblocks://ogc.api.records.v1.schemas.linkTemplate",
-          "prof:hasRole": "role:validation",
-          "dct:format": "text/turtle",
-          "dct:conformsTo": "shacl:"
-        },
-        {
-          "prof:hasArtifact": [
             "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl"
           ],
           "rdfs:seeAlso": "bblocks://ogc.contrib.stac.extensions.themes-ontology",
@@ -1594,6 +1671,15 @@
             "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl"
           ],
           "rdfs:seeAlso": "bblocks://ogc.contrib.stac.extensions.osc-ontology",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        },
+        {
+          "prof:hasArtifact": [
+            "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.contrib.stac.extensions.cf-ontology",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
@@ -1623,7 +1709,7 @@
       "sourceLdContext": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/products/context.jsonld",
       "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/products/resolvedProperties.json",
       "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/products/",
-      "validationPassed": false,
+      "validationPassed": true,
       "testOutputs": "https://github.com/ogcincubator/bblocks-openscience/blob/master/build/tests/osc/geodcat-stac-earthcode/products/",
       "documentation": {
         "markdown": {
@@ -1665,14 +1751,14 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "bblocks://ogc.api.processes.v1.schemas.outputDescription",
-        "bblocks://ogc.ogc-utils.prov-entity",
-        "bblocks://ogc.api.processes.v1.schemas.inputDescription",
         "bblocks://ogc.osc.geodcat-stac-earthcode.common",
-        "bblocks://ogc.geo.geodcat.geodcat-records"
+        "bblocks://ogc.geo.geodcat.geodcat-records",
+        "bblocks://ogc.ogc-utils.prov-entity",
+        "bblocks://ogc.api.processes.v1.schemas.outputDescription",
+        "bblocks://ogc.api.processes.v1.schemas.inputDescription"
       ],
       "version": "0.1",
-      "dateOfLastChange": "2023-09-18",
+      "dateOfLastChange": "2026-09-09",
       "link": "https://github.com/opengeospatial/geodcat-ogcapi-records",
       "sources": [
         {
@@ -1691,18 +1777,18 @@
       "shaclShapes": [
         {
           "prof:hasArtifact": [
-            "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
+            "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
           ],
-          "rdfs:seeAlso": "bblocks://ogc.contrib.stac.core-ontology",
+          "rdfs:seeAlso": "bblocks://ogc.model.cross-domain.prov",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
         },
         {
           "prof:hasArtifact": [
-            "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl"
+            "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
           ],
-          "rdfs:seeAlso": "bblocks://ogc.contrib.stac.components.assets-ontology",
+          "rdfs:seeAlso": "bblocks://ogc.api.records.v1.schemas.linkTemplate",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
@@ -1718,9 +1804,18 @@
         },
         {
           "prof:hasArtifact": [
-            "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
+            "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
           ],
-          "rdfs:seeAlso": "bblocks://ogc.api.records.v1.schemas.linkTemplate",
+          "rdfs:seeAlso": "bblocks://ogc.contrib.stac.core-ontology",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        },
+        {
+          "prof:hasArtifact": [
+            "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.contrib.stac.components.assets-ontology",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
@@ -1768,7 +1863,7 @@
       "sourceLdContext": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/workflows/context.jsonld",
       "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/workflows/resolvedProperties.json",
       "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/workflows/",
-      "validationPassed": false,
+      "validationPassed": true,
       "testOutputs": "https://github.com/ogcincubator/bblocks-openscience/blob/master/build/tests/osc/geodcat-stac-earthcode/workflows/",
       "documentation": {
         "markdown": {
@@ -1810,11 +1905,11 @@
       "itemClass": "api",
       "register": "ogc-incubator",
       "dependsOn": [
-        "bblocks://ogc.osc.application-package",
-        "bblocks://ogc.osc.api-profiles.processes.ipt.api"
+        "bblocks://ogc.osc.api-profiles.processes.ipt.api",
+        "bblocks://ogc.osc.application-package"
       ],
       "version": "0.1",
-      "dateOfLastChange": "2023-09-18",
+      "dateOfLastChange": "2026-09-09",
       "link": "https://github.com/opengeospatial/ogcapi-processes",
       "sources": [],
       "scope": "dev",
@@ -1825,7 +1920,17 @@
         "STAC",
         "PROV"
       ],
-      "shaclShapes": null,
+      "shaclShapes": [
+        {
+          "prof:hasArtifact": [
+            "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.model.cross-domain.prov",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        }
+      ],
       "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/workflow/",
       "validationPassed": true,
       "documentation": {
@@ -1876,7 +1981,7 @@
         "bblocks://ogc.osc.api-profiles.processes.workflow"
       ],
       "version": "0.1",
-      "dateOfLastChange": "2023-09-18",
+      "dateOfLastChange": "2026-09-09",
       "link": "https://github.com/opengeospatial/ogcapi-processes",
       "sources": [],
       "scope": "dev",
@@ -1899,18 +2004,18 @@
         },
         {
           "prof:hasArtifact": [
-            "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
+            "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
           ],
-          "rdfs:seeAlso": "bblocks://ogc.contrib.stac.core-ontology",
+          "rdfs:seeAlso": "bblocks://ogc.model.cross-domain.prov",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
         },
         {
           "prof:hasArtifact": [
-            "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl"
+            "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
           ],
-          "rdfs:seeAlso": "bblocks://ogc.contrib.stac.components.assets-ontology",
+          "rdfs:seeAlso": "bblocks://ogc.api.records.v1.schemas.linkTemplate",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
@@ -1926,9 +2031,18 @@
         },
         {
           "prof:hasArtifact": [
-            "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
+            "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
           ],
-          "rdfs:seeAlso": "bblocks://ogc.api.records.v1.schemas.linkTemplate",
+          "rdfs:seeAlso": "bblocks://ogc.contrib.stac.core-ontology",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        },
+        {
+          "prof:hasArtifact": [
+            "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.contrib.stac.components.assets-ontology",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
@@ -2004,7 +2118,7 @@
       "itemClass": "api",
       "register": "ogc-incubator",
       "version": "1.0",
-      "dateOfLastChange": "2025-12-17",
+      "dateOfLastChange": "2026-09-09",
       "maturity": "development",
       "tags": [
         "examples",
@@ -2023,23 +2137,23 @@
       },
       "shaclShapes": null,
       "dependsOn": [
-        "bblocks://ogc.api.processes.v1.paths.JobList",
-        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.inputDescriptions",
-        "bblocks://ogc.api.processes.v1.responses.ExecuteAsync",
-        "bblocks://ogc.api.processes.v1.schemas.outputDescription",
-        "bblocks://ogc.api.processes.v1.responses.NotFound",
-        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputSchema",
-        "bblocks://ogc.api.processes.v1.schemas.inputDescription",
-        "bblocks://ogc.api.processes.v1.schemas.execute",
-        "bblocks://ogc.api.processes.v1.api",
         "bblocks://ogc.api.processes.v1.paths.Conformance",
-        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.outputDescriptions",
-        "bblocks://ogc.api.processes.v1.parameters.jobId",
-        "bblocks://ogc.api.processes.v1.paths.ProcessList",
-        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputSchema",
+        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputSchema",
+        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.inputDescriptions",
         "bblocks://ogc.api.processes.v1.responses.ServerError",
+        "bblocks://ogc.api.processes.v1.responses.ExecuteAsync",
         "bblocks://ogc.api.processes.v1.paths.LandingPage",
-        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.processDescription"
+        "bblocks://ogc.api.processes.v1.paths.ProcessList",
+        "bblocks://ogc.api.processes.v1.responses.NotFound",
+        "bblocks://ogc.api.processes.v1.parameters.jobId",
+        "bblocks://ogc.api.processes.v1.schemas.inputDescription",
+        "bblocks://ogc.api.processes.v1.schemas.outputDescription",
+        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputSchema",
+        "bblocks://ogc.api.processes.v1.api",
+        "bblocks://ogc.api.processes.v1.paths.JobList",
+        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.outputDescriptions",
+        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.processDescription",
+        "bblocks://ogc.api.processes.v1.schemas.execute"
       ],
       "sourceOpenAPIDocument": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/sample-implementation/openapi.yaml",
       "openAPIDocument": {

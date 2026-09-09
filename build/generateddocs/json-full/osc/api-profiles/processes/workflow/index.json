@@ -10,11 +10,11 @@
   "itemClass": "api",
   "register": "ogc-incubator",
   "dependsOn": [
-    "ogc.osc.application-package",
-    "ogc.osc.api-profiles.processes.ipt.api"
+    "ogc.osc.api-profiles.processes.ipt.api",
+    "ogc.osc.application-package"
   ],
   "version": "0.1",
-  "dateOfLastChange": "2023-09-18",
+  "dateOfLastChange": "2026-09-09",
   "link": "https://github.com/opengeospatial/ogcapi-processes",
   "sources": [],
   "scope": "dev",
@@ -25,7 +25,11 @@
     "STAC",
     "PROV"
   ],
-  "shaclShapes": {},
+  "shaclShapes": {
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+    ]
+  },
   "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/api-profiles/processes/workflow/",
   "validationPassed": true,
   "annotatedSchema": null,

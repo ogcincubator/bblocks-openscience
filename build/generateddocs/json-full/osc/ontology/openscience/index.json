@@ -10,16 +10,16 @@
   "itemClass": "model",
   "register": "ogc-incubator",
   "version": "0.1",
-  "dateOfLastChange": "2023-09-18",
+  "dateOfLastChange": "2026-09-09",
   "dependsOn": [
     "ogc.contrib.stac.extensions.processing-ontology",
-    "ogc.contrib.stac.extensions.cf-ontology",
-    "ogc.osc.ontology.cwlprov",
     "ogc.bbr.wf4ever.wfdesc.Workflow",
-    "ogc.bbr.wf4ever.ro.ResearchObject",
+    "ogc.osc.ontology.cwlprov",
     "ogc.geo.geodcat.dcat",
+    "ogc.contrib.stac.extensions.osc-ontology",
     "ogc.contrib.stac.core-ontology",
-    "ogc.contrib.stac.extensions.osc-ontology"
+    "ogc.contrib.stac.extensions.cf-ontology",
+    "ogc.bbr.wf4ever.ro.ResearchObject"
   ],
   "sources": [],
   "scope": "dev",
@@ -30,14 +30,17 @@
     "ogc.contrib.stac.extensions.processing-ontology": [
       "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/processing-ontology/shapes.shacl"
     ],
-    "ogc.contrib.stac.extensions.cf-ontology": [
-      "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl"
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+    ],
+    "ogc.contrib.stac.extensions.osc-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl"
     ],
     "ogc.contrib.stac.core-ontology": [
       "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
     ],
-    "ogc.contrib.stac.extensions.osc-ontology": [
-      "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl"
+    "ogc.contrib.stac.extensions.cf-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl"
     ]
   },
   "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/ontology/openscience/",
