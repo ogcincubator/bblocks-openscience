@@ -17,6 +17,7 @@
           "generated": ["urn:aganitha:dataset:mandal-ndvi-sm-merged"],
           "qualifiedUsage": [
             {
+              "@type": "prov:Usage",
               "entity": "urn:aganitha:source:dicra-mandal-archive",
               "hadRole": "https://example.org/ospd/roles/sourceArchive"
             }
@@ -43,10 +44,12 @@
           "generated": ["urn:aganitha:dataset:vci"],
           "qualifiedUsage": [
             {
+              "@type": "prov:Usage",
               "entity": "urn:aganitha:dataset:mandal-ndvi-sm-merged",
               "hadRole": "https://example.org/ospd/roles/observedIndex"
             },
             {
+              "@type": "prov:Usage",
               "entity": "urn:aganitha:reference:ndvi-extrema",
               "hadRole": "https://example.org/ospd/roles/normalisationReference"
             }
@@ -74,10 +77,12 @@
           "generated": ["urn:aganitha:dataset:smdi"],
           "qualifiedUsage": [
             {
+              "@type": "prov:Usage",
               "entity": "urn:aganitha:dataset:mandal-ndvi-sm-merged",
               "hadRole": "https://example.org/ospd/roles/observedIndex"
             },
             {
+              "@type": "prov:Usage",
               "entity": "urn:aganitha:reference:soil-moisture-extrema",
               "hadRole": "https://example.org/ospd/roles/normalisationReference"
             }
@@ -105,10 +110,12 @@
           "generated": ["urn:aganitha:dataset:cdsi"],
           "qualifiedUsage": [
             {
+              "@type": "prov:Usage",
               "entity": "urn:aganitha:dataset:vci",
               "hadRole": "https://example.org/ospd/roles/indexComponent"
             },
             {
+              "@type": "prov:Usage",
               "entity": "urn:aganitha:dataset:smdi",
               "hadRole": "https://example.org/ospd/roles/indexComponent"
             }
@@ -138,10 +145,12 @@
           "generated": ["urn:aganitha:dataset:drought-classes"],
           "qualifiedUsage": [
             {
+              "@type": "prov:Usage",
               "entity": "urn:aganitha:dataset:cdsi",
               "hadRole": "https://example.org/ospd/roles/inputField"
             },
             {
+              "@type": "prov:Usage",
               "entity": "urn:aganitha:scheme:drought-severity-classes",
               "hadRole": "https://example.org/ospd/roles/classificationScheme"
             }
@@ -172,10 +181,12 @@
           "generated": ["urn:aganitha:dataset:spi"],
           "qualifiedUsage": [
             {
+              "@type": "prov:Usage",
               "entity": "urn:aganitha:dataset:precipitation-series",
               "hadRole": "https://example.org/ospd/roles/inputSeries"
             },
             {
+              "@type": "prov:Usage",
               "entity": "urn:aganitha:dataset:precipitation-reference-period",
               "hadRole": "https://example.org/ospd/roles/fittingReference"
             }
@@ -213,18 +224,22 @@
           ],
           "qualifiedUsage": [
             {
+              "@type": "prov:Usage",
               "entity": "urn:aganitha:dataset:cdsi",
               "hadRole": "https://example.org/ospd/roles/trainingFeatures"
             },
             {
+              "@type": "prov:Usage",
               "entity": "urn:aganitha:dataset:spi",
               "hadRole": "https://example.org/ospd/roles/trainingFeatures"
             },
             {
+              "@type": "prov:Usage",
               "entity": "urn:aganitha:dataset:drought-classes",
               "hadRole": "https://example.org/ospd/roles/trainingTarget"
             },
             {
+              "@type": "prov:Usage",
               "entity": "urn:aganitha:partition:district-folds",
               "hadRole": "https://example.org/ospd/roles/validationPartition"
             }
@@ -252,10 +267,12 @@
           "generated": ["urn:aganitha:dataset:drought-projection"],
           "qualifiedUsage": [
             {
+              "@type": "prov:Usage",
               "entity": "urn:aganitha:model:drought-classifier",
               "hadRole": "https://example.org/ospd/roles/fittedModel"
             },
             {
+              "@type": "prov:Usage",
               "entity": "urn:aganitha:dataset:cdsi",
               "hadRole": "https://example.org/ospd/roles/inferenceInput"
             }
