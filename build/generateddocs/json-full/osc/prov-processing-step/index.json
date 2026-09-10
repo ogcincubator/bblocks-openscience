@@ -1,0 +1,260 @@
+
+
+{
+  "itemIdentifier": "ogc.osc.prov-processing-step",
+  "name": "Geospatial Processing Step Provenance",
+  "abstract": "A profile of the PROV-O building block constrained to the description of a single geospatial processing step, with a required link to a registered process type.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-08-05T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1.0",
+  "dateOfLastChange": "2026-09-10",
+  "maturity": "development",
+  "scope": "unstable",
+  "tags": [
+    "provenance",
+    "prov-o",
+    "processing",
+    "ospd"
+  ],
+  "dependsOn": [
+    "ogc.ogc-utils.prov"
+  ],
+  "shaclShapes": {
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+    ]
+  },
+  "schema": {
+    "application/yaml": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/schema.yaml",
+    "application/json": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/schema.json"
+  },
+  "sourceSchema": "https://nsnarayanam.github.io/bblocks-openscience/_sources/prov-processing-step/schema.yaml",
+  "ldContext": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/context.jsonld",
+  "resolvedSchemaProperties": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/resolvedProperties.json",
+  "sourceFiles": "https://nsnarayanam.github.io/bblocks-openscience/_sources/prov-processing-step/",
+  "validationPassed": false,
+  "testOutputs": "https://github.com/nsnarayanam/bblocks-openscience/blob/master/build/tests/osc/prov-processing-step/",
+  "description": "# Geospatial Processing Step Provenance\n\nThis building block profiles `ogc-utils.prov` down to a single unit: one\ngeospatial processing step.\n\nPROV-O is deliberately general. Any valid PROV document is a valid description\nof a processing step, which makes validation weak and cross-platform comparison\nhard.\n\nOGC API - Processes Part 5 (draft 26-038) narrows this for job provenance: a\njob entity, a process entity, an activity joining them, and input/output\nartifacts carrying roles. This profile follows that shape.\n\nPart 5 does not define any link from a process to a registered process type.\nThis profile makes that link required, via the processType property. It is the\npoint at which the OSPD 2026 profile-plus-register pattern closes: the profile\ngives the structure, the register gives the controlled term.\n\nUnder development as part of OSPD 2026, deliverable D104 (Aganitha Space\nTechnologies, Workflow Profiler).\n",
+  "examples": [
+    {
+      "title": "Ingest of mandal-level vegetation and soil moisture",
+      "description": "Retrieval of source observations into the workflow. Ingest is where external provenance ends and workflow provenance begins: the generated entity is the first thing downstream steps can cite.",
+      "snippets": [
+        {
+          "language": "json",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_1_1.json",
+          "sizeBytes": 571,
+          "code": "{\n  \"id\": \"urn:aganitha:step:ingest-dicra:20260807T060000Z\",\n  \"provType\": \"Activity\",\n  \"processType\": \"https://example.org/ospd/process-types/ingest\",\n  \"label\": \"Ingest mandal NDVI and soil moisture\",\n  \"startedAtTime\": \"2026-08-07T06:00:00Z\",\n  \"endedAtTime\": \"2026-08-07T06:03:41Z\",\n  \"used\": [\"urn:aganitha:source:dicra-mandal-archive\"],\n  \"generated\": [\"urn:aganitha:dataset:mandal-ndvi-sm-merged\"],\n  \"qualifiedUsage\": [\n    {\n      \"entity\": \"urn:aganitha:source:dicra-mandal-archive\",\n      \"hadRole\": \"https://example.org/ospd/roles/sourceArchive\"\n    }\n  ]\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_1_1.jsonld",
+          "sizeBytes": 709,
+          "code": "{\n  \"@context\": \"https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/context.jsonld\",\n  \"id\": \"urn:aganitha:step:ingest-dicra:20260807T060000Z\",\n  \"provType\": \"Activity\",\n  \"processType\": \"https://example.org/ospd/process-types/ingest\",\n  \"label\": \"Ingest mandal NDVI and soil moisture\",\n  \"startedAtTime\": \"2026-08-07T06:00:00Z\",\n  \"endedAtTime\": \"2026-08-07T06:03:41Z\",\n  \"used\": [\n    \"urn:aganitha:source:dicra-mandal-archive\"\n  ],\n  \"generated\": [\n    \"urn:aganitha:dataset:mandal-ndvi-sm-merged\"\n  ],\n  \"qualifiedUsage\": [\n    {\n      \"entity\": \"urn:aganitha:source:dicra-mandal-archive\",\n      \"hadRole\": \"https://example.org/ospd/roles/sourceArchive\"\n    }\n  ]\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_1_1.ttl",
+          "sizeBytes": 800,
+          "code": "@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<urn:aganitha:step:ingest-dicra:20260807T060000Z> a prov:Activity ;\n    rdfs:label \"Ingest mandal NDVI and soil moisture\" ;\n    dct:type <https://example.org/ospd/process-types/ingest> ;\n    prov:endedAtTime \"2026-08-07T06:03:41+00:00\"^^xsd:dateTime ;\n    prov:generated <urn:aganitha:dataset:mandal-ndvi-sm-merged> ;\n    prov:qualifiedUsage [ prov:entity <urn:aganitha:source:dicra-mandal-archive> ;\n            prov:hadRole <https://example.org/ospd/roles/sourceArchive> ] ;\n    prov:startedAtTime \"2026-08-07T06:00:00+00:00\"^^xsd:dateTime ;\n    prov:used <urn:aganitha:source:dicra-mandal-archive> .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "Normalisation of vegetation index to a condition index",
+      "description": "Rescaling an observed index against its own historical extremes. The reference extrema are inputs rather than inline constants, so the period they were derived from is recoverable from the provenance.",
+      "snippets": [
+        {
+          "language": "json",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_2_1.json",
+          "sizeBytes": 677,
+          "code": "{\n  \"id\": \"urn:aganitha:step:vci:20260807T061000Z\",\n  \"provType\": \"Activity\",\n  \"processType\": \"https://example.org/ospd/process-types/index-normalisation\",\n  \"label\": \"Compute vegetation condition index from NDVI\",\n  \"used\": [\n    \"urn:aganitha:dataset:mandal-ndvi-sm-merged\",\n    \"urn:aganitha:reference:ndvi-extrema\"\n  ],\n  \"generated\": [\"urn:aganitha:dataset:vci\"],\n  \"qualifiedUsage\": [\n    {\n      \"entity\": \"urn:aganitha:dataset:mandal-ndvi-sm-merged\",\n      \"hadRole\": \"https://example.org/ospd/roles/observedIndex\"\n    },\n    {\n      \"entity\": \"urn:aganitha:reference:ndvi-extrema\",\n      \"hadRole\": \"https://example.org/ospd/roles/normalisationReference\"\n    }\n  ]\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_2_1.jsonld",
+          "sizeBytes": 807,
+          "code": "{\n  \"@context\": \"https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/context.jsonld\",\n  \"id\": \"urn:aganitha:step:vci:20260807T061000Z\",\n  \"provType\": \"Activity\",\n  \"processType\": \"https://example.org/ospd/process-types/index-normalisation\",\n  \"label\": \"Compute vegetation condition index from NDVI\",\n  \"used\": [\n    \"urn:aganitha:dataset:mandal-ndvi-sm-merged\",\n    \"urn:aganitha:reference:ndvi-extrema\"\n  ],\n  \"generated\": [\n    \"urn:aganitha:dataset:vci\"\n  ],\n  \"qualifiedUsage\": [\n    {\n      \"entity\": \"urn:aganitha:dataset:mandal-ndvi-sm-merged\",\n      \"hadRole\": \"https://example.org/ospd/roles/observedIndex\"\n    },\n    {\n      \"entity\": \"urn:aganitha:reference:ndvi-extrema\",\n      \"hadRole\": \"https://example.org/ospd/roles/normalisationReference\"\n    }\n  ]\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_2_1.ttl",
+          "sizeBytes": 808,
+          "code": "@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n<urn:aganitha:step:vci:20260807T061000Z> a prov:Activity ;\n    rdfs:label \"Compute vegetation condition index from NDVI\" ;\n    dct:type <https://example.org/ospd/process-types/index-normalisation> ;\n    prov:generated <urn:aganitha:dataset:vci> ;\n    prov:qualifiedUsage [ prov:entity <urn:aganitha:reference:ndvi-extrema> ;\n            prov:hadRole <https://example.org/ospd/roles/normalisationReference> ],\n        [ prov:entity <urn:aganitha:dataset:mandal-ndvi-sm-merged> ;\n            prov:hadRole <https://example.org/ospd/roles/observedIndex> ] ;\n    prov:used <urn:aganitha:dataset:mandal-ndvi-sm-merged>,\n        <urn:aganitha:reference:ndvi-extrema> .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "Normalisation of soil moisture to a deficit index",
+      "description": "The companion to the vegetation index step, and the piece that closes the gap in the chain: without it, the combined index consumes an entity no recorded activity produced, so a consumer walking the provenance backwards hits a dead end.",
+      "snippets": [
+        {
+          "language": "json",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_3_1.json",
+          "sizeBytes": 688,
+          "code": "{\n  \"id\": \"urn:aganitha:step:smdi:20260807T061500Z\",\n  \"provType\": \"Activity\",\n  \"processType\": \"https://example.org/ospd/process-types/index-normalisation\",\n  \"label\": \"Compute soil moisture deficit index\",\n  \"used\": [\n    \"urn:aganitha:dataset:mandal-ndvi-sm-merged\",\n    \"urn:aganitha:reference:soil-moisture-extrema\"\n  ],\n  \"generated\": [\"urn:aganitha:dataset:smdi\"],\n  \"qualifiedUsage\": [\n    {\n      \"entity\": \"urn:aganitha:dataset:mandal-ndvi-sm-merged\",\n      \"hadRole\": \"https://example.org/ospd/roles/observedIndex\"\n    },\n    {\n      \"entity\": \"urn:aganitha:reference:soil-moisture-extrema\",\n      \"hadRole\": \"https://example.org/ospd/roles/normalisationReference\"\n    }\n  ]\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_3_1.jsonld",
+          "sizeBytes": 818,
+          "code": "{\n  \"@context\": \"https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/context.jsonld\",\n  \"id\": \"urn:aganitha:step:smdi:20260807T061500Z\",\n  \"provType\": \"Activity\",\n  \"processType\": \"https://example.org/ospd/process-types/index-normalisation\",\n  \"label\": \"Compute soil moisture deficit index\",\n  \"used\": [\n    \"urn:aganitha:dataset:mandal-ndvi-sm-merged\",\n    \"urn:aganitha:reference:soil-moisture-extrema\"\n  ],\n  \"generated\": [\n    \"urn:aganitha:dataset:smdi\"\n  ],\n  \"qualifiedUsage\": [\n    {\n      \"entity\": \"urn:aganitha:dataset:mandal-ndvi-sm-merged\",\n      \"hadRole\": \"https://example.org/ospd/roles/observedIndex\"\n    },\n    {\n      \"entity\": \"urn:aganitha:reference:soil-moisture-extrema\",\n      \"hadRole\": \"https://example.org/ospd/roles/normalisationReference\"\n    }\n  ]\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_3_1.ttl",
+          "sizeBytes": 819,
+          "code": "@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n<urn:aganitha:step:smdi:20260807T061500Z> a prov:Activity ;\n    rdfs:label \"Compute soil moisture deficit index\" ;\n    dct:type <https://example.org/ospd/process-types/index-normalisation> ;\n    prov:generated <urn:aganitha:dataset:smdi> ;\n    prov:qualifiedUsage [ prov:entity <urn:aganitha:reference:soil-moisture-extrema> ;\n            prov:hadRole <https://example.org/ospd/roles/normalisationReference> ],\n        [ prov:entity <urn:aganitha:dataset:mandal-ndvi-sm-merged> ;\n            prov:hadRole <https://example.org/ospd/roles/observedIndex> ] ;\n    prov:used <urn:aganitha:dataset:mandal-ndvi-sm-merged>,\n        <urn:aganitha:reference:soil-moisture-extrema> .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "Weighted composition of a combined drought index",
+      "description": "Combination of two condition indices under fixed weights. Both inputs share the same role, and the weights are step parameters rather than properties of the process type \u2014 a case that bears directly on how finely process types should be registered.",
+      "snippets": [
+        {
+          "language": "json",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_4_1.json",
+          "sizeBytes": 675,
+          "code": "{\n  \"id\": \"urn:aganitha:step:cdsi:20260807T062000Z\",\n  \"provType\": \"Activity\",\n  \"processType\": \"https://example.org/ospd/process-types/index-composition\",\n  \"label\": \"Compose combined drought severity index\",\n  \"used\": [\n    \"urn:aganitha:dataset:vci\",\n    \"urn:aganitha:dataset:smdi\"\n  ],\n  \"generated\": [\"urn:aganitha:dataset:cdsi\"],\n  \"qualifiedUsage\": [\n    {\n      \"entity\": \"urn:aganitha:dataset:vci\",\n      \"hadRole\": \"https://example.org/ospd/roles/indexComponent\"\n    },\n    {\n      \"entity\": \"urn:aganitha:dataset:smdi\",\n      \"hadRole\": \"https://example.org/ospd/roles/indexComponent\"\n    }\n  ],\n  \"parameters\": {\n    \"weights\": { \"vci\": 0.6, \"smdi\": 0.4 }\n  }\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_4_1.jsonld",
+          "sizeBytes": 821,
+          "code": "{\n  \"@context\": \"https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/context.jsonld\",\n  \"id\": \"urn:aganitha:step:cdsi:20260807T062000Z\",\n  \"provType\": \"Activity\",\n  \"processType\": \"https://example.org/ospd/process-types/index-composition\",\n  \"label\": \"Compose combined drought severity index\",\n  \"used\": [\n    \"urn:aganitha:dataset:vci\",\n    \"urn:aganitha:dataset:smdi\"\n  ],\n  \"generated\": [\n    \"urn:aganitha:dataset:cdsi\"\n  ],\n  \"qualifiedUsage\": [\n    {\n      \"entity\": \"urn:aganitha:dataset:vci\",\n      \"hadRole\": \"https://example.org/ospd/roles/indexComponent\"\n    },\n    {\n      \"entity\": \"urn:aganitha:dataset:smdi\",\n      \"hadRole\": \"https://example.org/ospd/roles/indexComponent\"\n    }\n  ],\n  \"parameters\": {\n    \"weights\": {\n      \"vci\": 0.6,\n      \"smdi\": 0.4\n    }\n  }\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_4_1.ttl",
+          "sizeBytes": 740,
+          "code": "@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n<urn:aganitha:step:cdsi:20260807T062000Z> a prov:Activity ;\n    rdfs:label \"Compose combined drought severity index\" ;\n    dct:type <https://example.org/ospd/process-types/index-composition> ;\n    prov:generated <urn:aganitha:dataset:cdsi> ;\n    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:vci> ;\n            prov:hadRole <https://example.org/ospd/roles/indexComponent> ],\n        [ prov:entity <urn:aganitha:dataset:smdi> ;\n            prov:hadRole <https://example.org/ospd/roles/indexComponent> ] ;\n    prov:used <urn:aganitha:dataset:smdi>,\n        <urn:aganitha:dataset:vci> .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "Classification into drought severity classes",
+      "description": "Assignment of continuous index values to discrete classes. The class scheme is an input entity, so the thresholds applied are recoverable from the provenance without reading the code.",
+      "snippets": [
+        {
+          "language": "json",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_5_1.json",
+          "sizeBytes": 716,
+          "code": "{\n  \"id\": \"urn:aganitha:step:classify:20260807T063000Z\",\n  \"provType\": \"Activity\",\n  \"processType\": \"https://example.org/ospd/process-types/classification\",\n  \"label\": \"Classify drought severity\",\n  \"used\": [\n    \"urn:aganitha:dataset:cdsi\",\n    \"urn:aganitha:scheme:drought-severity-classes\"\n  ],\n  \"generated\": [\"urn:aganitha:dataset:drought-classes\"],\n  \"qualifiedUsage\": [\n    {\n      \"entity\": \"urn:aganitha:dataset:cdsi\",\n      \"hadRole\": \"https://example.org/ospd/roles/inputField\"\n    },\n    {\n      \"entity\": \"urn:aganitha:scheme:drought-severity-classes\",\n      \"hadRole\": \"https://example.org/ospd/roles/classificationScheme\"\n    }\n  ],\n  \"parameters\": {\n    \"classBreaks\": [0.30, 0.45, 0.60, 0.75]\n  }\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_5_1.jsonld",
+          "sizeBytes": 874,
+          "code": "{\n  \"@context\": \"https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/context.jsonld\",\n  \"id\": \"urn:aganitha:step:classify:20260807T063000Z\",\n  \"provType\": \"Activity\",\n  \"processType\": \"https://example.org/ospd/process-types/classification\",\n  \"label\": \"Classify drought severity\",\n  \"used\": [\n    \"urn:aganitha:dataset:cdsi\",\n    \"urn:aganitha:scheme:drought-severity-classes\"\n  ],\n  \"generated\": [\n    \"urn:aganitha:dataset:drought-classes\"\n  ],\n  \"qualifiedUsage\": [\n    {\n      \"entity\": \"urn:aganitha:dataset:cdsi\",\n      \"hadRole\": \"https://example.org/ospd/roles/inputField\"\n    },\n    {\n      \"entity\": \"urn:aganitha:scheme:drought-severity-classes\",\n      \"hadRole\": \"https://example.org/ospd/roles/classificationScheme\"\n    }\n  ],\n  \"parameters\": {\n    \"classBreaks\": [\n      0.3,\n      0.45,\n      0.6,\n      0.75\n    ]\n  }\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_5_1.ttl",
+          "sizeBytes": 780,
+          "code": "@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n<urn:aganitha:step:classify:20260807T063000Z> a prov:Activity ;\n    rdfs:label \"Classify drought severity\" ;\n    dct:type <https://example.org/ospd/process-types/classification> ;\n    prov:generated <urn:aganitha:dataset:drought-classes> ;\n    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:cdsi> ;\n            prov:hadRole <https://example.org/ospd/roles/inputField> ],\n        [ prov:entity <urn:aganitha:scheme:drought-severity-classes> ;\n            prov:hadRole <https://example.org/ospd/roles/classificationScheme> ] ;\n    prov:used <urn:aganitha:dataset:cdsi>,\n        <urn:aganitha:scheme:drought-severity-classes> .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "Standardised precipitation index over an accumulation window",
+      "description": "Derivation of a standardised index from an accumulated series against a fitted reference period. Two entities of the same kind distinguished only by role \u2014 the case where entity references alone would be ambiguous and qualifiedUsage does real work.",
+      "snippets": [
+        {
+          "language": "json",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_6_1.json",
+          "sizeBytes": 694,
+          "code": "{\n  \"id\": \"urn:aganitha:step:spi:20260807T064000Z\",\n  \"provType\": \"Activity\",\n  \"processType\": \"https://example.org/ospd/process-types/standardised-index\",\n  \"label\": \"Compute standardised precipitation index\",\n  \"used\": [\n    \"urn:aganitha:dataset:precipitation-series\",\n    \"urn:aganitha:dataset:precipitation-reference-period\"\n  ],\n  \"generated\": [\"urn:aganitha:dataset:spi\"],\n  \"qualifiedUsage\": [\n    {\n      \"entity\": \"urn:aganitha:dataset:precipitation-series\",\n      \"hadRole\": \"https://example.org/ospd/roles/inputSeries\"\n    },\n    {\n      \"entity\": \"urn:aganitha:dataset:precipitation-reference-period\",\n      \"hadRole\": \"https://example.org/ospd/roles/fittingReference\"\n    }\n  ]\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_6_1.jsonld",
+          "sizeBytes": 824,
+          "code": "{\n  \"@context\": \"https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/context.jsonld\",\n  \"id\": \"urn:aganitha:step:spi:20260807T064000Z\",\n  \"provType\": \"Activity\",\n  \"processType\": \"https://example.org/ospd/process-types/standardised-index\",\n  \"label\": \"Compute standardised precipitation index\",\n  \"used\": [\n    \"urn:aganitha:dataset:precipitation-series\",\n    \"urn:aganitha:dataset:precipitation-reference-period\"\n  ],\n  \"generated\": [\n    \"urn:aganitha:dataset:spi\"\n  ],\n  \"qualifiedUsage\": [\n    {\n      \"entity\": \"urn:aganitha:dataset:precipitation-series\",\n      \"hadRole\": \"https://example.org/ospd/roles/inputSeries\"\n    },\n    {\n      \"entity\": \"urn:aganitha:dataset:precipitation-reference-period\",\n      \"hadRole\": \"https://example.org/ospd/roles/fittingReference\"\n    }\n  ]\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_6_1.ttl",
+          "sizeBytes": 825,
+          "code": "@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n<urn:aganitha:step:spi:20260807T064000Z> a prov:Activity ;\n    rdfs:label \"Compute standardised precipitation index\" ;\n    dct:type <https://example.org/ospd/process-types/standardised-index> ;\n    prov:generated <urn:aganitha:dataset:spi> ;\n    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:precipitation-series> ;\n            prov:hadRole <https://example.org/ospd/roles/inputSeries> ],\n        [ prov:entity <urn:aganitha:dataset:precipitation-reference-period> ;\n            prov:hadRole <https://example.org/ospd/roles/fittingReference> ] ;\n    prov:used <urn:aganitha:dataset:precipitation-reference-period>,\n        <urn:aganitha:dataset:precipitation-series> .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "Model training as a processing step",
+      "description": "Training a predictive model, expressed as an ordinary processing activity. The generated entity is a fitted model rather than a data product, and the fold assignment is an input entity so the spatial cross-validation design is recoverable from the provenance.\nThis is the case the profile is least obviously shaped for, and the reason it is included: if a trained model cannot be expressed as an entity generated by an activity, the profile cannot describe machine learning workflows at all.",
+      "snippets": [
+        {
+          "language": "json",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_7_1.json",
+          "sizeBytes": 1061,
+          "code": "{\n  \"id\": \"urn:aganitha:step:train:20260807T070000Z\",\n  \"provType\": \"Activity\",\n  \"processType\": \"https://example.org/ospd/process-types/model-training\",\n  \"label\": \"Train drought prediction model with spatial cross-validation\",\n  \"used\": [\n    \"urn:aganitha:dataset:cdsi\",\n    \"urn:aganitha:dataset:spi\",\n    \"urn:aganitha:dataset:drought-classes\",\n    \"urn:aganitha:partition:district-folds\"\n  ],\n  \"generated\": [\n    \"urn:aganitha:model:drought-classifier\",\n    \"urn:aganitha:report:validation-metrics\"\n  ],\n  \"qualifiedUsage\": [\n    {\n      \"entity\": \"urn:aganitha:dataset:cdsi\",\n      \"hadRole\": \"https://example.org/ospd/roles/trainingFeatures\"\n    },\n    {\n      \"entity\": \"urn:aganitha:dataset:spi\",\n      \"hadRole\": \"https://example.org/ospd/roles/trainingFeatures\"\n    },\n    {\n      \"entity\": \"urn:aganitha:dataset:drought-classes\",\n      \"hadRole\": \"https://example.org/ospd/roles/trainingTarget\"\n    },\n    {\n      \"entity\": \"urn:aganitha:partition:district-folds\",\n      \"hadRole\": \"https://example.org/ospd/roles/validationPartition\"\n    }\n  ]\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_7_1.jsonld",
+          "sizeBytes": 1183,
+          "code": "{\n  \"@context\": \"https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/context.jsonld\",\n  \"id\": \"urn:aganitha:step:train:20260807T070000Z\",\n  \"provType\": \"Activity\",\n  \"processType\": \"https://example.org/ospd/process-types/model-training\",\n  \"label\": \"Train drought prediction model with spatial cross-validation\",\n  \"used\": [\n    \"urn:aganitha:dataset:cdsi\",\n    \"urn:aganitha:dataset:spi\",\n    \"urn:aganitha:dataset:drought-classes\",\n    \"urn:aganitha:partition:district-folds\"\n  ],\n  \"generated\": [\n    \"urn:aganitha:model:drought-classifier\",\n    \"urn:aganitha:report:validation-metrics\"\n  ],\n  \"qualifiedUsage\": [\n    {\n      \"entity\": \"urn:aganitha:dataset:cdsi\",\n      \"hadRole\": \"https://example.org/ospd/roles/trainingFeatures\"\n    },\n    {\n      \"entity\": \"urn:aganitha:dataset:spi\",\n      \"hadRole\": \"https://example.org/ospd/roles/trainingFeatures\"\n    },\n    {\n      \"entity\": \"urn:aganitha:dataset:drought-classes\",\n      \"hadRole\": \"https://example.org/ospd/roles/trainingTarget\"\n    },\n    {\n      \"entity\": \"urn:aganitha:partition:district-folds\",\n      \"hadRole\": \"https://example.org/ospd/roles/validationPartition\"\n    }\n  ]\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_7_1.ttl",
+          "sizeBytes": 1206,
+          "code": "@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n<urn:aganitha:step:train:20260807T070000Z> a prov:Activity ;\n    rdfs:label \"Train drought prediction model with spatial cross-validation\" ;\n    dct:type <https://example.org/ospd/process-types/model-training> ;\n    prov:generated <urn:aganitha:model:drought-classifier>,\n        <urn:aganitha:report:validation-metrics> ;\n    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:drought-classes> ;\n            prov:hadRole <https://example.org/ospd/roles/trainingTarget> ],\n        [ prov:entity <urn:aganitha:partition:district-folds> ;\n            prov:hadRole <https://example.org/ospd/roles/validationPartition> ],\n        [ prov:entity <urn:aganitha:dataset:cdsi> ;\n            prov:hadRole <https://example.org/ospd/roles/trainingFeatures> ],\n        [ prov:entity <urn:aganitha:dataset:spi> ;\n            prov:hadRole <https://example.org/ospd/roles/trainingFeatures> ] ;\n    prov:used <urn:aganitha:dataset:cdsi>,\n        <urn:aganitha:dataset:drought-classes>,\n        <urn:aganitha:dataset:spi>,\n        <urn:aganitha:partition:district-folds> .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "Inference using a trained model",
+      "description": "Applying a fitted model to produce a projection. The same model entity that was generated by training is here consumed as an input \u2014 the round trip that makes model provenance chainable, and something no purely data-oriented profile has to handle.",
+      "snippets": [
+        {
+          "language": "json",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_8_1.json",
+          "sizeBytes": 643,
+          "code": "{\n  \"id\": \"urn:aganitha:step:project:20260807T071500Z\",\n  \"provType\": \"Activity\",\n  \"processType\": \"https://example.org/ospd/process-types/model-inference\",\n  \"label\": \"Generate forward drought projection\",\n  \"used\": [\n    \"urn:aganitha:model:drought-classifier\",\n    \"urn:aganitha:dataset:cdsi\"\n  ],\n  \"generated\": [\"urn:aganitha:dataset:drought-projection\"],\n  \"qualifiedUsage\": [\n    {\n      \"entity\": \"urn:aganitha:model:drought-classifier\",\n      \"hadRole\": \"https://example.org/ospd/roles/fittedModel\"\n    },\n    {\n      \"entity\": \"urn:aganitha:dataset:cdsi\",\n      \"hadRole\": \"https://example.org/ospd/roles/inferenceInput\"\n    }\n  ]\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_8_1.jsonld",
+          "sizeBytes": 773,
+          "code": "{\n  \"@context\": \"https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/context.jsonld\",\n  \"id\": \"urn:aganitha:step:project:20260807T071500Z\",\n  \"provType\": \"Activity\",\n  \"processType\": \"https://example.org/ospd/process-types/model-inference\",\n  \"label\": \"Generate forward drought projection\",\n  \"used\": [\n    \"urn:aganitha:model:drought-classifier\",\n    \"urn:aganitha:dataset:cdsi\"\n  ],\n  \"generated\": [\n    \"urn:aganitha:dataset:drought-projection\"\n  ],\n  \"qualifiedUsage\": [\n    {\n      \"entity\": \"urn:aganitha:model:drought-classifier\",\n      \"hadRole\": \"https://example.org/ospd/roles/fittedModel\"\n    },\n    {\n      \"entity\": \"urn:aganitha:dataset:cdsi\",\n      \"hadRole\": \"https://example.org/ospd/roles/inferenceInput\"\n    }\n  ]\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_8_1.ttl",
+          "sizeBytes": 774,
+          "code": "@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n<urn:aganitha:step:project:20260807T071500Z> a prov:Activity ;\n    rdfs:label \"Generate forward drought projection\" ;\n    dct:type <https://example.org/ospd/process-types/model-inference> ;\n    prov:generated <urn:aganitha:dataset:drought-projection> ;\n    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:cdsi> ;\n            prov:hadRole <https://example.org/ospd/roles/inferenceInput> ],\n        [ prov:entity <urn:aganitha:model:drought-classifier> ;\n            prov:hadRole <https://example.org/ospd/roles/fittedModel> ] ;\n    prov:used <urn:aganitha:dataset:cdsi>,\n        <urn:aganitha:model:drought-classifier> .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "Minimal conforming step",
+      "description": "The smallest document that satisfies this profile.",
+      "snippets": [
+        {
+          "language": "json",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_9_1.json",
+          "sizeBytes": 210,
+          "code": "{\n  \"id\": \"urn:example:step:0001\",\n  \"provType\": \"Activity\",\n  \"processType\": \"https://example.org/ospd/process-types/ingest\",\n  \"used\": [\"urn:example:input:0001\"],\n  \"generated\": [\"urn:example:output:0001\"]\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_9_1.jsonld",
+          "sizeBytes": 348,
+          "code": "{\n  \"@context\": \"https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/context.jsonld\",\n  \"id\": \"urn:example:step:0001\",\n  \"provType\": \"Activity\",\n  \"processType\": \"https://example.org/ospd/process-types/ingest\",\n  \"used\": [\n    \"urn:example:input:0001\"\n  ],\n  \"generated\": [\n    \"urn:example:output:0001\"\n  ]\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_9_1.ttl",
+          "sizeBytes": 283,
+          "code": "@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n\n<urn:example:step:0001> a prov:Activity ;\n    dct:type <https://example.org/ospd/process-types/ingest> ;\n    prov:generated <urn:example:output:0001> ;\n    prov:used <urn:example:input:0001> .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Geospatial Processing Step Provenance\ndescription: A single geospatial processing step, expressed as a constrained profile\n  of PROV-O. Inputs and outputs are entity references; the role each played is expressed\n  through prov:qualifiedUsage rather than inline, so the profile stays compatible\n  with the PROV-O object model.\nallOf:\n- $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml\n- type: object\n  required:\n  - id\n  - processType\n  - used\n  - generated\n  properties:\n    id:\n      description: Stable identifier for this processing step activity.\n      type: string\n    processType:\n      description: Identifier of the registered process type this step is an instance\n        of. This is the link that PROV-O and OGC API - Processes Part 5 do not themselves\n        provide. Bound to dct:type rather than a newly minted term, so the value resolves\n        as a governed concept in the process-type register.\n      type: string\n      x-jsonld-id: http://purl.org/dc/terms/type\n      x-jsonld-type: '@id'\n    label:\n      type: string\n      x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#label\n    startedAtTime:\n      type: string\n      format: date-time\n    endedAtTime:\n      type: string\n      format: date-time\n    used:\n      description: Entities consumed by this step.\n      type: array\n      minItems: 1\n      items:\n        type: string\n    generated:\n      description: Entities produced by this step.\n      type: array\n      minItems: 1\n      items:\n        type: string\n    qualifiedUsage:\n      description: Which declared input slot of the process type each consumed entity\n        occupied. Makes two runs of the same process type comparable.\n      type: array\n      items:\n        type: object\n        required:\n        - entity\n        - hadRole\n        properties:\n          entity:\n            type: string\n          hadRole:\n            type: string\n    wasAssociatedWith:\n      type: array\n      items:\n        type: string\n    parameters:\n      description: 'Parameter values that determined the behaviour of this step. Keys\n        SHOULD be drawn from the parameter terms declared by the registered process\n        type. Deliberately left unbound in the JSON-LD context: how parameters should\n        be typed depends on whether process types are registered coarsely or as parameterised\n        subtypes, which is still an open question for the register design.'\n      type: object\n      additionalProperties: true\n",
+  "gitRepository": "https://github.com/nsnarayanam/bblocks-openscience",
+  "gitPath": "_sources/prov-processing-step"
+}

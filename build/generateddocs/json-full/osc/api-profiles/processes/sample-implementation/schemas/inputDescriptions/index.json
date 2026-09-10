@@ -1,0 +1,35 @@
+
+
+{
+  "itemIdentifier": "ogc.osc.api-profiles.processes.sample-implementation.schemas.inputDescriptions",
+  "name": "Example OGC API Processes instance input descriptions",
+  "abstract": "Collection of input descriptions",
+  "status": "under-development",
+  "dateTimeAddition": "2025-12-17T00:00:00Z",
+  "itemClass": "schema",
+  "register": "ogc-incubator",
+  "version": "1.0",
+  "dateOfLastChange": "2026-09-10",
+  "maturity": "development",
+  "tags": [
+    "examples",
+    "ogc api",
+    "ogc api processes"
+  ],
+  "shaclShapes": {},
+  "dependsOn": [
+    "ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputDescription"
+  ],
+  "schema": {
+    "application/yaml": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/inputDescriptions/schema.yaml",
+    "application/json": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/inputDescriptions/schema.json"
+  },
+  "sourceSchema": "https://nsnarayanam.github.io/bblocks-openscience/_sources/api-profiles/processes/sample-implementation/schemas/inputDescriptions/schema.yaml",
+  "ldContext": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/inputDescriptions/context.jsonld",
+  "resolvedSchemaProperties": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/inputDescriptions/resolvedProperties.json",
+  "sourceFiles": "https://nsnarayanam.github.io/bblocks-openscience/_sources/api-profiles/processes/sample-implementation/schemas/inputDescriptions/",
+  "validationPassed": true,
+  "annotatedSchema": "anyOf:\n- $ref: https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputDescription/schema.yaml\n",
+  "gitRepository": "https://github.com/nsnarayanam/bblocks-openscience",
+  "gitPath": "_sources/api-profiles/processes/sample-implementation/schemas/inputDescriptions"
+}
