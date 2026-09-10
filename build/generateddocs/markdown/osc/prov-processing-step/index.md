@@ -46,6 +46,7 @@ Technologies, Workflow Profiler).
   "generated": ["urn:aganitha:dataset:mandal-ndvi-sm-merged"],
   "qualifiedUsage": [
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:source:dicra-mandal-archive",
       "hadRole": "https://example.org/ospd/roles/sourceArchive"
     }
@@ -72,6 +73,7 @@ Technologies, Workflow Profiler).
   ],
   "qualifiedUsage": [
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:source:dicra-mandal-archive",
       "hadRole": "https://example.org/ospd/roles/sourceArchive"
     }
@@ -91,7 +93,8 @@ Technologies, Workflow Profiler).
     dct:type <https://example.org/ospd/process-types/ingest> ;
     prov:endedAtTime "2026-08-07T06:03:41+00:00"^^xsd:dateTime ;
     prov:generated <urn:aganitha:dataset:mandal-ndvi-sm-merged> ;
-    prov:qualifiedUsage [ prov:entity <urn:aganitha:source:dicra-mandal-archive> ;
+    prov:qualifiedUsage [ a prov:Usage ;
+            prov:entity <urn:aganitha:source:dicra-mandal-archive> ;
             prov:hadRole <https://example.org/ospd/roles/sourceArchive> ] ;
     prov:startedAtTime "2026-08-07T06:00:00+00:00"^^xsd:dateTime ;
     prov:used <urn:aganitha:source:dicra-mandal-archive> .
@@ -115,10 +118,12 @@ Technologies, Workflow Profiler).
   "generated": ["urn:aganitha:dataset:vci"],
   "qualifiedUsage": [
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:dataset:mandal-ndvi-sm-merged",
       "hadRole": "https://example.org/ospd/roles/observedIndex"
     },
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:reference:ndvi-extrema",
       "hadRole": "https://example.org/ospd/roles/normalisationReference"
     }
@@ -144,10 +149,12 @@ Technologies, Workflow Profiler).
   ],
   "qualifiedUsage": [
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:dataset:mandal-ndvi-sm-merged",
       "hadRole": "https://example.org/ospd/roles/observedIndex"
     },
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:reference:ndvi-extrema",
       "hadRole": "https://example.org/ospd/roles/normalisationReference"
     }
@@ -165,9 +172,11 @@ Technologies, Workflow Profiler).
     rdfs:label "Compute vegetation condition index from NDVI" ;
     dct:type <https://example.org/ospd/process-types/index-normalisation> ;
     prov:generated <urn:aganitha:dataset:vci> ;
-    prov:qualifiedUsage [ prov:entity <urn:aganitha:reference:ndvi-extrema> ;
+    prov:qualifiedUsage [ a prov:Usage ;
+            prov:entity <urn:aganitha:reference:ndvi-extrema> ;
             prov:hadRole <https://example.org/ospd/roles/normalisationReference> ],
-        [ prov:entity <urn:aganitha:dataset:mandal-ndvi-sm-merged> ;
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:dataset:mandal-ndvi-sm-merged> ;
             prov:hadRole <https://example.org/ospd/roles/observedIndex> ] ;
     prov:used <urn:aganitha:dataset:mandal-ndvi-sm-merged>,
         <urn:aganitha:reference:ndvi-extrema> .
@@ -191,10 +200,12 @@ Technologies, Workflow Profiler).
   "generated": ["urn:aganitha:dataset:smdi"],
   "qualifiedUsage": [
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:dataset:mandal-ndvi-sm-merged",
       "hadRole": "https://example.org/ospd/roles/observedIndex"
     },
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:reference:soil-moisture-extrema",
       "hadRole": "https://example.org/ospd/roles/normalisationReference"
     }
@@ -220,10 +231,12 @@ Technologies, Workflow Profiler).
   ],
   "qualifiedUsage": [
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:dataset:mandal-ndvi-sm-merged",
       "hadRole": "https://example.org/ospd/roles/observedIndex"
     },
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:reference:soil-moisture-extrema",
       "hadRole": "https://example.org/ospd/roles/normalisationReference"
     }
@@ -241,10 +254,12 @@ Technologies, Workflow Profiler).
     rdfs:label "Compute soil moisture deficit index" ;
     dct:type <https://example.org/ospd/process-types/index-normalisation> ;
     prov:generated <urn:aganitha:dataset:smdi> ;
-    prov:qualifiedUsage [ prov:entity <urn:aganitha:reference:soil-moisture-extrema> ;
-            prov:hadRole <https://example.org/ospd/roles/normalisationReference> ],
-        [ prov:entity <urn:aganitha:dataset:mandal-ndvi-sm-merged> ;
-            prov:hadRole <https://example.org/ospd/roles/observedIndex> ] ;
+    prov:qualifiedUsage [ a prov:Usage ;
+            prov:entity <urn:aganitha:dataset:mandal-ndvi-sm-merged> ;
+            prov:hadRole <https://example.org/ospd/roles/observedIndex> ],
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:reference:soil-moisture-extrema> ;
+            prov:hadRole <https://example.org/ospd/roles/normalisationReference> ] ;
     prov:used <urn:aganitha:dataset:mandal-ndvi-sm-merged>,
         <urn:aganitha:reference:soil-moisture-extrema> .
 
@@ -267,10 +282,12 @@ Technologies, Workflow Profiler).
   "generated": ["urn:aganitha:dataset:cdsi"],
   "qualifiedUsage": [
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:dataset:vci",
       "hadRole": "https://example.org/ospd/roles/indexComponent"
     },
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:dataset:smdi",
       "hadRole": "https://example.org/ospd/roles/indexComponent"
     }
@@ -299,10 +316,12 @@ Technologies, Workflow Profiler).
   ],
   "qualifiedUsage": [
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:dataset:vci",
       "hadRole": "https://example.org/ospd/roles/indexComponent"
     },
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:dataset:smdi",
       "hadRole": "https://example.org/ospd/roles/indexComponent"
     }
@@ -326,9 +345,11 @@ Technologies, Workflow Profiler).
     rdfs:label "Compose combined drought severity index" ;
     dct:type <https://example.org/ospd/process-types/index-composition> ;
     prov:generated <urn:aganitha:dataset:cdsi> ;
-    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:vci> ;
+    prov:qualifiedUsage [ a prov:Usage ;
+            prov:entity <urn:aganitha:dataset:vci> ;
             prov:hadRole <https://example.org/ospd/roles/indexComponent> ],
-        [ prov:entity <urn:aganitha:dataset:smdi> ;
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:dataset:smdi> ;
             prov:hadRole <https://example.org/ospd/roles/indexComponent> ] ;
     prov:used <urn:aganitha:dataset:smdi>,
         <urn:aganitha:dataset:vci> .
@@ -352,10 +373,12 @@ Technologies, Workflow Profiler).
   "generated": ["urn:aganitha:dataset:drought-classes"],
   "qualifiedUsage": [
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:dataset:cdsi",
       "hadRole": "https://example.org/ospd/roles/inputField"
     },
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:scheme:drought-severity-classes",
       "hadRole": "https://example.org/ospd/roles/classificationScheme"
     }
@@ -384,10 +407,12 @@ Technologies, Workflow Profiler).
   ],
   "qualifiedUsage": [
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:dataset:cdsi",
       "hadRole": "https://example.org/ospd/roles/inputField"
     },
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:scheme:drought-severity-classes",
       "hadRole": "https://example.org/ospd/roles/classificationScheme"
     }
@@ -413,9 +438,11 @@ Technologies, Workflow Profiler).
     rdfs:label "Classify drought severity" ;
     dct:type <https://example.org/ospd/process-types/classification> ;
     prov:generated <urn:aganitha:dataset:drought-classes> ;
-    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:cdsi> ;
+    prov:qualifiedUsage [ a prov:Usage ;
+            prov:entity <urn:aganitha:dataset:cdsi> ;
             prov:hadRole <https://example.org/ospd/roles/inputField> ],
-        [ prov:entity <urn:aganitha:scheme:drought-severity-classes> ;
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:scheme:drought-severity-classes> ;
             prov:hadRole <https://example.org/ospd/roles/classificationScheme> ] ;
     prov:used <urn:aganitha:dataset:cdsi>,
         <urn:aganitha:scheme:drought-severity-classes> .
@@ -439,10 +466,12 @@ Technologies, Workflow Profiler).
   "generated": ["urn:aganitha:dataset:spi"],
   "qualifiedUsage": [
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:dataset:precipitation-series",
       "hadRole": "https://example.org/ospd/roles/inputSeries"
     },
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:dataset:precipitation-reference-period",
       "hadRole": "https://example.org/ospd/roles/fittingReference"
     }
@@ -468,10 +497,12 @@ Technologies, Workflow Profiler).
   ],
   "qualifiedUsage": [
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:dataset:precipitation-series",
       "hadRole": "https://example.org/ospd/roles/inputSeries"
     },
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:dataset:precipitation-reference-period",
       "hadRole": "https://example.org/ospd/roles/fittingReference"
     }
@@ -489,9 +520,11 @@ Technologies, Workflow Profiler).
     rdfs:label "Compute standardised precipitation index" ;
     dct:type <https://example.org/ospd/process-types/standardised-index> ;
     prov:generated <urn:aganitha:dataset:spi> ;
-    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:precipitation-series> ;
+    prov:qualifiedUsage [ a prov:Usage ;
+            prov:entity <urn:aganitha:dataset:precipitation-series> ;
             prov:hadRole <https://example.org/ospd/roles/inputSeries> ],
-        [ prov:entity <urn:aganitha:dataset:precipitation-reference-period> ;
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:dataset:precipitation-reference-period> ;
             prov:hadRole <https://example.org/ospd/roles/fittingReference> ] ;
     prov:used <urn:aganitha:dataset:precipitation-reference-period>,
         <urn:aganitha:dataset:precipitation-series> .
@@ -520,18 +553,22 @@ Technologies, Workflow Profiler).
   ],
   "qualifiedUsage": [
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:dataset:cdsi",
       "hadRole": "https://example.org/ospd/roles/trainingFeatures"
     },
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:dataset:spi",
       "hadRole": "https://example.org/ospd/roles/trainingFeatures"
     },
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:dataset:drought-classes",
       "hadRole": "https://example.org/ospd/roles/trainingTarget"
     },
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:partition:district-folds",
       "hadRole": "https://example.org/ospd/roles/validationPartition"
     }
@@ -560,18 +597,22 @@ Technologies, Workflow Profiler).
   ],
   "qualifiedUsage": [
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:dataset:cdsi",
       "hadRole": "https://example.org/ospd/roles/trainingFeatures"
     },
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:dataset:spi",
       "hadRole": "https://example.org/ospd/roles/trainingFeatures"
     },
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:dataset:drought-classes",
       "hadRole": "https://example.org/ospd/roles/trainingTarget"
     },
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:partition:district-folds",
       "hadRole": "https://example.org/ospd/roles/validationPartition"
     }
@@ -590,13 +631,17 @@ Technologies, Workflow Profiler).
     dct:type <https://example.org/ospd/process-types/model-training> ;
     prov:generated <urn:aganitha:model:drought-classifier>,
         <urn:aganitha:report:validation-metrics> ;
-    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:drought-classes> ;
-            prov:hadRole <https://example.org/ospd/roles/trainingTarget> ],
-        [ prov:entity <urn:aganitha:partition:district-folds> ;
+    prov:qualifiedUsage [ a prov:Usage ;
+            prov:entity <urn:aganitha:partition:district-folds> ;
             prov:hadRole <https://example.org/ospd/roles/validationPartition> ],
-        [ prov:entity <urn:aganitha:dataset:cdsi> ;
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:dataset:cdsi> ;
             prov:hadRole <https://example.org/ospd/roles/trainingFeatures> ],
-        [ prov:entity <urn:aganitha:dataset:spi> ;
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:dataset:drought-classes> ;
+            prov:hadRole <https://example.org/ospd/roles/trainingTarget> ],
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:dataset:spi> ;
             prov:hadRole <https://example.org/ospd/roles/trainingFeatures> ] ;
     prov:used <urn:aganitha:dataset:cdsi>,
         <urn:aganitha:dataset:drought-classes>,
@@ -622,10 +667,12 @@ Technologies, Workflow Profiler).
   "generated": ["urn:aganitha:dataset:drought-projection"],
   "qualifiedUsage": [
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:model:drought-classifier",
       "hadRole": "https://example.org/ospd/roles/fittedModel"
     },
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:dataset:cdsi",
       "hadRole": "https://example.org/ospd/roles/inferenceInput"
     }
@@ -651,10 +698,12 @@ Technologies, Workflow Profiler).
   ],
   "qualifiedUsage": [
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:model:drought-classifier",
       "hadRole": "https://example.org/ospd/roles/fittedModel"
     },
     {
+      "@type": "prov:Usage",
       "entity": "urn:aganitha:dataset:cdsi",
       "hadRole": "https://example.org/ospd/roles/inferenceInput"
     }
@@ -672,10 +721,12 @@ Technologies, Workflow Profiler).
     rdfs:label "Generate forward drought projection" ;
     dct:type <https://example.org/ospd/process-types/model-inference> ;
     prov:generated <urn:aganitha:dataset:drought-projection> ;
-    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:cdsi> ;
-            prov:hadRole <https://example.org/ospd/roles/inferenceInput> ],
-        [ prov:entity <urn:aganitha:model:drought-classifier> ;
-            prov:hadRole <https://example.org/ospd/roles/fittedModel> ] ;
+    prov:qualifiedUsage [ a prov:Usage ;
+            prov:entity <urn:aganitha:model:drought-classifier> ;
+            prov:hadRole <https://example.org/ospd/roles/fittedModel> ],
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:dataset:cdsi> ;
+            prov:hadRole <https://example.org/ospd/roles/inferenceInput> ] ;
     prov:used <urn:aganitha:dataset:cdsi>,
         <urn:aganitha:model:drought-classifier> .
 

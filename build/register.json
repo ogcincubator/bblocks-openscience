@@ -3,12 +3,12 @@
   "abstract": "Building Blocks for FAIR Open Science - profiles of OGC API Processes and various metadata standards to support open, transparent, interoperable and reproducible scientific workflows..\n",
   "description": "This repository is initially aimed to support the [Open Science Persistent Demonstrator](https://www.ogc.org/initiatives/open-science/) pilot, but may be further developed as a set of standards with appropriate working group governance.\n",
   "sparqlEndpoint": "https://defs-dev.opengis.net/fuseki/query",
-  "modified": "2026-09-10T04:11:52.160293",
+  "modified": "2026-09-10T16:39:09.581001",
   "tooling": {
     "bblocks-postprocess": {
       "commitId": "\"a74c9b774c2bdb65777e64b60d1d283ab230f262",
       "shortCommitId": "\"a74c9b",
-      "date": "2026-09-09T16:08:11+00:00\""
+      "date": "2026-09-10T12:53:21+00:00\""
     }
   },
   "gitRepository": "https://github.com/nsnarayanam/bblocks-openscience",
@@ -86,8 +86,8 @@
       ],
       "shaclShapes": {},
       "dependsOn": [
-        "bblocks://ogc.ogc-utils.iri-or-curie",
-        "bblocks://ogc.geo.common.data_types.geojson"
+        "bblocks://ogc.geo.common.data_types.geojson",
+        "bblocks://ogc.ogc-utils.iri-or-curie"
       ],
       "schema": {
         "application/yaml": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputSchema/schema.yaml",
@@ -110,6 +110,96 @@
         "bblocks-viewer": {
           "mediatype": "text/html",
           "url": "https://nsnarayanam.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputSchema"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputDescription",
+      "name": "Buffer geometry process input description",
+      "abstract": "Description for the inputs of the buffer geometry process",
+      "status": "under-development",
+      "dateTimeAddition": "2025-12-17T00:00:00Z",
+      "itemClass": "schema",
+      "register": "ogc-incubator",
+      "version": "1.0",
+      "dateOfLastChange": "2026-09-10",
+      "maturity": "development",
+      "tags": [
+        "examples",
+        "ogc api",
+        "ogc api processes"
+      ],
+      "shaclShapes": {},
+      "dependsOn": [
+        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputSchema",
+        "bblocks://ogc.api.processes.v1.schemas.inputDescription"
+      ],
+      "schema": {
+        "application/yaml": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputDescription/schema.yaml",
+        "application/json": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputDescription/schema.json"
+      },
+      "sourceSchema": "https://nsnarayanam.github.io/bblocks-openscience/_sources/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputDescription/schema.yaml",
+      "ldContext": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputDescription/context.jsonld",
+      "resolvedSchemaProperties": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputDescription/resolvedProperties.json",
+      "sourceFiles": "https://nsnarayanam.github.io/bblocks-openscience/_sources/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputDescription/",
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputDescription/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputDescription/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputDescription"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputDescription",
+      "name": "Buffer geometry process output description",
+      "abstract": "Description for the output of the buffer geometry process",
+      "status": "under-development",
+      "dateTimeAddition": "2025-12-17T00:00:00Z",
+      "itemClass": "schema",
+      "register": "ogc-incubator",
+      "version": "1.0",
+      "dateOfLastChange": "2026-09-10",
+      "maturity": "development",
+      "tags": [
+        "examples",
+        "ogc api",
+        "ogc api processes"
+      ],
+      "shaclShapes": {},
+      "dependsOn": [
+        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputSchema",
+        "bblocks://ogc.api.processes.v1.schemas.outputDescription"
+      ],
+      "schema": {
+        "application/yaml": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputDescription/schema.yaml",
+        "application/json": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputDescription/schema.json"
+      },
+      "sourceSchema": "https://nsnarayanam.github.io/bblocks-openscience/_sources/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputDescription/schema.yaml",
+      "ldContext": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputDescription/context.jsonld",
+      "resolvedSchemaProperties": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputDescription/resolvedProperties.json",
+      "sourceFiles": "https://nsnarayanam.github.io/bblocks-openscience/_sources/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputDescription/",
+      "validationPassed": true,
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputDescription/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputDescription/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputDescription"
         }
       }
     },
@@ -186,7 +276,7 @@
       "ldContext": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/context.jsonld",
       "resolvedSchemaProperties": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/resolvedProperties.json",
       "sourceFiles": "https://nsnarayanam.github.io/bblocks-openscience/_sources/prov-processing-step/",
-      "validationPassed": false,
+      "validationPassed": true,
       "testOutputs": "https://github.com/nsnarayanam/bblocks-openscience/blob/master/build/tests/osc/prov-processing-step/",
       "documentation": {
         "markdown": {
@@ -200,150 +290,6 @@
         "bblocks-viewer": {
           "mediatype": "text/html",
           "url": "https://nsnarayanam.github.io/bblocks-openscience/bblock/ogc.osc.prov-processing-step"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputDescription",
-      "name": "Buffer geometry process input description",
-      "abstract": "Description for the inputs of the buffer geometry process",
-      "status": "under-development",
-      "dateTimeAddition": "2025-12-17T00:00:00Z",
-      "itemClass": "schema",
-      "register": "ogc-incubator",
-      "version": "1.0",
-      "dateOfLastChange": "2026-09-10",
-      "maturity": "development",
-      "tags": [
-        "examples",
-        "ogc api",
-        "ogc api processes"
-      ],
-      "shaclShapes": {},
-      "dependsOn": [
-        "bblocks://ogc.api.processes.v1.schemas.inputDescription",
-        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputSchema"
-      ],
-      "schema": {
-        "application/yaml": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputDescription/schema.yaml",
-        "application/json": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputDescription/schema.json"
-      },
-      "sourceSchema": "https://nsnarayanam.github.io/bblocks-openscience/_sources/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputDescription/schema.yaml",
-      "ldContext": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputDescription/context.jsonld",
-      "resolvedSchemaProperties": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputDescription/resolvedProperties.json",
-      "sourceFiles": "https://nsnarayanam.github.io/bblocks-openscience/_sources/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputDescription/",
-      "validationPassed": true,
-      "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputDescription/index.md"
-        },
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputDescription/index.json"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://nsnarayanam.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputDescription"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputDescription",
-      "name": "Buffer geometry process output description",
-      "abstract": "Description for the output of the buffer geometry process",
-      "status": "under-development",
-      "dateTimeAddition": "2025-12-17T00:00:00Z",
-      "itemClass": "schema",
-      "register": "ogc-incubator",
-      "version": "1.0",
-      "dateOfLastChange": "2026-09-10",
-      "maturity": "development",
-      "tags": [
-        "examples",
-        "ogc api",
-        "ogc api processes"
-      ],
-      "shaclShapes": {},
-      "dependsOn": [
-        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputSchema",
-        "bblocks://ogc.api.processes.v1.schemas.outputDescription"
-      ],
-      "schema": {
-        "application/yaml": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputDescription/schema.yaml",
-        "application/json": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputDescription/schema.json"
-      },
-      "sourceSchema": "https://nsnarayanam.github.io/bblocks-openscience/_sources/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputDescription/schema.yaml",
-      "ldContext": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputDescription/context.jsonld",
-      "resolvedSchemaProperties": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputDescription/resolvedProperties.json",
-      "sourceFiles": "https://nsnarayanam.github.io/bblocks-openscience/_sources/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputDescription/",
-      "validationPassed": true,
-      "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/generateddocs/markdown/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputDescription/index.md"
-        },
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/generateddocs/json-full/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputDescription/index.json"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://nsnarayanam.github.io/bblocks-openscience/bblock/ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputDescription"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogc.osc.application-package",
-      "name": "Application Package",
-      "highlighted": true,
-      "abstract": "Earth Observation Application Package. ",
-      "status": "under-development",
-      "dateTimeAddition": "2023-09-18T00:00:00Z",
-      "itemClass": "schema",
-      "register": "ogc-incubator",
-      "dependsOn": [
-        "bblocks://ogc.profiles.prov.cwl.provenance"
-      ],
-      "version": "0.1",
-      "dateOfLastChange": "2026-09-10",
-      "link": "https://github.com/opengeospatial/geodcat-ogcapi-records",
-      "sources": [
-        {
-          "title": "Earth Observation Application Package",
-          "link": "https://github.com/eoap"
-        }
-      ],
-      "scope": "dev",
-      "tags": [],
-      "shaclShapes": {
-        "ogc.model.cross-domain.prov": [
-          "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
-        ]
-      },
-      "ldContext": "/github/workspace/_sources/application-package/context.jsonld",
-      "schema": {
-        "application/yaml": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.yaml",
-        "application/json": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.json"
-      },
-      "sourceSchema": "https://nsnarayanam.github.io/bblocks-openscience/_sources/application-package/schema.yaml",
-      "sourceLdContext": "https://nsnarayanam.github.io/bblocks-openscience/_sources/application-package/context.jsonld",
-      "resolvedSchemaProperties": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/application-package/resolvedProperties.json",
-      "sourceFiles": "https://nsnarayanam.github.io/bblocks-openscience/_sources/application-package/",
-      "validationPassed": true,
-      "testOutputs": "https://github.com/nsnarayanam/bblocks-openscience/blob/master/build/tests/osc/application-package/",
-      "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/generateddocs/markdown/osc/application-package/index.md"
-        },
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/generateddocs/json-full/osc/application-package/index.json"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://nsnarayanam.github.io/bblocks-openscience/bblock/ogc.osc.application-package"
         }
       }
     },
@@ -409,9 +355,9 @@
       ],
       "shaclShapes": {},
       "dependsOn": [
-        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputDescription",
         "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputDescription",
-        "bblocks://ogc.api.processes.v1.schemas.process"
+        "bblocks://ogc.api.processes.v1.schemas.process",
+        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputDescription"
       ],
       "schema": {
         "application/yaml": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/processDescription/schema.yaml",
@@ -482,6 +428,60 @@
       }
     },
     {
+      "itemIdentifier": "ogc.osc.application-package",
+      "name": "Application Package",
+      "highlighted": true,
+      "abstract": "Earth Observation Application Package. ",
+      "status": "under-development",
+      "dateTimeAddition": "2023-09-18T00:00:00Z",
+      "itemClass": "schema",
+      "register": "ogc-incubator",
+      "dependsOn": [
+        "bblocks://ogc.profiles.prov.cwl.provenance"
+      ],
+      "version": "0.1",
+      "dateOfLastChange": "2026-09-10",
+      "link": "https://github.com/opengeospatial/geodcat-ogcapi-records",
+      "sources": [
+        {
+          "title": "Earth Observation Application Package",
+          "link": "https://github.com/eoap"
+        }
+      ],
+      "scope": "dev",
+      "tags": [],
+      "shaclShapes": {
+        "ogc.model.cross-domain.prov": [
+          "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+        ]
+      },
+      "ldContext": "/github/workspace/_sources/application-package/context.jsonld",
+      "schema": {
+        "application/yaml": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.yaml",
+        "application/json": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/application-package/schema.json"
+      },
+      "sourceSchema": "https://nsnarayanam.github.io/bblocks-openscience/_sources/application-package/schema.yaml",
+      "sourceLdContext": "https://nsnarayanam.github.io/bblocks-openscience/_sources/application-package/context.jsonld",
+      "resolvedSchemaProperties": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/application-package/resolvedProperties.json",
+      "sourceFiles": "https://nsnarayanam.github.io/bblocks-openscience/_sources/application-package/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/nsnarayanam/bblocks-openscience/blob/master/build/tests/osc/application-package/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/generateddocs/markdown/osc/application-package/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/build/generateddocs/json-full/osc/application-package/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://nsnarayanam.github.io/bblocks-openscience/bblock/ogc.osc.application-package"
+        }
+      }
+    },
+    {
       "itemIdentifier": "ogc.osc.api-profiles.processes.ipt.results",
       "status": "under-development",
       "dateTimeAddition": "2025-10-22T15:29:12.046535",
@@ -541,14 +541,14 @@
       "version": "0.1",
       "dateOfLastChange": "2026-09-10",
       "dependsOn": [
-        "bblocks://ogc.bbr.wf4ever.ro.ResearchObject",
-        "bblocks://ogc.contrib.stac.extensions.processing-ontology",
-        "bblocks://ogc.contrib.stac.core-ontology",
-        "bblocks://ogc.osc.ontology.cwlprov",
-        "bblocks://ogc.bbr.wf4ever.wfdesc.Workflow",
         "bblocks://ogc.geo.geodcat.dcat",
-        "bblocks://ogc.contrib.stac.extensions.osc-ontology",
-        "bblocks://ogc.contrib.stac.extensions.cf-ontology"
+        "bblocks://ogc.bbr.wf4ever.wfdesc.Workflow",
+        "bblocks://ogc.contrib.stac.core-ontology",
+        "bblocks://ogc.contrib.stac.extensions.cf-ontology",
+        "bblocks://ogc.osc.ontology.cwlprov",
+        "bblocks://ogc.contrib.stac.extensions.processing-ontology",
+        "bblocks://ogc.bbr.wf4ever.ro.ResearchObject",
+        "bblocks://ogc.contrib.stac.extensions.osc-ontology"
       ],
       "sources": [],
       "scope": "dev",
@@ -556,20 +556,20 @@
         "OSPD"
       ],
       "shaclShapes": {
-        "ogc.contrib.stac.extensions.processing-ontology": [
-          "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/processing-ontology/shapes.shacl"
-        ],
         "ogc.contrib.stac.core-ontology": [
           "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
         ],
         "ogc.model.cross-domain.prov": [
           "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
         ],
-        "ogc.contrib.stac.extensions.osc-ontology": [
-          "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl"
-        ],
         "ogc.contrib.stac.extensions.cf-ontology": [
           "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl"
+        ],
+        "ogc.contrib.stac.extensions.processing-ontology": [
+          "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/processing-ontology/shapes.shacl"
+        ],
+        "ogc.contrib.stac.extensions.osc-ontology": [
+          "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl"
         ]
       },
       "sourceFiles": "https://nsnarayanam.github.io/bblocks-openscience/_sources/ontology/openscience/",
@@ -604,8 +604,8 @@
       "itemClass": "schema",
       "shaclShapes": {},
       "dependsOn": [
-        "bblocks://ogc.ogc-utils.iri-or-curie",
-        "bblocks://ogc.api.processes.v1.schemas.execute"
+        "bblocks://ogc.api.processes.v1.schemas.execute",
+        "bblocks://ogc.ogc-utils.iri-or-curie"
       ],
       "schema": {
         "application/yaml": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/execute/schema.yaml",
@@ -640,12 +640,12 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
+        "bblocks://ogc.geo.geodcat.geodcat-records",
         "bblocks://ogc.contrib.stac.extensions.osc",
         "bblocks://ogc.geo.geodcat.stac.geodcat-stac-item",
-        "bblocks://ogc.geo.geodcat.stac.geodcat-stac-collection",
-        "bblocks://ogc.ogc-utils.prov",
         "bblocks://ogc.contrib.stac.extensions.themes",
-        "bblocks://ogc.geo.geodcat.geodcat-records"
+        "bblocks://ogc.ogc-utils.prov",
+        "bblocks://ogc.geo.geodcat.stac.geodcat-stac-collection"
       ],
       "version": "0.1",
       "dateOfLastChange": "2026-09-10",
@@ -668,14 +668,14 @@
         "EarthCODE"
       ],
       "shaclShapes": {
-        "ogc.contrib.stac.extensions.osc-ontology": [
-          "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl"
-        ],
         "ogc.geo.features.feature": [
           "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
         ],
         "ogc.api.records.v1.schemas.linkTemplate": [
           "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
+        ],
+        "ogc.contrib.stac.extensions.osc-ontology": [
+          "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl"
         ],
         "ogc.contrib.stac.components.assets-ontology": [
           "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl"
@@ -773,8 +773,8 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "bblocks://ogc.bbr.wf4ever.wfprov.WorkflowRun",
         "bblocks://ogc.geo.geodcat.geodcat-records",
+        "bblocks://ogc.bbr.wf4ever.wfprov.WorkflowRun",
         "bblocks://ogc.osc.geodcat-stac-earthcode.common"
       ],
       "version": "0.1",
@@ -802,14 +802,14 @@
         "ogc.osc.geodcat-stac-earthcode.experiments": [
           "https://nsnarayanam.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/rules.shacl"
         ],
-        "ogc.model.cross-domain.prov": [
-          "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
-        ],
         "ogc.geo.features.feature": [
           "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
         ],
         "ogc.api.records.v1.schemas.linkTemplate": [
           "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
+        ],
+        "ogc.model.cross-domain.prov": [
+          "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
         ],
         "ogc.contrib.stac.extensions.osc-ontology": [
           "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl"
@@ -861,8 +861,8 @@
       "register": "ogc-incubator",
       "dependsOn": [
         "bblocks://ogc.ogc-utils.prov-entity",
-        "bblocks://ogc.contrib.stac.extensions.cf",
-        "bblocks://ogc.osc.geodcat-stac-earthcode.common"
+        "bblocks://ogc.osc.geodcat-stac-earthcode.common",
+        "bblocks://ogc.contrib.stac.extensions.cf"
       ],
       "version": "0.1",
       "dateOfLastChange": "2026-09-10",
@@ -895,20 +895,20 @@
         "ogc.api.records.v1.schemas.linkTemplate": [
           "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
         ],
+        "ogc.contrib.stac.extensions.osc-ontology": [
+          "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl"
+        ],
         "ogc.contrib.stac.components.assets-ontology": [
           "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl"
         ],
         "ogc.contrib.stac.core-ontology": [
           "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
         ],
-        "ogc.contrib.stac.extensions.cf-ontology": [
-          "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl"
-        ],
-        "ogc.contrib.stac.extensions.osc-ontology": [
-          "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl"
-        ],
         "ogc.contrib.stac.extensions.themes-ontology": [
           "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl"
+        ],
+        "ogc.contrib.stac.extensions.cf-ontology": [
+          "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl"
         ]
       },
       "ldContext": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/products/context.jsonld",
@@ -947,11 +947,11 @@
       "itemClass": "schema",
       "register": "ogc-incubator",
       "dependsOn": [
-        "bblocks://ogc.api.processes.v1.schemas.inputDescription",
-        "bblocks://ogc.osc.geodcat-stac-earthcode.common",
-        "bblocks://ogc.ogc-utils.prov-entity",
         "bblocks://ogc.api.processes.v1.schemas.outputDescription",
-        "bblocks://ogc.geo.geodcat.geodcat-records"
+        "bblocks://ogc.geo.geodcat.geodcat-records",
+        "bblocks://ogc.ogc-utils.prov-entity",
+        "bblocks://ogc.osc.geodcat-stac-earthcode.common",
+        "bblocks://ogc.api.processes.v1.schemas.inputDescription"
       ],
       "version": "0.1",
       "dateOfLastChange": "2026-09-10",
@@ -971,23 +971,23 @@
         "EarthCODE"
       ],
       "shaclShapes": {
-        "ogc.contrib.stac.extensions.osc-ontology": [
-          "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl"
-        ],
         "ogc.geo.features.feature": [
           "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
         ],
         "ogc.api.records.v1.schemas.linkTemplate": [
           "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
         ],
+        "ogc.model.cross-domain.prov": [
+          "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+        ],
+        "ogc.contrib.stac.extensions.osc-ontology": [
+          "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl"
+        ],
         "ogc.contrib.stac.components.assets-ontology": [
           "https://ogcincubator.github.io/bblocks-stac/_sources/components/assets-ontology/shapes.shacl"
         ],
         "ogc.contrib.stac.core-ontology": [
           "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
-        ],
-        "ogc.model.cross-domain.prov": [
-          "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
         ],
         "ogc.contrib.stac.extensions.themes-ontology": [
           "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl"
@@ -1029,8 +1029,8 @@
       "itemClass": "api",
       "register": "ogc-incubator",
       "dependsOn": [
-        "bblocks://ogc.osc.application-package",
-        "bblocks://ogc.osc.api-profiles.processes.ipt.api"
+        "bblocks://ogc.osc.api-profiles.processes.ipt.api",
+        "bblocks://ogc.osc.application-package"
       ],
       "version": "0.1",
       "dateOfLastChange": "2026-09-10",
@@ -1076,10 +1076,10 @@
       "itemClass": "api",
       "register": "ogc-incubator",
       "dependsOn": [
+        "bblocks://ogc.osc.geodcat-stac-earthcode.workflows",
         "bblocks://ogc.osc.geodcat-stac-earthcode.experiments",
         "bblocks://ogc.osc.api-profiles.processes.workflow",
-        "bblocks://ogc.osc.geodcat-stac-earthcode.products",
-        "bblocks://ogc.osc.geodcat-stac-earthcode.workflows"
+        "bblocks://ogc.osc.geodcat-stac-earthcode.products"
       ],
       "version": "0.1",
       "dateOfLastChange": "2026-09-10",
@@ -1094,17 +1094,14 @@
         "PROV"
       ],
       "shaclShapes": {
-        "ogc.osc.geodcat-stac-earthcode.experiments": [
-          "https://nsnarayanam.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/rules.shacl"
-        ],
-        "ogc.model.cross-domain.prov": [
-          "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
-        ],
         "ogc.geo.features.feature": [
           "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
         ],
         "ogc.api.records.v1.schemas.linkTemplate": [
           "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
+        ],
+        "ogc.model.cross-domain.prov": [
+          "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
         ],
         "ogc.contrib.stac.extensions.osc-ontology": [
           "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl"
@@ -1117,6 +1114,9 @@
         ],
         "ogc.contrib.stac.extensions.themes-ontology": [
           "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl"
+        ],
+        "ogc.osc.geodcat-stac-earthcode.experiments": [
+          "https://nsnarayanam.github.io/bblocks-openscience/_sources/geodcat-stac-earthcode/experiments/rules.shacl"
         ],
         "ogc.contrib.stac.extensions.cf-ontology": [
           "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl"
@@ -1167,23 +1167,23 @@
       },
       "shaclShapes": {},
       "dependsOn": [
-        "bblocks://ogc.api.processes.v1.responses.ExecuteAsync",
-        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputSchema",
-        "bblocks://ogc.api.processes.v1.schemas.execute",
-        "bblocks://ogc.api.processes.v1.responses.ServerError",
-        "bblocks://ogc.api.processes.v1.api",
-        "bblocks://ogc.api.processes.v1.schemas.inputDescription",
-        "bblocks://ogc.api.processes.v1.paths.ProcessList",
-        "bblocks://ogc.api.processes.v1.paths.Conformance",
         "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputSchema",
-        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.outputDescriptions",
-        "bblocks://ogc.api.processes.v1.schemas.outputDescription",
-        "bblocks://ogc.api.processes.v1.responses.NotFound",
+        "bblocks://ogc.api.processes.v1.schemas.execute",
         "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.inputDescriptions",
-        "bblocks://ogc.api.processes.v1.paths.JobList",
+        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.processDescription",
+        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputSchema",
+        "bblocks://ogc.api.processes.v1.responses.ExecuteAsync",
         "bblocks://ogc.api.processes.v1.parameters.jobId",
+        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.outputDescriptions",
+        "bblocks://ogc.api.processes.v1.api",
+        "bblocks://ogc.api.processes.v1.responses.NotFound",
+        "bblocks://ogc.api.processes.v1.schemas.outputDescription",
+        "bblocks://ogc.api.processes.v1.paths.JobList",
+        "bblocks://ogc.api.processes.v1.paths.Conformance",
+        "bblocks://ogc.api.processes.v1.paths.ProcessList",
         "bblocks://ogc.api.processes.v1.paths.LandingPage",
-        "bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.processDescription"
+        "bblocks://ogc.api.processes.v1.responses.ServerError",
+        "bblocks://ogc.api.processes.v1.schemas.inputDescription"
       ],
       "sourceOpenAPIDocument": "https://nsnarayanam.github.io/bblocks-openscience/_sources/api-profiles/processes/sample-implementation/openapi.yaml",
       "openAPIDocument": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/openapi.yaml",

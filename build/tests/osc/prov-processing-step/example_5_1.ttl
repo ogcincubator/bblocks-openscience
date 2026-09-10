@@ -6,9 +6,11 @@
     rdfs:label "Classify drought severity" ;
     dct:type <https://example.org/ospd/process-types/classification> ;
     prov:generated <urn:aganitha:dataset:drought-classes> ;
-    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:cdsi> ;
+    prov:qualifiedUsage [ a prov:Usage ;
+            prov:entity <urn:aganitha:dataset:cdsi> ;
             prov:hadRole <https://example.org/ospd/roles/inputField> ],
-        [ prov:entity <urn:aganitha:scheme:drought-severity-classes> ;
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:scheme:drought-severity-classes> ;
             prov:hadRole <https://example.org/ospd/roles/classificationScheme> ] ;
     prov:used <urn:aganitha:dataset:cdsi>,
         <urn:aganitha:scheme:drought-severity-classes> .
