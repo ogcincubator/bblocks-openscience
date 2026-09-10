@@ -20,6 +20,18 @@ Output schema for the buffer geometry process
 
 Input schema for the buffer geometry process
 
+### `ogc.osc.ontology.cwlprov` — CWL Ontology
+
+**Type:** model
+
+Ontology describing the Common Workflow Language (CWL) model
+
+### `ogc.osc.prov-processing-step` — Geospatial Processing Step Provenance
+
+**Type:** schema
+
+A profile of the PROV-O building block constrained to the description of a single geospatial processing step, with a required link to a registered process type.
+
 ### `ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputDescription` — Buffer geometry process input description
 
 **Type:** schema
@@ -32,17 +44,11 @@ Description for the inputs of the buffer geometry process
 
 Description for the output of the buffer geometry process
 
-### `ogc.osc.ontology.cwlprov` — CWL Ontology
-
-**Type:** model
-
-Ontology describing the Common Workflow Language (CWL) model
-
-### `ogc.osc.api-profiles.processes.ipt.results` — Result schema for IPT
+### `ogc.osc.application-package` — Application Package
 
 **Type:** schema
 
-constraint on results to include provenance object inline
+Earth Observation Application Package. 
 
 ### `ogc.osc.api-profiles.processes.sample-implementation.schemas.inputDescriptions` — Example OGC API Processes instance input descriptions
 
@@ -62,11 +68,11 @@ Description of the buffer geometry process
 
 Collection of output descriptions
 
-### `ogc.osc.application-package` — Application Package
+### `ogc.osc.api-profiles.processes.ipt.results` — Result schema for IPT
 
 **Type:** schema
 
-Earth Observation Application Package. 
+constraint on results to include provenance object inline
 
 ### `ogc.osc.ontology.openscience` — Open Science Ontology
 

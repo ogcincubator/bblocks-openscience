@@ -8,7 +8,7 @@
   "dateTimeAddition": "2026-08-05T00:00:00Z",
   "itemClass": "schema",
   "version": "0.1.0",
-  "dateOfLastChange": "2026-08-26",
+  "dateOfLastChange": "2026-09-10",
   "maturity": "development",
   "scope": "unstable",
   "tags": [
@@ -20,7 +20,11 @@
   "dependsOn": [
     "ogc.ogc-utils.prov"
   ],
-  "shaclShapes": {},
+  "shaclShapes": {
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+    ]
+  },
   "schema": {
     "application/yaml": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/schema.yaml",
     "application/json": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/schema.json"
@@ -29,7 +33,7 @@
   "ldContext": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/context.jsonld",
   "resolvedSchemaProperties": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/prov-processing-step/resolvedProperties.json",
   "sourceFiles": "https://nsnarayanam.github.io/bblocks-openscience/_sources/prov-processing-step/",
-  "validationPassed": true,
+  "validationPassed": false,
   "testOutputs": "https://github.com/nsnarayanam/bblocks-openscience/blob/master/build/tests/osc/prov-processing-step/",
   "description": "# Geospatial Processing Step Provenance\n\nThis building block profiles `ogc-utils.prov` down to a single unit: one\ngeospatial processing step.\n\nPROV-O is deliberately general. Any valid PROV document is a valid description\nof a processing step, which makes validation weak and cross-platform comparison\nhard.\n\nOGC API - Processes Part 5 (draft 26-038) narrows this for job provenance: a\njob entity, a process entity, an activity joining them, and input/output\nartifacts carrying roles. This profile follows that shape.\n\nPart 5 does not define any link from a process to a registered process type.\nThis profile makes that link required, via the processType property. It is the\npoint at which the OSPD 2026 profile-plus-register pattern closes: the profile\ngives the structure, the register gives the controlled term.\n\nUnder development as part of OSPD 2026, deliverable D104 (Aganitha Space\nTechnologies, Workflow Profiler).\n",
   "examples": [
@@ -125,7 +129,7 @@
           "language": "ttl",
           "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_4_1.ttl",
           "sizeBytes": 740,
-          "code": "@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n<urn:aganitha:step:cdsi:20260807T062000Z> a prov:Activity ;\n    rdfs:label \"Compose combined drought severity index\" ;\n    dct:type <https://example.org/ospd/process-types/index-composition> ;\n    prov:generated <urn:aganitha:dataset:cdsi> ;\n    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:smdi> ;\n            prov:hadRole <https://example.org/ospd/roles/indexComponent> ],\n        [ prov:entity <urn:aganitha:dataset:vci> ;\n            prov:hadRole <https://example.org/ospd/roles/indexComponent> ] ;\n    prov:used <urn:aganitha:dataset:smdi>,\n        <urn:aganitha:dataset:vci> .\n\n"
+          "code": "@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n<urn:aganitha:step:cdsi:20260807T062000Z> a prov:Activity ;\n    rdfs:label \"Compose combined drought severity index\" ;\n    dct:type <https://example.org/ospd/process-types/index-composition> ;\n    prov:generated <urn:aganitha:dataset:cdsi> ;\n    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:vci> ;\n            prov:hadRole <https://example.org/ospd/roles/indexComponent> ],\n        [ prov:entity <urn:aganitha:dataset:smdi> ;\n            prov:hadRole <https://example.org/ospd/roles/indexComponent> ] ;\n    prov:used <urn:aganitha:dataset:smdi>,\n        <urn:aganitha:dataset:vci> .\n\n"
         }
       ]
     },
@@ -149,7 +153,7 @@
           "language": "ttl",
           "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_5_1.ttl",
           "sizeBytes": 780,
-          "code": "@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n<urn:aganitha:step:classify:20260807T063000Z> a prov:Activity ;\n    rdfs:label \"Classify drought severity\" ;\n    dct:type <https://example.org/ospd/process-types/classification> ;\n    prov:generated <urn:aganitha:dataset:drought-classes> ;\n    prov:qualifiedUsage [ prov:entity <urn:aganitha:scheme:drought-severity-classes> ;\n            prov:hadRole <https://example.org/ospd/roles/classificationScheme> ],\n        [ prov:entity <urn:aganitha:dataset:cdsi> ;\n            prov:hadRole <https://example.org/ospd/roles/inputField> ] ;\n    prov:used <urn:aganitha:dataset:cdsi>,\n        <urn:aganitha:scheme:drought-severity-classes> .\n\n"
+          "code": "@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n<urn:aganitha:step:classify:20260807T063000Z> a prov:Activity ;\n    rdfs:label \"Classify drought severity\" ;\n    dct:type <https://example.org/ospd/process-types/classification> ;\n    prov:generated <urn:aganitha:dataset:drought-classes> ;\n    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:cdsi> ;\n            prov:hadRole <https://example.org/ospd/roles/inputField> ],\n        [ prov:entity <urn:aganitha:scheme:drought-severity-classes> ;\n            prov:hadRole <https://example.org/ospd/roles/classificationScheme> ] ;\n    prov:used <urn:aganitha:dataset:cdsi>,\n        <urn:aganitha:scheme:drought-severity-classes> .\n\n"
         }
       ]
     },
@@ -197,7 +201,7 @@
           "language": "ttl",
           "url": "https://nsnarayanam.github.io/bblocks-openscience/build/tests/osc/prov-processing-step/example_7_1.ttl",
           "sizeBytes": 1206,
-          "code": "@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n<urn:aganitha:step:train:20260807T070000Z> a prov:Activity ;\n    rdfs:label \"Train drought prediction model with spatial cross-validation\" ;\n    dct:type <https://example.org/ospd/process-types/model-training> ;\n    prov:generated <urn:aganitha:model:drought-classifier>,\n        <urn:aganitha:report:validation-metrics> ;\n    prov:qualifiedUsage [ prov:entity <urn:aganitha:partition:district-folds> ;\n            prov:hadRole <https://example.org/ospd/roles/validationPartition> ],\n        [ prov:entity <urn:aganitha:dataset:cdsi> ;\n            prov:hadRole <https://example.org/ospd/roles/trainingFeatures> ],\n        [ prov:entity <urn:aganitha:dataset:spi> ;\n            prov:hadRole <https://example.org/ospd/roles/trainingFeatures> ],\n        [ prov:entity <urn:aganitha:dataset:drought-classes> ;\n            prov:hadRole <https://example.org/ospd/roles/trainingTarget> ] ;\n    prov:used <urn:aganitha:dataset:cdsi>,\n        <urn:aganitha:dataset:drought-classes>,\n        <urn:aganitha:dataset:spi>,\n        <urn:aganitha:partition:district-folds> .\n\n"
+          "code": "@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n<urn:aganitha:step:train:20260807T070000Z> a prov:Activity ;\n    rdfs:label \"Train drought prediction model with spatial cross-validation\" ;\n    dct:type <https://example.org/ospd/process-types/model-training> ;\n    prov:generated <urn:aganitha:model:drought-classifier>,\n        <urn:aganitha:report:validation-metrics> ;\n    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:drought-classes> ;\n            prov:hadRole <https://example.org/ospd/roles/trainingTarget> ],\n        [ prov:entity <urn:aganitha:partition:district-folds> ;\n            prov:hadRole <https://example.org/ospd/roles/validationPartition> ],\n        [ prov:entity <urn:aganitha:dataset:cdsi> ;\n            prov:hadRole <https://example.org/ospd/roles/trainingFeatures> ],\n        [ prov:entity <urn:aganitha:dataset:spi> ;\n            prov:hadRole <https://example.org/ospd/roles/trainingFeatures> ] ;\n    prov:used <urn:aganitha:dataset:cdsi>,\n        <urn:aganitha:dataset:drought-classes>,\n        <urn:aganitha:dataset:spi>,\n        <urn:aganitha:partition:district-folds> .\n\n"
         }
       ]
     },

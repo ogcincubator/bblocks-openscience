@@ -326,9 +326,9 @@ Technologies, Workflow Profiler).
     rdfs:label "Compose combined drought severity index" ;
     dct:type <https://example.org/ospd/process-types/index-composition> ;
     prov:generated <urn:aganitha:dataset:cdsi> ;
-    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:smdi> ;
+    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:vci> ;
             prov:hadRole <https://example.org/ospd/roles/indexComponent> ],
-        [ prov:entity <urn:aganitha:dataset:vci> ;
+        [ prov:entity <urn:aganitha:dataset:smdi> ;
             prov:hadRole <https://example.org/ospd/roles/indexComponent> ] ;
     prov:used <urn:aganitha:dataset:smdi>,
         <urn:aganitha:dataset:vci> .
@@ -413,10 +413,10 @@ Technologies, Workflow Profiler).
     rdfs:label "Classify drought severity" ;
     dct:type <https://example.org/ospd/process-types/classification> ;
     prov:generated <urn:aganitha:dataset:drought-classes> ;
-    prov:qualifiedUsage [ prov:entity <urn:aganitha:scheme:drought-severity-classes> ;
-            prov:hadRole <https://example.org/ospd/roles/classificationScheme> ],
-        [ prov:entity <urn:aganitha:dataset:cdsi> ;
-            prov:hadRole <https://example.org/ospd/roles/inputField> ] ;
+    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:cdsi> ;
+            prov:hadRole <https://example.org/ospd/roles/inputField> ],
+        [ prov:entity <urn:aganitha:scheme:drought-severity-classes> ;
+            prov:hadRole <https://example.org/ospd/roles/classificationScheme> ] ;
     prov:used <urn:aganitha:dataset:cdsi>,
         <urn:aganitha:scheme:drought-severity-classes> .
 
@@ -590,14 +590,14 @@ Technologies, Workflow Profiler).
     dct:type <https://example.org/ospd/process-types/model-training> ;
     prov:generated <urn:aganitha:model:drought-classifier>,
         <urn:aganitha:report:validation-metrics> ;
-    prov:qualifiedUsage [ prov:entity <urn:aganitha:partition:district-folds> ;
+    prov:qualifiedUsage [ prov:entity <urn:aganitha:dataset:drought-classes> ;
+            prov:hadRole <https://example.org/ospd/roles/trainingTarget> ],
+        [ prov:entity <urn:aganitha:partition:district-folds> ;
             prov:hadRole <https://example.org/ospd/roles/validationPartition> ],
         [ prov:entity <urn:aganitha:dataset:cdsi> ;
             prov:hadRole <https://example.org/ospd/roles/trainingFeatures> ],
         [ prov:entity <urn:aganitha:dataset:spi> ;
-            prov:hadRole <https://example.org/ospd/roles/trainingFeatures> ],
-        [ prov:entity <urn:aganitha:dataset:drought-classes> ;
-            prov:hadRole <https://example.org/ospd/roles/trainingTarget> ] ;
+            prov:hadRole <https://example.org/ospd/roles/trainingFeatures> ] ;
     prov:used <urn:aganitha:dataset:cdsi>,
         <urn:aganitha:dataset:drought-classes>,
         <urn:aganitha:dataset:spi>,
