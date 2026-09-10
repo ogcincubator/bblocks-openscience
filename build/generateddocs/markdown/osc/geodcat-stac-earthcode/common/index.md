@@ -133,7 +133,7 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 #### jsonld
 ```jsonld
 {
-  "@context": "https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/context.jsonld",
+  "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/context.jsonld",
   "id": "polarwarp",
   "title": "Polarwarp",
   "created": "2025-10-13T16:54:34Z",
@@ -245,8 +245,8 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 ```ttl
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <fair:> .
+@prefix ns1: <fair:> .
+@prefix ns2: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix osc: <https://w3id.org/ogc/stac/osc/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -256,56 +256,56 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://ogc.org/demo/ospd/polarwarp> a <https://ogc.org/demo/ospd/Collection> ;
-    ns2:Accessible_files 0e+00 ;
-    ns2:Accessible_general true ;
-    ns2:Accessible_protocols true ;
-    ns2:Findable_has_doi false ;
-    ns2:Findable_identifier true ;
-    ns2:Findable_indexed true ;
-    ns2:Findable_indexed_approved_data false ;
-    ns2:Findable_indexed_approved_metadata false ;
-    ns2:Findable_rich_metadata true ;
-    ns2:Findable_stac_assets false ;
-    ns2:Interoperable_controlled_vocabularies true ;
-    ns2:Interoperable_has_documentation false ;
-    ns2:Interoperable_related_links true ;
-    ns2:Interoperable_uses_formal_language true ;
-    ns2:Reusable_cloud_assets_rate 0e+00 ;
-    ns2:Reusable_has_access_example false ;
-    ns2:Reusable_has_license true ;
-    ns2:Reusable_has_visualisation false ;
-    ns2:Reusable_rich_descriptions true ;
-    ns2:Reusable_workflow_exists true ;
+    ns1:Accessible_files 0e+00 ;
+    ns1:Accessible_general true ;
+    ns1:Accessible_protocols true ;
+    ns1:Findable_has_doi false ;
+    ns1:Findable_identifier true ;
+    ns1:Findable_indexed true ;
+    ns1:Findable_indexed_approved_data false ;
+    ns1:Findable_indexed_approved_metadata false ;
+    ns1:Findable_rich_metadata true ;
+    ns1:Findable_stac_assets false ;
+    ns1:Interoperable_controlled_vocabularies true ;
+    ns1:Interoperable_has_documentation false ;
+    ns1:Interoperable_related_links true ;
+    ns1:Interoperable_uses_formal_language true ;
+    ns1:Reusable_cloud_assets_rate 0e+00 ;
+    ns1:Reusable_has_access_example false ;
+    ns1:Reusable_has_license true ;
+    ns1:Reusable_has_visualisation false ;
+    ns1:Reusable_rich_descriptions true ;
+    ns1:Reusable_workflow_exists true ;
     dcterms:created "2025-10-13T16:54:34Z" ;
     dcterms:description """Polarwarp product
 
 Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.""" ;
     dcterms:extent [ ] ;
     dcterms:title "Polarwarp" ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
+    rdfs:seeAlso [ rdfs:label "Theme: Cryosphere" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ],
+        [ ns2:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/item.json> ],
         [ rdfs:label "Products" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://ogc.org/demo/catalog.json> ],
         [ rdfs:label "Open Science Catalog" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            ns2:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://ogc.org/catalog.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/item.json> ],
-        [ rdfs:label "Experiment: Polarwarp" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ],
-        [ rdfs:label "Theme: Cryosphere" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ],
         [ rdfs:label "Project: Cerulean Information Factory" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ] ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],
+        [ ns2:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
+        [ rdfs:label "Experiment: Polarwarp" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ] ;
     dcat:license "various" ;
     stac:hasExtension "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
         "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
@@ -368,8 +368,8 @@ $defs:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.json)
-* JSON version: [schema.json](https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml)
+* YAML version: [schema.yaml](https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.json)
+* JSON version: [schema.json](https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/schema.yaml)
 
 
 # JSON-LD Context
@@ -658,7 +658,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://nsnarayanam.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/context.jsonld)
+[context.jsonld](https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/context.jsonld)
 
 ## Sources
 
@@ -669,6 +669,6 @@ You can find the full JSON-LD context here:
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/nsnarayanam/bblocks-openscience](https://github.com/nsnarayanam/bblocks-openscience)
+* URL: [https://github.com/ogcincubator/bblocks-openscience](https://github.com/ogcincubator/bblocks-openscience)
 * Path: `_sources/geodcat-stac-earthcode/common`
 

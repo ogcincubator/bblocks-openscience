@@ -10,15 +10,15 @@
   "itemClass": "model",
   "register": "ogc-incubator",
   "version": "0.1",
-  "dateOfLastChange": "2026-08-26",
+  "dateOfLastChange": "2026-09-09",
   "dependsOn": [
     "ogc.contrib.stac.extensions.processing-ontology",
-    "ogc.contrib.stac.core-ontology",
-    "ogc.geo.geodcat.dcat",
-    "ogc.osc.ontology.cwlprov",
-    "ogc.contrib.stac.extensions.osc-ontology",
-    "ogc.contrib.stac.extensions.cf-ontology",
     "ogc.bbr.wf4ever.wfdesc.Workflow",
+    "ogc.osc.ontology.cwlprov",
+    "ogc.geo.geodcat.dcat",
+    "ogc.contrib.stac.extensions.osc-ontology",
+    "ogc.contrib.stac.core-ontology",
+    "ogc.contrib.stac.extensions.cf-ontology",
     "ogc.bbr.wf4ever.ro.ResearchObject"
   ],
   "sources": [],
@@ -30,20 +30,23 @@
     "ogc.contrib.stac.extensions.processing-ontology": [
       "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/processing-ontology/shapes.shacl"
     ],
-    "ogc.contrib.stac.core-ontology": [
-      "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
     ],
     "ogc.contrib.stac.extensions.osc-ontology": [
       "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl"
+    ],
+    "ogc.contrib.stac.core-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
     ],
     "ogc.contrib.stac.extensions.cf-ontology": [
       "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/cf-ontology/shapes.shacl"
     ]
   },
-  "sourceFiles": "https://nsnarayanam.github.io/bblocks-openscience/_sources/ontology/openscience/",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/ontology/openscience/",
   "validationPassed": true,
   "description": "## OpenScience Ontology\n\nAn \"Open Science Ontology\" supporting description of interoperable scientific workflows.\n\nThis ontology is based on canonical common ontologies where appropriate, and can be mapped to various implementing APIs and metadata standards as required to establish common semantics of elements appearing within a reproduceable and interoperable scientific workflow ecosystem.\n\nThis ontology is modular and includes two related types of ontologies:\n\n1. Conceptual ontologies such as DCAT, PROV and WF4ever which describe common concepts\n2. Structure description ontologies - designed to be mapped by JSON-LD to JSON schema elements, and providing detailed documentation about the implicit semantics of these schemas.\n\nIn combination, these ontologies allow interoperable APIs and data exchange formats to be fully described, at both the structural level and how these relate to standard semantic models for such concepts. ",
   "annotatedSchema": null,
-  "gitRepository": "https://github.com/nsnarayanam/bblocks-openscience",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-openscience",
   "gitPath": "_sources/ontology/openscience"
 }
