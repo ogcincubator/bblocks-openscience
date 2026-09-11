@@ -3,7 +3,9 @@
   "id": "polaris-workflow",
   "type": "Feature",
   "conformsTo": [
-    "http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core"
+    "http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core",
+    "https://stac-extensions.github.io/application/v0.1.0/schema.json",
+    "https://raw.githubusercontent.com/EOEPCA/metadata-profile/refs/heads/1.0/schemas/application-type-argo-workflow"
   ],
   "geometry": null,
   "properties": {
@@ -12,24 +14,34 @@
     "type": "workflow",
     "title": "POLARIS",
     "description": "Polar Operational Limit Assessment Risk Index System (POLARIS) algorithm.",
+    "application:type": "argo-workflow",
+    "application:container": true,
+    "application:language": "Python",
     "keywords": [
       "sea ice",
       "polar"
     ],
     "contacts": [
       {
-        "name": "EarthCODE Demo",
-        "organization": "EarthCODE",
-        "links": [
-          {
-            "rel": "about",
-            "type": "text/html",
-            "href": "https://opensciencedata.esa.int/"
-          }
-        ],
-        "contactInstructions": "Contact via EarthCODE",
+        "name": "David Arthurs",
         "roles": [
-          "host"
+          "consortium_member"
+        ],
+        "emails": [
+          {
+            "value": "david.arthurs@polarview.org"
+          }
+        ]
+      },
+      {
+        "name": "T\u00fdna Dole\u017ealov\u00e1",
+        "roles": [
+          "consortium_member"
+        ],
+        "emails": [
+          {
+            "value": "tyna.dolezalova@eox.at"
+          }
         ]
       }
     ],
@@ -49,7 +61,7 @@
       }
     ],
     "license": "CC-BY-SA-4.0",
-    "osc:project": "polaris"
+    "osc:project": "cerulean-information-factory"
   },
   "linkTemplates": [],
   "links": [
@@ -72,13 +84,13 @@
     },
     {
       "rel": "related",
-      "href": "../../projects/polaris/collection.json",
+      "href": "../../projects/cerulean-information-factory/collection.json",
       "type": "application/json",
-      "title": "Project: POLARIS"
+      "title": "Project: Cerulean Information Factory"
     },
     {
       "rel": "child",
-      "href": "../../experiments/polaris-experiment/record.json",
+      "href": "../../experiments/polaris/record.json",
       "type": "application/json",
       "title": "POLARIS"
     },
@@ -87,6 +99,45 @@
       "href": "../../themes/oceans/catalog.json",
       "type": "application/json",
       "title": "Theme: Oceans"
+    },
+    {
+      "rel": "vcs",
+      "title": "Git source repository",
+      "href": "https://github.com/gtif-cerulean/polaris.git",
+      "vcs:type": "git",
+      "vcs:branch": "main"
+    },
+    {
+      "rel": "application",
+      "title": "POLARIS workflow",
+      "href": "https://github.com/gtif-cerulean/polaris/blob/main/workflow.yml",
+      "type": "application/x-argo-workflow-yaml",
+      "application:type": "argo-workflow",
+      "application:container": true,
+      "application:language": "Python",
+      "argo-workflow:": {
+        "requirements": [
+          {
+            "temp_storage": "10GB"
+          }
+        ]
+      }
+    },
+    {
+      "rel": "application-originating-platform",
+      "title": "EOxHub Workspaces",
+      "href": "https://workspace.cif.hub-otc.eox.at/",
+      "type": "text/html",
+      "application:platform_supports": [
+        "argo-workflow"
+      ],
+      "application:preferred_app": "argo"
+    },
+    {
+      "rel": "related",
+      "href": "https://harshness-map.gtif.eox.at/processes/execute-polaris",
+      "type": "text/html",
+      "title": "Trigger workflow via API provided by pygeoapi"
     },
     {
       "rel": "application",

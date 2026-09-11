@@ -1,31 +1,39 @@
 {
-  "@context": "https://nenadradosevic.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/context.jsonld",
-  "id": "kindgrove-experiment",
+  "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/experiments/context.jsonld",
+  "id": "water-bodies-execution",
   "type": "Feature",
   "conformsTo": [
     "http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core"
   ],
   "geometry": null,
   "properties": {
-    "created": "2024-06-01T10:00:00Z",
-    "updated": "2024-06-01T10:45:00Z",
+    "created": "2025-01-21T18:00:00Z",
+    "updated": "2025-01-21T18:40:00Z",
     "type": "experiment",
-    "title": "KindGrove Mangrove Carbon Assessment",
-    "description": "An Earth observation workflow for mangrove detection and carbon stock estimation using Sentinel-2 imagery.",
-    "keywords": [
-      "mangroves",
-      "carbon",
-      "Sentinel-2",
-      "remote sensing",
-      "climate"
-    ],
+    "title": "ESA WorldCereal Experiment",
+    "description": "Experiment using the water bodies workflow.",
     "contacts": [
       {
-        "name": "Cameron Sajedi",
-        "organization": "Starling Foundries",
+        "name": "A person",
+        "position": "Researcher",
+        "organization": "An Org",
+        "contactInstructions": "Contact via website",
         "roles": [
-          "author",
-          "operator"
+          "principal investigator"
+        ]
+      },
+      {
+        "name": "An Org",
+        "links": [
+          {
+            "href": "https://example.com/",
+            "rel": "about",
+            "type": "text/html"
+          }
+        ],
+        "contactInstructions": "SEE WEBSITE",
+        "roles": [
+          "processor"
         ]
       }
     ],
@@ -34,10 +42,7 @@
         "scheme": "https://github.com/stac-extensions/osc#theme",
         "concepts": [
           {
-            "id": "ecosystems"
-          },
-          {
-            "id": "climate"
+            "id": "land"
           }
         ]
       }
@@ -45,27 +50,54 @@
     "formats": [
       {
         "name": "GeoTIFF"
-      },
-      {
-        "name": "CSV"
       }
     ],
-    "license": "CC-BY-4.0",
-    "osc:workflow": "kindgrove-workflow",
-    "version": "1.0"
+    "license": "proprietary",
+    "osc:workflow": "waterbodies",
+    "version": "2"
   },
+  "linkTemplates": [],
   "links": [
     {
-      "rel": "related",
-      "href": "../workflows/kindgrove-workflow/record.json",
+      "rel": "root",
+      "href": "https://example.com/open-science-catalog-metadata/catalog.json",
       "type": "application/json",
-      "title": "Workflow description"
+      "title": "Open Science Catalog"
+    },
+    {
+      "rel": "parent",
+      "href": "https://example.com/open-science-catalog-metadata/experiments/catalog.json",
+      "type": "application/json",
+      "title": "Experiments"
+    },
+    {
+      "rel": "child",
+      "href": "https://example.com/open-science-catalog-metadata/products/water-bodies-execution-outputs/collection.json",
+      "type": "application/json",
+      "title": "Water Bodies Execution Outputs"
+    },
+    {
+      "rel": "service",
+      "type": "application/json",
+      "title": "An EO data exploitation platform",
+      "href": "https://example.com"
     },
     {
       "rel": "related",
-      "href": "../provenance/kindgrove-run.jsonld",
-      "type": "application/ld+json",
-      "title": "Execution provenance"
+      "href": "https://example.com/open-science-catalog-metadata/themes/land/catalog.json",
+      "type": "application/json",
+      "title": "Theme: Land"
+    },
+    {
+      "rel": "related",
+      "href": "../../workflows/waterbodies/record.json",
+      "type": "application/json",
+      "title": "Workflow: Water Bodies"
+    },
+    {
+      "rel": "self",
+      "href": "https://example.com/open-science-catalog-metadata/experiments/water-bodies-execution/record.json",
+      "type": "application/json"
     }
   ]
 }
