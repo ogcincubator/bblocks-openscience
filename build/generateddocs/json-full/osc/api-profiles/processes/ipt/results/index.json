@@ -6,7 +6,7 @@
   "dateTimeAddition": "2025-10-22T15:29:12.046535",
   "register": "ogcapi-processes",
   "version": "0.1",
-  "dateOfLastChange": "2026-09-09",
+  "dateOfLastChange": "2026-09-16",
   "tags": [
     "ogcapi-processes",
     "schema"
@@ -20,9 +20,9 @@
     ]
   },
   "dependsOn": [
-    "ogc.api.processes.v1.schemas.qualifiedInputValue",
     "ogc.ogc-utils.prov-entity",
-    "ogc.ogc-utils.prov-activity"
+    "ogc.ogc-utils.prov-activity",
+    "ogc.api.processes.v1.schemas.qualifiedInputValue"
   ],
   "schema": {
     "application/yaml": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/ipt/results/schema.yaml",

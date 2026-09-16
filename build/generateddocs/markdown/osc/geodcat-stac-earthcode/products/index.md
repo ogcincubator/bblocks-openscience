@@ -250,8 +250,8 @@ The EarthCODE OSC has requirements which are not captured here
 ```ttl
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <fair:> .
+@prefix ns1: <fair:> .
+@prefix ns2: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix osc: <https://w3id.org/ogc/stac/osc/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -262,56 +262,56 @@ The EarthCODE OSC has requirements which are not captured here
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://ogc.org/demo/ospd/polarwarp> a prov:Collection ;
-    ns2:Accessible_files 0e+00 ;
-    ns2:Accessible_general true ;
-    ns2:Accessible_protocols true ;
-    ns2:Findable_has_doi false ;
-    ns2:Findable_identifier true ;
-    ns2:Findable_indexed true ;
-    ns2:Findable_indexed_approved_data false ;
-    ns2:Findable_indexed_approved_metadata false ;
-    ns2:Findable_rich_metadata true ;
-    ns2:Findable_stac_assets false ;
-    ns2:Interoperable_controlled_vocabularies true ;
-    ns2:Interoperable_has_documentation false ;
-    ns2:Interoperable_related_links true ;
-    ns2:Interoperable_uses_formal_language true ;
-    ns2:Reusable_cloud_assets_rate 0e+00 ;
-    ns2:Reusable_has_access_example false ;
-    ns2:Reusable_has_license true ;
-    ns2:Reusable_has_visualisation false ;
-    ns2:Reusable_rich_descriptions true ;
-    ns2:Reusable_workflow_exists true ;
+    ns1:Accessible_files 0e+00 ;
+    ns1:Accessible_general true ;
+    ns1:Accessible_protocols true ;
+    ns1:Findable_has_doi false ;
+    ns1:Findable_identifier true ;
+    ns1:Findable_indexed true ;
+    ns1:Findable_indexed_approved_data false ;
+    ns1:Findable_indexed_approved_metadata false ;
+    ns1:Findable_rich_metadata true ;
+    ns1:Findable_stac_assets false ;
+    ns1:Interoperable_controlled_vocabularies true ;
+    ns1:Interoperable_has_documentation false ;
+    ns1:Interoperable_related_links true ;
+    ns1:Interoperable_uses_formal_language true ;
+    ns1:Reusable_cloud_assets_rate 0e+00 ;
+    ns1:Reusable_has_access_example false ;
+    ns1:Reusable_has_license true ;
+    ns1:Reusable_has_visualisation false ;
+    ns1:Reusable_rich_descriptions true ;
+    ns1:Reusable_workflow_exists true ;
     dcterms:created "2025-10-13T16:54:34Z" ;
     dcterms:description """Polarwarp product
 
 Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.""" ;
     dcterms:extent [ ] ;
     dcterms:title "Polarwarp" ;
-    rdfs:seeAlso [ rdfs:label "Project: Cerulean Information Factory" ;
+    rdfs:seeAlso [ rdfs:label "Products" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],
-        [ rdfs:label "Products" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://ogc.org/demo/catalog.json> ],
+        [ ns2:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/item.json> ],
         [ rdfs:label "Theme: Cryosphere" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ],
-        [ rdfs:label "Open Science Catalog" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://ogc.org/catalog.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/via> ;
-            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
         [ rdfs:label "Experiment: Polarwarp" ;
             dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ],
-        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/item.json> ] ;
+        [ rdfs:label "Open Science Catalog" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ],
+        [ rdfs:label "Project: Cerulean Information Factory" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],
+        [ ns2:relation <http://www.iana.org/assignments/relation/via> ;
+            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ] ;
     dcat:license "various" ;
     stac:hasExtension "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
         "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
@@ -544,8 +544,8 @@ Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM 
 ```ttl
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <wfprov:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <wfprov:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix osc: <https://w3id.org/ogc/stac/osc/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -558,37 +558,37 @@ Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM 
 <https://ogc.org/demo/ospd/water-bodies> a prov:Collection,
         prov:Entity,
         <wf4ever:Dataset>,
-        ns1:Artifact ;
+        ns2:Artifact ;
     dcterms:created "2025-01-21T17:59:50Z" ;
     dcterms:description "Water Bodies Example Outputs" ;
     dcterms:extent [ ] ;
     dcterms:modified "2025-01-21T17:59:50Z" ;
     dcterms:title "Water Bodies" ;
-    rdfs:seeAlso [ rdfs:label "Theme: Land" ;
+    rdfs:seeAlso [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/products/water-bodies/collection.json> ],
+        [ rdfs:label "Theme: Land" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://example.com/open-science-catalog-metadata/themes/land/catalog.json> ],
+        [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/S2B_10TFK_20210713_0_L2A/S2B_10TFK_20210713_0_L2A.json> ],
+        [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/S2A_10TFK_20220524_0_L2A/S2A_10TFK_20220524_0_L2A.json> ],
         [ rdfs:label "Experiments" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/open-science-catalog-metadata/products/catalog.json> ],
         [ rdfs:label "Open Science Catalog" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/root> ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://example.com/open-science-catalog-metadata/catalog.json> ],
-        [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/S2A_10TFK_20220524_0_L2A/S2A_10TFK_20220524_0_L2A.json> ],
         [ rdfs:label "Experiment: Water Bodies Execution" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/open-science-catalog-metadata/experiments/polaris/water-bodies-execution/record.json> ],
-        [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/S2B_10TFK_20210713_0_L2A/S2B_10TFK_20210713_0_L2A.json> ],
-        [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/products/water-bodies/collection.json> ] ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/open-science-catalog-metadata/experiments/polaris/water-bodies-execution/record.json> ] ;
     dcat:license "none" ;
     prov:wasDerivedFrom <https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2A_10TFK_20220524_0_L2A>,
         <https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2B_10TFK_20210713_0_L2A> ;
@@ -602,8 +602,8 @@ Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM 
     osc:type osc:product-type ;
     rec:themes [ thns:concepts [ thns:id "land"^^xsd:string ] ;
             thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
-    ns1:describedByParameter "stac_catalog" ;
-    ns1:wasOutputFrom "https://example.com/open-science-catalog-metadata/experiments/water-bodies-execution/record.json" .
+    ns2:describedByParameter "stac_catalog" ;
+    ns2:wasOutputFrom "https://example.com/open-science-catalog-metadata/experiments/water-bodies-execution/record.json" .
 
 
 ```

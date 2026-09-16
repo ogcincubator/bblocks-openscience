@@ -18,75 +18,58 @@ paths:
     $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/paths/Conformance/openapi.yaml
   /processes:
     $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/paths/ProcessList/openapi.yaml
-  /processes/buffer-geometry:
+  /processes/{processID}:
     get:
-      summary: Get buffer-geometry process description
-      description: Retrieves detailed information about the buffer-geometry process
-      operationId: getBufferGeometryProcess
+      summary: retrieve a process description
+      description: 'The process description contains information about inputs and
+        outputs and a link to the execution-endpoint for the process. The Core does
+        not mandate the use of a specific process description to specify the interface
+        of a process. That said, the Core requirements class makes the following recommendation:
+
+
+        Implementations SHOULD consider supporting the OGC process description.
+
+
+        For more information, see [Section 7.10](https://docs.ogc.org/is/18-062/18-062.html#sc_process_description).
+
+        '
+      operationId: getProcessDescription
       tags:
-      - Processes
-      responses:
-        '200':
-          description: Buffer geometry process description
-          content:
-            application/json:
-              schema:
-                $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/processDescription/schema.yaml
-  /processes/buffer-geometry/execution:
-    post:
-      summary: Execute buffer-geometry process
-      description: Creates a buffer polygon around a geometry at a specified distance
-      operationId: executeBufferGeometry
-      tags:
-      - Execution
+      - ProcessDescription
       parameters:
-      - name: Prefer
-        in: header
-        required: false
-        schema:
-          type: string
-          enum:
-          - respond-async
-          - wait=10
-        description: Execution preference (async or sync with timeout)
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              allOf:
-              - $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/execute/schema.yaml
-              - required:
-                - inputs
-                properties:
-                  inputs:
-                    $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputSchema/schema.yaml
-            example:
-              inputs:
-                geometry:
-                  type: Point
-                  coordinates:
-                  - -122.4194
-                  - 37.7749
-                distance: 1000
-                units: meters
+      - $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/parameters/processIdPathParam/openapi.yaml
       responses:
-        '200':
-          description: Synchronous execution completed
+        200:
           content:
             application/json:
+              examples:
+                processDecription:
+                  externalValue: ../../examples/json/ProcessDescription.json
+                  summary: A Process Description example
               schema:
-                properties:
-                  outputs:
-                    $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputSchema/schema.yaml
-        201:
-          $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/responses/ExecuteAsync/schema.yaml
+                allOf:
+                - $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/process/schema.yaml
+                - allOf:
+                  - {}
+                  - type: object
+                    properties:
+                      inputs:
+                        additionalProperties:
+                          $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/inputDescriptions/schema.yaml
+                          x-bblocks-extension-source: ogc.api.processes.v1.schemas.inputDescription
+                          x-bblocks-extension-target: ogc.osc.api-profiles.processes.sample-implementation.schemas.inputDescriptions
+                      outputs:
+                        additionalProperties:
+                          $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/outputDescriptions/schema.yaml
+                          x-bblocks-extension-source: ogc.api.processes.v1.schemas.outputDescription
+                          x-bblocks-extension-target: ogc.osc.api-profiles.processes.sample-implementation.schemas.outputDescriptions
+          description: A process description.
         404:
           $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/responses/NotFound/schema.yaml
-        500:
-          $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/responses/ServerError/schema.yaml
   /jobs:
     $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/paths/JobList/openapi.yaml
+  /processes/{processID}/execution:
+    $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/paths/Execution/openapi.yaml
   /jobs/{jobId}:
     $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/api/openapi.yaml
   /jobs/{jobId}/results:
@@ -110,7 +93,284 @@ paths:
           content:
             application/json:
               schema:
-                $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/outputDescriptions/schema.yaml
+                allOf:
+                - $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/outputDescriptions/schema.yaml
+                - anyOf:
+                  - allOf:
+                    - $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/outputDescriptions/schema.yaml
+                      x-bblocks-extension-source: ogc.api.processes.v1.schemas.outputDescription
+                      x-bblocks-extension-target: ogc.osc.api-profiles.processes.sample-implementation.schemas.outputDescriptions
+                      allOf:
+                      - properties:
+                          additionalParameters:
+                            allOf:
+                            - properties:
+                                href:
+                                  type: string
+                                role:
+                                  type: string
+                                title:
+                                  type: string
+                            - type: object
+                              properties:
+                                parameters:
+                                  items:
+                                    properties:
+                                      name:
+                                        type: string
+                                      value:
+                                        items:
+                                          oneOf:
+                                          - type: string
+                                          - type: number
+                                          - type: integer
+                                          - type: array
+                                            items: {}
+                                          - type: object
+                          description:
+                            type: string
+                          keywords:
+                            items:
+                              type: string
+                          metadata:
+                            items:
+                              $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/metadata/schema.yaml
+                          title:
+                            type: string
+                      - required:
+                        - schema
+                        type: object
+                        properties:
+                          schema:
+                            oneOf:
+                            - properties:
+                                format: uri-reference
+                                type: string
+                            - type: object
+                              properties:
+                                additionalProperties:
+                                  oneOf:
+                                  - $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/schema/schema.yaml
+                                  - $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/reference/schema.yaml
+                                  - type: boolean
+                                allOf:
+                                - items:
+                                    oneOf:
+                                    - $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/schema/schema.yaml
+                                    - $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/reference/schema.yaml
+                                anyOf:
+                                - items:
+                                    oneOf:
+                                    - $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/schema/schema.yaml
+                                    - $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/reference/schema.yaml
+                                contentEncoding:
+                                  type: string
+                                contentMediaType:
+                                  type: string
+                                contentSchema:
+                                  type: string
+                                default: {}
+                                deprecated:
+                                  default: false
+                                  type: boolean
+                                description:
+                                  type: string
+                                enum:
+                                  items: {}
+                                example: {}
+                                exclusiveMaximum:
+                                  default: false
+                                  type: boolean
+                                exclusiveMinimum:
+                                  default: false
+                                  type: boolean
+                                format:
+                                  type: string
+                                items:
+                                  oneOf:
+                                  - $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/schema/schema.yaml
+                                  - $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/reference/schema.yaml
+                                maxItems:
+                                  minimum: 0
+                                  type: integer
+                                maxLength:
+                                  minimum: 0
+                                  type: integer
+                                maxProperties:
+                                  minimum: 0
+                                  type: integer
+                                maximum:
+                                  type: number
+                                minItems:
+                                  default: 0
+                                  minimum: 0
+                                  type: integer
+                                minLength:
+                                  default: 0
+                                  minimum: 0
+                                  type: integer
+                                minProperties:
+                                  default: 0
+                                  minimum: 0
+                                  type: integer
+                                minimum:
+                                  type: number
+                                multipleOf:
+                                  exclusiveMinimum: 0
+                                  type: number
+                                not:
+                                  oneOf:
+                                  - $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/schema/schema.yaml
+                                  - $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/reference/schema.yaml
+                                nullable:
+                                  default: false
+                                  type: boolean
+                                oneOf:
+                                - items:
+                                    oneOf:
+                                    - $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/schema/schema.yaml
+                                    - $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/reference/schema.yaml
+                                pattern:
+                                  format: regex
+                                  type: string
+                                properties:
+                                  additionalProperties:
+                                    oneOf:
+                                    - $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/schema/schema.yaml
+                                    - $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/reference/schema.yaml
+                                readOnly:
+                                  default: false
+                                  type: boolean
+                                required:
+                                  items:
+                                    type: string
+                                title:
+                                  type: string
+                                type:
+                                  enum:
+                                  - array
+                                  - boolean
+                                  - integer
+                                  - number
+                                  - object
+                                  - string
+                                  type: string
+                                uniqueItems:
+                                  default: false
+                                  type: boolean
+                                writeOnly:
+                                  default: false
+                                  type: boolean
+                    properties:
+                      schema:
+                        properties:
+                          bufferedGeometry:
+                            properties:
+                              title:
+                                type: string
+                                const: Buffered Geometry
+                              description:
+                                type: string
+                              schema:
+                                properties:
+                                  type:
+                                    type: string
+                                    const: Polygon
+                                  coordinates:
+                                    items:
+                                      type: number
+                          area:
+                            properties:
+                              title:
+                                type: string
+                                const: Buffer Area
+                              description:
+                                type: string
+                              schema:
+                                $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputSchema/schema.yaml#/properties/area
+        404:
+          $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/responses/NotFound/schema.yaml
+        500:
+          $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/responses/ServerError/schema.yaml
+  /processes/buffer-geometry:
+    get:
+      summary: Get buffer-geometry process description
+      description: Retrieves detailed information about the buffer-geometry process
+      operationId: getBufferGeometryProcess
+      tags:
+      - Processes
+      responses:
+        '200':
+          description: Buffer geometry process description
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/processDescription/schema.yaml
+                - allOf:
+                  - allOf:
+                    - {}
+                    - type: object
+                      properties:
+                        inputs:
+                          additionalProperties:
+                            $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/inputDescriptions/schema.yaml
+                            x-bblocks-extension-source: ogc.api.processes.v1.schemas.inputDescription
+                            x-bblocks-extension-target: ogc.osc.api-profiles.processes.sample-implementation.schemas.inputDescriptions
+                        outputs:
+                          additionalProperties:
+                            $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/outputDescriptions/schema.yaml
+                            x-bblocks-extension-source: ogc.api.processes.v1.schemas.outputDescription
+                            x-bblocks-extension-target: ogc.osc.api-profiles.processes.sample-implementation.schemas.outputDescriptions
+                  - properties:
+                      inputs:
+                        allOf:
+                        - $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/inputDescriptions/schema.yaml
+                          x-bblocks-extension-source: ogc.api.processes.v1.schemas.inputDescription
+                          x-bblocks-extension-target: ogc.osc.api-profiles.processes.sample-implementation.schemas.inputDescriptions
+                      outputs:
+                        $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/outputDescriptions/schema.yaml
+                        x-bblocks-extension-source: ogc.api.processes.v1.schemas.outputDescription
+                        x-bblocks-extension-target: ogc.osc.api-profiles.processes.sample-implementation.schemas.outputDescriptions
+  /processes/buffer-geometry/execution:
+    post:
+      summary: Execute buffer-geometry process
+      description: Creates a buffer polygon around a geometry at a specified distance
+      operationId: executeBufferGeometry
+      tags:
+      - Execution
+      parameters:
+      - name: Prefer
+        in: header
+        required: false
+        schema:
+          type: string
+          enum:
+          - respond-async
+          - wait=10
+        description: Execution preference (async or sync with timeout)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {}
+            example:
+              inputs:
+                geometry:
+                  type: Point
+                  coordinates:
+                  - -122.4194
+                  - 37.7749
+                distance: 1000
+                units: meters
+      responses:
+        '200':
+          description: Synchronous execution completed
+          content:
+            application/json:
+              schema: {}
+        201:
+          $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/responses/ExecuteAsync/schema.yaml
         404:
           $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/responses/NotFound/schema.yaml
         500:
@@ -118,3 +378,7 @@ paths:
 servers:
 - description: Example server
   url: http://example.org/ogcapi
+x-bblocks-extends: ogc.api.processes.v1.api
+x-bblocks-extensions:
+  ogc.api.processes.v1.schemas.inputDescription: ogc.osc.api-profiles.processes.sample-implementation.schemas.inputDescriptions
+  ogc.api.processes.v1.schemas.outputDescription: ogc.osc.api-profiles.processes.sample-implementation.schemas.outputDescriptions

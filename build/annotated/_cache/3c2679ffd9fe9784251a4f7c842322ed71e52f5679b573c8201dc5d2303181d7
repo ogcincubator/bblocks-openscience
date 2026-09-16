@@ -3,12 +3,12 @@
   "abstract": "Common Workflow Language (CWL) is an open standard for describing how to run command line tools and connect them to create workflows.\n",
   "description": "Tools and workflows described using CWL are portable across a variety of platforms that support the CWL standards. \nUsing CWL, it is easy to scale complex data analysis and machine learning workflows from a single\ndeveloper's laptop up to massively parallel cluster, cloud and high performance computing environments.\n\nMore information at [the Common Workflow Language website](https://www.commonwl.org/).\n",
   "sparqlEndpoint": "https://defs-dev.opengis.net/fuseki/query",
-  "modified": "2026-09-07T11:25:26.777680",
+  "modified": "2026-09-09T13:27:09.441094",
   "tooling": {
     "bblocks-postprocess": {
-      "commitId": "\"865a527f37dc271186cb8dd7d0386365bf1486d3",
-      "shortCommitId": "\"865a52",
-      "date": "2026-09-03T16:12:25+00:00\""
+      "commitId": "\"5f1ec548149bd0b447b0781f2ce00e5fbe4566e0",
+      "shortCommitId": "\"5f1ec5",
+      "date": "2026-09-08T21:44:17+00:00\""
     }
   },
   "gitRepository": "https://github.com/ogcincubator/bblocks-cwl",
@@ -28,7 +28,7 @@
       "abstract": "The `cwlVersion` field: declares which published version of the CWL\nstandard a document conforms to. Required once at the root of every CWL document.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.673508",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -67,7 +67,7 @@
       "abstract": "Shared human-readable documentation fields: a short `label` and a\nlonger free-text or multi-line `doc` description.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.673945",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -108,7 +108,7 @@
       "abstract": "The RDFS vocabulary/ontology for the Common Workflow Language (CWL) v1.2, published by the CWL\nproject at `https://w3id.org/cwl/cwl#` (`cwl:`). It defines an `rdfs:Class` for every CWL document\ntype (`Workflow`, `CommandLineTool`, `DockerRequirement`, ...) and their `rdfs:subClassOf` relations,\nand is the vocabulary the rest of this register's blocks bind their properties to via `context.jsonld`.",
       "status": "under-development",
       "dateTimeAddition": "2026-08-18T19:19:38.980748",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/cwl.ttl",
       "version": "1.2.1",
@@ -147,7 +147,7 @@
       "abstract": "Command called in the docker image or on shell according to requirements\nand hints specifications. Can be omitted if already defined in the docker\nimage.\n",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.676693",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -185,7 +185,7 @@
       "abstract": "The RDFS vocabulary/ontology for Schema Salad, the schema language CWL is defined in, published\nalongside CWL v1.2 at `https://w3id.org/cwl/salad#` (`sld:`). It defines the metaschema classes used\nto describe CWL's own record/enum/array schemas (`RecordSchema`, `EnumSchema`, `JsonldPredicate`, ...),\ndistinct from the CWL document vocabulary itself (see [CWL Ontology](bblocks://ogc.cwl.v1_2_1.CWLOntology)).",
       "status": "under-development",
       "dateTimeAddition": "2026-08-18T19:19:38.980748",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/salad.ttl",
       "version": "1.2.1",
@@ -225,7 +225,7 @@
       "abstract": "A single allowed value of an `enum` type's\n`symbols` list: a string or number literal.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.706542",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -263,7 +263,7 @@
       "abstract": "The allowed values for `loadListing`, controlling how deeply a\nDirectory's contents are enumerated for use in expressions: `no_listing` (don't load it),\n`shallow_listing` (top level only), or `deep_listing` (recurse into subdirectories).",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.694340",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -301,7 +301,7 @@
       "abstract": "When combined with 'InlineJavascriptRequirement', this field allows runtime parameter references\n(see also: https://www.commonwl.org/v1.2/CommandLineTool.html#Expression).\n",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.677718",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -339,7 +339,7 @@
       "abstract": "Generic identifier name pattern.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.678852",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -377,7 +377,7 @@
       "abstract": "Represents an '$import' directive that should point toward another compatible CWL file to import where specified.\nThe contents of the imported file should be relevant contextually where it is being imported.\n",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.681564",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -416,7 +416,7 @@
       "abstract": "Redirects the value of a CWL input to the command's standard input stream (the 'stdin' shorthand or its equivalent 'type: stdin' object form).",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.690466",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -455,7 +455,7 @@
       "abstract": "An identifier for the type of computational operation a process\nperforms, especially useful for `Operation` but also usable on `CommandLineTool`, `Workflow`, or\n`ExpressionTool`. If provided, must be an IRI of a concept node representing the operation type,\npreferably defined within an ontology \u2014 for example an EDAM Ontology operation concept such as\n`http://edamontology.org/operation_2928` (Alignment).",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.676051",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -493,7 +493,7 @@
       "abstract": "Redirects the command's standard error stream to a CWL output (the 'stderr' shorthand or its equivalent 'type: stderr' object form).",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.691253",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -532,7 +532,7 @@
       "abstract": "Redirects the command's standard output stream to a CWL output (the 'stdout' shorthand or its equivalent 'type: stdout' object form).",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.691121",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -571,7 +571,7 @@
       "abstract": "Describes how to decompose the scattered input into a discrete\nset of jobs. When 'dotproduct', specifies that each of the input arrays\nare aligned and one element taken from each array to construct each job.\nIt is an error if all input arrays are of different length. When 'nested_crossproduct',\nspecifies the Cartesian product of the inputs, producing a job for every\ncombination of the scattered inputs. The output must be nested arrays\nfor each level of scattering, in the order that the input arrays are listed\nin the scatter field. When 'flat_crossproduct', specifies the Cartesian\nproduct of the inputs, producing a job for every combination of the scattered\ninputs. The output arrays must be flattened to a single level, but otherwise\nlisted in the order that the input arrays are listed in the scatter field.\n",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.678164",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -609,7 +609,7 @@
       "abstract": "An optional hash code for validating file integrity. Currently must be in\nthe form `sha1$<hexadecimal string>`, using the SHA-1 algorithm.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.709969",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -647,7 +647,7 @@
       "abstract": "How multiple inbound data links into the same Workflow step input\nare combined: `merge_nested` (default; wraps each source's value, producing a list with one entry\nper link) or `merge_flattened` (concatenates/appends array-valued sources into a single flat list).",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.714443",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -685,7 +685,7 @@
       "abstract": "An item quantity that can also represent a proportion of use by resources.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.706192",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -723,7 +723,7 @@
       "abstract": "Generic schema to allow alternative CWL requirements/hints not explicitly defined in schemas.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.698355",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -762,7 +762,7 @@
       "abstract": "`cwltool` extension requirement declaring that a process\nneeds NVIDIA CUDA (GPU hardware acceleration): minimum CUDA SDK version, required compute\ncapability, and the minimum/maximum number of GPU devices to request.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.682851",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -795,130 +795,13 @@
       }
     },
     {
-      "itemIdentifier": "ogc.cwl.v1_2_1.requirements.ShellCommandRequirement",
-      "name": "ShellCommandRequirement",
-      "itemClass": "schema",
-      "abstract": "Modifies CommandLineTool execution to generate a single\nshell command-line string: each item in `arguments` is joined with spaces and shell-quoted, unless\nits `CommandLineBinding` sets `shellQuote: false` \u2014 in which case it is joined unquoted, allowing\nshell metacharacters such as `|` for pipes.",
-      "status": "under-development",
-      "dateTimeAddition": "2025-09-29T14:14:37.684354",
-      "dateOfLastChange": "2026-09-07",
-      "register": "ogc-building-block-register",
-      "link": "https://www.commonwl.org/v1.2/Workflow.html",
-      "version": "1.2.1",
-      "tags": [
-        "cwl"
-      ],
-      "shaclShapes": {},
-      "schema": {
-        "application/yaml": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/requirements/ShellCommandRequirement/schema.yaml",
-        "application/json": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/requirements/ShellCommandRequirement/schema.json"
-      },
-      "sourceSchema": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/requirements/ShellCommandRequirement/schema.yaml",
-      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/requirements/ShellCommandRequirement/resolvedProperties.json",
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/requirements/ShellCommandRequirement/",
-      "validationPassed": true,
-      "testOutputs": "https://github.com/ogcincubator/bblocks-cwl/blob/master/build/tests/cwl/v1_2_1/requirements/ShellCommandRequirement/",
-      "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/markdown/cwl/v1_2_1/requirements/ShellCommandRequirement/index.md"
-        },
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/json-full/cwl/v1_2_1/requirements/ShellCommandRequirement/index.json"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-cwl/bblock/ogc.cwl.v1_2_1.requirements.ShellCommandRequirement"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogc.cwl.v1_2_1.requirements.StepInputExpressionRequirement",
-      "name": "StepInputExpressionRequirement",
-      "itemClass": "schema",
-      "abstract": "Indicates that the 'Workflow' must support the 'valueFrom' field of 'WorkflowStepInput'.",
-      "status": "under-development",
-      "dateTimeAddition": "2025-09-29T14:14:37.688357",
-      "dateOfLastChange": "2026-09-07",
-      "register": "ogc-building-block-register",
-      "link": "https://www.commonwl.org/v1.2/Workflow.html",
-      "version": "1.2.1",
-      "tags": [
-        "cwl"
-      ],
-      "shaclShapes": {},
-      "schema": {
-        "application/yaml": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/requirements/StepInputExpressionRequirement/schema.yaml",
-        "application/json": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/requirements/StepInputExpressionRequirement/schema.json"
-      },
-      "sourceSchema": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/requirements/StepInputExpressionRequirement/schema.yaml",
-      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/requirements/StepInputExpressionRequirement/resolvedProperties.json",
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/requirements/StepInputExpressionRequirement/",
-      "validationPassed": true,
-      "testOutputs": "https://github.com/ogcincubator/bblocks-cwl/blob/master/build/tests/cwl/v1_2_1/requirements/StepInputExpressionRequirement/",
-      "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/markdown/cwl/v1_2_1/requirements/StepInputExpressionRequirement/index.md"
-        },
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/json-full/cwl/v1_2_1/requirements/StepInputExpressionRequirement/index.json"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-cwl/bblock/ogc.cwl.v1_2_1.requirements.StepInputExpressionRequirement"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogc.cwl.v1_2_1.requirements.ScatterFeatureRequirement",
-      "name": "ScatterFeatureRequirement",
-      "itemClass": "schema",
-      "abstract": "A 'scatter' operation specifies that the associated Workflow step should execute separately over a list of\ninput elements. Each job making up a scatter operation is independent and may be executed concurrently\n(see also: https://www.commonwl.org/v1.2/Workflow.html#WorkflowStep).\n",
-      "status": "under-development",
-      "dateTimeAddition": "2025-09-29T14:14:37.687057",
-      "dateOfLastChange": "2026-09-07",
-      "register": "ogc-building-block-register",
-      "link": "https://www.commonwl.org/v1.2/Workflow.html",
-      "version": "1.2.1",
-      "tags": [
-        "cwl"
-      ],
-      "shaclShapes": {},
-      "schema": {
-        "application/yaml": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/requirements/ScatterFeatureRequirement/schema.yaml",
-        "application/json": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/requirements/ScatterFeatureRequirement/schema.json"
-      },
-      "sourceSchema": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/requirements/ScatterFeatureRequirement/schema.yaml",
-      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/requirements/ScatterFeatureRequirement/resolvedProperties.json",
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/requirements/ScatterFeatureRequirement/",
-      "validationPassed": true,
-      "testOutputs": "https://github.com/ogcincubator/bblocks-cwl/blob/master/build/tests/cwl/v1_2_1/requirements/ScatterFeatureRequirement/",
-      "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/markdown/cwl/v1_2_1/requirements/ScatterFeatureRequirement/index.md"
-        },
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/json-full/cwl/v1_2_1/requirements/ScatterFeatureRequirement/index.json"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-cwl/bblock/ogc.cwl.v1_2_1.requirements.ScatterFeatureRequirement"
-        }
-      }
-    },
-    {
       "itemIdentifier": "ogc.cwl.v1_2_1.requirements.SubworkflowFeatureRequirement",
       "name": "SubworkflowFeatureRequirement",
       "itemClass": "schema",
       "abstract": "Indicates that the 'Workflow' must support nested workflows in the 'run' field of 'WorkflowStep'.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.688588",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -951,13 +834,130 @@
       }
     },
     {
+      "itemIdentifier": "ogc.cwl.v1_2_1.requirements.ShellCommandRequirement",
+      "name": "ShellCommandRequirement",
+      "itemClass": "schema",
+      "abstract": "Modifies CommandLineTool execution to generate a single\nshell command-line string: each item in `arguments` is joined with spaces and shell-quoted, unless\nits `CommandLineBinding` sets `shellQuote: false` \u2014 in which case it is joined unquoted, allowing\nshell metacharacters such as `|` for pipes.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-09-29T14:14:37.684354",
+      "dateOfLastChange": "2026-09-09",
+      "register": "ogc-building-block-register",
+      "link": "https://www.commonwl.org/v1.2/Workflow.html",
+      "version": "1.2.1",
+      "tags": [
+        "cwl"
+      ],
+      "shaclShapes": {},
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/requirements/ShellCommandRequirement/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/requirements/ShellCommandRequirement/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/requirements/ShellCommandRequirement/schema.yaml",
+      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/requirements/ShellCommandRequirement/resolvedProperties.json",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/requirements/ShellCommandRequirement/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-cwl/blob/master/build/tests/cwl/v1_2_1/requirements/ShellCommandRequirement/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/markdown/cwl/v1_2_1/requirements/ShellCommandRequirement/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/json-full/cwl/v1_2_1/requirements/ShellCommandRequirement/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-cwl/bblock/ogc.cwl.v1_2_1.requirements.ShellCommandRequirement"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.cwl.v1_2_1.requirements.ScatterFeatureRequirement",
+      "name": "ScatterFeatureRequirement",
+      "itemClass": "schema",
+      "abstract": "A 'scatter' operation specifies that the associated Workflow step should execute separately over a list of\ninput elements. Each job making up a scatter operation is independent and may be executed concurrently\n(see also: https://www.commonwl.org/v1.2/Workflow.html#WorkflowStep).\n",
+      "status": "under-development",
+      "dateTimeAddition": "2025-09-29T14:14:37.687057",
+      "dateOfLastChange": "2026-09-09",
+      "register": "ogc-building-block-register",
+      "link": "https://www.commonwl.org/v1.2/Workflow.html",
+      "version": "1.2.1",
+      "tags": [
+        "cwl"
+      ],
+      "shaclShapes": {},
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/requirements/ScatterFeatureRequirement/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/requirements/ScatterFeatureRequirement/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/requirements/ScatterFeatureRequirement/schema.yaml",
+      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/requirements/ScatterFeatureRequirement/resolvedProperties.json",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/requirements/ScatterFeatureRequirement/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-cwl/blob/master/build/tests/cwl/v1_2_1/requirements/ScatterFeatureRequirement/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/markdown/cwl/v1_2_1/requirements/ScatterFeatureRequirement/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/json-full/cwl/v1_2_1/requirements/ScatterFeatureRequirement/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-cwl/bblock/ogc.cwl.v1_2_1.requirements.ScatterFeatureRequirement"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.cwl.v1_2_1.requirements.StepInputExpressionRequirement",
+      "name": "StepInputExpressionRequirement",
+      "itemClass": "schema",
+      "abstract": "Indicates that the 'Workflow' must support the 'valueFrom' field of 'WorkflowStepInput'.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-09-29T14:14:37.688357",
+      "dateOfLastChange": "2026-09-09",
+      "register": "ogc-building-block-register",
+      "link": "https://www.commonwl.org/v1.2/Workflow.html",
+      "version": "1.2.1",
+      "tags": [
+        "cwl"
+      ],
+      "shaclShapes": {},
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/requirements/StepInputExpressionRequirement/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/requirements/StepInputExpressionRequirement/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/requirements/StepInputExpressionRequirement/schema.yaml",
+      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/requirements/StepInputExpressionRequirement/resolvedProperties.json",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/requirements/StepInputExpressionRequirement/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-cwl/blob/master/build/tests/cwl/v1_2_1/requirements/StepInputExpressionRequirement/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/markdown/cwl/v1_2_1/requirements/StepInputExpressionRequirement/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/json-full/cwl/v1_2_1/requirements/StepInputExpressionRequirement/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-cwl/bblock/ogc.cwl.v1_2_1.requirements.StepInputExpressionRequirement"
+        }
+      }
+    },
+    {
       "itemIdentifier": "ogc.cwl.v1_2_1.requirements.MultipleInputFeatureRequirement",
       "name": "MultipleInputFeatureRequirement",
       "itemClass": "schema",
       "abstract": "Indicates that the 'Workflow' must support multiple inbound data links listed in the 'source'\nfield of 'WorkflowStepInput'.\n",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.688115",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -996,7 +996,7 @@
       "abstract": "The URL/fragment syntax for referencing a named\nrecord type by IRI: an optional URL/local path prefix followed by a `#RecordName` fragment\nidentifier, resolved per [CWL's identifier resolution rules](https://www.commonwl.org/v1.2/SchemaSalad.html#Identifier_resolution).",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.710298",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -1037,7 +1037,7 @@
       ],
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.705091",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -1078,7 +1078,7 @@
       "abstract": "The shape of a `default` value for a File- or Directory-typed\ninput: a literal File or Directory object, identified by a `path` or `location` and optionally\n`basename`/`nameroot`, used when no value is provided for the input at execution time.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.706716",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -1122,7 +1122,7 @@
       "abstract": "Shared document-level metadata fields: `s:keywords` (for search and\ncategorization) and the process/document `version`.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.673719",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -1166,7 +1166,7 @@
       "abstract": "The 'class: Workflow' discriminator, shared by the root Workflow document and its nested-in-step form; not typically profiled on its own.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.675173",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -1211,7 +1211,7 @@
       "abstract": "Indicates that a CommandLineTool or ExpressionTool should be run\nin a Docker or Docker-compatible (e.g. Singularity, udocker) container, and specifies how to fetch\nor build the image (`dockerPull`, `dockerImport`, `dockerLoad`, or `dockerFile`). If listed under\n`hints`, the platform may run the tool in the container; if listed under `requirements`, it must.\nSee the [CWL v1.2 CommandLineTool spec \u2014 DockerRequirement](https://www.commonwl.org/v1.2/CommandLineTool.html#DockerRequirement)\nfor the full behavior, including bind-mount and entrypoint handling.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.683513",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -1255,7 +1255,7 @@
       "abstract": "Indicates that the workflow platform must support inline Javascript expressions.\n\nIf this requirement is not present, the workflow platform must not perform expression interpolation\n(see also: https://www.commonwl.org/v1.2/CommandLineTool.html#InlineJavascriptRequirement).\n",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.685446",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -1299,7 +1299,7 @@
       "abstract": "If 'inplaceUpdate' is true, then an implementation supporting this feature may permit tools to directly\nupdate files with 'writable: true' in 'InitialWorkDirRequirement'. That is, as an optimization,\nfiles may be destructively modified in place as opposed to copied and updated\n(see also: https://www.commonwl.org/v1.2/CommandLineTool.html#InplaceUpdateRequirement).\n",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.685745",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -1343,7 +1343,7 @@
       "abstract": "Field type definition.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.707051",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -1351,8 +1351,8 @@
         "cwl"
       ],
       "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.CWLOntology",
-        "bblocks://ogc.cwl.v1_2_1.SchemaSaladOntology"
+        "bblocks://ogc.cwl.v1_2_1.SchemaSaladOntology",
+        "bblocks://ogc.cwl.v1_2_1.CWLOntology"
       ],
       "shaclShapes": {},
       "ldContext": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/CWLTypeDefinition/context.jsonld",
@@ -1387,7 +1387,7 @@
       "abstract": "The `symbols` list of an `enum` type: the set of allowed\nvalues composing the enum.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.705236",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -1428,7 +1428,7 @@
       "abstract": "Parameters that only apply to Directory-typed (or\nDirectory-array-typed) inputs/outputs: `loadListing`, controlling whether/how deeply the directory's\ncontents are enumerated for use in expressions.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.714311",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -1436,8 +1436,8 @@
         "cwl"
       ],
       "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.CWLOntology",
-        "bblocks://ogc.cwl.v1_2_1.LoadListingEnum"
+        "bblocks://ogc.cwl.v1_2_1.LoadListingEnum",
+        "bblocks://ogc.cwl.v1_2_1.CWLOntology"
       ],
       "shaclShapes": {},
       "ldContext": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/CWLDirectoryOnlyParameters/context.jsonld",
@@ -1473,7 +1473,7 @@
       "abstract": "Specify the desired behavior for loading the listing field of a 'Directory' object for use by expressions\n(see also: https://www.commonwl.org/v1.2/CommandLineTool.html#LoadListingRequirement).\n",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.686079",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -1481,8 +1481,8 @@
         "cwl"
       ],
       "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.CWLOntology",
-        "bblocks://ogc.cwl.v1_2_1.LoadListingEnum"
+        "bblocks://ogc.cwl.v1_2_1.LoadListingEnum",
+        "bblocks://ogc.cwl.v1_2_1.CWLOntology"
       ],
       "shaclShapes": {},
       "ldContext": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/requirements/LoadListingRequirement/context.jsonld",
@@ -1518,7 +1518,7 @@
       "abstract": "Parameters that only apply to File-typed (or File-array-typed)\ninputs/outputs: `format` (the file's content format/media type, as an IRI or CWL expression),\n`streamable`, `loadContents` (whether to load the first 64 KiB of file content for use in\nexpressions), and `secondaryFiles` (associated files expected alongside the primary one).",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.714105",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -1563,7 +1563,7 @@
       "abstract": "Defines how to specify the input for the command.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.680825",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -1608,7 +1608,7 @@
       "abstract": "Defines how to retrieve the output result from the command.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.703103",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -1653,7 +1653,7 @@
       "abstract": "Defines a list of environment variables to set in the tool's\nexecution environment.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.684530",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -1698,7 +1698,7 @@
       "abstract": "`cwltool` extension hint/requirement indicating whether a\nprocess needs outgoing network access. If not specified or false, tools must not assume network\naccess beyond localhost; if true, the tool may make outgoing connections, though implementations may\nstill apply their own security policies. Does not imply a publicly routable address or inbound\nconnections.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.686363",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -1743,7 +1743,7 @@
       "abstract": "Set an upper limit on the execution time of a CommandLineTool.\n\nA CommandLineTool whose execution duration exceeds the time limit may be preemptively\nterminated and considered failed. May also be used by batch systems to make scheduling decisions.\n\nThe execution duration excludes external operations, such as staging of files,\npulling a docker image etc., and only counts wall-time for the execution of the command line itself.\n",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.687380",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -1788,7 +1788,7 @@
       "abstract": "For implementations that support reusing output from past work\n(on the assumption that same code and same input produce same results),\ncontrol whether to enable or disable the reuse behavior for a particular tool\nor step (to accommodate situations where that assumption is incorrect).\n\nA reused step is not executed but instead returns the same output as the original execution.\n\nIf 'WorkReuse' is not specified, correct tools should assume it is enabled by default.\n",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.687743",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -1833,7 +1833,7 @@
       "abstract": "Reference to the process identifier.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.675825",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -1874,7 +1874,7 @@
       "abstract": "Hint indicating that the Application Package corresponds to a\nbuiltin process of this instance. (note: can only be an 'hint'\nas it is unofficial CWL specification).\n",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.697405",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -1918,7 +1918,7 @@
       "abstract": "An array of one or more CWL identifiers, used e.g. when\n`scatter` lists more than one input parameter to fan a Workflow step out over.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.711343",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -1959,7 +1959,7 @@
       "abstract": "Defines a list of files and subdirectories that must be\nstaged by the workflow platform prior to executing the command line tool, normally within the\ndesignated output directory (though containers may stage them elsewhere).",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.685221",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -1967,8 +1967,8 @@
         "cwl"
       ],
       "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.Checksum",
         "bblocks://ogc.cwl.v1_2_1.CWLExpression",
+        "bblocks://ogc.cwl.v1_2_1.Checksum",
         "bblocks://ogc.cwl.v1_2_1.CWLOntology"
       ],
       "shaclShapes": {},
@@ -2005,7 +2005,7 @@
       "abstract": "Common workflow step input properties (source, linkMerge, valueFrom), shared by the step input's list and map representations; not typically profiled on its own.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.713509",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -2014,8 +2014,8 @@
         "shared-fragment"
       ],
       "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.CWLExpression",
         "bblocks://ogc.cwl.v1_2_1.LinkMergeMethod",
+        "bblocks://ogc.cwl.v1_2_1.CWLExpression",
         "bblocks://ogc.cwl.v1_2_1.CWLOntology"
       ],
       "shaclShapes": {},
@@ -2052,7 +2052,7 @@
       "abstract": "Specify basic hardware resource requirements for a CommandLineTool: minimum/maximum CPU cores, RAM, and output/temporary directory storage.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.686613",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -2060,8 +2060,8 @@
         "cwl"
       ],
       "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.CWLExpression",
         "bblocks://ogc.cwl.v1_2_1.ResourceQuantityOrFractional",
+        "bblocks://ogc.cwl.v1_2_1.CWLExpression",
         "bblocks://ogc.cwl.v1_2_1.CWLOntology"
       ],
       "shaclShapes": {},
@@ -2098,7 +2098,7 @@
       "abstract": "A single software package entry within a `SoftwareRequirement`:\nthe package name, optionally the compatible version(s), and optionally one or more IRIs identifying\nresources for installing or enabling it (e.g. a Debian or Conda package page), which implementations\nmay resolve to a concrete install action.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.692582",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -2106,8 +2106,8 @@
         "cwl"
       ],
       "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.CWLOntology",
-        "bblocks://ogc.cwl.v1_2_1.ReferenceURL"
+        "bblocks://ogc.cwl.v1_2_1.ReferenceURL",
+        "bblocks://ogc.cwl.v1_2_1.CWLOntology"
       ],
       "shaclShapes": {},
       "ldContext": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/SoftwarePackage/context.jsonld",
@@ -2143,7 +2143,7 @@
       "abstract": "Hint indicating that the Application Package corresponds to an\nOGC API - Processes provider that should be remotely executed and monitored\nby this instance. (note: can only be an 'hint' as it is unofficial CWL specification).\n",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.697699",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -2187,7 +2187,7 @@
       "abstract": "Hint indicating that the Application Package corresponds to a\nWPS-1 provider process that should be remotely executed and monitored by this\ninstance. (note: can only be an ''hint'' as it is unofficial CWL specification).\n",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.698000",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -2232,7 +2232,7 @@
       "abstract": "Default value of input if not provided for task execution.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.714555",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -2278,7 +2278,7 @@
       ],
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.707771",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -2320,7 +2320,7 @@
       "abstract": "Validates that a `default` value, if given alongside a\n`type`, actually matches that declared type (e.g. a `default` for `type: boolean` must be a JSON\nboolean, one for an `enum` type must be one of its `symbols`, one for `File`/`Directory` must be a\nliteral file/directory object). Limits itself to data literals and arrays; nested or multi-type\n`type` definitions validate against `Any` instead of being over-constrained.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.699245",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -2367,7 +2367,7 @@
       "abstract": "An inline CWL `enum` type definition: `type: enum` plus its\nallowed `symbols`.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.693164",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -2403,60 +2403,13 @@
       }
     },
     {
-      "itemIdentifier": "ogc.cwl.v1_2_1.type-system.CWLTypeRecordFieldDef",
-      "name": "CWLTypeRecordFieldDef",
-      "itemClass": "schema",
-      "abstract": "The definition of a single field within an\ninline CWL `record` type: its `type` and, for the list form of `fields`, its `name`. Also carries\nthe file-only and directory-only parameters (`format`, `secondaryFiles`, `loadListing`, ...), since a\nrecord field's type can itself be File- or Directory-typed.",
-      "status": "under-development",
-      "dateTimeAddition": "2025-09-29T14:14:37.711487",
-      "dateOfLastChange": "2026-09-07",
-      "register": "ogc-building-block-register",
-      "link": "https://www.commonwl.org/v1.2/Workflow.html",
-      "version": "1.2.1",
-      "tags": [
-        "cwl"
-      ],
-      "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.CWLDirectoryOnlyParameters",
-        "bblocks://ogc.cwl.v1_2_1.SchemaSaladOntology",
-        "bblocks://ogc.cwl.v1_2_1.CWLFileOnlyParameters",
-        "bblocks://ogc.cwl.v1_2_1.CWLType"
-      ],
-      "shaclShapes": {},
-      "ldContext": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/type-system/CWLTypeRecordFieldDef/context.jsonld",
-      "schema": {
-        "application/yaml": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/type-system/CWLTypeRecordFieldDef/schema.yaml",
-        "application/json": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/type-system/CWLTypeRecordFieldDef/schema.json"
-      },
-      "sourceSchema": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/type-system/CWLTypeRecordFieldDef/schema.yaml",
-      "sourceLdContext": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/type-system/CWLTypeRecordFieldDef/context.jsonld",
-      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/type-system/CWLTypeRecordFieldDef/resolvedProperties.json",
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/type-system/CWLTypeRecordFieldDef/",
-      "validationPassed": true,
-      "testOutputs": "https://github.com/ogcincubator/bblocks-cwl/blob/master/build/tests/cwl/v1_2_1/type-system/CWLTypeRecordFieldDef/",
-      "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/markdown/cwl/v1_2_1/type-system/CWLTypeRecordFieldDef/index.md"
-        },
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/json-full/cwl/v1_2_1/type-system/CWLTypeRecordFieldDef/index.json"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-cwl/bblock/ogc.cwl.v1_2_1.type-system.CWLTypeRecordFieldDef"
-        }
-      }
-    },
-    {
       "itemIdentifier": "ogc.cwl.v1_2_1.CWLArguments",
       "name": "CWLArguments",
       "itemClass": "schema",
       "abstract": "Base arguments passed to the command.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.676906",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -2499,7 +2452,7 @@
       "abstract": "One or more input identifier of an application step within a Workflow\nwere an array-based input to that Workflow should be scattered across multiple\ninstances of the step application.\n",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.677961",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -2540,7 +2493,7 @@
       "abstract": "The `id` field required on a Workflow step when `steps` is given\nas a list rather than a map: identifies the step within the workflow.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.704756",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -2584,7 +2537,7 @@
       "abstract": "A list of software packages that should be configured in the\nprocess's execution environment.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.683997",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -2592,8 +2545,8 @@
         "cwl"
       ],
       "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.SoftwarePackage",
-        "bblocks://ogc.cwl.v1_2_1.CWLOntology"
+        "bblocks://ogc.cwl.v1_2_1.CWLOntology",
+        "bblocks://ogc.cwl.v1_2_1.SoftwarePackage"
       ],
       "shaclShapes": {},
       "ldContext": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/requirements/SoftwareRequirement/context.jsonld",
@@ -2629,7 +2582,7 @@
       "abstract": "The 'default' property for a workflow step input, shared by the step input's list and map representations; not typically profiled on its own.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.713753",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -2669,48 +2622,48 @@
       }
     },
     {
-      "itemIdentifier": "ogc.cwl.v1_2_1.type-system.CWLTypeRecordSchema",
-      "name": "CWLTypeRecordSchema",
+      "itemIdentifier": "ogc.cwl.v1_2_1.CWLType",
+      "name": "CWLType",
       "itemClass": "schema",
-      "abstract": "An inline CWL `record` type definition: `type:\nrecord`, an optional `name`, and its `fields`, given either as a map keyed by field name or as a\nlist of field definitions (each of which must then carry its own `name`).",
+      "abstract": "The set of types a CWL input or output parameter may declare: the CWL\nprimitive/File/Directory types, an inline enum, an inline record, a reference to a named type\n(record or enum) defined elsewhere, an array of one of these, or an array combining several of\nthese (a type union).",
       "status": "under-development",
-      "dateTimeAddition": "2025-09-29T14:14:37.693426",
-      "dateOfLastChange": "2026-09-07",
+      "dateTimeAddition": "2025-09-29T14:14:37.690093",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
       "tags": [
         "cwl"
       ],
-      "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.SchemaSaladOntology",
-        "bblocks://ogc.cwl.v1_2_1.type-system.CWLTypeRecordFieldDef",
-        "bblocks://ogc.cwl.v1_2_1.CWLType"
-      ],
       "shaclShapes": {},
-      "ldContext": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/type-system/CWLTypeRecordSchema/context.jsonld",
+      "dependsOn": [
+        "bblocks://ogc.cwl.v1_2_1.type-system.CWLTypeRecordSchema",
+        "bblocks://ogc.cwl.v1_2_1.type-system.CWLTypeRecordRef",
+        "bblocks://ogc.cwl.v1_2_1.CWLTypeDefinition",
+        "bblocks://ogc.cwl.v1_2_1.type-system.CWLTypeEnum"
+      ],
       "schema": {
-        "application/yaml": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/type-system/CWLTypeRecordSchema/schema.yaml",
-        "application/json": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/type-system/CWLTypeRecordSchema/schema.json"
+        "application/yaml": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/CWLType/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/CWLType/schema.json"
       },
-      "sourceSchema": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/type-system/CWLTypeRecordSchema/schema.yaml",
-      "sourceLdContext": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/type-system/CWLTypeRecordSchema/context.jsonld",
-      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/type-system/CWLTypeRecordSchema/resolvedProperties.json",
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/type-system/CWLTypeRecordSchema/",
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/CWLType/schema.yaml",
+      "ldContext": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/CWLType/context.jsonld",
+      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/CWLType/resolvedProperties.json",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/CWLType/",
       "validationPassed": true,
-      "testOutputs": "https://github.com/ogcincubator/bblocks-cwl/blob/master/build/tests/cwl/v1_2_1/type-system/CWLTypeRecordSchema/",
+      "testOutputs": "https://github.com/ogcincubator/bblocks-cwl/blob/master/build/tests/cwl/v1_2_1/CWLType/",
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/markdown/cwl/v1_2_1/type-system/CWLTypeRecordSchema/index.md"
+          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/markdown/cwl/v1_2_1/CWLType/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/json-full/cwl/v1_2_1/type-system/CWLTypeRecordSchema/index.json"
+          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/json-full/cwl/v1_2_1/CWLType/index.json"
         },
         "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-cwl/bblock/ogc.cwl.v1_2_1.type-system.CWLTypeRecordSchema"
+          "url": "https://ogcincubator.github.io/bblocks-cwl/bblock/ogc.cwl.v1_2_1.CWLType"
         }
       }
     },
@@ -2721,7 +2674,7 @@
       "abstract": "Mapping of Workflow step inputs to nested CWL tool definitions inputs or outputs.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.708696",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -2730,8 +2683,8 @@
       ],
       "shaclShapes": {},
       "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.workflow-step.CWLWorkflowStepId",
-        "bblocks://ogc.cwl.v1_2_1.CWLIdentifier"
+        "bblocks://ogc.cwl.v1_2_1.CWLIdentifier",
+        "bblocks://ogc.cwl.v1_2_1.workflow-step.CWLWorkflowStepId"
       ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/workflow-step/CWLWorkflowStepOut/schema.yaml",
@@ -2765,7 +2718,7 @@
       "abstract": "A single entry of a Workflow step's `in` mapping, in its\nlist form: combines the step-input id, the common wiring fields (`source`, `linkMerge`,\n`valueFrom`), and the optional `default` value used when a source produces no data.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.711950",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -2774,8 +2727,8 @@
       ],
       "shaclShapes": {},
       "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.workflow-step.CWLWorkflowStepId",
         "bblocks://ogc.cwl.v1_2_1.workflow-step.CWLWorkflowStepInputBase",
+        "bblocks://ogc.cwl.v1_2_1.workflow-step.CWLWorkflowStepId",
         "bblocks://ogc.cwl.v1_2_1.workflow-step.CWLWorkflowStepInputDefault"
       ],
       "schema": {
@@ -2804,104 +2757,13 @@
       }
     },
     {
-      "itemIdentifier": "ogc.cwl.v1_2_1.CWLType",
-      "name": "CWLType",
-      "itemClass": "schema",
-      "abstract": "The set of types a CWL input or output parameter may declare: the CWL\nprimitive/File/Directory types, an inline enum, an inline record, a reference to a named type\n(record or enum) defined elsewhere, an array of one of these, or an array combining several of\nthese (a type union).",
-      "status": "under-development",
-      "dateTimeAddition": "2025-09-29T14:14:37.690093",
-      "dateOfLastChange": "2026-09-07",
-      "register": "ogc-building-block-register",
-      "link": "https://www.commonwl.org/v1.2/Workflow.html",
-      "version": "1.2.1",
-      "tags": [
-        "cwl"
-      ],
-      "shaclShapes": {},
-      "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.CWLTypeDefinition",
-        "bblocks://ogc.cwl.v1_2_1.type-system.CWLTypeEnum",
-        "bblocks://ogc.cwl.v1_2_1.type-system.CWLTypeRecordRef",
-        "bblocks://ogc.cwl.v1_2_1.type-system.CWLTypeRecordSchema"
-      ],
-      "schema": {
-        "application/yaml": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/CWLType/schema.yaml",
-        "application/json": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/CWLType/schema.json"
-      },
-      "sourceSchema": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/CWLType/schema.yaml",
-      "ldContext": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/CWLType/context.jsonld",
-      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/CWLType/resolvedProperties.json",
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/CWLType/",
-      "validationPassed": true,
-      "testOutputs": "https://github.com/ogcincubator/bblocks-cwl/blob/master/build/tests/cwl/v1_2_1/CWLType/",
-      "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/markdown/cwl/v1_2_1/CWLType/index.md"
-        },
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/json-full/cwl/v1_2_1/CWLType/index.json"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-cwl/bblock/ogc.cwl.v1_2_1.CWLType"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogc.cwl.v1_2_1.workflow-step.CWLWorkflowStepIn",
-      "name": "CWLWorkflowStepIn",
-      "itemClass": "schema",
-      "abstract": "Mapping of Workflow step inputs to nested CWL tool definitions inputs or outputs.",
-      "status": "under-development",
-      "dateTimeAddition": "2025-09-29T14:14:37.708164",
-      "dateOfLastChange": "2026-09-07",
-      "register": "ogc-building-block-register",
-      "link": "https://www.commonwl.org/v1.2/Workflow.html",
-      "version": "1.2.1",
-      "tags": [
-        "cwl"
-      ],
-      "shaclShapes": {},
-      "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.workflow-step.CWLWorkflowStepInputBase",
-        "bblocks://ogc.cwl.v1_2_1.workflow-step.CWLWorkflowStepInItem",
-        "bblocks://ogc.cwl.v1_2_1.workflow-step.CWLWorkflowStepInputDefault"
-      ],
-      "schema": {
-        "application/yaml": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/workflow-step/CWLWorkflowStepIn/schema.yaml",
-        "application/json": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/workflow-step/CWLWorkflowStepIn/schema.json"
-      },
-      "sourceSchema": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/workflow-step/CWLWorkflowStepIn/schema.yaml",
-      "ldContext": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/workflow-step/CWLWorkflowStepIn/context.jsonld",
-      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/workflow-step/CWLWorkflowStepIn/resolvedProperties.json",
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/workflow-step/CWLWorkflowStepIn/",
-      "validationPassed": true,
-      "testOutputs": "https://github.com/ogcincubator/bblocks-cwl/blob/master/build/tests/cwl/v1_2_1/workflow-step/CWLWorkflowStepIn/",
-      "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/markdown/cwl/v1_2_1/workflow-step/CWLWorkflowStepIn/index.md"
-        },
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/json-full/cwl/v1_2_1/workflow-step/CWLWorkflowStepIn/index.json"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-cwl/bblock/ogc.cwl.v1_2_1.workflow-step.CWLWorkflowStepIn"
-        }
-      }
-    },
-    {
       "itemIdentifier": "ogc.cwl.v1_2_1.CWLInputItem",
       "name": "CWLInputItem",
       "itemClass": "schema",
       "abstract": "Input specification. Note that multiple formats are supported and\nnot all specification variants or parameters are presented here. Please refer\nto official CWL documentation for more details (https://www.commonwl.org).\n",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.689863",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -2910,13 +2772,13 @@
       ],
       "dependsOn": [
         "bblocks://ogc.cwl.v1_2_1.CWLIdentifier",
-        "bblocks://ogc.cwl.v1_2_1.CWLDefaultTypedConditional",
-        "bblocks://ogc.cwl.v1_2_1.SchemaSaladOntology",
-        "bblocks://ogc.cwl.v1_2_1.InputBinding",
-        "bblocks://ogc.cwl.v1_2_1.CWLOntology",
+        "bblocks://ogc.cwl.v1_2_1.CWLType",
         "bblocks://ogc.cwl.v1_2_1.CWLInputStdIn",
         "bblocks://ogc.cwl.v1_2_1.CWLDocumentation",
-        "bblocks://ogc.cwl.v1_2_1.CWLType"
+        "bblocks://ogc.cwl.v1_2_1.CWLOntology",
+        "bblocks://ogc.cwl.v1_2_1.CWLDefaultTypedConditional",
+        "bblocks://ogc.cwl.v1_2_1.SchemaSaladOntology",
+        "bblocks://ogc.cwl.v1_2_1.InputBinding"
       ],
       "shaclShapes": {},
       "ldContext": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/CWLInputItem/context.jsonld",
@@ -2952,7 +2814,7 @@
       "abstract": "The type/parameter definition of a single CWL input when expressed\nas a nested object (as opposed to a bare type shorthand): `type`, an optional `inputBinding`, plus\nthe shared default-type-consistency and documentation fields.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.690237",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -2960,11 +2822,11 @@
         "cwl"
       ],
       "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.CWLDefaultTypedConditional",
-        "bblocks://ogc.cwl.v1_2_1.InputBinding",
-        "bblocks://ogc.cwl.v1_2_1.CWLOntology",
+        "bblocks://ogc.cwl.v1_2_1.CWLType",
         "bblocks://ogc.cwl.v1_2_1.CWLDocumentation",
-        "bblocks://ogc.cwl.v1_2_1.CWLType"
+        "bblocks://ogc.cwl.v1_2_1.CWLOntology",
+        "bblocks://ogc.cwl.v1_2_1.CWLDefaultTypedConditional",
+        "bblocks://ogc.cwl.v1_2_1.InputBinding"
       ],
       "shaclShapes": {},
       "ldContext": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/CWLInputObject/context.jsonld",
@@ -3000,7 +2862,7 @@
       "abstract": "Output specification. Note that multiple formats are supported\nand not all specification variants or parameters are presented here. Please\nrefer to official CWL documentation for more details (https://www.commonwl.org).\n",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.690602",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -3008,13 +2870,13 @@
         "cwl"
       ],
       "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.CWLOutputStdErr",
         "bblocks://ogc.cwl.v1_2_1.CWLIdentifier",
+        "bblocks://ogc.cwl.v1_2_1.CWLType",
         "bblocks://ogc.cwl.v1_2_1.CWLOntology",
-        "bblocks://ogc.cwl.v1_2_1.SchemaSaladOntology",
-        "bblocks://ogc.cwl.v1_2_1.OutputBinding",
+        "bblocks://ogc.cwl.v1_2_1.CWLOutputStdErr",
         "bblocks://ogc.cwl.v1_2_1.CWLOutputStdOut",
-        "bblocks://ogc.cwl.v1_2_1.CWLType"
+        "bblocks://ogc.cwl.v1_2_1.SchemaSaladOntology",
+        "bblocks://ogc.cwl.v1_2_1.OutputBinding"
       ],
       "shaclShapes": {},
       "ldContext": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/CWLOutputItem/context.jsonld",
@@ -3050,7 +2912,7 @@
       "abstract": "The type/parameter definition of a single CWL output when\nexpressed as a nested object (as opposed to a bare type shorthand): `type`, an optional\n`outputBinding`, plus the shared documentation fields.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.690989",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -3058,11 +2920,11 @@
         "cwl"
       ],
       "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.OutputBinding",
-        "bblocks://ogc.cwl.v1_2_1.SchemaSaladOntology",
-        "bblocks://ogc.cwl.v1_2_1.CWLOntology",
+        "bblocks://ogc.cwl.v1_2_1.CWLType",
         "bblocks://ogc.cwl.v1_2_1.CWLDocumentation",
-        "bblocks://ogc.cwl.v1_2_1.CWLType"
+        "bblocks://ogc.cwl.v1_2_1.CWLOntology",
+        "bblocks://ogc.cwl.v1_2_1.SchemaSaladOntology",
+        "bblocks://ogc.cwl.v1_2_1.OutputBinding"
       ],
       "shaclShapes": {},
       "ldContext": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/CWLOutputObject/context.jsonld",
@@ -3098,7 +2960,7 @@
       "abstract": "A CWL type definition for an array whose elements\nare all of the same, further-specified CWL type: `type: array` plus an `items` type.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.693637",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -3106,8 +2968,8 @@
         "cwl"
       ],
       "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.SchemaSaladOntology",
-        "bblocks://ogc.cwl.v1_2_1.CWLType"
+        "bblocks://ogc.cwl.v1_2_1.CWLType",
+        "bblocks://ogc.cwl.v1_2_1.SchemaSaladOntology"
       ],
       "shaclShapes": {},
       "ldContext": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/type-system/CWLTypeRecordArray/context.jsonld",
@@ -3137,13 +2999,105 @@
       }
     },
     {
+      "itemIdentifier": "ogc.cwl.v1_2_1.type-system.CWLTypeRecordFieldDef",
+      "name": "CWLTypeRecordFieldDef",
+      "itemClass": "schema",
+      "abstract": "The definition of a single field within an\ninline CWL `record` type: its `type` and, for the list form of `fields`, its `name`. Also carries\nthe file-only and directory-only parameters (`format`, `secondaryFiles`, `loadListing`, ...), since a\nrecord field's type can itself be File- or Directory-typed.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-09-29T14:14:37.711487",
+      "dateOfLastChange": "2026-09-09",
+      "register": "ogc-building-block-register",
+      "link": "https://www.commonwl.org/v1.2/Workflow.html",
+      "version": "1.2.1",
+      "tags": [
+        "cwl"
+      ],
+      "dependsOn": [
+        "bblocks://ogc.cwl.v1_2_1.CWLDirectoryOnlyParameters",
+        "bblocks://ogc.cwl.v1_2_1.CWLType",
+        "bblocks://ogc.cwl.v1_2_1.CWLFileOnlyParameters",
+        "bblocks://ogc.cwl.v1_2_1.SchemaSaladOntology"
+      ],
+      "shaclShapes": {},
+      "ldContext": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/type-system/CWLTypeRecordFieldDef/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/type-system/CWLTypeRecordFieldDef/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/type-system/CWLTypeRecordFieldDef/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/type-system/CWLTypeRecordFieldDef/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/type-system/CWLTypeRecordFieldDef/context.jsonld",
+      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/type-system/CWLTypeRecordFieldDef/resolvedProperties.json",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/type-system/CWLTypeRecordFieldDef/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-cwl/blob/master/build/tests/cwl/v1_2_1/type-system/CWLTypeRecordFieldDef/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/markdown/cwl/v1_2_1/type-system/CWLTypeRecordFieldDef/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/json-full/cwl/v1_2_1/type-system/CWLTypeRecordFieldDef/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-cwl/bblock/ogc.cwl.v1_2_1.type-system.CWLTypeRecordFieldDef"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.cwl.v1_2_1.workflow-step.CWLWorkflowStepIn",
+      "name": "CWLWorkflowStepIn",
+      "itemClass": "schema",
+      "abstract": "Mapping of Workflow step inputs to nested CWL tool definitions inputs or outputs.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-09-29T14:14:37.708164",
+      "dateOfLastChange": "2026-09-09",
+      "register": "ogc-building-block-register",
+      "link": "https://www.commonwl.org/v1.2/Workflow.html",
+      "version": "1.2.1",
+      "tags": [
+        "cwl"
+      ],
+      "shaclShapes": {},
+      "dependsOn": [
+        "bblocks://ogc.cwl.v1_2_1.workflow-step.CWLWorkflowStepInItem",
+        "bblocks://ogc.cwl.v1_2_1.workflow-step.CWLWorkflowStepInputDefault",
+        "bblocks://ogc.cwl.v1_2_1.workflow-step.CWLWorkflowStepInputBase"
+      ],
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/workflow-step/CWLWorkflowStepIn/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/workflow-step/CWLWorkflowStepIn/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/workflow-step/CWLWorkflowStepIn/schema.yaml",
+      "ldContext": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/workflow-step/CWLWorkflowStepIn/context.jsonld",
+      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/workflow-step/CWLWorkflowStepIn/resolvedProperties.json",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/workflow-step/CWLWorkflowStepIn/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-cwl/blob/master/build/tests/cwl/v1_2_1/workflow-step/CWLWorkflowStepIn/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/markdown/cwl/v1_2_1/workflow-step/CWLWorkflowStepIn/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/json-full/cwl/v1_2_1/workflow-step/CWLWorkflowStepIn/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-cwl/bblock/ogc.cwl.v1_2_1.workflow-step.CWLWorkflowStepIn"
+        }
+      }
+    },
+    {
       "itemIdentifier": "ogc.cwl.v1_2_1.CWLInputsDefinition",
       "name": "CWLInputsDefinition",
       "itemClass": "schema",
       "abstract": "All inputs available to the Application Package.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.677093",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -3153,10 +3107,10 @@
       "shaclShapes": {},
       "dependsOn": [
         "bblocks://ogc.cwl.v1_2_1.CWLInputItem",
-        "bblocks://ogc.cwl.v1_2_1.CWLInputObject",
+        "bblocks://ogc.cwl.v1_2_1.CWLType",
         "bblocks://ogc.cwl.v1_2_1.CWLImport",
         "bblocks://ogc.cwl.v1_2_1.CWLInputStdIn",
-        "bblocks://ogc.cwl.v1_2_1.CWLType"
+        "bblocks://ogc.cwl.v1_2_1.CWLInputObject"
       ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/CWLInputsDefinition/schema.yaml",
@@ -3190,7 +3144,7 @@
       "abstract": "All outputs produced by the Application Package.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.677375",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -3199,12 +3153,12 @@
       ],
       "shaclShapes": {},
       "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.CWLOutputStdErr",
         "bblocks://ogc.cwl.v1_2_1.CWLOutputItem",
+        "bblocks://ogc.cwl.v1_2_1.CWLType",
         "bblocks://ogc.cwl.v1_2_1.CWLImport",
-        "bblocks://ogc.cwl.v1_2_1.CWLOutputObject",
+        "bblocks://ogc.cwl.v1_2_1.CWLOutputStdErr",
         "bblocks://ogc.cwl.v1_2_1.CWLOutputStdOut",
-        "bblocks://ogc.cwl.v1_2_1.CWLType"
+        "bblocks://ogc.cwl.v1_2_1.CWLOutputObject"
       ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/CWLOutputsDefinition/schema.yaml",
@@ -3232,13 +3186,13 @@
       }
     },
     {
-      "itemIdentifier": "ogc.cwl.v1_2_1.requirements.SchemaDefRequirement",
-      "name": "SchemaDefRequirement",
+      "itemIdentifier": "ogc.cwl.v1_2_1.type-system.CWLTypeRecordSchema",
+      "name": "CWLTypeRecordSchema",
       "itemClass": "schema",
-      "abstract": "An array of named `enum`/`record` type definitions available\nfor reuse via IRI reference from `inputs`/`outputs` type fields. Definitions are processed in the\norder listed, so later definitions may refer to earlier ones.",
+      "abstract": "An inline CWL `record` type definition: `type:\nrecord`, an optional `name`, and its `fields`, given either as a map keyed by field name or as a\nlist of field definitions (each of which must then carry its own `name`).",
       "status": "under-development",
-      "dateTimeAddition": "2025-09-29T14:14:37.684906",
-      "dateOfLastChange": "2026-09-07",
+      "dateTimeAddition": "2025-09-29T14:14:37.693426",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -3246,11 +3200,57 @@
         "cwl"
       ],
       "dependsOn": [
+        "bblocks://ogc.cwl.v1_2_1.SchemaSaladOntology",
+        "bblocks://ogc.cwl.v1_2_1.CWLType",
+        "bblocks://ogc.cwl.v1_2_1.type-system.CWLTypeRecordFieldDef"
+      ],
+      "shaclShapes": {},
+      "ldContext": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/type-system/CWLTypeRecordSchema/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/type-system/CWLTypeRecordSchema/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/type-system/CWLTypeRecordSchema/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/type-system/CWLTypeRecordSchema/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/type-system/CWLTypeRecordSchema/context.jsonld",
+      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/type-system/CWLTypeRecordSchema/resolvedProperties.json",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-cwl/_sources/v1_2_1/type-system/CWLTypeRecordSchema/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-cwl/blob/master/build/tests/cwl/v1_2_1/type-system/CWLTypeRecordSchema/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/markdown/cwl/v1_2_1/type-system/CWLTypeRecordSchema/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-cwl/build/generateddocs/json-full/cwl/v1_2_1/type-system/CWLTypeRecordSchema/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-cwl/bblock/ogc.cwl.v1_2_1.type-system.CWLTypeRecordSchema"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.cwl.v1_2_1.requirements.SchemaDefRequirement",
+      "name": "SchemaDefRequirement",
+      "itemClass": "schema",
+      "abstract": "An array of named `enum`/`record` type definitions available\nfor reuse via IRI reference from `inputs`/`outputs` type fields. Definitions are processed in the\norder listed, so later definitions may refer to earlier ones.",
+      "status": "under-development",
+      "dateTimeAddition": "2025-09-29T14:14:37.684906",
+      "dateOfLastChange": "2026-09-09",
+      "register": "ogc-building-block-register",
+      "link": "https://www.commonwl.org/v1.2/Workflow.html",
+      "version": "1.2.1",
+      "tags": [
+        "cwl"
+      ],
+      "dependsOn": [
+        "bblocks://ogc.cwl.v1_2_1.type-system.CWLTypeRecordSchema",
         "bblocks://ogc.cwl.v1_2_1.CWLImport",
         "bblocks://ogc.cwl.v1_2_1.type-system.CWLTypeRecordArray",
-        "bblocks://ogc.cwl.v1_2_1.type-system.CWLTypeRecordSchema",
-        "bblocks://ogc.cwl.v1_2_1.type-system.CWLTypeEnum",
-        "bblocks://ogc.cwl.v1_2_1.CWLOntology"
+        "bblocks://ogc.cwl.v1_2_1.CWLOntology",
+        "bblocks://ogc.cwl.v1_2_1.type-system.CWLTypeEnum"
       ],
       "shaclShapes": {},
       "ldContext": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/requirements/SchemaDefRequirement/context.jsonld",
@@ -3286,7 +3286,7 @@
       "abstract": "A single entry of a process's `requirements` list: any one of\nthe requirement classes this register models \u2014 the standard CWL process requirements\n(`DockerRequirement`, `ResourceRequirement`, `InitialWorkDirRequirement`, ...) plus the\n`cwltool`-specific `CUDARequirement` extension. Kept as its own reusable, `$ref`-able union so\ndownstream profiles can narrow the set of accepted requirement classes without depending on\n`extensionPoints`.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.688820",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -3295,24 +3295,24 @@
       ],
       "shaclShapes": {},
       "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.requirements.InplaceUpdateRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.InlineJavascriptRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.cwltool-CUDARequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.SchemaDefRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.ShellCommandRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.StepInputExpressionRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.InitialWorkDirRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.ResourceRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.ScatterFeatureRequirement",
         "bblocks://ogc.cwl.v1_2_1.requirements.NetworkAccessRequirement",
         "bblocks://ogc.cwl.v1_2_1.requirements.LoadListingRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.SubworkflowFeatureRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.DockerRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.EnvVarRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.MultipleInputFeatureRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.ToolTimeLimitRequirement",
+        "bblocks://ogc.cwl.v1_2_1.requirements.cwltool-CUDARequirement",
         "bblocks://ogc.cwl.v1_2_1.requirements.WorkReuseRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.SoftwareRequirement"
+        "bblocks://ogc.cwl.v1_2_1.requirements.InitialWorkDirRequirement",
+        "bblocks://ogc.cwl.v1_2_1.requirements.SchemaDefRequirement",
+        "bblocks://ogc.cwl.v1_2_1.requirements.SubworkflowFeatureRequirement",
+        "bblocks://ogc.cwl.v1_2_1.requirements.ShellCommandRequirement",
+        "bblocks://ogc.cwl.v1_2_1.requirements.InplaceUpdateRequirement",
+        "bblocks://ogc.cwl.v1_2_1.requirements.ResourceRequirement",
+        "bblocks://ogc.cwl.v1_2_1.requirements.SoftwareRequirement",
+        "bblocks://ogc.cwl.v1_2_1.requirements.InlineJavascriptRequirement",
+        "bblocks://ogc.cwl.v1_2_1.requirements.ScatterFeatureRequirement",
+        "bblocks://ogc.cwl.v1_2_1.requirements.EnvVarRequirement",
+        "bblocks://ogc.cwl.v1_2_1.requirements.ToolTimeLimitRequirement",
+        "bblocks://ogc.cwl.v1_2_1.requirements.DockerRequirement",
+        "bblocks://ogc.cwl.v1_2_1.requirements.StepInputExpressionRequirement",
+        "bblocks://ogc.cwl.v1_2_1.requirements.MultipleInputFeatureRequirement"
       ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/requirements/CWLRequirementsItem/schema.yaml",
@@ -3346,7 +3346,7 @@
       "abstract": "Map-form (keyed by requirement class name) of the requirement types accepted by 'requirements'/'hints', shared between CWLRequirements and CWLHints; not typically profiled on its own.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.679204",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -3355,25 +3355,25 @@
         "shared-fragment"
       ],
       "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.requirements.InitialWorkDirRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.LoadListingRequirement",
+        "bblocks://ogc.cwl.v1_2_1.requirements.SchemaDefRequirement",
+        "bblocks://ogc.cwl.v1_2_1.requirements.InplaceUpdateRequirement",
         "bblocks://ogc.cwl.v1_2_1.requirements.SoftwareRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.WorkReuseRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.cwltool-CUDARequirement",
+        "bblocks://ogc.cwl.v1_2_1.requirements.LoadListingRequirement",
+        "bblocks://ogc.cwl.v1_2_1.requirements.InitialWorkDirRequirement",
         "bblocks://ogc.cwl.v1_2_1.requirements.ResourceRequirement",
         "bblocks://ogc.cwl.v1_2_1.requirements.ScatterFeatureRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.NetworkAccessRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.DockerRequirement",
         "bblocks://ogc.cwl.v1_2_1.CWLOntology",
-        "bblocks://ogc.cwl.v1_2_1.requirements.ShellCommandRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.StepInputExpressionRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.EnvVarRequirement",
+        "bblocks://ogc.cwl.v1_2_1.requirements.DockerRequirement",
         "bblocks://ogc.cwl.v1_2_1.requirements.MultipleInputFeatureRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.ToolTimeLimitRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.InplaceUpdateRequirement",
+        "bblocks://ogc.cwl.v1_2_1.requirements.NetworkAccessRequirement",
+        "bblocks://ogc.cwl.v1_2_1.requirements.SubworkflowFeatureRequirement",
+        "bblocks://ogc.cwl.v1_2_1.requirements.WorkReuseRequirement",
         "bblocks://ogc.cwl.v1_2_1.requirements.InlineJavascriptRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.SchemaDefRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.SubworkflowFeatureRequirement"
+        "bblocks://ogc.cwl.v1_2_1.requirements.ToolTimeLimitRequirement",
+        "bblocks://ogc.cwl.v1_2_1.requirements.cwltool-CUDARequirement",
+        "bblocks://ogc.cwl.v1_2_1.requirements.ShellCommandRequirement",
+        "bblocks://ogc.cwl.v1_2_1.requirements.EnvVarRequirement",
+        "bblocks://ogc.cwl.v1_2_1.requirements.StepInputExpressionRequirement"
       ],
       "shaclShapes": {},
       "ldContext": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/requirements/CWLRequirementsMap/context.jsonld",
@@ -3409,7 +3409,7 @@
       "abstract": "A single entry of a process's `hints` list: any one of the\nrequirement/hint classes this register models (the standard CWL requirements, plus the\nOGC-AP/WPS1/builtin hint classes), or `UnknownRequirement` as a fallback for any other\n`class`-discriminated hint not otherwise recognized. Unlike `requirements`, an unsatisfied hint\nmust not cause a workflow engine to reject the process. Kept as its own reusable, `$ref`-able union\nso downstream profiles can narrow the set of accepted hint classes without depending on\n`extensionPoints`.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.689639",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -3419,10 +3419,10 @@
       "shaclShapes": {},
       "dependsOn": [
         "bblocks://ogc.cwl.v1_2_1.requirements.BuiltinRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.CWLRequirementsItem",
+        "bblocks://ogc.cwl.v1_2_1.requirements.OGCAPIRequirement",
         "bblocks://ogc.cwl.v1_2_1.requirements.WPS1Requirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.UnknownRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.OGCAPIRequirement"
+        "bblocks://ogc.cwl.v1_2_1.requirements.CWLRequirementsItem",
+        "bblocks://ogc.cwl.v1_2_1.requirements.UnknownRequirement"
       ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/requirements/CWLHintsItem/schema.yaml",
@@ -3456,7 +3456,7 @@
       "abstract": "Explicit requirement to execute the application package.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.676308",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -3501,7 +3501,7 @@
       "abstract": "Non-failing additional hints that can help resolve extra requirements.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.676493",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -3513,10 +3513,10 @@
         "bblocks://ogc.cwl.v1_2_1.requirements.BuiltinRequirement",
         "bblocks://ogc.cwl.v1_2_1.requirements.CWLRequirementsMap",
         "bblocks://ogc.cwl.v1_2_1.CWLImport",
-        "bblocks://ogc.cwl.v1_2_1.requirements.CWLHintsItem",
+        "bblocks://ogc.cwl.v1_2_1.requirements.OGCAPIRequirement",
         "bblocks://ogc.cwl.v1_2_1.requirements.WPS1Requirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.UnknownRequirement",
-        "bblocks://ogc.cwl.v1_2_1.requirements.OGCAPIRequirement"
+        "bblocks://ogc.cwl.v1_2_1.requirements.CWLHintsItem",
+        "bblocks://ogc.cwl.v1_2_1.requirements.UnknownRequirement"
       ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/requirements/CWLHints/schema.yaml",
@@ -3550,7 +3550,7 @@
       "abstract": "The process-definition fields (`inputs`, `outputs`, `requirements`, `hints`,\n`baseCommand`, `arguments`, `stdin`/`stdout`/`stderr`, `scatter`, `scatterMethod`, `intent`, `id`)\nshared by every packaging shape a CWL CommandLineTool/ExpressionTool/Workflow can take, excluding\n`class` itself since the legal `class` values differ by packaging. Not typically profiled on its\nown.",
       "status": "under-development",
       "dateTimeAddition": "2026-08-18T00:00:00.000000",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -3559,18 +3559,18 @@
         "shared-fragment"
       ],
       "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.CWLExpression",
-        "bblocks://ogc.cwl.v1_2_1.requirements.CWLRequirements",
-        "bblocks://ogc.cwl.v1_2_1.CWLIdentifier",
-        "bblocks://ogc.cwl.v1_2_1.CWLScatter",
-        "bblocks://ogc.cwl.v1_2_1.requirements.CWLHints",
-        "bblocks://ogc.cwl.v1_2_1.CWLIntent",
-        "bblocks://ogc.cwl.v1_2_1.CWLScatterMethod",
         "bblocks://ogc.cwl.v1_2_1.CWLInputsDefinition",
-        "bblocks://ogc.cwl.v1_2_1.CWLOutputsDefinition",
+        "bblocks://ogc.cwl.v1_2_1.requirements.CWLRequirements",
+        "bblocks://ogc.cwl.v1_2_1.CWLArguments",
+        "bblocks://ogc.cwl.v1_2_1.CWLIntent",
+        "bblocks://ogc.cwl.v1_2_1.CWLIdentifier",
         "bblocks://ogc.cwl.v1_2_1.CWLCommand",
+        "bblocks://ogc.cwl.v1_2_1.CWLOutputsDefinition",
+        "bblocks://ogc.cwl.v1_2_1.CWLScatter",
         "bblocks://ogc.cwl.v1_2_1.CWLOntology",
-        "bblocks://ogc.cwl.v1_2_1.CWLArguments"
+        "bblocks://ogc.cwl.v1_2_1.CWLScatterMethod",
+        "bblocks://ogc.cwl.v1_2_1.requirements.CWLHints",
+        "bblocks://ogc.cwl.v1_2_1.CWLExpression"
       ],
       "shaclShapes": {},
       "ldContext": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/CWLProcessFields/context.jsonld",
@@ -3609,7 +3609,7 @@
       ],
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.674167",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -3658,7 +3658,7 @@
       ],
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.682457",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -3666,10 +3666,10 @@
         "cwl"
       ],
       "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.CWLOntology",
-        "bblocks://ogc.cwl.v1_2_1.CWLMetadata",
         "bblocks://ogc.cwl.v1_2_1.CWLDocumentation",
-        "bblocks://ogc.cwl.v1_2_1.CWLProcessFields"
+        "bblocks://ogc.cwl.v1_2_1.CWLMetadata",
+        "bblocks://ogc.cwl.v1_2_1.CWLProcessFields",
+        "bblocks://ogc.cwl.v1_2_1.CWLOntology"
       ],
       "shaclShapes": {},
       "ldContext": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/CWLGraphItem/context.jsonld",
@@ -3708,7 +3708,7 @@
       ],
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.672835",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -3717,10 +3717,10 @@
       ],
       "shaclShapes": {},
       "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.CWLAtomicBase",
-        "bblocks://ogc.cwl.v1_2_1.CWLMetadata",
         "bblocks://ogc.cwl.v1_2_1.CWLVersion",
-        "bblocks://ogc.cwl.v1_2_1.CWLDocumentation"
+        "bblocks://ogc.cwl.v1_2_1.CWLDocumentation",
+        "bblocks://ogc.cwl.v1_2_1.CWLMetadata",
+        "bblocks://ogc.cwl.v1_2_1.CWLAtomicBase"
       ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/CWLAtomic/schema.yaml",
@@ -3757,7 +3757,7 @@
       ],
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.710771",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -3766,9 +3766,9 @@
       ],
       "shaclShapes": {},
       "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.CWLAtomicBase",
+        "bblocks://ogc.cwl.v1_2_1.CWLDocumentation",
         "bblocks://ogc.cwl.v1_2_1.CWLMetadata",
-        "bblocks://ogc.cwl.v1_2_1.CWLDocumentation"
+        "bblocks://ogc.cwl.v1_2_1.CWLAtomicBase"
       ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/CWLAtomicNested/schema.yaml",
@@ -3802,7 +3802,7 @@
       "abstract": "A CWL document using the `$graph` form: instead of a single process or\nworkflow definition at the document root, the root carries a `$graph` array (in this register,\nconstrained to exactly one entry) of process/workflow definitions, plus the shared `cwlVersion` and\ndocument-level metadata/documentation fields.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.673077",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -3811,10 +3811,10 @@
       ],
       "shaclShapes": {},
       "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.CWLGraphItem",
-        "bblocks://ogc.cwl.v1_2_1.CWLMetadata",
         "bblocks://ogc.cwl.v1_2_1.CWLVersion",
-        "bblocks://ogc.cwl.v1_2_1.CWLDocumentation"
+        "bblocks://ogc.cwl.v1_2_1.CWLDocumentation",
+        "bblocks://ogc.cwl.v1_2_1.CWLMetadata",
+        "bblocks://ogc.cwl.v1_2_1.CWLGraphItem"
       ],
       "ldContext": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/CWLGraph/context.jsonld",
       "schema": {
@@ -3849,7 +3849,7 @@
       "abstract": "The executable shape of a single Workflow step: how its\nunderlying process is invoked (`run`), how workflow parameters are wired to and from it (`in`,\n`out`), an optional guard condition (`when`), and scatter/gather behavior (`scatter`,\n`scatterMethod`) for fanning the step out over array inputs. Used directly as the value type when\n`steps` is given as a map keyed by step id; see `CWLWorkflowStepItem` for the list form, where the\nid is an explicit field instead.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.691949",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -3857,17 +3857,17 @@
         "cwl"
       ],
       "dependsOn": [
-        "bblocks://ogc.cwl.v1_2_1.CWLExpression",
         "bblocks://ogc.cwl.v1_2_1.CWLWorkflowBase",
-        "bblocks://ogc.cwl.v1_2_1.CWLTextPatternID",
-        "bblocks://ogc.cwl.v1_2_1.CWLOntology",
-        "bblocks://ogc.cwl.v1_2_1.workflow-step.CWLWorkflowStepOut",
-        "bblocks://ogc.cwl.v1_2_1.CWLAtomicNested",
-        "bblocks://ogc.cwl.v1_2_1.workflow-step.CWLWorkflowStepIn",
-        "bblocks://ogc.cwl.v1_2_1.type-system.IdentifierArray",
         "bblocks://ogc.cwl.v1_2_1.CWLWorkflowClass",
+        "bblocks://ogc.cwl.v1_2_1.workflow-step.CWLWorkflowStepOut",
+        "bblocks://ogc.cwl.v1_2_1.workflow-step.CWLWorkflowStepIn",
         "bblocks://ogc.cwl.v1_2_1.CWLMetadata",
-        "bblocks://ogc.cwl.v1_2_1.CWLDocumentation"
+        "bblocks://ogc.cwl.v1_2_1.CWLAtomicNested",
+        "bblocks://ogc.cwl.v1_2_1.CWLTextPatternID",
+        "bblocks://ogc.cwl.v1_2_1.type-system.IdentifierArray",
+        "bblocks://ogc.cwl.v1_2_1.CWLDocumentation",
+        "bblocks://ogc.cwl.v1_2_1.CWLOntology",
+        "bblocks://ogc.cwl.v1_2_1.CWLExpression"
       ],
       "shaclShapes": {},
       "ldContext": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/workflow-step/CWLWorkflowStepObject/context.jsonld",
@@ -3906,7 +3906,7 @@
       ],
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.692088",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -3950,7 +3950,7 @@
       "abstract": "Workflow-specific properties (inputs, outputs, steps, requirements, hints), shared by the root Workflow document and its nested-in-step form; not typically profiled on its own.",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.675327",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -3959,13 +3959,13 @@
         "shared-fragment"
       ],
       "dependsOn": [
+        "bblocks://ogc.cwl.v1_2_1.CWLInputsDefinition",
         "bblocks://ogc.cwl.v1_2_1.requirements.CWLRequirements",
+        "bblocks://ogc.cwl.v1_2_1.CWLOutputsDefinition",
+        "bblocks://ogc.cwl.v1_2_1.CWLOntology",
         "bblocks://ogc.cwl.v1_2_1.workflow-step.CWLWorkflowStepItem",
         "bblocks://ogc.cwl.v1_2_1.requirements.CWLHints",
-        "bblocks://ogc.cwl.v1_2_1.CWLInputsDefinition",
-        "bblocks://ogc.cwl.v1_2_1.CWLOutputsDefinition",
-        "bblocks://ogc.cwl.v1_2_1.workflow-step.CWLWorkflowStepObject",
-        "bblocks://ogc.cwl.v1_2_1.CWLOntology"
+        "bblocks://ogc.cwl.v1_2_1.workflow-step.CWLWorkflowStepObject"
       ],
       "shaclShapes": {},
       "ldContext": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/CWLWorkflowBase/context.jsonld",
@@ -4004,7 +4004,7 @@
       ],
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.673295",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -4014,10 +4014,10 @@
       "shaclShapes": {},
       "dependsOn": [
         "bblocks://ogc.cwl.v1_2_1.CWLWorkflowBase",
-        "bblocks://ogc.cwl.v1_2_1.CWLVersion",
         "bblocks://ogc.cwl.v1_2_1.CWLWorkflowClass",
         "bblocks://ogc.cwl.v1_2_1.CWLMetadata",
-        "bblocks://ogc.cwl.v1_2_1.CWLDocumentation"
+        "bblocks://ogc.cwl.v1_2_1.CWLDocumentation",
+        "bblocks://ogc.cwl.v1_2_1.CWLVersion"
       ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/CWLWorkflow/schema.yaml",
@@ -4051,7 +4051,7 @@
       "abstract": "The root of the register: a Common Workflow Language v1.2.1 Application Package document.\n\nA CWL document is one of three top-level forms: a single CommandLineTool/ExpressionTool/Workflow\ndefinition (`CWLAtomic`), the same wrapped as a nested `run` definition inside a Workflow step\n(`CWLAtomicNested`), or a `$graph`-wrapped document (`CWLGraph`).",
       "status": "under-development",
       "dateTimeAddition": "2025-09-29T14:14:37.672484",
-      "dateOfLastChange": "2026-09-07",
+      "dateOfLastChange": "2026-09-09",
       "register": "ogc-building-block-register",
       "link": "https://www.commonwl.org/v1.2/Workflow.html",
       "version": "1.2.1",
@@ -4061,9 +4061,9 @@
       "highlighted": true,
       "shaclShapes": {},
       "dependsOn": [
+        "bblocks://ogc.cwl.v1_2_1.CWLAtomic",
         "bblocks://ogc.cwl.v1_2_1.CWLWorkflow",
-        "bblocks://ogc.cwl.v1_2_1.CWLGraph",
-        "bblocks://ogc.cwl.v1_2_1.CWLAtomic"
+        "bblocks://ogc.cwl.v1_2_1.CWLGraph"
       ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblocks-cwl/build/annotated/cwl/v1_2_1/CWL/schema.yaml",
