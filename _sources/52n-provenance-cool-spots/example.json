@@ -1,0 +1,614 @@
+[
+  {
+    "id": "ex:processInputs",
+    "entityType": [
+      "prov:Entity",
+      "ex:WorkflowInputs"
+    ],
+    "rdfs:label": "Workflow Parameters",
+    "ex:location": "Münster, Germany",
+    "ex:osmTags": "landuse=forest, natural=wood, leisure=park",
+    "ex:minArea": 200,
+    "ex:distance": 300,
+    "ex:bufferIntervals": [
+      0,
+      75,
+      150,
+      225,
+      300
+    ],
+    "generatedAtTime": "2026-07-13T17:43:40+02:00",
+    "wasGeneratedBy": {
+      "id": "ex:act1_defineInputs"
+    },
+    "wasAttributedTo": {
+      "id": "https://orcid.org/0000-0003-4718-2959"
+    }
+  },
+  {
+    "id": "ex:openStreetMap",
+    "entityType": [
+      "prov:Entity",
+      "prov:PrimarySource"
+    ],
+    "rdfs:label": "OpenStreetMap",
+    "schema:url": "https://www.openstreetmap.org",
+    "dcterms:license": "https://opendatacommons.org/licenses/odbl/1-0/"
+  },
+  {
+    "id": "ex:nominatimApi",
+    "entityType": [
+      "prov:Entity",
+      "schema:WebAPI"
+    ],
+    "rdfs:label": "Nominatim geocoding API",
+    "schema:url": "https://nominatim.openstreetmap.org/"
+  },
+  {
+    "id": "ex:overpassApi",
+    "entityType": [
+      "prov:Entity",
+      "schema:WebAPI"
+    ],
+    "rdfs:label": "Overpass API",
+    "schema:url": "https://overpass-api.de/api",
+    "schema:softwareVersion": "0.7.62.11 87bfad18"
+  },
+  {
+    "id": "ex:cityBoundary",
+    "entityType": [
+      "prov:Entity",
+      "ex:VectorDataset"
+    ],
+    "rdfs:label": "Münster city boundary (EPSG:4326)",
+    "ex:crs": "EPSG:4326",
+    "hadPrimarySource": {
+      "id": "ex:openStreetMap"
+    },
+    "generatedAtTime": "2026-07-13T17:43:41.9+02:00",
+    "wasGeneratedBy": {
+      "id": "ex:act2a_geocodeCity"
+    }
+  },
+  {
+    "id": "ex:rawOsmData",
+    "entityType": [
+      "prov:Entity",
+      "ex:OsmDataset"
+    ],
+    "rdfs:label": "Raw OSM vector data (EPSG:4326)",
+    "ex:crs": "EPSG:4326",
+    "ex:osmBaseTimestamp": "2026-07-13T13:54:30Z",
+    "dcterms:license": "https://opendatacommons.org/licenses/odbl/1-0/",
+    "hadPrimarySource": {
+      "id": "ex:openStreetMap"
+    },
+    "generatedAtTime": "2026-07-13T17:44:05.8+02:00",
+    "wasGeneratedBy": {
+      "id": "ex:act2_acquireData"
+    }
+  },
+  {
+    "id": "ex:reprojectedData",
+    "entityType": [
+      "prov:Entity",
+      "ex:VectorDataset"
+    ],
+    "rdfs:label": "UTM Projected OSM data",
+    "ex:crs": "EPSG:32632",
+    "wasDerivedFrom": {
+      "id": "ex:rawOsmData"
+    },
+    "generatedAtTime": "2026-07-13T17:44:06.4+02:00",
+    "wasGeneratedBy": {
+      "id": "ex:act3_reproject"
+    }
+  },
+  {
+    "id": "ex:filteredCoolSpots",
+    "entityType": [
+      "prov:Entity",
+      "ex:VectorDataset"
+    ],
+    "rdfs:label": "Cool spots filtered by min area (>=200m²)",
+    "wasDerivedFrom": {
+      "id": "ex:reprojectedData"
+    },
+    "generatedAtTime": "2026-07-13T17:44:06.7+02:00",
+    "wasGeneratedBy": {
+      "id": "ex:act4_filterAreas"
+    }
+  },
+  {
+    "id": "ex:primaryBuffers",
+    "entityType": [
+      "prov:Entity",
+      "ex:VectorDataset"
+    ],
+    "rdfs:label": "300m buffers around cool spots",
+    "wasDerivedFrom": {
+      "id": "ex:filteredCoolSpots"
+    },
+    "generatedAtTime": "2026-07-13T17:44:09.1+02:00",
+    "wasGeneratedBy": {
+      "id": "ex:act5_buffer300m"
+    }
+  },
+  {
+    "id": "ex:multiLevelBuffers",
+    "entityType": [
+      "prov:Entity",
+      "ex:VectorDataset"
+    ],
+    "rdfs:label": "Multi-level buffer zones",
+    "wasDerivedFrom": {
+      "id": "ex:filteredCoolSpots"
+    },
+    "generatedAtTime": "2026-07-13T17:44:15.9+02:00",
+    "wasGeneratedBy": {
+      "id": "ex:act6_bufferMultiLevel"
+    }
+  },
+  {
+    "id": "ex:unservedAreas",
+    "entityType": [
+      "prov:Entity",
+      "ex:VectorDataset"
+    ],
+    "rdfs:label": "Areas outside defined cool spot range",
+    "wasDerivedFrom": [
+      {
+        "id": "ex:primaryBuffers"
+      },
+      {
+        "id": "ex:multiLevelBuffers"
+      },
+      {
+        "id": "ex:cityBoundary"
+      }
+    ],
+    "generatedAtTime": "2026-07-13T17:44:16.9+02:00",
+    "wasGeneratedBy": {
+      "id": "ex:act7_calcDifferences"
+    }
+  },
+  {
+    "id": "ex:finalOutputPackage",
+    "entityType": [
+      "prov:Entity",
+      "prov:Collection",
+      "ex:OutputPackage"
+    ],
+    "rdfs:label": "Exported spatial outputs",
+    "hadMember": [
+      "ex:file_city",
+      "ex:file_coolSpots",
+      "ex:file_coolSpotsFiltered",
+      "ex:file_buffer",
+      "ex:file_diff",
+      "ex:file_ring0_75",
+      "ex:file_ring75_150",
+      "ex:file_ring150_225",
+      "ex:file_ring225_300"
+    ],
+    "generatedAtTime": "2026-07-13T17:44:17.3+02:00",
+    "wasGeneratedBy": {
+      "id": "ex:act8_exportOutputs"
+    }
+  },
+  {
+    "id": "ex:file_city",
+    "entityType": [
+      "prov:Entity",
+      "ex:GeoPackageFile"
+    ],
+    "rdfs:label": "City boundary (UTM)",
+    "schema:contentUrl": "outputs/city.gpkg",
+    "schema:encodingFormat": "application/geopackage+sqlite3",
+    "schema:sha256": "f7aacae91ba5791b0c06fee9ac022a49c48a8e4b58bff1cebba2e50760f46edf",
+    "wasDerivedFrom": {
+      "id": "ex:cityBoundary"
+    },
+    "generatedAtTime": "2026-07-13T17:44:17.240+02:00",
+    "wasGeneratedBy": {
+      "id": "ex:act8_exportOutputs"
+    }
+  },
+  {
+    "id": "ex:file_coolSpots",
+    "entityType": [
+      "prov:Entity",
+      "ex:GeoPackageFile"
+    ],
+    "rdfs:label": "Cool spots (UTM)",
+    "schema:contentUrl": "outputs/cool_spots.gpkg",
+    "schema:encodingFormat": "application/geopackage+sqlite3",
+    "schema:sha256": "fd7dbb6bed299cfed22e90f2057305f27dda8572163a58d6022739c34cdcb860",
+    "wasDerivedFrom": {
+      "id": "ex:reprojectedData"
+    },
+    "generatedAtTime": "2026-07-13T17:44:17.245+02:00",
+    "wasGeneratedBy": {
+      "id": "ex:act8_exportOutputs"
+    }
+  },
+  {
+    "id": "ex:file_coolSpotsFiltered",
+    "entityType": [
+      "prov:Entity",
+      "ex:GeoPackageFile"
+    ],
+    "rdfs:label": "Cool spots filtered by min area",
+    "schema:contentUrl": "outputs/cool_spots_filtered.gpkg",
+    "schema:encodingFormat": "application/geopackage+sqlite3",
+    "schema:sha256": "c232b9ce525709270edd3be1d1bb709602505e64265bc72d054e0a25c38e2cc4",
+    "wasDerivedFrom": {
+      "id": "ex:filteredCoolSpots"
+    },
+    "generatedAtTime": "2026-07-13T17:44:17.250+02:00",
+    "wasGeneratedBy": {
+      "id": "ex:act8_exportOutputs"
+    }
+  },
+  {
+    "id": "ex:file_buffer",
+    "entityType": [
+      "prov:Entity",
+      "ex:GeoPackageFile"
+    ],
+    "rdfs:label": "300m buffers",
+    "schema:contentUrl": "outputs/buffer.gpkg",
+    "schema:encodingFormat": "application/geopackage+sqlite3",
+    "schema:sha256": "0242d5216981cc52cd912352a9540fca63af47bd39fe02b53cb4db39d11a9fcf",
+    "wasDerivedFrom": {
+      "id": "ex:primaryBuffers"
+    },
+    "generatedAtTime": "2026-07-13T17:44:17.233+02:00",
+    "wasGeneratedBy": {
+      "id": "ex:act8_exportOutputs"
+    }
+  },
+  {
+    "id": "ex:file_diff",
+    "entityType": [
+      "prov:Entity",
+      "ex:GeoPackageFile"
+    ],
+    "rdfs:label": "Unserved areas (>300m)",
+    "schema:contentUrl": "outputs/diff.gpkg",
+    "schema:encodingFormat": "application/geopackage+sqlite3",
+    "schema:sha256": "918e75738a37bb2cb8e24f260bbc6c42017906121710ac5e86fe968e9d8e62fa",
+    "wasDerivedFrom": {
+      "id": "ex:unservedAreas"
+    },
+    "generatedAtTime": "2026-07-13T17:44:17.271+02:00",
+    "wasGeneratedBy": {
+      "id": "ex:act8_exportOutputs"
+    }
+  },
+  {
+    "id": "ex:file_ring0_75",
+    "entityType": [
+      "prov:Entity",
+      "ex:GeoPackageFile"
+    ],
+    "rdfs:label": "Buffer ring 0-75m",
+    "schema:contentUrl": "outputs/diff_0m-75m.gpkg",
+    "schema:encodingFormat": "application/geopackage+sqlite3",
+    "schema:sha256": "e16e0980138b3cdc25fd53d837b6f0dc5948d318a017dfab695f60e275fba501",
+    "wasDerivedFrom": {
+      "id": "ex:multiLevelBuffers"
+    },
+    "generatedAtTime": "2026-07-13T17:44:17.255+02:00",
+    "wasGeneratedBy": {
+      "id": "ex:act8_exportOutputs"
+    }
+  },
+  {
+    "id": "ex:file_ring75_150",
+    "entityType": [
+      "prov:Entity",
+      "ex:GeoPackageFile"
+    ],
+    "rdfs:label": "Buffer ring 75-150m",
+    "schema:contentUrl": "outputs/diff_75m-150m.gpkg",
+    "schema:encodingFormat": "application/geopackage+sqlite3",
+    "schema:sha256": "04f4bf3280175f9b1aa6189bc54cc78f9e07f2ed5bbbdc862dcaf58512c6d14b",
+    "wasDerivedFrom": {
+      "id": "ex:multiLevelBuffers"
+    },
+    "generatedAtTime": "2026-07-13T17:44:17.265+02:00",
+    "wasGeneratedBy": {
+      "id": "ex:act8_exportOutputs"
+    }
+  },
+  {
+    "id": "ex:file_ring150_225",
+    "entityType": [
+      "prov:Entity",
+      "ex:GeoPackageFile"
+    ],
+    "rdfs:label": "Buffer ring 150-225m",
+    "schema:contentUrl": "outputs/diff_150m-225m.gpkg",
+    "schema:encodingFormat": "application/geopackage+sqlite3",
+    "schema:sha256": "521b637211efbf3d0e44cab6950d44d4f144ab1c0c94f34e24c257b93b4f680c",
+    "wasDerivedFrom": {
+      "id": "ex:multiLevelBuffers"
+    },
+    "generatedAtTime": "2026-07-13T17:44:17.275+02:00",
+    "wasGeneratedBy": {
+      "id": "ex:act8_exportOutputs"
+    }
+  },
+  {
+    "id": "ex:file_ring225_300",
+    "entityType": [
+      "prov:Entity",
+      "ex:GeoPackageFile"
+    ],
+    "rdfs:label": "Buffer ring 225-300m",
+    "schema:contentUrl": "outputs/diff_225m-300m.gpkg",
+    "schema:encodingFormat": "application/geopackage+sqlite3",
+    "schema:sha256": "f88ac1fae96fba33c9702834eb19e762ac0213c57d2b3a4bdc1b89a85982e2f8",
+    "wasDerivedFrom": {
+      "id": "ex:multiLevelBuffers"
+    },
+    "generatedAtTime": "2026-07-13T17:44:17.261+02:00",
+    "wasGeneratedBy": {
+      "id": "ex:act8_exportOutputs"
+    }
+  },
+  {
+    "id": "ex:coolSpotsScript",
+    "entityType": [
+      "prov:Entity",
+      "prov:Plan",
+      "schema:SoftwareSourceCode"
+    ],
+    "rdfs:label": "Cool spots workflow script",
+    "schema:name": "cool_spots.py",
+    "schema:programmingLanguage": "Python",
+    "schema:sha256": "42abb24daf03e809f2f4d4dbbd1fa443508d243ba9f00a87ef3b47065fe2af43",
+    "wasAttributedTo": {
+      "id": "https://orcid.org/0000-0003-4718-2959"
+    }
+  },
+
+  {
+    "id": "ex:act1_defineInputs",
+    "activityType": "prov:Activity",
+    "rdfs:label": "Step 1: Define Process Inputs",
+    "startedAtTime": "2026-07-13T17:35:00+02:00",
+    "endedAtTime": "2026-07-13T17:43:40+02:00",
+    "wasAssociatedWith": {
+      "id": "https://orcid.org/0000-0003-4718-2959"
+    }
+  },
+  {
+    "id": "ex:workflowRun",
+    "activityType": "prov:Activity",
+    "rdfs:label": "Cool spots workflow run",
+    "startedAtTime": "2026-07-13T17:43:41.2+02:00",
+    "endedAtTime": "2026-07-13T17:44:17.3+02:00",
+    "used": {
+      "id": "ex:processInputs"
+    },
+    "wasAssociatedWith": {
+      "id": "ex:gisPipelineEngine"
+    },
+    "qualifiedAssociation": {
+      "type": "Association",
+      "agent": "ex:gisPipelineEngine",
+      "hadRole": "ex:workflowExecutor",
+      "hadPlan": "ex:coolSpotsScript"
+    }
+  },
+  {
+    "id": "ex:act2a_geocodeCity",
+    "activityType": "prov:Activity",
+    "rdfs:label": "Step 2a: Geocode city boundary",
+    "startedAtTime": "2026-07-13T17:43:41.2+02:00",
+    "endedAtTime": "2026-07-13T17:43:41.9+02:00",
+    "used": [
+      {
+        "id": "ex:processInputs"
+      },
+      {
+        "id": "ex:nominatimApi"
+      }
+    ],
+    "wasAssociatedWith": {
+      "id": "ex:gisPipelineEngine"
+    },
+    "dcterms:isPartOf": {
+      "id": "ex:workflowRun"
+    }
+  },
+  {
+    "id": "ex:act2_acquireData",
+    "activityType": "prov:Activity",
+    "rdfs:label": "Step 2: Acquire relevant OSM data",
+    "startedAtTime": "2026-07-13T17:43:42.0+02:00",
+    "endedAtTime": "2026-07-13T17:44:05.8+02:00",
+    "used": [
+      {
+        "id": "ex:processInputs"
+      },
+      {
+        "id": "ex:cityBoundary"
+      },
+      {
+        "id": "ex:overpassApi"
+      }
+    ],
+    "wasAssociatedWith": {
+      "id": "ex:gisPipelineEngine"
+    },
+    "dcterms:isPartOf": {
+      "id": "ex:workflowRun"
+    }
+  },
+  {
+    "id": "ex:act3_reproject",
+    "activityType": "prov:Activity",
+    "rdfs:label": "Step 3: Reproject EPSG:4326 to UTM",
+    "startedAtTime": "2026-07-13T17:44:05.9+02:00",
+    "endedAtTime": "2026-07-13T17:44:06.4+02:00",
+    "used": {
+      "id": "ex:rawOsmData"
+    },
+    "wasAssociatedWith": {
+      "id": "ex:gisPipelineEngine"
+    },
+    "dcterms:isPartOf": {
+      "id": "ex:workflowRun"
+    }
+  },
+  {
+    "id": "ex:act4_filterAreas",
+    "activityType": "prov:Activity",
+    "rdfs:label": "Step 4: Filter areas by size",
+    "startedAtTime": "2026-07-13T17:44:06.5+02:00",
+    "endedAtTime": "2026-07-13T17:44:06.7+02:00",
+    "used": [
+      {
+        "id": "ex:reprojectedData"
+      },
+      {
+        "id": "ex:processInputs"
+      }
+    ],
+    "wasAssociatedWith": {
+      "id": "ex:gisPipelineEngine"
+    },
+    "dcterms:isPartOf": {
+      "id": "ex:workflowRun"
+    }
+  },
+  {
+    "id": "ex:act5_buffer300m",
+    "activityType": "prov:Activity",
+    "rdfs:label": "Step 5: Create 300m buffer (or walking distance)",
+    "startedAtTime": "2026-07-13T17:44:06.8+02:00",
+    "endedAtTime": "2026-07-13T17:44:09.1+02:00",
+    "used": [
+      {
+        "id": "ex:filteredCoolSpots"
+      },
+      {
+        "id": "ex:processInputs"
+      }
+    ],
+    "wasAssociatedWith": {
+      "id": "ex:gisPipelineEngine"
+    },
+    "dcterms:isPartOf": {
+      "id": "ex:workflowRun"
+    }
+  },
+  {
+    "id": "ex:act6_bufferMultiLevel",
+    "activityType": "prov:Activity",
+    "rdfs:label": "Step 6: Create additional level buffers",
+    "startedAtTime": "2026-07-13T17:44:09.2+02:00",
+    "endedAtTime": "2026-07-13T17:44:15.9+02:00",
+    "used": [
+      {
+        "id": "ex:filteredCoolSpots"
+      },
+      {
+        "id": "ex:processInputs"
+      }
+    ],
+    "wasAssociatedWith": {
+      "id": "ex:gisPipelineEngine"
+    },
+    "dcterms:isPartOf": {
+      "id": "ex:workflowRun"
+    }
+  },
+  {
+    "id": "ex:act7_calcDifferences",
+    "activityType": "prov:Activity",
+    "rdfs:label": "Step 7: Identify unserved city areas",
+    "startedAtTime": "2026-07-13T17:44:16.0+02:00",
+    "endedAtTime": "2026-07-13T17:44:16.9+02:00",
+    "used": [
+      {
+        "id": "ex:primaryBuffers"
+      },
+      {
+        "id": "ex:multiLevelBuffers"
+      },
+      {
+        "id": "ex:cityBoundary"
+      }
+    ],
+    "wasAssociatedWith": {
+      "id": "ex:gisPipelineEngine"
+    },
+    "dcterms:isPartOf": {
+      "id": "ex:workflowRun"
+    }
+  },
+  {
+    "id": "ex:act8_exportOutputs",
+    "activityType": "prov:Activity",
+    "rdfs:label": "Step 8: Export process outputs",
+    "startedAtTime": "2026-07-13T17:44:17.0+02:00",
+    "endedAtTime": "2026-07-13T17:44:17.3+02:00",
+    "used": [
+      {
+        "id": "ex:cityBoundary"
+      },
+      {
+        "id": "ex:reprojectedData"
+      },
+      {
+        "id": "ex:filteredCoolSpots"
+      },
+      {
+        "id": "ex:primaryBuffers"
+      },
+      {
+        "id": "ex:unservedAreas"
+      },
+      {
+        "id": "ex:multiLevelBuffers"
+      }
+    ],
+    "wasAssociatedWith": {
+      "id": "ex:gisPipelineEngine"
+    },
+    "dcterms:isPartOf": {
+      "id": "ex:workflowRun"
+    }
+  },
+
+  {
+    "id": "https://orcid.org/0000-0003-4718-2959",
+    "agentType": [
+      "prov:Agent",
+      "prov:Person"
+    ],
+    "rdfs:label": "GIS Analyst",
+    "schema:identifier": "https://orcid.org/0000-0003-4718-2959"
+  },
+  {
+    "id": "ex:gisPipelineEngine",
+    "agentType": [
+      "prov:Agent",
+      "prov:SoftwareAgent"
+    ],
+    "rdfs:label": "Automated Spatial Workflow Runner",
+    "schema:softwareRequirements": [
+      "Python 3.13.3",
+      "osmnx 2.1.0",
+      "geopandas 1.1.4",
+      "shapely 2.1.2"
+    ],
+    "actedOnBehalfOf": {
+      "id": "https://orcid.org/0000-0003-4718-2959"
+    }
+  }
+]
