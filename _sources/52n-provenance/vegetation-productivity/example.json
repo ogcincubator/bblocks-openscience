@@ -111,7 +111,11 @@
 
   {
     "id": "ex:step1_bap",
-    "activityType": ["prov:Activity", "openeo:BatchJob", "ex:BestAvailablePixel"],
+    "activityType": [
+      "prov:Activity",
+      "openeo:BatchJob",
+      "https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA016"
+    ],
     "rdfs:label": "Step 1: Best available pixel composites",
     "startedAtTime": "2026-08-21T10:00:00Z",
     "endedAtTime": "2026-08-21T18:05:00Z",
@@ -133,7 +137,10 @@
 
   {
     "id": "ex:step2_seasonal_sen_slope",
-    "activityType": ["prov:Activity", "ex:SeasonalSenSlope"],
+    "activityType": [
+      "prov:Activity",
+      "https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA017"
+    ],
     "rdfs:label": "Step 2: Seasonal Sen slope trend analysis",
     "startedAtTime": "2026-08-21T10:06:00Z",
     "endedAtTime": "2026-08-21T10:12:00Z",
