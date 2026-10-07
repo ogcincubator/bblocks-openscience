@@ -23,117 +23,12 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 #### json
 ```json
 {
-  "id": "polarwarp",
-  "title": "Polarwarp",
-  "created": "2025-10-13T16:54:34Z",
-  "osc:status": "completed",
-  "type": "Collection",
-  "osc:type": "product",
-  "stac_version": "1.0.0",
-  "description": "Polarwarp product\n\nForecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.",
-  "license": "various",
-  "extent": {
-    "spatial": {
-      "bbox": [
-        [
-          -0.0018099989187332413,
-          0.00043814539682784925,
-          0.001347252506956414,
-          0.0007574196581714432
-        ]
-      ]
-    },
-    "temporal": {
-      "interval": [
-        [
-          "2025-02-25T00:00:00Z",
-          null
-        ]
-      ]
-    }
-  },
-  "links": [
+  "sci:publications": [
     {
-      "rel": "root",
-      "href": "../../catalog.json",
-      "type": "application/json",
-      "title": "Open Science Catalog"
-    },
-    {
-      "rel": "parent",
-      "href": "../catalog.json",
-      "type": "application/json",
-      "title": "Products"
-    },
-    {
-      "href": "../../projects/cerulean-information-factory/collection.json",
-      "rel": "related",
-      "type": "application/json",
-      "title": "Project: Cerulean Information Factory"
-    },
-    {
-      "href": "../../themes/cryosphere/catalog.json",
-      "rel": "related",
-      "type": "application/json",
-      "title": "Theme: Cryosphere"
-    },
-    {
-      "rel": "related",
-      "href": "../../experiments/polarwarp/record.json",
-      "type": "application/json",
-      "title": "Experiment: Polarwarp"
-    },
-    {
-      "href": "./item.json",
-      "rel": "item"
-    },
-    {
-      "href": "https://github.com/gtif-cerulean/polarwarp",
-      "rel": "via"
+      "doi": "10.83395/gznw-2213"
     }
   ],
-  "stac_extensions": [
-    "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/themes/v1.0.0/schema.json"
-  ],
-  "osc:project": "cerulean-information-factory",
-  "themes": [
-    {
-      "scheme": "https://github.com/stac-extensions/osc#theme",
-      "concepts": [
-        {
-          "id": "cryosphere"
-        }
-      ]
-    }
-  ],
-  "fair:Findable_has_doi": false,
-  "fair:Findable_rich_metadata": true,
-  "fair:Findable_identifier": true,
-  "fair:Findable_stac_assets": false,
-  "fair:Findable_indexed": true,
-  "fair:Findable_indexed_approved_metadata": false,
-  "fair:Findable_indexed_approved_data": false,
-  "fair:Accessible_general": true,
-  "fair:Accessible_protocols": true,
-  "fair:Accessible_files": 0.0,
-  "fair:Interoperable_uses_formal_language": true,
-  "fair:Interoperable_controlled_vocabularies": true,
-  "fair:Interoperable_related_links": true,
-  "fair:Interoperable_has_documentation": false,
-  "fair:Reusable_rich_descriptions": true,
-  "fair:Reusable_has_license": true,
-  "fair:Reusable_workflow_exists": true,
-  "fair:Reusable_cloud_assets_rate": 0.0,
-  "fair:Reusable_has_visualisation": false,
-  "fair:Reusable_has_access_example": false
-}
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/context.jsonld",
+  "sci:doi": "10.83395/zfk4-9k53",
   "id": "polarwarp",
   "title": "Polarwarp",
   "created": "2025-10-13T16:54:34Z",
@@ -201,11 +96,31 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
     {
       "href": "https://github.com/gtif-cerulean/polarwarp",
       "rel": "via"
+    },
+    {
+      "rel": "latest-version",
+      "href": "collection_v1.json",
+      "type": "application/json",
+      "title": "Latest version"
+    },
+    {
+      "rel": "has-version",
+      "href": "collection_v1.json",
+      "type": "application/json",
+      "title": "Version 1"
+    },
+    {
+      "rel": "version-history",
+      "href": "https://api.test.datacite.org/dois/application/vnd.datacite.datacite+json/10.83395/zfk4-9k53",
+      "type": "application/vnd.datacite.datacite+json",
+      "title": "Version History (DataCite JSON)"
     }
   ],
   "stac_extensions": [
     "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/themes/v1.0.0/schema.json"
+    "https://stac-extensions.github.io/themes/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/scientific/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/version/v1.2.0/schema.json"
   ],
   "osc:project": "cerulean-information-factory",
   "themes": [
@@ -221,13 +136,13 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
   "fair:Findable_has_doi": false,
   "fair:Findable_rich_metadata": true,
   "fair:Findable_identifier": true,
-  "fair:Findable_stac_assets": false,
+  "fair:Findable_stac_assets": true,
   "fair:Findable_indexed": true,
-  "fair:Findable_indexed_approved_metadata": false,
-  "fair:Findable_indexed_approved_data": false,
+  "fair:Findable_indexed_approved_metadata": true,
+  "fair:Findable_indexed_approved_data": true,
   "fair:Accessible_general": true,
   "fair:Accessible_protocols": true,
-  "fair:Accessible_files": 0.0,
+  "fair:Accessible_files": 1.0,
   "fair:Interoperable_uses_formal_language": true,
   "fair:Interoperable_controlled_vocabularies": true,
   "fair:Interoperable_related_links": true,
@@ -235,7 +150,144 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
   "fair:Reusable_rich_descriptions": true,
   "fair:Reusable_has_license": true,
   "fair:Reusable_workflow_exists": true,
-  "fair:Reusable_cloud_assets_rate": 0.0,
+  "fair:Reusable_cloud_assets_rate": 1.0,
+  "fair:Reusable_has_visualisation": false,
+  "fair:Reusable_has_access_example": false
+}
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/context.jsonld",
+  "sci:publications": [
+    {
+      "doi": "10.83395/gznw-2213"
+    }
+  ],
+  "sci:doi": "10.83395/zfk4-9k53",
+  "id": "polarwarp",
+  "title": "Polarwarp",
+  "created": "2025-10-13T16:54:34Z",
+  "osc:status": "completed",
+  "type": "Collection",
+  "osc:type": "product",
+  "stac_version": "1.0.0",
+  "description": "Polarwarp product\n\nForecast rasters (+1h \u2026 +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.",
+  "license": "various",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -0.0018099989187332413,
+          0.00043814539682784925,
+          0.001347252506956414,
+          0.0007574196581714432
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2025-02-25T00:00:00Z",
+          null
+        ]
+      ]
+    }
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json",
+      "title": "Open Science Catalog"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json",
+      "type": "application/json",
+      "title": "Products"
+    },
+    {
+      "href": "../../projects/cerulean-information-factory/collection.json",
+      "rel": "related",
+      "type": "application/json",
+      "title": "Project: Cerulean Information Factory"
+    },
+    {
+      "href": "../../themes/cryosphere/catalog.json",
+      "rel": "related",
+      "type": "application/json",
+      "title": "Theme: Cryosphere"
+    },
+    {
+      "rel": "related",
+      "href": "../../experiments/polarwarp/record.json",
+      "type": "application/json",
+      "title": "Experiment: Polarwarp"
+    },
+    {
+      "href": "./item.json",
+      "rel": "item"
+    },
+    {
+      "href": "https://github.com/gtif-cerulean/polarwarp",
+      "rel": "via"
+    },
+    {
+      "rel": "latest-version",
+      "href": "collection_v1.json",
+      "type": "application/json",
+      "title": "Latest version"
+    },
+    {
+      "rel": "has-version",
+      "href": "collection_v1.json",
+      "type": "application/json",
+      "title": "Version 1"
+    },
+    {
+      "rel": "version-history",
+      "href": "https://api.test.datacite.org/dois/application/vnd.datacite.datacite+json/10.83395/zfk4-9k53",
+      "type": "application/vnd.datacite.datacite+json",
+      "title": "Version History (DataCite JSON)"
+    }
+  ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/themes/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/scientific/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/version/v1.2.0/schema.json"
+  ],
+  "osc:project": "cerulean-information-factory",
+  "themes": [
+    {
+      "scheme": "https://github.com/stac-extensions/osc#theme",
+      "concepts": [
+        {
+          "id": "cryosphere"
+        }
+      ]
+    }
+  ],
+  "fair:Findable_has_doi": false,
+  "fair:Findable_rich_metadata": true,
+  "fair:Findable_identifier": true,
+  "fair:Findable_stac_assets": true,
+  "fair:Findable_indexed": true,
+  "fair:Findable_indexed_approved_metadata": true,
+  "fair:Findable_indexed_approved_data": true,
+  "fair:Accessible_general": true,
+  "fair:Accessible_protocols": true,
+  "fair:Accessible_files": 1.0,
+  "fair:Interoperable_uses_formal_language": true,
+  "fair:Interoperable_controlled_vocabularies": true,
+  "fair:Interoperable_related_links": true,
+  "fair:Interoperable_has_documentation": false,
+  "fair:Reusable_rich_descriptions": true,
+  "fair:Reusable_has_license": true,
+  "fair:Reusable_workflow_exists": true,
+  "fair:Reusable_cloud_assets_rate": 1.0,
   "fair:Reusable_has_visualisation": false,
   "fair:Reusable_has_access_example": false
 }
@@ -247,6 +299,7 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ns1: <fair:> .
 @prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns3: <sci:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix osc: <https://w3id.org/ogc/stac/osc/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -256,21 +309,21 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://ogc.org/demo/ospd/polarwarp> a <https://ogc.org/demo/ospd/Collection> ;
-    ns1:Accessible_files 0e+00 ;
+    ns1:Accessible_files 1e+00 ;
     ns1:Accessible_general true ;
     ns1:Accessible_protocols true ;
     ns1:Findable_has_doi false ;
     ns1:Findable_identifier true ;
     ns1:Findable_indexed true ;
-    ns1:Findable_indexed_approved_data false ;
-    ns1:Findable_indexed_approved_metadata false ;
+    ns1:Findable_indexed_approved_data true ;
+    ns1:Findable_indexed_approved_metadata true ;
     ns1:Findable_rich_metadata true ;
-    ns1:Findable_stac_assets false ;
+    ns1:Findable_stac_assets true ;
     ns1:Interoperable_controlled_vocabularies true ;
     ns1:Interoperable_has_documentation false ;
     ns1:Interoperable_related_links true ;
     ns1:Interoperable_uses_formal_language true ;
-    ns1:Reusable_cloud_assets_rate 0e+00 ;
+    ns1:Reusable_cloud_assets_rate 1e+00 ;
     ns1:Reusable_has_access_example false ;
     ns1:Reusable_has_license true ;
     ns1:Reusable_has_visualisation false ;
@@ -282,39 +335,55 @@ This building block shows a possible profile of GeoDCAT supporting semantic anno
 Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.""" ;
     dcterms:extent [ ] ;
     dcterms:title "Polarwarp" ;
-    rdfs:seeAlso [ ns2:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/item.json> ],
-        [ rdfs:label "Products" ;
+    rdfs:seeAlso [ rdfs:label "Products" ;
             dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://ogc.org/demo/catalog.json> ],
-        [ rdfs:label "Experiment: Polarwarp" ;
+        [ rdfs:label "Open Science Catalog" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ],
-        [ rdfs:label "Theme: Cryosphere" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ],
+            ns2:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ],
         [ rdfs:label "Project: Cerulean Information Factory" ;
             dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],
+        [ rdfs:label "Version History (DataCite JSON)" ;
+            dcterms:type "application/vnd.datacite.datacite+json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/version-history> ;
+            oa:hasTarget <https://api.test.datacite.org/dois/application/vnd.datacite.datacite+json/10.83395/zfk4-9k53> ],
+        [ ns2:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/item.json> ],
         [ ns2:relation <http://www.iana.org/assignments/relation/via> ;
             oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
-        [ rdfs:label "Open Science Catalog" ;
+        [ rdfs:label "Version 1" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://ogc.org/catalog.json> ] ;
+            ns2:relation <http://www.iana.org/assignments/relation/has-version> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/collection_v1.json> ],
+        [ rdfs:label "Theme: Cryosphere" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ],
+        [ rdfs:label "Experiment: Polarwarp" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ],
+        [ rdfs:label "Latest version" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/latest-version> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/collection_v1.json> ] ;
     dcat:license "various" ;
     stac:hasExtension "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
-        "https://stac-extensions.github.io/themes/v1.0.0/schema.json" ;
+        "https://stac-extensions.github.io/scientific/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/themes/v1.0.0/schema.json",
+        "https://stac-extensions.github.io/version/v1.2.0/schema.json" ;
     stac:version "1.0.0" ;
     osc:project "cerulean-information-factory"^^xsd:string ;
     osc:status osc:completed ;
     osc:type osc:product-type ;
     rec:themes [ thns:concepts [ thns:id "cryosphere"^^xsd:string ] ;
-            thns:scheme "https://github.com/stac-extensions/osc#theme" ] .
+            thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
+    ns3:doi "10.83395/zfk4-9k53" ;
+    ns3:publications [ ] .
 
 
 ```

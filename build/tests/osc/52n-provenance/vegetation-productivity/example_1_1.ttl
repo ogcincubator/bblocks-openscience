@@ -1,0 +1,192 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ex: <https://example.org/vegetation-productivity#> .
+@prefix openeo: <https://example.org/openeo#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix spdx: <http://spdx.org/rdf/terms#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/stac/collections/sen> a prov:Collection,
+        prov:Entity ;
+    dcterms:conformsTo "https://schemas.stacspec.org/v1.0.0/collection-spec/json-schema/collection.json" ;
+    dcterms:title "Seasonal Sen Slope" ;
+    spdx:checksum [ spdx:algorithm spdx:checksumAlgorithm_sha256 ;
+            spdx:checksumValue "a7d2e4f6081b3c5d7e9f0a2b4c6d8e0f1a3b5c7d9e1f2a4b6c8d0e2f4a6b8c0d" ] ;
+    prov:generatedAtTime "2026-08-21T10:45:00+00:00"^^xsd:dateTime ;
+    prov:hadMember <https://example.org/stac/collections/sen/items/DeltaIR_SAVI>,
+        <https://example.org/stac/collections/sen/items/PercentChange_SAVI> ;
+    prov:wasAttributedTo <https://orcid.org/0000-0003-4718-2959> ;
+    prov:wasDerivedFrom ex:sen_slope_cogs ;
+    prov:wasGeneratedBy ex:step3b_stac_metadata .
+
+ex:gdal a prov:Agent,
+        prov:SoftwareAgent,
+        schema:SoftwareApplication ;
+    dcterms:title "GDAL (COG driver)" ;
+    prov:actedOnBehalfOf <https://orcid.org/0000-0003-4718-2959> ;
+    schema:softwareVersion "3.9.2" .
+
+ex:openeo_backend a prov:Agent,
+        prov:SoftwareAgent,
+        openeo:Backend ;
+    dcterms:title "openEO backend" ;
+    prov:qualifiedDelegation [ prov:agent ex:openeo_client ;
+            prov:hadActivity ex:step1_bap ] ;
+    ex:backendUrl "https://openeo.example.org" .
+
+ex:pystac a prov:Agent,
+        prov:SoftwareAgent,
+        schema:SoftwareApplication ;
+    dcterms:title "PySTAC" ;
+    prov:actedOnBehalfOf <https://orcid.org/0000-0003-4718-2959> ;
+    schema:softwareVersion "1.10.1" .
+
+ex:step3b_stac_metadata a prov:Activity,
+        ex:PostProcessing,
+        ex:StacMetadataCreation ;
+    rdfs:label "Step 3b: Post-processing - create STAC metadata" ;
+    rdfs:comment "Creates STAC collection and items for the COGs and embeds the available provenance information: algorithm repository and version, processing backend and input parameters." ;
+    prov:endedAtTime "2026-08-21T10:45:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-08-21T10:28:00+00:00"^^xsd:dateTime ;
+    prov:used ex:bap_process_graph,
+        ex:sen_slope_algorithm,
+        ex:sen_slope_cogs,
+        ex:sen_slope_parameters ;
+    prov:wasAssociatedWith ex:pystac,
+        <https://orcid.org/0000-0003-4718-2959> ;
+    prov:wasInformedBy ex:step1_bap,
+        ex:step2_seasonal_sen_slope,
+        ex:step3a_cog_conversion .
+
+<https://example.org/stac/collections/bap> a prov:Collection,
+        prov:Entity ;
+    dcterms:conformsTo "https://schemas.stacspec.org/v1.0.0/collection-spec/json-schema/collection.json" ;
+    dcterms:title "Best available pixels from Sentinel-2 scenes over AOI" ;
+    spdx:checksum [ spdx:algorithm spdx:checksumAlgorithm_sha256 ;
+            spdx:checksumValue "3f1c9a0e7b2d4c6f8a1e5b7d9c0f2a4e6b8d0c1e3f5a7b9d2c4e6f8a0b1c3d5e" ] ;
+    prov:generatedAtTime "2026-08-21T10:05:00+00:00"^^xsd:dateTime ;
+    prov:hadMember <https://example.org/stac/collections/bap/items/Sakar_complete_months_2021_2025_2021_01_indices_savi>,
+        <https://example.org/stac/collections/bap/items/Sakar_complete_months_2021_2025_2021_02_indices_savi> ;
+    prov:wasAttributedTo <https://orcid.org/0000-0003-4718-2959> ;
+    prov:wasDerivedFrom <https://openeo.example.org/collections/SENTINEL2_L2> ;
+    prov:wasGeneratedBy ex:step1_bap .
+
+ex:openeo_client a prov:Agent,
+        prov:SoftwareAgent,
+        schema:SoftwareApplication ;
+    dcterms:title "openeo-python-client" ;
+    prov:qualifiedDelegation [ prov:agent <https://orcid.org/0000-0003-4718-2959> ;
+            prov:hadActivity ex:step1_bap ] ;
+    schema:softwareVersion "0.31.0" .
+
+ex:sen_slope_algorithm a prov:Entity,
+        prov:Plan,
+        schema:SoftwareSourceCode ;
+    dcterms:title "Seasonal Sen slope trend estimator" ;
+    rdfs:seeAlso "https://en.wikipedia.org/wiki/Theil%E2%80%93Sen_estimator" ;
+    schema:codeRepository "https://github.com/example-org/seasonal-sen-slope" ;
+    schema:programmingLanguage "Python" ;
+    schema:version "1.2.0" .
+
+ex:sen_slope_cogs a prov:Collection,
+        prov:Entity ;
+    dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "Seasonal Sen slope results (Cloud Optimized GeoTIFF)" ;
+    prov:generatedAtTime "2026-08-21T10:28:00+00:00"^^xsd:dateTime ;
+    prov:hadMember <https://example.org/data/sen/DeltaIR_SAVI.tif>,
+        <https://example.org/data/sen/PercentChange_SAVI.tif> ;
+    prov:wasAttributedTo <https://orcid.org/0000-0003-4718-2959> ;
+    prov:wasDerivedFrom ex:sen_slope_results ;
+    prov:wasGeneratedBy ex:step3a_cog_conversion .
+
+ex:sen_slope_parameters a prov:Entity,
+        ex:ProcessInputs ;
+    dcterms:title "Input parameters of the seasonal Sen slope analysis" ;
+    ex:endDate "2025-12-31" ;
+    ex:saviSoilFactor 5e-01 ;
+    ex:seasonLength 12 ;
+    ex:significanceLevel 5e-02 ;
+    ex:startDate "2021-01-01" ;
+    ex:vegetationIndex "SAVI" .
+
+ex:sen_slope_results a prov:Collection,
+        prov:Entity ;
+    dcterms:format "image/tiff; application=geotiff" ;
+    dcterms:title "Seasonal Sen slope results (plain GeoTIFF)" ;
+    prov:generatedAtTime "2026-08-21T10:12:00+00:00"^^xsd:dateTime ;
+    prov:hadMember ex:DeltaIR_SAVI_tif,
+        ex:PercentChange_SAVI_tif ;
+    prov:wasAttributedTo <https://orcid.org/0000-0003-4718-2959> ;
+    prov:wasDerivedFrom <https://example.org/stac/collections/bap> ;
+    prov:wasGeneratedBy ex:step2_seasonal_sen_slope .
+
+ex:step3a_cog_conversion a prov:Activity,
+        ex:CogConversion,
+        ex:PostProcessing ;
+    rdfs:label "Step 3a: Post-processing - convert results to Cloud Optimized GeoTIFFs" ;
+    prov:endedAtTime "2026-08-21T10:28:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-08-21T10:15:00+00:00"^^xsd:dateTime ;
+    prov:used ex:sen_slope_results ;
+    prov:wasAssociatedWith ex:gdal,
+        <https://orcid.org/0000-0003-4718-2959> ;
+    prov:wasInformedBy ex:step2_seasonal_sen_slope .
+
+ex:step2_seasonal_sen_slope a prov:Activity,
+        <https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA017> ;
+    rdfs:label "Step 2: Seasonal Sen slope trend analysis" ;
+    prov:endedAtTime "2026-08-21T10:12:00+00:00"^^xsd:dateTime ;
+    prov:qualifiedAssociation [ prov:agent <https://orcid.org/0000-0003-4718-2959> ;
+            prov:hadPlan ex:sen_slope_algorithm ] ;
+    prov:startedAtTime "2026-08-21T10:06:00+00:00"^^xsd:dateTime ;
+    prov:used <https://example.org/stac/collections/bap>,
+        ex:sen_slope_parameters ;
+    prov:wasInformedBy ex:step1_bap .
+
+<https://openeo.example.org/collections/SENTINEL2_L2> a prov:Collection,
+        prov:Entity ;
+    dcterms:description "Copernicus Sentinel-2 MSI Level-2A bottom-of-atmosphere reflectance, atmospherically corrected with Sen2Cor and including the scene classification layer (SCL), as offered by the openEO backend." ;
+    dcterms:identifier "SENTINEL2_L2" ;
+    dcterms:license "https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice" ;
+    dcterms:publisher "European Space Agency (ESA), Copernicus Programme" ;
+    dcterms:title "Sentinel-2 L2A surface reflectance" ;
+    rdfs:seeAlso "https://documentation.dataspace.copernicus.eu/Data/SentinelMissions/Sentinel2.html" ;
+    ex:instrument "MSI" ;
+    ex:mission "Sentinel-2" ;
+    ex:processingLevel "L2A" ;
+    ex:revisitTime "5 days" ;
+    ex:spatialResolution "10 m (B02, B03, B04, B08), 20 m (B05-B07, B8A, B11, B12, SCL), 60 m (B01, B09)" .
+
+ex:bap_process_graph a prov:Entity,
+        prov:Plan ;
+    dcterms:title "Best available pixel in timeseries over AOI" ;
+    openeo:processId "bap" .
+
+ex:step1_bap a prov:Activity,
+        <https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA016>,
+        openeo:BatchJob ;
+    rdfs:label "Step 1: Best available pixel composites" ;
+    prov:endedAtTime "2026-08-21T18:05:00+00:00"^^xsd:dateTime ;
+    prov:qualifiedAssociation [ prov:agent <https://orcid.org/0000-0003-4718-2959> ;
+            prov:hadPlan ex:bap_process_graph ],
+        [ prov:agent ex:openeo_backend ;
+            prov:hadPlan ex:bap_process_graph ],
+        [ prov:agent ex:openeo_client ;
+            prov:hadPlan ex:bap_process_graph ] ;
+    prov:qualifiedUsage [ prov:entity <https://openeo.example.org/collections/SENTINEL2_L2> ;
+            ex:bands "B04",
+                "B08",
+                "SCL" ;
+            ex:bbox ( 2.645329e+01 4.185697e+01 2.657929e+01 4.19826e+01 ) ;
+            ex:endDate "2025-12-31" ;
+            ex:startDate "2021-01-01" ] ;
+    prov:startedAtTime "2026-08-21T10:00:00+00:00"^^xsd:dateTime ;
+    prov:used <https://openeo.example.org/collections/SENTINEL2_L2> ;
+    openeo:jobId "j-2608251100" .
+
+<https://orcid.org/0000-0003-4718-2959> a prov:Agent,
+        prov:Person ;
+    rdfs:label "GIS Analyst" ;
+    schema:identifier "https://orcid.org/0000-0003-4718-2959" .
+

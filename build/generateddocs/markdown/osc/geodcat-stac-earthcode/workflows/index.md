@@ -24,411 +24,7 @@ Some constraints are not checked:
 The polarwarp algorithm geolocates, aligns, and warps satellite SAR images using forecast drift and wind/tide fields in polar regions. It takes ice drift vectors from multiple data sources (SAR, TOPAZ4, ICON, tide models), translates them into pixel displacements, and applies thin-plate spline warping to generate temporally aligned and drift-corrected imagery. This enables monitoring of sea ice motion over forecast windows while preserving georeferencing.
 
 #### json
-```json
-{
-  "id": "polarwarp",
-  "type": "Feature",
-  "conformsTo": [
-    "http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core",
-    "https://stac-extensions.github.io/application/v0.1.0/schema.json",
-    "https://raw.githubusercontent.com/EOEPCA/metadata-profile/refs/heads/1.0/schemas/application-type-argo-workflow"
-  ],
-  "geometry": null,
-  "properties": {
-    "created": "2025-09-30T13:00:00Z",
-    "updated": "2025-09-30T14:00:00Z",
-    "type": "workflow",
-    "title": "Polarwarp",
-    "description": "The polarwarp algorithm geolocates, aligns, and warps satellite SAR images using forecast drift and wind/tide fields in polar regions.",
-    "application:type": "argo-workflow",
-    "application:container": true,
-    "application:language": "Python",
-    "keywords": [
-      "sea ice",
-      "polar"
-    ],
-    "contacts": [
-      {
-        "name": "David Arthurs",
-        "roles": [
-          "consortium_member"
-        ],
-        "emails": [
-          {
-            "value": "david.arthurs@polarview.org"
-          }
-        ]
-      },
-      {
-        "name": "Týna Doležalová",
-        "roles": [
-          "consortium_member"
-        ],
-        "emails": [
-          {
-            "value": "tyna.dolezalova@eox.at"
-          }
-        ]
-      }
-    ],
-    "themes": [
-      {
-        "scheme": "https://github.com/stac-extensions/osc#theme",
-        "concepts": [
-          {
-            "id": "cryosphere"
-          }
-        ]
-      },
-      {
-        "scheme": "https://github.com/stac-extensions/osc#theme",
-        "concepts": [
-          {
-            "id": "oceans"
-          }
-        ]
-      }
-    ],
-    "license": "CC-BY-SA-4.0",
-    "osc:project": "cerulean-information-factory"
-  },
-  "linkTemplates": [],
-  "links": [
-    {
-      "rel": "root",
-      "href": "../../catalog.json",
-      "type": "application/json",
-      "title": "Open Science Catalog"
-    },
-    {
-      "rel": "parent",
-      "href": "../catalog.json",
-      "type": "application/json",
-      "title": "Workflows"
-    },
-    {
-      "rel": "self",
-      "href": "https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/polarwarp/record.json",
-      "type": "application/json"
-    },
-    {
-      "rel": "related",
-      "href": "../../projects/cerulean-information-factory/collection.json",
-      "type": "application/json",
-      "title": "Project: Cerulean Information Factory"
-    },
-    {
-      "rel": "related",
-      "href": "../../themes/cryosphere/catalog.json",
-      "type": "application/json",
-      "title": "Theme: Cryosphere"
-    },
-    {
-      "rel": "related",
-      "href": "../../themes/oceans/catalog.json",
-      "type": "application/json",
-      "title": "Theme: Oceans"
-    },
-    {
-      "rel": "child",
-      "href": "../../experiments/polarwarp/record.json",
-      "type": "application/json",
-      "title": "Polarwarp"
-    },
-    {
-      "rel": "vcs",
-      "title": "Git source repository",
-      "href": "https://github.com/gtif-cerulean/polarwarp.git",
-      "vcs:type": "git",
-      "vcs:branch": "main"
-    },
-    {
-      "rel": "application",
-      "title": "Polarwarp workflow",
-      "href": "https://github.com/gtif-cerulean/polarwarp/blob/main/workflow.yml",
-      "type": "application/x-argo-workflow-yaml",
-      "application:type": "argo-workflow",
-      "application:container": true,
-      "application:language": "Python",
-      "argo-workflow:": {
-        "requirements": [
-          {
-            "temp_storage": "10GB"
-        }
-        ]
-      }
-    },
-    {
-      "rel": "application-originating-platform",
-      "title": "EOxHub Workspaces",
-      "href": "https://workspace.cif.hub-otc.eox.at/",
-      "type": "text/html",
-      "application:platform_supports": ["argo-workflow"],
-      "application:preferred_app": "argo"
-    },
-    {
-      "rel": "related",
-      "href": "https://harshness-map.gtif.eox.at/processes/execute-polarwarp-gcps",
-      "type": "text/html",
-      "title": "Trigger workflow via API provided by pygeoapi"
-    }
-
-  ]
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/workflows/context.jsonld",
-  "id": "polarwarp",
-  "type": "Feature",
-  "conformsTo": [
-    "http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core",
-    "https://stac-extensions.github.io/application/v0.1.0/schema.json",
-    "https://raw.githubusercontent.com/EOEPCA/metadata-profile/refs/heads/1.0/schemas/application-type-argo-workflow"
-  ],
-  "geometry": null,
-  "properties": {
-    "created": "2025-09-30T13:00:00Z",
-    "updated": "2025-09-30T14:00:00Z",
-    "type": "workflow",
-    "title": "Polarwarp",
-    "description": "The polarwarp algorithm geolocates, aligns, and warps satellite SAR images using forecast drift and wind/tide fields in polar regions.",
-    "application:type": "argo-workflow",
-    "application:container": true,
-    "application:language": "Python",
-    "keywords": [
-      "sea ice",
-      "polar"
-    ],
-    "contacts": [
-      {
-        "name": "David Arthurs",
-        "roles": [
-          "consortium_member"
-        ],
-        "emails": [
-          {
-            "value": "david.arthurs@polarview.org"
-          }
-        ]
-      },
-      {
-        "name": "T\u00fdna Dole\u017ealov\u00e1",
-        "roles": [
-          "consortium_member"
-        ],
-        "emails": [
-          {
-            "value": "tyna.dolezalova@eox.at"
-          }
-        ]
-      }
-    ],
-    "themes": [
-      {
-        "scheme": "https://github.com/stac-extensions/osc#theme",
-        "concepts": [
-          {
-            "id": "cryosphere"
-          }
-        ]
-      },
-      {
-        "scheme": "https://github.com/stac-extensions/osc#theme",
-        "concepts": [
-          {
-            "id": "oceans"
-          }
-        ]
-      }
-    ],
-    "license": "CC-BY-SA-4.0",
-    "osc:project": "cerulean-information-factory"
-  },
-  "linkTemplates": [],
-  "links": [
-    {
-      "rel": "root",
-      "href": "../../catalog.json",
-      "type": "application/json",
-      "title": "Open Science Catalog"
-    },
-    {
-      "rel": "parent",
-      "href": "../catalog.json",
-      "type": "application/json",
-      "title": "Workflows"
-    },
-    {
-      "rel": "self",
-      "href": "https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/polarwarp/record.json",
-      "type": "application/json"
-    },
-    {
-      "rel": "related",
-      "href": "../../projects/cerulean-information-factory/collection.json",
-      "type": "application/json",
-      "title": "Project: Cerulean Information Factory"
-    },
-    {
-      "rel": "related",
-      "href": "../../themes/cryosphere/catalog.json",
-      "type": "application/json",
-      "title": "Theme: Cryosphere"
-    },
-    {
-      "rel": "related",
-      "href": "../../themes/oceans/catalog.json",
-      "type": "application/json",
-      "title": "Theme: Oceans"
-    },
-    {
-      "rel": "child",
-      "href": "../../experiments/polarwarp/record.json",
-      "type": "application/json",
-      "title": "Polarwarp"
-    },
-    {
-      "rel": "vcs",
-      "title": "Git source repository",
-      "href": "https://github.com/gtif-cerulean/polarwarp.git",
-      "vcs:type": "git",
-      "vcs:branch": "main"
-    },
-    {
-      "rel": "application",
-      "title": "Polarwarp workflow",
-      "href": "https://github.com/gtif-cerulean/polarwarp/blob/main/workflow.yml",
-      "type": "application/x-argo-workflow-yaml",
-      "application:type": "argo-workflow",
-      "application:container": true,
-      "application:language": "Python",
-      "argo-workflow:": {
-        "requirements": [
-          {
-            "temp_storage": "10GB"
-          }
-        ]
-      }
-    },
-    {
-      "rel": "application-originating-platform",
-      "title": "EOxHub Workspaces",
-      "href": "https://workspace.cif.hub-otc.eox.at/",
-      "type": "text/html",
-      "application:platform_supports": [
-        "argo-workflow"
-      ],
-      "application:preferred_app": "argo"
-    },
-    {
-      "rel": "related",
-      "href": "https://harshness-map.gtif.eox.at/processes/execute-polarwarp-gcps",
-      "type": "text/html",
-      "title": "Trigger workflow via API provided by pygeoapi"
-    }
-  ]
-}
-```
-
-#### ttl
-```ttl
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <application:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
-@prefix ns3: <vcs:> .
-@prefix ns4: <osc:> .
-@prefix oa: <http://www.w3.org/ns/oa#> .
-@prefix proc: <https://w3id.org/ogc/api/processes/> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix rec: <https://www.opengis.net/def/ogc-api/records/> .
-@prefix thns: <https://w3id.org/ogc/stac/themes/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-<https://ogc.org/demo/ospd/polarwarp> ns1:container true ;
-    ns1:language "Python" ;
-    ns1:type "argo-workflow" ;
-    dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core>,
-        <https://raw.githubusercontent.com/EOEPCA/metadata-profile/refs/heads/1.0/schemas/application-type-argo-workflow>,
-        <https://stac-extensions.github.io/application/v0.1.0/schema.json> ;
-    dcterms:created "2025-09-30T13:00:00Z" ;
-    dcterms:description "The polarwarp algorithm geolocates, aligns, and warps satellite SAR images using forecast drift and wind/tide fields in polar regions." ;
-    dcterms:modified "2025-09-30T14:00:00Z" ;
-    dcterms:title "Polarwarp" ;
-    rdfs:seeAlso [ rdfs:label "Theme: Oceans" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
-        [ rdfs:label "Trigger workflow via API provided by pygeoapi" ;
-            dcterms:type "text/html" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://harshness-map.gtif.eox.at/processes/execute-polarwarp-gcps> ],
-        [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/polarwarp/record.json> ],
-        [ rdfs:label "Open Science Catalog" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://ogc.org/catalog.json> ],
-        [ rdfs:label "Workflows" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
-        [ rdfs:label "Polarwarp" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/child> ;
-            oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ],
-        [ rdfs:label "EOxHub Workspaces" ;
-            ns1:platform_supports "argo-workflow" ;
-            ns1:preferred_app "argo" ;
-            dcterms:type "text/html" ;
-            ns2:relation <http://www.iana.org/assignments/relation/application-originating-platform> ;
-            oa:hasTarget <https://workspace.cif.hub-otc.eox.at/> ],
-        [ rdfs:label "Project: Cerulean Information Factory" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],
-        [ rdfs:label "Theme: Cryosphere" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ],
-        [ rdfs:label "Polarwarp workflow" ;
-            ns1:container true ;
-            ns1:language "Python" ;
-            ns1:type "argo-workflow" ;
-            <argo-workflow:> [ proc:requirements [ proc:temp_storage "10GB" ] ] ;
-            dcterms:type "application/x-argo-workflow-yaml" ;
-            ns2:relation <http://www.iana.org/assignments/relation/application> ;
-            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp/blob/main/workflow.yml> ],
-        [ rdfs:label "Git source repository" ;
-            ns2:relation <http://www.iana.org/assignments/relation/vcs> ;
-            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp.git> ;
-            ns3:branch "main" ;
-            ns3:type "git" ] ;
-    dcat:contactPoint [ rdfs:label "David Arthurs" ;
-            proc:emails [ prov:value "david.arthurs@polarview.org" ] ;
-            proc:roles "consortium_member" ],
-        [ rdfs:label "Týna Doležalová" ;
-            proc:emails [ prov:value "tyna.dolezalova@eox.at" ] ;
-            proc:roles "consortium_member" ] ;
-    dcat:keyword "polar",
-        "sea ice" ;
-    dcat:license "CC-BY-SA-4.0" ;
-    proc:type "Feature",
-        "workflow" ;
-    rec:themes [ thns:concepts [ thns:id "cryosphere"^^xsd:string ] ;
-            thns:scheme "https://github.com/stac-extensions/osc#theme" ],
-        [ thns:concepts [ thns:id "oceans"^^xsd:string ] ;
-            thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
-    ns4:project "cerulean-information-factory" .
-
-
-```
+*Snippet unavailable: 404 Client Error: Not Found for url: https://esa-earthcode.github.io/open-science-catalog-metadata-staging/workflows/polarwarp/record.json*
 
 
 ### Polaris
@@ -441,10 +37,15 @@ The Polar Operational Limit Assessment Risk Indexing System (POLARIS) is a metho
   "conformsTo": [
     "http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core",
     "https://stac-extensions.github.io/application/v0.1.0/schema.json",
-    "https://raw.githubusercontent.com/EOEPCA/metadata-profile/refs/heads/1.0/schemas/application-type-argo-workflow"
+    "https://raw.githubusercontent.com/EOEPCA/metadata-profile/refs/heads/1.0/schemas/application-type-argo-workflow",
+    "https://stac-extensions.github.io/scientific/v1.0.0/schema.json"
   ],
   "geometry": null,
   "properties": {
+    "sci:publications": [
+        {"doi": "10.83395/atj3-8y94"}
+    ],
+    "sci:doi": "10.83395/rxm1-kr03",
     "created": "2025-02-19T23:00:00Z",
     "updated": "2025-03-03T22:00:00Z",
     "type": "workflow",
@@ -600,10 +201,17 @@ The Polar Operational Limit Assessment Risk Indexing System (POLARIS) is a metho
   "conformsTo": [
     "http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core",
     "https://stac-extensions.github.io/application/v0.1.0/schema.json",
-    "https://raw.githubusercontent.com/EOEPCA/metadata-profile/refs/heads/1.0/schemas/application-type-argo-workflow"
+    "https://raw.githubusercontent.com/EOEPCA/metadata-profile/refs/heads/1.0/schemas/application-type-argo-workflow",
+    "https://stac-extensions.github.io/scientific/v1.0.0/schema.json"
   ],
   "geometry": null,
   "properties": {
+    "sci:publications": [
+      {
+        "doi": "10.83395/atj3-8y94"
+      }
+    ],
+    "sci:doi": "10.83395/rxm1-kr03",
     "created": "2025-02-19T23:00:00Z",
     "updated": "2025-03-03T22:00:00Z",
     "type": "workflow",
@@ -757,7 +365,8 @@ The Polar Operational Limit Assessment Risk Indexing System (POLARIS) is a metho
 @prefix ns1: <application:> .
 @prefix ns2: <http://www.iana.org/assignments/> .
 @prefix ns3: <osc:> .
-@prefix ns4: <vcs:> .
+@prefix ns4: <sci:> .
+@prefix ns5: <vcs:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix proc: <https://w3id.org/ogc/api/processes/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -771,19 +380,53 @@ The Polar Operational Limit Assessment Risk Indexing System (POLARIS) is a metho
     ns1:type "argo-workflow" ;
     dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-records-1/1.0/req/record-core>,
         <https://raw.githubusercontent.com/EOEPCA/metadata-profile/refs/heads/1.0/schemas/application-type-argo-workflow>,
-        <https://stac-extensions.github.io/application/v0.1.0/schema.json> ;
+        <https://stac-extensions.github.io/application/v0.1.0/schema.json>,
+        <https://stac-extensions.github.io/scientific/v1.0.0/schema.json> ;
     dcterms:created "2025-02-19T23:00:00Z" ;
     dcterms:description "Polar Operational Limit Assessment Risk Index System (POLARIS) algorithm." ;
     dcterms:modified "2025-03-03T22:00:00Z" ;
     dcterms:title "POLARIS" ;
-    rdfs:seeAlso [ rdfs:label "Open Science Catalog" ;
+    rdfs:seeAlso [ rdfs:label "Project: Cerulean Information Factory" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],
+        [ rdfs:label "Open Science Catalog" ;
             dcterms:type "application/json" ;
             ns2:relation <http://www.iana.org/assignments/relation/root> ;
             oa:hasTarget <https://ogc.org/catalog.json> ],
+        [ dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/polaris-workflow/record.json> ],
         [ rdfs:label "Trigger workflow via API provided by pygeoapi" ;
             dcterms:type "text/html" ;
             ns2:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://harshness-map.gtif.eox.at/processes/execute-polaris> ],
+        [ rdfs:label "Theme: Oceans" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
+        [ rdfs:label "EOxHub Workspaces" ;
+            ns1:platform_supports "argo-workflow" ;
+            ns1:preferred_app "argo" ;
+            dcterms:type "text/html" ;
+            ns2:relation <http://www.iana.org/assignments/relation/application-originating-platform> ;
+            oa:hasTarget <https://workspace.cif.hub-otc.eox.at/> ],
+        [ rdfs:label "Workflows" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
+        [ rdfs:label "POLARIS" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/child> ;
+            oa:hasTarget <https://ogc.org/experiments/polaris/record.json> ],
+        [ rdfs:label "Git source repository" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/git> ;
+            oa:hasTarget <https://github.com/gtif-cerulean/cerulean-catalog.git> ],
+        [ rdfs:label "OGC Application Package" ;
+            dcterms:type "application/json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/application> ;
+            oa:hasTarget <https://github.com/gtif-cerulean/cerulean-catalog.git> ],
         [ rdfs:label "POLARIS workflow" ;
             ns1:container true ;
             ns1:language "Python" ;
@@ -792,44 +435,11 @@ The Polar Operational Limit Assessment Risk Indexing System (POLARIS) is a metho
             dcterms:type "application/x-argo-workflow-yaml" ;
             ns2:relation <http://www.iana.org/assignments/relation/application> ;
             oa:hasTarget <https://github.com/gtif-cerulean/polaris/blob/main/workflow.yml> ],
-        [ rdfs:label "POLARIS" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/child> ;
-            oa:hasTarget <https://ogc.org/experiments/polaris/record.json> ],
-        [ dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/workflows/polaris-workflow/record.json> ],
-        [ rdfs:label "Theme: Oceans" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/oceans/catalog.json> ],
         [ rdfs:label "Git source repository" ;
             ns2:relation <http://www.iana.org/assignments/relation/vcs> ;
             oa:hasTarget <https://github.com/gtif-cerulean/polaris.git> ;
-            ns4:branch "main" ;
-            ns4:type "git" ],
-        [ rdfs:label "Workflows" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
-        [ rdfs:label "OGC Application Package" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/application> ;
-            oa:hasTarget <https://github.com/gtif-cerulean/cerulean-catalog.git> ],
-        [ rdfs:label "Project: Cerulean Information Factory" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],
-        [ rdfs:label "EOxHub Workspaces" ;
-            ns1:platform_supports "argo-workflow" ;
-            ns1:preferred_app "argo" ;
-            dcterms:type "text/html" ;
-            ns2:relation <http://www.iana.org/assignments/relation/application-originating-platform> ;
-            oa:hasTarget <https://workspace.cif.hub-otc.eox.at/> ],
-        [ rdfs:label "Git source repository" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/git> ;
-            oa:hasTarget <https://github.com/gtif-cerulean/cerulean-catalog.git> ] ;
+            ns5:branch "main" ;
+            ns5:type "git" ] ;
     dcat:contactPoint [ rdfs:label "Týna Doležalová" ;
             proc:emails [ prov:value "tyna.dolezalova@eox.at" ] ;
             proc:roles "consortium_member" ],
@@ -844,7 +454,9 @@ The Polar Operational Limit Assessment Risk Indexing System (POLARIS) is a metho
     rec:format [ rec:name "GeoTIFF" ] ;
     rec:themes [ thns:concepts [ thns:id "oceans"^^xsd:string ] ;
             thns:scheme "https://github.com/stac-extensions/osc#theme" ] ;
-    ns3:project "cerulean-information-factory" .
+    ns3:project "cerulean-information-factory" ;
+    ns4:doi "10.83395/rxm1-kr03" ;
+    ns4:publications [ proc:doi "10.83395/atj3-8y94" ] .
 
 
 ```

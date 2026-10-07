@@ -10,15 +10,15 @@
   "itemClass": "model",
   "register": "ogc-incubator",
   "version": "0.1",
-  "dateOfLastChange": "2023-09-18",
+  "dateOfLastChange": "2026-10-07",
   "dependsOn": [
+    "ogc.bbr.wf4ever.ro.ResearchObject",
+    "ogc.osc.ontology.cwlprov",
     "ogc.contrib.stac.extensions.processing-ontology",
     "ogc.contrib.stac.extensions.cf-ontology",
-    "ogc.osc.ontology.cwlprov",
-    "ogc.bbr.wf4ever.wfdesc.Workflow",
-    "ogc.bbr.wf4ever.ro.ResearchObject",
-    "ogc.geo.geodcat.dcat",
     "ogc.contrib.stac.core-ontology",
+    "ogc.geo.geodcat.dcat",
+    "ogc.bbr.wf4ever.wfdesc.Workflow",
     "ogc.contrib.stac.extensions.osc-ontology"
   ],
   "sources": [],
@@ -27,6 +27,9 @@
     "OSPD"
   ],
   "shaclShapes": {
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+    ],
     "ogc.contrib.stac.extensions.processing-ontology": [
       "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/processing-ontology/shapes.shacl"
     ],

@@ -1,0 +1,8 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+<urn:example:step:0001> a prov:Activity ;
+    dct:type <https://example.org/ospd/process-types/ingest> ;
+    prov:generated <urn:example:output:0001> ;
+    prov:used <urn:example:input:0001> .
+

@@ -20,6 +20,30 @@ Output schema for the buffer geometry process
 
 Input schema for the buffer geometry process
 
+### `ogc.osc.52n-provenance.cool-spots` — Cool Spot Workflow Provenance Profile
+
+**Type:** schema
+
+Cool Spot Workflow Provenance Profile.
+
+### `ogc.osc.52n-provenance.vegetation-productivity` — Vegetation Productivity Trend Workflow Provenance Profile
+
+**Type:** schema
+
+Vegetation Productivity Trend Workflow Provenance Profile.
+
+### `ogc.osc.ontology.cwlprov` — CWL Ontology
+
+**Type:** model
+
+Ontology describing the Common Workflow Language (CWL) model
+
+### `ogc.osc.prov-processing-step` — Geospatial Processing Step Provenance
+
+**Type:** schema
+
+A profile of the PROV-O building block constrained to the description of a single geospatial processing step, with a required link to a registered process type.
+
 ### `ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputDescription` — Buffer geometry process input description
 
 **Type:** schema
@@ -31,12 +55,6 @@ Description for the inputs of the buffer geometry process
 **Type:** schema
 
 Description for the output of the buffer geometry process
-
-### `ogc.osc.ontology.cwlprov` — CWL Ontology
-
-**Type:** model
-
-Ontology describing the Common Workflow Language (CWL) model
 
 ### `ogc.osc.api-profiles.processes.ipt.results` — Result schema for IPT
 
@@ -61,12 +79,6 @@ Description of the buffer geometry process
 **Type:** schema
 
 Collection of output descriptions
-
-### `ogc.osc.application-package` — Application Package
-
-**Type:** schema
-
-Earth Observation Application Package. 
 
 ### `ogc.osc.ontology.openscience` — Open Science Ontology
 
@@ -108,6 +120,18 @@ EarthCODE metadata profile linked to semantic models
 
 EarthCODE metadata profile linked to semantic models
 
+### `ogc.osc.api-profiles.processes.sample-implementation` — Custom OGC API processes instance
+
+**Type:** api
+
+An example of an OGC API Processes implementation using building blocks
+
+### `ogc.osc.application-package` — Application Package
+
+**Type:** schema
+
+Earth Observation Application Package. 
+
 ### `ogc.osc.api-profiles.processes.workflow` — Workflow profile of OGC API Processes
 
 **Type:** api
@@ -119,10 +143,4 @@ Generalised profile of API Processes executing a workflow (using Application Pac
 **Type:** api
 
 Support reproduceable science and interoperable workflows through profiling OGC API Processes to use a workflow model with transparent provenance and adherance to a common metadata profile for describing data inputs and outputs.
-
-### `ogc.osc.api-profiles.processes.sample-implementation` — Custom OGC API processes instance
-
-**Type:** api
-
-An example of an OGC API Processes implementation using building blocks
 

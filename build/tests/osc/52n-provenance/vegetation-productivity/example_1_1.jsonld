@@ -1,0 +1,308 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/52n-provenance/vegetation-productivity/context.jsonld",
+  "@graph": [
+    {
+      "id": "https://openeo.example.org/collections/SENTINEL2_L2",
+      "entityType": [
+        "prov:Entity",
+        "prov:Collection"
+      ],
+      "dcterms:title": "Sentinel-2 L2A surface reflectance",
+      "dcterms:description": "Copernicus Sentinel-2 MSI Level-2A bottom-of-atmosphere reflectance, atmospherically corrected with Sen2Cor and including the scene classification layer (SCL), as offered by the openEO backend.",
+      "dcterms:identifier": "SENTINEL2_L2",
+      "dcterms:publisher": "European Space Agency (ESA), Copernicus Programme",
+      "dcterms:license": "https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice",
+      "ex:mission": "Sentinel-2",
+      "ex:instrument": "MSI",
+      "ex:processingLevel": "L2A",
+      "ex:spatialResolution": "10 m (B02, B03, B04, B08), 20 m (B05-B07, B8A, B11, B12, SCL), 60 m (B01, B09)",
+      "ex:revisitTime": "5 days",
+      "rdfs:seeAlso": "https://documentation.dataspace.copernicus.eu/Data/SentinelMissions/Sentinel2.html"
+    },
+    {
+      "id": "https://example.org/stac/collections/bap",
+      "entityType": [
+        "prov:Entity",
+        "prov:Collection"
+      ],
+      "dcterms:title": "Best available pixels from Sentinel-2 scenes over AOI",
+      "dcterms:conformsTo": "https://schemas.stacspec.org/v1.0.0/collection-spec/json-schema/collection.json",
+      "hadMember": [
+        "https://example.org/stac/collections/bap/items/Sakar_complete_months_2021_2025_2021_01_indices_savi",
+        "https://example.org/stac/collections/bap/items/Sakar_complete_months_2021_2025_2021_02_indices_savi"
+      ],
+      "wasGeneratedBy": "ex:step1_bap",
+      "generatedAtTime": "2026-08-21T10:05:00Z",
+      "wasDerivedFrom": "https://openeo.example.org/collections/SENTINEL2_L2",
+      "wasAttributedTo": "https://orcid.org/0000-0003-4718-2959",
+      "spdx:checksum": {
+        "spdx:algorithm": {
+          "@id": "spdx:checksumAlgorithm_sha256"
+        },
+        "spdx:checksumValue": "3f1c9a0e7b2d4c6f8a1e5b7d9c0f2a4e6b8d0c1e3f5a7b9d2c4e6f8a0b1c3d5e"
+      }
+    },
+    {
+      "id": "ex:bap_process_graph",
+      "entityType": [
+        "prov:Entity",
+        "prov:Plan"
+      ],
+      "dcterms:title": "Best available pixel in timeseries over AOI",
+      "openeo:processId": "bap"
+    },
+    {
+      "id": "ex:sen_slope_algorithm",
+      "entityType": [
+        "prov:Entity",
+        "prov:Plan",
+        "schema:SoftwareSourceCode"
+      ],
+      "dcterms:title": "Seasonal Sen slope trend estimator",
+      "schema:codeRepository": "https://github.com/example-org/seasonal-sen-slope",
+      "schema:version": "1.2.0",
+      "schema:programmingLanguage": "Python",
+      "rdfs:seeAlso": "https://en.wikipedia.org/wiki/Theil%E2%80%93Sen_estimator"
+    },
+    {
+      "id": "ex:sen_slope_parameters",
+      "entityType": [
+        "prov:Entity",
+        "ex:ProcessInputs"
+      ],
+      "dcterms:title": "Input parameters of the seasonal Sen slope analysis",
+      "ex:vegetationIndex": "SAVI",
+      "ex:saviSoilFactor": 0.5,
+      "ex:startDate": "2021-01-01",
+      "ex:endDate": "2025-12-31",
+      "ex:seasonLength": 12,
+      "ex:significanceLevel": 0.05
+    },
+    {
+      "id": "ex:sen_slope_results",
+      "entityType": [
+        "prov:Entity",
+        "prov:Collection"
+      ],
+      "dcterms:title": "Seasonal Sen slope results (plain GeoTIFF)",
+      "dcterms:format": "image/tiff; application=geotiff",
+      "hadMember": [
+        "ex:DeltaIR_SAVI_tif",
+        "ex:PercentChange_SAVI_tif"
+      ],
+      "wasGeneratedBy": "ex:step2_seasonal_sen_slope",
+      "generatedAtTime": "2026-08-21T10:12:00Z",
+      "wasDerivedFrom": "https://example.org/stac/collections/bap",
+      "wasAttributedTo": "https://orcid.org/0000-0003-4718-2959"
+    },
+    {
+      "id": "ex:sen_slope_cogs",
+      "entityType": [
+        "prov:Entity",
+        "prov:Collection"
+      ],
+      "dcterms:title": "Seasonal Sen slope results (Cloud Optimized GeoTIFF)",
+      "dcterms:format": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "hadMember": [
+        "https://example.org/data/sen/DeltaIR_SAVI.tif",
+        "https://example.org/data/sen/PercentChange_SAVI.tif"
+      ],
+      "wasGeneratedBy": "ex:step3a_cog_conversion",
+      "generatedAtTime": "2026-08-21T10:28:00Z",
+      "wasDerivedFrom": "ex:sen_slope_results",
+      "wasAttributedTo": "https://orcid.org/0000-0003-4718-2959"
+    },
+    {
+      "id": "https://example.org/stac/collections/sen",
+      "entityType": [
+        "prov:Entity",
+        "prov:Collection"
+      ],
+      "dcterms:title": "Seasonal Sen Slope",
+      "dcterms:conformsTo": "https://schemas.stacspec.org/v1.0.0/collection-spec/json-schema/collection.json",
+      "hadMember": [
+        "https://example.org/stac/collections/sen/items/DeltaIR_SAVI",
+        "https://example.org/stac/collections/sen/items/PercentChange_SAVI"
+      ],
+      "wasGeneratedBy": "ex:step3b_stac_metadata",
+      "generatedAtTime": "2026-08-21T10:45:00Z",
+      "wasDerivedFrom": "ex:sen_slope_cogs",
+      "wasAttributedTo": "https://orcid.org/0000-0003-4718-2959",
+      "spdx:checksum": {
+        "spdx:algorithm": {
+          "@id": "spdx:checksumAlgorithm_sha256"
+        },
+        "spdx:checksumValue": "a7d2e4f6081b3c5d7e9f0a2b4c6d8e0f1a3b5c7d9e1f2a4b6c8d0e2f4a6b8c0d"
+      }
+    },
+    {
+      "id": "ex:step1_bap",
+      "activityType": [
+        "prov:Activity",
+        "openeo:BatchJob",
+        "https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA016"
+      ],
+      "rdfs:label": "Step 1: Best available pixel composites",
+      "startedAtTime": "2026-08-21T10:00:00Z",
+      "endedAtTime": "2026-08-21T18:05:00Z",
+      "openeo:jobId": "j-2608251100",
+      "used": "https://openeo.example.org/collections/SENTINEL2_L2",
+      "qualifiedUsage": {
+        "entity": "https://openeo.example.org/collections/SENTINEL2_L2",
+        "ex:bbox": {
+          "@list": [
+            26.45329,
+            41.8569712,
+            26.5792884,
+            41.9825977
+          ]
+        },
+        "ex:startDate": "2021-01-01",
+        "ex:endDate": "2025-12-31",
+        "ex:bands": [
+          "B04",
+          "B08",
+          "SCL"
+        ]
+      },
+      "qualifiedAssociation": [
+        {
+          "agent": "https://orcid.org/0000-0003-4718-2959",
+          "hadPlan": "ex:bap_process_graph"
+        },
+        {
+          "agent": "ex:openeo_client",
+          "hadPlan": "ex:bap_process_graph"
+        },
+        {
+          "agent": "ex:openeo_backend",
+          "hadPlan": "ex:bap_process_graph"
+        }
+      ]
+    },
+    {
+      "id": "ex:step2_seasonal_sen_slope",
+      "activityType": [
+        "prov:Activity",
+        "https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA017"
+      ],
+      "rdfs:label": "Step 2: Seasonal Sen slope trend analysis",
+      "startedAtTime": "2026-08-21T10:06:00Z",
+      "endedAtTime": "2026-08-21T10:12:00Z",
+      "used": [
+        "https://example.org/stac/collections/bap",
+        "ex:sen_slope_parameters"
+      ],
+      "wasInformedBy": "ex:step1_bap",
+      "qualifiedAssociation": [
+        {
+          "agent": "https://orcid.org/0000-0003-4718-2959",
+          "hadPlan": "ex:sen_slope_algorithm"
+        }
+      ]
+    },
+    {
+      "id": "ex:step3a_cog_conversion",
+      "activityType": [
+        "prov:Activity",
+        "ex:PostProcessing",
+        "ex:CogConversion"
+      ],
+      "rdfs:label": "Step 3a: Post-processing - convert results to Cloud Optimized GeoTIFFs",
+      "startedAtTime": "2026-08-21T10:15:00Z",
+      "endedAtTime": "2026-08-21T10:28:00Z",
+      "used": "ex:sen_slope_results",
+      "wasInformedBy": "ex:step2_seasonal_sen_slope",
+      "wasAssociatedWith": [
+        "https://orcid.org/0000-0003-4718-2959",
+        "ex:gdal"
+      ]
+    },
+    {
+      "id": "ex:step3b_stac_metadata",
+      "activityType": [
+        "prov:Activity",
+        "ex:PostProcessing",
+        "ex:StacMetadataCreation"
+      ],
+      "rdfs:label": "Step 3b: Post-processing - create STAC metadata",
+      "rdfs:comment": "Creates STAC collection and items for the COGs and embeds the available provenance information: algorithm repository and version, processing backend and input parameters.",
+      "startedAtTime": "2026-08-21T10:28:00Z",
+      "endedAtTime": "2026-08-21T10:45:00Z",
+      "used": [
+        "ex:sen_slope_cogs",
+        "ex:sen_slope_algorithm",
+        "ex:sen_slope_parameters",
+        "ex:bap_process_graph"
+      ],
+      "wasInformedBy": [
+        "ex:step1_bap",
+        "ex:step2_seasonal_sen_slope",
+        "ex:step3a_cog_conversion"
+      ],
+      "wasAssociatedWith": [
+        "https://orcid.org/0000-0003-4718-2959",
+        "ex:pystac"
+      ]
+    },
+    {
+      "id": "https://orcid.org/0000-0003-4718-2959",
+      "agentType": [
+        "prov:Agent",
+        "prov:Person"
+      ],
+      "rdfs:label": "GIS Analyst",
+      "schema:identifier": "https://orcid.org/0000-0003-4718-2959"
+    },
+    {
+      "id": "ex:openeo_client",
+      "agentType": [
+        "prov:Agent",
+        "prov:SoftwareAgent",
+        "schema:SoftwareApplication"
+      ],
+      "dcterms:title": "openeo-python-client",
+      "schema:softwareVersion": "0.31.0",
+      "qualifiedDelegation": {
+        "agent": "https://orcid.org/0000-0003-4718-2959",
+        "hadActivity": "ex:step1_bap"
+      }
+    },
+    {
+      "id": "ex:openeo_backend",
+      "agentType": [
+        "prov:Agent",
+        "prov:SoftwareAgent",
+        "openeo:Backend"
+      ],
+      "dcterms:title": "openEO backend",
+      "ex:backendUrl": "https://openeo.example.org",
+      "qualifiedDelegation": {
+        "agent": "ex:openeo_client",
+        "hadActivity": "ex:step1_bap"
+      }
+    },
+    {
+      "id": "ex:gdal",
+      "agentType": [
+        "prov:Agent",
+        "prov:SoftwareAgent",
+        "schema:SoftwareApplication"
+      ],
+      "dcterms:title": "GDAL (COG driver)",
+      "schema:softwareVersion": "3.9.2",
+      "actedOnBehalfOf": "https://orcid.org/0000-0003-4718-2959"
+    },
+    {
+      "id": "ex:pystac",
+      "agentType": [
+        "prov:Agent",
+        "prov:SoftwareAgent",
+        "schema:SoftwareApplication"
+      ],
+      "dcterms:title": "PySTAC",
+      "schema:softwareVersion": "1.10.1",
+      "actedOnBehalfOf": "https://orcid.org/0000-0003-4718-2959"
+    }
+  ]
+}
