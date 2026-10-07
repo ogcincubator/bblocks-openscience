@@ -88,7 +88,7 @@ Links to the schema:
     "description": "dct:description",
     "keywords": "proc:keywords",
     "nullable": "proc:nullable",
-    "type": "proc:type",
+    "type": "@type",
     "$ref": {
       "@id": "proc:ref",
       "@type": "@id"
@@ -113,6 +113,21 @@ Links to the schema:
     "features": {
       "@container": "@set",
       "@id": "geojson:features"
+    },
+    "id": "@id",
+    "properties": "@nest",
+    "geometry": {
+      "@context": {
+        "coordinates": {
+          "@container": "@list",
+          "@id": "geojson:coordinates"
+        }
+      },
+      "@id": "geojson:geometry"
+    },
+    "bbox": {
+      "@container": "@list",
+      "@id": "geojson:bbox"
     },
     "dct": "http://purl.org/dc/terms/",
     "proc": "https://w3id.org/ogc/api/processes/",
