@@ -175,11 +175,11 @@ Rescaling an observed index against its own historical extremes. The reference e
     dct:type <https://example.org/ospd/process-types/index-normalisation> ;
     prov:generated <urn:aganitha:dataset:vci> ;
     prov:qualifiedUsage [ a prov:Usage ;
-            prov:entity <urn:aganitha:reference:ndvi-extrema> ;
-            prov:hadRole <https://example.org/ospd/roles/normalisationReference> ],
-        [ a prov:Usage ;
             prov:entity <urn:aganitha:dataset:mandal-ndvi-sm-merged> ;
-            prov:hadRole <https://example.org/ospd/roles/observedIndex> ] ;
+            prov:hadRole <https://example.org/ospd/roles/observedIndex> ],
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:reference:ndvi-extrema> ;
+            prov:hadRole <https://example.org/ospd/roles/normalisationReference> ] ;
     prov:used <urn:aganitha:dataset:mandal-ndvi-sm-merged>,
         <urn:aganitha:reference:ndvi-extrema> .
 
@@ -258,11 +258,11 @@ The companion to the vegetation index step, and the piece that closes the gap in
     dct:type <https://example.org/ospd/process-types/index-normalisation> ;
     prov:generated <urn:aganitha:dataset:smdi> ;
     prov:qualifiedUsage [ a prov:Usage ;
-            prov:entity <urn:aganitha:reference:soil-moisture-extrema> ;
-            prov:hadRole <https://example.org/ospd/roles/normalisationReference> ],
-        [ a prov:Usage ;
             prov:entity <urn:aganitha:dataset:mandal-ndvi-sm-merged> ;
-            prov:hadRole <https://example.org/ospd/roles/observedIndex> ] ;
+            prov:hadRole <https://example.org/ospd/roles/observedIndex> ],
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:reference:soil-moisture-extrema> ;
+            prov:hadRole <https://example.org/ospd/roles/normalisationReference> ] ;
     prov:used <urn:aganitha:dataset:mandal-ndvi-sm-merged>,
         <urn:aganitha:reference:soil-moisture-extrema> .
 
@@ -444,11 +444,11 @@ Assignment of continuous index values to discrete classes. The class scheme is a
     dct:type <https://example.org/ospd/process-types/classification> ;
     prov:generated <urn:aganitha:dataset:drought-classes> ;
     prov:qualifiedUsage [ a prov:Usage ;
-            prov:entity <urn:aganitha:dataset:cdsi> ;
-            prov:hadRole <https://example.org/ospd/roles/inputField> ],
-        [ a prov:Usage ;
             prov:entity <urn:aganitha:scheme:drought-severity-classes> ;
-            prov:hadRole <https://example.org/ospd/roles/classificationScheme> ] ;
+            prov:hadRole <https://example.org/ospd/roles/classificationScheme> ],
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:dataset:cdsi> ;
+            prov:hadRole <https://example.org/ospd/roles/inputField> ] ;
     prov:used <urn:aganitha:dataset:cdsi>,
         <urn:aganitha:scheme:drought-severity-classes> .
 
@@ -640,17 +640,17 @@ This is the case the profile is least obviously shaped for, and the reason it is
     prov:generated <urn:aganitha:model:drought-classifier>,
         <urn:aganitha:report:validation-metrics> ;
     prov:qualifiedUsage [ a prov:Usage ;
-            prov:entity <urn:aganitha:dataset:spi> ;
+            prov:entity <urn:aganitha:dataset:cdsi> ;
             prov:hadRole <https://example.org/ospd/roles/trainingFeatures> ],
         [ a prov:Usage ;
-            prov:entity <urn:aganitha:partition:district-folds> ;
-            prov:hadRole <https://example.org/ospd/roles/validationPartition> ],
+            prov:entity <urn:aganitha:dataset:spi> ;
+            prov:hadRole <https://example.org/ospd/roles/trainingFeatures> ],
         [ a prov:Usage ;
             prov:entity <urn:aganitha:dataset:drought-classes> ;
             prov:hadRole <https://example.org/ospd/roles/trainingTarget> ],
         [ a prov:Usage ;
-            prov:entity <urn:aganitha:dataset:cdsi> ;
-            prov:hadRole <https://example.org/ospd/roles/trainingFeatures> ] ;
+            prov:entity <urn:aganitha:partition:district-folds> ;
+            prov:hadRole <https://example.org/ospd/roles/validationPartition> ] ;
     prov:used <urn:aganitha:dataset:cdsi>,
         <urn:aganitha:dataset:drought-classes>,
         <urn:aganitha:dataset:spi>,
@@ -731,11 +731,11 @@ Applying a fitted model to produce a projection. The same model entity that was 
     dct:type <https://example.org/ospd/process-types/model-inference> ;
     prov:generated <urn:aganitha:dataset:drought-projection> ;
     prov:qualifiedUsage [ a prov:Usage ;
-            prov:entity <urn:aganitha:dataset:cdsi> ;
-            prov:hadRole <https://example.org/ospd/roles/inferenceInput> ],
-        [ a prov:Usage ;
             prov:entity <urn:aganitha:model:drought-classifier> ;
-            prov:hadRole <https://example.org/ospd/roles/fittedModel> ] ;
+            prov:hadRole <https://example.org/ospd/roles/fittedModel> ],
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:dataset:cdsi> ;
+            prov:hadRole <https://example.org/ospd/roles/inferenceInput> ] ;
     prov:used <urn:aganitha:dataset:cdsi>,
         <urn:aganitha:model:drought-classifier> .
 

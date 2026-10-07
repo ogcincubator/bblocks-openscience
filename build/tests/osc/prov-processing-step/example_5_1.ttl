@@ -7,11 +7,11 @@
     dct:type <https://example.org/ospd/process-types/classification> ;
     prov:generated <urn:aganitha:dataset:drought-classes> ;
     prov:qualifiedUsage [ a prov:Usage ;
-            prov:entity <urn:aganitha:dataset:cdsi> ;
-            prov:hadRole <https://example.org/ospd/roles/inputField> ],
-        [ a prov:Usage ;
             prov:entity <urn:aganitha:scheme:drought-severity-classes> ;
-            prov:hadRole <https://example.org/ospd/roles/classificationScheme> ] ;
+            prov:hadRole <https://example.org/ospd/roles/classificationScheme> ],
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:dataset:cdsi> ;
+            prov:hadRole <https://example.org/ospd/roles/inputField> ] ;
     prov:used <urn:aganitha:dataset:cdsi>,
         <urn:aganitha:scheme:drought-severity-classes> .
 
