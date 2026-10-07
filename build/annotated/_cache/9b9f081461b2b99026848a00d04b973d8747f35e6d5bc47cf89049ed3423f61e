@@ -1,29 +1,22 @@
 {
-  "metaRegistry": "https://w3id.org/ogc/bblocks/meta-register.json",
   "name": "OGC Main",
   "abstract": "OGC Specification Elements packaged as FAIR Building Blocks.",
   "description": "\nThe OGC Building Blocks register provides an overview of a series of [building blocks](https://ogcincubator.github.io/bblocks-docs/) managed by the OGC community through a variety of processes:\n\n- formal standards publication processes the Standards Working Groups\n- agreements with other standards bodies (eg. ISO)\n- community hosted examples of re-use (profiles and extensions of OGC standards)\n- informal \"incubator\" processes where more than one project needs a solution, and appropriate SWG scope is yet to be determined\n\n![](https://lucid.app/publicSegments/view/9d075f82-8611-4f32-83eb-994143669cc8/image.png)\n\n\nNotes:\n\n1. Policies are in preparation for naming and governance of these sub-registers, and this is subject to change pending adoption of such policies.\n1. Building Block identification will be designed to support transition between governance domains without change using symbolic references.\n1. A formal definition of Building Blocks and the level of \"granularity\" they represent with respect to the OGC Modular Specification is TBD.\n",
   "sparqlEndpoint": "https://defs-dev.opengis.net/fuseki/query",
-  "modified": "2026-10-04T05:43:09.285731",
+  "modified": "2026-08-23T04:17:39.094125",
   "tooling": {
     "bblocks-postprocess": {
-      "commitId": "\"e64dad0d6a1d0045bec6b1c52f7117632deabfc8",
-      "shortCommitId": "\"e64dad",
-      "date": "2026-10-02T09:28:05+00:00\""
+      "commitId": "\"3584fc4f3d77bcbceb3e5bfa04909ee5c6548778",
+      "shortCommitId": "\"3584fc",
+      "date": "2026-08-19T13:40:47+00:00\""
     }
   },
   "gitRepository": "https://github.com/opengeospatial/bblocks",
   "gitHubRepository": "https://github.com/opengeospatial/bblocks/blob/master/",
   "baseURL": "https://opengeospatial.github.io/bblocks/",
   "viewerURL": "https://opengeospatial.github.io/bblocks/register/",
-  "license": {
-    "url": "https://opengeospatial.github.io/bblocks/LICENSE"
-  },
   "validationReport": "https://opengeospatial.github.io/bblocks/tests/report.html",
   "validationReportJson": "https://opengeospatial.github.io/bblocks/tests/report.json",
-  "imports": [
-    "https://ogcincubator.github.io/bblocks-ogcapi-common/build/register.json"
-  ],
   "bblocks": [
     {
       "itemIdentifier": "ogc.geo.common.data_types.bounding_box",
@@ -51,9 +44,6 @@
       "scope": "geo",
       "group": "Common",
       "shaclShapes": {},
-      "license": {
-        "url": "https://opengeospatial.github.io/bblocks/LICENSE"
-      },
       "schema": {
         "application/yaml": "https://opengeospatial.github.io/bblocks/annotated-schemas/geo/common/data_types/bounding_box/schema.yaml",
         "application/json": "https://opengeospatial.github.io/bblocks/annotated-schemas/geo/common/data_types/bounding_box/schema.json"
@@ -101,9 +91,6 @@
       "scope": "geo",
       "group": "Common",
       "shaclShapes": {},
-      "license": {
-        "url": "https://opengeospatial.github.io/bblocks/LICENSE"
-      },
       "ldContext": "https://opengeospatial.github.io/bblocks/annotated-schemas/geo/common/data_types/geojson/context.jsonld",
       "remoteCacheDir": "https://opengeospatial.github.io/bblocks/annotated-schemas/geo/common/data_types/geojson/remote_cache/",
       "sourceSchema": "https://geojson.org/schema/Feature.json",
@@ -150,9 +137,6 @@
       "scope": "geo",
       "group": "Common",
       "shaclShapes": {},
-      "license": {
-        "url": "https://opengeospatial.github.io/bblocks/LICENSE"
-      },
       "remoteCacheDir": "https://opengeospatial.github.io/bblocks/annotated-schemas/geo/common/parameters/bbox/remote_cache/",
       "sourceSchema": "https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/parameters/bbox.yaml",
       "sourceFiles": "https://opengeospatial.github.io/bblocks/registereditems/geo/common/parameters/bbox/",
@@ -192,9 +176,6 @@
       "scope": "geo",
       "group": "Common",
       "shaclShapes": {},
-      "license": {
-        "url": "https://opengeospatial.github.io/bblocks/LICENSE"
-      },
       "schema": {
         "application/yaml": "https://opengeospatial.github.io/bblocks/annotated-schemas/geo/common/parameters/bbox-crs/schema.yaml",
         "application/json": "https://opengeospatial.github.io/bblocks/annotated-schemas/geo/common/parameters/bbox-crs/schema.json"
@@ -236,9 +217,6 @@
       "maturity": "mature",
       "scope": "ogc-utils",
       "shaclShapes": {},
-      "license": {
-        "url": "https://opengeospatial.github.io/bblocks/LICENSE"
-      },
       "ldContext": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/context.jsonld",
       "schema": {
         "application/yaml": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.yaml",
@@ -286,9 +264,6 @@
       "scope": "geo",
       "group": "JSON-FG",
       "shaclShapes": {},
-      "license": {
-        "url": "https://opengeospatial.github.io/bblocks/LICENSE"
-      },
       "ldContext": "https://opengeospatial.github.io/bblocks/annotated-schemas/geo/json-fg/time/context.jsonld",
       "remoteCacheDir": "https://opengeospatial.github.io/bblocks/annotated-schemas/geo/json-fg/time/remote_cache/",
       "sourceSchema": "https://beta.schemas.opengis.net/json-fg/time.json",
@@ -340,9 +315,6 @@
       "scope": "geo",
       "group": "Common",
       "shaclShapes": {},
-      "license": {
-        "url": "https://opengeospatial.github.io/bblocks/LICENSE"
-      },
       "schema": {
         "application/yaml": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.yaml",
         "application/json": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json"
@@ -363,107 +335,6 @@
         "bblocks-viewer": {
           "mediatype": "text/html",
           "url": "https://opengeospatial.github.io/bblocks/register/bblock/ogc.ogc-utils.iri-or-curie"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogc.api.common.confClasses",
-      "name": "Conformance Classes schema",
-      "status": "under-development",
-      "dateTimeAddition": "2025-10-23T22:40:00+01:00",
-      "itemClass": "schema",
-      "register": "ogcapi-common",
-      "version": "0.1",
-      "dateOfLastChange": "2024-03-22",
-      "sources": [
-        {
-          "title": "OGC API - Common - Part 1: Core",
-          "link": "https://docs.ogc.org/is/19-072/19-072.html"
-        }
-      ],
-      "tags": [
-        "ogcapi-common"
-      ],
-      "abstract": "Alias of the OGC API - Common confClasses schema, published in the OGC API Common building blocks register.",
-      "shaclShapes": {},
-      "dependsOn": [
-        "bblocks://ogc.api.common.part1.schemas.confClasses"
-      ],
-      "license": {
-        "url": "https://opengeospatial.github.io/bblocks/LICENSE"
-      },
-      "schema": {
-        "application/yaml": "https://opengeospatial.github.io/bblocks/annotated-schemas/api/common/confClasses/schema.yaml",
-        "application/json": "https://opengeospatial.github.io/bblocks/annotated-schemas/api/common/confClasses/schema.json"
-      },
-      "sourceSchema": "https://opengeospatial.github.io/bblocks/registereditems/api/common/confClasses/schema.yaml",
-      "ldContext": "https://opengeospatial.github.io/bblocks/annotated-schemas/api/common/confClasses/context.jsonld",
-      "resolvedSchemaProperties": "https://opengeospatial.github.io/bblocks/annotated-schemas/api/common/confClasses/resolvedProperties.json",
-      "sourceFiles": "https://opengeospatial.github.io/bblocks/registereditems/api/common/confClasses/",
-      "validationPassed": true,
-      "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://opengeospatial.github.io/bblocks/generateddocs/markdown/api/common/confClasses/index.md"
-        },
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://opengeospatial.github.io/bblocks/generateddocs/json-full/api/common/confClasses/index.json"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://opengeospatial.github.io/bblocks/register/bblock/ogc.api.common.confClasses"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogc.api.common.exception",
-      "name": "Exception schema",
-      "status": "under-development",
-      "dateTimeAddition": "2025-10-23T22:40:00+01:00",
-      "itemClass": "schema",
-      "register": "ogcapi-common",
-      "version": "0.1",
-      "dateOfLastChange": "2024-03-22",
-      "sources": [
-        {
-          "title": "OGC API - Common - Part 1: Core",
-          "link": "https://docs.ogc.org/is/19-072/19-072.html"
-        }
-      ],
-      "tags": [
-        "ogcapi-common"
-      ],
-      "abstract": "Alias of the OGC API - Common exception schema, published in the OGC API Common building blocks register.",
-      "shaclShapes": {},
-      "dependsOn": [
-        "bblocks://ogc.api.common.part1.schemas.exception"
-      ],
-      "license": {
-        "url": "https://opengeospatial.github.io/bblocks/LICENSE"
-      },
-      "schema": {
-        "application/yaml": "https://opengeospatial.github.io/bblocks/annotated-schemas/api/common/exception/schema.yaml",
-        "application/json": "https://opengeospatial.github.io/bblocks/annotated-schemas/api/common/exception/schema.json"
-      },
-      "sourceSchema": "https://opengeospatial.github.io/bblocks/registereditems/api/common/exception/schema.yaml",
-      "ldContext": "https://opengeospatial.github.io/bblocks/annotated-schemas/api/common/exception/context.jsonld",
-      "resolvedSchemaProperties": "https://opengeospatial.github.io/bblocks/annotated-schemas/api/common/exception/resolvedProperties.json",
-      "sourceFiles": "https://opengeospatial.github.io/bblocks/registereditems/api/common/exception/",
-      "validationPassed": true,
-      "testOutputs": "https://github.com/opengeospatial/bblocks/blob/master/tests/api/common/exception/",
-      "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://opengeospatial.github.io/bblocks/generateddocs/markdown/api/common/exception/index.md"
-        },
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://opengeospatial.github.io/bblocks/generateddocs/json-full/api/common/exception/index.json"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://opengeospatial.github.io/bblocks/register/bblock/ogc.api.common.exception"
         }
       }
     },
@@ -501,9 +372,6 @@
         "bblocks://ogc.geo.common.data_types.bounding_box",
         "bblocks://ogc.ogc-utils.json-link"
       ],
-      "license": {
-        "url": "https://opengeospatial.github.io/bblocks/LICENSE"
-      },
       "ldContext": "https://opengeospatial.github.io/bblocks/annotated-schemas/geo/features/feature/context.jsonld",
       "schema": {
         "application/yaml": "https://opengeospatial.github.io/bblocks/annotated-schemas/geo/features/feature/schema.yaml",
@@ -550,12 +418,9 @@
       ],
       "shaclShapes": {},
       "dependsOn": [
-        "bblocks://ogc.ogc-utils.iri-or-curie",
-        "bblocks://ogc.ogc-utils.json-link"
+        "bblocks://ogc.ogc-utils.json-link",
+        "bblocks://ogc.ogc-utils.iri-or-curie"
       ],
-      "license": {
-        "url": "https://opengeospatial.github.io/bblocks/LICENSE"
-      },
       "ldContext": "https://opengeospatial.github.io/bblocks/annotated-schemas/geo/json-fg/link-role/context.jsonld",
       "schema": {
         "application/yaml": "https://opengeospatial.github.io/bblocks/annotated-schemas/geo/json-fg/link-role/schema.yaml",
@@ -605,9 +470,6 @@
       "dependsOn": [
         "bblocks://ogc.ogc-utils.iri-or-curie"
       ],
-      "license": {
-        "url": "https://opengeospatial.github.io/bblocks/LICENSE"
-      },
       "ldContext": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/topology/context.jsonld",
       "schema": {
         "application/yaml": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/topology/schema.yaml",
@@ -631,57 +493,6 @@
         "bblocks-viewer": {
           "mediatype": "text/html",
           "url": "https://opengeospatial.github.io/bblocks/register/bblock/ogc.ogc-utils.topology"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogc.api.common.landingPage",
-      "name": "Landing Page schema",
-      "status": "under-development",
-      "dateTimeAddition": "2025-10-23T22:40:00+01:00",
-      "itemClass": "schema",
-      "register": "ogcapi-common",
-      "version": "0.1",
-      "dateOfLastChange": "2024-03-22",
-      "sources": [
-        {
-          "title": "OGC API - Common - Part 1: Core",
-          "link": "https://docs.ogc.org/is/19-072/19-072.html"
-        }
-      ],
-      "tags": [
-        "ogcapi-common"
-      ],
-      "abstract": "Alias of the OGC API - Common Landing Page schema, published in the OGC API Common building blocks register.",
-      "shaclShapes": {},
-      "dependsOn": [
-        "bblocks://ogc.api.common.part1.schemas.landingPage"
-      ],
-      "license": {
-        "url": "https://opengeospatial.github.io/bblocks/LICENSE"
-      },
-      "schema": {
-        "application/yaml": "https://opengeospatial.github.io/bblocks/annotated-schemas/api/common/landingPage/schema.yaml",
-        "application/json": "https://opengeospatial.github.io/bblocks/annotated-schemas/api/common/landingPage/schema.json"
-      },
-      "sourceSchema": "https://opengeospatial.github.io/bblocks/registereditems/api/common/landingPage/schema.yaml",
-      "ldContext": "https://opengeospatial.github.io/bblocks/annotated-schemas/api/common/landingPage/context.jsonld",
-      "resolvedSchemaProperties": "https://opengeospatial.github.io/bblocks/annotated-schemas/api/common/landingPage/resolvedProperties.json",
-      "sourceFiles": "https://opengeospatial.github.io/bblocks/registereditems/api/common/landingPage/",
-      "validationPassed": true,
-      "testOutputs": "https://github.com/opengeospatial/bblocks/blob/master/tests/api/common/landingPage/",
-      "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://opengeospatial.github.io/bblocks/generateddocs/markdown/api/common/landingPage/index.md"
-        },
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://opengeospatial.github.io/bblocks/generateddocs/json-full/api/common/landingPage/index.json"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://opengeospatial.github.io/bblocks/register/bblock/ogc.api.common.landingPage"
         }
       }
     },
@@ -714,12 +525,9 @@
         ]
       },
       "dependsOn": [
-        "bblocks://ogc.geo.features.feature",
-        "bblocks://ogc.ogc-utils.json-link"
+        "bblocks://ogc.ogc-utils.json-link",
+        "bblocks://ogc.geo.features.feature"
       ],
-      "license": {
-        "url": "https://opengeospatial.github.io/bblocks/LICENSE"
-      },
       "schema": {
         "application/yaml": "https://opengeospatial.github.io/bblocks/annotated-schemas/geo/features/featureCollection/schema.yaml",
         "application/json": "https://opengeospatial.github.io/bblocks/annotated-schemas/geo/features/featureCollection/schema.json"
@@ -771,12 +579,9 @@
       },
       "dependsOn": [
         "bblocks://ogc.geo.json-fg.time",
-        "bblocks://ogc.geo.features.feature",
-        "bblocks://ogc.ogc-utils.json-link"
+        "bblocks://ogc.ogc-utils.json-link",
+        "bblocks://ogc.geo.features.feature"
       ],
-      "license": {
-        "url": "https://opengeospatial.github.io/bblocks/LICENSE"
-      },
       "ldContext": "https://opengeospatial.github.io/bblocks/annotated-schemas/geo/json-fg/feature/context.jsonld",
       "schema": {
         "application/yaml": "https://opengeospatial.github.io/bblocks/annotated-schemas/geo/json-fg/feature/schema.yaml",
@@ -832,12 +637,9 @@
       },
       "dependsOn": [
         "bblocks://ogc.geo.json-fg.time",
-        "bblocks://ogc.geo.features.feature",
-        "bblocks://ogc.ogc-utils.json-link"
+        "bblocks://ogc.ogc-utils.json-link",
+        "bblocks://ogc.geo.features.feature"
       ],
-      "license": {
-        "url": "https://opengeospatial.github.io/bblocks/LICENSE"
-      },
       "schema": {
         "application/yaml": "https://opengeospatial.github.io/bblocks/annotated-schemas/geo/json-fg/feature-lenient/schema.yaml",
         "application/json": "https://opengeospatial.github.io/bblocks/annotated-schemas/geo/json-fg/feature-lenient/schema.json"
@@ -891,12 +693,9 @@
       },
       "dependsOn": [
         "bblocks://ogc.geo.json-fg.feature",
-        "bblocks://ogc.geo.features.featureCollection",
-        "bblocks://ogc.ogc-utils.json-link"
+        "bblocks://ogc.ogc-utils.json-link",
+        "bblocks://ogc.geo.features.featureCollection"
       ],
-      "license": {
-        "url": "https://opengeospatial.github.io/bblocks/LICENSE"
-      },
       "ldContext": "https://opengeospatial.github.io/bblocks/annotated-schemas/geo/json-fg/featureCollection/context.jsonld",
       "schema": {
         "application/yaml": "https://opengeospatial.github.io/bblocks/annotated-schemas/geo/json-fg/featureCollection/schema.yaml",
@@ -946,21 +745,18 @@
       "scope": "geo",
       "group": "JSON-FG",
       "shaclShapes": {
-        "ogc.geo.features.featureCollection": [
-          "https://opengeospatial.github.io/bblocks/registereditems/geo/features/featureCollection/shapes.shacl"
-        ],
         "ogc.geo.features.feature": [
           "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+        ],
+        "ogc.geo.features.featureCollection": [
+          "https://opengeospatial.github.io/bblocks/registereditems/geo/features/featureCollection/shapes.shacl"
         ]
       },
       "dependsOn": [
-        "bblocks://ogc.geo.features.featureCollection",
         "bblocks://ogc.geo.json-fg.feature-lenient",
-        "bblocks://ogc.ogc-utils.json-link"
+        "bblocks://ogc.ogc-utils.json-link",
+        "bblocks://ogc.geo.features.featureCollection"
       ],
-      "license": {
-        "url": "https://opengeospatial.github.io/bblocks/LICENSE"
-      },
       "schema": {
         "application/yaml": "https://opengeospatial.github.io/bblocks/annotated-schemas/geo/json-fg/featureCollection-lenient/schema.yaml",
         "application/json": "https://opengeospatial.github.io/bblocks/annotated-schemas/geo/json-fg/featureCollection-lenient/schema.json"
@@ -982,51 +778,6 @@
         "bblocks-viewer": {
           "mediatype": "text/html",
           "url": "https://opengeospatial.github.io/bblocks/register/bblock/ogc.geo.json-fg.featureCollection-lenient"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogc.api.common.api",
-      "name": "OGC API - Common",
-      "status": "under-development",
-      "dateTimeAddition": "2025-10-23T22:40:00+01:00",
-      "itemClass": "api",
-      "register": "ogcapi-common",
-      "version": "0.1",
-      "dateOfLastChange": "2024-03-22",
-      "sources": [
-        {
-          "title": "OGC API - Common - Part 1: Core",
-          "link": "https://docs.ogc.org/is/19-072/19-072.html"
-        }
-      ],
-      "tags": [
-        "ogcapi-common"
-      ],
-      "abstract": "Alias of the OGC API - Common OpenAPI document, published in the OGC API Common building blocks register.",
-      "shaclShapes": {},
-      "dependsOn": [
-        "bblocks://ogc.api.common.part1.api"
-      ],
-      "license": {
-        "url": "https://opengeospatial.github.io/bblocks/LICENSE"
-      },
-      "sourceOpenAPIDocument": "https://opengeospatial.github.io/bblocks/registereditems/api/common/api/openapi.yaml",
-      "openAPIDocument": "https://opengeospatial.github.io/bblocks/annotated-schemas/api/common/api/openapi.yaml",
-      "sourceFiles": "https://opengeospatial.github.io/bblocks/registereditems/api/common/api/",
-      "validationPassed": true,
-      "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://opengeospatial.github.io/bblocks/generateddocs/markdown/api/common/api/index.md"
-        },
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://opengeospatial.github.io/bblocks/generateddocs/json-full/api/common/api/index.json"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://opengeospatial.github.io/bblocks/register/bblock/ogc.api.common.api"
         }
       }
     }

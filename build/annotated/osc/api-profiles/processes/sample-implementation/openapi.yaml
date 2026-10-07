@@ -18,42 +18,6 @@ paths:
     $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/paths/Conformance/openapi.yaml
   /processes:
     $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/paths/ProcessList/openapi.yaml
-  /jobs:
-    $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/paths/JobList/openapi.yaml
-  /jobs/{jobId}:
-    allOf:
-    - $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/paths/Job/openapi.yaml
-    - $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/paths/DismissJob/openapi.yaml
-  /jobs/{jobId}/results:
-    get:
-      summary: retrieve the result(s) of a job
-      description: 'Lists available results of a job. In case of a failure, lists
-        exceptions instead.
-
-
-        For more information, see [Section 7.13](https://docs.ogc.org/is/18-062/18-062.html#sc_retrieve_job_results).
-
-        '
-      operationId: getResult
-      tags:
-      - Result
-      parameters:
-      - $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/parameters/jobId/openapi.yaml
-      responses:
-        200:
-          content:
-            application/json:
-              schema:
-                allOf:
-                - $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/results/schema.yaml
-                - $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputSchema/schema.yaml
-                  x-bblocks-extension-source: ogc.api.processes.v1.schemas.results
-                  x-bblocks-extension-target: ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputSchema
-          description: The results of a job.
-        404:
-          $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/responses/NotFound/schema.yaml
-        500:
-          $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/responses/ServerError/schema.yaml
   /processes/buffer-geometry:
     get:
       summary: Get buffer-geometry process description
@@ -67,34 +31,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                - $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/processDescription/schema.yaml
-                - allOf:
-                  - allOf:
-                    - {}
-                    - type: object
-                      properties:
-                        inputs:
-                          additionalProperties:
-                            $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/inputDescriptions/schema.yaml
-                            x-bblocks-extension-source: ogc.api.processes.v1.schemas.inputDescription
-                            x-bblocks-extension-target: ogc.osc.api-profiles.processes.sample-implementation.schemas.inputDescriptions
-                        outputs:
-                          additionalProperties:
-                            $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/outputDescriptions/schema.yaml
-                            x-bblocks-extension-source: ogc.api.processes.v1.schemas.outputDescription
-                            x-bblocks-extension-target: ogc.osc.api-profiles.processes.sample-implementation.schemas.outputDescriptions
-                  - properties:
-                      inputs:
-                        allOf:
-                        - $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/inputDescriptions/schema.yaml
-                          x-bblocks-extension-source: ogc.api.processes.v1.schemas.inputDescription
-                          x-bblocks-extension-target: ogc.osc.api-profiles.processes.sample-implementation.schemas.inputDescriptions
-                      outputs:
-                        allOf:
-                        - $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/outputDescriptions/schema.yaml
-                          x-bblocks-extension-source: ogc.api.processes.v1.schemas.outputDescription
-                          x-bblocks-extension-target: ogc.osc.api-profiles.processes.sample-implementation.schemas.outputDescriptions
+                $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/processDescription/schema.yaml
   /processes/buffer-geometry/execution:
     post:
       summary: Execute buffer-geometry process
@@ -116,7 +53,14 @@ paths:
         required: true
         content:
           application/json:
-            schema: {}
+            schema:
+              allOf:
+              - $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/schemas/execute/schema.yaml
+              - required:
+                - inputs
+                properties:
+                  inputs:
+                    $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/inputSchema/schema.yaml
             example:
               inputs:
                 geometry:
@@ -131,9 +75,42 @@ paths:
           description: Synchronous execution completed
           content:
             application/json:
-              schema: {}
+              schema:
+                properties:
+                  outputs:
+                    $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputSchema/schema.yaml
         201:
           $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/responses/ExecuteAsync/schema.yaml
+        404:
+          $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/responses/NotFound/schema.yaml
+        500:
+          $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/responses/ServerError/schema.yaml
+  /jobs:
+    $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/paths/JobList/openapi.yaml
+  /jobs/{jobId}:
+    $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/api/openapi.yaml
+  /jobs/{jobId}/results:
+    get:
+      summary: retrieve the result(s) of a job
+      description: 'Lists available results of a job. In case of a failure, lists
+        exceptions instead.
+
+
+        For more information, see [Section 7.13](https://docs.ogc.org/is/18-062/18-062.html#sc_retrieve_job_results).
+
+        '
+      operationId: getResult
+      tags:
+      - Result
+      parameters:
+      - $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/parameters/jobId/openapi.yaml
+      responses:
+        200:
+          description: Job results
+          content:
+            application/json:
+              schema:
+                $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/outputDescriptions/schema.yaml
         404:
           $ref: https://ogcincubator.github.io/bblocks-ogcapi-processes/build/annotated/api/processes/v1/responses/NotFound/schema.yaml
         500:
@@ -141,8 +118,3 @@ paths:
 servers:
 - description: Example server
   url: http://example.org/ogcapi
-x-bblocks-extends: ogc.api.processes.v1.api
-x-bblocks-extensions:
-  ogc.api.processes.v1.schemas.inputDescription: ogc.osc.api-profiles.processes.sample-implementation.schemas.inputDescriptions
-  ogc.api.processes.v1.schemas.outputDescription: ogc.osc.api-profiles.processes.sample-implementation.schemas.outputDescriptions
-  ogc.api.processes.v1.schemas.results: ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputSchema
