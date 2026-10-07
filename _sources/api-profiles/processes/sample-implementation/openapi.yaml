@@ -1,4 +1,3 @@
-openapi: 3.1.0
 info:
   title: "A sample OGC API - Processes 1.0 implementation"
   version: 1.0.0
@@ -12,15 +11,16 @@ info:
     name: Apache License, Version 2.0
     url: "https://www.apache.org/licenses/LICENSE-2.0.txt"
 
+servers:
+  - description: Example server
+    url: http://example.org/ogcapi
+
 paths:
-  /:
-    $ref: "bblocks://ogc.api.processes.v1.paths.LandingPage"
-
-  /conformance:
-    $ref: "bblocks://ogc.api.processes.v1.paths.Conformance"
-
-  /processes:
-    $ref: "bblocks://ogc.api.processes.v1.paths.ProcessList"
+  # This instance only supports one, fixed process (buffer-geometry) instead of the
+  # base's generic, templated /processes/{processID} - drop the generic path in favor
+  # of the concrete one declared below.
+  /processes/{processID}: false
+  /processes/{processID}/execution: false
 
   /processes/buffer-geometry:
     get:
@@ -88,36 +88,9 @@ paths:
         500:
           $ref: "bblocks://ogc.api.processes.v1.responses.ServerError"
 
-  /jobs:
-    $ref: "bblocks://ogc.api.processes.v1.paths.JobList"
-
-  /jobs/{jobId}:
-    $ref: "bblocks://ogc.api.processes.v1.api#paths/~1jobs~1{jobId}"
-
-  /jobs/{jobId}/results:
-    get:
-      summary: retrieve the result(s) of a job
-      description: |
-        Lists available results of a job. In case of a failure, lists exceptions instead.
-
-        For more information, see [Section 7.13](https://docs.ogc.org/is/18-062/18-062.html#sc_retrieve_job_results).
-      operationId: getResult
-      tags:
-        - Result
-      parameters:
-        - $ref: "bblocks://ogc.api.processes.v1.parameters.jobId"
-      responses:
-        200:
-          description: Job results
-          content:
-            application/json:
-              schema:
-                $ref: bblocks://ogc.osc.api-profiles.processes.sample-implementation.schemas.outputDescriptions
-        404:
-          $ref: "bblocks://ogc.api.processes.v1.responses.NotFound"
-        500:
-          $ref: "bblocks://ogc.api.processes.v1.responses.ServerError"
-
-servers:
-  - description: Example server
-    url: http://example.org/ogcapi
+# The base's /, /conformance, /processes, /jobs, /jobs/{jobId} and /jobs/{jobId}/results
+# paths are inherited unchanged - the results substitution declared in extensionPoints.
+# extensions above (ogc.api.processes.v1.schemas.results ->
+# ...schemas.buffer-geometry.outputSchema) is picked up automatically wherever the base
+# document uses it, including through /jobs/{jobId}/results' externally-$ref'd Response
+# object, with no need to redeclare that path here.
