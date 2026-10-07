@@ -2,12 +2,12 @@
   "name": "Common Workflow Language Profile of PROV",
   "abstract": "This is a test of the generic PROV building block using the CWL profile of PROV",
   "description": "[CWL (Common Workflow Language)](https://github.com/common-workflow-language/cwl-v1.2) is a scientific workflow description approach.\n[CWLPROV](https://github.com/common-workflow-language/cwlprov) is a profile of the W3C PROV to describe workflows using a standard encoding.\n\nThis bblock is an initial test that the PROV schema can be extended to support such a profile.\n",
-  "modified": "2025-12-16T08:23:24.826025",
+  "modified": "2026-09-16T22:20:28.282590",
   "tooling": {
     "bblocks-postprocess": {
-      "commitId": "\"285d0905c7389562143593be3c626b653c2dc093",
-      "shortCommitId": "\"285d09",
-      "date": "2025-12-15T22:36:20+00:00\""
+      "commitId": "\"e9e9cb5c905d4e569b44b4816a663ec450322f6f",
+      "shortCommitId": "\"e9e9cb",
+      "date": "2026-09-14T10:12:51+00:00\""
     }
   },
   "gitRepository": "https://github.com/ogcincubator/prov-cwl",
@@ -30,7 +30,7 @@
       "itemClass": "model",
       "register": "ogcincubator",
       "version": "0.1",
-      "dateOfLastChange": "2025-12-16",
+      "dateOfLastChange": "2026-09-16",
       "maturity": "under-development",
       "scope": "unstable",
       "link": "https://github.com/common-workflow-language/cwlprov/",
@@ -43,7 +43,6 @@
       ],
       "shaclShapes": {},
       "sourceFiles": "https://ogcincubator.github.io/prov-cwl/_sources/turtle/",
-      "rdfData": [],
       "validationPassed": true,
       "testOutputs": "https://github.com/ogcincubator/prov-cwl/blob/master/build/tests/profiles/prov/cwl/turtle/",
       "transforms": [
@@ -55,16 +54,9 @@
           "outputs": {
             "mediaTypes": [
               {
-                "id": "json-ld",
-                "defaultExtension": "jsonld",
-                "label": "JSON-LD",
                 "mimeType": "application/ld+json",
-                "aliases": [
-                  "jsonld"
-                ],
-                "extensions": [
-                  "jsonld"
-                ]
+                "label": "JSON-LD",
+                "defaultExtension": "jsonld"
               }
             ],
             "profiles": [
@@ -122,13 +114,9 @@
           "outputs": {
             "mediaTypes": [
               {
-                "id": "json",
-                "defaultExtension": "json",
-                "label": "JSON",
                 "mimeType": "application/json",
-                "extensions": [
-                  "json"
-                ]
+                "label": "JSON",
+                "defaultExtension": "json"
               }
             ],
             "profiles": [
@@ -203,7 +191,7 @@
       "itemClass": "schema",
       "register": "ogcincubator",
       "version": "0.1",
-      "dateOfLastChange": "2025-12-16",
+      "dateOfLastChange": "2026-09-16",
       "link": "https://ogcincubator.github.io/prov-cwl/",
       "sources": [],
       "maturity": "under-development",
@@ -213,9 +201,13 @@
         "provenance",
         "profile"
       ],
-      "shaclShapes": {},
+      "shaclShapes": {
+        "ogc.model.cross-domain.prov": [
+          "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+        ]
+      },
       "dependsOn": [
-        "ogc.ogc-utils.prov"
+        "bblocks://ogc.ogc-utils.prov"
       ],
       "ldContext": "https://ogcincubator.github.io/prov-cwl/build/annotated/profiles/prov/cwl/provenance/context.jsonld",
       "schema": {
@@ -224,9 +216,9 @@
       },
       "sourceSchema": "https://ogcincubator.github.io/prov-cwl/_sources/provenance/schema.yaml",
       "sourceLdContext": "https://ogcincubator.github.io/prov-cwl/_sources/provenance/context.jsonld",
+      "resolvedSchemaProperties": "https://ogcincubator.github.io/prov-cwl/build/annotated/profiles/prov/cwl/provenance/resolvedProperties.json",
       "sourceFiles": "https://ogcincubator.github.io/prov-cwl/_sources/provenance/",
-      "rdfData": [],
-      "validationPassed": false,
+      "validationPassed": true,
       "testOutputs": "https://github.com/ogcincubator/prov-cwl/blob/master/build/tests/profiles/prov/cwl/provenance/",
       "documentation": {
         "markdown": {
@@ -244,5 +236,25 @@
       }
     }
   ],
-  "remoteCacheDir": "https://ogcincubator.github.io/prov-cwl/build/annotated/_cache"
+  "remoteCacheDir": "https://ogcincubator.github.io/prov-cwl/build/annotated/_cache",
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://ogcincubator.github.io/prov-cwl/build/register.json",
+      "type": "application/json",
+      "title": "This Building Blocks Register in JSON format"
+    },
+    {
+      "rel": "self",
+      "href": "https://ogcincubator.github.io/prov-cwl/build/bblocks.ttl",
+      "type": "text/turtle",
+      "title": "This Building Blocks Register in RDF Turtle format"
+    },
+    {
+      "rel": "self",
+      "href": "https://ogcincubator.github.io/prov-cwl/build/bblocks.jsonld",
+      "type": "application/ld+json",
+      "title": "This Building Blocks Register in JSON-LD format"
+    }
+  ]
 }

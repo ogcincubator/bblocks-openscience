@@ -11,14 +11,14 @@
   "register": "ogc-incubator",
   "dependsOn": [
     "ogc.ogc-utils.prov",
-    "ogc.geo.geodcat.stac.geodcat-stac-item",
     "ogc.geo.geodcat.geodcat-records",
-    "ogc.geo.geodcat.stac.geodcat-stac-collection",
+    "ogc.contrib.stac.extensions.osc",
+    "ogc.geo.geodcat.stac.geodcat-stac-item",
     "ogc.contrib.stac.extensions.themes",
-    "ogc.contrib.stac.extensions.osc"
+    "ogc.geo.geodcat.stac.geodcat-stac-collection"
   ],
   "version": "0.1",
-  "dateOfLastChange": "2026-09-09",
+  "dateOfLastChange": "2026-09-16",
   "sources": [
     {
       "title": "EarthCODE",
@@ -41,11 +41,14 @@
     "ogc.model.cross-domain.prov": [
       "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
     ],
+    "ogc.geo.features.feature": [
+      "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+    ],
     "ogc.api.records.v1.schemas.linkTemplate": [
       "https://ogcincubator.github.io/bblocks-ogcapi-records/_sources/v1/schemas/linkTemplate/rules.shacl"
     ],
-    "ogc.geo.features.feature": [
-      "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+    "ogc.contrib.stac.extensions.osc-ontology": [
+      "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl"
     ],
     "ogc.contrib.stac.core-ontology": [
       "https://ogcincubator.github.io/bblocks-stac/_sources/core-ontology/shapes.shacl"
@@ -55,9 +58,6 @@
     ],
     "ogc.contrib.stac.extensions.themes-ontology": [
       "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/themes-ontology/shapes.shacl"
-    ],
-    "ogc.contrib.stac.extensions.osc-ontology": [
-      "https://ogcincubator.github.io/bblocks-stac/_sources/extensions/osc-ontology/shapes.shacl"
     ]
   },
   "ldContext": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/geodcat-stac-earthcode/common/context.jsonld",
@@ -95,7 +95,7 @@
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/geodcat-stac-earthcode/common/example_1_1.ttl",
           "sizeBytes": 3682,
-          "code": "@prefix dcat: <http://www.w3.org/ns/dcat#> .\n@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix ns1: <fair:> .\n@prefix ns2: <http://www.iana.org/assignments/> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix osc: <https://w3id.org/ogc/stac/osc/> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix rec: <https://www.opengis.net/def/ogc-api/records/> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n@prefix thns: <https://w3id.org/ogc/stac/themes/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://ogc.org/demo/ospd/polarwarp> a <https://ogc.org/demo/ospd/Collection> ;\n    ns1:Accessible_files 0e+00 ;\n    ns1:Accessible_general true ;\n    ns1:Accessible_protocols true ;\n    ns1:Findable_has_doi false ;\n    ns1:Findable_identifier true ;\n    ns1:Findable_indexed true ;\n    ns1:Findable_indexed_approved_data false ;\n    ns1:Findable_indexed_approved_metadata false ;\n    ns1:Findable_rich_metadata true ;\n    ns1:Findable_stac_assets false ;\n    ns1:Interoperable_controlled_vocabularies true ;\n    ns1:Interoperable_has_documentation false ;\n    ns1:Interoperable_related_links true ;\n    ns1:Interoperable_uses_formal_language true ;\n    ns1:Reusable_cloud_assets_rate 0e+00 ;\n    ns1:Reusable_has_access_example false ;\n    ns1:Reusable_has_license true ;\n    ns1:Reusable_has_visualisation false ;\n    ns1:Reusable_rich_descriptions true ;\n    ns1:Reusable_workflow_exists true ;\n    dcterms:created \"2025-10-13T16:54:34Z\" ;\n    dcterms:description \"\"\"Polarwarp product\n\nForecast rasters (+1h \u2026 +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.\"\"\" ;\n    dcterms:extent [ ] ;\n    dcterms:title \"Polarwarp\" ;\n    rdfs:seeAlso [ rdfs:label \"Theme: Cryosphere\" ;\n            dcterms:type \"application/json\" ;\n            ns2:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ],\n        [ ns2:relation <http://www.iana.org/assignments/relation/item> ;\n            oa:hasTarget <https://ogc.org/demo/ospd/item.json> ],\n        [ rdfs:label \"Products\" ;\n            dcterms:type \"application/json\" ;\n            ns2:relation <http://www.iana.org/assignments/relation/parent> ;\n            oa:hasTarget <https://ogc.org/demo/catalog.json> ],\n        [ rdfs:label \"Open Science Catalog\" ;\n            dcterms:type \"application/json\" ;\n            ns2:relation <http://www.iana.org/assignments/relation/root> ;\n            oa:hasTarget <https://ogc.org/catalog.json> ],\n        [ rdfs:label \"Project: Cerulean Information Factory\" ;\n            dcterms:type \"application/json\" ;\n            ns2:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],\n        [ ns2:relation <http://www.iana.org/assignments/relation/via> ;\n            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],\n        [ rdfs:label \"Experiment: Polarwarp\" ;\n            dcterms:type \"application/json\" ;\n            ns2:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ] ;\n    dcat:license \"various\" ;\n    stac:hasExtension \"https://stac-extensions.github.io/osc/v1.0.0/schema.json\",\n        \"https://stac-extensions.github.io/themes/v1.0.0/schema.json\" ;\n    stac:version \"1.0.0\" ;\n    osc:project \"cerulean-information-factory\"^^xsd:string ;\n    osc:status osc:completed ;\n    osc:type osc:product-type ;\n    rec:themes [ thns:concepts [ thns:id \"cryosphere\"^^xsd:string ] ;\n            thns:scheme \"https://github.com/stac-extensions/osc#theme\" ] .\n\n"
+          "code": "@prefix dcat: <http://www.w3.org/ns/dcat#> .\n@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix ns1: <fair:> .\n@prefix ns2: <http://www.iana.org/assignments/> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix osc: <https://w3id.org/ogc/stac/osc/> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix rec: <https://www.opengis.net/def/ogc-api/records/> .\n@prefix stac: <https://w3id.org/ogc/stac/core/> .\n@prefix thns: <https://w3id.org/ogc/stac/themes/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://ogc.org/demo/ospd/polarwarp> a <https://ogc.org/demo/ospd/Collection> ;\n    ns1:Accessible_files 0e+00 ;\n    ns1:Accessible_general true ;\n    ns1:Accessible_protocols true ;\n    ns1:Findable_has_doi false ;\n    ns1:Findable_identifier true ;\n    ns1:Findable_indexed true ;\n    ns1:Findable_indexed_approved_data false ;\n    ns1:Findable_indexed_approved_metadata false ;\n    ns1:Findable_rich_metadata true ;\n    ns1:Findable_stac_assets false ;\n    ns1:Interoperable_controlled_vocabularies true ;\n    ns1:Interoperable_has_documentation false ;\n    ns1:Interoperable_related_links true ;\n    ns1:Interoperable_uses_formal_language true ;\n    ns1:Reusable_cloud_assets_rate 0e+00 ;\n    ns1:Reusable_has_access_example false ;\n    ns1:Reusable_has_license true ;\n    ns1:Reusable_has_visualisation false ;\n    ns1:Reusable_rich_descriptions true ;\n    ns1:Reusable_workflow_exists true ;\n    dcterms:created \"2025-10-13T16:54:34Z\" ;\n    dcterms:description \"\"\"Polarwarp product\n\nForecast rasters (+1h \u2026 +6h) produced by the Polarwarp workflow using NEXTSIM model and S1 scenes.\"\"\" ;\n    dcterms:extent [ ] ;\n    dcterms:title \"Polarwarp\" ;\n    rdfs:seeAlso [ rdfs:label \"Products\" ;\n            dcterms:type \"application/json\" ;\n            ns2:relation <http://www.iana.org/assignments/relation/parent> ;\n            oa:hasTarget <https://ogc.org/demo/catalog.json> ],\n        [ rdfs:label \"Open Science Catalog\" ;\n            dcterms:type \"application/json\" ;\n            ns2:relation <http://www.iana.org/assignments/relation/root> ;\n            oa:hasTarget <https://ogc.org/catalog.json> ],\n        [ rdfs:label \"Theme: Cryosphere\" ;\n            dcterms:type \"application/json\" ;\n            ns2:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ],\n        [ ns2:relation <http://www.iana.org/assignments/relation/via> ;\n            oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],\n        [ rdfs:label \"Project: Cerulean Information Factory\" ;\n            dcterms:type \"application/json\" ;\n            ns2:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],\n        [ rdfs:label \"Experiment: Polarwarp\" ;\n            dcterms:type \"application/json\" ;\n            ns2:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ],\n        [ ns2:relation <http://www.iana.org/assignments/relation/item> ;\n            oa:hasTarget <https://ogc.org/demo/ospd/item.json> ] ;\n    dcat:license \"various\" ;\n    stac:hasExtension \"https://stac-extensions.github.io/osc/v1.0.0/schema.json\",\n        \"https://stac-extensions.github.io/themes/v1.0.0/schema.json\" ;\n    stac:version \"1.0.0\" ;\n    osc:project \"cerulean-information-factory\"^^xsd:string ;\n    osc:status osc:completed ;\n    osc:type osc:product-type ;\n    rec:themes [ thns:concepts [ thns:id \"cryosphere\"^^xsd:string ] ;\n            thns:scheme \"https://github.com/stac-extensions/osc#theme\" ] .\n\n"
         }
       ]
     }
