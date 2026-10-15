@@ -1,0 +1,26 @@
+{
+  "name": "HARTIS CVI Workflow Provenance",
+  "abstract": "A provenance profile for the complete HARTIS Coastal Vulnerability Index workflow, from configuration and source data through coastline extraction, transect generation, indicator calculations and the final CVI result.",
+  "description": "This HARTIS D100 candidate profiles a complete workflow execution rather than a generic single processing step. It makes the workflow definition, planned processing activities, runtime activities, used entities and generated entities explicit so that the full CVI chain can be reviewed and reproduced.",
+  "status": "under-development",
+  "version": "0.1.0",
+  "dateTimeAddition": "2026-10-13T00:00:00Z",
+  "itemClass": "schema",
+  "isProfileOf": [
+    "bblocks://ogc.ogc-utils.prov"
+  ],
+  "dependsOn": [
+    "ogc.ogc-utils.prov"
+  ],
+  "scope": "dev",
+  "sources": [
+    {
+      "title": "HARTIS CVI workflow repository",
+      "link": "https://github.com/hartis-org/cvi-workflow"
+    },
+    {
+      "title": "HARTIS OSPD-2026 D001 contribution",
+      "link": "https://github.com/hartis-org/cvi-workflow/blob/ospd2026-d100/ospd2026/report/d001-hartis-contribution.md"
+    }
+  ]
+}
