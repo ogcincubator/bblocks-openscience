@@ -20,6 +20,18 @@ Output schema for the buffer geometry process
 
 Input schema for the buffer geometry process
 
+### `ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputDescription` — Buffer geometry process input description
+
+**Type:** schema
+
+Description for the inputs of the buffer geometry process
+
+### `ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputDescription` — Buffer geometry process output description
+
+**Type:** schema
+
+Description for the output of the buffer geometry process
+
 ### `ogc.osc.52n-provenance.cool-spots` — Cool Spot Workflow Provenance Profile
 
 **Type:** schema
@@ -32,6 +44,12 @@ Cool Spot Workflow Provenance Profile.
 
 Vegetation Productivity Trend Workflow Provenance Profile.
 
+### `ogc.osc.hartis-provenance.cvi-workflow` — HARTIS CVI Workflow Provenance
+
+**Type:** schema
+
+A provenance profile for the complete HARTIS Coastal Vulnerability Index workflow, from configuration and source data through coastline extraction, transect generation, indicator calculations and the final CVI result.
+
 ### `ogc.osc.ontology.cwlprov` — CWL Ontology
 
 **Type:** model
@@ -43,18 +61,6 @@ Ontology describing the Common Workflow Language (CWL) model
 **Type:** schema
 
 A profile of the PROV-O building block constrained to the description of a single geospatial processing step, with a required link to a registered process type.
-
-### `ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputDescription` — Buffer geometry process input description
-
-**Type:** schema
-
-Description for the inputs of the buffer geometry process
-
-### `ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputDescription` — Buffer geometry process output description
-
-**Type:** schema
-
-Description for the output of the buffer geometry process
 
 ### `ogc.osc.api-profiles.processes.ipt.results` — Result schema for IPT
 

@@ -1,0 +1,132 @@
+{
+  "title": "Validation report for ogc.osc.hartis-provenance.cvi-workflow - HARTIS CVI Workflow Provenance",
+  "bblockName": "HARTIS CVI Workflow Provenance",
+  "bblockId": "ogc.osc.hartis-provenance.cvi-workflow",
+  "generated": "2026-10-15T06:30:07.666485+00:00",
+  "result": true,
+  "items": [
+    {
+      "source": {
+        "type": "TEST_RESOURCE",
+        "requireFail": true,
+        "filename": "_sources/hartis-provenance/cvi-workflow/tests/cvi-workflow-missing-runtime-fail.json",
+        "url": "https://ogcincubator.github.io/bblocks-openscience/_sources/hartis-provenance/cvi-workflow/tests/cvi-workflow-missing-runtime-fail.json",
+        "language": "json"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "GENERAL",
+          "title": "General",
+          "entries": [
+            {
+              "op": "require-fail",
+              "isError": false,
+              "message": "Test was expected to fail and it did."
+            }
+          ]
+        },
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using cvi-workflow-missing-runtime-fail.json from test resources"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": false,
+              "exception": "ValidationError",
+              "errorMessage": "'runtime' is a required property",
+              "isError": true,
+              "message": "ValidationError: 'runtime' is a required property\n\nFailed validating 'required' in schema:\n    {'$defs': {'activity': {'additionalProperties': True,\n                            'properties': {'generated': {'minItems': 1,\n                                                         'type': 'array'},\n                                           'id': {'type': 'string'},\n                                           'plan': {'type': 'string'},\n                                           'processType': {'type': 'string'},\n                                           'qualifiedUsage': {'type': 'array'},\n                                           'type': {'anyOf': [{'type': 'string'},\n                                                              {'minItems': 1,\n                                                               'type': 'array'}]},\n                                           'used': {'minItems': 1,\n                                                    'type': 'array'},\n                                           'wasAssociatedWith': {'type': 'array'}},\n                            'required': ['id',\n                                         'type',\n                                         'plan',\n                                         'processType',\n                                         'used',\n                                         'generated'],\n                            'type': 'object'}},\n     '$id': 'https://github.com/hartis-org/cvi-workflow/tree/ospd2026-d100/ospd2026/building-block/_sources/hartis-provenance/cvi-workflow/schema.yaml',\n     '$schema': 'https://json-schema.org/draft/2020-12/schema',\n     'additionalProperties': True,\n     'description': 'Candidate schema for the complete HARTIS CVI workflow '\n                    'provenance bundle.',\n     'properties': {'entities': {'items': {'additionalProperties': True,\n                                           'properties': {'id': {'type': 'string'},\n                                                          'label': {'type': 'string'},\n                                                          'type': {'anyOf': [{'type': 'string'},\n                                                                             {'minItems': 1,\n                                                                              'type': 'array'}]}},\n                                           'required': ['id', 'type'],\n                                           'type': 'object'},\n                                 'minItems': 1,\n                                 'type': 'array'},\n                    'id': {'type': 'string'},\n                    'label': {'type': 'string'},\n                    'plans': {'items': {'additionalProperties': True,\n                                        'properties': {'id': {'type': 'string'},\n                                                       'label': {'type': 'string'},\n                                                       'processType': {'type': 'string'},\n                                                       'sourceCode': {'type': 'string'},\n                                                       'type': {'minItems': 1,\n                                                                'type': 'array'}},\n                                        'required': ['id',\n                                                     'type',\n                                                     'label',\n                                                     'processType'],\n                                        'type': 'object'},\n                              'minItems': 1,\n                              'type': 'array'},\n                    'runtime': {'additionalProperties': True,\n                                'properties': {'activities': {'items': {'$ref': '#/$defs/activity'},\n                                                              'minItems': 1,\n                                                              'type': 'array'},\n                                               'id': {'type': 'string'},\n                                               'type': {'anyOf': [{'type': 'string'},\n                                                                  {'minItems': 1,\n                                                                   'type': 'array'}]},\n                                               'workflowDefinition': {'type': 'string'}},\n                                'required': ['id',\n                                             'type',\n                                             'workflowDefinition',\n                                             'activities'],\n                                'type': 'object'},\n                    'status': {'type': 'string'},\n                    'type': {'anyOf': [{'const': 'prov:Bundle'},\n                                       {'contains': {'const': 'prov:Bundle'},\n                                        'type': 'array'}]},\n                    'workflowDefinition': {'additionalProperties': True,\n                                           'properties': {'executionImage': {'type': 'string'},\n                                                          'id': {'type': 'string'},\n                                                          'label': {'type': 'string'},\n                                                          'sourceWorkflow': {'type': 'string'},\n                                                          'type': {'anyOf': [{'type': 'string'},\n                                                                             {'minItems': 1,\n                                                                              'type': 'array'}]}},\n                                           'required': ['id',\n                                                        'type',\n                                                        'label'],\n                                           'type': 'object'}},\n     'required': ['id',\n                  'type',\n                  'workflowDefinition',\n                  'plans',\n                  'runtime',\n                  'entities'],\n     'title': 'HARTIS CVI Workflow Provenance',\n     'type': 'object'}\n\nOn instance:\n    {'entities': [],\n     'id': 'hartis:cvi-invalid-example',\n     'plans': [],\n     'type': 'prov:Bundle',\n     'workflowDefinition': {}}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "TEST_RESOURCE",
+        "requireFail": false,
+        "filename": "_sources/hartis-provenance/cvi-workflow/tests/cvi-workflow.json",
+        "url": "https://ogcincubator.github.io/bblocks-openscience/_sources/hartis-provenance/cvi-workflow/tests/cvi-workflow.json",
+        "language": "json"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using cvi-workflow.json from test resources"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/osc/hartis-provenance/cvi-workflow/example_1_1.json",
+        "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/hartis-provenance/cvi-workflow/example_1_1.json",
+        "exampleIndex": 1,
+        "snippetIndex": 1,
+        "language": "application/json"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using example.json from examples"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "globalErrors": {},
+  "counts": {
+    "total": 3,
+    "passed": 3,
+    "failed": 0
+  }
+}

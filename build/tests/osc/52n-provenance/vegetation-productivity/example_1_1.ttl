@@ -168,11 +168,11 @@ ex:step1_bap a prov:Activity,
         openeo:BatchJob ;
     rdfs:label "Step 1: Best available pixel composites" ;
     prov:endedAtTime "2026-08-21T18:05:00+00:00"^^xsd:dateTime ;
-    prov:qualifiedAssociation [ prov:agent <https://orcid.org/0000-0003-4718-2959> ;
+    prov:qualifiedAssociation [ prov:agent ex:openeo_client ;
             prov:hadPlan ex:bap_process_graph ],
         [ prov:agent ex:openeo_backend ;
             prov:hadPlan ex:bap_process_graph ],
-        [ prov:agent ex:openeo_client ;
+        [ prov:agent <https://orcid.org/0000-0003-4718-2959> ;
             prov:hadPlan ex:bap_process_graph ] ;
     prov:qualifiedUsage [ prov:entity <https://openeo.example.org/collections/SENTINEL2_L2> ;
             ex:bands "B04",

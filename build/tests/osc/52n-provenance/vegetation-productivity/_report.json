@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.osc.52n-provenance.vegetation-productivity - Vegetation Productivity Trend Workflow Provenance Profile",
   "bblockName": "Vegetation Productivity Trend Workflow Provenance Profile",
   "bblockId": "ogc.osc.52n-provenance.vegetation-productivity",
-  "generated": "2026-10-07T22:55:52.360742+00:00",
+  "generated": "2026-10-15T06:30:07.578664+00:00",
   "result": true,
   "items": [
     {
@@ -76,132 +76,180 @@
             {
               "shaclFile": "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl",
               "focusNodes": {
-                "<https://www.ogc.org/rules/prov/#prop-invalidated>": {
+                "<https://www.ogc.org/rules/prov/#prop-qualifiedCommunication>": {
                   "nodes": []
                 },
-                "<https://www.ogc.org/rules/prov/#Plan-shape>": {
-                  "nodes": [
-                    "ex:bap_process_graph",
-                    "ex:sen_slope_algorithm"
-                  ]
-                },
-                "<https://www.ogc.org/rules/prov/#Collection-shape>": {
-                  "nodes": [
-                    "<https://example.org/stac/collections/sen>",
-                    "ex:sen_slope_results",
-                    "<https://openeo.example.org/collections/SENTINEL2_L2>",
-                    "<https://example.org/stac/collections/bap>",
-                    "ex:sen_slope_cogs"
-                  ]
-                },
-                "<https://www.ogc.org/rules/prov/#EmptyCollection-shape>": {
+                "<https://www.ogc.org/rules/prov/#prop-influencer>": {
                   "nodes": []
                 },
-                "<https://www.ogc.org/rules/prov/#Activity-shape>": {
-                  "nodes": [
-                    "ex:step3b_stac_metadata",
-                    "ex:step3a_cog_conversion",
-                    "ex:step2_seasonal_sen_slope",
-                    "ex:step1_bap"
-                  ]
-                },
-                "<https://www.ogc.org/rules/prov/#Entity-shape>": {
-                  "nodes": [
-                    "<https://openeo.example.org/collections/SENTINEL2_L2>",
-                    "ex:sen_slope_parameters",
-                    "ex:sen_slope_algorithm",
-                    "<https://example.org/stac/collections/sen>",
-                    "ex:sen_slope_results",
-                    "<https://example.org/stac/collections/bap>",
-                    "ex:bap_process_graph",
-                    "ex:sen_slope_cogs"
-                  ]
-                },
-                "<https://www.ogc.org/rules/prov/#prop-qualifiedPrimarySource>": {
+                "<https://www.ogc.org/rules/prov/#prop-wasQuotedFrom>": {
                   "nodes": []
                 },
-                "<https://www.ogc.org/rules/prov/#prop-activity>": {
+                "<https://www.ogc.org/rules/prov/#prop-qualifiedQuotation>": {
                   "nodes": []
                 },
                 "<https://www.ogc.org/rules/prov/#Generation-shape>": {
                   "nodes": []
                 },
-                "<https://www.ogc.org/rules/prov/#Usage-shape>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/prov/#prop-specializationOf>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/prov/#prop-qualifiedDelegation>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/prov/#prop-used>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/prov/#prop-hadPrimarySource>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/prov/#prop-wasStartedBy>": {
-                  "nodes": []
-                },
                 "<https://www.ogc.org/rules/prov/#prop-agent>": {
                   "nodes": []
                 },
-                "<https://www.ogc.org/rules/prov/#prop-hadActivity>": {
+                "<https://www.ogc.org/rules/prov/#Activity-shape>": {
+                  "nodes": [
+                    "ex:step3b_stac_metadata",
+                    "ex:step1_bap",
+                    "ex:step3a_cog_conversion",
+                    "ex:step2_seasonal_sen_slope"
+                  ]
+                },
+                "<https://www.ogc.org/rules/prov/#prop-atLocation>": {
                   "nodes": []
                 },
-                "<https://www.ogc.org/rules/prov/#prop-qualifiedDerivation>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/prov/#prop-qualifiedCommunication>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/prov/#prop-qualifiedRevision>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/prov/#prop-wasDerivedFrom>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/prov/#prop-hadPlan>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/prov/#Invalidation-shape>": {
+                "<https://www.ogc.org/rules/prov/#End-shape>": {
                   "nodes": []
                 },
                 "<https://www.ogc.org/rules/prov/#prop-alternateOf>": {
                   "nodes": []
                 },
-                "<https://www.ogc.org/rules/prov/#prop-hadRole>": {
+                "<https://www.ogc.org/rules/prov/#prop-hadGeneration>": {
                   "nodes": []
                 },
-                "<https://www.ogc.org/rules/prov/#prop-wasGeneratedBy>": {
+                "<https://www.ogc.org/rules/prov/#prop-actedOnBehalfOf>": {
                   "nodes": []
                 },
-                "<https://www.ogc.org/rules/prov/#prop-qualifiedAssociation>": {
+                "<https://www.ogc.org/rules/prov/#Entity-shape>": {
+                  "nodes": [
+                    "ex:bap_process_graph",
+                    "<https://example.org/stac/collections/bap>",
+                    "ex:sen_slope_algorithm",
+                    "ex:sen_slope_parameters",
+                    "<https://openeo.example.org/collections/SENTINEL2_L2>",
+                    "<https://example.org/stac/collections/sen>",
+                    "ex:sen_slope_results",
+                    "ex:sen_slope_cogs"
+                  ]
+                },
+                "<https://www.ogc.org/rules/prov/#prop-qualifiedUsage>": {
                   "nodes": []
                 },
-                "<https://www.ogc.org/rules/prov/#InstantaneousEvent-shape>": {
+                "<https://www.ogc.org/rules/prov/#Start-shape>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/prov/#prop-used>": {
                   "nodes": []
                 },
                 "<https://www.ogc.org/rules/prov/#prop-hadMember>": {
                   "nodes": []
                 },
-                "<https://www.ogc.org/rules/prov/#prop-qualifiedInvalidation>": {
+                "<https://www.ogc.org/rules/prov/#prop-wasStartedBy>": {
                   "nodes": []
                 },
-                "<https://www.ogc.org/rules/prov/#prop-wasEndedBy>": {
+                "<https://www.ogc.org/rules/prov/#prop-wasInformedBy>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/prov/#prop-wasAssociatedWith>": {
                   "nodes": []
                 },
                 "<https://www.ogc.org/rules/prov/#Bundle-shape>": {
                   "nodes": []
                 },
+                "<https://www.ogc.org/rules/prov/#prop-hadPrimarySource>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/prov/#prop-qualifiedEnd>": {
+                  "nodes": []
+                },
                 "<https://www.ogc.org/rules/prov/#prop-generated>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/prov/#prop-wasEndedBy>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/prov/#prop-activity>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/prov/#prop-invalidated>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/prov/#prop-qualifiedInvalidation>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/prov/#prop-hadUsage>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/prov/#Plan-shape>": {
+                  "nodes": [
+                    "ex:sen_slope_algorithm",
+                    "ex:bap_process_graph"
+                  ]
+                },
+                "<https://www.ogc.org/rules/prov/#prop-qualifiedAttribution>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/prov/#prop-hadRole>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/prov/#Collection-shape>": {
+                  "nodes": [
+                    "<https://example.org/stac/collections/bap>",
+                    "<https://openeo.example.org/collections/SENTINEL2_L2>",
+                    "<https://example.org/stac/collections/sen>",
+                    "ex:sen_slope_results",
+                    "ex:sen_slope_cogs"
+                  ]
+                },
+                "<https://www.ogc.org/rules/prov/#Invalidation-shape>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/prov/#prop-hadActivity>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/prov/#prop-specializationOf>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/prov/#prop-hadPlan>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/prov/#prop-wasAttributedTo>": {
                   "nodes": []
                 },
                 "<https://www.ogc.org/rules/prov/#prop-wasRevisionOf>": {
                   "nodes": []
                 },
-                "<https://www.ogc.org/rules/prov/#prop-wasQuotedFrom>": {
+                "<https://www.ogc.org/rules/prov/#prop-qualifiedGeneration>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/prov/#prop-qualifiedDelegation>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/prov/#prop-qualifiedStart>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/prov/#prop-wasDerivedFrom>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/prov/#prop-qualifiedInfluence>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/prov/#prop-qualifiedDerivation>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/prov/#prop-qualifiedAssociation>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/prov/#prop-qualifiedRevision>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/prov/#prop-wasGeneratedBy>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/prov/#InstantaneousEvent-shape>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/prov/#prop-entity>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/prov/#EmptyCollection-shape>": {
                   "nodes": []
                 },
                 "<https://www.ogc.org/rules/prov/#prop-wasInvalidatedBy>": {
@@ -210,63 +258,15 @@
                 "<https://www.ogc.org/rules/prov/#prop-wasInfluencedBy>": {
                   "nodes": []
                 },
-                "<https://www.ogc.org/rules/prov/#Start-shape>": {
+                "<https://www.ogc.org/rules/prov/#prop-qualifiedPrimarySource>": {
                   "nodes": []
                 },
-                "<https://www.ogc.org/rules/prov/#prop-hadGeneration>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/prov/#prop-qualifiedGeneration>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/prov/#prop-qualifiedStart>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/prov/#prop-wasInformedBy>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/prov/#prop-entity>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/prov/#prop-actedOnBehalfOf>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/prov/#prop-qualifiedUsage>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/prov/#prop-wasAssociatedWith>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/prov/#prop-atLocation>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/prov/#prop-wasAttributedTo>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/prov/#End-shape>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/prov/#prop-qualifiedQuotation>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/prov/#prop-influencer>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/prov/#prop-qualifiedInfluence>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/prov/#prop-qualifiedAttribution>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/prov/#prop-qualifiedEnd>": {
-                  "nodes": []
-                },
-                "<https://www.ogc.org/rules/prov/#prop-hadUsage>": {
+                "<https://www.ogc.org/rules/prov/#Usage-shape>": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl:\n - Shape <https://www.ogc.org/rules/prov/#prop-invalidated>: *none*\n - Shape <https://www.ogc.org/rules/prov/#Plan-shape>: ex:bap_process_graph,ex:sen_slope_algorithm\n - Shape <https://www.ogc.org/rules/prov/#Collection-shape>: <https://example.org/stac/collections/sen>,ex:sen_slope_results,<https://openeo.example.org/collections/SENTINEL2_L2>,<https://example.org/stac/collections/bap>,ex:sen_slope_cogs\n - Shape <https://www.ogc.org/rules/prov/#EmptyCollection-shape>: *none*\n - Shape <https://www.ogc.org/rules/prov/#Activity-shape>: ex:step3b_stac_metadata,ex:step3a_cog_conversion,ex:step2_seasonal_sen_slope,ex:step1_bap\n - Shape <https://www.ogc.org/rules/prov/#Entity-shape>: <https://openeo.example.org/collections/SENTINEL2_L2>,ex:sen_slope_parameters,ex:sen_slope_algorithm,<https://example.org/stac/collections/sen>,ex:sen_slope_results,<https://example.org/stac/collections/bap>,ex:bap_process_graph,ex:sen_slope_cogs\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedPrimarySource>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-activity>: *none*\n - Shape <https://www.ogc.org/rules/prov/#Generation-shape>: *none*\n - Shape <https://www.ogc.org/rules/prov/#Usage-shape>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-specializationOf>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedDelegation>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-used>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-hadPrimarySource>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-wasStartedBy>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-agent>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-hadActivity>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedDerivation>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedCommunication>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedRevision>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-wasDerivedFrom>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-hadPlan>: *none*\n - Shape <https://www.ogc.org/rules/prov/#Invalidation-shape>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-alternateOf>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-hadRole>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-wasGeneratedBy>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedAssociation>: *none*\n - Shape <https://www.ogc.org/rules/prov/#InstantaneousEvent-shape>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-hadMember>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedInvalidation>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-wasEndedBy>: *none*\n - Shape <https://www.ogc.org/rules/prov/#Bundle-shape>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-generated>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-wasRevisionOf>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-wasQuotedFrom>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-wasInvalidatedBy>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-wasInfluencedBy>: *none*\n - Shape <https://www.ogc.org/rules/prov/#Start-shape>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-hadGeneration>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedGeneration>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedStart>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-wasInformedBy>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-entity>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-actedOnBehalfOf>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedUsage>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-wasAssociatedWith>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-atLocation>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-wasAttributedTo>: *none*\n - Shape <https://www.ogc.org/rules/prov/#End-shape>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedQuotation>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-influencer>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedInfluence>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedAttribution>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedEnd>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-hadUsage>: *none*\n"
+              "message": "Focus nodes for https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl:\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedCommunication>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-influencer>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-wasQuotedFrom>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedQuotation>: *none*\n - Shape <https://www.ogc.org/rules/prov/#Generation-shape>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-agent>: *none*\n - Shape <https://www.ogc.org/rules/prov/#Activity-shape>: ex:step3b_stac_metadata,ex:step1_bap,ex:step3a_cog_conversion,ex:step2_seasonal_sen_slope\n - Shape <https://www.ogc.org/rules/prov/#prop-atLocation>: *none*\n - Shape <https://www.ogc.org/rules/prov/#End-shape>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-alternateOf>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-hadGeneration>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-actedOnBehalfOf>: *none*\n - Shape <https://www.ogc.org/rules/prov/#Entity-shape>: ex:bap_process_graph,<https://example.org/stac/collections/bap>,ex:sen_slope_algorithm,ex:sen_slope_parameters,<https://openeo.example.org/collections/SENTINEL2_L2>,<https://example.org/stac/collections/sen>,ex:sen_slope_results,ex:sen_slope_cogs\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedUsage>: *none*\n - Shape <https://www.ogc.org/rules/prov/#Start-shape>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-used>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-hadMember>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-wasStartedBy>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-wasInformedBy>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-wasAssociatedWith>: *none*\n - Shape <https://www.ogc.org/rules/prov/#Bundle-shape>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-hadPrimarySource>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedEnd>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-generated>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-wasEndedBy>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-activity>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-invalidated>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedInvalidation>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-hadUsage>: *none*\n - Shape <https://www.ogc.org/rules/prov/#Plan-shape>: ex:sen_slope_algorithm,ex:bap_process_graph\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedAttribution>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-hadRole>: *none*\n - Shape <https://www.ogc.org/rules/prov/#Collection-shape>: <https://example.org/stac/collections/bap>,<https://openeo.example.org/collections/SENTINEL2_L2>,<https://example.org/stac/collections/sen>,ex:sen_slope_results,ex:sen_slope_cogs\n - Shape <https://www.ogc.org/rules/prov/#Invalidation-shape>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-hadActivity>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-specializationOf>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-hadPlan>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-wasAttributedTo>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-wasRevisionOf>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedGeneration>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedDelegation>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedStart>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-wasDerivedFrom>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedInfluence>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedDerivation>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedAssociation>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedRevision>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-wasGeneratedBy>: *none*\n - Shape <https://www.ogc.org/rules/prov/#InstantaneousEvent-shape>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-entity>: *none*\n - Shape <https://www.ogc.org/rules/prov/#EmptyCollection-shape>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-wasInvalidatedBy>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-wasInfluencedBy>: *none*\n - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedPrimarySource>: *none*\n - Shape <https://www.ogc.org/rules/prov/#Usage-shape>: *none*\n"
             }
           ]
         }

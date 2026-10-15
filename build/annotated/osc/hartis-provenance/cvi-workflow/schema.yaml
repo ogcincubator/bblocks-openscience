@@ -1,0 +1,145 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://github.com/hartis-org/cvi-workflow/tree/ospd2026-d100/ospd2026/building-block/_sources/hartis-provenance/cvi-workflow/schema.yaml
+title: HARTIS CVI Workflow Provenance
+description: Candidate schema for the complete HARTIS CVI workflow provenance bundle.
+type: object
+required:
+- id
+- type
+- workflowDefinition
+- plans
+- runtime
+- entities
+properties:
+  id:
+    type: string
+  type:
+    anyOf:
+    - const: prov:Bundle
+    - type: array
+      contains:
+        const: prov:Bundle
+  label:
+    type: string
+  status:
+    type: string
+  workflowDefinition:
+    type: object
+    required:
+    - id
+    - type
+    - label
+    properties:
+      id:
+        type: string
+      type:
+        anyOf:
+        - type: string
+        - type: array
+          minItems: 1
+      label:
+        type: string
+      sourceWorkflow:
+        type: string
+      executionImage:
+        type: string
+    additionalProperties: true
+  plans:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      required:
+      - id
+      - type
+      - label
+      - processType
+      properties:
+        id:
+          type: string
+        type:
+          type: array
+          minItems: 1
+        label:
+          type: string
+        processType:
+          type: string
+        sourceCode:
+          type: string
+      additionalProperties: true
+  runtime:
+    type: object
+    required:
+    - id
+    - type
+    - workflowDefinition
+    - activities
+    properties:
+      id:
+        type: string
+      type:
+        anyOf:
+        - type: string
+        - type: array
+          minItems: 1
+      workflowDefinition:
+        type: string
+      activities:
+        type: array
+        minItems: 1
+        items:
+          $ref: '#/$defs/activity'
+    additionalProperties: true
+  entities:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      required:
+      - id
+      - type
+      properties:
+        id:
+          type: string
+        type:
+          anyOf:
+          - type: string
+          - type: array
+            minItems: 1
+        label:
+          type: string
+      additionalProperties: true
+additionalProperties: true
+$defs:
+  activity:
+    type: object
+    required:
+    - id
+    - type
+    - plan
+    - processType
+    - used
+    - generated
+    properties:
+      id:
+        type: string
+      type:
+        anyOf:
+        - type: string
+        - type: array
+          minItems: 1
+      plan:
+        type: string
+      processType:
+        type: string
+      used:
+        type: array
+        minItems: 1
+      generated:
+        type: array
+        minItems: 1
+      qualifiedUsage:
+        type: array
+      wasAssociatedWith:
+        type: array
+    additionalProperties: true
