@@ -1,0 +1,11 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+description: A MoM activity is a processing activity of one of the MoM activity types.
+allOf:
+  - $ref: bblocks://ogc.osc.rss-hydro.processing-activity
+  - $ref: '#/$defs/isMomActivity'
+$defs:
+  isMomActivity:
+    required: [activityType]
+    properties:
+      activityType:
+        enum: [mom:PerWatershedAggregation, mom:HazardScoreAccumulation, mom:FinalAlert]

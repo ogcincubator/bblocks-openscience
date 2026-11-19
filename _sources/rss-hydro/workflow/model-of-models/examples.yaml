@@ -1,0 +1,12 @@
+$schema: https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/refs/heads/master/ogc/bblocks/schemas/examples.schema.yaml
+examples:
+- title: Run of 2026-03-02 00:00 UTC
+  content: Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. All values are illustrative.
+  snippets:
+    - language: json
+      ref: example.json
+- title: Run of 2026-03-02 00:00 UTC, no previous final alert
+  content: Same run without an earlier alert; every watershed is New. All values are illustrative.
+  snippets:
+    - language: json
+      ref: example-without-previous-alert.json
