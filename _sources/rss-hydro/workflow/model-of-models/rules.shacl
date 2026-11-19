@@ -1,30 +1,29 @@
 @prefix mom:  <https://rss-hydro.lu/ns/mom/> .
-@prefix pt:   <https://example.org/ospd/process-types/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix sh:   <http://www.w3.org/ns/shacl#> .
 @base <https://rss-hydro.lu/ns/mom/rules/> .
 
 <#hazardAccumulationUsedAggregate>
     a sh:NodeShape ;
-    sh:targetClass pt:WeightedScoringAndClassification ;
+    sh:targetClass <https://example.org/ospd/process-types/WeightedScoringAndClassification> ;
     sh:message "Weighted scoring must use a zonal statistics output" ;
     sh:property [
         sh:path prov:used ;
         sh:qualifiedValueShape [
-            sh:property [ sh:path prov:wasGeneratedBy ; sh:class pt:ZonalStatistics ; sh:minCount 1 ]
+            sh:property [ sh:path prov:wasGeneratedBy ; sh:class <https://example.org/ospd/process-types/ZonalStatistics> ; sh:minCount 1 ]
         ] ;
         sh:qualifiedMinCount 1 ;
     ] .
 
 <#finalAlertUsedAccumulatedScore>
     a sh:NodeShape ;
-    sh:targetClass pt:ScoringAndProgressTracking ;
+    sh:targetClass <https://example.org/ospd/process-types/ScoringAndProgressTracking> ;
     sh:message "Progress tracking must use a hazard score of a weighted scoring" ;
     sh:property [
         sh:path prov:used ;
         sh:qualifiedValueShape [
             sh:class mom:HazardScore ;
-            sh:property [ sh:path prov:wasGeneratedBy ; sh:class pt:WeightedScoringAndClassification ; sh:minCount 1 ]
+            sh:property [ sh:path prov:wasGeneratedBy ; sh:class <https://example.org/ospd/process-types/WeightedScoringAndClassification> ; sh:minCount 1 ]
         ] ;
         sh:qualifiedMinCount 1 ;
     ] .
