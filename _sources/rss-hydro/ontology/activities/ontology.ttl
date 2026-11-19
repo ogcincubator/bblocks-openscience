@@ -1,4 +1,5 @@
 @prefix mom:  <https://rss-hydro.lu/ns/mom/> .
+@prefix pt:   <https://example.org/ospd/process-types/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl:  <http://www.w3.org/2002/07/owl#> .
@@ -17,25 +18,30 @@ mom:WorkflowRun a owl:Class ;
     rdfs:label "Workflow run" ;
     rdfs:comment "One execution of the MoM workflow." .
 
-mom:Geoprocessing a owl:Class ;
+# Process types: candidates for the OSPD process-type register (placeholder namespace)
+
+pt:Geoprocessing a owl:Class ;
     rdfs:subClassOf prov:Activity ;
     rdfs:label "Geoprocessing" ;
-    rdfs:comment "Parent of all MoM activity types." .
+    rdfs:comment "Parent of the process types below." .
 
-mom:PerWatershedAggregation a owl:Class ;
-    rdfs:subClassOf mom:Geoprocessing ;
-    rdfs:label "Per-watershed aggregation" ;
-    rdfs:comment "Aggregates a gridded source per watershed, skipping nodata cells." .
+pt:ZonalStatistics a owl:Class ;
+    rdfs:subClassOf pt:Geoprocessing ;
+    rdfs:seeAlso <https://example.org/ospd/process-types/zonal-statistics> ;
+    rdfs:label "Zonal statistics" ;
+    rdfs:comment "Aggregates a gridded source per zone, skipping nodata cells." .
 
-mom:HazardScoreAccumulation a owl:Class ;
-    rdfs:subClassOf mom:Geoprocessing ;
-    rdfs:label "Hazard score accumulation" ;
-    rdfs:comment "Updates flood duration from per-watershed aggregates and combines them with any extra model inputs into a hazard score and alert per watershed." .
+pt:WeightedScoringAndClassification a owl:Class ;
+    rdfs:subClassOf pt:Geoprocessing ;
+    rdfs:seeAlso <https://example.org/ospd/process-types/weighted-scoring-and-classification> ;
+    rdfs:label "Weighted scoring and classification" ;
+    rdfs:comment "Combines weighted indicators, e.g. zonal statistics and extra model inputs, into a score and a level per zone; may carry state such as duration from the previous result." .
 
-mom:FinalAlert a owl:Class ;
-    rdfs:subClassOf mom:Geoprocessing ;
-    rdfs:label "Final alert" ;
-    rdfs:comment "Combines the hazard scores of all sources into one alert per watershed, with its status against the previous final alert." .
+pt:ScoringAndProgressTracking a owl:Class ;
+    rdfs:subClassOf pt:Geoprocessing ;
+    rdfs:seeAlso <https://example.org/ospd/process-types/scoring-and-progress-tracking> ;
+    rdfs:label "Scoring and progress tracking" ;
+    rdfs:comment "Combines the scores of several sources into one result per zone and tracks its status against the previous result (New, Continued, Upgraded, Downgraded)." .
 
 # Entities
 
@@ -68,7 +74,7 @@ mom:minHazardScore a owl:DatatypeProperty ; rdfs:label "minimum hazard score" ; 
 mom:AlertLevels a skos:ConceptScheme ;
     rdfs:label "MoM alert levels" ;
     dcterms:hasVersion "0.0.1-alpha" ;
-    rdfs:comment "Alert levels of hazard score accumulation." .
+    rdfs:comment "Alert levels of weighted scoring and classification in MoM." .
 
 mom:Warning a skos:Concept ; skos:inScheme mom:AlertLevels ; skos:prefLabel "Warning" ;
     mom:minHazardScore 80 .

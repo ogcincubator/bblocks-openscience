@@ -12,6 +12,10 @@ required:
   - generated
   - wasAssociatedWith
 properties:
+  processType:
+    description: IRI of the registered process type (dcterms:type).
+    type: string
+    format: uri
   used:
     anyOf:
       - $ref: '#/$defs/datedOrVersioned'

@@ -1,11 +1,11 @@
 ## MoM workflow activity types
 
-Activity types of the MoM flood workflow (subclasses of `mom:Geoprocessing`, itself a `prov:Activity`), candidate entries for the OSPD process-type register, plus the entity type, properties, workflow run type (`mom:WorkflowRun`) and alert levels (`mom:AlertLevels`) the MoM profile uses.
+Process types used by the MoM flood workflow (subclasses of `pt:Geoprocessing`, itself a `prov:Activity`), candidate entries for the OSPD process-type register in a placeholder namespace (`pt:` = `https://example.org/ospd/process-types/`), plus the entity type, properties, workflow run type (`mom:WorkflowRun`) and alert levels (`mom:AlertLevels`) the MoM profile uses.
 
-| Term | Generic operation |
-|---|---|
-| `mom:PerWatershedAggregation` | zonal statistics |
-| `mom:HazardScoreAccumulation` | index composition and classification |
-| `mom:FinalAlert` | multi-source fusion and change detection |
+| Term | Register term (`processType`) | Generic operation |
+|---|---|---|
+| `pt:ZonalStatistics` | `https://example.org/ospd/process-types/zonal-statistics` | zonal statistics |
+| `pt:WeightedScoringAndClassification` | `https://example.org/ospd/process-types/weighted-scoring-and-classification` | index composition and classification |
+| `pt:ScoringAndProgressTracking` | `https://example.org/ospd/process-types/scoring-and-progress-tracking` | multi-source scoring and progress tracking |
 
-The schema checks that a record of one of these types is a valid processing activity (`ogc.osc.rss-hydro.processing-activity`).
+The schema checks that a record of one of these types states the matching `processType` and is a valid processing activity (`ogc.osc.rss-hydro.processing-activity`).

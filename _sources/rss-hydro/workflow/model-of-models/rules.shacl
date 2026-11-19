@@ -1,29 +1,30 @@
 @prefix mom:  <https://rss-hydro.lu/ns/mom/> .
+@prefix pt:   <https://example.org/ospd/process-types/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix sh:   <http://www.w3.org/ns/shacl#> .
 @base <https://rss-hydro.lu/ns/mom/rules/> .
 
 <#hazardAccumulationUsedAggregate>
     a sh:NodeShape ;
-    sh:targetClass mom:HazardScoreAccumulation ;
-    sh:message "Hazard accumulation must use an aggregation output" ;
+    sh:targetClass pt:WeightedScoringAndClassification ;
+    sh:message "Weighted scoring must use a zonal statistics output" ;
     sh:property [
         sh:path prov:used ;
         sh:qualifiedValueShape [
-            sh:property [ sh:path prov:wasGeneratedBy ; sh:class mom:PerWatershedAggregation ; sh:minCount 1 ]
+            sh:property [ sh:path prov:wasGeneratedBy ; sh:class pt:ZonalStatistics ; sh:minCount 1 ]
         ] ;
         sh:qualifiedMinCount 1 ;
     ] .
 
 <#finalAlertUsedAccumulatedScore>
     a sh:NodeShape ;
-    sh:targetClass mom:FinalAlert ;
-    sh:message "Final alert must use a hazard score of a hazard score accumulation" ;
+    sh:targetClass pt:ScoringAndProgressTracking ;
+    sh:message "Progress tracking must use a hazard score of a weighted scoring" ;
     sh:property [
         sh:path prov:used ;
         sh:qualifiedValueShape [
             sh:class mom:HazardScore ;
-            sh:property [ sh:path prov:wasGeneratedBy ; sh:class mom:HazardScoreAccumulation ; sh:minCount 1 ]
+            sh:property [ sh:path prov:wasGeneratedBy ; sh:class pt:WeightedScoringAndClassification ; sh:minCount 1 ]
         ] ;
         sh:qualifiedMinCount 1 ;
     ] .

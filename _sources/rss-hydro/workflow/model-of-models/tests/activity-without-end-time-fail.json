@@ -74,7 +74,8 @@
   },
   {
     "id": "run:aggregation",
-    "activityType": "mom:PerWatershedAggregation",
+    "activityType": "ZonalStatistics",
+    "processType": "https://example.org/ospd/process-types/zonal-statistics",
     "name": "GFMS per-watershed aggregation",
     "startedAtTime": "2026-03-02T01:05:33Z",
     "endedAtTime": "2026-03-02T01:05:41Z",
@@ -171,7 +172,8 @@
   },
   {
     "id": "run:hazard",
-    "activityType": "mom:HazardScoreAccumulation",
+    "activityType": "WeightedScoringAndClassification",
+    "processType": "https://example.org/ospd/process-types/weighted-scoring-and-classification",
     "name": "GloFAS + GFMS hazard score accumulation",
     "startedAtTime": "2026-03-02T01:12:40Z",
     "used": [
@@ -298,7 +300,8 @@
   },
   {
     "id": "run:final-alert",
-    "activityType": "mom:FinalAlert",
+    "activityType": "ScoringAndProgressTracking",
+    "processType": "https://example.org/ospd/process-types/scoring-and-progress-tracking",
     "name": "Final alert",
     "startedAtTime": "2026-03-02T01:12:48Z",
     "endedAtTime": "2026-03-02T01:12:52Z",
