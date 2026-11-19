@@ -1,0 +1,17 @@
+$schema: https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/refs/heads/master/ogc/bblocks/schemas/examples.schema.yaml
+examples:
+- title: Standalone per-watershed aggregation
+  content: One MoM activity, validated without a workflow. All values are illustrative.
+  snippets:
+    - language: json
+      code: |
+        {
+          "id": "https://example.org/mom/run/2026030200/aggregation",
+          "activityType": "mom:PerWatershedAggregation",
+          "name": "GFMS per-watershed aggregation",
+          "startedAtTime": "2026-03-02T01:05:33Z",
+          "endedAtTime": "2026-03-02T01:05:41Z",
+          "used": "https://example.org/mom/run/2026030200/gfms-bin",
+          "generated": "https://example.org/mom/run/2026030200/gfms-aggregates",
+          "wasAssociatedWith": "https://example.org/mom/run/2026030200/mom"
+        }

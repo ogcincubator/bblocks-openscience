@@ -1,0 +1,49 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+description: One processing activity with its required PROV fields.
+allOf:
+  - $ref: bblocks://ogc.ogc-utils.prov-activity
+required:
+  - id
+  - activityType
+  - name
+  - startedAtTime
+  - endedAtTime
+  - used
+  - generated
+  - wasAssociatedWith
+properties:
+  used:
+    anyOf:
+      - $ref: '#/$defs/datedOrVersioned'
+      - type: array
+        items:
+          $ref: '#/$defs/datedOrVersioned'
+  wasAssociatedWith:
+    anyOf:
+      - $ref: '#/$defs/softwareVersioned'
+      - type: array
+        items:
+          $ref: '#/$defs/softwareVersioned'
+$defs:
+  datedOrVersioned:
+    description: An inline entity states generatedAtTime or dcterms:hasVersion.
+    if:
+      type: object
+    then:
+      anyOf:
+        - required: [generatedAtTime]
+        - required: [dcterms:hasVersion]
+  softwareVersioned:
+    description: An inline software agent states dcterms:hasVersion.
+    if:
+      type: object
+      required: [agentType]
+      properties:
+        agentType:
+          anyOf:
+            - const: prov:SoftwareAgent
+            - type: array
+              contains:
+                const: prov:SoftwareAgent
+    then:
+      required: [dcterms:hasVersion]
