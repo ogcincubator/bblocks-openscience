@@ -1,0 +1,88 @@
+@prefix mom:  <https://rss-hydro.lu/ns/mom/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+mom: a owl:Ontology ;
+    rdfs:label "Model of Models flood workflow activities" ;
+    owl:versionInfo "0.1" .
+
+# Activities
+
+mom:WorkflowRun a owl:Class ;
+    rdfs:subClassOf prov:Activity ;
+    rdfs:label "Workflow run" ;
+    rdfs:comment "One execution of the MoM workflow." .
+
+# Process types: candidates for the OSPD process-type register (placeholder namespace)
+
+<https://example.org/ospd/process-types/Geoprocessing> a owl:Class ;
+    rdfs:subClassOf prov:Activity ;
+    rdfs:label "Geoprocessing" ;
+    rdfs:comment "Parent of the process types below." .
+
+<https://example.org/ospd/process-types/ZonalStatistics> a owl:Class ;
+    rdfs:subClassOf <https://example.org/ospd/process-types/Geoprocessing> ;
+    rdfs:seeAlso <https://example.org/ospd/process-types/zonal-statistics> ;
+    rdfs:label "Zonal statistics" ;
+    rdfs:comment "Aggregates a gridded source per zone, skipping nodata cells." .
+
+<https://example.org/ospd/process-types/WeightedScoringAndClassification> a owl:Class ;
+    rdfs:subClassOf <https://example.org/ospd/process-types/Geoprocessing> ;
+    rdfs:seeAlso <https://example.org/ospd/process-types/weighted-scoring-and-classification> ;
+    rdfs:label "Weighted scoring and classification" ;
+    rdfs:comment "Combines weighted indicators, e.g. zonal statistics and extra model inputs, into a score and a level per zone; may carry state such as duration from the previous result." .
+
+<https://example.org/ospd/process-types/ScoringAndProgressTracking> a owl:Class ;
+    rdfs:subClassOf <https://example.org/ospd/process-types/Geoprocessing> ;
+    rdfs:seeAlso <https://example.org/ospd/process-types/scoring-and-progress-tracking> ;
+    rdfs:label "Scoring and progress tracking" ;
+    rdfs:comment "Combines the scores of several sources into one result per zone and tracks its status against the previous result (New, Continued, Upgraded, Downgraded)." .
+
+# Entities
+
+mom:HazardScore a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "Hazard score" ;
+    rdfs:comment "Per-watershed hazard scores of one or more models for one cycle." .
+
+# Properties
+
+mom:dataType a owl:DatatypeProperty ;
+    rdfs:label "data type" ;
+    rdfs:comment "Source data type, e.g. GFMS, GloFAS." ;
+    rdfs:range xsd:string .
+
+mom:watershedFingerprint a owl:DatatypeProperty ;
+    rdfs:label "watershed fingerprint" ;
+    rdfs:comment "sha256 of the watershed shapefile (.shp, .dbf)." ;
+    rdfs:range xsd:string .
+
+mom:dataTime a owl:DatatypeProperty ;
+    rdfs:label "data time" ;
+    rdfs:comment "Time the data values refer to." ;
+    rdfs:range xsd:dateTime .
+
+# Alert levels: minimum hazard score per level
+
+mom:minHazardScore a owl:DatatypeProperty ; rdfs:label "minimum hazard score" ; rdfs:range xsd:decimal .
+
+mom:AlertLevels a skos:ConceptScheme ;
+    rdfs:label "MoM alert levels" ;
+    dcterms:hasVersion "0.0.1-alpha" ;
+    rdfs:comment "Alert levels of weighted scoring and classification in MoM." .
+
+mom:Warning a skos:Concept ; skos:inScheme mom:AlertLevels ; skos:prefLabel "Warning" ;
+    mom:minHazardScore 80 .
+
+mom:Watch a skos:Concept ; skos:inScheme mom:AlertLevels ; skos:prefLabel "Watch" ;
+    mom:minHazardScore 60 .
+
+mom:Advisory a skos:Concept ; skos:inScheme mom:AlertLevels ; skos:prefLabel "Advisory" ;
+    mom:minHazardScore 35 .
+
+mom:Information a skos:Concept ; skos:inScheme mom:AlertLevels ; skos:prefLabel "Information" ;
+    mom:minHazardScore 0 .

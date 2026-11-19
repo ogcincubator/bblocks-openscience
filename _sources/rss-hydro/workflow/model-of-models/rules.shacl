@@ -1,0 +1,45 @@
+@prefix mom:  <https://rss-hydro.lu/ns/mom/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@base <https://rss-hydro.lu/ns/mom/rules/> .
+
+<#hazardAccumulationUsedAggregate>
+    a sh:NodeShape ;
+    sh:targetClass <https://example.org/ospd/process-types/WeightedScoringAndClassification> ;
+    sh:message "Weighted scoring must use a zonal statistics output" ;
+    sh:property [
+        sh:path prov:used ;
+        sh:qualifiedValueShape [
+            sh:property [ sh:path prov:wasGeneratedBy ; sh:class <https://example.org/ospd/process-types/ZonalStatistics> ; sh:minCount 1 ]
+        ] ;
+        sh:qualifiedMinCount 1 ;
+    ] .
+
+<#finalAlertUsedAccumulatedScore>
+    a sh:NodeShape ;
+    sh:targetClass <https://example.org/ospd/process-types/ScoringAndProgressTracking> ;
+    sh:message "Progress tracking must use a hazard score of a weighted scoring" ;
+    sh:property [
+        sh:path prov:used ;
+        sh:qualifiedValueShape [
+            sh:class mom:HazardScore ;
+            sh:property [ sh:path prov:wasGeneratedBy ; sh:class <https://example.org/ospd/process-types/WeightedScoringAndClassification> ; sh:minCount 1 ]
+        ] ;
+        sh:qualifiedMinCount 1 ;
+    ] .
+
+<#hazardScoreDerivedFromDatedData>
+    a sh:NodeShape ;
+    sh:targetClass mom:HazardScore ;
+    sh:sparql [
+        sh:message "Hazard score must derive from model data with a mom:dataTime" ;
+        sh:select """
+            SELECT $this WHERE {
+                FILTER NOT EXISTS {
+                    $this <http://www.w3.org/ns/prov#wasDerivedFrom>+ ?data .
+                    ?data <https://rss-hydro.lu/ns/mom/dataType> ?type ;
+                          <https://rss-hydro.lu/ns/mom/dataTime> ?time .
+                }
+            }
+        """ ;
+    ] .

@@ -1,0 +1,48 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+description: >-
+  Provenance chain of one MoM run: per-watershed aggregation, hazard score accumulation and
+  final alert, each always present.
+allOf:
+  - $ref: bblocks://ogc.ogc-utils.prov
+contains:
+  $ref: '#/$defs/isProcessingActivity'
+minContains: 3
+items:
+  allOf:
+    - if:
+        $ref: '#/$defs/isProcessingActivity'
+      then:
+        allOf:
+          - $ref: bblocks://ogc.osc.rss-hydro.ontology.activities
+          - required: [dcterms:isPartOf]
+    - if:
+        required: [activityType]
+        properties:
+          activityType:
+            const: mom:WorkflowRun
+      then:
+        required: [id, name, startedAtTime, endedAtTime, wasAssociatedWith]
+    - if:
+        required: [entityType]
+      then:
+        $ref: bblocks://ogc.osc.rss-hydro.processing-activity#/$defs/datedOrVersioned
+    - $ref: bblocks://ogc.osc.rss-hydro.processing-activity#/$defs/softwareVersioned
+    - if:
+        $ref: '#/$defs/isHazardScore'
+      then:
+        required: [mom:dataType, mom:dataTime, generatedAtTime, wasDerivedFrom]
+    - if:
+        required: [mom:dataType]
+      then:
+        required: [dcterms:format]
+        anyOf:
+          - required: [dcterms:hasVersion]
+          - required: [generatedAtTime, mom:dataTime]
+$defs:
+  isProcessingActivity:
+    $ref: bblocks://ogc.osc.rss-hydro.ontology.activities#/$defs/isMomActivity
+  isHazardScore:
+    required: [entityType]
+    properties:
+      entityType:
+        const: mom:HazardScore
