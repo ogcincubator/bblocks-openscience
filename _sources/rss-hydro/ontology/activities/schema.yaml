@@ -1,0 +1,36 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+description: A MoM activity is a processing activity of one of the process types, linked to its register term.
+allOf:
+  - $ref: bblocks://ogc.osc.rss-hydro.processing-activity
+  - $ref: '#/$defs/isMomActivity'
+  - required: [processType]
+  - if:
+      properties:
+        activityType:
+          const: ZonalStatistics
+    then:
+      properties:
+        processType:
+          const: https://example.org/ospd/process-types/zonal-statistics
+  - if:
+      properties:
+        activityType:
+          const: WeightedScoringAndClassification
+    then:
+      properties:
+        processType:
+          const: https://example.org/ospd/process-types/weighted-scoring-and-classification
+  - if:
+      properties:
+        activityType:
+          const: ScoringAndProgressTracking
+    then:
+      properties:
+        processType:
+          const: https://example.org/ospd/process-types/scoring-and-progress-tracking
+$defs:
+  isMomActivity:
+    required: [activityType]
+    properties:
+      activityType:
+        enum: [ZonalStatistics, WeightedScoringAndClassification, ScoringAndProgressTracking]
