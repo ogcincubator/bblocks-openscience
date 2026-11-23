@@ -1,5 +1,10 @@
 {
-  "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/workflow/model-of-models/context.jsonld",
+  "@context": [
+    {
+      "run": "https://example.org/mom/run/2026030200/"
+    },
+    "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/workflow/model-of-models/context.jsonld"
+  ],
   "@graph": [
     {
       "id": "run:mom",

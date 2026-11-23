@@ -404,7 +404,12 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
 #### jsonld
 ```jsonld
 {
-  "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/workflow/model-of-models/context.jsonld",
+  "@context": [
+    {
+      "run": "https://example.org/mom/run/2026030200/"
+    },
+    "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/workflow/model-of-models/context.jsonld"
+  ],
   "@graph": [
     {
       "id": "run:mom",
@@ -1399,7 +1404,12 @@ Same run without an earlier alert; every watershed is New. All values are illust
 #### jsonld
 ```jsonld
 {
-  "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/workflow/model-of-models/context.jsonld",
+  "@context": [
+    {
+      "run": "https://example.org/mom/run/2026030200/"
+    },
+    "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/workflow/model-of-models/context.jsonld"
+  ],
   "@graph": [
     {
       "id": "run:mom",
@@ -2064,7 +2074,6 @@ x-jsonld-extra-terms:
 x-jsonld-prefixes:
   xsd: http://www.w3.org/2001/XMLSchema#
   mom: https://rss-hydro.lu/ns/mom/
-  run: https://example.org/mom/run/2026030200/
   dcat: http://www.w3.org/ns/dcat#
   dcterms: http://purl.org/dc/terms/
 x-bblocks-metadata:
@@ -2452,7 +2461,6 @@ Links to the schema:
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "oa": "http://www.w3.org/ns/oa#",
     "mom": "https://rss-hydro.lu/ns/mom/",
-    "run": "https://example.org/mom/run/2026030200/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "dcterms": "http://purl.org/dc/terms/",
     "@version": 1.1

@@ -6,11 +6,11 @@
     rdfs:label "Generate forward drought projection" ;
     prov:generated <urn:aganitha:dataset:drought-projection> ;
     prov:qualifiedUsage [ a prov:Usage ;
-            prov:entity <urn:aganitha:model:drought-classifier> ;
-            prov:hadRole <https://example.org/ospd/roles/fittedModel> ],
-        [ a prov:Usage ;
             prov:entity <urn:aganitha:dataset:cdsi> ;
-            prov:hadRole <https://example.org/ospd/roles/inferenceInput> ] ;
+            prov:hadRole <https://example.org/ospd/roles/inferenceInput> ],
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:model:drought-classifier> ;
+            prov:hadRole <https://example.org/ospd/roles/fittedModel> ] ;
     prov:used <urn:aganitha:dataset:cdsi>,
         <urn:aganitha:model:drought-classifier> .
 

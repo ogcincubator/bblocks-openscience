@@ -302,8 +302,8 @@ The EarthCODE OSC has requirements which are not captured here
 ```ttl
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <fair:> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <fair:> .
 @prefix ns3: <sci:> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix osc: <https://w3id.org/ogc/stac/osc/> .
@@ -315,26 +315,26 @@ The EarthCODE OSC has requirements which are not captured here
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://ogc.org/demo/ospd/polarwarp> a prov:Collection ;
-    ns1:Accessible_files 1e+00 ;
-    ns1:Accessible_general true ;
-    ns1:Accessible_protocols true ;
-    ns1:Findable_has_doi false ;
-    ns1:Findable_identifier true ;
-    ns1:Findable_indexed true ;
-    ns1:Findable_indexed_approved_data true ;
-    ns1:Findable_indexed_approved_metadata true ;
-    ns1:Findable_rich_metadata true ;
-    ns1:Findable_stac_assets true ;
-    ns1:Interoperable_controlled_vocabularies true ;
-    ns1:Interoperable_has_documentation false ;
-    ns1:Interoperable_related_links true ;
-    ns1:Interoperable_uses_formal_language true ;
-    ns1:Reusable_cloud_assets_rate 1e+00 ;
-    ns1:Reusable_has_access_example false ;
-    ns1:Reusable_has_license true ;
-    ns1:Reusable_has_visualisation false ;
-    ns1:Reusable_rich_descriptions true ;
-    ns1:Reusable_workflow_exists true ;
+    ns2:Accessible_files 1e+00 ;
+    ns2:Accessible_general true ;
+    ns2:Accessible_protocols true ;
+    ns2:Findable_has_doi false ;
+    ns2:Findable_identifier true ;
+    ns2:Findable_indexed true ;
+    ns2:Findable_indexed_approved_data true ;
+    ns2:Findable_indexed_approved_metadata true ;
+    ns2:Findable_rich_metadata true ;
+    ns2:Findable_stac_assets true ;
+    ns2:Interoperable_controlled_vocabularies true ;
+    ns2:Interoperable_has_documentation false ;
+    ns2:Interoperable_related_links true ;
+    ns2:Interoperable_uses_formal_language true ;
+    ns2:Reusable_cloud_assets_rate 1e+00 ;
+    ns2:Reusable_has_access_example false ;
+    ns2:Reusable_has_license true ;
+    ns2:Reusable_has_visualisation false ;
+    ns2:Reusable_rich_descriptions true ;
+    ns2:Reusable_workflow_exists true ;
     dcterms:created "2025-10-13T16:54:34Z" ;
     dcterms:description """Polarwarp product
 
@@ -343,40 +343,40 @@ Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM 
     dcterms:title "Polarwarp" ;
     rdfs:seeAlso [ rdfs:label "Latest version" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/latest-version> ;
+            ns1:relation <http://www.iana.org/assignments/relation/latest-version> ;
             oa:hasTarget <https://ogc.org/demo/ospd/collection_v1.json> ],
-        [ ns2:relation <http://www.iana.org/assignments/relation/item> ;
+        [ ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://ogc.org/demo/ospd/item.json> ],
-        [ rdfs:label "Open Science Catalogue" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://ogc.org/catalog.json> ],
-        [ rdfs:label "Experiment: Polarwarp" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ],
         [ rdfs:label "Version 1" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/has-version> ;
+            ns1:relation <http://www.iana.org/assignments/relation/has-version> ;
             oa:hasTarget <https://ogc.org/demo/ospd/collection_v1.json> ],
-        [ rdfs:label "Products" ;
+        [ rdfs:label "Experiment: Polarwarp" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/parent> ;
-            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
-        [ rdfs:label "Project: Cerulean Information Factory" ;
-            dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/experiments/polarwarp/record.json> ],
         [ rdfs:label "Version History (DataCite JSON)" ;
             dcterms:type "application/vnd.datacite.datacite+json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/version-history> ;
+            ns1:relation <http://www.iana.org/assignments/relation/version-history> ;
             oa:hasTarget <https://api.datacite.org//dois/application/vnd.datacite.datacite+json/10.83395/zfk4-9k53> ],
-        [ ns2:relation <http://www.iana.org/assignments/relation/via> ;
+        [ rdfs:label "Products" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/parent> ;
+            oa:hasTarget <https://ogc.org/demo/catalog.json> ],
+        [ ns1:relation <http://www.iana.org/assignments/relation/via> ;
             oa:hasTarget <https://github.com/gtif-cerulean/polarwarp> ],
+        [ rdfs:label "Project: Cerulean Information Factory" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/projects/cerulean-information-factory/collection.json> ],
         [ rdfs:label "Theme: Cryosphere" ;
             dcterms:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ] ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://ogc.org/themes/cryosphere/catalog.json> ],
+        [ rdfs:label "Open Science Catalogue" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/root> ;
+            oa:hasTarget <https://ogc.org/catalog.json> ] ;
     dcat:license "various" ;
     stac:hasExtension "https://stac-extensions.github.io/osc/v1.0.0/schema.json",
         "https://stac-extensions.github.io/scientific/v1.0.0/schema.json",
@@ -634,31 +634,31 @@ Forecast rasters (+1h … +6h) produced by the Polarwarp workflow using NEXTSIM 
     dcterms:extent [ ] ;
     dcterms:modified "2025-01-21T17:59:50Z" ;
     dcterms:title "Water Bodies" ;
-    rdfs:seeAlso [ rdfs:label "Theme: Land" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/open-science-catalog-metadata/themes/land/catalog.json> ],
-        [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/products/water-bodies/collection.json> ],
+    rdfs:seeAlso [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/item> ;
+            oa:hasTarget <https://ogc.org/demo/ospd/S2B_10TFK_20210713_0_L2A/S2B_10TFK_20210713_0_L2A.json> ],
         [ dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/item> ;
             oa:hasTarget <https://ogc.org/demo/ospd/S2A_10TFK_20220524_0_L2A/S2A_10TFK_20220524_0_L2A.json> ],
+        [ dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            oa:hasTarget <https://esa-earthcode.github.io/open-science-catalog-metadata/products/water-bodies/collection.json> ],
+        [ rdfs:label "Experiment: Water Bodies Execution" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/open-science-catalog-metadata/experiments/polaris/water-bodies-execution/record.json> ],
         [ rdfs:label "Experiments" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/parent> ;
             oa:hasTarget <https://example.com/open-science-catalog-metadata/products/catalog.json> ],
-        [ dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/item> ;
-            oa:hasTarget <https://ogc.org/demo/ospd/S2B_10TFK_20210713_0_L2A/S2B_10TFK_20210713_0_L2A.json> ],
+        [ rdfs:label "Theme: Land" ;
+            dcterms:type "application/json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://example.com/open-science-catalog-metadata/themes/land/catalog.json> ],
         [ rdfs:label "Open Science Catalog" ;
             dcterms:type "application/json" ;
             ns1:relation <http://www.iana.org/assignments/relation/root> ;
-            oa:hasTarget <https://example.com/open-science-catalog-metadata/catalog.json> ],
-        [ rdfs:label "Experiment: Water Bodies Execution" ;
-            dcterms:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://example.com/open-science-catalog-metadata/experiments/polaris/water-bodies-execution/record.json> ] ;
+            oa:hasTarget <https://example.com/open-science-catalog-metadata/catalog.json> ] ;
     dcat:license "none" ;
     prov:wasDerivedFrom <https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2A_10TFK_20220524_0_L2A>,
         <https://earth-search.aws.element84.com/v0/collections/sentinel-s2-l2a-cogs/items/S2B_10TFK_20210713_0_L2A> ;
