@@ -1,0 +1,8 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<urn:example:step:reproject:1> a prov:Activity ;
+    rdfs:label "Reproject input areas" ;
+    prov:generated <urn:example:dataset:areas-utm32n> ;
+    prov:used <urn:example:dataset:areas-wgs84> .
+

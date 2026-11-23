@@ -1,0 +1,9 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+<urn:example:step:reproject> a prov:Activity,
+        <https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA018> ;
+    prov:generated <urn:example:dataset:areas-utm32n> ;
+    prov:used <urn:example:dataset:areas-wgs84> .
+
+<urn:example:dataset:areas-wgs84> a prov:Entity .
+

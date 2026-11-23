@@ -1,0 +1,224 @@
+Validation report for ogc.osc.prov-profiles.hartis-provenance.cvi-workflow - HARTIS CVI Workflow Provenance
+Generated 2026-11-23T08:07:39.475420+00:00
+=== General ===
+Test was expected to fail and it did.
+=== End General ===
+
+=== Files ===
+Using cvi-workflow-missing-runtime-fail.json from test resources
+JSON-LD context is present - uplifting
+Output JSON-LD cvi-workflow-missing-runtime-fail.jsonld created
+Output Turtle cvi-workflow-missing-runtime-fail.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: 'runtime' is a required property
+
+Failed validating 'required' in schema:
+    {'$schema': 'https://json-schema.org/draft/2020-12/schema',
+     '$id': 'https://github.com/hartis-org/cvi-workflow/tree/ospd2026-d100/ospd2026/building-block/_sources/hartis-provenance/cvi-workflow/schema.yaml',
+     'title': 'HARTIS CVI Workflow Provenance',
+     'description': 'HARTIS profile of the Workflow Provenance Graph '
+                    '(bundle form) for the complete CVI workflow. PROV '
+                    'structure, identifiers, provType and '
+                    'entityType/activityType come from the PROV building '
+                    'blocks; this schema only adds what HARTIS requires: a '
+                    'workflow definition, design-time plans with process '
+                    'types, a runtime activity whose steps link to their '
+                    'plans, and the entities they use and generate.',
+     'allOf': [{'$ref': 'https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/workflow-graph/schema.yaml'},
+               {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml'}],
+     'type': 'object',
+     'required': ['id',
+                  'provType',
+                  'entityType',
+                  'workflowDefinition',
+                  'plans',
+                  'runtime',
+                  'entities'],
+     'properties': {'entityType': {'description': "The bundle's entityType "
+                                                  'must include '
+                                                  'prov:Bundle.',
+                                   'anyOf': [{'const': 'prov:Bundle'},
+                                             {'type': 'array',
+                                              'contains': {'const': 'prov:Bundle'}}]},
+                    'status': {'type': 'string'},
+                    'workflowDefinition': {'description': 'The workflow as '
+                                                          'a whole, as a '
+                                                          'PROV Plan.',
+                                           'allOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml'}],
+                                           'required': ['id',
+                                                        'provType',
+                                                        'entityType'],
+                                           'properties': {'sourceWorkflow': {'type': 'string'},
+                                                          'executionImage': {'type': 'string'}},
+                                           'x-jsonld-id': 'https://hartis.org/ospd2026/workflowDefinition',
+                                           'x-jsonld-type': '@id'},
+                    'plans': {'description': 'Design-time plans, one per '
+                                             'processing step.',
+                              'type': 'array',
+                              'minItems': 1,
+                              'items': {'allOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml'}],
+                                        'required': ['id',
+                                                     'provType',
+                                                     'entityType',
+                                                     'processType'],
+                                        'properties': {'processType': {'description': 'The '
+                                                                                      'process '
+                                                                                      'type '
+                                                                                      'this '
+                                                                                      'plan '
+                                                                                      'describes.',
+                                                                       '$ref': 'https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.yaml#/$defs/Single',
+                                                                       'x-jsonld-id': 'dct:type',
+                                                                       'x-jsonld-type': '@id'},
+                                                       'sourceCode': {'type': 'string'}}},
+                              'x-jsonld-id': '@included'},
+                    'runtime': {'description': 'The workflow execution as '
+                                               'a whole, containing the '
+                                               'step activities.',
+                                'allOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml'}],
+                                'required': ['id',
+                                             'provType',
+                                             'workflowDefinition',
+                                             'activities'],
+                                'properties': {'workflowDefinition': {'description': 'Reference '
+                                                                                     'to '
+                                                                                     'the '
+                                                                                     'workflow '
+                                                                                     'definition '
+                                                                                     'this '
+                                                                                     'run '
+                                                                                     'executes.',
+                                                                      'type': 'string',
+                                                                      'x-jsonld-id': 'https://hartis.org/ospd2026/workflowDefinition',
+                                                                      'x-jsonld-type': '@id'},
+                                               'activities': {'type': 'array',
+                                                              'minItems': 1,
+                                                              'items': {'$ref': '#/$defs/activity'},
+                                                              'x-jsonld-id': 'dct:hasPart',
+                                                              'x-jsonld-type': '@id'}},
+                                'x-jsonld-id': '@included'},
+                    'entities': {'description': 'Data used and generated '
+                                                'by the run.',
+                                 'type': 'array',
+                                 'minItems': 1,
+                                 'items': {'allOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml'}],
+                                           'required': ['id', 'provType']},
+                                 'x-jsonld-id': '@included'}},
+     '$defs': {'activity': {'description': 'A runtime step: a Registered '
+                                           'Processing Step that names its '
+                                           'design-time plan and lists its '
+                                           'inputs and outputs explicitly.',
+                            'allOf': [{'$ref': 'https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/processing-step/schema.yaml'}],
+                            'required': ['provType',
+                                         'plan',
+                                         'used',
+                                         'generated'],
+                            'properties': {'plan': {'description': 'Reference '
+                                                                   'to the '
+                                                                   'design-time '
+                                                                   'plan '
+                                                                   'this '
+                                                                   'step '
+                                                                   'executes.',
+                                                    'type': 'string',
+                                                    'x-jsonld-id': 'https://hartis.org/ospd2026/plan',
+                                                    'x-jsonld-type': '@id'},
+                                           'used': {'type': 'array',
+                                                    'minItems': 1},
+                                           'generated': {'type': 'array',
+                                                         'minItems': 1},
+                                           'qualifiedUsage': {'type': 'array'},
+                                           'wasAssociatedWith': {'type': 'array'}}}},
+     'x-jsonld-prefixes': {'hartis': 'https://hartis.org/ospd2026/',
+                           'ospd': 'https://www.opengis.net/def/ospd/2026/'},
+     'x-bblocks-metadata': {'itemIdentifier': 'ogc.osc.prov-profiles.hartis-provenance.cvi-workflow',
+                            'register': 'https://ogcincubator.github.io/bblocks-openscience/build/register.json',
+                            'version': '0.1.0',
+                            'dateOfLastChange': '2026-10-13'}}
+
+On instance:
+    {'id': 'hartis:cvi-invalid-example',
+     'provType': 'Entity',
+     'entityType': 'prov:Bundle',
+     'workflowDefinition': {},
+     'plans': [],
+     'entities': []}
+=== End JSON Schema ===
+
+=== SHACL ===
+Using SHACL closure graph sources (declared closures, ontologies and RDF data resources):
+ - https://www.w3.org/ns/prov-o
+Validation result for https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl: no results
+Focus nodes for https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl:
+ - Shape <https://www.ogc.org/rules/prov/#prop-agent>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#Generation-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-hadMember>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasInfluencedBy>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasAttributedTo>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#Bundle-shape>: hartis:cvi-invalid-example
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedDelegation>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasInformedBy>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-hadUsage>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedAttribution>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasQuotedFrom>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#Plan-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#Invalidation-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-hadActivity>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasAssociatedWith>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedDerivation>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-generated>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-invalidated>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-specializationOf>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedQuotation>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-influencer>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasDerivedFrom>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-hadPlan>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedRevision>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasEndedBy>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-activity>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedEnd>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#EmptyCollection-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedAssociation>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedPrimarySource>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#Collection-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasInvalidatedBy>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedInfluence>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasRevisionOf>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedCommunication>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-entity>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-hadRole>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasStartedBy>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#Start-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-hadGeneration>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasGeneratedBy>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedGeneration>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#InstantaneousEvent-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-used>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-atLocation>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-alternateOf>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-actedOnBehalfOf>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#Activity-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-hadPrimarySource>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#Usage-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#End-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedStart>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedUsage>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#Entity-shape>: hartis:cvi-invalid-example
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedInvalidation>: *none*
+
+Validation result for _sources/prov-profiles/processing-step/shapes.shacl: no results
+Focus nodes for _sources/prov-profiles/processing-step/shapes.shacl:
+ - Shape ps:StepHasOutput: *none*
+ - Shape ps:StepHasInput: *none*
+
+Validation result for _sources/prov-profiles/workflow-graph/shapes.shacl: no results
+Focus nodes for _sources/prov-profiles/workflow-graph/shapes.shacl:
+ - Shape wg:PlanHasLabel: *none*
+ - Shape wg:AgentHasLabel: *none*
+
+=== End SHACL ===
+

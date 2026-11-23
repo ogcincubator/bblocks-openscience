@@ -1,0 +1,14 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<urn:example:dataset:areas-utm32n> a prov:Entity ;
+    rdfs:label "Green areas (UTM 32N)" ;
+    prov:wasGeneratedBy <urn:example:step:reproject> .
+
+<urn:example:dataset:areas-wgs84> a prov:Entity ;
+    rdfs:label "Green areas (WGS 84)" .
+
+<urn:example:step:reproject> a prov:Activity ;
+    rdfs:label "Reproject green areas" ;
+    prov:used <urn:example:dataset:areas-wgs84> .
+

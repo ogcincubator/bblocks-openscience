@@ -3,3 +3,8 @@ description: Schema for OGCAPI records profile for GeoDCAT - defines all extra e
   defined by GeoDCAT so that the JSON-LD context can map to GeoDCAT RDF
 allOf:
 - $ref: https://raw.githubusercontent.com/common-workflow-language/cwl-v1.2/refs/heads/main/json-schema/cwl.yaml
+x-bblocks-metadata:
+  itemIdentifier: ogc.osc.application-package
+  register: https://ogcincubator.github.io/bblocks-openscience/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-11-23'

@@ -3,7 +3,7 @@
 
 `ogc.osc.ontology.openscience` *v0.1*
 
-A modular standards-based ontology for describing interoperable and reproduceable scientific workflows.
+A modular standards-based ontology for describing interoperable and reproduceable scientific workflows. References individual ontology modules for different aspects, to maximise re-usability.
 
 [*Status*](http://www.opengis.net/def/status): Under development
 

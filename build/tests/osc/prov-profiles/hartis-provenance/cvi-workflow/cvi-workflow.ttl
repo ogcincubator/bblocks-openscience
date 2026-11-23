@@ -1,0 +1,131 @@
+@prefix acttype: <https://w3id.org/ogc/rim/activity-type/> .
+@prefix hartis: <https://hartis.org/ospd2026/> .
+@prefix ospd: <https://www.opengis.net/def/ospd/2026/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+hartis:cvi-run-example-001 a prov:Bundle,
+        prov:Entity ;
+    rdfs:label "HARTIS CVI workflow design-time and runtime provenance skeleton" ;
+    hartis:workflowDefinition hartis:cvi-workflow .
+
+<https://hartis.org/ospd2026/cvi-run-example-001/entity/coastline-gpkg> a prov:Entity,
+        ospd:VectorDataset ;
+    rdfs:label "Extracted coastline geometry" ;
+    prov:wasGeneratedBy <https://hartis.org/ospd2026/cvi-run-example-001/activity/extract-coastline> .
+
+<https://hartis.org/ospd2026/cvi-run-example-001/entity/transects-geojson> a prov:Entity,
+        ospd:VectorDataset ;
+    rdfs:label "Generated CVI transects" ;
+    prov:wasGeneratedBy <https://hartis.org/ospd2026/cvi-run-example-001/activity/generate-transects> .
+
+<https://hartis.org/ospd2026/cvi-run-example-001/entity/transects-with-elevation> a prov:Entity,
+        ospd:VectorDataset ;
+    rdfs:label "Transects with elevation scores" ;
+    prov:wasGeneratedBy <https://hartis.org/ospd2026/cvi-run-example-001/activity/compute-elevation> .
+
+<https://hartis.org/ospd2026/cvi-run-example-001/entity/transects-with-erosion> a prov:Entity,
+        ospd:VectorDataset ;
+    rdfs:label "Transects with erosion scores" ;
+    prov:wasGeneratedBy <https://hartis.org/ospd2026/cvi-run-example-001/activity/compute-erosion> .
+
+<https://hartis.org/ospd2026/cvi-run-example-001/entity/transects-with-land-cover> a prov:Entity,
+        ospd:VectorDataset ;
+    rdfs:label "Transects with land-cover scores" ;
+    prov:wasGeneratedBy <https://hartis.org/ospd2026/cvi-run-example-001/activity/compute-landcover> .
+
+<https://hartis.org/ospd2026/cvi-run-example-001/entity/transects-with-slope> a prov:Entity,
+        ospd:VectorDataset ;
+    rdfs:label "Transects with slope scores" ;
+    prov:wasGeneratedBy <https://hartis.org/ospd2026/cvi-run-example-001/activity/compute-slope> .
+
+<https://hartis.org/ospd2026/cvi-run-example-001/entity/validated-config> a prov:Entity ;
+    rdfs:label "Validated CVI configuration" ;
+    prov:wasGeneratedBy <https://hartis.org/ospd2026/cvi-run-example-001/activity/setup-env> .
+
+<https://hartis.org/ospd2026/cvi-run-example-001/runtime> a prov:Activity,
+        acttype:WorkflowRun ;
+    rdfs:label "Illustrative CVI workflow execution" ;
+    prov:generated <https://hartis.org/ospd2026/cvi-run-example-001/entity/transects-with-cvi-equal> ;
+    prov:used <https://hartis.org/ospd2026/cvi-run-example-001/entity/copernicus-dem>,
+        <https://hartis.org/ospd2026/cvi-run-example-001/entity/cvi-scoring-config>,
+        <https://hartis.org/ospd2026/cvi-run-example-001/entity/deltares-chw-erosion-wfs>,
+        <https://hartis.org/ospd2026/cvi-run-example-001/entity/esa-worldcover-2021>,
+        <https://hartis.org/ospd2026/cvi-run-example-001/entity/med-coastal-aois>,
+        <https://hartis.org/ospd2026/cvi-run-example-001/entity/nominatim-response>,
+        <https://hartis.org/ospd2026/cvi-run-example-001/entity/overpass-coastline-response> ;
+    prov:wasAssociatedWith <https://hartis.org/ospd2026/cvi-workflow/container/cvi-workflow-latest> ;
+    hartis:workflowDefinition hartis:cvi-workflow .
+
+<https://hartis.org/ospd2026/cvi-workflow/step/compute-cvi> a prov:Entity,
+        prov:Plan,
+        ospd:ProcessingStep ;
+    rdfs:label "Compute final Coastal Vulnerability Index classification" .
+
+<https://hartis.org/ospd2026/cvi-workflow/step/compute-elevation> a prov:Entity,
+        prov:Plan,
+        ospd:ProcessingStep ;
+    rdfs:label "Compute coastal elevation vulnerability score per transect" .
+
+<https://hartis.org/ospd2026/cvi-workflow/step/compute-erosion> a prov:Entity,
+        prov:Plan,
+        ospd:ProcessingStep ;
+    rdfs:label "Compute erosion vulnerability score per transect" .
+
+<https://hartis.org/ospd2026/cvi-workflow/step/compute-landcover> a prov:Entity,
+        prov:Plan,
+        ospd:ProcessingStep ;
+    rdfs:label "Compute land-cover vulnerability score per transect" .
+
+<https://hartis.org/ospd2026/cvi-workflow/step/compute-slope> a prov:Entity,
+        prov:Plan,
+        ospd:ProcessingStep ;
+    rdfs:label "Compute slope vulnerability score per transect" .
+
+<https://hartis.org/ospd2026/cvi-workflow/step/extract-coastline> a prov:Entity,
+        prov:Plan,
+        ospd:ProcessingStep ;
+    rdfs:label "Extract coastline geometry for selected AOI" .
+
+<https://hartis.org/ospd2026/cvi-workflow/step/generate-transects> a prov:Entity,
+        prov:Plan,
+        ospd:ProcessingStep ;
+    rdfs:label "Generate cross-shore transects from coastline" .
+
+<https://hartis.org/ospd2026/cvi-workflow/step/setup-env> a prov:Entity,
+        prov:Plan,
+        ospd:ProcessingStep ;
+    rdfs:label "Validate CVI configuration and initialize output workspace" .
+
+<https://hartis.org/ospd2026/cvi-run-example-001/entity/copernicus-dem> a prov:Entity ;
+    rdfs:label "Copernicus DEM source" .
+
+<https://hartis.org/ospd2026/cvi-run-example-001/entity/cvi-scoring-config> a prov:Entity ;
+    rdfs:label "CVI scoring configuration" .
+
+<https://hartis.org/ospd2026/cvi-run-example-001/entity/deltares-chw-erosion-wfs> a prov:Entity ;
+    rdfs:label "Deltares Coastal Hazard Wheel erosion response" .
+
+<https://hartis.org/ospd2026/cvi-run-example-001/entity/esa-worldcover-2021> a prov:Entity ;
+    rdfs:label "ESA WorldCover 2021 source" .
+
+<https://hartis.org/ospd2026/cvi-run-example-001/entity/med-coastal-aois> a prov:Entity ;
+    rdfs:label "Mediterranean coastal AOI candidates" .
+
+<https://hartis.org/ospd2026/cvi-run-example-001/entity/nominatim-response> a prov:Entity ;
+    rdfs:label "Nominatim AOI geocoding response" .
+
+<https://hartis.org/ospd2026/cvi-run-example-001/entity/overpass-coastline-response> a prov:Entity ;
+    rdfs:label "Overpass coastline feature response" .
+
+<https://hartis.org/ospd2026/cvi-run-example-001/entity/transects-with-cvi-equal> a prov:Entity,
+        ospd:VectorDataset ;
+    rdfs:label "Final CVI classification" ;
+    prov:wasGeneratedBy <https://hartis.org/ospd2026/cvi-run-example-001/activity/compute-cvi> .
+
+hartis:cvi-workflow a prov:Entity,
+        prov:Plan,
+        acttype:WorkflowPlan,
+        ospd:WorkflowDefinition ;
+    rdfs:label "HARTIS Coastal Vulnerability Index workflow" .
+

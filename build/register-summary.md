@@ -20,6 +20,18 @@ Output schema for the buffer geometry process
 
 Input schema for the buffer geometry process
 
+### `ogc.osc.prov-profiles.processing-step` — Registered Processing Step
+
+**Type:** schema
+
+A PROV Activity describing one processing step, typed by a process type from a governed register.
+
+### `ogc.osc.prov-profiles.aganitha-ndvi` — Geospatial Processing Step Provenance
+
+**Type:** schema
+
+A profile of the PROV-O building block constrained to the description of a single geospatial processing step, with a required link to a registered process type.
+
 ### `ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputDescription` — Buffer geometry process input description
 
 **Type:** schema
@@ -32,35 +44,17 @@ Description for the inputs of the buffer geometry process
 
 Description for the output of the buffer geometry process
 
-### `ogc.osc.52n-provenance.cool-spots` — Cool Spot Workflow Provenance Profile
-
-**Type:** schema
-
-Cool Spot Workflow Provenance Profile.
-
-### `ogc.osc.52n-provenance.vegetation-productivity` — Vegetation Productivity Trend Workflow Provenance Profile
-
-**Type:** schema
-
-Vegetation Productivity Trend Workflow Provenance Profile.
-
-### `ogc.osc.hartis-provenance.cvi-workflow` — HARTIS CVI Workflow Provenance
-
-**Type:** schema
-
-A provenance profile for the complete HARTIS Coastal Vulnerability Index workflow, from configuration and source data through coastline extraction, transect generation, indicator calculations and the final CVI result.
-
 ### `ogc.osc.ontology.cwlprov` — CWL Ontology
 
 **Type:** model
 
 Ontology describing the Common Workflow Language (CWL) model
 
-### `ogc.osc.prov-processing-step` — Geospatial Processing Step Provenance
+### `ogc.osc.prov-profiles.workflow-graph` — Workflow Provenance Graph
 
 **Type:** schema
 
-A profile of the PROV-O building block constrained to the description of a single geospatial processing step, with a required link to a registered process type.
+Provenance of a workflow run as a PROV graph in which every activity is a registered processing step.
 
 ### `ogc.osc.api-profiles.processes.ipt.results` — Result schema for IPT
 
@@ -90,13 +84,31 @@ Collection of output descriptions
 
 **Type:** model
 
-A modular standards-based ontology for describing interoperable and reproduceable scientific workflows.
+A modular standards-based ontology for describing interoperable and reproduceable scientific workflows. References individual ontology modules for different aspects, to maximise re-usability.
+
+### `ogc.osc.prov-examples.52n-provenance.cool-spots` — Cool Spot Workflow Provenance Profile
+
+**Type:** schema
+
+Cool Spot Workflow Provenance Profile.
+
+### `ogc.osc.prov-examples.52n-provenance.vegetation-productivity` — Vegetation Productivity Trend Workflow Provenance Profile
+
+**Type:** schema
+
+Vegetation Productivity Trend Workflow Provenance Profile.
+
+### `ogc.osc.prov-profiles.hartis-provenance.cvi-workflow` — HARTIS CVI Workflow Provenance
+
+**Type:** schema
+
+A provenance profile for the complete HARTIS Coastal Vulnerability Index workflow, from configuration and source data through coastline extraction, transect generation, indicator calculations and the final CVI result.
 
 ### `ogc.osc.api-profiles.processes.ipt.execute` — Execute (request) schema for IPT
 
 **Type:** schema
 
-### `ogc.osc.geodcat-stac-earthcode.common` — EarthCODE Common STAC profile
+### `ogc.osc.prov-examples.geodcat-stac-earthcode.common` — EarthCODE Common STAC profile
 
 **Type:** schema
 
@@ -108,19 +120,19 @@ EarthCODE metadata profile linked to semantic models
 
 This is a Profile of the OGC API Processes model with specific requirements to standardise Integrity Provenance and Trust (IPT) aspects/
 
-### `ogc.osc.geodcat-stac-earthcode.experiments` — EarthCODE Experiment
+### `ogc.osc.prov-examples.geodcat-stac-earthcode.experiments` — EarthCODE Experiment
 
 **Type:** schema
 
 EarthCODE metadata profile linked to semantic models
 
-### `ogc.osc.geodcat-stac-earthcode.products` — EarthCODE Product
+### `ogc.osc.prov-examples.geodcat-stac-earthcode.products` — EarthCODE Product
 
 **Type:** schema
 
 EarthCODE metadata profile linked to semantic models
 
-### `ogc.osc.geodcat-stac-earthcode.workflows` — EarthCODE Workflow
+### `ogc.osc.prov-examples.geodcat-stac-earthcode.workflows` — EarthCODE Workflow
 
 **Type:** schema
 
@@ -130,7 +142,7 @@ EarthCODE metadata profile linked to semantic models
 
 **Type:** api
 
-An example of an OGC API Processes implementation using building blocks
+An example of an OGC API Processes implementation using the extension point mechanism for complex Building Blocks
 
 ### `ogc.osc.application-package` — Application Package
 

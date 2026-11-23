@@ -1,0 +1,79 @@
+
+
+{
+  "itemIdentifier": "ogc.osc.prov-profiles.processing-step",
+  "name": "Registered Processing Step",
+  "highlighted": true,
+  "group": "PROV profile",
+  "abstract": "A PROV Activity describing one processing step, typed by a process type from a governed register.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-21T00:00:00Z",
+  "dateOfLastChange": "2026-11-23",
+  "itemClass": "schema",
+  "version": "0.1.0",
+  "isProfileOf": [
+    "ogc.ogc-utils.prov-activity"
+  ],
+  "scope": "dev",
+  "tags": [
+    "provenance",
+    "prov-o",
+    "processing",
+    "process type",
+    "ospd"
+  ],
+  "shaclShapes": {
+    "ogc.osc.prov-profiles.processing-step": [
+      "https://ogcincubator.github.io/bblocks-openscience/_sources/prov-profiles/processing-step/shapes.shacl"
+    ],
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+    ]
+  },
+  "dependsOn": [
+    "ogc.ogc-utils.iri-or-curie",
+    "ogc.ogc-utils.prov-activity"
+  ],
+  "ldContext": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/processing-step/context.jsonld",
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/processing-step/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/processing-step/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-openscience/_sources/prov-profiles/processing-step/schema.yaml",
+  "sourceLdContext": "https://ogcincubator.github.io/bblocks-openscience/_sources/prov-profiles/processing-step/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/processing-step/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/prov-profiles/processing-step/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-openscience/blob/master/build/tests/osc/prov-profiles/processing-step/",
+  "description": "# Registered Processing Step\n\nPROV-O is deliberately general: any valid PROV document is a valid description\nof a processing step, which makes validation weak and cross-platform\ncomparison hard. This profile narrows a `prov:Activity` to one processing step\nthat is **typed by a registered process type**.\n\n## Binding the process type\n\n`provType` identifies the PROV class (`Activity`). `activityType` (which maps\nto `@type` / `rdf:type`) then carries only the specific type: the process type\nthe step is an instance of. Both use the\n[IRI or CURIE](bblock://ogc.ogc-utils.iri-or-curie) building block.\n\n```json\n\"provType\": \"Activity\",\n\"activityType\": \"https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA016\"\n```\n\nData that does not set `provType` can still identify the step by including\n`prov:Activity` in `activityType`, but it must also give a more specific type.\n\nThe step is then an instance of the governed concept, with no new property.\nOGC API - Processes Part 5 (draft 26-038) does not link a process to a\nregistered process type; this profile makes that link required. It is where\nthe OSPD 2026 profile-plus-register pattern closes: the profile gives the\nstructure, the register gives the controlled term.\n\nJSON Schema checks that `activityType` gives a type more specific than\n`prov:Activity`, as an IRI or CURIE. Whether that type is a member of the\nregister is for SHACL with a closure of the register, or for the register\nitself, to check.\n\n## Inputs and outputs\n\nInputs and outputs may be stated from either side of the relation, so the\nJSON schema does not require `used` or `generated`. The SHACL shapes check:\n\n- **output** (violation): `prov:generated`, or some entity `prov:wasGeneratedBy` the step;\n- **input** (warning): `prov:used`, or `prov:qualifiedUsage` / `prov:entity`.\n\nThe role an input plays is expressed with `qualifiedUsage` and `hadRole`.\n\n## Specialisations\n\n- [Workflow Provenance Graph](bblock://ogc.osc.prov-profiles.workflow-graph): a whole workflow run\n  whose activities are all registered processing steps.\n- Platform-specific profiles add stricter rules, e.g.\n  [Geospatial Processing Step Provenance](bblock://ogc.osc.prov-profiles.aganitha-ndvi).\n\nLabels are optional on the step itself: an activity records one run. The\nprocess type is a reusable description and is labelled in its register.\n",
+  "examples": [
+    {
+      "title": "Minimal registered processing step",
+      "content": "One step: provType identifies it as a PROV Activity, and activityType gives the registered process type it is an instance of. Its input and output are stated on the activity.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-openscience/_sources/prov-profiles/processing-step/examples/minimal-step.json",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/prov-profiles/processing-step/example_1_1.json",
+          "sizeBytes": 411,
+          "code": "{\n  \"id\": \"urn:example:step:reproject:1\",\n  \"provType\": \"Activity\",\n  \"activityType\": \"https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA018\",\n  \"label\": \"Reproject input areas\",\n  \"startedAtTime\": \"2026-07-13T17:50:00Z\",\n  \"endedAtTime\": \"2026-07-13T17:51:10Z\",\n  \"used\": \"urn:example:dataset:areas-wgs84\",\n  \"generated\": \"urn:example:dataset:areas-utm32n\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/prov-profiles/processing-step/example_1_1.jsonld",
+          "sizeBytes": 543,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/processing-step/context.jsonld\",\n  \"id\": \"urn:example:step:reproject:1\",\n  \"provType\": \"Activity\",\n  \"activityType\": \"https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA018\",\n  \"label\": \"Reproject input areas\",\n  \"startedAtTime\": \"2026-07-13T17:50:00Z\",\n  \"endedAtTime\": \"2026-07-13T17:51:10Z\",\n  \"used\": \"urn:example:dataset:areas-wgs84\",\n  \"generated\": \"urn:example:dataset:areas-utm32n\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/prov-profiles/processing-step/example_1_1.ttl",
+          "sizeBytes": 598,
+          "code": "@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<urn:example:step:reproject:1> a prov:Activity,\n        <https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA018> ;\n    rdfs:label \"Reproject input areas\" ;\n    prov:endedAtTime \"2026-07-13T17:51:10+00:00\"^^xsd:dateTime ;\n    prov:generated <urn:example:dataset:areas-utm32n> ;\n    prov:startedAtTime \"2026-07-13T17:50:00+00:00\"^^xsd:dateTime ;\n    prov:used <urn:example:dataset:areas-wgs84> .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Registered Processing Step\ndescription: A single processing step expressed as a PROV Activity whose activityType\n  identifies the process type, from a governed register, that the step is an instance\n  of. provType identifies the PROV class (Activity); activityType then only needs\n  the specific type, which is an IRI or CURIE.\nallOf:\n- $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml\n- type: object\n  required:\n  - id\n  - activityType\n  allOf:\n  - description: 'Must be identified as a PROV Activity: by provType (preferred),\n      or by including prov:Activity in activityType.'\n    anyOf:\n    - required:\n      - provType\n    - required:\n      - activityType\n      properties:\n        activityType:\n          $ref: '#/$defs/includesActivity'\n  properties:\n    label:\n      description: Optional human-readable name of the step.\n      type: string\n      x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#label\n    activityType:\n      description: 'The process type(s) of this step, as IRIs or CURIEs. At least\n        one must be more specific than prov:Activity: the process type from a governed\n        register (e.g. an OSPD GeoACS catalogue item). The schema checks that a specific\n        type is given; membership of the register is checked against the register\n        itself.'\n      allOf:\n      - $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.yaml#/$defs/Multiple\n      - $ref: '#/$defs/includesSpecificType'\n$defs:\n  genericActivity:\n    enum:\n    - Activity\n    - prov:Activity\n    - http://www.w3.org/ns/prov#Activity\n  includesActivity:\n    anyOf:\n    - $ref: '#/$defs/genericActivity'\n    - type: array\n      contains:\n        $ref: '#/$defs/genericActivity'\n  includesSpecificType:\n    description: Includes a type other than the generic prov:Activity.\n    if:\n      type: array\n    then:\n      contains:\n        not:\n          $ref: '#/$defs/genericActivity'\n    else:\n      not:\n        $ref: '#/$defs/genericActivity'\nx-bblocks-metadata:\n  itemIdentifier: ogc.osc.prov-profiles.processing-step\n  register: https://ogcincubator.github.io/bblocks-openscience/build/register.json\n  version: 0.1.0\n  dateOfLastChange: '2026-11-23'\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-openscience",
+  "gitPath": "_sources/prov-profiles/processing-step"
+}

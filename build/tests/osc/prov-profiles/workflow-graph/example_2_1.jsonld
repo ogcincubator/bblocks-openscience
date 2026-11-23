@@ -1,0 +1,17 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/workflow-graph/context.jsonld",
+  "id": "urn:example:run:42",
+  "provType": "Entity",
+  "entityType": "prov:Bundle",
+  "rdfs:label": "Cool spot run 42",
+  "steps": [
+    {
+      "id": "urn:example:run:42:reproject",
+      "provType": "Activity",
+      "activityType": "https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA018",
+      "rdfs:label": "Reproject green areas",
+      "used": "urn:example:dataset:areas-wgs84",
+      "generated": "urn:example:dataset:areas-utm32n"
+    }
+  ]
+}

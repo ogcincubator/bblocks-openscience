@@ -1,0 +1,16 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/workflow-graph/context.jsonld",
+  "@graph": [
+    {
+      "id": "urn:example:dataset:areas-wgs84",
+      "provType": "Entity"
+    },
+    {
+      "id": "urn:example:step:reproject",
+      "provType": "Activity",
+      "activityType": "https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA018",
+      "used": "urn:example:dataset:areas-wgs84",
+      "generated": "urn:example:dataset:areas-utm32n"
+    }
+  ]
+}

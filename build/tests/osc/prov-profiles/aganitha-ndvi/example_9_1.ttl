@@ -1,0 +1,9 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<urn:example:step:0001> a prov:Activity,
+        <https://example.org/ospd/process-types/ingest> ;
+    rdfs:label "Minimal step" ;
+    prov:generated <urn:example:output:0001> ;
+    prov:used <urn:example:input:0001> .
+

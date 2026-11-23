@@ -44,6 +44,11 @@ properties:
     - feet
     - miles
     default: meters
+x-bblocks-metadata:
+  itemIdentifier: ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputSchema
+  register: https://ogcincubator.github.io/bblocks-openscience/build/register.json
+  version: '1.0'
+  dateOfLastChange: '2026-11-23'
 
 ```
 

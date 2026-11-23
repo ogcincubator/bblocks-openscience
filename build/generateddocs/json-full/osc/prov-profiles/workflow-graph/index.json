@@ -1,0 +1,117 @@
+
+
+{
+  "itemIdentifier": "ogc.osc.prov-profiles.workflow-graph",
+  "name": "Workflow Provenance Graph",
+  "highlighted": true,
+  "group": "PROV profile",
+  "abstract": "Provenance of a workflow run as a PROV graph in which every activity is a registered processing step.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-21T00:00:00Z",
+  "dateOfLastChange": "2026-11-23",
+  "itemClass": "schema",
+  "version": "0.1.0",
+  "isProfileOf": [
+    "ogc.ogc-utils.prov"
+  ],
+  "dependsOn": [
+    "ogc.ogc-utils.iri-or-curie",
+    "ogc.ogc-utils.prov",
+    "ogc.osc.prov-profiles.processing-step"
+  ],
+  "scope": "dev",
+  "tags": [
+    "provenance",
+    "prov-o",
+    "workflow provenance",
+    "ospd"
+  ],
+  "shaclShapes": {
+    "ogc.osc.prov-profiles.workflow-graph": [
+      "https://ogcincubator.github.io/bblocks-openscience/_sources/prov-profiles/workflow-graph/shapes.shacl"
+    ],
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+    ],
+    "ogc.osc.prov-profiles.processing-step": [
+      "https://ogcincubator.github.io/bblocks-openscience/_sources/prov-profiles/processing-step/shapes.shacl"
+    ]
+  },
+  "ldContext": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/workflow-graph/context.jsonld",
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/workflow-graph/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/workflow-graph/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-openscience/_sources/prov-profiles/workflow-graph/schema.yaml",
+  "sourceLdContext": "https://ogcincubator.github.io/bblocks-openscience/_sources/prov-profiles/workflow-graph/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/workflow-graph/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/prov-profiles/workflow-graph/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-openscience/blob/master/build/tests/osc/prov-profiles/workflow-graph/",
+  "semanticUplift": {
+    "additionalSteps": [
+      {
+        "type": "shacl",
+        "ref": "uplift/labels.shacl",
+        "stage": "post",
+        "code": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix skos: <http://www.w3.org/2004/02/skos/core#> .\n@prefix wg: <https://w3id.org/ogc/osc/prov-profiles/workflow-graph#> .\n\n# Label generation rules (SHACL-AF), applied as a semantic-uplift step.\n# Each rule adds an rdfs:label only to nodes that do not already have one.\n# Profiles may add their own rules (e.g. deriving a label from a file name)\n# in the same way.\n\nwg:NoLabel\n  a sh:NodeShape ;\n  sh:property [ sh:path rdfs:label ; sh:maxCount 0 ] .\n\nwg:LabelFromTitle\n  a sh:NodeShape ;\n  sh:targetSubjectsOf dcterms:title ;\n  sh:rule [\n    a sh:TripleRule ;\n    sh:order 1 ;\n    sh:condition wg:NoLabel ;\n    sh:subject sh:this ;\n    sh:predicate rdfs:label ;\n    sh:object [ sh:path dcterms:title ] ;\n  ] .\n\nwg:LabelFromPrefLabel\n  a sh:NodeShape ;\n  sh:targetSubjectsOf skos:prefLabel ;\n  sh:rule [\n    a sh:TripleRule ;\n    sh:order 2 ;\n    sh:condition wg:NoLabel ;\n    sh:subject sh:this ;\n    sh:predicate rdfs:label ;\n    sh:object [ sh:path skos:prefLabel ] ;\n  ] .\n"
+      }
+    ]
+  },
+  "description": "# Workflow Provenance Graph\n\nProvenance of one workflow run, in either of two forms:\n\n- **Graph form**: a JSON array of PROV entities, activities and agents (the\n  pattern used by the 52\u00b0North workflow provenance examples).\n- **Bundle form**: a single entity whose `entityType` (or `@type`) includes\n  `prov:Bundle`, with its nodes nested inside it, at any depth and under any\n  property names (the pattern used by the HARTIS CVI workflow).\n\nIn both forms, every object that is a PROV Activity (its `provType` or\n`@type` includes `Activity`, or it has an `activityType`) must conform to the\n[Registered Processing Step](bblock://ogc.osc.prov-profiles.processing-step)\nprofile, wherever it sits in the document (`@context` is skipped). Each step\nin the run is therefore typed by a process type from a governed register,\nwhich is what makes two runs of a workflow, on different platforms,\ncomparable step by step.\n\nReusable descriptions should have a human-readable label: plans (including\nworkflow definitions) and agents. A missing label is reported as a warning. Other entities need not be labelled, as\nthey may be temporary artefacts passed between activities; nor need the\nrecords of an individual run, the activities and the bundle that holds a\nrun. The process types that `activityType` points to are labelled in their\nregister.\n\nThe label requirement is checked by SHACL on the uplifted graph\n(`rdfs:label`), not by the JSON schema, so a label can be generated during\nsemantic uplift. This block's uplift rule (`uplift/labels.shacl`) derives\n`rdfs:label` from `dcterms:title` or `skos:prefLabel` when no label is given;\nprofiles can add their own label-generation rules.\n\n`provType` identifies the PROV class of each node (`Entity`, `Activity` or\n`Agent`); `entityType`, `activityType` and `agentType` then only carry the\nspecific types, as IRIs or CURIEs.\n\nOutputs are commonly stated from the entity side (`wasGeneratedBy`); the\nprocessing-step SHACL shapes accept either direction.\n",
+  "examples": [
+    {
+      "title": "Two-step workflow run",
+      "content": "An input entity, two registered steps, and the outputs, with generation stated from the entity side. provType identifies each node's PROV class; activityType gives each step its registered process type.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-openscience/_sources/prov-profiles/workflow-graph/examples/graph-form.json",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/prov-profiles/workflow-graph/example_1_1.json",
+          "sizeBytes": 1064,
+          "code": "[\n  {\n    \"id\": \"urn:example:dataset:areas-wgs84\",\n    \"provType\": \"Entity\",\n    \"rdfs:label\": \"Green areas (WGS 84)\"\n  },\n  {\n    \"id\": \"urn:example:step:reproject\",\n    \"provType\": \"Activity\",\n    \"activityType\": \"https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA018\",\n    \"rdfs:label\": \"Reproject green areas\",\n    \"used\": \"urn:example:dataset:areas-wgs84\"\n  },\n  {\n    \"id\": \"urn:example:dataset:areas-utm32n\",\n    \"provType\": \"Entity\",\n    \"rdfs:label\": \"Green areas (UTM 32N)\",\n    \"wasGeneratedBy\": \"urn:example:step:reproject\"\n  },\n  {\n    \"id\": \"urn:example:step:buffer\",\n    \"provType\": \"Activity\",\n    \"activityType\": \"https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA020\",\n    \"rdfs:label\": \"Buffer green areas by 300 m\",\n    \"used\": \"urn:example:dataset:areas-utm32n\"\n  },\n  {\n    \"id\": \"urn:example:dataset:areas-buffered\",\n    \"provType\": \"Entity\",\n    \"rdfs:label\": \"Buffered green areas\",\n    \"wasGeneratedBy\": \"urn:example:step:buffer\"\n  }\n]\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/prov-profiles/workflow-graph/example_1_1.jsonld",
+          "sizeBytes": 1275,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/workflow-graph/context.jsonld\",\n  \"@graph\": [\n    {\n      \"id\": \"urn:example:dataset:areas-wgs84\",\n      \"provType\": \"Entity\",\n      \"rdfs:label\": \"Green areas (WGS 84)\"\n    },\n    {\n      \"id\": \"urn:example:step:reproject\",\n      \"provType\": \"Activity\",\n      \"activityType\": \"https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA018\",\n      \"rdfs:label\": \"Reproject green areas\",\n      \"used\": \"urn:example:dataset:areas-wgs84\"\n    },\n    {\n      \"id\": \"urn:example:dataset:areas-utm32n\",\n      \"provType\": \"Entity\",\n      \"rdfs:label\": \"Green areas (UTM 32N)\",\n      \"wasGeneratedBy\": \"urn:example:step:reproject\"\n    },\n    {\n      \"id\": \"urn:example:step:buffer\",\n      \"provType\": \"Activity\",\n      \"activityType\": \"https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA020\",\n      \"rdfs:label\": \"Buffer green areas by 300 m\",\n      \"used\": \"urn:example:dataset:areas-utm32n\"\n    },\n    {\n      \"id\": \"urn:example:dataset:areas-buffered\",\n      \"provType\": \"Entity\",\n      \"rdfs:label\": \"Buffered green areas\",\n      \"wasGeneratedBy\": \"urn:example:step:buffer\"\n    }\n  ]\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/prov-profiles/workflow-graph/example_1_1.ttl",
+          "sizeBytes": 1001,
+          "code": "@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n<urn:example:dataset:areas-buffered> a prov:Entity ;\n    rdfs:label \"Buffered green areas\" ;\n    prov:wasGeneratedBy <urn:example:step:buffer> .\n\n<urn:example:dataset:areas-utm32n> a prov:Entity ;\n    rdfs:label \"Green areas (UTM 32N)\" ;\n    prov:wasGeneratedBy <urn:example:step:reproject> .\n\n<urn:example:dataset:areas-wgs84> a prov:Entity ;\n    rdfs:label \"Green areas (WGS 84)\" .\n\n<urn:example:step:buffer> a prov:Activity,\n        <https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA020> ;\n    rdfs:label \"Buffer green areas by 300 m\" ;\n    prov:used <urn:example:dataset:areas-utm32n> .\n\n<urn:example:step:reproject> a prov:Activity,\n        <https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA018> ;\n    rdfs:label \"Reproject green areas\" ;\n    prov:used <urn:example:dataset:areas-wgs84> .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "Workflow run as a bundle",
+      "content": "The same kind of run in bundle form: one entity typed prov:Bundle whose steps are nested inside it. The profile finds activities at any depth.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-openscience/_sources/prov-profiles/workflow-graph/examples/bundle-form.json",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/prov-profiles/workflow-graph/example_2_1.json",
+          "sizeBytes": 506,
+          "code": "{\n  \"id\": \"urn:example:run:42\",\n  \"provType\": \"Entity\",\n  \"entityType\": \"prov:Bundle\",\n  \"rdfs:label\": \"Cool spot run 42\",\n  \"steps\": [\n    {\n      \"id\": \"urn:example:run:42:reproject\",\n      \"provType\": \"Activity\",\n      \"activityType\": \"https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA018\",\n      \"rdfs:label\": \"Reproject green areas\",\n      \"used\": \"urn:example:dataset:areas-wgs84\",\n      \"generated\": \"urn:example:dataset:areas-utm32n\"\n    }\n  ]\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/prov-profiles/workflow-graph/example_2_1.jsonld",
+          "sizeBytes": 637,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/workflow-graph/context.jsonld\",\n  \"id\": \"urn:example:run:42\",\n  \"provType\": \"Entity\",\n  \"entityType\": \"prov:Bundle\",\n  \"rdfs:label\": \"Cool spot run 42\",\n  \"steps\": [\n    {\n      \"id\": \"urn:example:run:42:reproject\",\n      \"provType\": \"Activity\",\n      \"activityType\": \"https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA018\",\n      \"rdfs:label\": \"Reproject green areas\",\n      \"used\": \"urn:example:dataset:areas-wgs84\",\n      \"generated\": \"urn:example:dataset:areas-utm32n\"\n    }\n  ]\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/prov-profiles/workflow-graph/example_2_1.ttl",
+          "sizeBytes": 197,
+          "code": "@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n<urn:example:run:42> a prov:Bundle,\n        prov:Entity ;\n    rdfs:label \"Cool spot run 42\" .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Workflow Provenance Graph\ndescription: A workflow run expressed either as an array of PROV entities, activities\n  and agents (graph form), or as a single prov:Bundle entity that contains them (bundle\n  form). Every activity, at any depth in the document, must be a Registered Processing\n  Step. Labels on plans and agents are recommended; the SHACL shapes check them after\n  semantic uplift and report a missing label as a warning.\nallOf:\n- $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml\n- anyOf:\n  - title: Graph form\n    description: A top-level array of PROV nodes, at least one of them an activity.\n    type: array\n    minItems: 1\n    contains:\n      $ref: '#/$defs/isActivity'\n  - title: Bundle form\n    description: A single entity whose entityType (or @type) includes prov:Bundle;\n      its nodes may be nested at any depth.\n    type: object\n    required:\n    - id\n    anyOf:\n    - required:\n      - entityType\n      properties:\n        entityType:\n          $ref: '#/$defs/includesBundle'\n    - required:\n      - '@type'\n      properties:\n        '@type':\n          $ref: '#/$defs/includesBundle'\n- $ref: '#/$defs/node'\n$defs:\n  includesActivity:\n    anyOf:\n    - enum:\n      - Activity\n      - prov:Activity\n      - http://www.w3.org/ns/prov#Activity\n    - type: array\n      contains:\n        enum:\n        - Activity\n        - prov:Activity\n        - http://www.w3.org/ns/prov#Activity\n  includesBundle:\n    allOf:\n    - $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.yaml#/$defs/Multiple\n    - anyOf:\n      - enum:\n        - Bundle\n        - prov:Bundle\n        - http://www.w3.org/ns/prov#Bundle\n      - type: array\n        contains:\n          enum:\n          - Bundle\n          - prov:Bundle\n          - http://www.w3.org/ns/prov#Bundle\n  isActivity:\n    description: 'An object that is a prov:Activity: its provType (or @type) includes\n      Activity, or it has an activityType.'\n    type: object\n    anyOf:\n    - required:\n      - provType\n      properties:\n        provType:\n          $ref: '#/$defs/includesActivity'\n    - required:\n      - activityType\n    - required:\n      - '@type'\n      properties:\n        '@type':\n          $ref: '#/$defs/includesActivity'\n  node:\n    description: 'Walks the whole document: every activity found, at any depth, must\n      conform to the Registered Processing Step profile. @context is skipped.'\n    if:\n      $ref: '#/$defs/isActivity'\n    then:\n      $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/processing-step/schema.yaml\n    properties:\n      '@context': true\n    additionalProperties:\n      $ref: '#/$defs/node'\n    items:\n      $ref: '#/$defs/node'\nx-jsonld-prefixes:\n  dcterms: http://purl.org/dc/terms/\n  skos: http://www.w3.org/2004/02/skos/core#\n  acttype: https://w3id.org/ogc/rim/activity-type/\nx-bblocks-metadata:\n  itemIdentifier: ogc.osc.prov-profiles.workflow-graph\n  register: https://ogcincubator.github.io/bblocks-openscience/build/register.json\n  version: 0.1.0\n  dateOfLastChange: '2026-11-23'\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-openscience",
+  "gitPath": "_sources/prov-profiles/workflow-graph"
+}

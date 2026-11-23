@@ -1,0 +1,16 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<urn:aganitha:step:cdsi:20260807T062000Z> a prov:Activity,
+        <https://example.org/ospd/process-types/index-composition> ;
+    rdfs:label "Compose combined drought severity index" ;
+    prov:generated <urn:aganitha:dataset:cdsi> ;
+    prov:qualifiedUsage [ a prov:Usage ;
+            prov:entity <urn:aganitha:dataset:vci> ;
+            prov:hadRole <https://example.org/ospd/roles/indexComponent> ],
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:dataset:smdi> ;
+            prov:hadRole <https://example.org/ospd/roles/indexComponent> ] ;
+    prov:used <urn:aganitha:dataset:smdi>,
+        <urn:aganitha:dataset:vci> .
+

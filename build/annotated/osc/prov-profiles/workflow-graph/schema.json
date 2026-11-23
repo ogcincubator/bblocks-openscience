@@ -1,0 +1,167 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Workflow Provenance Graph",
+  "description": "A workflow run expressed either as an array of PROV entities, activities and agents (graph form), or as a single prov:Bundle entity that contains them (bundle form). Every activity, at any depth in the document, must be a Registered Processing Step. Labels on plans and agents are recommended; the SHACL shapes check them after semantic uplift and report a missing label as a warning.",
+  "allOf": [
+    {
+      "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json"
+    },
+    {
+      "anyOf": [
+        {
+          "title": "Graph form",
+          "description": "A top-level array of PROV nodes, at least one of them an activity.",
+          "type": "array",
+          "minItems": 1,
+          "contains": {
+            "$ref": "#/$defs/isActivity"
+          }
+        },
+        {
+          "title": "Bundle form",
+          "description": "A single entity whose entityType (or @type) includes prov:Bundle; its nodes may be nested at any depth.",
+          "type": "object",
+          "required": [
+            "id"
+          ],
+          "anyOf": [
+            {
+              "required": [
+                "entityType"
+              ],
+              "properties": {
+                "entityType": {
+                  "$ref": "#/$defs/includesBundle"
+                }
+              }
+            },
+            {
+              "required": [
+                "@type"
+              ],
+              "properties": {
+                "@type": {
+                  "$ref": "#/$defs/includesBundle"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$ref": "#/$defs/node"
+    }
+  ],
+  "$defs": {
+    "includesActivity": {
+      "anyOf": [
+        {
+          "enum": [
+            "Activity",
+            "prov:Activity",
+            "http://www.w3.org/ns/prov#Activity"
+          ]
+        },
+        {
+          "type": "array",
+          "contains": {
+            "enum": [
+              "Activity",
+              "prov:Activity",
+              "http://www.w3.org/ns/prov#Activity"
+            ]
+          }
+        }
+      ]
+    },
+    "includesBundle": {
+      "allOf": [
+        {
+          "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json#/$defs/Multiple"
+        },
+        {
+          "anyOf": [
+            {
+              "enum": [
+                "Bundle",
+                "prov:Bundle",
+                "http://www.w3.org/ns/prov#Bundle"
+              ]
+            },
+            {
+              "type": "array",
+              "contains": {
+                "enum": [
+                  "Bundle",
+                  "prov:Bundle",
+                  "http://www.w3.org/ns/prov#Bundle"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "isActivity": {
+      "description": "An object that is a prov:Activity: its provType (or @type) includes Activity, or it has an activityType.",
+      "type": "object",
+      "anyOf": [
+        {
+          "required": [
+            "provType"
+          ],
+          "properties": {
+            "provType": {
+              "$ref": "#/$defs/includesActivity"
+            }
+          }
+        },
+        {
+          "required": [
+            "activityType"
+          ]
+        },
+        {
+          "required": [
+            "@type"
+          ],
+          "properties": {
+            "@type": {
+              "$ref": "#/$defs/includesActivity"
+            }
+          }
+        }
+      ]
+    },
+    "node": {
+      "description": "Walks the whole document: every activity found, at any depth, must conform to the Registered Processing Step profile. @context is skipped.",
+      "if": {
+        "$ref": "#/$defs/isActivity"
+      },
+      "then": {
+        "$ref": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/processing-step/schema.json"
+      },
+      "properties": {
+        "@context": true
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/node"
+      },
+      "items": {
+        "$ref": "#/$defs/node"
+      }
+    }
+  },
+  "x-jsonld-prefixes": {
+    "dcterms": "http://purl.org/dc/terms/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "acttype": "https://w3id.org/ogc/rim/activity-type/"
+  },
+  "x-bblocks-metadata": {
+    "itemIdentifier": "ogc.osc.prov-profiles.workflow-graph",
+    "register": "https://ogcincubator.github.io/bblocks-openscience/build/register.json",
+    "version": "0.1.0",
+    "dateOfLastChange": "2026-11-23"
+  }
+}

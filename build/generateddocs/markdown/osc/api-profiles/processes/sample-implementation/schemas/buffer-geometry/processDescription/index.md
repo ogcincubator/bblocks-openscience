@@ -19,6 +19,11 @@ allOf:
     outputs:
       $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/api-profiles/processes/sample-implementation/schemas/buffer-geometry/outputDescription/schema.yaml
       additionalProperties: false
+x-bblocks-metadata:
+  itemIdentifier: ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.processDescription
+  register: https://ogcincubator.github.io/bblocks-openscience/build/register.json
+  version: '1.0'
+  dateOfLastChange: '2026-11-23'
 
 ```
 
