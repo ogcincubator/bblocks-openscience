@@ -1,0 +1,25 @@
+{
+  "@context": {
+    "ospd": "https://www.opengis.net/def/ospd/2026/",
+    "hartis": "https://hartis.org/ospd2026/",
+    "processType": {
+      "@id": "dct:type",
+      "@type": "@id"
+    },
+    "workflowDefinition": {
+      "@id": "hartis:workflowDefinition",
+      "@type": "@id"
+    },
+    "plan": {
+      "@id": "hartis:plan",
+      "@type": "@id"
+    },
+    "activities": {
+      "@id": "dct:hasPart",
+      "@type": "@id"
+    },
+    "plans": "@included",
+    "runtime": "@included",
+    "entities": "@included"
+  }
+}

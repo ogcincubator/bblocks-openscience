@@ -1,0 +1,16 @@
+- title: Two-step workflow run
+  content: >-
+    An input entity, two registered steps, and the outputs, with generation
+    stated from the entity side. provType identifies each node's PROV class;
+    activityType gives each step its registered process type.
+  snippets:
+    - language: json
+      ref: examples/graph-form.json
+
+- title: Workflow run as a bundle
+  content: >-
+    The same kind of run in bundle form: one entity typed prov:Bundle whose
+    steps are nested inside it. The profile finds activities at any depth.
+  snippets:
+    - language: json
+      ref: examples/bundle-form.json

@@ -1,0 +1,19 @@
+[
+  {
+    "id": "urn:example:dataset:areas-wgs84",
+    "provType": "Entity",
+    "rdfs:label": "Green areas (WGS 84)"
+  },
+  {
+    "id": "urn:example:step:reproject",
+    "provType": "Activity",
+    "rdfs:label": "Reproject green areas",
+    "used": "urn:example:dataset:areas-wgs84"
+  },
+  {
+    "id": "urn:example:dataset:areas-utm32n",
+    "provType": "Entity",
+    "rdfs:label": "Green areas (UTM 32N)",
+    "wasGeneratedBy": "urn:example:step:reproject"
+  }
+]

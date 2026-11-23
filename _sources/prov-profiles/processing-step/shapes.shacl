@@ -1,0 +1,26 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix ps: <https://w3id.org/ogc/osc/prov-profiles/processing-step#> .
+
+# Outputs may be stated from either side: the activity's prov:generated,
+# or an entity's prov:wasGeneratedBy pointing at the activity.
+ps:StepHasOutput
+  a sh:NodeShape ;
+  sh:targetClass prov:Activity ;
+  sh:property [
+    sh:path [ sh:alternativePath ( prov:generated [ sh:inversePath prov:wasGeneratedBy ] ) ] ;
+    sh:minCount 1 ;
+    sh:message "A processing step must produce at least one entity (prov:generated, or an entity that prov:wasGeneratedBy it)." ;
+  ] .
+
+# Inputs via prov:used or a qualified usage. A warning only: a step that
+# creates its inputs from parameters alone legitimately uses nothing.
+ps:StepHasInput
+  a sh:NodeShape ;
+  sh:targetClass prov:Activity ;
+  sh:property [
+    sh:path [ sh:alternativePath ( prov:used ( prov:qualifiedUsage prov:entity ) ) ] ;
+    sh:minCount 1 ;
+    sh:severity sh:Warning ;
+    sh:message "A processing step should use at least one entity (prov:used or prov:qualifiedUsage)." ;
+  ] .

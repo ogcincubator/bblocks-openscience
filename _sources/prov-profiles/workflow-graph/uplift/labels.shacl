@@ -1,0 +1,38 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix wg: <https://w3id.org/ogc/osc/prov-profiles/workflow-graph#> .
+
+# Label generation rules (SHACL-AF), applied as a semantic-uplift step.
+# Each rule adds an rdfs:label only to nodes that do not already have one.
+# Profiles may add their own rules (e.g. deriving a label from a file name)
+# in the same way.
+
+wg:NoLabel
+  a sh:NodeShape ;
+  sh:property [ sh:path rdfs:label ; sh:maxCount 0 ] .
+
+wg:LabelFromTitle
+  a sh:NodeShape ;
+  sh:targetSubjectsOf dcterms:title ;
+  sh:rule [
+    a sh:TripleRule ;
+    sh:order 1 ;
+    sh:condition wg:NoLabel ;
+    sh:subject sh:this ;
+    sh:predicate rdfs:label ;
+    sh:object [ sh:path dcterms:title ] ;
+  ] .
+
+wg:LabelFromPrefLabel
+  a sh:NodeShape ;
+  sh:targetSubjectsOf skos:prefLabel ;
+  sh:rule [
+    a sh:TripleRule ;
+    sh:order 2 ;
+    sh:condition wg:NoLabel ;
+    sh:subject sh:this ;
+    sh:predicate rdfs:label ;
+    sh:object [ sh:path skos:prefLabel ] ;
+  ] .

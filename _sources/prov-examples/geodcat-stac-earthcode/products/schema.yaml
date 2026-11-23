@@ -1,0 +1,24 @@
+"$schema": https://json-schema.org/draft/2020-12/schema
+description: 'EarthCode Product'
+allOf:
+  - $ref: bblocks://ogc.osc.prov-examples.geodcat-stac-earthcode.common
+  - anyOf:
+    - $ref: bblocks://ogc.ogc-utils.prov-entity
+    - not:
+        required:
+          - provType
+  - anyOf:
+    - $ref: bblocks://ogc.contrib.stac.extensions.cf
+    - not:
+        properties:
+          stac_extensions:
+            type: array
+            contains:
+              const: https://stac-extensions.github.io/cf/v1.0.0/schema.json
+properties:
+  osc:type:
+    type: string
+    enum:
+      - product
+  type:
+    const: Collection

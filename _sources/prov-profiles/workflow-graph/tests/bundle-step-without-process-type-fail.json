@@ -1,0 +1,14 @@
+{
+  "id": "urn:example:run:42",
+  "provType": "Entity",
+  "entityType": "prov:Bundle",
+  "steps": [
+    {
+      "id": "urn:example:run:42:reproject",
+      "provType": "Activity",
+      "rdfs:label": "Reproject green areas",
+      "used": "urn:example:dataset:areas-wgs84",
+      "generated": "urn:example:dataset:areas-utm32n"
+    }
+  ]
+}

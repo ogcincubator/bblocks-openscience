@@ -1,0 +1,18 @@
+[
+  {
+    "id": "urn:example:plan:reproject",
+    "provType": "Entity",
+    "entityType": "prov:Plan"
+  },
+  {
+    "id": "urn:example:step:reproject",
+    "provType": "Activity",
+    "activityType": "https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA018",
+    "used": "urn:example:dataset:areas-wgs84",
+    "generated": "urn:example:dataset:areas-utm32n",
+    "qualifiedAssociation": {
+      "agent": "urn:example:agent:pipeline",
+      "hadPlan": "urn:example:plan:reproject"
+    }
+  }
+]

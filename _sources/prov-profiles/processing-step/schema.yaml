@@ -1,0 +1,64 @@
+"$schema": https://json-schema.org/draft/2020-12/schema
+title: Registered Processing Step
+description: >-
+  A single processing step expressed as a PROV Activity whose activityType
+  identifies the process type, from a governed register, that the step is an
+  instance of. provType identifies the PROV class (Activity); activityType
+  then only needs the specific type, which is an IRI or CURIE.
+
+allOf:
+  - $ref: bblocks://ogc.ogc-utils.prov-activity
+  - type: object
+    required:
+      - id
+      - activityType
+    allOf:
+      - description: >-
+          Must be identified as a PROV Activity: by provType (preferred), or
+          by including prov:Activity in activityType.
+        anyOf:
+          - required:
+              - provType
+          - required:
+              - activityType
+            properties:
+              activityType:
+                $ref: '#/$defs/includesActivity'
+    properties:
+      label:
+        description: Optional human-readable name of the step.
+        type: string
+      activityType:
+        description: >-
+          The process type(s) of this step, as IRIs or CURIEs. At least one
+          must be more specific than prov:Activity: the process type from a
+          governed register (e.g. an OSPD GeoACS catalogue item). The schema
+          checks that a specific type is given; membership of the register
+          is checked against the register itself.
+        allOf:
+          - $ref: bblocks://ogc.ogc-utils.iri-or-curie#/$defs/Multiple
+          - $ref: '#/$defs/includesSpecificType'
+
+$defs:
+  genericActivity:
+    enum:
+      - Activity
+      - prov:Activity
+      - http://www.w3.org/ns/prov#Activity
+  includesActivity:
+    anyOf:
+      - $ref: '#/$defs/genericActivity'
+      - type: array
+        contains:
+          $ref: '#/$defs/genericActivity'
+  includesSpecificType:
+    description: Includes a type other than the generic prov:Activity.
+    if:
+      type: array
+    then:
+      contains:
+        not:
+          $ref: '#/$defs/genericActivity'
+    else:
+      not:
+        $ref: '#/$defs/genericActivity'
