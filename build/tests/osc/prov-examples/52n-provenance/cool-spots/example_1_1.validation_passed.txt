@@ -1,5 +1,5 @@
 Validation report for ogc.osc.prov-examples.52n-provenance.cool-spots - Cool Spot Workflow Provenance Profile
-Generated 2026-11-23T08:07:27.238464+00:00
+Generated 2026-11-23T08:16:22.007055+00:00
 === Files ===
 Using example.json from examples
 JSON-LD context is present - uplifting
@@ -16,66 +16,66 @@ Using SHACL closure graph sources (declared closures, ontologies and RDF data re
  - https://www.w3.org/ns/prov-o
 Validation result for _sources/prov-profiles/workflow-graph/shapes.shacl: no results
 Focus nodes for _sources/prov-profiles/workflow-graph/shapes.shacl:
+ - Shape wg:AgentHasLabel: ex:gisPipelineEngine,<https://orcid.org/0000-0003-4718-2959>
  - Shape wg:PlanHasLabel: ex:coolSpotsScript
- - Shape wg:AgentHasLabel: <https://orcid.org/0000-0003-4718-2959>,ex:gisPipelineEngine
 
 Validation result for https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl: no results
 Focus nodes for https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl:
- - Shape <https://www.ogc.org/rules/prov/#prop-agent>: *none*
- - Shape <https://www.ogc.org/rules/prov/#Generation-shape>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-hadMember>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-wasInfluencedBy>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-wasAttributedTo>: *none*
- - Shape <https://www.ogc.org/rules/prov/#Bundle-shape>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedDelegation>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-wasInformedBy>: *none*
  - Shape <https://www.ogc.org/rules/prov/#prop-hadUsage>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedAttribution>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasAttributedTo>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-agent>: *none*
  - Shape <https://www.ogc.org/rules/prov/#prop-wasQuotedFrom>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedInvalidation>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#Entity-shape>: ex:cityBoundary,ex:file_ring225_300,ex:file_diff,ex:nominatimApi,ex:file_city,ex:openStreetMap,ex:rawOsmData,ex:finalOutputPackage,ex:coolSpotsScript,ex:file_coolSpots,ex:multiLevelBuffers,ex:file_ring150_225,ex:overpassApi,ex:unservedAreas,ex:file_buffer,ex:file_coolSpotsFiltered,ex:processInputs,ex:primaryBuffers,ex:file_ring0_75,ex:reprojectedData,ex:filteredCoolSpots,ex:file_ring75_150
  - Shape <https://www.ogc.org/rules/prov/#Plan-shape>: ex:coolSpotsScript
- - Shape <https://www.ogc.org/rules/prov/#Invalidation-shape>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-hadActivity>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-wasAssociatedWith>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedDerivation>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-generated>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-invalidated>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-specializationOf>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedQuotation>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-influencer>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-wasDerivedFrom>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-hadPlan>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedRevision>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-wasEndedBy>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-activity>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedEnd>: *none*
- - Shape <https://www.ogc.org/rules/prov/#EmptyCollection-shape>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedAssociation>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedPrimarySource>: *none*
- - Shape <https://www.ogc.org/rules/prov/#Collection-shape>: ex:finalOutputPackage
- - Shape <https://www.ogc.org/rules/prov/#prop-wasInvalidatedBy>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedInfluence>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-wasRevisionOf>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedCommunication>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-entity>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-hadRole>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-wasStartedBy>: *none*
- - Shape <https://www.ogc.org/rules/prov/#Start-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#Bundle-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#InstantaneousEvent-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-actedOnBehalfOf>: *none*
  - Shape <https://www.ogc.org/rules/prov/#prop-hadGeneration>: *none*
  - Shape <https://www.ogc.org/rules/prov/#prop-wasGeneratedBy>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedGeneration>: *none*
- - Shape <https://www.ogc.org/rules/prov/#InstantaneousEvent-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasStartedBy>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-activity>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-hadPlan>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedInfluence>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedCommunication>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-entity>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedEnd>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-hadActivity>: *none*
  - Shape <https://www.ogc.org/rules/prov/#prop-used>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-atLocation>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-alternateOf>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-actedOnBehalfOf>: *none*
- - Shape <https://www.ogc.org/rules/prov/#Activity-shape>: ex:act5_buffer300m,ex:act6_bufferMultiLevel,ex:act1_defineInputs,ex:workflowRun,ex:act7_calcDifferences,ex:act8_exportOutputs,ex:act4_filterAreas,ex:act2a_geocodeCity,ex:act3_reproject,ex:act2_acquireData
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasDerivedFrom>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasInformedBy>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-influencer>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasInfluencedBy>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-specializationOf>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-hadMember>: *none*
  - Shape <https://www.ogc.org/rules/prov/#prop-hadPrimarySource>: *none*
- - Shape <https://www.ogc.org/rules/prov/#Usage-shape>: *none*
  - Shape <https://www.ogc.org/rules/prov/#End-shape>: *none*
- - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedStart>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#Activity-shape>: ex:act3_reproject,ex:workflowRun,ex:act5_buffer300m,ex:act2a_geocodeCity,ex:act7_calcDifferences,ex:act8_exportOutputs,ex:act4_filterAreas,ex:act6_bufferMultiLevel,ex:act1_defineInputs,ex:act2_acquireData
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedQuotation>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-atLocation>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedRevision>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#Collection-shape>: ex:finalOutputPackage
+ - Shape <https://www.ogc.org/rules/prov/#prop-invalidated>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-alternateOf>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasAssociatedWith>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasRevisionOf>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#Invalidation-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedGeneration>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#Start-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasEndedBy>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedAssociation>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedDelegation>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#Usage-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedPrimarySource>: *none*
  - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedUsage>: *none*
- - Shape <https://www.ogc.org/rules/prov/#Entity-shape>: ex:unservedAreas,ex:file_coolSpots,ex:file_city,ex:finalOutputPackage,ex:coolSpotsScript,ex:file_ring75_150,ex:multiLevelBuffers,ex:file_ring150_225,ex:openStreetMap,ex:file_diff,ex:reprojectedData,ex:file_ring225_300,ex:rawOsmData,ex:filteredCoolSpots,ex:file_ring0_75,ex:primaryBuffers,ex:processInputs,ex:file_coolSpotsFiltered,ex:cityBoundary,ex:file_buffer,ex:nominatimApi,ex:overpassApi
- - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedInvalidation>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-wasInvalidatedBy>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#EmptyCollection-shape>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedAttribution>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedDerivation>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedStart>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-hadRole>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#prop-generated>: *none*
+ - Shape <https://www.ogc.org/rules/prov/#Generation-shape>: *none*
 
 Validation result for _sources/prov-profiles/processing-step/shapes.shacl: 1 warning
 
@@ -86,8 +86,8 @@ Warning (sh:MinCountConstraintComponent):
   Result path: prov:used|(prov:qualifiedUsage/prov:entity)
   Message: A processing step should use at least one entity (prov:used or prov:qualifiedUsage).
 Focus nodes for _sources/prov-profiles/processing-step/shapes.shacl:
- - Shape ps:StepHasOutput: ex:act5_buffer300m,ex:act6_bufferMultiLevel,ex:act1_defineInputs,ex:workflowRun,ex:act7_calcDifferences,ex:act8_exportOutputs,ex:act4_filterAreas,ex:act2a_geocodeCity,ex:act3_reproject,ex:act2_acquireData
- - Shape ps:StepHasInput: ex:act5_buffer300m,ex:act6_bufferMultiLevel,ex:act1_defineInputs,ex:workflowRun,ex:act7_calcDifferences,ex:act8_exportOutputs,ex:act4_filterAreas,ex:act2a_geocodeCity,ex:act3_reproject,ex:act2_acquireData
+ - Shape ps:StepHasOutput: ex:act3_reproject,ex:workflowRun,ex:act5_buffer300m,ex:act2a_geocodeCity,ex:act7_calcDifferences,ex:act8_exportOutputs,ex:act4_filterAreas,ex:act6_bufferMultiLevel,ex:act1_defineInputs,ex:act2_acquireData
+ - Shape ps:StepHasInput: ex:act3_reproject,ex:workflowRun,ex:act5_buffer300m,ex:act2a_geocodeCity,ex:act7_calcDifferences,ex:act8_exportOutputs,ex:act4_filterAreas,ex:act6_bufferMultiLevel,ex:act1_defineInputs,ex:act2_acquireData
 
 === End SHACL ===
 

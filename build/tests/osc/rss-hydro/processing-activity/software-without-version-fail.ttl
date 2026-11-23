@@ -1,0 +1,16 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/runs/42/resample> a prov:Activity ;
+    rdfs:label "Resample elevation raster" ;
+    prov:endedAtTime "2026-03-02T01:00:07+00:00"^^xsd:dateTime ;
+    prov:generated <https://example.org/data/elevation_resampled.tif> ;
+    prov:startedAtTime "2026-03-02T01:00:00+00:00"^^xsd:dateTime ;
+    prov:used <https://example.org/data/elevation.tif> ;
+    prov:wasAssociatedWith <https://example.org/agents/gdal-warp> .
+
+<https://example.org/agents/gdal-warp> a prov:SoftwareAgent .
+
+<https://example.org/data/elevation.tif> prov:generatedAtTime "2026-02-01T00:00:00+00:00"^^xsd:dateTime .
+

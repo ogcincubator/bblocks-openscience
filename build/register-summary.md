@@ -26,6 +26,12 @@ Input schema for the buffer geometry process
 
 A PROV Activity describing one processing step, typed by a process type from a governed register.
 
+### `ogc.osc.rss-hydro.processing-activity` — Processing activity provenance
+
+**Type:** schema
+
+Generic W3C PROV profile of one geospatial processing activity.
+
 ### `ogc.osc.prov-profiles.aganitha-ndvi` — Geospatial Processing Step Provenance
 
 **Type:** schema
@@ -55,6 +61,12 @@ Ontology describing the Common Workflow Language (CWL) model
 **Type:** schema
 
 Provenance of a workflow run as a PROV graph in which every activity is a registered processing step.
+
+### `ogc.osc.rss-hydro.ontology.activities` — MoM workflow activity types
+
+**Type:** model
+
+Activity and entity types emitted by the RSS-Hydro Model of Models flood workflow, as subclasses of prov:Activity and prov:Entity.
 
 ### `ogc.osc.api-profiles.processes.ipt.results` — Result schema for IPT
 
@@ -103,6 +115,12 @@ Vegetation Productivity Trend Workflow Provenance Profile.
 **Type:** schema
 
 A provenance profile for the complete HARTIS Coastal Vulnerability Index workflow, from configuration and source data through coastline extraction, transect generation, indicator calculations and the final CVI result.
+
+### `ogc.osc.rss-hydro.workflow.model-of-models` — Model of Models workflow
+
+**Type:** schema
+
+Tested provenance example of a slice of the RSS-Hydro Model of Models flood workflow: per-watershed aggregation of a gridded source, hazard score accumulation with extra model inputs, and the final alert from the hazard scores of all sources. GFMS and GloFAS are example sources.
 
 ### `ogc.osc.api-profiles.processes.ipt.execute` — Execute (request) schema for IPT
 

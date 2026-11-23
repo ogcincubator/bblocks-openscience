@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "One processing activity with its required PROV fields.",
+  "allOf": [
+    {
+      "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.json"
+    }
+  ],
+  "required": [
+    "id",
+    "activityType",
+    "name",
+    "startedAtTime",
+    "endedAtTime",
+    "used",
+    "generated",
+    "wasAssociatedWith"
+  ],
+  "properties": {
+    "processType": {
+      "description": "IRI of the registered process type (dcterms:type).",
+      "type": "string",
+      "format": "uri",
+      "x-jsonld-id": "http://purl.org/dc/terms/type",
+      "x-jsonld-type": "@id"
+    },
+    "used": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/datedOrVersioned"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/datedOrVersioned"
+          }
+        }
+      ]
+    },
+    "wasAssociatedWith": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/softwareVersioned"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/softwareVersioned"
+          }
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "datedOrVersioned": {
+      "description": "An inline entity states generatedAtTime or dcterms:hasVersion.",
+      "if": {
+        "type": "object"
+      },
+      "then": {
+        "anyOf": [
+          {
+            "required": [
+              "generatedAtTime"
+            ]
+          },
+          {
+            "required": [
+              "dcterms:hasVersion"
+            ]
+          }
+        ]
+      }
+    },
+    "softwareVersioned": {
+      "description": "An inline software agent states dcterms:hasVersion.",
+      "if": {
+        "type": "object",
+        "required": [
+          "agentType"
+        ],
+        "properties": {
+          "agentType": {
+            "anyOf": [
+              {
+                "const": "prov:SoftwareAgent"
+              },
+              {
+                "type": "array",
+                "contains": {
+                  "const": "prov:SoftwareAgent"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "dcterms:hasVersion"
+        ]
+      }
+    }
+  },
+  "x-jsonld-prefixes": {
+    "dcterms": "http://purl.org/dc/terms/"
+  },
+  "x-bblocks-metadata": {
+    "itemIdentifier": "ogc.osc.rss-hydro.processing-activity",
+    "register": "https://ogcincubator.github.io/bblocks-openscience/build/register.json",
+    "version": "0.1",
+    "dateOfLastChange": "2026-10-14"
+  }
+}

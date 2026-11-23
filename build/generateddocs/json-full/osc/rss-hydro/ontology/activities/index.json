@@ -1,0 +1,72 @@
+
+
+{
+  "itemIdentifier": "ogc.osc.rss-hydro.ontology.activities",
+  "name": "MoM workflow activity types",
+  "abstract": "Activity and entity types emitted by the RSS-Hydro Model of Models flood workflow, as subclasses of prov:Activity and prov:Entity.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-10-14T00:00:00Z",
+  "itemClass": "model",
+  "register": "ogc-incubator",
+  "dependsOn": [
+    "ogc.ogc-utils.prov",
+    "ogc.osc.rss-hydro.processing-activity"
+  ],
+  "version": "0.1",
+  "scope": "dev",
+  "tags": [
+    "ospd",
+    "prov",
+    "provenance",
+    "flood",
+    "MoM"
+  ],
+  "shaclShapes": {
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+    ]
+  },
+  "dateOfLastChange": "2026-11-23",
+  "ldContext": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/ontology/activities/context.jsonld",
+  "ontology": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/ontology/activities/ontology.ttl",
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/ontology/activities/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/ontology/activities/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-openscience/_sources/rss-hydro/ontology/activities/schema.yaml",
+  "sourceLdContext": "https://ogcincubator.github.io/bblocks-openscience/_sources/rss-hydro/ontology/activities/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/ontology/activities/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/rss-hydro/ontology/activities/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-openscience/blob/master/build/tests/osc/rss-hydro/ontology/activities/",
+  "description": "## MoM workflow activity types\n\nProcess types used by the MoM flood workflow (subclasses of `Geoprocessing`, itself a `prov:Activity`), candidate entries for the OSPD process-type register in a placeholder namespace (`https://example.org/ospd/process-types/`), plus the entity type, properties, workflow run type (`mom:WorkflowRun`) and alert levels (`mom:AlertLevels`) the MoM profile uses.\n\n| Term | Register term (`processType`) | Generic operation |\n|---|---|---|\n| `ZonalStatistics` | `https://example.org/ospd/process-types/zonal-statistics` | zonal statistics |\n| `WeightedScoringAndClassification` | `https://example.org/ospd/process-types/weighted-scoring-and-classification` | index composition and classification |\n| `ScoringAndProgressTracking` | `https://example.org/ospd/process-types/scoring-and-progress-tracking` | multi-source scoring and progress tracking |\n\nThe schema checks that a record of one of these types states the matching `processType` and is a valid processing activity (`ogc.osc.rss-hydro.processing-activity`).\n",
+  "examples": [
+    {
+      "title": "Standalone per-watershed aggregation",
+      "content": "One MoM activity, validated without a workflow. All values are illustrative.",
+      "snippets": [
+        {
+          "language": "json",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/rss-hydro/ontology/activities/example_1_1.json",
+          "sizeBytes": 509,
+          "code": "{\n  \"id\": \"https://example.org/mom/run/2026030200/aggregation\",\n  \"activityType\": \"ZonalStatistics\",\n  \"processType\": \"https://example.org/ospd/process-types/zonal-statistics\",\n  \"name\": \"GFMS per-watershed aggregation\",\n  \"startedAtTime\": \"2026-03-02T01:05:33Z\",\n  \"endedAtTime\": \"2026-03-02T01:05:41Z\",\n  \"used\": \"https://example.org/mom/run/2026030200/gfms-bin\",\n  \"generated\": \"https://example.org/mom/run/2026030200/gfms-aggregates\",\n  \"wasAssociatedWith\": \"https://example.org/mom/run/2026030200/mom\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/rss-hydro/ontology/activities/example_1_1.jsonld",
+          "sizeBytes": 641,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/ontology/activities/context.jsonld\",\n  \"id\": \"https://example.org/mom/run/2026030200/aggregation\",\n  \"activityType\": \"ZonalStatistics\",\n  \"processType\": \"https://example.org/ospd/process-types/zonal-statistics\",\n  \"name\": \"GFMS per-watershed aggregation\",\n  \"startedAtTime\": \"2026-03-02T01:05:33Z\",\n  \"endedAtTime\": \"2026-03-02T01:05:41Z\",\n  \"used\": \"https://example.org/mom/run/2026030200/gfms-bin\",\n  \"generated\": \"https://example.org/mom/run/2026030200/gfms-aggregates\",\n  \"wasAssociatedWith\": \"https://example.org/mom/run/2026030200/mom\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/rss-hydro/ontology/activities/example_1_1.ttl",
+          "sizeBytes": 792,
+          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/mom/run/2026030200/aggregation> a <https://example.org/ospd/process-types/ZonalStatistics> ;\n    rdfs:label \"GFMS per-watershed aggregation\" ;\n    dcterms:type <https://example.org/ospd/process-types/zonal-statistics> ;\n    prov:endedAtTime \"2026-03-02T01:05:41+00:00\"^^xsd:dateTime ;\n    prov:generated <https://example.org/mom/run/2026030200/gfms-aggregates> ;\n    prov:startedAtTime \"2026-03-02T01:05:33+00:00\"^^xsd:dateTime ;\n    prov:used <https://example.org/mom/run/2026030200/gfms-bin> ;\n    prov:wasAssociatedWith <https://example.org/mom/run/2026030200/mom> .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ndescription: A MoM activity is a processing activity of one of the process types,\n  linked to its register term.\nallOf:\n- $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/processing-activity/schema.yaml\n- $ref: '#/$defs/isMomActivity'\n- required:\n  - processType\n- if:\n    properties:\n      activityType:\n        const: ZonalStatistics\n  then:\n    properties:\n      processType:\n        const: https://example.org/ospd/process-types/zonal-statistics\n- if:\n    properties:\n      activityType:\n        const: WeightedScoringAndClassification\n  then:\n    properties:\n      processType:\n        const: https://example.org/ospd/process-types/weighted-scoring-and-classification\n- if:\n    properties:\n      activityType:\n        const: ScoringAndProgressTracking\n  then:\n    properties:\n      processType:\n        const: https://example.org/ospd/process-types/scoring-and-progress-tracking\n$defs:\n  isMomActivity:\n    required:\n    - activityType\n    properties:\n      activityType:\n        enum:\n        - ZonalStatistics\n        - WeightedScoringAndClassification\n        - ScoringAndProgressTracking\nx-jsonld-extra-terms:\n  ZonalStatistics: https://example.org/ospd/process-types/ZonalStatistics\n  WeightedScoringAndClassification: https://example.org/ospd/process-types/WeightedScoringAndClassification\n  ScoringAndProgressTracking: https://example.org/ospd/process-types/ScoringAndProgressTracking\nx-jsonld-prefixes:\n  mom: https://rss-hydro.lu/ns/mom/\n  dcterms: http://purl.org/dc/terms/\nx-bblocks-metadata:\n  itemIdentifier: ogc.osc.rss-hydro.ontology.activities\n  register: https://ogcincubator.github.io/bblocks-openscience/build/register.json\n  version: '0.1'\n  dateOfLastChange: '2026-10-14'\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-openscience",
+  "gitPath": "_sources/rss-hydro/ontology/activities"
+}

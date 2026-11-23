@@ -1,0 +1,67 @@
+
+
+{
+  "itemIdentifier": "ogc.osc.rss-hydro.processing-activity",
+  "name": "Processing activity provenance",
+  "abstract": "Generic W3C PROV profile of one geospatial processing activity.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-10-14T00:00:00Z",
+  "itemClass": "schema",
+  "register": "ogc-incubator",
+  "dependsOn": [
+    "ogc.ogc-utils.prov-activity"
+  ],
+  "version": "0.1",
+  "scope": "dev",
+  "tags": [
+    "ospd",
+    "prov",
+    "processing activity"
+  ],
+  "shaclShapes": {
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+    ]
+  },
+  "dateOfLastChange": "2026-11-23",
+  "ldContext": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/processing-activity/context.jsonld",
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/processing-activity/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/processing-activity/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-openscience/_sources/rss-hydro/processing-activity/schema.yaml",
+  "sourceLdContext": "https://ogcincubator.github.io/bblocks-openscience/_sources/rss-hydro/processing-activity/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/processing-activity/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/rss-hydro/processing-activity/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-openscience/blob/master/build/tests/osc/rss-hydro/processing-activity/",
+  "description": "## Processing activity provenance\n\nProfile of `ogc.ogc-utils.prov-activity`. Requires `activityType`, `name`, `startedAtTime`, `endedAtTime`, `used`, `generated` and `wasAssociatedWith`.\n\nOptional `processType` links the activity to a registered process type (`dcterms:type`).\n\nInline inputs need `generatedAtTime` or `dcterms:hasVersion`; inline software agents need `dcterms:hasVersion`.\n",
+  "examples": [
+    {
+      "title": "Resampling a raster",
+      "snippets": [
+        {
+          "language": "json",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/rss-hydro/processing-activity/example_1_1.json",
+          "sizeBytes": 568,
+          "code": "{\n  \"id\": \"https://example.org/runs/42/resample\",\n  \"activityType\": \"prov:Activity\",\n  \"name\": \"Resample elevation raster\",\n  \"startedAtTime\": \"2026-03-02T01:00:00Z\",\n  \"endedAtTime\": \"2026-03-02T01:00:07Z\",\n  \"used\": {\n    \"id\": \"https://example.org/data/elevation.tif\",\n    \"generatedAtTime\": \"2026-02-01T00:00:00Z\"\n  },\n  \"generated\": \"https://example.org/data/elevation_resampled.tif\",\n  \"wasAssociatedWith\": {\n    \"id\": \"https://example.org/agents/gdal-warp\",\n    \"agentType\": \"prov:SoftwareAgent\",\n    \"name\": \"gdalwarp\",\n    \"dcterms:hasVersion\": \"3.9.0\"\n  }\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/rss-hydro/processing-activity/example_1_1.jsonld",
+          "sizeBytes": 700,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/processing-activity/context.jsonld\",\n  \"id\": \"https://example.org/runs/42/resample\",\n  \"activityType\": \"prov:Activity\",\n  \"name\": \"Resample elevation raster\",\n  \"startedAtTime\": \"2026-03-02T01:00:00Z\",\n  \"endedAtTime\": \"2026-03-02T01:00:07Z\",\n  \"used\": {\n    \"id\": \"https://example.org/data/elevation.tif\",\n    \"generatedAtTime\": \"2026-02-01T00:00:00Z\"\n  },\n  \"generated\": \"https://example.org/data/elevation_resampled.tif\",\n  \"wasAssociatedWith\": {\n    \"id\": \"https://example.org/agents/gdal-warp\",\n    \"agentType\": \"prov:SoftwareAgent\",\n    \"name\": \"gdalwarp\",\n    \"dcterms:hasVersion\": \"3.9.0\"\n  }\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/rss-hydro/processing-activity/example_1_1.ttl",
+          "sizeBytes": 863,
+          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/runs/42/resample> a prov:Activity ;\n    rdfs:label \"Resample elevation raster\" ;\n    prov:endedAtTime \"2026-03-02T01:00:07+00:00\"^^xsd:dateTime ;\n    prov:generated <https://example.org/data/elevation_resampled.tif> ;\n    prov:startedAtTime \"2026-03-02T01:00:00+00:00\"^^xsd:dateTime ;\n    prov:used <https://example.org/data/elevation.tif> ;\n    prov:wasAssociatedWith <https://example.org/agents/gdal-warp> .\n\n<https://example.org/agents/gdal-warp> a prov:SoftwareAgent ;\n    rdfs:label \"gdalwarp\" ;\n    dcterms:hasVersion \"3.9.0\" .\n\n<https://example.org/data/elevation.tif> prov:generatedAtTime \"2026-02-01T00:00:00+00:00\"^^xsd:dateTime .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ndescription: One processing activity with its required PROV fields.\nallOf:\n- $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml\nrequired:\n- id\n- activityType\n- name\n- startedAtTime\n- endedAtTime\n- used\n- generated\n- wasAssociatedWith\nproperties:\n  processType:\n    description: IRI of the registered process type (dcterms:type).\n    type: string\n    format: uri\n    x-jsonld-id: http://purl.org/dc/terms/type\n    x-jsonld-type: '@id'\n  used:\n    anyOf:\n    - $ref: '#/$defs/datedOrVersioned'\n    - type: array\n      items:\n        $ref: '#/$defs/datedOrVersioned'\n  wasAssociatedWith:\n    anyOf:\n    - $ref: '#/$defs/softwareVersioned'\n    - type: array\n      items:\n        $ref: '#/$defs/softwareVersioned'\n$defs:\n  datedOrVersioned:\n    description: An inline entity states generatedAtTime or dcterms:hasVersion.\n    if:\n      type: object\n    then:\n      anyOf:\n      - required:\n        - generatedAtTime\n      - required:\n        - dcterms:hasVersion\n  softwareVersioned:\n    description: An inline software agent states dcterms:hasVersion.\n    if:\n      type: object\n      required:\n      - agentType\n      properties:\n        agentType:\n          anyOf:\n          - const: prov:SoftwareAgent\n          - type: array\n            contains:\n              const: prov:SoftwareAgent\n    then:\n      required:\n      - dcterms:hasVersion\nx-jsonld-prefixes:\n  dcterms: http://purl.org/dc/terms/\nx-bblocks-metadata:\n  itemIdentifier: ogc.osc.rss-hydro.processing-activity\n  register: https://ogcincubator.github.io/bblocks-openscience/build/register.json\n  version: '0.1'\n  dateOfLastChange: '2026-10-14'\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-openscience",
+  "gitPath": "_sources/rss-hydro/processing-activity"
+}

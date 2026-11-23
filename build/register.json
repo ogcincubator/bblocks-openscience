@@ -4,7 +4,7 @@
   "abstract": "Building Blocks for FAIR Open Science - profiles of OGC API Processes and various metadata standards to support open, transparent, interoperable and reproducible scientific workflows..\n",
   "description": "This repository is initially aimed to support the [Open Science Persistent Demonstrator](https://www.ogc.org/initiatives/open-science/) pilot, but may be further developed as a set of standards with appropriate working group governance.\n",
   "sparqlEndpoint": "https://defs-dev.opengis.net/fuseki/query",
-  "modified": "2026-11-23T08:06:09.312604",
+  "modified": "2026-11-23T08:14:45.742653",
   "tooling": {
     "bblocks-postprocess": {
       "commitId": "\"990affbe72a10408bfed51a6254103fad13752c2",
@@ -170,6 +170,56 @@
         "bblocks-viewer": {
           "mediatype": "text/html",
           "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.prov-profiles.processing-step"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.osc.rss-hydro.processing-activity",
+      "name": "Processing activity provenance",
+      "abstract": "Generic W3C PROV profile of one geospatial processing activity.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-10-14T00:00:00Z",
+      "itemClass": "schema",
+      "register": "ogc-incubator",
+      "dependsOn": [
+        "bblocks://ogc.ogc-utils.prov-activity"
+      ],
+      "version": "0.1",
+      "scope": "dev",
+      "tags": [
+        "ospd",
+        "prov",
+        "processing activity"
+      ],
+      "shaclShapes": {
+        "ogc.model.cross-domain.prov": [
+          "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+        ]
+      },
+      "dateOfLastChange": "2026-11-23",
+      "ldContext": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/processing-activity/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/processing-activity/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/processing-activity/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-openscience/_sources/rss-hydro/processing-activity/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-openscience/_sources/rss-hydro/processing-activity/context.jsonld",
+      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/processing-activity/resolvedProperties.json",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/rss-hydro/processing-activity/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-openscience/blob/master/build/tests/osc/rss-hydro/processing-activity/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/rss-hydro/processing-activity/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/rss-hydro/processing-activity/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.rss-hydro.processing-activity"
         }
       }
     },
@@ -431,6 +481,60 @@
         "bblocks-viewer": {
           "mediatype": "text/html",
           "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.prov-profiles.workflow-graph"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.osc.rss-hydro.ontology.activities",
+      "name": "MoM workflow activity types",
+      "abstract": "Activity and entity types emitted by the RSS-Hydro Model of Models flood workflow, as subclasses of prov:Activity and prov:Entity.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-10-14T00:00:00Z",
+      "itemClass": "model",
+      "register": "ogc-incubator",
+      "dependsOn": [
+        "bblocks://ogc.ogc-utils.prov",
+        "bblocks://ogc.osc.rss-hydro.processing-activity"
+      ],
+      "version": "0.1",
+      "scope": "dev",
+      "tags": [
+        "ospd",
+        "prov",
+        "provenance",
+        "flood",
+        "MoM"
+      ],
+      "shaclShapes": {
+        "ogc.model.cross-domain.prov": [
+          "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+        ]
+      },
+      "dateOfLastChange": "2026-11-23",
+      "ldContext": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/ontology/activities/context.jsonld",
+      "ontology": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/ontology/activities/ontology.ttl",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/ontology/activities/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/ontology/activities/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-openscience/_sources/rss-hydro/ontology/activities/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-openscience/_sources/rss-hydro/ontology/activities/context.jsonld",
+      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/ontology/activities/resolvedProperties.json",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/rss-hydro/ontology/activities/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-openscience/blob/master/build/tests/osc/rss-hydro/ontology/activities/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/rss-hydro/ontology/activities/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/rss-hydro/ontology/activities/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.rss-hydro.ontology.activities"
         }
       }
     },
@@ -880,6 +984,61 @@
         "bblocks-viewer": {
           "mediatype": "text/html",
           "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.prov-profiles.hartis-provenance.cvi-workflow"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.osc.rss-hydro.workflow.model-of-models",
+      "name": "Model of Models workflow",
+      "abstract": "Tested provenance example of a slice of the RSS-Hydro Model of Models flood workflow: per-watershed aggregation of a gridded source, hazard score accumulation with extra model inputs, and the final alert from the hazard scores of all sources. GFMS and GloFAS are example sources.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-10-14T00:00:00Z",
+      "itemClass": "schema",
+      "register": "ogc-incubator",
+      "dependsOn": [
+        "bblocks://ogc.ogc-utils.prov",
+        "bblocks://ogc.osc.rss-hydro.ontology.activities",
+        "bblocks://ogc.osc.rss-hydro.processing-activity"
+      ],
+      "version": "0.1",
+      "scope": "dev",
+      "tags": [
+        "flood",
+        "hydrology",
+        "watershed"
+      ],
+      "shaclShapes": {
+        "ogc.osc.rss-hydro.workflow.model-of-models": [
+          "https://ogcincubator.github.io/bblocks-openscience/_sources/rss-hydro/workflow/model-of-models/rules.shacl"
+        ],
+        "ogc.model.cross-domain.prov": [
+          "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+        ]
+      },
+      "dateOfLastChange": "2026-11-23",
+      "ldContext": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/workflow/model-of-models/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/workflow/model-of-models/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/workflow/model-of-models/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-openscience/_sources/rss-hydro/workflow/model-of-models/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-openscience/_sources/rss-hydro/workflow/model-of-models/context.jsonld",
+      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/workflow/model-of-models/resolvedProperties.json",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-openscience/_sources/rss-hydro/workflow/model-of-models/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-openscience/blob/master/build/tests/osc/rss-hydro/workflow/model-of-models/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/markdown/osc/rss-hydro/workflow/model-of-models/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/build/generateddocs/json-full/osc/rss-hydro/workflow/model-of-models/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-openscience/bblock/ogc.osc.rss-hydro.workflow.model-of-models"
         }
       }
     },

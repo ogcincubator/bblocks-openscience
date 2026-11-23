@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Provenance chain of one MoM run: per-watershed aggregation, hazard score accumulation and final alert, each always present.",
+  "allOf": [
+    {
+      "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json"
+    }
+  ],
+  "contains": {
+    "$ref": "#/$defs/isProcessingActivity"
+  },
+  "minContains": 3,
+  "items": {
+    "allOf": [
+      {
+        "if": {
+          "$ref": "#/$defs/isProcessingActivity"
+        },
+        "then": {
+          "allOf": [
+            {
+              "$ref": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/ontology/activities/schema.json"
+            },
+            {
+              "required": [
+                "dcterms:isPartOf"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "if": {
+          "required": [
+            "activityType"
+          ],
+          "properties": {
+            "activityType": {
+              "const": "mom:WorkflowRun"
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "id",
+            "name",
+            "startedAtTime",
+            "endedAtTime",
+            "wasAssociatedWith"
+          ]
+        }
+      },
+      {
+        "if": {
+          "required": [
+            "entityType"
+          ]
+        },
+        "then": {
+          "$ref": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/processing-activity/schema.json#/$defs/datedOrVersioned"
+        }
+      },
+      {
+        "$ref": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/processing-activity/schema.json#/$defs/softwareVersioned"
+      },
+      {
+        "if": {
+          "$ref": "#/$defs/isHazardScore"
+        },
+        "then": {
+          "required": [
+            "mom:dataType",
+            "mom:dataTime",
+            "generatedAtTime",
+            "wasDerivedFrom"
+          ]
+        }
+      },
+      {
+        "if": {
+          "required": [
+            "mom:dataType"
+          ]
+        },
+        "then": {
+          "required": [
+            "dcterms:format"
+          ],
+          "anyOf": [
+            {
+              "required": [
+                "dcterms:hasVersion"
+              ]
+            },
+            {
+              "required": [
+                "generatedAtTime",
+                "mom:dataTime"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "$defs": {
+    "isProcessingActivity": {
+      "$ref": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/ontology/activities/schema.json#/$defs/isMomActivity"
+    },
+    "isHazardScore": {
+      "required": [
+        "entityType"
+      ],
+      "properties": {
+        "entityType": {
+          "const": "mom:HazardScore"
+        }
+      }
+    }
+  },
+  "x-jsonld-extra-terms": {
+    "mom:dataTime": {
+      "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "dcat:downloadURL": {
+      "x-jsonld-type": "@id"
+    },
+    "dcterms:isPartOf": {
+      "x-jsonld-type": "@id"
+    }
+  },
+  "x-jsonld-prefixes": {
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "mom": "https://rss-hydro.lu/ns/mom/",
+    "run": "https://example.org/mom/run/2026030200/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcterms": "http://purl.org/dc/terms/"
+  },
+  "x-bblocks-metadata": {
+    "itemIdentifier": "ogc.osc.rss-hydro.workflow.model-of-models",
+    "register": "https://ogcincubator.github.io/bblocks-openscience/build/register.json",
+    "version": "0.1",
+    "dateOfLastChange": "2026-10-14"
+  }
+}

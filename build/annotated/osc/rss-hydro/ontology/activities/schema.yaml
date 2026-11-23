@@ -1,0 +1,54 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+description: A MoM activity is a processing activity of one of the process types,
+  linked to its register term.
+allOf:
+- $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/processing-activity/schema.yaml
+- $ref: '#/$defs/isMomActivity'
+- required:
+  - processType
+- if:
+    properties:
+      activityType:
+        const: ZonalStatistics
+  then:
+    properties:
+      processType:
+        const: https://example.org/ospd/process-types/zonal-statistics
+- if:
+    properties:
+      activityType:
+        const: WeightedScoringAndClassification
+  then:
+    properties:
+      processType:
+        const: https://example.org/ospd/process-types/weighted-scoring-and-classification
+- if:
+    properties:
+      activityType:
+        const: ScoringAndProgressTracking
+  then:
+    properties:
+      processType:
+        const: https://example.org/ospd/process-types/scoring-and-progress-tracking
+$defs:
+  isMomActivity:
+    required:
+    - activityType
+    properties:
+      activityType:
+        enum:
+        - ZonalStatistics
+        - WeightedScoringAndClassification
+        - ScoringAndProgressTracking
+x-jsonld-extra-terms:
+  ZonalStatistics: https://example.org/ospd/process-types/ZonalStatistics
+  WeightedScoringAndClassification: https://example.org/ospd/process-types/WeightedScoringAndClassification
+  ScoringAndProgressTracking: https://example.org/ospd/process-types/ScoringAndProgressTracking
+x-jsonld-prefixes:
+  mom: https://rss-hydro.lu/ns/mom/
+  dcterms: http://purl.org/dc/terms/
+x-bblocks-metadata:
+  itemIdentifier: ogc.osc.rss-hydro.ontology.activities
+  register: https://ogcincubator.github.io/bblocks-openscience/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-10-14'

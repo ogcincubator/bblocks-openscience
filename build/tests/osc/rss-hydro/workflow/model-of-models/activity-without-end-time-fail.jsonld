@@ -1,0 +1,341 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/workflow/model-of-models/context.jsonld",
+  "@graph": [
+    {
+      "id": "run:mom",
+      "agentType": "prov:SoftwareAgent",
+      "name": "MoMProduction",
+      "dcterms:hasVersion": "0.0.1-alpha"
+    },
+    {
+      "id": "run:rss-hydro",
+      "agentType": "prov:Organization",
+      "name": "RSS-Hydro"
+    },
+    {
+      "id": "run:server",
+      "agentType": "prov:Agent",
+      "name": "mom-prod-01 (illustrative server)"
+    },
+    {
+      "id": "run:workflow-run",
+      "activityType": "mom:WorkflowRun",
+      "name": "MoM workflow run, 2026-03-02 00:00",
+      "startedAtTime": "2026-03-02T01:05:33Z",
+      "endedAtTime": "2026-03-02T01:12:52Z",
+      "wasAssociatedWith": [
+        "run:mom",
+        "run:rss-hydro",
+        "run:server"
+      ]
+    },
+    {
+      "id": "run:umd",
+      "agentType": "prov:Organization",
+      "name": "University of Maryland (GFMS)"
+    },
+    {
+      "id": "run:ecmwf",
+      "agentType": "prov:Organization",
+      "name": "ECMWF / CEMS (GloFAS)"
+    },
+    {
+      "id": "run:provider-1",
+      "agentType": "prov:Organization",
+      "name": "Provider of sources 1 and 2"
+    },
+    {
+      "id": "run:watersheds",
+      "entityType": "prov:Entity",
+      "name": "Watershed_pfaf_id.shp",
+      "dcterms:hasVersion": "0.0.0",
+      "dcterms:format": "ESRI Shapefile",
+      "mom:watershedFingerprint": "a09161ac707ef1d0355e92e730c8fe31e127149b803321bc988b3232058eea17",
+      "generatedAtTime": "2026-01-15T00:00:00Z"
+    },
+    {
+      "id": "run:gfms-bin",
+      "entityType": "prov:Entity",
+      "name": "Flood_byStor_2026030200.bin",
+      "dcat:downloadURL": "https://example.org/gfms/Flood_byStor_2026030200.bin",
+      "mom:dataType": "GFMS",
+      "dcterms:format": "GFMS Flood_byStor binary grid (float32)",
+      "mom:gfmsNodataValue": -9999,
+      "mom:dataTime": "2026-03-02T00:00:00Z",
+      "generatedAtTime": "2026-03-02T01:05:32Z",
+      "wasAttributedTo": "run:umd"
+    },
+    {
+      "id": "run:aggregation-parameters",
+      "entityType": "prov:Entity",
+      "name": "GFMS per-watershed aggregation parameters",
+      "dcterms:hasVersion": "0.0.1-alpha",
+      "dcterms:isPartOf": "run:mom",
+      "mom:gfmsDurationAreaThresholdKm2": 50,
+      "mom:gfmsMinFileSizeBytes": 1000000
+    },
+    {
+      "id": "run:aggregation",
+      "activityType": "ZonalStatistics",
+      "processType": "https://example.org/ospd/process-types/zonal-statistics",
+      "name": "GFMS per-watershed aggregation",
+      "startedAtTime": "2026-03-02T01:05:33Z",
+      "endedAtTime": "2026-03-02T01:05:41Z",
+      "used": [
+        "run:gfms-bin",
+        "run:watersheds",
+        "run:aggregation-parameters"
+      ],
+      "generated": "run:gfms-aggregates",
+      "wasAssociatedWith": [
+        "run:mom",
+        "run:rss-hydro",
+        "run:server"
+      ],
+      "dcterms:isPartOf": "run:workflow-run"
+    },
+    {
+      "id": "run:gfms-aggregates",
+      "entityType": "prov:Entity",
+      "name": "Processing/gfms/Flood_byStor_2026030200.csv (per-watershed aggregates, duration not yet recalculated)",
+      "mom:dataType": "GFMS",
+      "dcterms:format": "text/csv",
+      "mom:dataTime": "2026-03-02T00:00:00Z",
+      "generatedAtTime": "2026-03-02T01:05:41Z",
+      "wasGeneratedBy": "run:aggregation",
+      "wasDerivedFrom": [
+        "run:gfms-bin",
+        "run:watersheds"
+      ]
+    },
+    {
+      "id": "run:gfms-summary-prev",
+      "entityType": "prov:Entity",
+      "name": "GFMS_summary/Flood_byStor_2026030121.csv",
+      "mom:dataType": "GFMS",
+      "dcterms:format": "text/csv",
+      "mom:dataTime": "2026-03-01T21:00:00Z",
+      "generatedAtTime": "2026-03-01T01:07:12Z"
+    },
+    {
+      "id": "run:glofas-txt",
+      "entityType": "prov:Entity",
+      "name": "threspoints_2026030200.txt",
+      "dcat:downloadURL": "https://example.org/glofas/threspoints_2026030200.txt",
+      "mom:dataType": "GloFAS",
+      "dcterms:format": "GloFAS threspoints station table (comma-separated text)",
+      "mom:glofasNodataValue": -9999,
+      "mom:dataTime": "2026-03-02T00:00:00Z",
+      "generatedAtTime": "2026-03-02T00:58:10Z",
+      "wasAttributedTo": "run:ecmwf"
+    },
+    {
+      "id": "run:glofas-points",
+      "entityType": "prov:Entity",
+      "name": "GLOFAS/threspoints_2026030200.csv",
+      "mom:dataType": "GloFAS",
+      "dcterms:format": "text/csv",
+      "mom:glofasNodataValue": -9999,
+      "mom:dataTime": "2026-03-02T00:00:00Z",
+      "generatedAtTime": "2026-03-02T00:58:12Z",
+      "wasDerivedFrom": "run:glofas-txt"
+    },
+    {
+      "id": "run:attributes",
+      "entityType": "prov:Entity",
+      "name": "data/Attributes.csv",
+      "dcterms:format": "text/csv",
+      "dcterms:hasVersion": "0.0.1-alpha",
+      "dcterms:isPartOf": "run:mom"
+    },
+    {
+      "id": "run:resilience",
+      "entityType": "prov:Entity",
+      "name": "data/Resilience_Index.csv",
+      "dcterms:format": "text/csv",
+      "dcterms:hasVersion": "0.0.1-alpha",
+      "dcterms:isPartOf": "run:mom"
+    },
+    {
+      "id": "run:weights",
+      "entityType": "prov:Entity",
+      "name": "data/GFMS_Weightage.csv",
+      "dcterms:format": "text/csv",
+      "dcterms:hasVersion": "0.0.1-alpha",
+      "dcterms:isPartOf": "run:mom"
+    },
+    {
+      "id": "run:hazard-parameters",
+      "entityType": "prov:Entity",
+      "name": "GloFAS + GFMS hazard score accumulation parameters",
+      "dcterms:hasVersion": "0.0.1-alpha",
+      "dcterms:isPartOf": "run:mom",
+      "mom:gfmsDurationAreaThresholdKm2": 50
+    },
+    {
+      "id": "run:hazard",
+      "activityType": "WeightedScoringAndClassification",
+      "processType": "https://example.org/ospd/process-types/weighted-scoring-and-classification",
+      "name": "GloFAS + GFMS hazard score accumulation",
+      "startedAtTime": "2026-03-02T01:12:40Z",
+      "used": [
+        "run:gfms-aggregates",
+        "run:gfms-summary-prev",
+        "run:glofas-points",
+        "run:attributes",
+        "run:resilience",
+        "run:weights",
+        "run:hazard-parameters"
+      ],
+      "generated": [
+        "run:gfms-summary",
+        "run:final-attributes",
+        "run:attributes-clean"
+      ],
+      "wasAssociatedWith": [
+        "run:mom",
+        "run:rss-hydro",
+        "run:server"
+      ],
+      "dcterms:isPartOf": "run:workflow-run"
+    },
+    {
+      "id": "run:gfms-summary",
+      "entityType": "prov:Entity",
+      "name": "GFMS_summary/Flood_byStor_2026030200.csv (duration recalculated)",
+      "mom:dataType": "GFMS",
+      "dcterms:format": "text/csv",
+      "mom:dataTime": "2026-03-02T00:00:00Z",
+      "generatedAtTime": "2026-03-02T01:12:41Z",
+      "wasGeneratedBy": "run:hazard",
+      "wasDerivedFrom": [
+        "run:gfms-aggregates",
+        "run:gfms-summary-prev"
+      ]
+    },
+    {
+      "id": "run:final-attributes",
+      "entityType": "mom:HazardScore",
+      "name": "GFMS_MoM/Final_Attributes_20260302.csv",
+      "mom:dataType": [
+        "GloFAS",
+        "GFMS"
+      ],
+      "dcterms:format": "text/csv",
+      "mom:dataTime": "2026-03-02T00:00:00Z",
+      "generatedAtTime": "2026-03-02T01:12:47Z",
+      "wasGeneratedBy": "run:hazard",
+      "wasDerivedFrom": [
+        "run:gfms-summary",
+        "run:glofas-points",
+        "run:attributes",
+        "run:resilience",
+        "run:weights"
+      ]
+    },
+    {
+      "id": "run:attributes-clean",
+      "entityType": "prov:Entity",
+      "name": "GFMS_MoM/Attributes_Clean_20260302.csv",
+      "dcterms:format": "text/csv",
+      "generatedAtTime": "2026-03-02T01:12:47Z",
+      "wasGeneratedBy": "run:hazard",
+      "wasDerivedFrom": "run:final-attributes"
+    },
+    {
+      "id": "run:source-1-data",
+      "entityType": "prov:Entity",
+      "name": "Source 1 grid, cycle 2026030118",
+      "dcat:downloadURL": "https://example.org/source-1/2026030118.grb2",
+      "mom:dataType": "Source 1",
+      "dcterms:format": "GRIB2",
+      "mom:dataTime": "2026-03-01T18:00:00Z",
+      "generatedAtTime": "2026-03-01T23:47:05Z",
+      "wasAttributedTo": "run:provider-1"
+    },
+    {
+      "id": "run:source-1-score",
+      "entityType": "mom:HazardScore",
+      "name": "Source 1 hazard scores, cycle 2026030118",
+      "mom:dataType": "Source 1",
+      "dcterms:format": "text/csv",
+      "mom:dataTime": "2026-03-01T18:00:00Z",
+      "generatedAtTime": "2026-03-02T00:52:19Z",
+      "wasDerivedFrom": "run:source-1-data"
+    },
+    {
+      "id": "run:source-2-data",
+      "entityType": "prov:Entity",
+      "name": "Source 2 grid 20260228",
+      "dcat:downloadURL": "https://example.org/source-2/20260228.tif",
+      "mom:dataType": "Source 2",
+      "dcterms:format": "GeoTIFF",
+      "mom:dataTime": "2026-02-28T00:00:00Z",
+      "generatedAtTime": "2026-03-01T02:10:44Z",
+      "wasAttributedTo": "run:provider-1"
+    },
+    {
+      "id": "run:source-2-score",
+      "entityType": "mom:HazardScore",
+      "name": "Source 2 hazard scores 20260228",
+      "mom:dataType": "Source 2",
+      "dcterms:format": "text/csv",
+      "mom:dataTime": "2026-02-28T00:00:00Z",
+      "generatedAtTime": "2026-03-01T04:12:30Z",
+      "wasDerivedFrom": "run:source-2-data"
+    },
+    {
+      "id": "run:final-alert-prev",
+      "entityType": "prov:Entity",
+      "name": "Final_Alert/Final_Alert_2026030118.csv",
+      "dcterms:format": "text/csv",
+      "generatedAtTime": "2026-03-01T19:13:02Z",
+      "wasGeneratedBy": "https://example.org/mom/run/2026030118/final-alert"
+    },
+    {
+      "id": "run:admin-centroids",
+      "entityType": "prov:Entity",
+      "name": "data/Admin0_1_union_centroid.csv",
+      "dcterms:format": "text/csv",
+      "dcterms:hasVersion": "0.0.1-alpha",
+      "dcterms:isPartOf": "run:mom"
+    },
+    {
+      "id": "run:final-alert",
+      "activityType": "ScoringAndProgressTracking",
+      "processType": "https://example.org/ospd/process-types/scoring-and-progress-tracking",
+      "name": "Final alert",
+      "startedAtTime": "2026-03-02T01:12:48Z",
+      "endedAtTime": "2026-03-02T01:12:52Z",
+      "used": [
+        "run:final-attributes",
+        "run:source-1-score",
+        "run:source-2-score",
+        "run:final-alert-prev",
+        "run:admin-centroids"
+      ],
+      "generated": "run:final-alert-output",
+      "wasAssociatedWith": [
+        "run:mom",
+        "run:rss-hydro",
+        "run:server"
+      ],
+      "dcterms:isPartOf": "run:workflow-run"
+    },
+    {
+      "id": "run:final-alert-output",
+      "entityType": "prov:Entity",
+      "name": "Final_Alert/Final_Alert_2026030200.csv",
+      "dcterms:format": "text/csv",
+      "generatedAtTime": "2026-03-02T01:12:52Z",
+      "wasGeneratedBy": "run:final-alert",
+      "wasDerivedFrom": [
+        "run:final-attributes",
+        "run:source-1-score",
+        "run:source-2-score",
+        "run:final-alert-prev",
+        "run:admin-centroids"
+      ]
+    }
+  ]
+}
