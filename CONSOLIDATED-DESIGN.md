@@ -113,10 +113,15 @@ What each block now declares is listed in §10.
 {
   "id": "ex:act3_reproject",
   "provType": "Activity",
-  "activityType": "https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA018",
+  "activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA018",
   "used": "ex:rawOsmData"
 }
 ```
+
+Register item IRIs in the examples use the demonstration register
+(`https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/<register>/items/<item>`), for
+example `reg:52north` for GA016–GA020 and `reg:ogcactivites` for GA001. They will be replaced if the
+register is deployed to its final location.
 
 ## 6. Workflow plans, runs and runners
 

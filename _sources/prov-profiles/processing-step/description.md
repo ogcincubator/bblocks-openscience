@@ -14,7 +14,7 @@ the step is an instance of. Both use the
 
 ```json
 "provType": "Activity",
-"activityType": "https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA016"
+"activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA016"
 ```
 
 Data that does not set `provType` can still identify the step by including
