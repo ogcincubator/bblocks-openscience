@@ -363,7 +363,7 @@ process inputs from parameters, uses no entity.
   {
     "id": "ex:act3_reproject",
     "provType": "Activity",
-    "activityType": "https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA018",
+    "activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA018",
     "rdfs:label": "Step 3: Reproject EPSG:4326 to UTM",
     "startedAtTime": "2026-07-13T17:44:05.9+02:00",
     "endedAtTime": "2026-07-13T17:44:06.4+02:00",
@@ -374,7 +374,7 @@ process inputs from parameters, uses no entity.
   {
     "id": "ex:act4_filterAreas",
     "provType": "Activity",
-    "activityType": "https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA020",
+    "activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA020",
     "rdfs:label": "Step 4: Filter areas by size",
     "startedAtTime": "2026-07-13T17:44:06.5+02:00",
     "endedAtTime": "2026-07-13T17:44:06.7+02:00",
@@ -388,7 +388,7 @@ process inputs from parameters, uses no entity.
   {
     "id": "ex:act5_buffer300m",
     "provType": "Activity",
-    "activityType": "https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA001",
+    "activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:ogcactivites/items/demo:GA001",
     "rdfs:label": "Step 5: Create 300m buffer (or walking distance)",
     "startedAtTime": "2026-07-13T17:44:06.8+02:00",
     "endedAtTime": "2026-07-13T17:44:09.1+02:00",
@@ -402,7 +402,7 @@ process inputs from parameters, uses no entity.
   {
     "id": "ex:act6_bufferMultiLevel",
     "provType": "Activity",
-    "activityType": "https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA001",
+    "activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:ogcactivites/items/demo:GA001",
     "rdfs:label": "Step 6: Create additional level buffers",
     "startedAtTime": "2026-07-13T17:44:09.2+02:00",
     "endedAtTime": "2026-07-13T17:44:15.9+02:00",
@@ -416,7 +416,7 @@ process inputs from parameters, uses no entity.
   {
     "id": "ex:act7_calcDifferences",
     "provType": "Activity",
-    "activityType": "https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA019",
+    "activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA019",
     "rdfs:label": "Step 7: Identify unserved city areas",
     "startedAtTime": "2026-07-13T17:44:16.0+02:00",
     "endedAtTime": "2026-07-13T17:44:16.9+02:00",
@@ -796,7 +796,7 @@ process inputs from parameters, uses no entity.
     {
       "id": "ex:act3_reproject",
       "provType": "Activity",
-      "activityType": "https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA018",
+      "activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA018",
       "rdfs:label": "Step 3: Reproject EPSG:4326 to UTM",
       "startedAtTime": "2026-07-13T17:44:05.9+02:00",
       "endedAtTime": "2026-07-13T17:44:06.4+02:00",
@@ -807,7 +807,7 @@ process inputs from parameters, uses no entity.
     {
       "id": "ex:act4_filterAreas",
       "provType": "Activity",
-      "activityType": "https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA020",
+      "activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA020",
       "rdfs:label": "Step 4: Filter areas by size",
       "startedAtTime": "2026-07-13T17:44:06.5+02:00",
       "endedAtTime": "2026-07-13T17:44:06.7+02:00",
@@ -821,7 +821,7 @@ process inputs from parameters, uses no entity.
     {
       "id": "ex:act5_buffer300m",
       "provType": "Activity",
-      "activityType": "https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA001",
+      "activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:ogcactivites/items/demo:GA001",
       "rdfs:label": "Step 5: Create 300m buffer (or walking distance)",
       "startedAtTime": "2026-07-13T17:44:06.8+02:00",
       "endedAtTime": "2026-07-13T17:44:09.1+02:00",
@@ -835,7 +835,7 @@ process inputs from parameters, uses no entity.
     {
       "id": "ex:act6_bufferMultiLevel",
       "provType": "Activity",
-      "activityType": "https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA001",
+      "activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:ogcactivites/items/demo:GA001",
       "rdfs:label": "Step 6: Create additional level buffers",
       "startedAtTime": "2026-07-13T17:44:09.2+02:00",
       "endedAtTime": "2026-07-13T17:44:15.9+02:00",
@@ -849,7 +849,7 @@ process inputs from parameters, uses no entity.
     {
       "id": "ex:act7_calcDifferences",
       "provType": "Activity",
-      "activityType": "https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA019",
+      "activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA019",
       "rdfs:label": "Step 7: Identify unserved city areas",
       "startedAtTime": "2026-07-13T17:44:16.0+02:00",
       "endedAtTime": "2026-07-13T17:44:16.9+02:00",
@@ -963,7 +963,7 @@ ex:act3_reproject a prov:Activity ;
     dcterms:isPartOf "ex:workflowRun" ;
     prov:endedAtTime "2026-07-13T17:44:06.400000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:44:05.900000+02:00"^^xsd:dateTime ;
-    prov:type <https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA018> ;
+    prov:type <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA018> ;
     prov:used ex:rawOsmData ;
     prov:wasAssociatedWith ex:gisPipelineEngine .
 
@@ -972,7 +972,7 @@ ex:act4_filterAreas a prov:Activity ;
     dcterms:isPartOf "ex:workflowRun" ;
     prov:endedAtTime "2026-07-13T17:44:06.700000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:44:06.500000+02:00"^^xsd:dateTime ;
-    prov:type <https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA020> ;
+    prov:type <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA020> ;
     prov:used ex:processInputs,
         ex:reprojectedData ;
     prov:wasAssociatedWith ex:gisPipelineEngine .
@@ -982,7 +982,7 @@ ex:act5_buffer300m a prov:Activity ;
     dcterms:isPartOf "ex:workflowRun" ;
     prov:endedAtTime "2026-07-13T17:44:09.100000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:44:06.800000+02:00"^^xsd:dateTime ;
-    prov:type <https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA001> ;
+    prov:type <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:ogcactivites/items/demo:GA001> ;
     prov:used ex:filteredCoolSpots,
         ex:processInputs ;
     prov:wasAssociatedWith ex:gisPipelineEngine .
@@ -992,7 +992,7 @@ ex:act6_bufferMultiLevel a prov:Activity ;
     dcterms:isPartOf "ex:workflowRun" ;
     prov:endedAtTime "2026-07-13T17:44:15.900000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:44:09.200000+02:00"^^xsd:dateTime ;
-    prov:type <https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA001> ;
+    prov:type <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:ogcactivites/items/demo:GA001> ;
     prov:used ex:filteredCoolSpots,
         ex:processInputs ;
     prov:wasAssociatedWith ex:gisPipelineEngine .
@@ -1002,7 +1002,7 @@ ex:act7_calcDifferences a prov:Activity ;
     dcterms:isPartOf "ex:workflowRun" ;
     prov:endedAtTime "2026-07-13T17:44:16.900000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:44:16+02:00"^^xsd:dateTime ;
-    prov:type <https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA019> ;
+    prov:type <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA019> ;
     prov:used ex:cityBoundary,
         ex:multiLevelBuffers,
         ex:primaryBuffers ;

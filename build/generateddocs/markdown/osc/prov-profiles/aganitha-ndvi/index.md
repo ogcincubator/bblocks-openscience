@@ -258,11 +258,11 @@ The companion to the vegetation index step, and the piece that closes the gap in
     rdfs:label "Compute soil moisture deficit index" ;
     prov:generated <urn:aganitha:dataset:smdi> ;
     prov:qualifiedUsage [ a prov:Usage ;
-            prov:entity <urn:aganitha:reference:soil-moisture-extrema> ;
-            prov:hadRole <https://example.org/ospd/roles/normalisationReference> ],
-        [ a prov:Usage ;
             prov:entity <urn:aganitha:dataset:mandal-ndvi-sm-merged> ;
-            prov:hadRole <https://example.org/ospd/roles/observedIndex> ] ;
+            prov:hadRole <https://example.org/ospd/roles/observedIndex> ],
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:reference:soil-moisture-extrema> ;
+            prov:hadRole <https://example.org/ospd/roles/normalisationReference> ] ;
     prov:type <https://example.org/ospd/process-types/index-normalisation> ;
     prov:used <urn:aganitha:dataset:mandal-ndvi-sm-merged>,
         <urn:aganitha:reference:soil-moisture-extrema> .
@@ -636,17 +636,17 @@ This is the case the profile is least obviously shaped for, and the reason it is
     prov:generated <urn:aganitha:model:drought-classifier>,
         <urn:aganitha:report:validation-metrics> ;
     prov:qualifiedUsage [ a prov:Usage ;
-            prov:entity <urn:aganitha:partition:district-folds> ;
-            prov:hadRole <https://example.org/ospd/roles/validationPartition> ],
+            prov:entity <urn:aganitha:dataset:drought-classes> ;
+            prov:hadRole <https://example.org/ospd/roles/trainingTarget> ],
         [ a prov:Usage ;
             prov:entity <urn:aganitha:dataset:cdsi> ;
             prov:hadRole <https://example.org/ospd/roles/trainingFeatures> ],
         [ a prov:Usage ;
-            prov:entity <urn:aganitha:dataset:drought-classes> ;
-            prov:hadRole <https://example.org/ospd/roles/trainingTarget> ],
-        [ a prov:Usage ;
             prov:entity <urn:aganitha:dataset:spi> ;
-            prov:hadRole <https://example.org/ospd/roles/trainingFeatures> ] ;
+            prov:hadRole <https://example.org/ospd/roles/trainingFeatures> ],
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:partition:district-folds> ;
+            prov:hadRole <https://example.org/ospd/roles/validationPartition> ] ;
     prov:type <https://example.org/ospd/process-types/model-training> ;
     prov:used <urn:aganitha:dataset:cdsi>,
         <urn:aganitha:dataset:drought-classes>,

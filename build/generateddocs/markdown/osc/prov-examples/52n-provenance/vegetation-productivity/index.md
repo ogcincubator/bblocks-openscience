@@ -155,7 +155,7 @@ process types is still to be done, and can only be checked against the register.
     "provType": "Activity",
     "activityType": [
       "openeo:BatchJob",
-      "https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA016"
+      "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA016"
     ],
     "rdfs:label": "Step 1: Best available pixel composites",
     "startedAtTime": "2026-08-21T10:00:00Z",
@@ -179,7 +179,7 @@ process types is still to be done, and can only be checked against the register.
   {
     "id": "ex:step2_seasonal_sen_slope",
     "provType": "Activity",
-    "activityType": "https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA017",
+    "activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA017",
     "rdfs:label": "Step 2: Seasonal Sen slope trend analysis",
     "startedAtTime": "2026-08-21T10:06:00Z",
     "endedAtTime": "2026-08-21T10:12:00Z",
@@ -400,7 +400,7 @@ process types is still to be done, and can only be checked against the register.
       "provType": "Activity",
       "activityType": [
         "openeo:BatchJob",
-        "https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA016"
+        "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA016"
       ],
       "rdfs:label": "Step 1: Best available pixel composites",
       "startedAtTime": "2026-08-21T10:00:00Z",
@@ -443,7 +443,7 @@ process types is still to be done, and can only be checked against the register.
     {
       "id": "ex:step2_seasonal_sen_slope",
       "provType": "Activity",
-      "activityType": "https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA017",
+      "activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA017",
       "rdfs:label": "Step 2: Seasonal Sen slope trend analysis",
       "startedAtTime": "2026-08-21T10:06:00Z",
       "endedAtTime": "2026-08-21T10:12:00Z",
@@ -730,7 +730,7 @@ ex:step2_seasonal_sen_slope a prov:Activity ;
     prov:qualifiedAssociation [ prov:agent <https://orcid.org/0000-0003-4718-2959> ;
             prov:hadPlan ex:sen_slope_algorithm ] ;
     prov:startedAtTime "2026-08-21T10:06:00+00:00"^^xsd:dateTime ;
-    prov:type <https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA017> ;
+    prov:type <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA017> ;
     prov:used <https://example.org/stac/collections/bap>,
         ex:sen_slope_parameters ;
     prov:wasInformedBy ex:step1_bap .
@@ -763,11 +763,11 @@ ex:bap_process_graph a prov:Entity,
 ex:step1_bap a prov:Activity ;
     rdfs:label "Step 1: Best available pixel composites" ;
     prov:endedAtTime "2026-08-21T18:05:00+00:00"^^xsd:dateTime ;
-    prov:qualifiedAssociation [ prov:agent ex:openeo_client ;
+    prov:qualifiedAssociation [ prov:agent ex:openeo_backend ;
+            prov:hadPlan ex:bap_process_graph ],
+        [ prov:agent ex:openeo_client ;
             prov:hadPlan ex:bap_process_graph ],
         [ prov:agent <https://orcid.org/0000-0003-4718-2959> ;
-            prov:hadPlan ex:bap_process_graph ],
-        [ prov:agent ex:openeo_backend ;
             prov:hadPlan ex:bap_process_graph ] ;
     prov:qualifiedUsage [ prov:entity <https://openeo.example.org/collections/SENTINEL2_L2> ;
             ex:bands "B04",
@@ -777,8 +777,8 @@ ex:step1_bap a prov:Activity ;
             ex:endDate "2025-12-31" ;
             ex:startDate "2021-01-01" ] ;
     prov:startedAtTime "2026-08-21T10:00:00+00:00"^^xsd:dateTime ;
-    prov:type <https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA016>,
-        openeo:BatchJob ;
+    prov:type openeo:BatchJob,
+        <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA016> ;
     prov:used <https://openeo.example.org/collections/SENTINEL2_L2> ;
     openeo:jobId "j-2608251100" .
 
