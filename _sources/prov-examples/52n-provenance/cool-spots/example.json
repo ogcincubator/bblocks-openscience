@@ -16,7 +16,6 @@
       300
     ],
     "generatedAtTime": "2026-07-13T17:43:40+02:00",
-    "wasGeneratedBy": "ex:act1_defineInputs",
     "wasAttributedTo": "https://orcid.org/0000-0003-4718-2959"
   },
   {
@@ -50,7 +49,7 @@
     "ex:crs": "EPSG:4326",
     "hadPrimarySource": "ex:openStreetMap",
     "generatedAtTime": "2026-07-13T17:43:41.9+02:00",
-    "wasGeneratedBy": "ex:act2a_geocodeCity"
+    "wasGeneratedBy": "ex:act1_geocodeCity"
   },
   {
     "id": "ex:rawOsmData",
@@ -260,15 +259,6 @@
   },
 
   {
-    "id": "ex:act1_defineInputs",
-    "provType": "Activity",
-    "activityType": "ex:defineInputs",
-    "rdfs:label": "Step 1: Define Process Inputs",
-    "startedAtTime": "2026-07-13T17:35:00+02:00",
-    "endedAtTime": "2026-07-13T17:43:40+02:00",
-    "wasAssociatedWith": "https://orcid.org/0000-0003-4718-2959"
-  },
-  {
     "id": "ex:workflowRun",
     "provType": "Activity",
     "activityType": "acttype:WorkflowRun",
@@ -276,6 +266,7 @@
     "startedAtTime": "2026-07-13T17:43:41.2+02:00",
     "endedAtTime": "2026-07-13T17:44:17.3+02:00",
     "used": [
+      "ex:processInputs",
       "ex:nominatimApi",
       "ex:overpassApi"
     ],
@@ -289,10 +280,10 @@
     }
   },
   {
-    "id": "ex:act2a_geocodeCity",
+    "id": "ex:act1_geocodeCity",
     "provType": "Activity",
     "activityType": "ex:geocodeCity",
-    "rdfs:label": "Step 2a: Geocode city boundary",
+    "rdfs:label": "Step 1: Geocode city boundary",
     "startedAtTime": "2026-07-13T17:43:41.2+02:00",
     "endedAtTime": "2026-07-13T17:43:41.9+02:00",
     "used": [

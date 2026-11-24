@@ -11,8 +11,8 @@ so every activity must be a [Registered Processing Step](bblock://ogc.osc.prov-p
 its `activityType` must give a process type, from a governed register, more specific than `prov:Activity`, and it must have an output.
 Each node gives its PROV class in `provType` (`Entity`, `Activity`, `Agent`), and `entityType`,
 `activityType` and `agentType` carry only the specific types. Steps not yet mapped to a registered
-process type use local CURIEs derived from their names (`ex:defineInputs`, `ex:geocodeCity`,
-`ex:acquireData`, `ex:exportOutputs`); the schema accepts these, but mapping them to registered
+process type use local CURIEs derived from their names (`ex:geocodeCity`, `ex:acquireData`,
+`ex:exportOutputs`); the schema accepts these, but mapping them to registered
 process types is still to be done.
 
 The workflow run, its plan and its runner are typed with the generic workflow classes of the
@@ -22,5 +22,7 @@ The workflow run, its plan and its runner are typed with the generic workflow cl
 
 The workflow run reports its own inputs and output by reference only: it uses the inputs of
 each step that no other step generated, and generates the output of the last step (`ex:finalOutputPackage`, whose members are the exported files).
-The example conforms; the SHACL shapes warn only that `ex:act1_defineInputs`, which creates the
-process inputs from parameters, uses no entity.
+The workflow parameters (`ex:processInputs`) are set by the analyst before the run, so they are
+not modelled as a processing step: they are an input of the run, attributed to the analyst.
+Each step points to the run it belongs to with `isPartOf`.
+The example conforms.
