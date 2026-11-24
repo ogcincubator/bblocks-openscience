@@ -46,7 +46,7 @@ The role an input plays is expressed with `qualifiedUsage` and `hadRole`.
 - [Workflow Provenance Graph](bblock://ogc.osc.prov-profiles.workflow-graph): a whole workflow run
   whose activities are all registered processing steps.
 - Platform-specific profiles add stricter rules, e.g.
-  [Geospatial Processing Step Provenance](bblock://ogc.osc.prov-profiles.aganitha-ndvi).
+  [Aganitha Drought Pipeline Provenance](bblock://ogc.osc.prov-profiles.aganitha-drought).
 
 Labels are optional on the step itself: an activity records one run. The
 process type is a reusable description and is labelled in its register.

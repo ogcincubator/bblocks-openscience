@@ -86,3 +86,13 @@
   snippets:
     - language: json
       ref: examples/minimal-step.json
+
+- title: Whole pipeline run
+  content: >-
+    The run as a single activity, typed as a workflow run. It lists by
+    identifier the seven inputs that no step generated and the two final
+    outputs, which is what the step records give when the chain is walked
+    backwards. Roles separate data inputs from reference inputs.
+  snippets:
+    - language: json
+      ref: examples/workflow-run.json

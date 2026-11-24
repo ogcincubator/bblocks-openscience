@@ -1,0 +1,57 @@
+{
+  "id": "urn:aganitha:run:drought-pipeline:20260807T060000Z",
+  "provType": "Activity",
+  "activityType": "https://w3id.org/ogc/rim/activity-type/WorkflowRun",
+  "label": "Anvikshana drought pipeline run, 7 August 2026",
+  "startedAtTime": "2026-08-07T06:00:00Z",
+  "used": [
+    "urn:aganitha:source:dicra-mandal-archive",
+    "urn:aganitha:dataset:precipitation-series",
+    "urn:aganitha:reference:ndvi-extrema",
+    "urn:aganitha:reference:soil-moisture-extrema",
+    "urn:aganitha:dataset:precipitation-reference-period",
+    "urn:aganitha:scheme:drought-severity-classes",
+    "urn:aganitha:partition:district-folds"
+  ],
+  "generated": [
+    "urn:aganitha:dataset:drought-projection",
+    "urn:aganitha:report:validation-metrics"
+  ],
+  "qualifiedUsage": [
+    {
+      "@type": "prov:Usage",
+      "entity": "urn:aganitha:source:dicra-mandal-archive",
+      "hadRole": "https://example.org/ospd/roles/sourceArchive"
+    },
+    {
+      "@type": "prov:Usage",
+      "entity": "urn:aganitha:dataset:precipitation-series",
+      "hadRole": "https://example.org/ospd/roles/inputSeries"
+    },
+    {
+      "@type": "prov:Usage",
+      "entity": "urn:aganitha:reference:ndvi-extrema",
+      "hadRole": "https://example.org/ospd/roles/normalisationReference"
+    },
+    {
+      "@type": "prov:Usage",
+      "entity": "urn:aganitha:reference:soil-moisture-extrema",
+      "hadRole": "https://example.org/ospd/roles/normalisationReference"
+    },
+    {
+      "@type": "prov:Usage",
+      "entity": "urn:aganitha:dataset:precipitation-reference-period",
+      "hadRole": "https://example.org/ospd/roles/fittingReference"
+    },
+    {
+      "@type": "prov:Usage",
+      "entity": "urn:aganitha:scheme:drought-severity-classes",
+      "hadRole": "https://example.org/ospd/roles/classificationScheme"
+    },
+    {
+      "@type": "prov:Usage",
+      "entity": "urn:aganitha:partition:district-folds",
+      "hadRole": "https://example.org/ospd/roles/validationPartition"
+    }
+  ]
+}
