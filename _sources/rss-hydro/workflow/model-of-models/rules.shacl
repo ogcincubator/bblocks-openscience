@@ -3,38 +3,54 @@
 @prefix sh:   <http://www.w3.org/ns/shacl#> .
 @base <https://rss-hydro.lu/ns/mom/rules/> .
 
+# Process types and mom:HazardScore are given in activityType / entityType, which map to
+# prov:type (not rdf:type). The shapes therefore select their focus nodes by prov:type value:
+# each shape targets every node with a prov:type and only constrains those with the relevant
+# type (the sh:or guard), and type tests use sh:hasValue on prov:type instead of sh:class.
+
 <#hazardAccumulationUsedAggregate>
     a sh:NodeShape ;
-    sh:targetClass <https://example.org/ospd/process-types/WeightedScoringAndClassification> ;
+    sh:targetSubjectsOf prov:type ;
     sh:message "Weighted scoring must use a zonal statistics output" ;
-    sh:property [
-        sh:path prov:used ;
-        sh:qualifiedValueShape [
-            sh:property [ sh:path prov:wasGeneratedBy ; sh:class <https://example.org/ospd/process-types/ZonalStatistics> ; sh:minCount 1 ]
-        ] ;
-        sh:qualifiedMinCount 1 ;
-    ] .
+    sh:or (
+        [ sh:not [ sh:property [ sh:path prov:type ;
+                                 sh:hasValue <https://example.org/ospd/process-types/WeightedScoringAndClassification> ] ] ]
+        [ sh:property [
+            sh:path prov:used ;
+            sh:qualifiedValueShape [
+                sh:property [ sh:path ( prov:wasGeneratedBy prov:type ) ;
+                              sh:hasValue <https://example.org/ospd/process-types/ZonalStatistics> ]
+            ] ;
+            sh:qualifiedMinCount 1 ;
+        ] ]
+    ) .
 
 <#finalAlertUsedAccumulatedScore>
     a sh:NodeShape ;
-    sh:targetClass <https://example.org/ospd/process-types/ScoringAndProgressTracking> ;
+    sh:targetSubjectsOf prov:type ;
     sh:message "Progress tracking must use a hazard score of a weighted scoring" ;
-    sh:property [
-        sh:path prov:used ;
-        sh:qualifiedValueShape [
-            sh:class mom:HazardScore ;
-            sh:property [ sh:path prov:wasGeneratedBy ; sh:class <https://example.org/ospd/process-types/WeightedScoringAndClassification> ; sh:minCount 1 ]
-        ] ;
-        sh:qualifiedMinCount 1 ;
-    ] .
+    sh:or (
+        [ sh:not [ sh:property [ sh:path prov:type ;
+                                 sh:hasValue <https://example.org/ospd/process-types/ScoringAndProgressTracking> ] ] ]
+        [ sh:property [
+            sh:path prov:used ;
+            sh:qualifiedValueShape [
+                sh:property [ sh:path prov:type ; sh:hasValue mom:HazardScore ] ;
+                sh:property [ sh:path ( prov:wasGeneratedBy prov:type ) ;
+                              sh:hasValue <https://example.org/ospd/process-types/WeightedScoringAndClassification> ]
+            ] ;
+            sh:qualifiedMinCount 1 ;
+        ] ]
+    ) .
 
 <#hazardScoreDerivedFromDatedData>
     a sh:NodeShape ;
-    sh:targetClass mom:HazardScore ;
+    sh:targetSubjectsOf prov:type ;
     sh:sparql [
         sh:message "Hazard score must derive from model data with a mom:dataTime" ;
         sh:select """
             SELECT $this WHERE {
+                $this <http://www.w3.org/ns/prov#type> <https://rss-hydro.lu/ns/mom/HazardScore> .
                 FILTER NOT EXISTS {
                     $this <http://www.w3.org/ns/prov#wasDerivedFrom>+ ?data .
                     ?data <https://rss-hydro.lu/ns/mom/dataType> ?type ;

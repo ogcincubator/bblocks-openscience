@@ -1,0 +1,45 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix wg: <https://w3id.org/ogc/osc/prov-profiles/workflow-graph#> .
+
+# Type uplift rule (SHACL-AF), applied as a semantic-uplift step before validation.
+#
+# The PROV building blocks map entityType / activityType / agentType to prov:type, and only
+# provType to rdf:type. For an allow-list of classes, this rule also asserts the prov:type value
+# as rdf:type, so that shapes using sh:targetClass / sh:class (e.g. the label shapes for plans
+# and agents) apply:
+#   - the PROV subclasses: prov:Plan, prov:Bundle, prov:Collection, prov:EmptyCollection,
+#     prov:Person, prov:Organization, prov:SoftwareAgent;
+#   - the generic workflow classes of the activity-type register: acttype:WorkflowPlan,
+#     acttype:WorkflowRun, acttype:WorkflowRunner.
+#
+# Process types (registered activity types) are deliberately NOT copied: they stay prov:type
+# values. Asserting them as rdf:type would make every run an instance of a register item class
+# (acttype:ActivityType is a subclass of rim:RegisterItem), so register-item rules would apply
+# to runs. Shapes about process types should test prov:type values instead.
+
+wg:TypeFromProvType
+  a sh:NodeShape ;
+  sh:targetSubjectsOf prov:type ;
+  sh:rule [
+    a sh:SPARQLRule ;
+    sh:order 0 ;
+    sh:construct """
+      CONSTRUCT { $this a ?type . }
+      WHERE {
+        $this <http://www.w3.org/ns/prov#type> ?type .
+        VALUES ?type {
+          <http://www.w3.org/ns/prov#Plan>
+          <http://www.w3.org/ns/prov#Bundle>
+          <http://www.w3.org/ns/prov#Collection>
+          <http://www.w3.org/ns/prov#EmptyCollection>
+          <http://www.w3.org/ns/prov#Person>
+          <http://www.w3.org/ns/prov#Organization>
+          <http://www.w3.org/ns/prov#SoftwareAgent>
+          <https://w3id.org/ogc/rim/activity-type/WorkflowPlan>
+          <https://w3id.org/ogc/rim/activity-type/WorkflowRun>
+          <https://w3id.org/ogc/rim/activity-type/WorkflowRunner>
+        }
+      }
+    """ ;
+  ] .

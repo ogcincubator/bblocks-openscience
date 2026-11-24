@@ -4,9 +4,9 @@ Provenance of three activities of the RSS-Hydro Model of Models (MoM) flood work
 
 | Activity | Activity type | Uses | Generates |
 |---|---|---|---|
-| Per-watershed aggregation | `ZonalStatistics` | gridded source file, watershed shapefile, parameters | per-watershed aggregates |
-| Hazard score accumulation | `WeightedScoringAndClassification` | aggregates, previous summary, extra model inputs (optional), static tables, parameters | summary with duration, hazard score (`Final_Attributes`), `Attributes_Clean` |
-| Final alert | `ScoringAndProgressTracking` | hazard score of the accumulation, hazard scores of any other sources, previous final alert (optional), admin table | final alert with status per watershed |
+| Per-watershed aggregation | `pt:ZonalStatistics` | gridded source file, watershed shapefile, parameters | per-watershed aggregates |
+| Hazard score accumulation | `pt:WeightedScoringAndClassification` | aggregates, previous summary, extra model inputs (optional), static tables, parameters | summary with duration, hazard score (`Final_Attributes`), `Attributes_Clean` |
+| Final alert | `pt:ScoringAndProgressTracking` | hazard score of the accumulation, hazard scores of any other sources, previous final alert (optional), admin table | final alert with status per watershed |
 
 Each activity is `dcterms:isPartOf` one `mom:WorkflowRun` activity. In the examples, GFMS is the aggregated source and GloFAS an extra model input.
 

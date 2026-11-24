@@ -35,3 +35,17 @@ specific types, as IRIs or CURIEs.
 
 Outputs are commonly stated from the entity side (`wasGeneratedBy`); the
 processing-step SHACL shapes accept either direction.
+
+### Type uplift
+
+The PROV building blocks map `entityType`, `activityType` and `agentType` to `prov:type`; only
+`provType` gives `rdf:type`. Before validation, this block's uplift rule (`uplift/types.shacl`)
+also asserts `rdf:type` for an allow-list of classes: the PROV subclasses (`prov:Plan`,
+`prov:Bundle`, `prov:Collection`, `prov:EmptyCollection`, `prov:Person`, `prov:Organization`,
+`prov:SoftwareAgent`) and the activity-type register's `acttype:WorkflowPlan`,
+`acttype:WorkflowRun` and `acttype:WorkflowRunner`. This lets the label shapes target plans and
+agents by class.
+
+Process types are not copied: they remain `prov:type` values, so that a run does not become an
+instance of a register item class. Shapes about process types should select nodes by their
+`prov:type` value.

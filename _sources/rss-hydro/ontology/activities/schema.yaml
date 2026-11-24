@@ -7,7 +7,7 @@ allOf:
   - if:
       properties:
         activityType:
-          const: ZonalStatistics
+          enum: [pt:ZonalStatistics, https://example.org/ospd/process-types/ZonalStatistics]
     then:
       properties:
         processType:
@@ -15,7 +15,7 @@ allOf:
   - if:
       properties:
         activityType:
-          const: WeightedScoringAndClassification
+          enum: [pt:WeightedScoringAndClassification, https://example.org/ospd/process-types/WeightedScoringAndClassification]
     then:
       properties:
         processType:
@@ -23,7 +23,7 @@ allOf:
   - if:
       properties:
         activityType:
-          const: ScoringAndProgressTracking
+          enum: [pt:ScoringAndProgressTracking, https://example.org/ospd/process-types/ScoringAndProgressTracking]
     then:
       properties:
         processType:
@@ -33,4 +33,11 @@ $defs:
     required: [activityType]
     properties:
       activityType:
-        enum: [ZonalStatistics, WeightedScoringAndClassification, ScoringAndProgressTracking]
+        description: One of the MoM process types, as a pt CURIE or a full IRI.
+        enum:
+          - pt:ZonalStatistics
+          - https://example.org/ospd/process-types/ZonalStatistics
+          - pt:WeightedScoringAndClassification
+          - https://example.org/ospd/process-types/WeightedScoringAndClassification
+          - pt:ScoringAndProgressTracking
+          - https://example.org/ospd/process-types/ScoringAndProgressTracking

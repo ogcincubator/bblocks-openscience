@@ -1,3 +1,9 @@
 additionalSteps:
+  # Both rules are inheritable: blocks that profile workflow-graph opt in with
+  # "inheritedPostSteps" in their own semantic-uplift.yaml.
+  - type: shacl
+    ref: uplift/types.shacl
+    inheritable: true
   - type: shacl
     ref: uplift/labels.shacl
+    inheritable: true

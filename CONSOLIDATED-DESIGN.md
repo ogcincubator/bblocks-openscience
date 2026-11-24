@@ -4,8 +4,8 @@ This note describes the consolidated design for workflow and processing-step pro
 register, and how each contributed building block now fits it. Per-contributor review actions
 are in [REVIEW-TASK.md](REVIEW-TASK.md).
 
-Status: proposed, for contributor review. Validation results are from local JSON Schema and SHACL
-checks; a full `bblocks-postprocess` build has not yet been run.
+Status: proposed, for contributor review. Validation results are from a full local
+`bblocks-postprocess` build of this register (all 25 tests pass).
 
 ---
 
@@ -31,8 +31,11 @@ _sources/
   prov-examples/                     contributed examples built on the profiles
     52n-provenance/cool-spots/                 (profile of workflow-graph)
     52n-provenance/vegetation-productivity/    (profile of workflow-graph)
-    geodcat-stac-earthcode/{common,experiments,products,workflows}/
 ```
+
+The EarthCODE blocks are in a separate register,
+[bblocks-esa-earthcode](https://github.com/ogcincubator/bblocks-esa-earthcode)
+(`ogc.esa.earthcode.{common,experiments,products,workflows}`), which imports this one.
 
 Identifiers follow the paths with the prefix `ogc.osc.`, e.g.
 `ogc.osc.prov-profiles.processing-step`.
@@ -44,7 +47,7 @@ Identifiers follow the paths with the prefix `ogc.osc.`, e.g.
 | PROV | `ogc.ogc-utils.prov`, `prov-entity`, `prov-activity`, `prov-agent` | PROV structure; `provType` / `entityType` / `activityType` / `agentType` mapped to `@type`; all PROV terms; prefixes `prov`, `rdfs`, `dct`, `xsd`, `rdf` |
 | Step | `prov-profiles.processing-step` | every step has an `id` and an `activityType` naming a specific (registered) process type; `label` → `rdfs:label`; SHACL: a step must have an output, should have an input |
 | Workflow | `prov-profiles.workflow-graph` | a run as a graph (array) or a `prov:Bundle`; every activity, at any depth, is a processing step; labels on plans and agents (SHACL warning); label-generation uplift rule; prefixes `dcterms`, `skos`, `acttype` |
-| Contributor | `aganitha-ndvi`, `hartis-provenance/cvi-workflow`, `52n-provenance/*`, `geodcat-stac-earthcode/*` | only contributor-specific properties, constraints and prefixes |
+| Contributor | `aganitha-ndvi`, `hartis-provenance/cvi-workflow`, `52n-provenance/*`, EarthCODE (`ogc.esa.earthcode.*`) | only contributor-specific properties, constraints and prefixes |
 
 ## 4. Systematic deduplication
 
@@ -87,10 +90,24 @@ What each block now declares is listed in §10.
 - **`provType`** gives the PROV class: `Entity`, `Activity` or `Agent`.
 - **`entityType` / `activityType` / `agentType`** give only the specific types, as IRIs or CURIEs
   (a single value or an array). They do not repeat `prov:Entity`, `prov:Activity` or `prov:Agent`.
+  Values are full IRIs or CURIEs (`prov:Person`, `pt:ZonalStatistics`), not bare terms: the PROV
+  context maps these properties with `"@type": "@id"`, so a bare term such as `ZonalStatistics`
+  would be read as a relative IRI rather than looked up in the context. (A profile could switch to
+  `"@type": "@vocab"`, but CURIEs keep the meaning visible in the data.)
 - **Process types**: a step's `activityType` includes a type more specific than `prov:Activity`,
   normally a register item IRI (e.g. an OSPD GeoACS item). Local CURIEs (`ex:...`) are accepted as
   an interim measure; register membership will be checked by a separate validator once the
   activity-type register is live.
+- **RDF mapping**: `provType` maps to `rdf:type`; `entityType`, `activityType` and `agentType` map to
+  `prov:type` (as in the PROV building blocks). The workflow-graph uplift rule
+  (`uplift/types.shacl`) also asserts `rdf:type` for an allow-list of classes: the PROV subclasses
+  (`prov:Plan`, `prov:Bundle`, `prov:Collection`, `prov:EmptyCollection`, `prov:Person`,
+  `prov:Organization`, `prov:SoftwareAgent`) and `acttype:WorkflowPlan` / `WorkflowRun` /
+  `WorkflowRunner`, so shapes can use `sh:targetClass` for them.
+- **Process types stay `prov:type` values.** Registered activity types are subclasses of
+  `acttype:ActivityType`, itself a `rim:RegisterItem`; asserting them as `rdf:type` would make every
+  run a register item. Shapes about process types select nodes by `prov:type` value (as in the
+  RSS-Hydro rules).
 
 ```json
 {
@@ -115,6 +132,10 @@ namespace `acttype: <https://w3id.org/ogc/rim/activity-type/>`) defines three ge
 A workflow run reports its own inputs and output by ID only. `used` lists the inputs of each step
 that no other step generated, and `generated` lists the output of the last step.
 
+### wf4ever (deprecated)
+
+OSPD 2025 identified the wf4ever vocabularies (`wfprov`, `wfdesc`, `wf4ever`) as a useful level of abstraction for workflow provenance, between generic PROV and platform-specific records. wf4ever is no longer maintained, so it is deprecated here: these building blocks no longer depend on the wf4ever building blocks, and the focus has moved to the simpler task of defining activity types in a governed register (the activity-type register), which are used to type PROV activities. wf4ever terms already used in the examples are kept, with their prefixes declared, but are not required.
+
 ## 7. Labels
 
 - Labels are optional on activities and on the bundle that holds a run: these record one run.
@@ -132,20 +153,21 @@ that no other step generated, and `generated` lists the output of the last step.
 |---|---|
 | Structure, required properties, a specific process type on every activity | JSON Schema |
 | A step has an output (violation) and an input (warning) | SHACL, processing-step |
-| Plans and agents are labelled (warning) | SHACL, workflow-graph, after the label uplift rule |
+| Plans and agents are labelled (warning) | SHACL, workflow-graph, after the type and label uplift rules (inherited by its profiles) |
 | The process type is a member of the register | future validator, against the activity-type register |
 
-## 9. Validation status (local checks)
+## 9. Validation status (local postprocessor build)
 
-| Block | JSON Schema | SHACL |
+| Block | Result | Notes |
 |---|---|---|
-| processing-step | pass | pass |
-| workflow-graph | pass | pass (the unlabelled-plan and unlabelled-agent tests give the intended warnings) |
-| aganitha-ndvi | pass | pass |
-| HARTIS cvi-workflow | pass | pass |
-| 52n cool-spots | pass | pass, 1 warning (`ex:act1_defineInputs` uses no entity) |
-| 52n vegetation-productivity | pass | pass, after the label uplift rule |
-| GeoDCAT/STAC | PROV parts pass the PROV schemas; full blocks not checked locally | not checked |
+| processing-step | pass (4/4) | |
+| workflow-graph | pass (8/8) | the unlabelled-plan and unlabelled-agent tests give the intended warnings |
+| aganitha-ndvi | pass (9/9) | |
+| HARTIS cvi-workflow | pass (3/3) | inherited type and label rules applied |
+| 52n cool-spots | pass (1/1) | 1 warning: `ex:act1_defineInputs` uses no entity; inherited rules applied |
+| 52n vegetation-productivity | pass (1/1) | agent labels generated from `dcterms:title` by the inherited label rule |
+| rss-hydro processing-activity, ontology/activities, model-of-models | pass (3/3, 2/2, 6/6) | negative tests fail for their intended reasons |
+| EarthCODE (separate register) | not built yet | PROV parts pass the PROV schemas locally |
 
 ## 10. What each block declares
 
@@ -163,7 +185,9 @@ that no other step generated, and `generated` lists the output of the last step.
   entity typed `prov:Bundle`); a recursive walk applying processing-step to every activity.
 - **Context**: prefixes `dcterms`, `skos`, `acttype`.
 - **SHACL**: `rdfs:label` on plans and agents (warning).
-- **Uplift**: `semantic-uplift.yaml` → `uplift/labels.shacl` (label generation).
+- **Uplift**: `semantic-uplift.yaml` → `uplift/types.shacl` (`rdf:type` for allow-listed
+  `prov:type` classes), then `uplift/labels.shacl` (label generation). Both are `inheritable`;
+  profiles opt in with `inheritedPostSteps: [ogc.osc.prov-profiles.workflow-graph]`.
 
 ### aganitha-ndvi
 
@@ -191,9 +215,10 @@ that no other step generated, and `generated` lists the output of the last step.
 - **Examples**: `provType` plus specific types; the run, the plan and the runner are typed with
   `acttype:` classes; the cool-spots run reports its external inputs and final output.
 
-### EarthCODE GeoDCAT/STAC
+### EarthCODE GeoDCAT/STAC (`bblocks-esa-earthcode`)
 
-- **Schemas**: they reference `prov-entity` and `wfprov.WorkflowRun` for their PROV parts.
+- **Schemas**: they reference `prov-entity` (products, workflows) and `prov-activity` (experiments) for
+  their PROV parts, applied only when `provType` is given.
 - **Context**: `acttype` prefix in experiments and workflows. These blocks do not build on
   workflow-graph, so they don't inherit it from there.
 - **Examples**: `provType` plus specific types; the run, the workflow plan and the engine are
@@ -206,15 +231,21 @@ that no other step generated, and `generated` lists the output of the last step.
 
 ## 11. Open questions
 
-1. Is a referenced block's `semantic-uplift.yaml` applied to dependent blocks, before SHACL
-   validation? If not, each dependent block must list the label rule itself.
-2. Is a referenced block's `context.jsonld` included when the reference is only inside `$defs`
-   (workflow-graph → processing-step)? If not, `label` must also be mapped in workflow-graph.
-3. Does the postprocessor treat SHACL warnings as passing?
-4. Should HARTIS's own predicates (`hartis:workflowDefinition`, `hartis:plan`) be replaced by
+1. Should HARTIS's own predicates (`hartis:workflowDefinition`, `hartis:plan`) be replaced by
    standard ones, e.g. `prov:hadPlan` via a qualified association?
-5. Which predicates should HARTIS use for the literals currently not mapped to RDF: `status`, `notes`,
+2. Which predicates should HARTIS use for the literals currently not mapped to RDF: `status`, `notes`,
    `path`, `format`, `source`, `sourceWorkflow`, `executionImage`, `sourceCode`?
-6. How should the interim `ex:` process types be mapped to registered types?
-7. How should step parameters (Aganitha `parameters`) be typed?
-8. Who publishes the `acttype:` namespace, so that the workflow classes resolve?
+3. How should the interim `ex:` process types be mapped to registered types?
+4. How should step parameters (Aganitha `parameters`) be typed?
+5. Who publishes the `acttype:` namespace, so that the workflow classes resolve?
+
+### Settled by a full build
+
+- **Uplift steps are not applied to dependent blocks by default.** A block's uplift steps run for its
+  own examples only. workflow-graph therefore marks its type and label rules `inheritable: true`, and
+  each block that profiles it opts in with `inheritedPostSteps` in its own `semantic-uplift.yaml`.
+  The inherited steps run before the block's own steps and before SHACL validation.
+- **Contexts are inherited through nested schema references**, including references inside `$defs`
+  (e.g. `label` from processing-step reaches workflow-graph; the rss-hydro `pt` prefix reaches
+  model-of-models).
+- **SHACL warnings do not fail validation**: blocks with only warnings pass.
