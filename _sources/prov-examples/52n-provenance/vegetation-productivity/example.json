@@ -3,25 +3,25 @@
     "id": "https://openeo.example.org/collections/SENTINEL2_L2",
     "provType": "Entity",
     "entityType": "prov:Collection",
-    "dcterms:title": "Sentinel-2 L2A surface reflectance",
-    "dcterms:description": "Copernicus Sentinel-2 MSI Level-2A bottom-of-atmosphere reflectance, atmospherically corrected with Sen2Cor and including the scene classification layer (SCL), as offered by the openEO backend.",
-    "dcterms:identifier": "SENTINEL2_L2",
-    "dcterms:publisher": "European Space Agency (ESA), Copernicus Programme",
-    "dcterms:license": "https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice",
+    "dct:title": "Sentinel-2 L2A surface reflectance",
+    "dct:description": "Copernicus Sentinel-2 MSI Level-2A bottom-of-atmosphere reflectance, atmospherically corrected with Sen2Cor and including the scene classification layer (SCL), as offered by the openEO backend.",
+    "dct:identifier": "SENTINEL2_L2",
+    "dct:publisher": "European Space Agency (ESA), Copernicus Programme",
+    "license": "https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice",
     "ex:mission": "Sentinel-2",
     "ex:instrument": "MSI",
     "ex:processingLevel": "L2A",
     "ex:spatialResolution": "10 m (B02, B03, B04, B08), 20 m (B05-B07, B8A, B11, B12, SCL), 60 m (B01, B09)",
     "ex:revisitTime": "5 days",
-    "rdfs:seeAlso": "https://documentation.dataspace.copernicus.eu/Data/SentinelMissions/Sentinel2.html"
+    "seeAlso": "https://documentation.dataspace.copernicus.eu/Data/SentinelMissions/Sentinel2.html"
   },
 
   {
     "id": "https://example.org/stac/collections/bap",
     "provType": "Entity",
     "entityType": "prov:Collection",
-    "dcterms:title": "Best available pixels from Sentinel-2 scenes over AOI",
-    "dcterms:conformsTo": "https://schemas.stacspec.org/v1.0.0/collection-spec/json-schema/collection.json",
+    "dct:title": "Best available pixels from Sentinel-2 scenes over AOI",
+    "conformsTo": "https://schemas.stacspec.org/v1.0.0/collection-spec/json-schema/collection.json",
     "hadMember": [
       "https://example.org/stac/collections/bap/items/Sakar_complete_months_2021_2025_2021_01_indices_savi",
       "https://example.org/stac/collections/bap/items/Sakar_complete_months_2021_2025_2021_02_indices_savi"
@@ -40,7 +40,7 @@
     "id": "ex:bap_process_graph",
     "provType": "Entity",
     "entityType": ["prov:Plan", "acttype:WorkflowPlan"],
-    "dcterms:title": "Best available pixel in timeseries over AOI",
+    "dct:title": "Best available pixel in timeseries over AOI",
     "openeo:processId": "bap"
   },
 
@@ -48,18 +48,18 @@
     "id": "ex:sen_slope_algorithm",
     "provType": "Entity",
     "entityType": ["prov:Plan", "schema:SoftwareSourceCode"],
-    "dcterms:title": "Seasonal Sen slope trend estimator",
+    "dct:title": "Seasonal Sen slope trend estimator",
     "schema:codeRepository": "https://github.com/example-org/seasonal-sen-slope",
     "schema:version": "1.2.0",
     "schema:programmingLanguage": "Python",
-    "rdfs:seeAlso": "https://en.wikipedia.org/wiki/Theil%E2%80%93Sen_estimator"
+    "seeAlso": "https://en.wikipedia.org/wiki/Theil%E2%80%93Sen_estimator"
   },
 
   {
     "id": "ex:sen_slope_parameters",
     "provType": "Entity",
     "entityType": "ex:ProcessInputs",
-    "dcterms:title": "Input parameters of the seasonal Sen slope analysis",
+    "dct:title": "Input parameters of the seasonal Sen slope analysis",
     "ex:vegetationIndex": "SAVI",
     "ex:saviSoilFactor": 0.5,
     "ex:startDate": "2021-01-01",
@@ -72,8 +72,8 @@
     "id": "ex:sen_slope_results",
     "provType": "Entity",
     "entityType": "prov:Collection",
-    "dcterms:title": "Seasonal Sen slope results (plain GeoTIFF)",
-    "dcterms:format": "image/tiff; application=geotiff",
+    "dct:title": "Seasonal Sen slope results (plain GeoTIFF)",
+    "dct:format": "image/tiff; application=geotiff",
     "hadMember": ["ex:DeltaIR_SAVI_tif", "ex:PercentChange_SAVI_tif"],
     "wasGeneratedBy": "ex:step2_seasonal_sen_slope",
     "generatedAtTime": "2026-08-21T10:12:00Z",
@@ -85,8 +85,8 @@
     "id": "ex:sen_slope_cogs",
     "provType": "Entity",
     "entityType": "prov:Collection",
-    "dcterms:title": "Seasonal Sen slope results (Cloud Optimized GeoTIFF)",
-    "dcterms:format": "image/tiff; application=geotiff; profile=cloud-optimized",
+    "dct:title": "Seasonal Sen slope results (Cloud Optimized GeoTIFF)",
+    "dct:format": "image/tiff; application=geotiff; profile=cloud-optimized",
     "hadMember": [
       "https://example.org/data/sen/DeltaIR_SAVI.tif",
       "https://example.org/data/sen/PercentChange_SAVI.tif"
@@ -101,8 +101,8 @@
     "id": "https://example.org/stac/collections/sen",
     "provType": "Entity",
     "entityType": "prov:Collection",
-    "dcterms:title": "Seasonal Sen Slope",
-    "dcterms:conformsTo": "https://schemas.stacspec.org/v1.0.0/collection-spec/json-schema/collection.json",
+    "dct:title": "Seasonal Sen Slope",
+    "conformsTo": "https://schemas.stacspec.org/v1.0.0/collection-spec/json-schema/collection.json",
     "hadMember": [
       "https://example.org/stac/collections/sen/items/DeltaIR_SAVI",
       "https://example.org/stac/collections/sen/items/PercentChange_SAVI"
@@ -199,7 +199,7 @@
     "id": "ex:openeo_client",
     "provType": "Agent",
     "agentType": ["prov:SoftwareAgent", "schema:SoftwareApplication"],
-    "dcterms:title": "openeo-python-client",
+    "dct:title": "openeo-python-client",
     "schema:softwareVersion": "0.31.0",
     "qualifiedDelegation": { "agent": "https://orcid.org/0000-0003-4718-2959", "hadActivity": "ex:step1_bap" }
   },
@@ -208,7 +208,7 @@
     "id": "ex:openeo_backend",
     "provType": "Agent",
     "agentType": ["prov:SoftwareAgent", "openeo:Backend", "acttype:WorkflowRunner"],
-    "dcterms:title": "openEO backend",
+    "dct:title": "openEO backend",
     "ex:backendUrl": "https://openeo.example.org",
     "qualifiedDelegation": { "agent": "ex:openeo_client", "hadActivity": "ex:step1_bap" }
   },
@@ -217,7 +217,7 @@
     "id": "ex:gdal",
     "provType": "Agent",
     "agentType": ["prov:SoftwareAgent", "schema:SoftwareApplication"],
-    "dcterms:title": "GDAL (COG driver)",
+    "dct:title": "GDAL (COG driver)",
     "schema:softwareVersion": "3.9.2",
     "actedOnBehalfOf": "https://orcid.org/0000-0003-4718-2959"
   },
@@ -226,7 +226,7 @@
     "id": "ex:pystac",
     "provType": "Agent",
     "agentType": ["prov:SoftwareAgent", "schema:SoftwareApplication"],
-    "dcterms:title": "PySTAC",
+    "dct:title": "PySTAC",
     "schema:softwareVersion": "1.10.1",
     "actedOnBehalfOf": "https://orcid.org/0000-0003-4718-2959"
   }
