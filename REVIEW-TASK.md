@@ -95,24 +95,24 @@ run-level `used` and `generated` by ID.
 
 ---
 
-## (Aganitha): `prov-profiles/aganitha-ndvi`
+## (Aganitha): `prov-profiles/aganitha-drought`
 
 **Your block now**
 
 | Aspect | Design | Rationale |
 |---|---|---|
-| Profile | `isProfileOf` processing-step (identifier `ogc.osc.prov-profiles.aganitha-ndvi`) | The generic step rules are shared with the other contributors |
+| Profile | `isProfileOf` processing-step (identifier `ogc.osc.prov-profiles.aganitha-drought`) | The generic step rules are shared with the other contributors |
 | Schema | `$ref` to processing-step, plus `used` / `generated` as required non-empty arrays of IDs, `qualifiedUsage` with `entity` and `hadRole`, and `parameters` | `id`, `label`, timestamps, `wasAssociatedWith` and the type binding are inherited |
 | Context | none of its own | `label` comes from processing-step, and the PROV terms and `@type` binding from the PROV context |
 | Typing | `provType: "Activity"` with `activityType` (the process type IRI) | Common convention |
-| Examples | 9 files under `examples/`, referenced from `examples.yaml` | Easier to maintain and reuse |
+| Examples | 10 files under `examples/` (nine steps plus a whole-run record), referenced from `examples.yaml` | Easier to maintain and reuse |
 
 **Questions**
 
 - Does anything external reference this block by an earlier identifier?
 - `parameters` is not mapped in the context. Do you prefer coarse process types with parameters,
   or parameterised subtypes?
-- Is `aganitha-ndvi` the right block name, given the pipeline covers drought indices beyond NDVI?
+- Block name: renamed from `aganitha-ndvi` to `aganitha-drought` (resolved).
 
 **Code updates suggested**: emit `provType` with `activityType` for each step.
 

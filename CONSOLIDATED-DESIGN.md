@@ -26,7 +26,7 @@ _sources/
   prov-profiles/                     shared profiles and contributor profiles
     processing-step/                 Registered Processing Step   (profile of prov-activity)
     workflow-graph/                  Workflow Provenance Graph    (profile of prov)
-    aganitha-ndvi/                   Aganitha drought pipeline    (profile of processing-step)
+    aganitha-drought/                   Aganitha drought pipeline    (profile of processing-step)
     hartis-provenance/cvi-workflow/  HARTIS CVI workflow          (profile of workflow-graph)
   prov-examples/                     contributed examples built on the profiles
     52n-provenance/cool-spots/                 (profile of workflow-graph)
@@ -47,7 +47,7 @@ Identifiers follow the paths with the prefix `ogc.osc.`, e.g.
 | PROV | `ogc.ogc-utils.prov`, `prov-entity`, `prov-activity`, `prov-agent` | PROV structure; `provType` / `entityType` / `activityType` / `agentType` mapped to `@type`; all PROV terms; prefixes `prov`, `rdfs`, `dct`, `xsd`, `rdf` |
 | Step | `prov-profiles.processing-step` | every step has an `id` and an `activityType` naming a specific (registered) process type; `label` → `rdfs:label`; SHACL: a step must have an output, should have an input |
 | Workflow | `prov-profiles.workflow-graph` | a run as a graph (array) or a `prov:Bundle`; every activity, at any depth, is a processing step; labels on plans and agents (SHACL warning); label-generation uplift rule; prefixes `dcterms`, `skos`, `acttype` |
-| Contributor | `aganitha-ndvi`, `hartis-provenance/cvi-workflow`, `52n-provenance/*`, EarthCODE (`ogc.esa.earthcode.*`) | only contributor-specific properties, constraints and prefixes |
+| Contributor | `aganitha-drought`, `hartis-provenance/cvi-workflow`, `52n-provenance/*`, EarthCODE (`ogc.esa.earthcode.*`) | only contributor-specific properties, constraints and prefixes |
 
 ## 4. Systematic deduplication
 
@@ -167,7 +167,7 @@ OSPD 2025 identified the wf4ever vocabularies (`wfprov`, `wfdesc`, `wf4ever`) as
 |---|---|---|
 | processing-step | pass (4/4) | |
 | workflow-graph | pass (8/8) | the unlabelled-plan and unlabelled-agent tests give the intended warnings |
-| aganitha-ndvi | pass (9/9) | |
+| aganitha-drought | pass (9/9); whole-run example added, to be confirmed in the build | |
 | HARTIS cvi-workflow | pass (3/3) | inherited type and label rules applied |
 | 52n cool-spots | pass (1/1) | 1 warning: `ex:act1_defineInputs` uses no entity; inherited rules applied |
 | 52n vegetation-productivity | pass (1/1) | agent labels generated from `dcterms:title` by the inherited label rule |
@@ -194,12 +194,12 @@ OSPD 2025 identified the wf4ever vocabularies (`wfprov`, `wfdesc`, `wf4ever`) as
   `prov:type` classes), then `uplift/labels.shacl` (label generation). Both are `inheritable`;
   profiles opt in with `inheritedPostSteps: [ogc.osc.prov-profiles.workflow-graph]`.
 
-### aganitha-ndvi
+### aganitha-drought
 
 - **Schema**: `$ref` to processing-step, plus `used` / `generated` as required non-empty arrays of
   IDs, `qualifiedUsage` with `entity` and `hadRole`, and `parameters`.
 - **Context**: none of its own.
-- **Examples**: 9 files under `examples/`; steps use `provType: "Activity"` and `activityType`.
+- **Examples**: 10 files under `examples/`: nine steps, which use `provType: "Activity"` and `activityType`, and a whole-run record typed `acttype:WorkflowRun` that lists the inputs no step generated and the final outputs.
 
 ### HARTIS cvi-workflow
 
