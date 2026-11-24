@@ -1,8 +1,7 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<urn:aganitha:step:vci:20260807T061000Z> a prov:Activity,
-        <https://example.org/ospd/process-types/index-normalisation> ;
+<urn:aganitha:step:vci:20260807T061000Z> a prov:Activity ;
     rdfs:label "Compute vegetation condition index from NDVI" ;
     prov:generated <urn:aganitha:dataset:vci> ;
     prov:qualifiedUsage [ a prov:Usage ;
@@ -11,6 +10,7 @@
         [ a prov:Usage ;
             prov:entity <urn:aganitha:reference:ndvi-extrema> ;
             prov:hadRole <https://example.org/ospd/roles/normalisationReference> ] ;
+    prov:type <https://example.org/ospd/process-types/index-normalisation> ;
     prov:used <urn:aganitha:dataset:mandal-ndvi-sm-merged>,
         <urn:aganitha:reference:ndvi-extrema> .
 

@@ -580,6 +580,7 @@ process types is still to be done, and can only be checked against the register.
 
 <https://example.org/stac/collections/sen> a prov:Collection,
         prov:Entity ;
+    rdfs:label "Seasonal Sen Slope" ;
     dcterms:conformsTo "https://schemas.stacspec.org/v1.0.0/collection-spec/json-schema/collection.json" ;
     dcterms:title "Seasonal Sen Slope" ;
     spdx:checksum [ spdx:algorithm spdx:checksumAlgorithm_sha256 ;
@@ -587,40 +588,48 @@ process types is still to be done, and can only be checked against the register.
     prov:generatedAtTime "2026-08-21T10:45:00+00:00"^^xsd:dateTime ;
     prov:hadMember <https://example.org/stac/collections/sen/items/DeltaIR_SAVI>,
         <https://example.org/stac/collections/sen/items/PercentChange_SAVI> ;
+    prov:type prov:Collection ;
     prov:wasAttributedTo <https://orcid.org/0000-0003-4718-2959> ;
     prov:wasDerivedFrom ex:sen_slope_cogs ;
     prov:wasGeneratedBy ex:step3b_stac_metadata .
 
 ex:gdal a prov:Agent,
-        prov:SoftwareAgent,
-        schema:SoftwareApplication ;
+        prov:SoftwareAgent ;
+    rdfs:label "GDAL (COG driver)" ;
     dcterms:title "GDAL (COG driver)" ;
     prov:actedOnBehalfOf <https://orcid.org/0000-0003-4718-2959> ;
+    prov:type prov:SoftwareAgent,
+        schema:SoftwareApplication ;
     schema:softwareVersion "3.9.2" .
 
 ex:openeo_backend a prov:Agent,
         prov:SoftwareAgent,
-        openeo:Backend,
         acttype:WorkflowRunner ;
+    rdfs:label "openEO backend" ;
     dcterms:title "openEO backend" ;
     prov:qualifiedDelegation [ prov:agent ex:openeo_client ;
             prov:hadActivity ex:step1_bap ] ;
+    prov:type prov:SoftwareAgent,
+        openeo:Backend,
+        acttype:WorkflowRunner ;
     ex:backendUrl "https://openeo.example.org" .
 
 ex:pystac a prov:Agent,
-        prov:SoftwareAgent,
-        schema:SoftwareApplication ;
+        prov:SoftwareAgent ;
+    rdfs:label "PySTAC" ;
     dcterms:title "PySTAC" ;
     prov:actedOnBehalfOf <https://orcid.org/0000-0003-4718-2959> ;
+    prov:type prov:SoftwareAgent,
+        schema:SoftwareApplication ;
     schema:softwareVersion "1.10.1" .
 
-ex:step3b_stac_metadata a prov:Activity,
-        ex:PostProcessing,
-        ex:StacMetadataCreation ;
+ex:step3b_stac_metadata a prov:Activity ;
     rdfs:label "Step 3b: Post-processing - create STAC metadata" ;
     rdfs:comment "Creates STAC collection and items for the COGs and embeds the available provenance information: algorithm repository and version, processing backend and input parameters." ;
     prov:endedAtTime "2026-08-21T10:45:00+00:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-08-21T10:28:00+00:00"^^xsd:dateTime ;
+    prov:type ex:PostProcessing,
+        ex:StacMetadataCreation ;
     prov:used ex:bap_process_graph,
         ex:sen_slope_algorithm,
         ex:sen_slope_cogs,
@@ -633,6 +642,7 @@ ex:step3b_stac_metadata a prov:Activity,
 
 <https://example.org/stac/collections/bap> a prov:Collection,
         prov:Entity ;
+    rdfs:label "Best available pixels from Sentinel-2 scenes over AOI" ;
     dcterms:conformsTo "https://schemas.stacspec.org/v1.0.0/collection-spec/json-schema/collection.json" ;
     dcterms:title "Best available pixels from Sentinel-2 scenes over AOI" ;
     spdx:checksum [ spdx:algorithm spdx:checksumAlgorithm_sha256 ;
@@ -640,41 +650,49 @@ ex:step3b_stac_metadata a prov:Activity,
     prov:generatedAtTime "2026-08-21T10:05:00+00:00"^^xsd:dateTime ;
     prov:hadMember <https://example.org/stac/collections/bap/items/Sakar_complete_months_2021_2025_2021_01_indices_savi>,
         <https://example.org/stac/collections/bap/items/Sakar_complete_months_2021_2025_2021_02_indices_savi> ;
+    prov:type prov:Collection ;
     prov:wasAttributedTo <https://orcid.org/0000-0003-4718-2959> ;
     prov:wasDerivedFrom <https://openeo.example.org/collections/SENTINEL2_L2> ;
     prov:wasGeneratedBy ex:step1_bap .
 
 ex:openeo_client a prov:Agent,
-        prov:SoftwareAgent,
-        schema:SoftwareApplication ;
+        prov:SoftwareAgent ;
+    rdfs:label "openeo-python-client" ;
     dcterms:title "openeo-python-client" ;
     prov:qualifiedDelegation [ prov:agent <https://orcid.org/0000-0003-4718-2959> ;
             prov:hadActivity ex:step1_bap ] ;
+    prov:type prov:SoftwareAgent,
+        schema:SoftwareApplication ;
     schema:softwareVersion "0.31.0" .
 
 ex:sen_slope_algorithm a prov:Entity,
-        prov:Plan,
-        schema:SoftwareSourceCode ;
+        prov:Plan ;
+    rdfs:label "Seasonal Sen slope trend estimator" ;
     dcterms:title "Seasonal Sen slope trend estimator" ;
     rdfs:seeAlso "https://en.wikipedia.org/wiki/Theil%E2%80%93Sen_estimator" ;
+    prov:type prov:Plan,
+        schema:SoftwareSourceCode ;
     schema:codeRepository "https://github.com/example-org/seasonal-sen-slope" ;
     schema:programmingLanguage "Python" ;
     schema:version "1.2.0" .
 
 ex:sen_slope_cogs a prov:Collection,
         prov:Entity ;
+    rdfs:label "Seasonal Sen slope results (Cloud Optimized GeoTIFF)" ;
     dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
     dcterms:title "Seasonal Sen slope results (Cloud Optimized GeoTIFF)" ;
     prov:generatedAtTime "2026-08-21T10:28:00+00:00"^^xsd:dateTime ;
     prov:hadMember <https://example.org/data/sen/DeltaIR_SAVI.tif>,
         <https://example.org/data/sen/PercentChange_SAVI.tif> ;
+    prov:type prov:Collection ;
     prov:wasAttributedTo <https://orcid.org/0000-0003-4718-2959> ;
     prov:wasDerivedFrom ex:sen_slope_results ;
     prov:wasGeneratedBy ex:step3a_cog_conversion .
 
-ex:sen_slope_parameters a prov:Entity,
-        ex:ProcessInputs ;
+ex:sen_slope_parameters a prov:Entity ;
+    rdfs:label "Input parameters of the seasonal Sen slope analysis" ;
     dcterms:title "Input parameters of the seasonal Sen slope analysis" ;
+    prov:type ex:ProcessInputs ;
     ex:endDate "2025-12-31" ;
     ex:saviSoilFactor 5e-01 ;
     ex:seasonLength 12 ;
@@ -684,45 +702,49 @@ ex:sen_slope_parameters a prov:Entity,
 
 ex:sen_slope_results a prov:Collection,
         prov:Entity ;
+    rdfs:label "Seasonal Sen slope results (plain GeoTIFF)" ;
     dcterms:format "image/tiff; application=geotiff" ;
     dcterms:title "Seasonal Sen slope results (plain GeoTIFF)" ;
     prov:generatedAtTime "2026-08-21T10:12:00+00:00"^^xsd:dateTime ;
     prov:hadMember ex:DeltaIR_SAVI_tif,
         ex:PercentChange_SAVI_tif ;
+    prov:type prov:Collection ;
     prov:wasAttributedTo <https://orcid.org/0000-0003-4718-2959> ;
     prov:wasDerivedFrom <https://example.org/stac/collections/bap> ;
     prov:wasGeneratedBy ex:step2_seasonal_sen_slope .
 
-ex:step3a_cog_conversion a prov:Activity,
-        ex:CogConversion,
-        ex:PostProcessing ;
+ex:step3a_cog_conversion a prov:Activity ;
     rdfs:label "Step 3a: Post-processing - convert results to Cloud Optimized GeoTIFFs" ;
     prov:endedAtTime "2026-08-21T10:28:00+00:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-08-21T10:15:00+00:00"^^xsd:dateTime ;
+    prov:type ex:CogConversion,
+        ex:PostProcessing ;
     prov:used ex:sen_slope_results ;
     prov:wasAssociatedWith ex:gdal,
         <https://orcid.org/0000-0003-4718-2959> ;
     prov:wasInformedBy ex:step2_seasonal_sen_slope .
 
-ex:step2_seasonal_sen_slope a prov:Activity,
-        <https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA017> ;
+ex:step2_seasonal_sen_slope a prov:Activity ;
     rdfs:label "Step 2: Seasonal Sen slope trend analysis" ;
     prov:endedAtTime "2026-08-21T10:12:00+00:00"^^xsd:dateTime ;
     prov:qualifiedAssociation [ prov:agent <https://orcid.org/0000-0003-4718-2959> ;
             prov:hadPlan ex:sen_slope_algorithm ] ;
     prov:startedAtTime "2026-08-21T10:06:00+00:00"^^xsd:dateTime ;
+    prov:type <https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA017> ;
     prov:used <https://example.org/stac/collections/bap>,
         ex:sen_slope_parameters ;
     prov:wasInformedBy ex:step1_bap .
 
 <https://openeo.example.org/collections/SENTINEL2_L2> a prov:Collection,
         prov:Entity ;
+    rdfs:label "Sentinel-2 L2A surface reflectance" ;
     dcterms:description "Copernicus Sentinel-2 MSI Level-2A bottom-of-atmosphere reflectance, atmospherically corrected with Sen2Cor and including the scene classification layer (SCL), as offered by the openEO backend." ;
     dcterms:identifier "SENTINEL2_L2" ;
     dcterms:license "https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice" ;
     dcterms:publisher "European Space Agency (ESA), Copernicus Programme" ;
     dcterms:title "Sentinel-2 L2A surface reflectance" ;
     rdfs:seeAlso "https://documentation.dataspace.copernicus.eu/Data/SentinelMissions/Sentinel2.html" ;
+    prov:type prov:Collection ;
     ex:instrument "MSI" ;
     ex:mission "Sentinel-2" ;
     ex:processingLevel "L2A" ;
@@ -732,17 +754,18 @@ ex:step2_seasonal_sen_slope a prov:Activity,
 ex:bap_process_graph a prov:Entity,
         prov:Plan,
         acttype:WorkflowPlan ;
+    rdfs:label "Best available pixel in timeseries over AOI" ;
     dcterms:title "Best available pixel in timeseries over AOI" ;
+    prov:type prov:Plan,
+        acttype:WorkflowPlan ;
     openeo:processId "bap" .
 
-ex:step1_bap a prov:Activity,
-        <https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA016>,
-        openeo:BatchJob ;
+ex:step1_bap a prov:Activity ;
     rdfs:label "Step 1: Best available pixel composites" ;
     prov:endedAtTime "2026-08-21T18:05:00+00:00"^^xsd:dateTime ;
-    prov:qualifiedAssociation [ prov:agent <https://orcid.org/0000-0003-4718-2959> ;
+    prov:qualifiedAssociation [ prov:agent ex:openeo_client ;
             prov:hadPlan ex:bap_process_graph ],
-        [ prov:agent ex:openeo_client ;
+        [ prov:agent <https://orcid.org/0000-0003-4718-2959> ;
             prov:hadPlan ex:bap_process_graph ],
         [ prov:agent ex:openeo_backend ;
             prov:hadPlan ex:bap_process_graph ] ;
@@ -754,12 +777,15 @@ ex:step1_bap a prov:Activity,
             ex:endDate "2025-12-31" ;
             ex:startDate "2021-01-01" ] ;
     prov:startedAtTime "2026-08-21T10:00:00+00:00"^^xsd:dateTime ;
+    prov:type <https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA016>,
+        openeo:BatchJob ;
     prov:used <https://openeo.example.org/collections/SENTINEL2_L2> ;
     openeo:jobId "j-2608251100" .
 
 <https://orcid.org/0000-0003-4718-2959> a prov:Agent,
         prov:Person ;
     rdfs:label "GIS Analyst" ;
+    prov:type prov:Person ;
     schema:identifier "https://orcid.org/0000-0003-4718-2959" .
 
 
@@ -779,7 +805,7 @@ x-bblocks-metadata:
   itemIdentifier: ogc.osc.prov-examples.52n-provenance.vegetation-productivity
   register: https://ogcincubator.github.io/bblocks-openscience/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 
@@ -795,10 +821,71 @@ Links to the schema:
 {
   "@context": {
     "wasInfluencedBy": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
       "@id": "prov:wasInfluencedBy",
       "@type": "@id"
     },
     "qualifiedInfluence": {
+      "@context": {
+        "influencer": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:influencer",
+          "@type": "@id"
+        },
+        "agent": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:agent",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:qualifiedInfluence",
       "@type": "@id"
     },
@@ -808,17 +895,33 @@ Links to the schema:
     },
     "id": "@id",
     "provType": "@type",
-    "featureType": "@type",
-    "entityType": "@type",
-    "has_provenance": {
-      "@id": "dct:provenance",
+    "entityType": {
+      "@id": "prov:type",
       "@type": "@id"
     },
+    "name": "rdfs:label",
     "wasGeneratedBy": {
       "@id": "prov:wasGeneratedBy",
       "@type": "@id"
     },
     "wasAttributedTo": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
       "@id": "prov:wasAttributedTo",
       "@type": "@id"
     },
@@ -850,27 +953,6 @@ Links to the schema:
       "@id": "prov:wasRevisionOf",
       "@type": "@id"
     },
-    "generatedAtTime": {
-      "@id": "prov:generatedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "invalidatedAtTime": {
-      "@id": "prov:invalidatedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "value": "prov:value",
-    "qualifiedPrimarySource": {
-      "@id": "prov:qualifiedPrimarySource",
-      "@type": "@id"
-    },
-    "qualifiedQuotation": {
-      "@id": "prov:qualifiedQuotation",
-      "@type": "@id"
-    },
-    "qualifiedRevision": {
-      "@id": "prov:qualifiedRevision",
-      "@type": "@id"
-    },
     "atLocation": {
       "@id": "prov:atLocation",
       "@type": "@id"
@@ -895,6 +977,27 @@ Links to the schema:
       },
       "@id": "rdfs:seeAlso"
     },
+    "generatedAtTime": {
+      "@id": "prov:generatedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "invalidatedAtTime": {
+      "@id": "prov:invalidatedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "value": "prov:value",
+    "qualifiedPrimarySource": {
+      "@id": "prov:qualifiedPrimarySource",
+      "@type": "@id"
+    },
+    "qualifiedQuotation": {
+      "@id": "prov:qualifiedQuotation",
+      "@type": "@id"
+    },
+    "qualifiedRevision": {
+      "@id": "prov:qualifiedRevision",
+      "@type": "@id"
+    },
     "qualifiedGeneration": {
       "@id": "prov:qualifiedGeneration",
       "@type": "@id"
@@ -911,8 +1014,95 @@ Links to the schema:
       "@id": "prov:qualifiedAttribution",
       "@type": "@id"
     },
-    "activityType": "@type",
-    "agentType": "@type",
+    "activityType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
+    "startedAtTime": {
+      "@id": "prov:startedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "endedAtTime": {
+      "@id": "prov:endedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "wasAssociatedWith": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
+      "@id": "prov:wasAssociatedWith",
+      "@type": "@id"
+    },
+    "wasInformedBy": {
+      "@id": "prov:wasInformedBy",
+      "@type": "@id"
+    },
+    "used": {
+      "@id": "prov:used",
+      "@type": "@id"
+    },
+    "wasStartedBy": {
+      "@id": "prov:wasStartedBy",
+      "@type": "@id"
+    },
+    "wasEndedBy": {
+      "@id": "prov:wasEndedBy",
+      "@type": "@id"
+    },
+    "invalidated": {
+      "@id": "prov:invalidated",
+      "@type": "@id"
+    },
+    "generated": {
+      "@id": "prov:generated",
+      "@type": "@id"
+    },
+    "qualifiedUsage": {
+      "@id": "prov:qualifiedUsage",
+      "@type": "@id"
+    },
+    "qualifiedCommunication": {
+      "@id": "prov:qualifiedCommunication",
+      "@type": "@id"
+    },
+    "qualifiedStart": {
+      "@id": "prov:qualifiedStart",
+      "@type": "@id"
+    },
+    "qualifiedEnd": {
+      "@id": "prov:qualifiedEnd",
+      "@type": "@id"
+    },
+    "qualifiedAssociation": {
+      "@id": "prov:qualifiedAssociation",
+      "@type": "@id"
+    },
+    "agentType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
+    "actedOnBehalfOf": {
+      "@id": "prov:actedOnBehalfOf",
+      "@type": "@id"
+    },
+    "qualifiedDelegation": {
+      "@id": "prov:qualifiedDelegation",
+      "@type": "@id"
+    },
     "Activity": "prov:Activity",
     "ActivityInfluence": "prov:ActivityInfluence",
     "Agent": "prov:Agent",
@@ -967,14 +1157,6 @@ Links to the schema:
       "@id": "prov:atTime",
       "@type": "xsd:dateTime"
     },
-    "endedAtTime": {
-      "@id": "prov:endedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "startedAtTime": {
-      "@id": "prov:startedAtTime",
-      "@type": "xsd:dateTime"
-    },
     "provenanceUriTemplate": "prov:provenanceUriTemplate",
     "pairKey": {
       "@id": "prov:pairKey",
@@ -984,20 +1166,12 @@ Links to the schema:
       "@id": "prov:removedKey",
       "@type": "rdfs:Literal"
     },
-    "actedOnBehalfOf": {
-      "@id": "prov:actedOnBehalfOf",
-      "@type": "@id"
-    },
     "agent": {
       "@id": "prov:agent",
       "@type": "@id"
     },
     "entity": {
       "@id": "prov:entity",
-      "@type": "@id"
-    },
-    "generated": {
-      "@id": "prov:generated",
       "@type": "@id"
     },
     "hadActivity": {
@@ -1030,54 +1204,6 @@ Links to the schema:
     },
     "influencer": {
       "@id": "prov:influencer",
-      "@type": "@id"
-    },
-    "invalidated": {
-      "@id": "prov:invalidated",
-      "@type": "@id"
-    },
-    "qualifiedAssociation": {
-      "@id": "prov:qualifiedAssociation",
-      "@type": "@id"
-    },
-    "qualifiedCommunication": {
-      "@id": "prov:qualifiedCommunication",
-      "@type": "@id"
-    },
-    "qualifiedDelegation": {
-      "@id": "prov:qualifiedDelegation",
-      "@type": "@id"
-    },
-    "qualifiedEnd": {
-      "@id": "prov:qualifiedEnd",
-      "@type": "@id"
-    },
-    "qualifiedStart": {
-      "@id": "prov:qualifiedStart",
-      "@type": "@id"
-    },
-    "qualifiedUsage": {
-      "@id": "prov:qualifiedUsage",
-      "@type": "@id"
-    },
-    "used": {
-      "@id": "prov:used",
-      "@type": "@id"
-    },
-    "wasAssociatedWith": {
-      "@id": "prov:wasAssociatedWith",
-      "@type": "@id"
-    },
-    "wasEndedBy": {
-      "@id": "prov:wasEndedBy",
-      "@type": "@id"
-    },
-    "wasInformedBy": {
-      "@id": "prov:wasInformedBy",
-      "@type": "@id"
-    },
-    "wasStartedBy": {
-      "@id": "prov:wasStartedBy",
       "@type": "@id"
     },
     "has_anchor": {
@@ -1136,20 +1262,27 @@ Links to the schema:
       "@id": "prov:mentionOf",
       "@type": "@id"
     },
-    "name": "rdfs:label",
+    "influenceType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
     "label": "rdfs:label",
     "prov": "http://www.w3.org/ns/prov#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "dct": "http://purl.org/dc/terms/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "schema": "https://schema.org/",
+    "wfprov": "http://purl.org/wf4ever/wfprov#",
+    "wfdesc": "http://purl.org/wf4ever/wfdesc#",
+    "wf4ever": "http://purl.org/wf4ever/wf4ever#",
     "oa": "http://www.w3.org/ns/oa#",
     "dcterms": "http://purl.org/dc/terms/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "acttype": "https://w3id.org/ogc/rim/activity-type/",
     "ex": "https://example.org/vegetation-productivity#",
     "openeo": "https://example.org/openeo#",
-    "schema": "https://schema.org/",
     "spdx": "http://spdx.org/rdf/terms#",
     "@version": 1.1
   }

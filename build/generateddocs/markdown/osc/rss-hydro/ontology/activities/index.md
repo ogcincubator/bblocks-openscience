@@ -11,13 +11,13 @@ Activity and entity types emitted by the RSS-Hydro Model of Models flood workflo
 
 ## MoM workflow activity types
 
-Process types used by the MoM flood workflow (subclasses of `Geoprocessing`, itself a `prov:Activity`), candidate entries for the OSPD process-type register in a placeholder namespace (`https://example.org/ospd/process-types/`), plus the entity type, properties, workflow run type (`mom:WorkflowRun`) and alert levels (`mom:AlertLevels`) the MoM profile uses.
+Process types used by the MoM flood workflow (subclasses of `Geoprocessing`, itself a `prov:Activity`), candidate entries for the OSPD process-type register in a placeholder namespace (`https://example.org/ospd/process-types/`, prefix `pt`), plus the entity type, properties, workflow run type (`mom:WorkflowRun`) and alert levels (`mom:AlertLevels`) the MoM profile uses.
 
-| Term | Register term (`processType`) | Generic operation |
+| `activityType` (CURIE) | Register term (`processType`) | Generic operation |
 |---|---|---|
-| `ZonalStatistics` | `https://example.org/ospd/process-types/zonal-statistics` | zonal statistics |
-| `WeightedScoringAndClassification` | `https://example.org/ospd/process-types/weighted-scoring-and-classification` | index composition and classification |
-| `ScoringAndProgressTracking` | `https://example.org/ospd/process-types/scoring-and-progress-tracking` | multi-source scoring and progress tracking |
+| `pt:ZonalStatistics` | `https://example.org/ospd/process-types/zonal-statistics` | zonal statistics |
+| `pt:WeightedScoringAndClassification` | `https://example.org/ospd/process-types/weighted-scoring-and-classification` | index composition and classification |
+| `pt:ScoringAndProgressTracking` | `https://example.org/ospd/process-types/scoring-and-progress-tracking` | multi-source scoring and progress tracking |
 
 The schema checks that a record of one of these types states the matching `processType` and is a valid processing activity (`ogc.osc.rss-hydro.processing-activity`).
 
@@ -29,7 +29,8 @@ One MoM activity, validated without a workflow. All values are illustrative.
 ```json
 {
   "id": "https://example.org/mom/run/2026030200/aggregation",
-  "activityType": "ZonalStatistics",
+  "provType": "Activity",
+  "activityType": "pt:ZonalStatistics",
   "processType": "https://example.org/ospd/process-types/zonal-statistics",
   "name": "GFMS per-watershed aggregation",
   "startedAtTime": "2026-03-02T01:05:33Z",
@@ -46,7 +47,8 @@ One MoM activity, validated without a workflow. All values are illustrative.
 {
   "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/ontology/activities/context.jsonld",
   "id": "https://example.org/mom/run/2026030200/aggregation",
-  "activityType": "ZonalStatistics",
+  "provType": "Activity",
+  "activityType": "pt:ZonalStatistics",
   "processType": "https://example.org/ospd/process-types/zonal-statistics",
   "name": "GFMS per-watershed aggregation",
   "startedAtTime": "2026-03-02T01:05:33Z",
@@ -61,15 +63,17 @@ One MoM activity, validated without a workflow. All values are illustrative.
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix pt: <https://example.org/ospd/process-types/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.org/mom/run/2026030200/aggregation> a <https://example.org/ospd/process-types/ZonalStatistics> ;
+<https://example.org/mom/run/2026030200/aggregation> a prov:Activity ;
     rdfs:label "GFMS per-watershed aggregation" ;
-    dcterms:type <https://example.org/ospd/process-types/zonal-statistics> ;
+    dcterms:type pt:zonal-statistics ;
     prov:endedAtTime "2026-03-02T01:05:41+00:00"^^xsd:dateTime ;
     prov:generated <https://example.org/mom/run/2026030200/gfms-aggregates> ;
     prov:startedAtTime "2026-03-02T01:05:33+00:00"^^xsd:dateTime ;
+    prov:type pt:ZonalStatistics ;
     prov:used <https://example.org/mom/run/2026030200/gfms-bin> ;
     prov:wasAssociatedWith <https://example.org/mom/run/2026030200/mom> .
 
@@ -90,7 +94,9 @@ allOf:
 - if:
     properties:
       activityType:
-        const: ZonalStatistics
+        enum:
+        - pt:ZonalStatistics
+        - https://example.org/ospd/process-types/ZonalStatistics
   then:
     properties:
       processType:
@@ -98,7 +104,9 @@ allOf:
 - if:
     properties:
       activityType:
-        const: WeightedScoringAndClassification
+        enum:
+        - pt:WeightedScoringAndClassification
+        - https://example.org/ospd/process-types/WeightedScoringAndClassification
   then:
     properties:
       processType:
@@ -106,7 +114,9 @@ allOf:
 - if:
     properties:
       activityType:
-        const: ScoringAndProgressTracking
+        enum:
+        - pt:ScoringAndProgressTracking
+        - https://example.org/ospd/process-types/ScoringAndProgressTracking
   then:
     properties:
       processType:
@@ -117,17 +127,18 @@ $defs:
     - activityType
     properties:
       activityType:
+        description: One of the MoM process types, as a pt CURIE or a full IRI.
         enum:
-        - ZonalStatistics
-        - WeightedScoringAndClassification
-        - ScoringAndProgressTracking
-x-jsonld-extra-terms:
-  ZonalStatistics: https://example.org/ospd/process-types/ZonalStatistics
-  WeightedScoringAndClassification: https://example.org/ospd/process-types/WeightedScoringAndClassification
-  ScoringAndProgressTracking: https://example.org/ospd/process-types/ScoringAndProgressTracking
+        - pt:ZonalStatistics
+        - https://example.org/ospd/process-types/ZonalStatistics
+        - pt:WeightedScoringAndClassification
+        - https://example.org/ospd/process-types/WeightedScoringAndClassification
+        - pt:ScoringAndProgressTracking
+        - https://example.org/ospd/process-types/ScoringAndProgressTracking
 x-jsonld-prefixes:
   mom: https://rss-hydro.lu/ns/mom/
   dcterms: http://purl.org/dc/terms/
+  pt: https://example.org/ospd/process-types/
 x-bblocks-metadata:
   itemIdentifier: ogc.osc.rss-hydro.ontology.activities
   register: https://ogcincubator.github.io/bblocks-openscience/build/register.json
@@ -149,7 +160,28 @@ Links to the schema:
   "@context": {
     "wasInfluencedBy": {
       "@context": {
-        "links": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
+      "@id": "prov:wasInfluencedBy",
+      "@type": "@id"
+    },
+    "qualifiedInfluence": {
+      "@context": {
+        "influencer": {
           "@context": {
             "href": {
               "@type": "@id",
@@ -167,17 +199,12 @@ Links to the schema:
             "title": "rdfs:label",
             "length": "dct:extent"
           },
-          "@id": "rdfs:seeAlso"
-        }
-      },
-      "@id": "prov:wasInfluencedBy",
-      "@type": "@id"
-    },
-    "qualifiedInfluence": {
-      "@context": {
-        "influencer": {
+          "@id": "prov:influencer",
+          "@type": "@id"
+        },
+        "entity": {
           "@context": {
-            "links": {
+            "wasAttributedTo": {
               "@context": {
                 "href": {
                   "@type": "@id",
@@ -195,14 +222,9 @@ Links to the schema:
                 "title": "rdfs:label",
                 "length": "dct:extent"
               },
-              "@id": "rdfs:seeAlso"
-            }
-          },
-          "@id": "prov:influencer",
-          "@type": "@id"
-        },
-        "entity": {
-          "@context": {
+              "@id": "prov:wasAttributedTo",
+              "@type": "@id"
+            },
             "links": {
               "@context": {
                 "href": {
@@ -226,6 +248,27 @@ Links to the schema:
           },
           "@id": "prov:entity",
           "@type": "@id"
+        },
+        "agent": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:agent",
+          "@type": "@id"
         }
       },
       "@id": "prov:qualifiedInfluence",
@@ -233,7 +276,11 @@ Links to the schema:
     },
     "id": "@id",
     "provType": "@type",
-    "activityType": "@type",
+    "activityType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
+    "name": "rdfs:label",
     "startedAtTime": {
       "@id": "prov:startedAtTime",
       "@type": "xsd:dateTime"
@@ -243,6 +290,23 @@ Links to the schema:
       "@type": "xsd:dateTime"
     },
     "wasAssociatedWith": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
       "@id": "prov:wasAssociatedWith",
       "@type": "@id"
     },
@@ -252,6 +316,27 @@ Links to the schema:
     },
     "used": {
       "@context": {
+        "wasAttributedTo": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:wasAttributedTo",
+          "@type": "@id"
+        },
         "links": {
           "@context": {
             "href": {
@@ -278,6 +363,27 @@ Links to the schema:
     },
     "wasStartedBy": {
       "@context": {
+        "wasAttributedTo": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:wasAttributedTo",
+          "@type": "@id"
+        },
         "links": {
           "@context": {
             "href": {
@@ -304,6 +410,27 @@ Links to the schema:
     },
     "wasEndedBy": {
       "@context": {
+        "wasAttributedTo": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:wasAttributedTo",
+          "@type": "@id"
+        },
         "links": {
           "@context": {
             "href": {
@@ -330,6 +457,27 @@ Links to the schema:
     },
     "invalidated": {
       "@context": {
+        "wasAttributedTo": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:wasAttributedTo",
+          "@type": "@id"
+        },
         "links": {
           "@context": {
             "href": {
@@ -356,6 +504,27 @@ Links to the schema:
     },
     "generated": {
       "@context": {
+        "wasAttributedTo": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:wasAttributedTo",
+          "@type": "@id"
+        },
         "links": {
           "@context": {
             "href": {
@@ -396,6 +565,27 @@ Links to the schema:
       "@context": {
         "entity": {
           "@context": {
+            "wasAttributedTo": {
+              "@context": {
+                "href": {
+                  "@type": "@id",
+                  "@id": "oa:hasTarget"
+                },
+                "rel": {
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  },
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id"
+                },
+                "type": "dct:type",
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
+              },
+              "@id": "prov:wasAttributedTo",
+              "@type": "@id"
+            },
             "links": {
               "@context": {
                 "href": {
@@ -428,6 +618,27 @@ Links to the schema:
       "@context": {
         "entity": {
           "@context": {
+            "wasAttributedTo": {
+              "@context": {
+                "href": {
+                  "@type": "@id",
+                  "@id": "oa:hasTarget"
+                },
+                "rel": {
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  },
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id"
+                },
+                "type": "dct:type",
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
+              },
+              "@id": "prov:wasAttributedTo",
+              "@type": "@id"
+            },
             "links": {
               "@context": {
                 "href": {
@@ -457,12 +668,50 @@ Links to the schema:
       "@type": "@id"
     },
     "qualifiedAssociation": {
+      "@context": {
+        "agent": {
+          "@context": {
+            "actedOnBehalfOf": {
+              "@context": {
+                "href": {
+                  "@type": "@id",
+                  "@id": "oa:hasTarget"
+                },
+                "rel": {
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  },
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id"
+                },
+                "type": "dct:type",
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
+              },
+              "@id": "prov:actedOnBehalfOf",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:agent",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:qualifiedAssociation",
       "@type": "@id"
     },
-    "agentType": "@type",
-    "entityType": "@type",
-    "featureType": "@type",
+    "agentType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
+    "entityType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
+    "influenceType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
     "Activity": "prov:Activity",
     "ActivityInfluence": "prov:ActivityInfluence",
     "Agent": "prov:Agent",
@@ -655,10 +904,6 @@ Links to the schema:
       "@id": "prov:has_anchor",
       "@type": "@id"
     },
-    "has_provenance": {
-      "@id": "dct:provenance",
-      "@type": "@id"
-    },
     "has_query_service": {
       "@id": "prov:has_query_service",
       "@type": "@id"
@@ -711,23 +956,25 @@ Links to the schema:
       "@id": "prov:mentionOf",
       "@type": "@id"
     },
-    "name": "rdfs:label",
     "links": "rdfs:seeAlso",
     "processType": {
       "@id": "dct:type",
       "@type": "@id"
     },
-    "ZonalStatistics": "https://example.org/ospd/process-types/ZonalStatistics",
-    "WeightedScoringAndClassification": "https://example.org/ospd/process-types/WeightedScoringAndClassification",
-    "ScoringAndProgressTracking": "https://example.org/ospd/process-types/ScoringAndProgressTracking",
     "prov": "http://www.w3.org/ns/prov#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "dct": "http://purl.org/dc/terms/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "schema": "https://schema.org/",
+    "wfprov": "http://purl.org/wf4ever/wfprov#",
+    "wfdesc": "http://purl.org/wf4ever/wfdesc#",
+    "wf4ever": "http://purl.org/wf4ever/wf4ever#",
     "oa": "http://www.w3.org/ns/oa#",
     "dcterms": "http://purl.org/dc/terms/",
     "mom": "https://rss-hydro.lu/ns/mom/",
+    "pt": "https://example.org/ospd/process-types/",
     "@version": 1.1
   }
 }

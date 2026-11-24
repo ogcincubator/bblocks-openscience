@@ -92,8 +92,7 @@ Retrieval of source observations into the workflow. Ingest is where external pro
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<urn:aganitha:step:ingest-dicra:20260807T060000Z> a prov:Activity,
-        <https://example.org/ospd/process-types/ingest> ;
+<urn:aganitha:step:ingest-dicra:20260807T060000Z> a prov:Activity ;
     rdfs:label "Ingest mandal NDVI and soil moisture" ;
     prov:endedAtTime "2026-08-07T06:03:41+00:00"^^xsd:dateTime ;
     prov:generated <urn:aganitha:dataset:mandal-ndvi-sm-merged> ;
@@ -101,6 +100,7 @@ Retrieval of source observations into the workflow. Ingest is where external pro
             prov:entity <urn:aganitha:source:dicra-mandal-archive> ;
             prov:hadRole <https://example.org/ospd/roles/sourceArchive> ] ;
     prov:startedAtTime "2026-08-07T06:00:00+00:00"^^xsd:dateTime ;
+    prov:type <https://example.org/ospd/process-types/ingest> ;
     prov:used <urn:aganitha:source:dicra-mandal-archive> .
 
 
@@ -172,8 +172,7 @@ Rescaling an observed index against its own historical extremes. The reference e
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<urn:aganitha:step:vci:20260807T061000Z> a prov:Activity,
-        <https://example.org/ospd/process-types/index-normalisation> ;
+<urn:aganitha:step:vci:20260807T061000Z> a prov:Activity ;
     rdfs:label "Compute vegetation condition index from NDVI" ;
     prov:generated <urn:aganitha:dataset:vci> ;
     prov:qualifiedUsage [ a prov:Usage ;
@@ -182,6 +181,7 @@ Rescaling an observed index against its own historical extremes. The reference e
         [ a prov:Usage ;
             prov:entity <urn:aganitha:reference:ndvi-extrema> ;
             prov:hadRole <https://example.org/ospd/roles/normalisationReference> ] ;
+    prov:type <https://example.org/ospd/process-types/index-normalisation> ;
     prov:used <urn:aganitha:dataset:mandal-ndvi-sm-merged>,
         <urn:aganitha:reference:ndvi-extrema> .
 
@@ -254,16 +254,16 @@ The companion to the vegetation index step, and the piece that closes the gap in
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<urn:aganitha:step:smdi:20260807T061500Z> a prov:Activity,
-        <https://example.org/ospd/process-types/index-normalisation> ;
+<urn:aganitha:step:smdi:20260807T061500Z> a prov:Activity ;
     rdfs:label "Compute soil moisture deficit index" ;
     prov:generated <urn:aganitha:dataset:smdi> ;
     prov:qualifiedUsage [ a prov:Usage ;
-            prov:entity <urn:aganitha:dataset:mandal-ndvi-sm-merged> ;
-            prov:hadRole <https://example.org/ospd/roles/observedIndex> ],
-        [ a prov:Usage ;
             prov:entity <urn:aganitha:reference:soil-moisture-extrema> ;
-            prov:hadRole <https://example.org/ospd/roles/normalisationReference> ] ;
+            prov:hadRole <https://example.org/ospd/roles/normalisationReference> ],
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:dataset:mandal-ndvi-sm-merged> ;
+            prov:hadRole <https://example.org/ospd/roles/observedIndex> ] ;
+    prov:type <https://example.org/ospd/process-types/index-normalisation> ;
     prov:used <urn:aganitha:dataset:mandal-ndvi-sm-merged>,
         <urn:aganitha:reference:soil-moisture-extrema> .
 
@@ -345,16 +345,16 @@ Combination of two condition indices under fixed weights. Both inputs share the 
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<urn:aganitha:step:cdsi:20260807T062000Z> a prov:Activity,
-        <https://example.org/ospd/process-types/index-composition> ;
+<urn:aganitha:step:cdsi:20260807T062000Z> a prov:Activity ;
     rdfs:label "Compose combined drought severity index" ;
     prov:generated <urn:aganitha:dataset:cdsi> ;
     prov:qualifiedUsage [ a prov:Usage ;
-            prov:entity <urn:aganitha:dataset:smdi> ;
+            prov:entity <urn:aganitha:dataset:vci> ;
             prov:hadRole <https://example.org/ospd/roles/indexComponent> ],
         [ a prov:Usage ;
-            prov:entity <urn:aganitha:dataset:vci> ;
+            prov:entity <urn:aganitha:dataset:smdi> ;
             prov:hadRole <https://example.org/ospd/roles/indexComponent> ] ;
+    prov:type <https://example.org/ospd/process-types/index-composition> ;
     prov:used <urn:aganitha:dataset:smdi>,
         <urn:aganitha:dataset:vci> .
 
@@ -438,16 +438,16 @@ Assignment of continuous index values to discrete classes. The class scheme is a
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<urn:aganitha:step:classify:20260807T063000Z> a prov:Activity,
-        <https://example.org/ospd/process-types/classification> ;
+<urn:aganitha:step:classify:20260807T063000Z> a prov:Activity ;
     rdfs:label "Classify drought severity" ;
     prov:generated <urn:aganitha:dataset:drought-classes> ;
     prov:qualifiedUsage [ a prov:Usage ;
-            prov:entity <urn:aganitha:scheme:drought-severity-classes> ;
-            prov:hadRole <https://example.org/ospd/roles/classificationScheme> ],
-        [ a prov:Usage ;
             prov:entity <urn:aganitha:dataset:cdsi> ;
-            prov:hadRole <https://example.org/ospd/roles/inputField> ] ;
+            prov:hadRole <https://example.org/ospd/roles/inputField> ],
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:scheme:drought-severity-classes> ;
+            prov:hadRole <https://example.org/ospd/roles/classificationScheme> ] ;
+    prov:type <https://example.org/ospd/process-types/classification> ;
     prov:used <urn:aganitha:dataset:cdsi>,
         <urn:aganitha:scheme:drought-severity-classes> .
 
@@ -520,16 +520,16 @@ Derivation of a standardised index from an accumulated series against a fitted r
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<urn:aganitha:step:spi:20260807T064000Z> a prov:Activity,
-        <https://example.org/ospd/process-types/standardised-index> ;
+<urn:aganitha:step:spi:20260807T064000Z> a prov:Activity ;
     rdfs:label "Compute standardised precipitation index" ;
     prov:generated <urn:aganitha:dataset:spi> ;
     prov:qualifiedUsage [ a prov:Usage ;
-            prov:entity <urn:aganitha:dataset:precipitation-reference-period> ;
-            prov:hadRole <https://example.org/ospd/roles/fittingReference> ],
-        [ a prov:Usage ;
             prov:entity <urn:aganitha:dataset:precipitation-series> ;
-            prov:hadRole <https://example.org/ospd/roles/inputSeries> ] ;
+            prov:hadRole <https://example.org/ospd/roles/inputSeries> ],
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:dataset:precipitation-reference-period> ;
+            prov:hadRole <https://example.org/ospd/roles/fittingReference> ] ;
+    prov:type <https://example.org/ospd/process-types/standardised-index> ;
     prov:used <urn:aganitha:dataset:precipitation-reference-period>,
         <urn:aganitha:dataset:precipitation-series> .
 
@@ -631,23 +631,23 @@ This is the case the profile is least obviously shaped for, and the reason it is
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<urn:aganitha:step:train:20260807T070000Z> a prov:Activity,
-        <https://example.org/ospd/process-types/model-training> ;
+<urn:aganitha:step:train:20260807T070000Z> a prov:Activity ;
     rdfs:label "Train drought prediction model with spatial cross-validation" ;
     prov:generated <urn:aganitha:model:drought-classifier>,
         <urn:aganitha:report:validation-metrics> ;
     prov:qualifiedUsage [ a prov:Usage ;
-            prov:entity <urn:aganitha:dataset:drought-classes> ;
-            prov:hadRole <https://example.org/ospd/roles/trainingTarget> ],
-        [ a prov:Usage ;
             prov:entity <urn:aganitha:partition:district-folds> ;
             prov:hadRole <https://example.org/ospd/roles/validationPartition> ],
         [ a prov:Usage ;
             prov:entity <urn:aganitha:dataset:cdsi> ;
             prov:hadRole <https://example.org/ospd/roles/trainingFeatures> ],
         [ a prov:Usage ;
+            prov:entity <urn:aganitha:dataset:drought-classes> ;
+            prov:hadRole <https://example.org/ospd/roles/trainingTarget> ],
+        [ a prov:Usage ;
             prov:entity <urn:aganitha:dataset:spi> ;
             prov:hadRole <https://example.org/ospd/roles/trainingFeatures> ] ;
+    prov:type <https://example.org/ospd/process-types/model-training> ;
     prov:used <urn:aganitha:dataset:cdsi>,
         <urn:aganitha:dataset:drought-classes>,
         <urn:aganitha:dataset:spi>,
@@ -722,16 +722,16 @@ Applying a fitted model to produce a projection. The same model entity that was 
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<urn:aganitha:step:project:20260807T071500Z> a prov:Activity,
-        <https://example.org/ospd/process-types/model-inference> ;
+<urn:aganitha:step:project:20260807T071500Z> a prov:Activity ;
     rdfs:label "Generate forward drought projection" ;
     prov:generated <urn:aganitha:dataset:drought-projection> ;
     prov:qualifiedUsage [ a prov:Usage ;
-            prov:entity <urn:aganitha:dataset:cdsi> ;
-            prov:hadRole <https://example.org/ospd/roles/inferenceInput> ],
-        [ a prov:Usage ;
             prov:entity <urn:aganitha:model:drought-classifier> ;
-            prov:hadRole <https://example.org/ospd/roles/fittedModel> ] ;
+            prov:hadRole <https://example.org/ospd/roles/fittedModel> ],
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:dataset:cdsi> ;
+            prov:hadRole <https://example.org/ospd/roles/inferenceInput> ] ;
+    prov:type <https://example.org/ospd/process-types/model-inference> ;
     prov:used <urn:aganitha:dataset:cdsi>,
         <urn:aganitha:model:drought-classifier> .
 
@@ -776,10 +776,10 @@ The smallest document that satisfies this profile.
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<urn:example:step:0001> a prov:Activity,
-        <https://example.org/ospd/process-types/ingest> ;
+<urn:example:step:0001> a prov:Activity ;
     rdfs:label "Minimal step" ;
     prov:generated <urn:example:output:0001> ;
+    prov:type <https://example.org/ospd/process-types/ingest> ;
     prov:used <urn:example:input:0001> .
 
 
@@ -854,7 +854,28 @@ Links to the schema:
   "@context": {
     "wasInfluencedBy": {
       "@context": {
-        "links": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
+      "@id": "prov:wasInfluencedBy",
+      "@type": "@id"
+    },
+    "qualifiedInfluence": {
+      "@context": {
+        "influencer": {
           "@context": {
             "href": {
               "@type": "@id",
@@ -872,17 +893,12 @@ Links to the schema:
             "title": "rdfs:label",
             "length": "dct:extent"
           },
-          "@id": "rdfs:seeAlso"
-        }
-      },
-      "@id": "prov:wasInfluencedBy",
-      "@type": "@id"
-    },
-    "qualifiedInfluence": {
-      "@context": {
-        "influencer": {
+          "@id": "prov:influencer",
+          "@type": "@id"
+        },
+        "entity": {
           "@context": {
-            "links": {
+            "wasAttributedTo": {
               "@context": {
                 "href": {
                   "@type": "@id",
@@ -900,14 +916,9 @@ Links to the schema:
                 "title": "rdfs:label",
                 "length": "dct:extent"
               },
-              "@id": "rdfs:seeAlso"
-            }
-          },
-          "@id": "prov:influencer",
-          "@type": "@id"
-        },
-        "entity": {
-          "@context": {
+              "@id": "prov:wasAttributedTo",
+              "@type": "@id"
+            },
             "links": {
               "@context": {
                 "href": {
@@ -931,6 +942,27 @@ Links to the schema:
           },
           "@id": "prov:entity",
           "@type": "@id"
+        },
+        "agent": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:agent",
+          "@type": "@id"
         }
       },
       "@id": "prov:qualifiedInfluence",
@@ -938,7 +970,11 @@ Links to the schema:
     },
     "id": "@id",
     "provType": "@type",
-    "activityType": "@type",
+    "activityType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
+    "name": "rdfs:label",
     "startedAtTime": {
       "@id": "prov:startedAtTime",
       "@type": "xsd:dateTime"
@@ -948,6 +984,23 @@ Links to the schema:
       "@type": "xsd:dateTime"
     },
     "wasAssociatedWith": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
       "@id": "prov:wasAssociatedWith",
       "@type": "@id"
     },
@@ -957,6 +1010,27 @@ Links to the schema:
     },
     "used": {
       "@context": {
+        "wasAttributedTo": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:wasAttributedTo",
+          "@type": "@id"
+        },
         "links": {
           "@context": {
             "href": {
@@ -983,6 +1057,27 @@ Links to the schema:
     },
     "wasStartedBy": {
       "@context": {
+        "wasAttributedTo": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:wasAttributedTo",
+          "@type": "@id"
+        },
         "links": {
           "@context": {
             "href": {
@@ -1009,6 +1104,27 @@ Links to the schema:
     },
     "wasEndedBy": {
       "@context": {
+        "wasAttributedTo": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:wasAttributedTo",
+          "@type": "@id"
+        },
         "links": {
           "@context": {
             "href": {
@@ -1035,6 +1151,27 @@ Links to the schema:
     },
     "invalidated": {
       "@context": {
+        "wasAttributedTo": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:wasAttributedTo",
+          "@type": "@id"
+        },
         "links": {
           "@context": {
             "href": {
@@ -1061,6 +1198,27 @@ Links to the schema:
     },
     "generated": {
       "@context": {
+        "wasAttributedTo": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:wasAttributedTo",
+          "@type": "@id"
+        },
         "links": {
           "@context": {
             "href": {
@@ -1101,6 +1259,27 @@ Links to the schema:
       "@context": {
         "entity": {
           "@context": {
+            "wasAttributedTo": {
+              "@context": {
+                "href": {
+                  "@type": "@id",
+                  "@id": "oa:hasTarget"
+                },
+                "rel": {
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  },
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id"
+                },
+                "type": "dct:type",
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
+              },
+              "@id": "prov:wasAttributedTo",
+              "@type": "@id"
+            },
             "links": {
               "@context": {
                 "href": {
@@ -1133,6 +1312,27 @@ Links to the schema:
       "@context": {
         "entity": {
           "@context": {
+            "wasAttributedTo": {
+              "@context": {
+                "href": {
+                  "@type": "@id",
+                  "@id": "oa:hasTarget"
+                },
+                "rel": {
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  },
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id"
+                },
+                "type": "dct:type",
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
+              },
+              "@id": "prov:wasAttributedTo",
+              "@type": "@id"
+            },
             "links": {
               "@context": {
                 "href": {
@@ -1162,12 +1362,50 @@ Links to the schema:
       "@type": "@id"
     },
     "qualifiedAssociation": {
+      "@context": {
+        "agent": {
+          "@context": {
+            "actedOnBehalfOf": {
+              "@context": {
+                "href": {
+                  "@type": "@id",
+                  "@id": "oa:hasTarget"
+                },
+                "rel": {
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  },
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id"
+                },
+                "type": "dct:type",
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
+              },
+              "@id": "prov:actedOnBehalfOf",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:agent",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:qualifiedAssociation",
       "@type": "@id"
     },
-    "agentType": "@type",
-    "entityType": "@type",
-    "featureType": "@type",
+    "agentType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
+    "entityType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
+    "influenceType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
     "Activity": "prov:Activity",
     "ActivityInfluence": "prov:ActivityInfluence",
     "Agent": "prov:Agent",
@@ -1360,10 +1598,6 @@ Links to the schema:
       "@id": "prov:has_anchor",
       "@type": "@id"
     },
-    "has_provenance": {
-      "@id": "dct:provenance",
-      "@type": "@id"
-    },
     "has_query_service": {
       "@id": "prov:has_query_service",
       "@type": "@id"
@@ -1416,7 +1650,6 @@ Links to the schema:
       "@id": "prov:mentionOf",
       "@type": "@id"
     },
-    "name": "rdfs:label",
     "links": "rdfs:seeAlso",
     "label": "rdfs:label",
     "prov": "http://www.w3.org/ns/prov#",
@@ -1424,6 +1657,11 @@ Links to the schema:
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "dct": "http://purl.org/dc/terms/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "schema": "https://schema.org/",
+    "wfprov": "http://purl.org/wf4ever/wfprov#",
+    "wfdesc": "http://purl.org/wf4ever/wfdesc#",
+    "wf4ever": "http://purl.org/wf4ever/wf4ever#",
     "oa": "http://www.w3.org/ns/oa#",
     "@version": 1.1
   }

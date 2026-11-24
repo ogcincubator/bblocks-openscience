@@ -15,9 +15,9 @@ Provenance of three activities of the RSS-Hydro Model of Models (MoM) flood work
 
 | Activity | Activity type | Uses | Generates |
 |---|---|---|---|
-| Per-watershed aggregation | `ZonalStatistics` | gridded source file, watershed shapefile, parameters | per-watershed aggregates |
-| Hazard score accumulation | `WeightedScoringAndClassification` | aggregates, previous summary, extra model inputs (optional), static tables, parameters | summary with duration, hazard score (`Final_Attributes`), `Attributes_Clean` |
-| Final alert | `ScoringAndProgressTracking` | hazard score of the accumulation, hazard scores of any other sources, previous final alert (optional), admin table | final alert with status per watershed |
+| Per-watershed aggregation | `pt:ZonalStatistics` | gridded source file, watershed shapefile, parameters | per-watershed aggregates |
+| Hazard score accumulation | `pt:WeightedScoringAndClassification` | aggregates, previous summary, extra model inputs (optional), static tables, parameters | summary with duration, hazard score (`Final_Attributes`), `Attributes_Clean` |
+| Final alert | `pt:ScoringAndProgressTracking` | hazard score of the accumulation, hazard scores of any other sources, previous final alert (optional), admin table | final alert with status per watershed |
 
 Each activity is `dcterms:isPartOf` one `mom:WorkflowRun` activity. In the examples, GFMS is the aggregated source and GloFAS an extra model input.
 
@@ -34,22 +34,26 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
 [
   {
     "id": "run:mom",
+    "provType": "Agent",
     "agentType": "prov:SoftwareAgent",
     "name": "MoMProduction",
     "dcterms:hasVersion": "0.0.1-alpha"
   },
   {
     "id": "run:rss-hydro",
+    "provType": "Agent",
     "agentType": "prov:Organization",
     "name": "RSS-Hydro"
   },
   {
     "id": "run:server",
+    "provType": "Agent",
     "agentType": "prov:Agent",
     "name": "mom-prod-01 (illustrative server)"
   },
   {
     "id": "run:workflow-run",
+    "provType": "Activity",
     "activityType": "mom:WorkflowRun",
     "name": "MoM workflow run, 2026-03-02 00:00",
     "startedAtTime": "2026-03-02T01:05:33Z",
@@ -62,26 +66,31 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   },
   {
     "id": "run:umd",
+    "provType": "Agent",
     "agentType": "prov:Organization",
     "name": "University of Maryland (GFMS)"
   },
   {
     "id": "run:ecmwf",
+    "provType": "Agent",
     "agentType": "prov:Organization",
     "name": "ECMWF / CEMS (GloFAS)"
   },
   {
     "id": "run:provider-1",
+    "provType": "Agent",
     "agentType": "prov:Organization",
     "name": "Provider of sources 1 and 2"
   },
   {
     "id": "run:noaa",
+    "provType": "Agent",
     "agentType": "prov:Organization",
     "name": "NOAA (VIIRS)"
   },
   {
     "id": "run:watersheds",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "Watershed_pfaf_id.shp",
     "dcterms:hasVersion": "0.0.0",
@@ -91,6 +100,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   },
   {
     "id": "run:gfms-bin",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "Flood_byStor_2026030200.bin",
     "dcat:downloadURL": "https://example.org/gfms/Flood_byStor_2026030200.bin",
@@ -103,6 +113,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   },
   {
     "id": "run:aggregation-parameters",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "GFMS per-watershed aggregation parameters",
     "dcterms:hasVersion": "0.0.1-alpha",
@@ -112,7 +123,8 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   },
   {
     "id": "run:aggregation",
-    "activityType": "ZonalStatistics",
+    "provType": "Activity",
+    "activityType": "pt:ZonalStatistics",
     "processType": "https://example.org/ospd/process-types/zonal-statistics",
     "name": "GFMS per-watershed aggregation",
     "startedAtTime": "2026-03-02T01:05:33Z",
@@ -132,6 +144,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   },
   {
     "id": "run:gfms-aggregates",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "Processing/gfms/Flood_byStor_2026030200.csv (per-watershed aggregates, duration not yet recalculated)",
     "mom:dataType": "GFMS",
@@ -146,6 +159,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   },
   {
     "id": "run:gfms-summary-prev",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "GFMS_summary/Flood_byStor_2026030121.csv",
     "mom:dataType": "GFMS",
@@ -155,6 +169,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   },
   {
     "id": "run:glofas-txt",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "threspoints_2026030200.txt",
     "dcat:downloadURL": "https://example.org/glofas/threspoints_2026030200.txt",
@@ -167,6 +182,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   },
   {
     "id": "run:glofas-points",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "GLOFAS/threspoints_2026030200.csv",
     "mom:dataType": "GloFAS",
@@ -178,6 +194,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   },
   {
     "id": "run:attributes",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "data/Attributes.csv",
     "dcterms:format": "text/csv",
@@ -186,6 +203,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   },
   {
     "id": "run:resilience",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "data/Resilience_Index.csv",
     "dcterms:format": "text/csv",
@@ -194,6 +212,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   },
   {
     "id": "run:weights",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "data/GFMS_Weightage.csv",
     "dcterms:format": "text/csv",
@@ -202,6 +221,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   },
   {
     "id": "run:hazard-parameters",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "GloFAS + GFMS hazard score accumulation parameters",
     "dcterms:hasVersion": "0.0.1-alpha",
@@ -210,7 +230,8 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   },
   {
     "id": "run:hazard",
-    "activityType": "WeightedScoringAndClassification",
+    "provType": "Activity",
+    "activityType": "pt:WeightedScoringAndClassification",
     "processType": "https://example.org/ospd/process-types/weighted-scoring-and-classification",
     "name": "GloFAS + GFMS hazard score accumulation",
     "startedAtTime": "2026-03-02T01:12:40Z",
@@ -238,6 +259,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   },
   {
     "id": "run:gfms-summary",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "GFMS_summary/Flood_byStor_2026030200.csv (duration recalculated)",
     "mom:dataType": "GFMS",
@@ -252,6 +274,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   },
   {
     "id": "run:final-attributes",
+    "provType": "Entity",
     "entityType": "mom:HazardScore",
     "name": "GFMS_MoM/Final_Attributes_20260302.csv",
     "mom:dataType": [
@@ -272,6 +295,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   },
   {
     "id": "run:attributes-clean",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "GFMS_MoM/Attributes_Clean_20260302.csv",
     "dcterms:format": "text/csv",
@@ -281,6 +305,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   },
   {
     "id": "run:source-1-data",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "Source 1 grid, cycle 2026030118",
     "dcat:downloadURL": "https://example.org/source-1/2026030118.grb2",
@@ -292,6 +317,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   },
   {
     "id": "run:source-1-score",
+    "provType": "Entity",
     "entityType": "mom:HazardScore",
     "name": "Source 1 hazard scores, cycle 2026030118",
     "mom:dataType": "Source 1",
@@ -302,6 +328,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   },
   {
     "id": "run:source-2-data",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "Source 2 grid 20260228",
     "dcat:downloadURL": "https://example.org/source-2/20260228.tif",
@@ -313,6 +340,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   },
   {
     "id": "run:source-2-score",
+    "provType": "Entity",
     "entityType": "mom:HazardScore",
     "name": "Source 2 hazard scores 20260228",
     "mom:dataType": "Source 2",
@@ -323,6 +351,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   },
   {
     "id": "run:viirs-data",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "VIIRS flood extent 20260228",
     "dcat:downloadURL": "https://example.org/viirs/VIIRS_20260228.tif",
@@ -334,6 +363,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   },
   {
     "id": "run:viirs-score",
+    "provType": "Entity",
     "entityType": "mom:HazardScore",
     "name": "VIIRS hazard scores 20260228",
     "mom:dataType": "VIIRS",
@@ -344,6 +374,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   },
   {
     "id": "run:final-alert-prev",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "Final_Alert/Final_Alert_2026030118.csv",
     "dcterms:format": "text/csv",
@@ -352,6 +383,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   },
   {
     "id": "run:admin-centroids",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "data/Admin0_1_union_centroid.csv",
     "dcterms:format": "text/csv",
@@ -360,7 +392,8 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   },
   {
     "id": "run:final-alert",
-    "activityType": "ScoringAndProgressTracking",
+    "provType": "Activity",
+    "activityType": "pt:ScoringAndProgressTracking",
     "processType": "https://example.org/ospd/process-types/scoring-and-progress-tracking",
     "name": "Final alert",
     "startedAtTime": "2026-03-02T01:12:48Z",
@@ -383,6 +416,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   },
   {
     "id": "run:final-alert-output",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "Final_Alert/Final_Alert_2026030200.csv",
     "dcterms:format": "text/csv",
@@ -413,22 +447,26 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
   "@graph": [
     {
       "id": "run:mom",
+      "provType": "Agent",
       "agentType": "prov:SoftwareAgent",
       "name": "MoMProduction",
       "dcterms:hasVersion": "0.0.1-alpha"
     },
     {
       "id": "run:rss-hydro",
+      "provType": "Agent",
       "agentType": "prov:Organization",
       "name": "RSS-Hydro"
     },
     {
       "id": "run:server",
+      "provType": "Agent",
       "agentType": "prov:Agent",
       "name": "mom-prod-01 (illustrative server)"
     },
     {
       "id": "run:workflow-run",
+      "provType": "Activity",
       "activityType": "mom:WorkflowRun",
       "name": "MoM workflow run, 2026-03-02 00:00",
       "startedAtTime": "2026-03-02T01:05:33Z",
@@ -441,26 +479,31 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
     },
     {
       "id": "run:umd",
+      "provType": "Agent",
       "agentType": "prov:Organization",
       "name": "University of Maryland (GFMS)"
     },
     {
       "id": "run:ecmwf",
+      "provType": "Agent",
       "agentType": "prov:Organization",
       "name": "ECMWF / CEMS (GloFAS)"
     },
     {
       "id": "run:provider-1",
+      "provType": "Agent",
       "agentType": "prov:Organization",
       "name": "Provider of sources 1 and 2"
     },
     {
       "id": "run:noaa",
+      "provType": "Agent",
       "agentType": "prov:Organization",
       "name": "NOAA (VIIRS)"
     },
     {
       "id": "run:watersheds",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "Watershed_pfaf_id.shp",
       "dcterms:hasVersion": "0.0.0",
@@ -470,6 +513,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
     },
     {
       "id": "run:gfms-bin",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "Flood_byStor_2026030200.bin",
       "dcat:downloadURL": "https://example.org/gfms/Flood_byStor_2026030200.bin",
@@ -482,6 +526,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
     },
     {
       "id": "run:aggregation-parameters",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "GFMS per-watershed aggregation parameters",
       "dcterms:hasVersion": "0.0.1-alpha",
@@ -491,7 +536,8 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
     },
     {
       "id": "run:aggregation",
-      "activityType": "ZonalStatistics",
+      "provType": "Activity",
+      "activityType": "pt:ZonalStatistics",
       "processType": "https://example.org/ospd/process-types/zonal-statistics",
       "name": "GFMS per-watershed aggregation",
       "startedAtTime": "2026-03-02T01:05:33Z",
@@ -511,6 +557,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
     },
     {
       "id": "run:gfms-aggregates",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "Processing/gfms/Flood_byStor_2026030200.csv (per-watershed aggregates, duration not yet recalculated)",
       "mom:dataType": "GFMS",
@@ -525,6 +572,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
     },
     {
       "id": "run:gfms-summary-prev",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "GFMS_summary/Flood_byStor_2026030121.csv",
       "mom:dataType": "GFMS",
@@ -534,6 +582,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
     },
     {
       "id": "run:glofas-txt",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "threspoints_2026030200.txt",
       "dcat:downloadURL": "https://example.org/glofas/threspoints_2026030200.txt",
@@ -546,6 +595,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
     },
     {
       "id": "run:glofas-points",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "GLOFAS/threspoints_2026030200.csv",
       "mom:dataType": "GloFAS",
@@ -557,6 +607,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
     },
     {
       "id": "run:attributes",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "data/Attributes.csv",
       "dcterms:format": "text/csv",
@@ -565,6 +616,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
     },
     {
       "id": "run:resilience",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "data/Resilience_Index.csv",
       "dcterms:format": "text/csv",
@@ -573,6 +625,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
     },
     {
       "id": "run:weights",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "data/GFMS_Weightage.csv",
       "dcterms:format": "text/csv",
@@ -581,6 +634,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
     },
     {
       "id": "run:hazard-parameters",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "GloFAS + GFMS hazard score accumulation parameters",
       "dcterms:hasVersion": "0.0.1-alpha",
@@ -589,7 +643,8 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
     },
     {
       "id": "run:hazard",
-      "activityType": "WeightedScoringAndClassification",
+      "provType": "Activity",
+      "activityType": "pt:WeightedScoringAndClassification",
       "processType": "https://example.org/ospd/process-types/weighted-scoring-and-classification",
       "name": "GloFAS + GFMS hazard score accumulation",
       "startedAtTime": "2026-03-02T01:12:40Z",
@@ -617,6 +672,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
     },
     {
       "id": "run:gfms-summary",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "GFMS_summary/Flood_byStor_2026030200.csv (duration recalculated)",
       "mom:dataType": "GFMS",
@@ -631,6 +687,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
     },
     {
       "id": "run:final-attributes",
+      "provType": "Entity",
       "entityType": "mom:HazardScore",
       "name": "GFMS_MoM/Final_Attributes_20260302.csv",
       "mom:dataType": [
@@ -651,6 +708,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
     },
     {
       "id": "run:attributes-clean",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "GFMS_MoM/Attributes_Clean_20260302.csv",
       "dcterms:format": "text/csv",
@@ -660,6 +718,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
     },
     {
       "id": "run:source-1-data",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "Source 1 grid, cycle 2026030118",
       "dcat:downloadURL": "https://example.org/source-1/2026030118.grb2",
@@ -671,6 +730,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
     },
     {
       "id": "run:source-1-score",
+      "provType": "Entity",
       "entityType": "mom:HazardScore",
       "name": "Source 1 hazard scores, cycle 2026030118",
       "mom:dataType": "Source 1",
@@ -681,6 +741,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
     },
     {
       "id": "run:source-2-data",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "Source 2 grid 20260228",
       "dcat:downloadURL": "https://example.org/source-2/20260228.tif",
@@ -692,6 +753,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
     },
     {
       "id": "run:source-2-score",
+      "provType": "Entity",
       "entityType": "mom:HazardScore",
       "name": "Source 2 hazard scores 20260228",
       "mom:dataType": "Source 2",
@@ -702,6 +764,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
     },
     {
       "id": "run:viirs-data",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "VIIRS flood extent 20260228",
       "dcat:downloadURL": "https://example.org/viirs/VIIRS_20260228.tif",
@@ -713,6 +776,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
     },
     {
       "id": "run:viirs-score",
+      "provType": "Entity",
       "entityType": "mom:HazardScore",
       "name": "VIIRS hazard scores 20260228",
       "mom:dataType": "VIIRS",
@@ -723,6 +787,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
     },
     {
       "id": "run:final-alert-prev",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "Final_Alert/Final_Alert_2026030118.csv",
       "dcterms:format": "text/csv",
@@ -731,6 +796,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
     },
     {
       "id": "run:admin-centroids",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "data/Admin0_1_union_centroid.csv",
       "dcterms:format": "text/csv",
@@ -739,7 +805,8 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
     },
     {
       "id": "run:final-alert",
-      "activityType": "ScoringAndProgressTracking",
+      "provType": "Activity",
+      "activityType": "pt:ScoringAndProgressTracking",
       "processType": "https://example.org/ospd/process-types/scoring-and-progress-tracking",
       "name": "Final alert",
       "startedAtTime": "2026-03-02T01:12:48Z",
@@ -762,6 +829,7 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
     },
     {
       "id": "run:final-alert-output",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "Final_Alert/Final_Alert_2026030200.csv",
       "dcterms:format": "text/csv",
@@ -786,17 +854,19 @@ Usual run; the final alert compares with the alert of the 2026-03-01 18:00 run. 
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix mom: <https://rss-hydro.lu/ns/mom/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix pt: <https://example.org/ospd/process-types/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix run: <https://example.org/mom/run/2026030200/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-run:aggregation a <https://example.org/ospd/process-types/ZonalStatistics> ;
+run:aggregation a prov:Activity ;
     rdfs:label "GFMS per-watershed aggregation" ;
     dcterms:isPartOf run:workflow-run ;
-    dcterms:type <https://example.org/ospd/process-types/zonal-statistics> ;
+    dcterms:type pt:zonal-statistics ;
     prov:endedAtTime "2026-03-02T01:05:41+00:00"^^xsd:dateTime ;
     prov:generated run:gfms-aggregates ;
     prov:startedAtTime "2026-03-02T01:05:33+00:00"^^xsd:dateTime ;
+    prov:type pt:ZonalStatistics ;
     prov:used run:aggregation-parameters,
         run:gfms-bin,
         run:watersheds ;
@@ -808,6 +878,7 @@ run:aggregation-parameters a prov:Entity ;
     rdfs:label "GFMS per-watershed aggregation parameters" ;
     dcterms:hasVersion "0.0.1-alpha" ;
     dcterms:isPartOf run:mom ;
+    prov:type prov:Entity ;
     mom:gfmsDurationAreaThresholdKm2 50 ;
     mom:gfmsMinFileSizeBytes 1000000 .
 
@@ -815,19 +886,22 @@ run:attributes-clean a prov:Entity ;
     rdfs:label "GFMS_MoM/Attributes_Clean_20260302.csv" ;
     dcterms:format "text/csv" ;
     prov:generatedAtTime "2026-03-02T01:12:47+00:00"^^xsd:dateTime ;
+    prov:type prov:Entity ;
     prov:wasDerivedFrom run:final-attributes ;
     prov:wasGeneratedBy run:hazard .
 
-run:ecmwf a prov:Organization ;
-    rdfs:label "ECMWF / CEMS (GloFAS)" .
+run:ecmwf a prov:Agent ;
+    rdfs:label "ECMWF / CEMS (GloFAS)" ;
+    prov:type prov:Organization .
 
-run:final-alert a <https://example.org/ospd/process-types/ScoringAndProgressTracking> ;
+run:final-alert a prov:Activity ;
     rdfs:label "Final alert" ;
     dcterms:isPartOf run:workflow-run ;
-    dcterms:type <https://example.org/ospd/process-types/scoring-and-progress-tracking> ;
+    dcterms:type pt:scoring-and-progress-tracking ;
     prov:endedAtTime "2026-03-02T01:12:52+00:00"^^xsd:dateTime ;
     prov:generated run:final-alert-output ;
     prov:startedAtTime "2026-03-02T01:12:48+00:00"^^xsd:dateTime ;
+    prov:type pt:ScoringAndProgressTracking ;
     prov:used run:admin-centroids,
         run:final-alert-prev,
         run:final-attributes,
@@ -842,6 +916,7 @@ run:final-alert-output a prov:Entity ;
     rdfs:label "Final_Alert/Final_Alert_2026030200.csv" ;
     dcterms:format "text/csv" ;
     prov:generatedAtTime "2026-03-02T01:12:52+00:00"^^xsd:dateTime ;
+    prov:type prov:Entity ;
     prov:wasDerivedFrom run:admin-centroids,
         run:final-alert-prev,
         run:final-attributes,
@@ -855,6 +930,7 @@ run:glofas-txt a prov:Entity ;
     dcterms:format "GloFAS threspoints station table (comma-separated text)" ;
     dcat:downloadURL <https://example.org/glofas/threspoints_2026030200.txt> ;
     prov:generatedAtTime "2026-03-02T00:58:10+00:00"^^xsd:dateTime ;
+    prov:type prov:Entity ;
     prov:wasAttributedTo run:ecmwf ;
     mom:dataTime "2026-03-02T00:00:00+00:00"^^xsd:dateTime ;
     mom:dataType "GloFAS" ;
@@ -864,16 +940,19 @@ run:hazard-parameters a prov:Entity ;
     rdfs:label "GloFAS + GFMS hazard score accumulation parameters" ;
     dcterms:hasVersion "0.0.1-alpha" ;
     dcterms:isPartOf run:mom ;
+    prov:type prov:Entity ;
     mom:gfmsDurationAreaThresholdKm2 50 .
 
-run:noaa a prov:Organization ;
-    rdfs:label "NOAA (VIIRS)" .
+run:noaa a prov:Agent ;
+    rdfs:label "NOAA (VIIRS)" ;
+    prov:type prov:Organization .
 
 run:source-1-data a prov:Entity ;
     rdfs:label "Source 1 grid, cycle 2026030118" ;
     dcterms:format "GRIB2" ;
     dcat:downloadURL <https://example.org/source-1/2026030118.grb2> ;
     prov:generatedAtTime "2026-03-01T23:47:05+00:00"^^xsd:dateTime ;
+    prov:type prov:Entity ;
     prov:wasAttributedTo run:provider-1 ;
     mom:dataTime "2026-03-01T18:00:00+00:00"^^xsd:dateTime ;
     mom:dataType "Source 1" .
@@ -883,18 +962,21 @@ run:source-2-data a prov:Entity ;
     dcterms:format "GeoTIFF" ;
     dcat:downloadURL <https://example.org/source-2/20260228.tif> ;
     prov:generatedAtTime "2026-03-01T02:10:44+00:00"^^xsd:dateTime ;
+    prov:type prov:Entity ;
     prov:wasAttributedTo run:provider-1 ;
     mom:dataTime "2026-02-28T00:00:00+00:00"^^xsd:dateTime ;
     mom:dataType "Source 2" .
 
-run:umd a prov:Organization ;
-    rdfs:label "University of Maryland (GFMS)" .
+run:umd a prov:Agent ;
+    rdfs:label "University of Maryland (GFMS)" ;
+    prov:type prov:Organization .
 
 run:viirs-data a prov:Entity ;
     rdfs:label "VIIRS flood extent 20260228" ;
     dcterms:format "GeoTIFF" ;
     dcat:downloadURL <https://example.org/viirs/VIIRS_20260228.tif> ;
     prov:generatedAtTime "2026-03-01T09:02:13+00:00"^^xsd:dateTime ;
+    prov:type prov:Entity ;
     prov:wasAttributedTo run:noaa ;
     mom:dataTime "2026-02-28T00:00:00+00:00"^^xsd:dateTime ;
     mom:dataType "VIIRS" .
@@ -903,18 +985,21 @@ run:admin-centroids a prov:Entity ;
     rdfs:label "data/Admin0_1_union_centroid.csv" ;
     dcterms:format "text/csv" ;
     dcterms:hasVersion "0.0.1-alpha" ;
-    dcterms:isPartOf run:mom .
+    dcterms:isPartOf run:mom ;
+    prov:type prov:Entity .
 
 run:attributes a prov:Entity ;
     rdfs:label "data/Attributes.csv" ;
     dcterms:format "text/csv" ;
     dcterms:hasVersion "0.0.1-alpha" ;
-    dcterms:isPartOf run:mom .
+    dcterms:isPartOf run:mom ;
+    prov:type prov:Entity .
 
 run:final-alert-prev a prov:Entity ;
     rdfs:label "Final_Alert/Final_Alert_2026030118.csv" ;
     dcterms:format "text/csv" ;
     prov:generatedAtTime "2026-03-01T19:13:02+00:00"^^xsd:dateTime ;
+    prov:type prov:Entity ;
     prov:wasGeneratedBy <https://example.org/mom/run/2026030118/final-alert> .
 
 run:gfms-bin a prov:Entity ;
@@ -922,6 +1007,7 @@ run:gfms-bin a prov:Entity ;
     dcterms:format "GFMS Flood_byStor binary grid (float32)" ;
     dcat:downloadURL <https://example.org/gfms/Flood_byStor_2026030200.bin> ;
     prov:generatedAtTime "2026-03-02T01:05:32+00:00"^^xsd:dateTime ;
+    prov:type prov:Entity ;
     prov:wasAttributedTo run:umd ;
     mom:dataTime "2026-03-02T00:00:00+00:00"^^xsd:dateTime ;
     mom:dataType "GFMS" ;
@@ -931,6 +1017,7 @@ run:gfms-summary a prov:Entity ;
     rdfs:label "GFMS_summary/Flood_byStor_2026030200.csv (duration recalculated)" ;
     dcterms:format "text/csv" ;
     prov:generatedAtTime "2026-03-02T01:12:41+00:00"^^xsd:dateTime ;
+    prov:type prov:Entity ;
     prov:wasDerivedFrom run:gfms-aggregates,
         run:gfms-summary-prev ;
     prov:wasGeneratedBy run:hazard ;
@@ -941,6 +1028,7 @@ run:gfms-summary-prev a prov:Entity ;
     rdfs:label "GFMS_summary/Flood_byStor_2026030121.csv" ;
     dcterms:format "text/csv" ;
     prov:generatedAtTime "2026-03-01T01:07:12+00:00"^^xsd:dateTime ;
+    prov:type prov:Entity ;
     mom:dataTime "2026-03-01T21:00:00+00:00"^^xsd:dateTime ;
     mom:dataType "GFMS" .
 
@@ -948,40 +1036,46 @@ run:glofas-points a prov:Entity ;
     rdfs:label "GLOFAS/threspoints_2026030200.csv" ;
     dcterms:format "text/csv" ;
     prov:generatedAtTime "2026-03-02T00:58:12+00:00"^^xsd:dateTime ;
+    prov:type prov:Entity ;
     prov:wasDerivedFrom run:glofas-txt ;
     mom:dataTime "2026-03-02T00:00:00+00:00"^^xsd:dateTime ;
     mom:dataType "GloFAS" ;
     mom:glofasNodataValue -9999 .
 
-run:provider-1 a prov:Organization ;
-    rdfs:label "Provider of sources 1 and 2" .
+run:provider-1 a prov:Agent ;
+    rdfs:label "Provider of sources 1 and 2" ;
+    prov:type prov:Organization .
 
 run:resilience a prov:Entity ;
     rdfs:label "data/Resilience_Index.csv" ;
     dcterms:format "text/csv" ;
     dcterms:hasVersion "0.0.1-alpha" ;
-    dcterms:isPartOf run:mom .
+    dcterms:isPartOf run:mom ;
+    prov:type prov:Entity .
 
-run:source-1-score a mom:HazardScore ;
+run:source-1-score a prov:Entity ;
     rdfs:label "Source 1 hazard scores, cycle 2026030118" ;
     dcterms:format "text/csv" ;
     prov:generatedAtTime "2026-03-02T00:52:19+00:00"^^xsd:dateTime ;
+    prov:type mom:HazardScore ;
     prov:wasDerivedFrom run:source-1-data ;
     mom:dataTime "2026-03-01T18:00:00+00:00"^^xsd:dateTime ;
     mom:dataType "Source 1" .
 
-run:source-2-score a mom:HazardScore ;
+run:source-2-score a prov:Entity ;
     rdfs:label "Source 2 hazard scores 20260228" ;
     dcterms:format "text/csv" ;
     prov:generatedAtTime "2026-03-01T04:12:30+00:00"^^xsd:dateTime ;
+    prov:type mom:HazardScore ;
     prov:wasDerivedFrom run:source-2-data ;
     mom:dataTime "2026-02-28T00:00:00+00:00"^^xsd:dateTime ;
     mom:dataType "Source 2" .
 
-run:viirs-score a mom:HazardScore ;
+run:viirs-score a prov:Entity ;
     rdfs:label "VIIRS hazard scores 20260228" ;
     dcterms:format "text/csv" ;
     prov:generatedAtTime "2026-03-01T11:41:08+00:00"^^xsd:dateTime ;
+    prov:type mom:HazardScore ;
     prov:wasDerivedFrom run:viirs-data ;
     mom:dataTime "2026-02-28T00:00:00+00:00"^^xsd:dateTime ;
     mom:dataType "VIIRS" .
@@ -991,33 +1085,37 @@ run:watersheds a prov:Entity ;
     dcterms:format "ESRI Shapefile" ;
     dcterms:hasVersion "0.0.0" ;
     prov:generatedAtTime "2026-01-15T00:00:00+00:00"^^xsd:dateTime ;
+    prov:type prov:Entity ;
     mom:watershedFingerprint "a09161ac707ef1d0355e92e730c8fe31e127149b803321bc988b3232058eea17" .
 
 run:weights a prov:Entity ;
     rdfs:label "data/GFMS_Weightage.csv" ;
     dcterms:format "text/csv" ;
     dcterms:hasVersion "0.0.1-alpha" ;
-    dcterms:isPartOf run:mom .
+    dcterms:isPartOf run:mom ;
+    prov:type prov:Entity .
 
 run:gfms-aggregates a prov:Entity ;
     rdfs:label "Processing/gfms/Flood_byStor_2026030200.csv (per-watershed aggregates, duration not yet recalculated)" ;
     dcterms:format "text/csv" ;
     prov:generatedAtTime "2026-03-02T01:05:41+00:00"^^xsd:dateTime ;
+    prov:type prov:Entity ;
     prov:wasDerivedFrom run:gfms-bin,
         run:watersheds ;
     prov:wasGeneratedBy run:aggregation ;
     mom:dataTime "2026-03-02T00:00:00+00:00"^^xsd:dateTime ;
     mom:dataType "GFMS" .
 
-run:hazard a <https://example.org/ospd/process-types/WeightedScoringAndClassification> ;
+run:hazard a prov:Activity ;
     rdfs:label "GloFAS + GFMS hazard score accumulation" ;
     dcterms:isPartOf run:workflow-run ;
-    dcterms:type <https://example.org/ospd/process-types/weighted-scoring-and-classification> ;
+    dcterms:type pt:weighted-scoring-and-classification ;
     prov:endedAtTime "2026-03-02T01:12:47+00:00"^^xsd:dateTime ;
     prov:generated run:attributes-clean,
         run:final-attributes,
         run:gfms-summary ;
     prov:startedAtTime "2026-03-02T01:12:40+00:00"^^xsd:dateTime ;
+    prov:type pt:WeightedScoringAndClassification ;
     prov:used run:attributes,
         run:gfms-aggregates,
         run:gfms-summary-prev,
@@ -1029,18 +1127,20 @@ run:hazard a <https://example.org/ospd/process-types/WeightedScoringAndClassific
         run:rss-hydro,
         run:server .
 
-run:workflow-run a mom:WorkflowRun ;
+run:workflow-run a prov:Activity ;
     rdfs:label "MoM workflow run, 2026-03-02 00:00" ;
     prov:endedAtTime "2026-03-02T01:12:52+00:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-03-02T01:05:33+00:00"^^xsd:dateTime ;
+    prov:type mom:WorkflowRun ;
     prov:wasAssociatedWith run:mom,
         run:rss-hydro,
         run:server .
 
-run:final-attributes a mom:HazardScore ;
+run:final-attributes a prov:Entity ;
     rdfs:label "GFMS_MoM/Final_Attributes_20260302.csv" ;
     dcterms:format "text/csv" ;
     prov:generatedAtTime "2026-03-02T01:12:47+00:00"^^xsd:dateTime ;
+    prov:type mom:HazardScore ;
     prov:wasDerivedFrom run:attributes,
         run:gfms-summary,
         run:glofas-points,
@@ -1051,15 +1151,18 @@ run:final-attributes a mom:HazardScore ;
     mom:dataType "GFMS",
         "GloFAS" .
 
-run:rss-hydro a prov:Organization ;
-    rdfs:label "RSS-Hydro" .
+run:rss-hydro a prov:Agent ;
+    rdfs:label "RSS-Hydro" ;
+    prov:type prov:Organization .
 
 run:server a prov:Agent ;
-    rdfs:label "mom-prod-01 (illustrative server)" .
+    rdfs:label "mom-prod-01 (illustrative server)" ;
+    prov:type prov:Agent .
 
-run:mom a prov:SoftwareAgent ;
+run:mom a prov:Agent ;
     rdfs:label "MoMProduction" ;
-    dcterms:hasVersion "0.0.1-alpha" .
+    dcterms:hasVersion "0.0.1-alpha" ;
+    prov:type prov:SoftwareAgent .
 
 
 ```
@@ -1072,22 +1175,26 @@ Same run without an earlier alert; every watershed is New. All values are illust
 [
   {
     "id": "run:mom",
+    "provType": "Agent",
     "agentType": "prov:SoftwareAgent",
     "name": "MoMProduction",
     "dcterms:hasVersion": "0.0.1-alpha"
   },
   {
     "id": "run:rss-hydro",
+    "provType": "Agent",
     "agentType": "prov:Organization",
     "name": "RSS-Hydro"
   },
   {
     "id": "run:server",
+    "provType": "Agent",
     "agentType": "prov:Agent",
     "name": "mom-prod-01 (illustrative server)"
   },
   {
     "id": "run:workflow-run",
+    "provType": "Activity",
     "activityType": "mom:WorkflowRun",
     "name": "MoM workflow run, 2026-03-02 00:00",
     "startedAtTime": "2026-03-02T01:05:33Z",
@@ -1100,21 +1207,25 @@ Same run without an earlier alert; every watershed is New. All values are illust
   },
   {
     "id": "run:umd",
+    "provType": "Agent",
     "agentType": "prov:Organization",
     "name": "University of Maryland (GFMS)"
   },
   {
     "id": "run:ecmwf",
+    "provType": "Agent",
     "agentType": "prov:Organization",
     "name": "ECMWF / CEMS (GloFAS)"
   },
   {
     "id": "run:provider-1",
+    "provType": "Agent",
     "agentType": "prov:Organization",
     "name": "Provider of sources 1 and 2"
   },
   {
     "id": "run:watersheds",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "Watershed_pfaf_id.shp",
     "dcterms:hasVersion": "0.0.0",
@@ -1124,6 +1235,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
   },
   {
     "id": "run:gfms-bin",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "Flood_byStor_2026030200.bin",
     "dcat:downloadURL": "https://example.org/gfms/Flood_byStor_2026030200.bin",
@@ -1136,6 +1248,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
   },
   {
     "id": "run:aggregation-parameters",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "GFMS per-watershed aggregation parameters",
     "dcterms:hasVersion": "0.0.1-alpha",
@@ -1145,7 +1258,8 @@ Same run without an earlier alert; every watershed is New. All values are illust
   },
   {
     "id": "run:aggregation",
-    "activityType": "ZonalStatistics",
+    "provType": "Activity",
+    "activityType": "pt:ZonalStatistics",
     "processType": "https://example.org/ospd/process-types/zonal-statistics",
     "name": "GFMS per-watershed aggregation",
     "startedAtTime": "2026-03-02T01:05:33Z",
@@ -1165,6 +1279,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
   },
   {
     "id": "run:gfms-aggregates",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "Processing/gfms/Flood_byStor_2026030200.csv (per-watershed aggregates, duration not yet recalculated)",
     "mom:dataType": "GFMS",
@@ -1179,6 +1294,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
   },
   {
     "id": "run:gfms-summary-prev",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "GFMS_summary/Flood_byStor_2026030121.csv",
     "mom:dataType": "GFMS",
@@ -1188,6 +1304,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
   },
   {
     "id": "run:glofas-txt",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "threspoints_2026030200.txt",
     "dcat:downloadURL": "https://example.org/glofas/threspoints_2026030200.txt",
@@ -1200,6 +1317,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
   },
   {
     "id": "run:glofas-points",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "GLOFAS/threspoints_2026030200.csv",
     "mom:dataType": "GloFAS",
@@ -1211,6 +1329,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
   },
   {
     "id": "run:attributes",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "data/Attributes.csv",
     "dcterms:format": "text/csv",
@@ -1219,6 +1338,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
   },
   {
     "id": "run:resilience",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "data/Resilience_Index.csv",
     "dcterms:format": "text/csv",
@@ -1227,6 +1347,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
   },
   {
     "id": "run:weights",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "data/GFMS_Weightage.csv",
     "dcterms:format": "text/csv",
@@ -1235,6 +1356,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
   },
   {
     "id": "run:hazard-parameters",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "GloFAS + GFMS hazard score accumulation parameters",
     "dcterms:hasVersion": "0.0.1-alpha",
@@ -1243,7 +1365,8 @@ Same run without an earlier alert; every watershed is New. All values are illust
   },
   {
     "id": "run:hazard",
-    "activityType": "WeightedScoringAndClassification",
+    "provType": "Activity",
+    "activityType": "pt:WeightedScoringAndClassification",
     "processType": "https://example.org/ospd/process-types/weighted-scoring-and-classification",
     "name": "GloFAS + GFMS hazard score accumulation",
     "startedAtTime": "2026-03-02T01:12:40Z",
@@ -1271,6 +1394,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
   },
   {
     "id": "run:gfms-summary",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "GFMS_summary/Flood_byStor_2026030200.csv (duration recalculated)",
     "mom:dataType": "GFMS",
@@ -1285,6 +1409,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
   },
   {
     "id": "run:final-attributes",
+    "provType": "Entity",
     "entityType": "mom:HazardScore",
     "name": "GFMS_MoM/Final_Attributes_20260302.csv",
     "mom:dataType": [
@@ -1305,6 +1430,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
   },
   {
     "id": "run:attributes-clean",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "GFMS_MoM/Attributes_Clean_20260302.csv",
     "dcterms:format": "text/csv",
@@ -1314,6 +1440,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
   },
   {
     "id": "run:source-1-data",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "Source 1 grid, cycle 2026030118",
     "dcat:downloadURL": "https://example.org/source-1/2026030118.grb2",
@@ -1325,6 +1452,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
   },
   {
     "id": "run:source-1-score",
+    "provType": "Entity",
     "entityType": "mom:HazardScore",
     "name": "Source 1 hazard scores, cycle 2026030118",
     "mom:dataType": "Source 1",
@@ -1335,6 +1463,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
   },
   {
     "id": "run:source-2-data",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "Source 2 grid 20260228",
     "dcat:downloadURL": "https://example.org/source-2/20260228.tif",
@@ -1346,6 +1475,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
   },
   {
     "id": "run:source-2-score",
+    "provType": "Entity",
     "entityType": "mom:HazardScore",
     "name": "Source 2 hazard scores 20260228",
     "mom:dataType": "Source 2",
@@ -1356,6 +1486,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
   },
   {
     "id": "run:admin-centroids",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "data/Admin0_1_union_centroid.csv",
     "dcterms:format": "text/csv",
@@ -1364,7 +1495,8 @@ Same run without an earlier alert; every watershed is New. All values are illust
   },
   {
     "id": "run:final-alert",
-    "activityType": "ScoringAndProgressTracking",
+    "provType": "Activity",
+    "activityType": "pt:ScoringAndProgressTracking",
     "processType": "https://example.org/ospd/process-types/scoring-and-progress-tracking",
     "name": "Final alert",
     "startedAtTime": "2026-03-02T01:12:48Z",
@@ -1385,6 +1517,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
   },
   {
     "id": "run:final-alert-output",
+    "provType": "Entity",
     "entityType": "prov:Entity",
     "name": "Final_Alert/Final_Alert_2026030200.csv",
     "dcterms:format": "text/csv",
@@ -1413,22 +1546,26 @@ Same run without an earlier alert; every watershed is New. All values are illust
   "@graph": [
     {
       "id": "run:mom",
+      "provType": "Agent",
       "agentType": "prov:SoftwareAgent",
       "name": "MoMProduction",
       "dcterms:hasVersion": "0.0.1-alpha"
     },
     {
       "id": "run:rss-hydro",
+      "provType": "Agent",
       "agentType": "prov:Organization",
       "name": "RSS-Hydro"
     },
     {
       "id": "run:server",
+      "provType": "Agent",
       "agentType": "prov:Agent",
       "name": "mom-prod-01 (illustrative server)"
     },
     {
       "id": "run:workflow-run",
+      "provType": "Activity",
       "activityType": "mom:WorkflowRun",
       "name": "MoM workflow run, 2026-03-02 00:00",
       "startedAtTime": "2026-03-02T01:05:33Z",
@@ -1441,21 +1578,25 @@ Same run without an earlier alert; every watershed is New. All values are illust
     },
     {
       "id": "run:umd",
+      "provType": "Agent",
       "agentType": "prov:Organization",
       "name": "University of Maryland (GFMS)"
     },
     {
       "id": "run:ecmwf",
+      "provType": "Agent",
       "agentType": "prov:Organization",
       "name": "ECMWF / CEMS (GloFAS)"
     },
     {
       "id": "run:provider-1",
+      "provType": "Agent",
       "agentType": "prov:Organization",
       "name": "Provider of sources 1 and 2"
     },
     {
       "id": "run:watersheds",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "Watershed_pfaf_id.shp",
       "dcterms:hasVersion": "0.0.0",
@@ -1465,6 +1606,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
     },
     {
       "id": "run:gfms-bin",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "Flood_byStor_2026030200.bin",
       "dcat:downloadURL": "https://example.org/gfms/Flood_byStor_2026030200.bin",
@@ -1477,6 +1619,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
     },
     {
       "id": "run:aggregation-parameters",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "GFMS per-watershed aggregation parameters",
       "dcterms:hasVersion": "0.0.1-alpha",
@@ -1486,7 +1629,8 @@ Same run without an earlier alert; every watershed is New. All values are illust
     },
     {
       "id": "run:aggregation",
-      "activityType": "ZonalStatistics",
+      "provType": "Activity",
+      "activityType": "pt:ZonalStatistics",
       "processType": "https://example.org/ospd/process-types/zonal-statistics",
       "name": "GFMS per-watershed aggregation",
       "startedAtTime": "2026-03-02T01:05:33Z",
@@ -1506,6 +1650,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
     },
     {
       "id": "run:gfms-aggregates",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "Processing/gfms/Flood_byStor_2026030200.csv (per-watershed aggregates, duration not yet recalculated)",
       "mom:dataType": "GFMS",
@@ -1520,6 +1665,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
     },
     {
       "id": "run:gfms-summary-prev",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "GFMS_summary/Flood_byStor_2026030121.csv",
       "mom:dataType": "GFMS",
@@ -1529,6 +1675,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
     },
     {
       "id": "run:glofas-txt",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "threspoints_2026030200.txt",
       "dcat:downloadURL": "https://example.org/glofas/threspoints_2026030200.txt",
@@ -1541,6 +1688,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
     },
     {
       "id": "run:glofas-points",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "GLOFAS/threspoints_2026030200.csv",
       "mom:dataType": "GloFAS",
@@ -1552,6 +1700,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
     },
     {
       "id": "run:attributes",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "data/Attributes.csv",
       "dcterms:format": "text/csv",
@@ -1560,6 +1709,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
     },
     {
       "id": "run:resilience",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "data/Resilience_Index.csv",
       "dcterms:format": "text/csv",
@@ -1568,6 +1718,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
     },
     {
       "id": "run:weights",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "data/GFMS_Weightage.csv",
       "dcterms:format": "text/csv",
@@ -1576,6 +1727,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
     },
     {
       "id": "run:hazard-parameters",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "GloFAS + GFMS hazard score accumulation parameters",
       "dcterms:hasVersion": "0.0.1-alpha",
@@ -1584,7 +1736,8 @@ Same run without an earlier alert; every watershed is New. All values are illust
     },
     {
       "id": "run:hazard",
-      "activityType": "WeightedScoringAndClassification",
+      "provType": "Activity",
+      "activityType": "pt:WeightedScoringAndClassification",
       "processType": "https://example.org/ospd/process-types/weighted-scoring-and-classification",
       "name": "GloFAS + GFMS hazard score accumulation",
       "startedAtTime": "2026-03-02T01:12:40Z",
@@ -1612,6 +1765,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
     },
     {
       "id": "run:gfms-summary",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "GFMS_summary/Flood_byStor_2026030200.csv (duration recalculated)",
       "mom:dataType": "GFMS",
@@ -1626,6 +1780,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
     },
     {
       "id": "run:final-attributes",
+      "provType": "Entity",
       "entityType": "mom:HazardScore",
       "name": "GFMS_MoM/Final_Attributes_20260302.csv",
       "mom:dataType": [
@@ -1646,6 +1801,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
     },
     {
       "id": "run:attributes-clean",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "GFMS_MoM/Attributes_Clean_20260302.csv",
       "dcterms:format": "text/csv",
@@ -1655,6 +1811,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
     },
     {
       "id": "run:source-1-data",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "Source 1 grid, cycle 2026030118",
       "dcat:downloadURL": "https://example.org/source-1/2026030118.grb2",
@@ -1666,6 +1823,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
     },
     {
       "id": "run:source-1-score",
+      "provType": "Entity",
       "entityType": "mom:HazardScore",
       "name": "Source 1 hazard scores, cycle 2026030118",
       "mom:dataType": "Source 1",
@@ -1676,6 +1834,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
     },
     {
       "id": "run:source-2-data",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "Source 2 grid 20260228",
       "dcat:downloadURL": "https://example.org/source-2/20260228.tif",
@@ -1687,6 +1846,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
     },
     {
       "id": "run:source-2-score",
+      "provType": "Entity",
       "entityType": "mom:HazardScore",
       "name": "Source 2 hazard scores 20260228",
       "mom:dataType": "Source 2",
@@ -1697,6 +1857,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
     },
     {
       "id": "run:admin-centroids",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "data/Admin0_1_union_centroid.csv",
       "dcterms:format": "text/csv",
@@ -1705,7 +1866,8 @@ Same run without an earlier alert; every watershed is New. All values are illust
     },
     {
       "id": "run:final-alert",
-      "activityType": "ScoringAndProgressTracking",
+      "provType": "Activity",
+      "activityType": "pt:ScoringAndProgressTracking",
       "processType": "https://example.org/ospd/process-types/scoring-and-progress-tracking",
       "name": "Final alert",
       "startedAtTime": "2026-03-02T01:12:48Z",
@@ -1726,6 +1888,7 @@ Same run without an earlier alert; every watershed is New. All values are illust
     },
     {
       "id": "run:final-alert-output",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "Final_Alert/Final_Alert_2026030200.csv",
       "dcterms:format": "text/csv",
@@ -1748,17 +1911,19 @@ Same run without an earlier alert; every watershed is New. All values are illust
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix mom: <https://rss-hydro.lu/ns/mom/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix pt: <https://example.org/ospd/process-types/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix run: <https://example.org/mom/run/2026030200/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-run:aggregation a <https://example.org/ospd/process-types/ZonalStatistics> ;
+run:aggregation a prov:Activity ;
     rdfs:label "GFMS per-watershed aggregation" ;
     dcterms:isPartOf run:workflow-run ;
-    dcterms:type <https://example.org/ospd/process-types/zonal-statistics> ;
+    dcterms:type pt:zonal-statistics ;
     prov:endedAtTime "2026-03-02T01:05:41+00:00"^^xsd:dateTime ;
     prov:generated run:gfms-aggregates ;
     prov:startedAtTime "2026-03-02T01:05:33+00:00"^^xsd:dateTime ;
+    prov:type pt:ZonalStatistics ;
     prov:used run:aggregation-parameters,
         run:gfms-bin,
         run:watersheds ;
@@ -1770,6 +1935,7 @@ run:aggregation-parameters a prov:Entity ;
     rdfs:label "GFMS per-watershed aggregation parameters" ;
     dcterms:hasVersion "0.0.1-alpha" ;
     dcterms:isPartOf run:mom ;
+    prov:type prov:Entity ;
     mom:gfmsDurationAreaThresholdKm2 50 ;
     mom:gfmsMinFileSizeBytes 1000000 .
 
@@ -1777,19 +1943,22 @@ run:attributes-clean a prov:Entity ;
     rdfs:label "GFMS_MoM/Attributes_Clean_20260302.csv" ;
     dcterms:format "text/csv" ;
     prov:generatedAtTime "2026-03-02T01:12:47+00:00"^^xsd:dateTime ;
+    prov:type prov:Entity ;
     prov:wasDerivedFrom run:final-attributes ;
     prov:wasGeneratedBy run:hazard .
 
-run:ecmwf a prov:Organization ;
-    rdfs:label "ECMWF / CEMS (GloFAS)" .
+run:ecmwf a prov:Agent ;
+    rdfs:label "ECMWF / CEMS (GloFAS)" ;
+    prov:type prov:Organization .
 
-run:final-alert a <https://example.org/ospd/process-types/ScoringAndProgressTracking> ;
+run:final-alert a prov:Activity ;
     rdfs:label "Final alert" ;
     dcterms:isPartOf run:workflow-run ;
-    dcterms:type <https://example.org/ospd/process-types/scoring-and-progress-tracking> ;
+    dcterms:type pt:scoring-and-progress-tracking ;
     prov:endedAtTime "2026-03-02T01:12:52+00:00"^^xsd:dateTime ;
     prov:generated run:final-alert-output ;
     prov:startedAtTime "2026-03-02T01:12:48+00:00"^^xsd:dateTime ;
+    prov:type pt:ScoringAndProgressTracking ;
     prov:used run:admin-centroids,
         run:final-attributes,
         run:source-1-score,
@@ -1802,6 +1971,7 @@ run:final-alert-output a prov:Entity ;
     rdfs:label "Final_Alert/Final_Alert_2026030200.csv" ;
     dcterms:format "text/csv" ;
     prov:generatedAtTime "2026-03-02T01:12:52+00:00"^^xsd:dateTime ;
+    prov:type prov:Entity ;
     prov:wasDerivedFrom run:admin-centroids,
         run:final-attributes,
         run:source-1-score,
@@ -1813,6 +1983,7 @@ run:glofas-txt a prov:Entity ;
     dcterms:format "GloFAS threspoints station table (comma-separated text)" ;
     dcat:downloadURL <https://example.org/glofas/threspoints_2026030200.txt> ;
     prov:generatedAtTime "2026-03-02T00:58:10+00:00"^^xsd:dateTime ;
+    prov:type prov:Entity ;
     prov:wasAttributedTo run:ecmwf ;
     mom:dataTime "2026-03-02T00:00:00+00:00"^^xsd:dateTime ;
     mom:dataType "GloFAS" ;
@@ -1822,6 +1993,7 @@ run:hazard-parameters a prov:Entity ;
     rdfs:label "GloFAS + GFMS hazard score accumulation parameters" ;
     dcterms:hasVersion "0.0.1-alpha" ;
     dcterms:isPartOf run:mom ;
+    prov:type prov:Entity ;
     mom:gfmsDurationAreaThresholdKm2 50 .
 
 run:source-1-data a prov:Entity ;
@@ -1829,6 +2001,7 @@ run:source-1-data a prov:Entity ;
     dcterms:format "GRIB2" ;
     dcat:downloadURL <https://example.org/source-1/2026030118.grb2> ;
     prov:generatedAtTime "2026-03-01T23:47:05+00:00"^^xsd:dateTime ;
+    prov:type prov:Entity ;
     prov:wasAttributedTo run:provider-1 ;
     mom:dataTime "2026-03-01T18:00:00+00:00"^^xsd:dateTime ;
     mom:dataType "Source 1" .
@@ -1838,30 +2011,35 @@ run:source-2-data a prov:Entity ;
     dcterms:format "GeoTIFF" ;
     dcat:downloadURL <https://example.org/source-2/20260228.tif> ;
     prov:generatedAtTime "2026-03-01T02:10:44+00:00"^^xsd:dateTime ;
+    prov:type prov:Entity ;
     prov:wasAttributedTo run:provider-1 ;
     mom:dataTime "2026-02-28T00:00:00+00:00"^^xsd:dateTime ;
     mom:dataType "Source 2" .
 
-run:umd a prov:Organization ;
-    rdfs:label "University of Maryland (GFMS)" .
+run:umd a prov:Agent ;
+    rdfs:label "University of Maryland (GFMS)" ;
+    prov:type prov:Organization .
 
 run:admin-centroids a prov:Entity ;
     rdfs:label "data/Admin0_1_union_centroid.csv" ;
     dcterms:format "text/csv" ;
     dcterms:hasVersion "0.0.1-alpha" ;
-    dcterms:isPartOf run:mom .
+    dcterms:isPartOf run:mom ;
+    prov:type prov:Entity .
 
 run:attributes a prov:Entity ;
     rdfs:label "data/Attributes.csv" ;
     dcterms:format "text/csv" ;
     dcterms:hasVersion "0.0.1-alpha" ;
-    dcterms:isPartOf run:mom .
+    dcterms:isPartOf run:mom ;
+    prov:type prov:Entity .
 
 run:gfms-bin a prov:Entity ;
     rdfs:label "Flood_byStor_2026030200.bin" ;
     dcterms:format "GFMS Flood_byStor binary grid (float32)" ;
     dcat:downloadURL <https://example.org/gfms/Flood_byStor_2026030200.bin> ;
     prov:generatedAtTime "2026-03-02T01:05:32+00:00"^^xsd:dateTime ;
+    prov:type prov:Entity ;
     prov:wasAttributedTo run:umd ;
     mom:dataTime "2026-03-02T00:00:00+00:00"^^xsd:dateTime ;
     mom:dataType "GFMS" ;
@@ -1871,6 +2049,7 @@ run:gfms-summary a prov:Entity ;
     rdfs:label "GFMS_summary/Flood_byStor_2026030200.csv (duration recalculated)" ;
     dcterms:format "text/csv" ;
     prov:generatedAtTime "2026-03-02T01:12:41+00:00"^^xsd:dateTime ;
+    prov:type prov:Entity ;
     prov:wasDerivedFrom run:gfms-aggregates,
         run:gfms-summary-prev ;
     prov:wasGeneratedBy run:hazard ;
@@ -1881,6 +2060,7 @@ run:gfms-summary-prev a prov:Entity ;
     rdfs:label "GFMS_summary/Flood_byStor_2026030121.csv" ;
     dcterms:format "text/csv" ;
     prov:generatedAtTime "2026-03-01T01:07:12+00:00"^^xsd:dateTime ;
+    prov:type prov:Entity ;
     mom:dataTime "2026-03-01T21:00:00+00:00"^^xsd:dateTime ;
     mom:dataType "GFMS" .
 
@@ -1888,32 +2068,37 @@ run:glofas-points a prov:Entity ;
     rdfs:label "GLOFAS/threspoints_2026030200.csv" ;
     dcterms:format "text/csv" ;
     prov:generatedAtTime "2026-03-02T00:58:12+00:00"^^xsd:dateTime ;
+    prov:type prov:Entity ;
     prov:wasDerivedFrom run:glofas-txt ;
     mom:dataTime "2026-03-02T00:00:00+00:00"^^xsd:dateTime ;
     mom:dataType "GloFAS" ;
     mom:glofasNodataValue -9999 .
 
-run:provider-1 a prov:Organization ;
-    rdfs:label "Provider of sources 1 and 2" .
+run:provider-1 a prov:Agent ;
+    rdfs:label "Provider of sources 1 and 2" ;
+    prov:type prov:Organization .
 
 run:resilience a prov:Entity ;
     rdfs:label "data/Resilience_Index.csv" ;
     dcterms:format "text/csv" ;
     dcterms:hasVersion "0.0.1-alpha" ;
-    dcterms:isPartOf run:mom .
+    dcterms:isPartOf run:mom ;
+    prov:type prov:Entity .
 
-run:source-1-score a mom:HazardScore ;
+run:source-1-score a prov:Entity ;
     rdfs:label "Source 1 hazard scores, cycle 2026030118" ;
     dcterms:format "text/csv" ;
     prov:generatedAtTime "2026-03-02T00:52:19+00:00"^^xsd:dateTime ;
+    prov:type mom:HazardScore ;
     prov:wasDerivedFrom run:source-1-data ;
     mom:dataTime "2026-03-01T18:00:00+00:00"^^xsd:dateTime ;
     mom:dataType "Source 1" .
 
-run:source-2-score a mom:HazardScore ;
+run:source-2-score a prov:Entity ;
     rdfs:label "Source 2 hazard scores 20260228" ;
     dcterms:format "text/csv" ;
     prov:generatedAtTime "2026-03-01T04:12:30+00:00"^^xsd:dateTime ;
+    prov:type mom:HazardScore ;
     prov:wasDerivedFrom run:source-2-data ;
     mom:dataTime "2026-02-28T00:00:00+00:00"^^xsd:dateTime ;
     mom:dataType "Source 2" .
@@ -1923,33 +2108,37 @@ run:watersheds a prov:Entity ;
     dcterms:format "ESRI Shapefile" ;
     dcterms:hasVersion "0.0.0" ;
     prov:generatedAtTime "2026-01-15T00:00:00+00:00"^^xsd:dateTime ;
+    prov:type prov:Entity ;
     mom:watershedFingerprint "a09161ac707ef1d0355e92e730c8fe31e127149b803321bc988b3232058eea17" .
 
 run:weights a prov:Entity ;
     rdfs:label "data/GFMS_Weightage.csv" ;
     dcterms:format "text/csv" ;
     dcterms:hasVersion "0.0.1-alpha" ;
-    dcterms:isPartOf run:mom .
+    dcterms:isPartOf run:mom ;
+    prov:type prov:Entity .
 
 run:gfms-aggregates a prov:Entity ;
     rdfs:label "Processing/gfms/Flood_byStor_2026030200.csv (per-watershed aggregates, duration not yet recalculated)" ;
     dcterms:format "text/csv" ;
     prov:generatedAtTime "2026-03-02T01:05:41+00:00"^^xsd:dateTime ;
+    prov:type prov:Entity ;
     prov:wasDerivedFrom run:gfms-bin,
         run:watersheds ;
     prov:wasGeneratedBy run:aggregation ;
     mom:dataTime "2026-03-02T00:00:00+00:00"^^xsd:dateTime ;
     mom:dataType "GFMS" .
 
-run:hazard a <https://example.org/ospd/process-types/WeightedScoringAndClassification> ;
+run:hazard a prov:Activity ;
     rdfs:label "GloFAS + GFMS hazard score accumulation" ;
     dcterms:isPartOf run:workflow-run ;
-    dcterms:type <https://example.org/ospd/process-types/weighted-scoring-and-classification> ;
+    dcterms:type pt:weighted-scoring-and-classification ;
     prov:endedAtTime "2026-03-02T01:12:47+00:00"^^xsd:dateTime ;
     prov:generated run:attributes-clean,
         run:final-attributes,
         run:gfms-summary ;
     prov:startedAtTime "2026-03-02T01:12:40+00:00"^^xsd:dateTime ;
+    prov:type pt:WeightedScoringAndClassification ;
     prov:used run:attributes,
         run:gfms-aggregates,
         run:gfms-summary-prev,
@@ -1961,18 +2150,20 @@ run:hazard a <https://example.org/ospd/process-types/WeightedScoringAndClassific
         run:rss-hydro,
         run:server .
 
-run:workflow-run a mom:WorkflowRun ;
+run:workflow-run a prov:Activity ;
     rdfs:label "MoM workflow run, 2026-03-02 00:00" ;
     prov:endedAtTime "2026-03-02T01:12:52+00:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-03-02T01:05:33+00:00"^^xsd:dateTime ;
+    prov:type mom:WorkflowRun ;
     prov:wasAssociatedWith run:mom,
         run:rss-hydro,
         run:server .
 
-run:final-attributes a mom:HazardScore ;
+run:final-attributes a prov:Entity ;
     rdfs:label "GFMS_MoM/Final_Attributes_20260302.csv" ;
     dcterms:format "text/csv" ;
     prov:generatedAtTime "2026-03-02T01:12:47+00:00"^^xsd:dateTime ;
+    prov:type mom:HazardScore ;
     prov:wasDerivedFrom run:attributes,
         run:gfms-summary,
         run:glofas-points,
@@ -1983,15 +2174,18 @@ run:final-attributes a mom:HazardScore ;
     mom:dataType "GFMS",
         "GloFAS" .
 
-run:rss-hydro a prov:Organization ;
-    rdfs:label "RSS-Hydro" .
+run:rss-hydro a prov:Agent ;
+    rdfs:label "RSS-Hydro" ;
+    prov:type prov:Organization .
 
 run:server a prov:Agent ;
-    rdfs:label "mom-prod-01 (illustrative server)" .
+    rdfs:label "mom-prod-01 (illustrative server)" ;
+    prov:type prov:Agent .
 
-run:mom a prov:SoftwareAgent ;
+run:mom a prov:Agent ;
     rdfs:label "MoMProduction" ;
-    dcterms:hasVersion "0.0.1-alpha" .
+    dcterms:hasVersion "0.0.1-alpha" ;
+    prov:type prov:SoftwareAgent .
 
 
 ```
@@ -2096,10 +2290,71 @@ Links to the schema:
 {
   "@context": {
     "wasInfluencedBy": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
       "@id": "prov:wasInfluencedBy",
       "@type": "@id"
     },
     "qualifiedInfluence": {
+      "@context": {
+        "influencer": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:influencer",
+          "@type": "@id"
+        },
+        "agent": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:agent",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:qualifiedInfluence",
       "@type": "@id"
     },
@@ -2109,17 +2364,33 @@ Links to the schema:
     },
     "id": "@id",
     "provType": "@type",
-    "featureType": "@type",
-    "entityType": "@type",
-    "has_provenance": {
-      "@id": "dct:provenance",
+    "entityType": {
+      "@id": "prov:type",
       "@type": "@id"
     },
+    "name": "rdfs:label",
     "wasGeneratedBy": {
       "@id": "prov:wasGeneratedBy",
       "@type": "@id"
     },
     "wasAttributedTo": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
       "@id": "prov:wasAttributedTo",
       "@type": "@id"
     },
@@ -2151,27 +2422,6 @@ Links to the schema:
       "@id": "prov:wasRevisionOf",
       "@type": "@id"
     },
-    "generatedAtTime": {
-      "@id": "prov:generatedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "invalidatedAtTime": {
-      "@id": "prov:invalidatedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "value": "prov:value",
-    "qualifiedPrimarySource": {
-      "@id": "prov:qualifiedPrimarySource",
-      "@type": "@id"
-    },
-    "qualifiedQuotation": {
-      "@id": "prov:qualifiedQuotation",
-      "@type": "@id"
-    },
-    "qualifiedRevision": {
-      "@id": "prov:qualifiedRevision",
-      "@type": "@id"
-    },
     "atLocation": {
       "@id": "prov:atLocation",
       "@type": "@id"
@@ -2196,6 +2446,27 @@ Links to the schema:
       },
       "@id": "rdfs:seeAlso"
     },
+    "generatedAtTime": {
+      "@id": "prov:generatedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "invalidatedAtTime": {
+      "@id": "prov:invalidatedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "value": "prov:value",
+    "qualifiedPrimarySource": {
+      "@id": "prov:qualifiedPrimarySource",
+      "@type": "@id"
+    },
+    "qualifiedQuotation": {
+      "@id": "prov:qualifiedQuotation",
+      "@type": "@id"
+    },
+    "qualifiedRevision": {
+      "@id": "prov:qualifiedRevision",
+      "@type": "@id"
+    },
     "qualifiedGeneration": {
       "@id": "prov:qualifiedGeneration",
       "@type": "@id"
@@ -2212,8 +2483,95 @@ Links to the schema:
       "@id": "prov:qualifiedAttribution",
       "@type": "@id"
     },
-    "activityType": "@type",
-    "agentType": "@type",
+    "activityType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
+    "startedAtTime": {
+      "@id": "prov:startedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "endedAtTime": {
+      "@id": "prov:endedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "wasAssociatedWith": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
+      "@id": "prov:wasAssociatedWith",
+      "@type": "@id"
+    },
+    "wasInformedBy": {
+      "@id": "prov:wasInformedBy",
+      "@type": "@id"
+    },
+    "used": {
+      "@id": "prov:used",
+      "@type": "@id"
+    },
+    "wasStartedBy": {
+      "@id": "prov:wasStartedBy",
+      "@type": "@id"
+    },
+    "wasEndedBy": {
+      "@id": "prov:wasEndedBy",
+      "@type": "@id"
+    },
+    "invalidated": {
+      "@id": "prov:invalidated",
+      "@type": "@id"
+    },
+    "generated": {
+      "@id": "prov:generated",
+      "@type": "@id"
+    },
+    "qualifiedUsage": {
+      "@id": "prov:qualifiedUsage",
+      "@type": "@id"
+    },
+    "qualifiedCommunication": {
+      "@id": "prov:qualifiedCommunication",
+      "@type": "@id"
+    },
+    "qualifiedStart": {
+      "@id": "prov:qualifiedStart",
+      "@type": "@id"
+    },
+    "qualifiedEnd": {
+      "@id": "prov:qualifiedEnd",
+      "@type": "@id"
+    },
+    "qualifiedAssociation": {
+      "@id": "prov:qualifiedAssociation",
+      "@type": "@id"
+    },
+    "agentType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
+    "actedOnBehalfOf": {
+      "@id": "prov:actedOnBehalfOf",
+      "@type": "@id"
+    },
+    "qualifiedDelegation": {
+      "@id": "prov:qualifiedDelegation",
+      "@type": "@id"
+    },
     "Activity": "prov:Activity",
     "ActivityInfluence": "prov:ActivityInfluence",
     "Agent": "prov:Agent",
@@ -2268,14 +2626,6 @@ Links to the schema:
       "@id": "prov:atTime",
       "@type": "xsd:dateTime"
     },
-    "endedAtTime": {
-      "@id": "prov:endedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "startedAtTime": {
-      "@id": "prov:startedAtTime",
-      "@type": "xsd:dateTime"
-    },
     "provenanceUriTemplate": "prov:provenanceUriTemplate",
     "pairKey": {
       "@id": "prov:pairKey",
@@ -2285,20 +2635,12 @@ Links to the schema:
       "@id": "prov:removedKey",
       "@type": "rdfs:Literal"
     },
-    "actedOnBehalfOf": {
-      "@id": "prov:actedOnBehalfOf",
-      "@type": "@id"
-    },
     "agent": {
       "@id": "prov:agent",
       "@type": "@id"
     },
     "entity": {
       "@id": "prov:entity",
-      "@type": "@id"
-    },
-    "generated": {
-      "@id": "prov:generated",
       "@type": "@id"
     },
     "hadActivity": {
@@ -2331,54 +2673,6 @@ Links to the schema:
     },
     "influencer": {
       "@id": "prov:influencer",
-      "@type": "@id"
-    },
-    "invalidated": {
-      "@id": "prov:invalidated",
-      "@type": "@id"
-    },
-    "qualifiedAssociation": {
-      "@id": "prov:qualifiedAssociation",
-      "@type": "@id"
-    },
-    "qualifiedCommunication": {
-      "@id": "prov:qualifiedCommunication",
-      "@type": "@id"
-    },
-    "qualifiedDelegation": {
-      "@id": "prov:qualifiedDelegation",
-      "@type": "@id"
-    },
-    "qualifiedEnd": {
-      "@id": "prov:qualifiedEnd",
-      "@type": "@id"
-    },
-    "qualifiedStart": {
-      "@id": "prov:qualifiedStart",
-      "@type": "@id"
-    },
-    "qualifiedUsage": {
-      "@id": "prov:qualifiedUsage",
-      "@type": "@id"
-    },
-    "used": {
-      "@id": "prov:used",
-      "@type": "@id"
-    },
-    "wasAssociatedWith": {
-      "@id": "prov:wasAssociatedWith",
-      "@type": "@id"
-    },
-    "wasEndedBy": {
-      "@id": "prov:wasEndedBy",
-      "@type": "@id"
-    },
-    "wasInformedBy": {
-      "@id": "prov:wasInformedBy",
-      "@type": "@id"
-    },
-    "wasStartedBy": {
-      "@id": "prov:wasStartedBy",
       "@type": "@id"
     },
     "has_anchor": {
@@ -2437,14 +2731,14 @@ Links to the schema:
       "@id": "prov:mentionOf",
       "@type": "@id"
     },
-    "name": "rdfs:label",
+    "influenceType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
     "processType": {
       "@id": "dct:type",
       "@type": "@id"
     },
-    "ZonalStatistics": "https://example.org/ospd/process-types/ZonalStatistics",
-    "WeightedScoringAndClassification": "https://example.org/ospd/process-types/WeightedScoringAndClassification",
-    "ScoringAndProgressTracking": "https://example.org/ospd/process-types/ScoringAndProgressTracking",
     "mom:dataTime": {
       "@type": "xsd:dateTime"
     },
@@ -2459,10 +2753,16 @@ Links to the schema:
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "dct": "http://purl.org/dc/terms/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "schema": "https://schema.org/",
+    "wfprov": "http://purl.org/wf4ever/wfprov#",
+    "wfdesc": "http://purl.org/wf4ever/wfdesc#",
+    "wf4ever": "http://purl.org/wf4ever/wf4ever#",
     "oa": "http://www.w3.org/ns/oa#",
     "mom": "https://rss-hydro.lu/ns/mom/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "dcterms": "http://purl.org/dc/terms/",
+    "pt": "https://example.org/ospd/process-types/",
     "@version": 1.1
   }
 }

@@ -271,7 +271,7 @@ x-bblocks-metadata:
   itemIdentifier: ogc.osc.application-package
   register: https://ogcincubator.github.io/bblocks-openscience/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

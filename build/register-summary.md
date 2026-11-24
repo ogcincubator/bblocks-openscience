@@ -32,12 +32,6 @@ A PROV Activity describing one processing step, typed by a process type from a g
 
 Generic W3C PROV profile of one geospatial processing activity.
 
-### `ogc.osc.prov-profiles.aganitha-ndvi` — Geospatial Processing Step Provenance
-
-**Type:** schema
-
-A profile of the PROV-O building block constrained to the description of a single geospatial processing step, with a required link to a registered process type.
-
 ### `ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.inputDescription` — Buffer geometry process input description
 
 **Type:** schema
@@ -55,6 +49,12 @@ Description for the output of the buffer geometry process
 **Type:** model
 
 Ontology describing the Common Workflow Language (CWL) model
+
+### `ogc.osc.prov-profiles.aganitha-ndvi` — Geospatial Processing Step Provenance
+
+**Type:** schema
+
+A profile of the PROV-O building block constrained to the description of a single geospatial processing step, with a required link to a registered process type.
 
 ### `ogc.osc.prov-profiles.workflow-graph` — Workflow Provenance Graph
 
@@ -126,35 +126,11 @@ Tested provenance example of a slice of the RSS-Hydro Model of Models flood work
 
 **Type:** schema
 
-### `ogc.osc.prov-examples.geodcat-stac-earthcode.common` — EarthCODE Common STAC profile
-
-**Type:** schema
-
-EarthCODE metadata profile linked to semantic models
-
 ### `ogc.osc.api-profiles.processes.ipt.api` — IPT Profile of OGC API Processes
 
 **Type:** api
 
 This is a Profile of the OGC API Processes model with specific requirements to standardise Integrity Provenance and Trust (IPT) aspects/
-
-### `ogc.osc.prov-examples.geodcat-stac-earthcode.experiments` — EarthCODE Experiment
-
-**Type:** schema
-
-EarthCODE metadata profile linked to semantic models
-
-### `ogc.osc.prov-examples.geodcat-stac-earthcode.products` — EarthCODE Product
-
-**Type:** schema
-
-EarthCODE metadata profile linked to semantic models
-
-### `ogc.osc.prov-examples.geodcat-stac-earthcode.workflows` — EarthCODE Workflow
-
-**Type:** schema
-
-EarthCODE metadata profile linked to semantic models
 
 ### `ogc.osc.api-profiles.processes.sample-implementation` — Custom OGC API processes instance
 

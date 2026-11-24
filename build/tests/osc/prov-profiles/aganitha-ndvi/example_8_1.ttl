@@ -1,16 +1,16 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<urn:aganitha:step:project:20260807T071500Z> a prov:Activity,
-        <https://example.org/ospd/process-types/model-inference> ;
+<urn:aganitha:step:project:20260807T071500Z> a prov:Activity ;
     rdfs:label "Generate forward drought projection" ;
     prov:generated <urn:aganitha:dataset:drought-projection> ;
     prov:qualifiedUsage [ a prov:Usage ;
-            prov:entity <urn:aganitha:dataset:cdsi> ;
-            prov:hadRole <https://example.org/ospd/roles/inferenceInput> ],
-        [ a prov:Usage ;
             prov:entity <urn:aganitha:model:drought-classifier> ;
-            prov:hadRole <https://example.org/ospd/roles/fittedModel> ] ;
+            prov:hadRole <https://example.org/ospd/roles/fittedModel> ],
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:dataset:cdsi> ;
+            prov:hadRole <https://example.org/ospd/roles/inferenceInput> ] ;
+    prov:type <https://example.org/ospd/process-types/model-inference> ;
     prov:used <urn:aganitha:dataset:cdsi>,
         <urn:aganitha:model:drought-classifier> .
 

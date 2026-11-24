@@ -7,10 +7,13 @@
     prov:endedAtTime "2026-03-02T01:00:07+00:00"^^xsd:dateTime ;
     prov:generated <https://example.org/data/elevation_resampled.tif> ;
     prov:startedAtTime "2026-03-02T01:00:00+00:00"^^xsd:dateTime ;
+    prov:type prov:Activity ;
     prov:used <https://example.org/data/elevation.tif> ;
     prov:wasAssociatedWith <https://example.org/agents/gdal-warp> .
 
-<https://example.org/agents/gdal-warp> a prov:SoftwareAgent .
+<https://example.org/agents/gdal-warp> a prov:Agent ;
+    prov:type prov:SoftwareAgent .
 
-<https://example.org/data/elevation.tif> prov:generatedAtTime "2026-02-01T00:00:00+00:00"^^xsd:dateTime .
+<https://example.org/data/elevation.tif> a prov:Entity ;
+    prov:generatedAtTime "2026-02-01T00:00:00+00:00"^^xsd:dateTime .
 

@@ -3,22 +3,26 @@
   "@graph": [
     {
       "id": "run:mom",
+      "provType": "Agent",
       "agentType": "prov:SoftwareAgent",
       "name": "MoMProduction",
       "dcterms:hasVersion": "0.0.1-alpha"
     },
     {
       "id": "run:rss-hydro",
+      "provType": "Agent",
       "agentType": "prov:Organization",
       "name": "RSS-Hydro"
     },
     {
       "id": "run:server",
+      "provType": "Agent",
       "agentType": "prov:Agent",
       "name": "mom-prod-01 (illustrative server)"
     },
     {
       "id": "run:workflow-run",
+      "provType": "Activity",
       "activityType": "mom:WorkflowRun",
       "name": "MoM workflow run, 2026-03-02 00:00",
       "startedAtTime": "2026-03-02T01:05:33Z",
@@ -31,21 +35,25 @@
     },
     {
       "id": "run:umd",
+      "provType": "Agent",
       "agentType": "prov:Organization",
       "name": "University of Maryland (GFMS)"
     },
     {
       "id": "run:ecmwf",
+      "provType": "Agent",
       "agentType": "prov:Organization",
       "name": "ECMWF / CEMS (GloFAS)"
     },
     {
       "id": "run:provider-1",
+      "provType": "Agent",
       "agentType": "prov:Organization",
       "name": "Provider of sources 1 and 2"
     },
     {
       "id": "run:watersheds",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "Watershed_pfaf_id.shp",
       "dcterms:hasVersion": "0.0.0",
@@ -55,6 +63,7 @@
     },
     {
       "id": "run:gfms-bin",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "Flood_byStor_2026030200.bin",
       "dcat:downloadURL": "https://example.org/gfms/Flood_byStor_2026030200.bin",
@@ -67,6 +76,7 @@
     },
     {
       "id": "run:aggregation-parameters",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "GFMS per-watershed aggregation parameters",
       "dcterms:hasVersion": "0.0.1-alpha",
@@ -76,7 +86,8 @@
     },
     {
       "id": "run:aggregation",
-      "activityType": "ZonalStatistics",
+      "provType": "Activity",
+      "activityType": "pt:ZonalStatistics",
       "processType": "https://example.org/ospd/process-types/zonal-statistics",
       "name": "GFMS per-watershed aggregation",
       "startedAtTime": "2026-03-02T01:05:33Z",
@@ -96,6 +107,7 @@
     },
     {
       "id": "run:gfms-aggregates",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "Processing/gfms/Flood_byStor_2026030200.csv (per-watershed aggregates, duration not yet recalculated)",
       "mom:dataType": "GFMS",
@@ -110,6 +122,7 @@
     },
     {
       "id": "run:gfms-summary-prev",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "GFMS_summary/Flood_byStor_2026030121.csv",
       "mom:dataType": "GFMS",
@@ -119,6 +132,7 @@
     },
     {
       "id": "run:glofas-txt",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "threspoints_2026030200.txt",
       "dcat:downloadURL": "https://example.org/glofas/threspoints_2026030200.txt",
@@ -131,6 +145,7 @@
     },
     {
       "id": "run:glofas-points",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "GLOFAS/threspoints_2026030200.csv",
       "mom:dataType": "GloFAS",
@@ -142,6 +157,7 @@
     },
     {
       "id": "run:attributes",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "data/Attributes.csv",
       "dcterms:format": "text/csv",
@@ -150,6 +166,7 @@
     },
     {
       "id": "run:resilience",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "data/Resilience_Index.csv",
       "dcterms:format": "text/csv",
@@ -158,6 +175,7 @@
     },
     {
       "id": "run:weights",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "data/GFMS_Weightage.csv",
       "dcterms:format": "text/csv",
@@ -166,6 +184,7 @@
     },
     {
       "id": "run:hazard-parameters",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "GloFAS + GFMS hazard score accumulation parameters",
       "dcterms:hasVersion": "0.0.1-alpha",
@@ -174,7 +193,8 @@
     },
     {
       "id": "run:hazard",
-      "activityType": "WeightedScoringAndClassification",
+      "provType": "Activity",
+      "activityType": "pt:WeightedScoringAndClassification",
       "processType": "https://example.org/ospd/process-types/weighted-scoring-and-classification",
       "name": "GloFAS + GFMS hazard score accumulation",
       "startedAtTime": "2026-03-02T01:12:40Z",
@@ -202,6 +222,7 @@
     },
     {
       "id": "run:gfms-summary",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "GFMS_summary/Flood_byStor_2026030200.csv (duration recalculated)",
       "mom:dataType": "GFMS",
@@ -216,6 +237,7 @@
     },
     {
       "id": "run:final-attributes",
+      "provType": "Entity",
       "entityType": "mom:HazardScore",
       "name": "GFMS_MoM/Final_Attributes_20260302.csv",
       "mom:dataType": [
@@ -236,6 +258,7 @@
     },
     {
       "id": "run:attributes-clean",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "GFMS_MoM/Attributes_Clean_20260302.csv",
       "dcterms:format": "text/csv",
@@ -245,6 +268,7 @@
     },
     {
       "id": "run:source-1-data",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "Source 1 grid, cycle 2026030118",
       "dcat:downloadURL": "https://example.org/source-1/2026030118.grb2",
@@ -256,6 +280,7 @@
     },
     {
       "id": "run:source-1-score",
+      "provType": "Entity",
       "entityType": "mom:HazardScore",
       "name": "Source 1 hazard scores, cycle 2026030118",
       "mom:dataType": "Source 1",
@@ -266,6 +291,7 @@
     },
     {
       "id": "run:source-2-data",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "Source 2 grid 20260228",
       "dcat:downloadURL": "https://example.org/source-2/20260228.tif",
@@ -277,6 +303,7 @@
     },
     {
       "id": "run:source-2-score",
+      "provType": "Entity",
       "entityType": "mom:HazardScore",
       "name": "Source 2 hazard scores 20260228",
       "mom:dataType": "Source 2",
@@ -287,6 +314,7 @@
     },
     {
       "id": "run:final-alert-prev",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "Final_Alert/Final_Alert_2026030118.csv",
       "dcterms:format": "text/csv",
@@ -295,6 +323,7 @@
     },
     {
       "id": "run:admin-centroids",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "data/Admin0_1_union_centroid.csv",
       "dcterms:format": "text/csv",
@@ -303,7 +332,8 @@
     },
     {
       "id": "run:final-alert",
-      "activityType": "ScoringAndProgressTracking",
+      "provType": "Activity",
+      "activityType": "pt:ScoringAndProgressTracking",
       "processType": "https://example.org/ospd/process-types/scoring-and-progress-tracking",
       "name": "Final alert",
       "startedAtTime": "2026-03-02T01:12:48Z",
@@ -325,6 +355,7 @@
     },
     {
       "id": "run:final-alert-output",
+      "provType": "Entity",
       "entityType": "prov:Entity",
       "name": "Final_Alert/Final_Alert_2026030200.csv",
       "dcterms:format": "text/csv",

@@ -2,11 +2,11 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<urn:example:step:reproject:1> a prov:Activity,
-        <https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA018> ;
+<urn:example:step:reproject:1> a prov:Activity ;
     rdfs:label "Reproject input areas" ;
     prov:endedAtTime "2026-07-13T17:51:10+00:00"^^xsd:dateTime ;
     prov:generated <urn:example:dataset:areas-utm32n> ;
     prov:startedAtTime "2026-07-13T17:50:00+00:00"^^xsd:dateTime ;
+    prov:type <https://catalog.ospd.dev.kurrawong.ai/catalogs/demo:geoacs/collections/demo:ospd-geoacs/items/demo:GA018> ;
     prov:used <urn:example:dataset:areas-wgs84> .
 

@@ -9,7 +9,9 @@ allOf:
 - if:
     properties:
       activityType:
-        const: ZonalStatistics
+        enum:
+        - pt:ZonalStatistics
+        - https://example.org/ospd/process-types/ZonalStatistics
   then:
     properties:
       processType:
@@ -17,7 +19,9 @@ allOf:
 - if:
     properties:
       activityType:
-        const: WeightedScoringAndClassification
+        enum:
+        - pt:WeightedScoringAndClassification
+        - https://example.org/ospd/process-types/WeightedScoringAndClassification
   then:
     properties:
       processType:
@@ -25,7 +29,9 @@ allOf:
 - if:
     properties:
       activityType:
-        const: ScoringAndProgressTracking
+        enum:
+        - pt:ScoringAndProgressTracking
+        - https://example.org/ospd/process-types/ScoringAndProgressTracking
   then:
     properties:
       processType:
@@ -36,17 +42,18 @@ $defs:
     - activityType
     properties:
       activityType:
+        description: One of the MoM process types, as a pt CURIE or a full IRI.
         enum:
-        - ZonalStatistics
-        - WeightedScoringAndClassification
-        - ScoringAndProgressTracking
-x-jsonld-extra-terms:
-  ZonalStatistics: https://example.org/ospd/process-types/ZonalStatistics
-  WeightedScoringAndClassification: https://example.org/ospd/process-types/WeightedScoringAndClassification
-  ScoringAndProgressTracking: https://example.org/ospd/process-types/ScoringAndProgressTracking
+        - pt:ZonalStatistics
+        - https://example.org/ospd/process-types/ZonalStatistics
+        - pt:WeightedScoringAndClassification
+        - https://example.org/ospd/process-types/WeightedScoringAndClassification
+        - pt:ScoringAndProgressTracking
+        - https://example.org/ospd/process-types/ScoringAndProgressTracking
 x-jsonld-prefixes:
   mom: https://rss-hydro.lu/ns/mom/
   dcterms: http://purl.org/dc/terms/
+  pt: https://example.org/ospd/process-types/
 x-bblocks-metadata:
   itemIdentifier: ogc.osc.rss-hydro.ontology.activities
   register: https://ogcincubator.github.io/bblocks-openscience/build/register.json

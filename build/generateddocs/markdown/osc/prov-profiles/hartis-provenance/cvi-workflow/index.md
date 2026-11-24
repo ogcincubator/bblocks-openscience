@@ -973,36 +973,37 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
 hartis:cvi-run-example-001 a prov:Bundle,
         prov:Entity ;
     rdfs:label "HARTIS CVI workflow design-time and runtime provenance skeleton" ;
+    prov:type prov:Bundle ;
     hartis:workflowDefinition hartis:cvi-workflow .
 
-<https://hartis.org/ospd2026/cvi-run-example-001/entity/coastline-gpkg> a prov:Entity,
-        ospd:VectorDataset ;
+<https://hartis.org/ospd2026/cvi-run-example-001/entity/coastline-gpkg> a prov:Entity ;
     rdfs:label "Extracted coastline geometry" ;
+    prov:type ospd:VectorDataset ;
     prov:wasGeneratedBy <https://hartis.org/ospd2026/cvi-run-example-001/activity/extract-coastline> .
 
-<https://hartis.org/ospd2026/cvi-run-example-001/entity/transects-geojson> a prov:Entity,
-        ospd:VectorDataset ;
+<https://hartis.org/ospd2026/cvi-run-example-001/entity/transects-geojson> a prov:Entity ;
     rdfs:label "Generated CVI transects" ;
+    prov:type ospd:VectorDataset ;
     prov:wasGeneratedBy <https://hartis.org/ospd2026/cvi-run-example-001/activity/generate-transects> .
 
-<https://hartis.org/ospd2026/cvi-run-example-001/entity/transects-with-elevation> a prov:Entity,
-        ospd:VectorDataset ;
+<https://hartis.org/ospd2026/cvi-run-example-001/entity/transects-with-elevation> a prov:Entity ;
     rdfs:label "Transects with elevation scores" ;
+    prov:type ospd:VectorDataset ;
     prov:wasGeneratedBy <https://hartis.org/ospd2026/cvi-run-example-001/activity/compute-elevation> .
 
-<https://hartis.org/ospd2026/cvi-run-example-001/entity/transects-with-erosion> a prov:Entity,
-        ospd:VectorDataset ;
+<https://hartis.org/ospd2026/cvi-run-example-001/entity/transects-with-erosion> a prov:Entity ;
     rdfs:label "Transects with erosion scores" ;
+    prov:type ospd:VectorDataset ;
     prov:wasGeneratedBy <https://hartis.org/ospd2026/cvi-run-example-001/activity/compute-erosion> .
 
-<https://hartis.org/ospd2026/cvi-run-example-001/entity/transects-with-land-cover> a prov:Entity,
-        ospd:VectorDataset ;
+<https://hartis.org/ospd2026/cvi-run-example-001/entity/transects-with-land-cover> a prov:Entity ;
     rdfs:label "Transects with land-cover scores" ;
+    prov:type ospd:VectorDataset ;
     prov:wasGeneratedBy <https://hartis.org/ospd2026/cvi-run-example-001/activity/compute-landcover> .
 
-<https://hartis.org/ospd2026/cvi-run-example-001/entity/transects-with-slope> a prov:Entity,
-        ospd:VectorDataset ;
+<https://hartis.org/ospd2026/cvi-run-example-001/entity/transects-with-slope> a prov:Entity ;
     rdfs:label "Transects with slope scores" ;
+    prov:type ospd:VectorDataset ;
     prov:wasGeneratedBy <https://hartis.org/ospd2026/cvi-run-example-001/activity/compute-slope> .
 
 <https://hartis.org/ospd2026/cvi-run-example-001/entity/validated-config> a prov:Entity ;
@@ -1013,6 +1014,7 @@ hartis:cvi-run-example-001 a prov:Bundle,
         acttype:WorkflowRun ;
     rdfs:label "Illustrative CVI workflow execution" ;
     prov:generated <https://hartis.org/ospd2026/cvi-run-example-001/entity/transects-with-cvi-equal> ;
+    prov:type acttype:WorkflowRun ;
     prov:used <https://hartis.org/ospd2026/cvi-run-example-001/entity/copernicus-dem>,
         <https://hartis.org/ospd2026/cvi-run-example-001/entity/cvi-scoring-config>,
         <https://hartis.org/ospd2026/cvi-run-example-001/entity/deltares-chw-erosion-wfs>,
@@ -1024,44 +1026,52 @@ hartis:cvi-run-example-001 a prov:Bundle,
     hartis:workflowDefinition hartis:cvi-workflow .
 
 <https://hartis.org/ospd2026/cvi-workflow/step/compute-cvi> a prov:Entity,
-        prov:Plan,
-        ospd:ProcessingStep ;
-    rdfs:label "Compute final Coastal Vulnerability Index classification" .
+        prov:Plan ;
+    rdfs:label "Compute final Coastal Vulnerability Index classification" ;
+    prov:type prov:Plan,
+        ospd:ProcessingStep .
 
 <https://hartis.org/ospd2026/cvi-workflow/step/compute-elevation> a prov:Entity,
-        prov:Plan,
-        ospd:ProcessingStep ;
-    rdfs:label "Compute coastal elevation vulnerability score per transect" .
+        prov:Plan ;
+    rdfs:label "Compute coastal elevation vulnerability score per transect" ;
+    prov:type prov:Plan,
+        ospd:ProcessingStep .
 
 <https://hartis.org/ospd2026/cvi-workflow/step/compute-erosion> a prov:Entity,
-        prov:Plan,
-        ospd:ProcessingStep ;
-    rdfs:label "Compute erosion vulnerability score per transect" .
+        prov:Plan ;
+    rdfs:label "Compute erosion vulnerability score per transect" ;
+    prov:type prov:Plan,
+        ospd:ProcessingStep .
 
 <https://hartis.org/ospd2026/cvi-workflow/step/compute-landcover> a prov:Entity,
-        prov:Plan,
-        ospd:ProcessingStep ;
-    rdfs:label "Compute land-cover vulnerability score per transect" .
+        prov:Plan ;
+    rdfs:label "Compute land-cover vulnerability score per transect" ;
+    prov:type prov:Plan,
+        ospd:ProcessingStep .
 
 <https://hartis.org/ospd2026/cvi-workflow/step/compute-slope> a prov:Entity,
-        prov:Plan,
-        ospd:ProcessingStep ;
-    rdfs:label "Compute slope vulnerability score per transect" .
+        prov:Plan ;
+    rdfs:label "Compute slope vulnerability score per transect" ;
+    prov:type prov:Plan,
+        ospd:ProcessingStep .
 
 <https://hartis.org/ospd2026/cvi-workflow/step/extract-coastline> a prov:Entity,
-        prov:Plan,
-        ospd:ProcessingStep ;
-    rdfs:label "Extract coastline geometry for selected AOI" .
+        prov:Plan ;
+    rdfs:label "Extract coastline geometry for selected AOI" ;
+    prov:type prov:Plan,
+        ospd:ProcessingStep .
 
 <https://hartis.org/ospd2026/cvi-workflow/step/generate-transects> a prov:Entity,
-        prov:Plan,
-        ospd:ProcessingStep ;
-    rdfs:label "Generate cross-shore transects from coastline" .
+        prov:Plan ;
+    rdfs:label "Generate cross-shore transects from coastline" ;
+    prov:type prov:Plan,
+        ospd:ProcessingStep .
 
 <https://hartis.org/ospd2026/cvi-workflow/step/setup-env> a prov:Entity,
-        prov:Plan,
-        ospd:ProcessingStep ;
-    rdfs:label "Validate CVI configuration and initialize output workspace" .
+        prov:Plan ;
+    rdfs:label "Validate CVI configuration and initialize output workspace" ;
+    prov:type prov:Plan,
+        ospd:ProcessingStep .
 
 <https://hartis.org/ospd2026/cvi-run-example-001/entity/copernicus-dem> a prov:Entity ;
     rdfs:label "Copernicus DEM source" .
@@ -1084,16 +1094,18 @@ hartis:cvi-run-example-001 a prov:Bundle,
 <https://hartis.org/ospd2026/cvi-run-example-001/entity/overpass-coastline-response> a prov:Entity ;
     rdfs:label "Overpass coastline feature response" .
 
-<https://hartis.org/ospd2026/cvi-run-example-001/entity/transects-with-cvi-equal> a prov:Entity,
-        ospd:VectorDataset ;
+<https://hartis.org/ospd2026/cvi-run-example-001/entity/transects-with-cvi-equal> a prov:Entity ;
     rdfs:label "Final CVI classification" ;
+    prov:type ospd:VectorDataset ;
     prov:wasGeneratedBy <https://hartis.org/ospd2026/cvi-run-example-001/activity/compute-cvi> .
 
 hartis:cvi-workflow a prov:Entity,
         prov:Plan,
+        acttype:WorkflowPlan ;
+    rdfs:label "HARTIS Coastal Vulnerability Index workflow" ;
+    prov:type prov:Plan,
         acttype:WorkflowPlan,
-        ospd:WorkflowDefinition ;
-    rdfs:label "HARTIS Coastal Vulnerability Index workflow" .
+        ospd:WorkflowDefinition .
 
 
 ```
@@ -1251,10 +1263,71 @@ Links to the schema:
 {
   "@context": {
     "wasInfluencedBy": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
       "@id": "prov:wasInfluencedBy",
       "@type": "@id"
     },
     "qualifiedInfluence": {
+      "@context": {
+        "influencer": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:influencer",
+          "@type": "@id"
+        },
+        "agent": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:agent",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:qualifiedInfluence",
       "@type": "@id"
     },
@@ -1264,17 +1337,33 @@ Links to the schema:
     },
     "id": "@id",
     "provType": "@type",
-    "featureType": "@type",
-    "entityType": "@type",
-    "has_provenance": {
-      "@id": "dct:provenance",
+    "entityType": {
+      "@id": "prov:type",
       "@type": "@id"
     },
+    "name": "rdfs:label",
     "wasGeneratedBy": {
       "@id": "prov:wasGeneratedBy",
       "@type": "@id"
     },
     "wasAttributedTo": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
       "@id": "prov:wasAttributedTo",
       "@type": "@id"
     },
@@ -1306,27 +1395,6 @@ Links to the schema:
       "@id": "prov:wasRevisionOf",
       "@type": "@id"
     },
-    "generatedAtTime": {
-      "@id": "prov:generatedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "invalidatedAtTime": {
-      "@id": "prov:invalidatedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "value": "prov:value",
-    "qualifiedPrimarySource": {
-      "@id": "prov:qualifiedPrimarySource",
-      "@type": "@id"
-    },
-    "qualifiedQuotation": {
-      "@id": "prov:qualifiedQuotation",
-      "@type": "@id"
-    },
-    "qualifiedRevision": {
-      "@id": "prov:qualifiedRevision",
-      "@type": "@id"
-    },
     "atLocation": {
       "@id": "prov:atLocation",
       "@type": "@id"
@@ -1351,6 +1419,27 @@ Links to the schema:
       },
       "@id": "rdfs:seeAlso"
     },
+    "generatedAtTime": {
+      "@id": "prov:generatedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "invalidatedAtTime": {
+      "@id": "prov:invalidatedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "value": "prov:value",
+    "qualifiedPrimarySource": {
+      "@id": "prov:qualifiedPrimarySource",
+      "@type": "@id"
+    },
+    "qualifiedQuotation": {
+      "@id": "prov:qualifiedQuotation",
+      "@type": "@id"
+    },
+    "qualifiedRevision": {
+      "@id": "prov:qualifiedRevision",
+      "@type": "@id"
+    },
     "qualifiedGeneration": {
       "@id": "prov:qualifiedGeneration",
       "@type": "@id"
@@ -1367,8 +1456,95 @@ Links to the schema:
       "@id": "prov:qualifiedAttribution",
       "@type": "@id"
     },
-    "activityType": "@type",
-    "agentType": "@type",
+    "activityType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
+    "startedAtTime": {
+      "@id": "prov:startedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "endedAtTime": {
+      "@id": "prov:endedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "wasAssociatedWith": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
+      "@id": "prov:wasAssociatedWith",
+      "@type": "@id"
+    },
+    "wasInformedBy": {
+      "@id": "prov:wasInformedBy",
+      "@type": "@id"
+    },
+    "used": {
+      "@id": "prov:used",
+      "@type": "@id"
+    },
+    "wasStartedBy": {
+      "@id": "prov:wasStartedBy",
+      "@type": "@id"
+    },
+    "wasEndedBy": {
+      "@id": "prov:wasEndedBy",
+      "@type": "@id"
+    },
+    "invalidated": {
+      "@id": "prov:invalidated",
+      "@type": "@id"
+    },
+    "generated": {
+      "@id": "prov:generated",
+      "@type": "@id"
+    },
+    "qualifiedUsage": {
+      "@id": "prov:qualifiedUsage",
+      "@type": "@id"
+    },
+    "qualifiedCommunication": {
+      "@id": "prov:qualifiedCommunication",
+      "@type": "@id"
+    },
+    "qualifiedStart": {
+      "@id": "prov:qualifiedStart",
+      "@type": "@id"
+    },
+    "qualifiedEnd": {
+      "@id": "prov:qualifiedEnd",
+      "@type": "@id"
+    },
+    "qualifiedAssociation": {
+      "@id": "prov:qualifiedAssociation",
+      "@type": "@id"
+    },
+    "agentType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
+    "actedOnBehalfOf": {
+      "@id": "prov:actedOnBehalfOf",
+      "@type": "@id"
+    },
+    "qualifiedDelegation": {
+      "@id": "prov:qualifiedDelegation",
+      "@type": "@id"
+    },
     "Activity": "prov:Activity",
     "ActivityInfluence": "prov:ActivityInfluence",
     "Agent": "prov:Agent",
@@ -1423,14 +1599,6 @@ Links to the schema:
       "@id": "prov:atTime",
       "@type": "xsd:dateTime"
     },
-    "endedAtTime": {
-      "@id": "prov:endedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "startedAtTime": {
-      "@id": "prov:startedAtTime",
-      "@type": "xsd:dateTime"
-    },
     "provenanceUriTemplate": "prov:provenanceUriTemplate",
     "pairKey": {
       "@id": "prov:pairKey",
@@ -1440,20 +1608,12 @@ Links to the schema:
       "@id": "prov:removedKey",
       "@type": "rdfs:Literal"
     },
-    "actedOnBehalfOf": {
-      "@id": "prov:actedOnBehalfOf",
-      "@type": "@id"
-    },
     "agent": {
       "@id": "prov:agent",
       "@type": "@id"
     },
     "entity": {
       "@id": "prov:entity",
-      "@type": "@id"
-    },
-    "generated": {
-      "@id": "prov:generated",
       "@type": "@id"
     },
     "hadActivity": {
@@ -1486,54 +1646,6 @@ Links to the schema:
     },
     "influencer": {
       "@id": "prov:influencer",
-      "@type": "@id"
-    },
-    "invalidated": {
-      "@id": "prov:invalidated",
-      "@type": "@id"
-    },
-    "qualifiedAssociation": {
-      "@id": "prov:qualifiedAssociation",
-      "@type": "@id"
-    },
-    "qualifiedCommunication": {
-      "@id": "prov:qualifiedCommunication",
-      "@type": "@id"
-    },
-    "qualifiedDelegation": {
-      "@id": "prov:qualifiedDelegation",
-      "@type": "@id"
-    },
-    "qualifiedEnd": {
-      "@id": "prov:qualifiedEnd",
-      "@type": "@id"
-    },
-    "qualifiedStart": {
-      "@id": "prov:qualifiedStart",
-      "@type": "@id"
-    },
-    "qualifiedUsage": {
-      "@id": "prov:qualifiedUsage",
-      "@type": "@id"
-    },
-    "used": {
-      "@id": "prov:used",
-      "@type": "@id"
-    },
-    "wasAssociatedWith": {
-      "@id": "prov:wasAssociatedWith",
-      "@type": "@id"
-    },
-    "wasEndedBy": {
-      "@id": "prov:wasEndedBy",
-      "@type": "@id"
-    },
-    "wasInformedBy": {
-      "@id": "prov:wasInformedBy",
-      "@type": "@id"
-    },
-    "wasStartedBy": {
-      "@id": "prov:wasStartedBy",
       "@type": "@id"
     },
     "has_anchor": {
@@ -1592,7 +1704,10 @@ Links to the schema:
       "@id": "prov:mentionOf",
       "@type": "@id"
     },
-    "name": "rdfs:label",
+    "influenceType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
     "label": "rdfs:label",
     "workflowDefinition": {
       "@id": "hartis:workflowDefinition",
@@ -1628,6 +1743,11 @@ Links to the schema:
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "dct": "http://purl.org/dc/terms/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "schema": "https://schema.org/",
+    "wfprov": "http://purl.org/wf4ever/wfprov#",
+    "wfdesc": "http://purl.org/wf4ever/wfdesc#",
+    "wf4ever": "http://purl.org/wf4ever/wf4ever#",
     "oa": "http://www.w3.org/ns/oa#",
     "dcterms": "http://purl.org/dc/terms/",
     "skos": "http://www.w3.org/2004/02/skos/core#",

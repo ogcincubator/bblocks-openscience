@@ -23,7 +23,7 @@
       "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
     ]
   },
-  "dateOfLastChange": "2026-11-23",
+  "dateOfLastChange": "2026-11-24",
   "ldContext": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/processing-activity/context.jsonld",
   "schema": {
     "application/yaml": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/processing-activity/schema.yaml",
@@ -43,20 +43,20 @@
         {
           "language": "json",
           "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/rss-hydro/processing-activity/example_1_1.json",
-          "sizeBytes": 568,
-          "code": "{\n  \"id\": \"https://example.org/runs/42/resample\",\n  \"activityType\": \"prov:Activity\",\n  \"name\": \"Resample elevation raster\",\n  \"startedAtTime\": \"2026-03-02T01:00:00Z\",\n  \"endedAtTime\": \"2026-03-02T01:00:07Z\",\n  \"used\": {\n    \"id\": \"https://example.org/data/elevation.tif\",\n    \"generatedAtTime\": \"2026-02-01T00:00:00Z\"\n  },\n  \"generated\": \"https://example.org/data/elevation_resampled.tif\",\n  \"wasAssociatedWith\": {\n    \"id\": \"https://example.org/agents/gdal-warp\",\n    \"agentType\": \"prov:SoftwareAgent\",\n    \"name\": \"gdalwarp\",\n    \"dcterms:hasVersion\": \"3.9.0\"\n  }\n}\n"
+          "sizeBytes": 645,
+          "code": "{\n  \"id\": \"https://example.org/runs/42/resample\",\n  \"provType\": \"Activity\",\n  \"activityType\": \"prov:Activity\",\n  \"name\": \"Resample elevation raster\",\n  \"startedAtTime\": \"2026-03-02T01:00:00Z\",\n  \"endedAtTime\": \"2026-03-02T01:00:07Z\",\n  \"used\": {\n    \"id\": \"https://example.org/data/elevation.tif\",\n    \"provType\": \"Entity\",\n    \"generatedAtTime\": \"2026-02-01T00:00:00Z\"\n  },\n  \"generated\": \"https://example.org/data/elevation_resampled.tif\",\n  \"wasAssociatedWith\": {\n    \"id\": \"https://example.org/agents/gdal-warp\",\n    \"provType\": \"Agent\",\n    \"agentType\": \"prov:SoftwareAgent\",\n    \"name\": \"gdalwarp\",\n    \"dcterms:hasVersion\": \"3.9.0\"\n  }\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/rss-hydro/processing-activity/example_1_1.jsonld",
-          "sizeBytes": 700,
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/processing-activity/context.jsonld\",\n  \"id\": \"https://example.org/runs/42/resample\",\n  \"activityType\": \"prov:Activity\",\n  \"name\": \"Resample elevation raster\",\n  \"startedAtTime\": \"2026-03-02T01:00:00Z\",\n  \"endedAtTime\": \"2026-03-02T01:00:07Z\",\n  \"used\": {\n    \"id\": \"https://example.org/data/elevation.tif\",\n    \"generatedAtTime\": \"2026-02-01T00:00:00Z\"\n  },\n  \"generated\": \"https://example.org/data/elevation_resampled.tif\",\n  \"wasAssociatedWith\": {\n    \"id\": \"https://example.org/agents/gdal-warp\",\n    \"agentType\": \"prov:SoftwareAgent\",\n    \"name\": \"gdalwarp\",\n    \"dcterms:hasVersion\": \"3.9.0\"\n  }\n}"
+          "sizeBytes": 777,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/rss-hydro/processing-activity/context.jsonld\",\n  \"id\": \"https://example.org/runs/42/resample\",\n  \"provType\": \"Activity\",\n  \"activityType\": \"prov:Activity\",\n  \"name\": \"Resample elevation raster\",\n  \"startedAtTime\": \"2026-03-02T01:00:00Z\",\n  \"endedAtTime\": \"2026-03-02T01:00:07Z\",\n  \"used\": {\n    \"id\": \"https://example.org/data/elevation.tif\",\n    \"provType\": \"Entity\",\n    \"generatedAtTime\": \"2026-02-01T00:00:00Z\"\n  },\n  \"generated\": \"https://example.org/data/elevation_resampled.tif\",\n  \"wasAssociatedWith\": {\n    \"id\": \"https://example.org/agents/gdal-warp\",\n    \"provType\": \"Agent\",\n    \"agentType\": \"prov:SoftwareAgent\",\n    \"name\": \"gdalwarp\",\n    \"dcterms:hasVersion\": \"3.9.0\"\n  }\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-openscience/build/tests/osc/rss-hydro/processing-activity/example_1_1.ttl",
-          "sizeBytes": 863,
-          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/runs/42/resample> a prov:Activity ;\n    rdfs:label \"Resample elevation raster\" ;\n    prov:endedAtTime \"2026-03-02T01:00:07+00:00\"^^xsd:dateTime ;\n    prov:generated <https://example.org/data/elevation_resampled.tif> ;\n    prov:startedAtTime \"2026-03-02T01:00:00+00:00\"^^xsd:dateTime ;\n    prov:used <https://example.org/data/elevation.tif> ;\n    prov:wasAssociatedWith <https://example.org/agents/gdal-warp> .\n\n<https://example.org/agents/gdal-warp> a prov:SoftwareAgent ;\n    rdfs:label \"gdalwarp\" ;\n    dcterms:hasVersion \"3.9.0\" .\n\n<https://example.org/data/elevation.tif> prov:generatedAtTime \"2026-02-01T00:00:00+00:00\"^^xsd:dateTime .\n\n"
+          "sizeBytes": 940,
+          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/runs/42/resample> a prov:Activity ;\n    rdfs:label \"Resample elevation raster\" ;\n    prov:endedAtTime \"2026-03-02T01:00:07+00:00\"^^xsd:dateTime ;\n    prov:generated <https://example.org/data/elevation_resampled.tif> ;\n    prov:startedAtTime \"2026-03-02T01:00:00+00:00\"^^xsd:dateTime ;\n    prov:type prov:Activity ;\n    prov:used <https://example.org/data/elevation.tif> ;\n    prov:wasAssociatedWith <https://example.org/agents/gdal-warp> .\n\n<https://example.org/agents/gdal-warp> a prov:Agent ;\n    rdfs:label \"gdalwarp\" ;\n    dcterms:hasVersion \"3.9.0\" ;\n    prov:type prov:SoftwareAgent .\n\n<https://example.org/data/elevation.tif> a prov:Entity ;\n    prov:generatedAtTime \"2026-02-01T00:00:00+00:00\"^^xsd:dateTime .\n\n"
         }
       ]
     }
