@@ -44,7 +44,7 @@
       "https://example.org/data/bap/Sakar_complete_months_2021_2025_2021_01_indices_savi.tif",
       "https://example.org/data/bap/Sakar_complete_months_2021_2025_2021_02_indices_savi.tif"
     ],
-    "wasGeneratedBy": "ex:step1_post_a_bap_cog_conversion",
+    "wasGeneratedBy": "ex:step1_post_a_bap_reprojection_and_cog_conversion",
     "generatedAtTime": "2026-08-21T10:46:00Z",
     "wasDerivedFrom": "ex:bap_results",
     "wasAttributedTo": "https://orcid.org/0000-0003-4718-2959"
@@ -105,7 +105,7 @@
     "id": "ex:postprocessing_code",
     "provType": "Entity",
     "entityType": ["prov:Plan", "schema:SoftwareSourceCode"],
-    "dct:title": "Post-processing: COG conversion and STAC metadata creation",
+    "dct:title": "Post-processing: reprojection, COG conversion and STAC metadata creation",
     "schema:codeRepository": "https://github.com/example-org/ecco-postprocessing",
     "schema:version": "0.6.1",
     "schema:programmingLanguage": "Python"
@@ -201,9 +201,12 @@
   },
 
   {
-    "id": "ex:step1_post_a_bap_cog_conversion",
+    "id": "ex:step1_post_a_bap_reprojection_and_cog_conversion",
     "provType": "Activity",
-    "activityType": ["ex:PostProcessing", "ex:Reprojection", "ex:CogConversion"],
+    "activityType": [
+      "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA018",
+      "ex:CogConversion"
+    ],
     "rdfs:label": "Step 1 post-processing a: reproject best available pixel composites to EPSG:3857 and convert them to Cloud Optimized GeoTIFFs",
     "ex:targetCrs": "EPSG:3857",
     "startedAtTime": "2026-08-21T10:42:00Z",
@@ -221,7 +224,7 @@
   {
     "id": "ex:step1_post_b_bap_stac_metadata",
     "provType": "Activity",
-    "activityType": ["ex:PostProcessing", "ex:StacMetadataCreation"],
+    "activityType": ["ex:StacMetadataCreation"],
     "rdfs:label": "Step 1 post-processing b: create STAC metadata for the best available pixel composites",
     "rdfs:comment": "Creates STAC collection and items for the COGs and embeds the available provenance information: openEO process graph, processing backend and input parameters.",
     "startedAtTime": "2026-08-21T10:46:00Z",
@@ -232,7 +235,7 @@
       "ex:bap_process_graph",
       "ex:workflow_parameters"
     ],
-    "wasInformedBy": ["ex:step1_bap", "ex:step1_post_a_bap_cog_conversion"],
+    "wasInformedBy": ["ex:step1_bap", "ex:step1_post_a_bap_reprojection_and_cog_conversion"],
     "qualifiedAssociation": [
       { "agent": "ex:prefect" },
       { "agent": "ex:postprocessing_container", "hadPlan": "ex:postprocessing_code" },
@@ -259,7 +262,7 @@
   {
     "id": "ex:step2_post_sen_stac_metadata",
     "provType": "Activity",
-    "activityType": ["ex:PostProcessing", "ex:StacMetadataCreation"],
+    "activityType": ["ex:StacMetadataCreation"],
     "rdfs:label": "Step 2 post-processing: create STAC metadata for the Sen slope results",
     "rdfs:comment": "Creates STAC collection and items for the COGs and embeds the available provenance information: algorithm repository and version, processing backend and input parameters.",
     "startedAtTime": "2026-08-21T11:02:00Z",
