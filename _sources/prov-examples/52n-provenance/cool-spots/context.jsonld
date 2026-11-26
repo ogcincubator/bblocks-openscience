@@ -1,6 +1,14 @@
 {
   "@context": {
     "ex": "https://example.org/cool-spots#",
-    "schema": "https://schema.org/"
+    "schema": "https://schema.org/",
+    "isPartOf": {
+      "@id": "dct:isPartOf",
+      "@type": "@id"
+    },
+    "license": {
+      "@id": "dct:license",
+      "@type": "@id"
+    }
   }
 }

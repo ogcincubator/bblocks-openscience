@@ -14,3 +14,14 @@ carry only the specific types.
 The example conforms. Its post-processing steps are typed with local CURIEs (`ex:CogConversion`,
 `ex:StacMetadataCreation`), which the schema accepts as specific types; mapping them to registered
 process types is still to be done, and can only be checked against the register.
+
+The workflow is orchestrated by [Prefect](https://www.prefect.io/). The run, its plan and its runner
+are typed with the generic workflow classes of the
+[activity type register profile](https://w3id.org/ogc/rim/activity-type/):
+`ex:vegetation_productivity_run` is an `acttype:WorkflowRun`, the Prefect flow
+`ex:vegetation_productivity_flow` an `acttype:WorkflowPlan` and `ex:prefect` an `acttype:WorkflowRunner`.
+The run uses the inputs that no step generated (the Sentinel-2 collection and the workflow
+parameters `ex:workflow_parameters`, which steps 1 and 2 share) and generates the output of the last step (the Seasonal Sen Slope STAC collection),
+by reference only.
+The analyst is responsible for the run through Prefect, which acts on their behalf.
+Each step points to the run it belongs to with `isPartOf`.

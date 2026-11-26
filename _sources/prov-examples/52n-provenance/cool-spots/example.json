@@ -16,7 +16,6 @@
       300
     ],
     "generatedAtTime": "2026-07-13T17:43:40+02:00",
-    "wasGeneratedBy": "ex:act1_defineInputs",
     "wasAttributedTo": "https://orcid.org/0000-0003-4718-2959"
   },
   {
@@ -25,7 +24,7 @@
     "entityType": "prov:PrimarySource",
     "rdfs:label": "OpenStreetMap",
     "schema:url": "https://www.openstreetmap.org",
-    "dcterms:license": "https://opendatacommons.org/licenses/odbl/1-0/"
+    "license": "https://opendatacommons.org/licenses/odbl/1-0/"
   },
   {
     "id": "ex:nominatimApi",
@@ -50,7 +49,7 @@
     "ex:crs": "EPSG:4326",
     "hadPrimarySource": "ex:openStreetMap",
     "generatedAtTime": "2026-07-13T17:43:41.9+02:00",
-    "wasGeneratedBy": "ex:act2a_geocodeCity"
+    "wasGeneratedBy": "ex:act1_geocodeCity"
   },
   {
     "id": "ex:rawOsmData",
@@ -59,7 +58,7 @@
     "rdfs:label": "Raw OSM vector data (EPSG:4326)",
     "ex:crs": "EPSG:4326",
     "ex:osmBaseTimestamp": "2026-07-13T13:54:30Z",
-    "dcterms:license": "https://opendatacommons.org/licenses/odbl/1-0/",
+    "license": "https://opendatacommons.org/licenses/odbl/1-0/",
     "hadPrimarySource": "ex:openStreetMap",
     "generatedAtTime": "2026-07-13T17:44:05.8+02:00",
     "wasGeneratedBy": "ex:act2_acquireData"
@@ -260,15 +259,6 @@
   },
 
   {
-    "id": "ex:act1_defineInputs",
-    "provType": "Activity",
-    "activityType": "ex:defineInputs",
-    "rdfs:label": "Step 1: Define Process Inputs",
-    "startedAtTime": "2026-07-13T17:35:00+02:00",
-    "endedAtTime": "2026-07-13T17:43:40+02:00",
-    "wasAssociatedWith": "https://orcid.org/0000-0003-4718-2959"
-  },
-  {
     "id": "ex:workflowRun",
     "provType": "Activity",
     "activityType": "acttype:WorkflowRun",
@@ -276,6 +266,7 @@
     "startedAtTime": "2026-07-13T17:43:41.2+02:00",
     "endedAtTime": "2026-07-13T17:44:17.3+02:00",
     "used": [
+      "ex:processInputs",
       "ex:nominatimApi",
       "ex:overpassApi"
     ],
@@ -289,10 +280,10 @@
     }
   },
   {
-    "id": "ex:act2a_geocodeCity",
+    "id": "ex:act1_geocodeCity",
     "provType": "Activity",
     "activityType": "ex:geocodeCity",
-    "rdfs:label": "Step 2a: Geocode city boundary",
+    "rdfs:label": "Step 1: Geocode city boundary",
     "startedAtTime": "2026-07-13T17:43:41.2+02:00",
     "endedAtTime": "2026-07-13T17:43:41.9+02:00",
     "used": [
@@ -300,7 +291,7 @@
       "ex:nominatimApi"
     ],
     "wasAssociatedWith": "ex:gisPipelineEngine",
-    "dcterms:isPartOf": "ex:workflowRun"
+    "isPartOf": "ex:workflowRun"
   },
   {
     "id": "ex:act2_acquireData",
@@ -315,7 +306,7 @@
       "ex:overpassApi"
     ],
     "wasAssociatedWith": "ex:gisPipelineEngine",
-    "dcterms:isPartOf": "ex:workflowRun"
+    "isPartOf": "ex:workflowRun"
   },
   {
     "id": "ex:act3_reproject",
@@ -326,7 +317,7 @@
     "endedAtTime": "2026-07-13T17:44:06.4+02:00",
     "used": "ex:rawOsmData",
     "wasAssociatedWith": "ex:gisPipelineEngine",
-    "dcterms:isPartOf": "ex:workflowRun"
+    "isPartOf": "ex:workflowRun"
   },
   {
     "id": "ex:act4_filterAreas",
@@ -340,7 +331,7 @@
       "ex:processInputs"
     ],
     "wasAssociatedWith": "ex:gisPipelineEngine",
-    "dcterms:isPartOf": "ex:workflowRun"
+    "isPartOf": "ex:workflowRun"
   },
   {
     "id": "ex:act5_buffer300m",
@@ -354,7 +345,7 @@
       "ex:processInputs"
     ],
     "wasAssociatedWith": "ex:gisPipelineEngine",
-    "dcterms:isPartOf": "ex:workflowRun"
+    "isPartOf": "ex:workflowRun"
   },
   {
     "id": "ex:act6_bufferMultiLevel",
@@ -368,7 +359,7 @@
       "ex:processInputs"
     ],
     "wasAssociatedWith": "ex:gisPipelineEngine",
-    "dcterms:isPartOf": "ex:workflowRun"
+    "isPartOf": "ex:workflowRun"
   },
   {
     "id": "ex:act7_calcDifferences",
@@ -383,7 +374,7 @@
       "ex:cityBoundary"
     ],
     "wasAssociatedWith": "ex:gisPipelineEngine",
-    "dcterms:isPartOf": "ex:workflowRun"
+    "isPartOf": "ex:workflowRun"
   },
   {
     "id": "ex:act8_exportOutputs",
@@ -401,7 +392,7 @@
       "ex:multiLevelBuffers"
     ],
     "wasAssociatedWith": "ex:gisPipelineEngine",
-    "dcterms:isPartOf": "ex:workflowRun"
+    "isPartOf": "ex:workflowRun"
   },
 
   {
