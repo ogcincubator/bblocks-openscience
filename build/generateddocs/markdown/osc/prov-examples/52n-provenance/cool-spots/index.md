@@ -22,8 +22,8 @@ so every activity must be a [Registered Processing Step](bblock://ogc.osc.prov-p
 its `activityType` must give a process type, from a governed register, more specific than `prov:Activity`, and it must have an output.
 Each node gives its PROV class in `provType` (`Entity`, `Activity`, `Agent`), and `entityType`,
 `activityType` and `agentType` carry only the specific types. Steps not yet mapped to a registered
-process type use local CURIEs derived from their names (`ex:defineInputs`, `ex:geocodeCity`,
-`ex:acquireData`, `ex:exportOutputs`); the schema accepts these, but mapping them to registered
+process type use local CURIEs derived from their names (`ex:geocodeCity`, `ex:acquireData`,
+`ex:exportOutputs`); the schema accepts these, but mapping them to registered
 process types is still to be done.
 
 The workflow run, its plan and its runner are typed with the generic workflow classes of the
@@ -33,8 +33,10 @@ The workflow run, its plan and its runner are typed with the generic workflow cl
 
 The workflow run reports its own inputs and output by reference only: it uses the inputs of
 each step that no other step generated, and generates the output of the last step (`ex:finalOutputPackage`, whose members are the exported files).
-The example conforms; the SHACL shapes warn only that `ex:act1_defineInputs`, which creates the
-process inputs from parameters, uses no entity.
+The workflow parameters (`ex:processInputs`) are set by the analyst before the run, so they are
+not modelled as a processing step: they are an input of the run, attributed to the analyst.
+Each step points to the run it belongs to with `isPartOf`.
+The example conforms.
 
 ## Examples
 
@@ -59,7 +61,6 @@ process inputs from parameters, uses no entity.
       300
     ],
     "generatedAtTime": "2026-07-13T17:43:40+02:00",
-    "wasGeneratedBy": "ex:act1_defineInputs",
     "wasAttributedTo": "https://orcid.org/0000-0003-4718-2959"
   },
   {
@@ -68,7 +69,7 @@ process inputs from parameters, uses no entity.
     "entityType": "prov:PrimarySource",
     "rdfs:label": "OpenStreetMap",
     "schema:url": "https://www.openstreetmap.org",
-    "dcterms:license": "https://opendatacommons.org/licenses/odbl/1-0/"
+    "license": "https://opendatacommons.org/licenses/odbl/1-0/"
   },
   {
     "id": "ex:nominatimApi",
@@ -93,7 +94,7 @@ process inputs from parameters, uses no entity.
     "ex:crs": "EPSG:4326",
     "hadPrimarySource": "ex:openStreetMap",
     "generatedAtTime": "2026-07-13T17:43:41.9+02:00",
-    "wasGeneratedBy": "ex:act2a_geocodeCity"
+    "wasGeneratedBy": "ex:act1_geocodeCity"
   },
   {
     "id": "ex:rawOsmData",
@@ -102,7 +103,7 @@ process inputs from parameters, uses no entity.
     "rdfs:label": "Raw OSM vector data (EPSG:4326)",
     "ex:crs": "EPSG:4326",
     "ex:osmBaseTimestamp": "2026-07-13T13:54:30Z",
-    "dcterms:license": "https://opendatacommons.org/licenses/odbl/1-0/",
+    "license": "https://opendatacommons.org/licenses/odbl/1-0/",
     "hadPrimarySource": "ex:openStreetMap",
     "generatedAtTime": "2026-07-13T17:44:05.8+02:00",
     "wasGeneratedBy": "ex:act2_acquireData"
@@ -303,15 +304,6 @@ process inputs from parameters, uses no entity.
   },
 
   {
-    "id": "ex:act1_defineInputs",
-    "provType": "Activity",
-    "activityType": "ex:defineInputs",
-    "rdfs:label": "Step 1: Define Process Inputs",
-    "startedAtTime": "2026-07-13T17:35:00+02:00",
-    "endedAtTime": "2026-07-13T17:43:40+02:00",
-    "wasAssociatedWith": "https://orcid.org/0000-0003-4718-2959"
-  },
-  {
     "id": "ex:workflowRun",
     "provType": "Activity",
     "activityType": "acttype:WorkflowRun",
@@ -319,6 +311,7 @@ process inputs from parameters, uses no entity.
     "startedAtTime": "2026-07-13T17:43:41.2+02:00",
     "endedAtTime": "2026-07-13T17:44:17.3+02:00",
     "used": [
+      "ex:processInputs",
       "ex:nominatimApi",
       "ex:overpassApi"
     ],
@@ -332,10 +325,10 @@ process inputs from parameters, uses no entity.
     }
   },
   {
-    "id": "ex:act2a_geocodeCity",
+    "id": "ex:act1_geocodeCity",
     "provType": "Activity",
     "activityType": "ex:geocodeCity",
-    "rdfs:label": "Step 2a: Geocode city boundary",
+    "rdfs:label": "Step 1: Geocode city boundary",
     "startedAtTime": "2026-07-13T17:43:41.2+02:00",
     "endedAtTime": "2026-07-13T17:43:41.9+02:00",
     "used": [
@@ -343,7 +336,7 @@ process inputs from parameters, uses no entity.
       "ex:nominatimApi"
     ],
     "wasAssociatedWith": "ex:gisPipelineEngine",
-    "dcterms:isPartOf": "ex:workflowRun"
+    "isPartOf": "ex:workflowRun"
   },
   {
     "id": "ex:act2_acquireData",
@@ -358,7 +351,7 @@ process inputs from parameters, uses no entity.
       "ex:overpassApi"
     ],
     "wasAssociatedWith": "ex:gisPipelineEngine",
-    "dcterms:isPartOf": "ex:workflowRun"
+    "isPartOf": "ex:workflowRun"
   },
   {
     "id": "ex:act3_reproject",
@@ -369,7 +362,7 @@ process inputs from parameters, uses no entity.
     "endedAtTime": "2026-07-13T17:44:06.4+02:00",
     "used": "ex:rawOsmData",
     "wasAssociatedWith": "ex:gisPipelineEngine",
-    "dcterms:isPartOf": "ex:workflowRun"
+    "isPartOf": "ex:workflowRun"
   },
   {
     "id": "ex:act4_filterAreas",
@@ -383,7 +376,7 @@ process inputs from parameters, uses no entity.
       "ex:processInputs"
     ],
     "wasAssociatedWith": "ex:gisPipelineEngine",
-    "dcterms:isPartOf": "ex:workflowRun"
+    "isPartOf": "ex:workflowRun"
   },
   {
     "id": "ex:act5_buffer300m",
@@ -397,7 +390,7 @@ process inputs from parameters, uses no entity.
       "ex:processInputs"
     ],
     "wasAssociatedWith": "ex:gisPipelineEngine",
-    "dcterms:isPartOf": "ex:workflowRun"
+    "isPartOf": "ex:workflowRun"
   },
   {
     "id": "ex:act6_bufferMultiLevel",
@@ -411,7 +404,7 @@ process inputs from parameters, uses no entity.
       "ex:processInputs"
     ],
     "wasAssociatedWith": "ex:gisPipelineEngine",
-    "dcterms:isPartOf": "ex:workflowRun"
+    "isPartOf": "ex:workflowRun"
   },
   {
     "id": "ex:act7_calcDifferences",
@@ -426,7 +419,7 @@ process inputs from parameters, uses no entity.
       "ex:cityBoundary"
     ],
     "wasAssociatedWith": "ex:gisPipelineEngine",
-    "dcterms:isPartOf": "ex:workflowRun"
+    "isPartOf": "ex:workflowRun"
   },
   {
     "id": "ex:act8_exportOutputs",
@@ -444,7 +437,7 @@ process inputs from parameters, uses no entity.
       "ex:multiLevelBuffers"
     ],
     "wasAssociatedWith": "ex:gisPipelineEngine",
-    "dcterms:isPartOf": "ex:workflowRun"
+    "isPartOf": "ex:workflowRun"
   },
 
   {
@@ -493,7 +486,6 @@ process inputs from parameters, uses no entity.
         300
       ],
       "generatedAtTime": "2026-07-13T17:43:40+02:00",
-      "wasGeneratedBy": "ex:act1_defineInputs",
       "wasAttributedTo": "https://orcid.org/0000-0003-4718-2959"
     },
     {
@@ -502,7 +494,7 @@ process inputs from parameters, uses no entity.
       "entityType": "prov:PrimarySource",
       "rdfs:label": "OpenStreetMap",
       "schema:url": "https://www.openstreetmap.org",
-      "dcterms:license": "https://opendatacommons.org/licenses/odbl/1-0/"
+      "license": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
     {
       "id": "ex:nominatimApi",
@@ -527,7 +519,7 @@ process inputs from parameters, uses no entity.
       "ex:crs": "EPSG:4326",
       "hadPrimarySource": "ex:openStreetMap",
       "generatedAtTime": "2026-07-13T17:43:41.9+02:00",
-      "wasGeneratedBy": "ex:act2a_geocodeCity"
+      "wasGeneratedBy": "ex:act1_geocodeCity"
     },
     {
       "id": "ex:rawOsmData",
@@ -536,7 +528,7 @@ process inputs from parameters, uses no entity.
       "rdfs:label": "Raw OSM vector data (EPSG:4326)",
       "ex:crs": "EPSG:4326",
       "ex:osmBaseTimestamp": "2026-07-13T13:54:30Z",
-      "dcterms:license": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "license": "https://opendatacommons.org/licenses/odbl/1-0/",
       "hadPrimarySource": "ex:openStreetMap",
       "generatedAtTime": "2026-07-13T17:44:05.8+02:00",
       "wasGeneratedBy": "ex:act2_acquireData"
@@ -736,15 +728,6 @@ process inputs from parameters, uses no entity.
       "wasAttributedTo": "https://orcid.org/0000-0003-4718-2959"
     },
     {
-      "id": "ex:act1_defineInputs",
-      "provType": "Activity",
-      "activityType": "ex:defineInputs",
-      "rdfs:label": "Step 1: Define Process Inputs",
-      "startedAtTime": "2026-07-13T17:35:00+02:00",
-      "endedAtTime": "2026-07-13T17:43:40+02:00",
-      "wasAssociatedWith": "https://orcid.org/0000-0003-4718-2959"
-    },
-    {
       "id": "ex:workflowRun",
       "provType": "Activity",
       "activityType": "acttype:WorkflowRun",
@@ -752,6 +735,7 @@ process inputs from parameters, uses no entity.
       "startedAtTime": "2026-07-13T17:43:41.2+02:00",
       "endedAtTime": "2026-07-13T17:44:17.3+02:00",
       "used": [
+        "ex:processInputs",
         "ex:nominatimApi",
         "ex:overpassApi"
       ],
@@ -765,10 +749,10 @@ process inputs from parameters, uses no entity.
       }
     },
     {
-      "id": "ex:act2a_geocodeCity",
+      "id": "ex:act1_geocodeCity",
       "provType": "Activity",
       "activityType": "ex:geocodeCity",
-      "rdfs:label": "Step 2a: Geocode city boundary",
+      "rdfs:label": "Step 1: Geocode city boundary",
       "startedAtTime": "2026-07-13T17:43:41.2+02:00",
       "endedAtTime": "2026-07-13T17:43:41.9+02:00",
       "used": [
@@ -776,7 +760,7 @@ process inputs from parameters, uses no entity.
         "ex:nominatimApi"
       ],
       "wasAssociatedWith": "ex:gisPipelineEngine",
-      "dcterms:isPartOf": "ex:workflowRun"
+      "isPartOf": "ex:workflowRun"
     },
     {
       "id": "ex:act2_acquireData",
@@ -791,7 +775,7 @@ process inputs from parameters, uses no entity.
         "ex:overpassApi"
       ],
       "wasAssociatedWith": "ex:gisPipelineEngine",
-      "dcterms:isPartOf": "ex:workflowRun"
+      "isPartOf": "ex:workflowRun"
     },
     {
       "id": "ex:act3_reproject",
@@ -802,7 +786,7 @@ process inputs from parameters, uses no entity.
       "endedAtTime": "2026-07-13T17:44:06.4+02:00",
       "used": "ex:rawOsmData",
       "wasAssociatedWith": "ex:gisPipelineEngine",
-      "dcterms:isPartOf": "ex:workflowRun"
+      "isPartOf": "ex:workflowRun"
     },
     {
       "id": "ex:act4_filterAreas",
@@ -816,7 +800,7 @@ process inputs from parameters, uses no entity.
         "ex:processInputs"
       ],
       "wasAssociatedWith": "ex:gisPipelineEngine",
-      "dcterms:isPartOf": "ex:workflowRun"
+      "isPartOf": "ex:workflowRun"
     },
     {
       "id": "ex:act5_buffer300m",
@@ -830,7 +814,7 @@ process inputs from parameters, uses no entity.
         "ex:processInputs"
       ],
       "wasAssociatedWith": "ex:gisPipelineEngine",
-      "dcterms:isPartOf": "ex:workflowRun"
+      "isPartOf": "ex:workflowRun"
     },
     {
       "id": "ex:act6_bufferMultiLevel",
@@ -844,7 +828,7 @@ process inputs from parameters, uses no entity.
         "ex:processInputs"
       ],
       "wasAssociatedWith": "ex:gisPipelineEngine",
-      "dcterms:isPartOf": "ex:workflowRun"
+      "isPartOf": "ex:workflowRun"
     },
     {
       "id": "ex:act7_calcDifferences",
@@ -859,7 +843,7 @@ process inputs from parameters, uses no entity.
         "ex:cityBoundary"
       ],
       "wasAssociatedWith": "ex:gisPipelineEngine",
-      "dcterms:isPartOf": "ex:workflowRun"
+      "isPartOf": "ex:workflowRun"
     },
     {
       "id": "ex:act8_exportOutputs",
@@ -877,7 +861,7 @@ process inputs from parameters, uses no entity.
         "ex:multiLevelBuffers"
       ],
       "wasAssociatedWith": "ex:gisPipelineEngine",
-      "dcterms:isPartOf": "ex:workflowRun"
+      "isPartOf": "ex:workflowRun"
     },
     {
       "id": "https://orcid.org/0000-0003-4718-2959",
@@ -916,30 +900,19 @@ process inputs from parameters, uses no entity.
 @prefix schema: <https://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:workflowRun a prov:Activity,
-        acttype:WorkflowRun ;
-    rdfs:label "Cool spots workflow run" ;
-    prov:endedAtTime "2026-07-13T17:44:17.300000+02:00"^^xsd:dateTime ;
-    prov:generated ex:finalOutputPackage ;
-    prov:qualifiedAssociation [ prov:agent ex:gisPipelineEngine ;
-            prov:hadPlan ex:coolSpotsScript ;
-            prov:hadRole ex:workflowExecutor ] ;
+ex:act1_geocodeCity a prov:Activity ;
+    rdfs:label "Step 1: Geocode city boundary" ;
+    dcterms:isPartOf ex:workflowRun ;
+    prov:endedAtTime "2026-07-13T17:43:41.900000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:43:41.200000+02:00"^^xsd:dateTime ;
-    prov:type acttype:WorkflowRun ;
+    prov:type ex:geocodeCity ;
     prov:used ex:nominatimApi,
-        ex:overpassApi ;
+        ex:processInputs ;
     prov:wasAssociatedWith ex:gisPipelineEngine .
-
-ex:act1_defineInputs a prov:Activity ;
-    rdfs:label "Step 1: Define Process Inputs" ;
-    prov:endedAtTime "2026-07-13T17:43:40+02:00"^^xsd:dateTime ;
-    prov:startedAtTime "2026-07-13T17:35:00+02:00"^^xsd:dateTime ;
-    prov:type ex:defineInputs ;
-    prov:wasAssociatedWith <https://orcid.org/0000-0003-4718-2959> .
 
 ex:act2_acquireData a prov:Activity ;
     rdfs:label "Step 2: Acquire relevant OSM data" ;
-    dcterms:isPartOf "ex:workflowRun" ;
+    dcterms:isPartOf ex:workflowRun ;
     prov:endedAtTime "2026-07-13T17:44:05.800000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:43:42+02:00"^^xsd:dateTime ;
     prov:type ex:acquireData ;
@@ -948,19 +921,9 @@ ex:act2_acquireData a prov:Activity ;
         ex:processInputs ;
     prov:wasAssociatedWith ex:gisPipelineEngine .
 
-ex:act2a_geocodeCity a prov:Activity ;
-    rdfs:label "Step 2a: Geocode city boundary" ;
-    dcterms:isPartOf "ex:workflowRun" ;
-    prov:endedAtTime "2026-07-13T17:43:41.900000+02:00"^^xsd:dateTime ;
-    prov:startedAtTime "2026-07-13T17:43:41.200000+02:00"^^xsd:dateTime ;
-    prov:type ex:geocodeCity ;
-    prov:used ex:nominatimApi,
-        ex:processInputs ;
-    prov:wasAssociatedWith ex:gisPipelineEngine .
-
 ex:act3_reproject a prov:Activity ;
     rdfs:label "Step 3: Reproject EPSG:4326 to UTM" ;
-    dcterms:isPartOf "ex:workflowRun" ;
+    dcterms:isPartOf ex:workflowRun ;
     prov:endedAtTime "2026-07-13T17:44:06.400000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:44:05.900000+02:00"^^xsd:dateTime ;
     prov:type <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA018> ;
@@ -969,7 +932,7 @@ ex:act3_reproject a prov:Activity ;
 
 ex:act4_filterAreas a prov:Activity ;
     rdfs:label "Step 4: Filter areas by size" ;
-    dcterms:isPartOf "ex:workflowRun" ;
+    dcterms:isPartOf ex:workflowRun ;
     prov:endedAtTime "2026-07-13T17:44:06.700000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:44:06.500000+02:00"^^xsd:dateTime ;
     prov:type <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA020> ;
@@ -979,7 +942,7 @@ ex:act4_filterAreas a prov:Activity ;
 
 ex:act5_buffer300m a prov:Activity ;
     rdfs:label "Step 5: Create 300m buffer (or walking distance)" ;
-    dcterms:isPartOf "ex:workflowRun" ;
+    dcterms:isPartOf ex:workflowRun ;
     prov:endedAtTime "2026-07-13T17:44:09.100000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:44:06.800000+02:00"^^xsd:dateTime ;
     prov:type <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:ogcactivites/items/demo:GA001> ;
@@ -989,7 +952,7 @@ ex:act5_buffer300m a prov:Activity ;
 
 ex:act6_bufferMultiLevel a prov:Activity ;
     rdfs:label "Step 6: Create additional level buffers" ;
-    dcterms:isPartOf "ex:workflowRun" ;
+    dcterms:isPartOf ex:workflowRun ;
     prov:endedAtTime "2026-07-13T17:44:15.900000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:44:09.200000+02:00"^^xsd:dateTime ;
     prov:type <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:ogcactivites/items/demo:GA001> ;
@@ -999,7 +962,7 @@ ex:act6_bufferMultiLevel a prov:Activity ;
 
 ex:act7_calcDifferences a prov:Activity ;
     rdfs:label "Step 7: Identify unserved city areas" ;
-    dcterms:isPartOf "ex:workflowRun" ;
+    dcterms:isPartOf ex:workflowRun ;
     prov:endedAtTime "2026-07-13T17:44:16.900000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:44:16+02:00"^^xsd:dateTime ;
     prov:type <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA019> ;
@@ -1134,7 +1097,7 @@ ex:nominatimApi a prov:Entity ;
 
 ex:openStreetMap a prov:Entity ;
     rdfs:label "OpenStreetMap" ;
-    dcterms:license "https://opendatacommons.org/licenses/odbl/1-0/" ;
+    dcterms:license <https://opendatacommons.org/licenses/odbl/1-0/> ;
     prov:type prov:PrimarySource ;
     schema:url "https://www.openstreetmap.org" .
 
@@ -1146,7 +1109,7 @@ ex:overpassApi a prov:Entity ;
 
 ex:rawOsmData a prov:Entity ;
     rdfs:label "Raw OSM vector data (EPSG:4326)" ;
-    dcterms:license "https://opendatacommons.org/licenses/odbl/1-0/" ;
+    dcterms:license <https://opendatacommons.org/licenses/odbl/1-0/> ;
     prov:generatedAtTime "2026-07-13T17:44:05.800000+02:00"^^xsd:dateTime ;
     prov:hadPrimarySource ex:openStreetMap ;
     prov:type ex:OsmDataset ;
@@ -1163,6 +1126,12 @@ ex:unservedAreas a prov:Entity ;
         ex:primaryBuffers ;
     prov:wasGeneratedBy ex:act7_calcDifferences .
 
+<https://orcid.org/0000-0003-4718-2959> a prov:Agent,
+        prov:Person ;
+    rdfs:label "GIS Analyst" ;
+    prov:type prov:Person ;
+    schema:identifier "https://orcid.org/0000-0003-4718-2959" .
+
 ex:primaryBuffers a prov:Entity ;
     rdfs:label "300m buffers around cool spots" ;
     prov:generatedAtTime "2026-07-13T17:44:09.100000+02:00"^^xsd:dateTime ;
@@ -1178,26 +1147,26 @@ ex:reprojectedData a prov:Entity ;
     prov:wasGeneratedBy ex:act3_reproject ;
     ex:crs "EPSG:32632" .
 
-<https://orcid.org/0000-0003-4718-2959> a prov:Agent,
-        prov:Person ;
-    rdfs:label "GIS Analyst" ;
-    prov:type prov:Person ;
-    schema:identifier "https://orcid.org/0000-0003-4718-2959" .
-
 ex:cityBoundary a prov:Entity ;
     rdfs:label "Münster city boundary (EPSG:4326)" ;
     prov:generatedAtTime "2026-07-13T17:43:41.900000+02:00"^^xsd:dateTime ;
     prov:hadPrimarySource ex:openStreetMap ;
     prov:type ex:VectorDataset ;
-    prov:wasGeneratedBy ex:act2a_geocodeCity ;
+    prov:wasGeneratedBy ex:act1_geocodeCity ;
     ex:crs "EPSG:4326" .
+
+ex:filteredCoolSpots a prov:Entity ;
+    rdfs:label "Cool spots filtered by min area (>=200m²)" ;
+    prov:generatedAtTime "2026-07-13T17:44:06.700000+02:00"^^xsd:dateTime ;
+    prov:type ex:VectorDataset ;
+    prov:wasDerivedFrom ex:reprojectedData ;
+    prov:wasGeneratedBy ex:act4_filterAreas .
 
 ex:processInputs a prov:Entity ;
     rdfs:label "Workflow Parameters" ;
     prov:generatedAtTime "2026-07-13T17:43:40+02:00"^^xsd:dateTime ;
     prov:type ex:WorkflowInputs ;
     prov:wasAttributedTo <https://orcid.org/0000-0003-4718-2959> ;
-    prov:wasGeneratedBy ex:act1_defineInputs ;
     ex:bufferIntervals 0,
         75,
         150,
@@ -1208,13 +1177,6 @@ ex:processInputs a prov:Entity ;
     ex:minArea 200 ;
     ex:osmTags "landuse=forest, natural=wood, leisure=park" .
 
-ex:filteredCoolSpots a prov:Entity ;
-    rdfs:label "Cool spots filtered by min area (>=200m²)" ;
-    prov:generatedAtTime "2026-07-13T17:44:06.700000+02:00"^^xsd:dateTime ;
-    prov:type ex:VectorDataset ;
-    prov:wasDerivedFrom ex:reprojectedData ;
-    prov:wasGeneratedBy ex:act4_filterAreas .
-
 ex:multiLevelBuffers a prov:Entity ;
     rdfs:label "Multi-level buffer zones" ;
     prov:generatedAtTime "2026-07-13T17:44:15.900000+02:00"^^xsd:dateTime ;
@@ -1222,9 +1184,24 @@ ex:multiLevelBuffers a prov:Entity ;
     prov:wasDerivedFrom ex:filteredCoolSpots ;
     prov:wasGeneratedBy ex:act6_bufferMultiLevel .
 
+ex:workflowRun a prov:Activity,
+        acttype:WorkflowRun ;
+    rdfs:label "Cool spots workflow run" ;
+    prov:endedAtTime "2026-07-13T17:44:17.300000+02:00"^^xsd:dateTime ;
+    prov:generated ex:finalOutputPackage ;
+    prov:qualifiedAssociation [ prov:agent ex:gisPipelineEngine ;
+            prov:hadPlan ex:coolSpotsScript ;
+            prov:hadRole ex:workflowExecutor ] ;
+    prov:startedAtTime "2026-07-13T17:43:41.200000+02:00"^^xsd:dateTime ;
+    prov:type acttype:WorkflowRun ;
+    prov:used ex:nominatimApi,
+        ex:overpassApi,
+        ex:processInputs ;
+    prov:wasAssociatedWith ex:gisPipelineEngine .
+
 ex:act8_exportOutputs a prov:Activity ;
     rdfs:label "Step 8: Export process outputs" ;
-    dcterms:isPartOf "ex:workflowRun" ;
+    dcterms:isPartOf ex:workflowRun ;
     prov:endedAtTime "2026-07-13T17:44:17.300000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:44:17+02:00"^^xsd:dateTime ;
     prov:type ex:exportOutputs ;
@@ -1256,6 +1233,13 @@ ex:gisPipelineEngine a prov:Agent,
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
 $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/workflow-graph/schema.yaml
+x-jsonld-extra-terms:
+  isPartOf:
+    x-jsonld-id: dct:isPartOf
+    x-jsonld-type: '@id'
+  license:
+    x-jsonld-id: dct:license
+    x-jsonld-type: '@id'
 x-jsonld-prefixes:
   ex: https://example.org/cool-spots#
   schema: https://schema.org/
@@ -1263,7 +1247,7 @@ x-bblocks-metadata:
   itemIdentifier: ogc.osc.prov-examples.52n-provenance.cool-spots
   register: https://ogcincubator.github.io/bblocks-openscience/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-26'
 
 ```
 
@@ -1725,6 +1709,14 @@ Links to the schema:
       "@type": "@id"
     },
     "label": "rdfs:label",
+    "isPartOf": {
+      "@id": "dct:isPartOf",
+      "@type": "@id"
+    },
+    "license": {
+      "@id": "dct:license",
+      "@type": "@id"
+    },
     "prov": "http://www.w3.org/ns/prov#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",

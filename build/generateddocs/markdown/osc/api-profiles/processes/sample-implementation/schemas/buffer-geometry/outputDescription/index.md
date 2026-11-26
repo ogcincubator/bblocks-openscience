@@ -40,7 +40,7 @@ x-bblocks-metadata:
   itemIdentifier: ogc.osc.api-profiles.processes.sample-implementation.schemas.buffer-geometry.outputDescription
   register: https://ogcincubator.github.io/bblocks-openscience/build/register.json
   version: '1.0'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-26'
 
 ```
 

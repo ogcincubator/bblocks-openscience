@@ -6,30 +6,19 @@
 @prefix schema: <https://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:workflowRun a prov:Activity,
-        acttype:WorkflowRun ;
-    rdfs:label "Cool spots workflow run" ;
-    prov:endedAtTime "2026-07-13T17:44:17.300000+02:00"^^xsd:dateTime ;
-    prov:generated ex:finalOutputPackage ;
-    prov:qualifiedAssociation [ prov:agent ex:gisPipelineEngine ;
-            prov:hadPlan ex:coolSpotsScript ;
-            prov:hadRole ex:workflowExecutor ] ;
+ex:act1_geocodeCity a prov:Activity ;
+    rdfs:label "Step 1: Geocode city boundary" ;
+    dcterms:isPartOf ex:workflowRun ;
+    prov:endedAtTime "2026-07-13T17:43:41.900000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:43:41.200000+02:00"^^xsd:dateTime ;
-    prov:type acttype:WorkflowRun ;
+    prov:type ex:geocodeCity ;
     prov:used ex:nominatimApi,
-        ex:overpassApi ;
+        ex:processInputs ;
     prov:wasAssociatedWith ex:gisPipelineEngine .
-
-ex:act1_defineInputs a prov:Activity ;
-    rdfs:label "Step 1: Define Process Inputs" ;
-    prov:endedAtTime "2026-07-13T17:43:40+02:00"^^xsd:dateTime ;
-    prov:startedAtTime "2026-07-13T17:35:00+02:00"^^xsd:dateTime ;
-    prov:type ex:defineInputs ;
-    prov:wasAssociatedWith <https://orcid.org/0000-0003-4718-2959> .
 
 ex:act2_acquireData a prov:Activity ;
     rdfs:label "Step 2: Acquire relevant OSM data" ;
-    dcterms:isPartOf "ex:workflowRun" ;
+    dcterms:isPartOf ex:workflowRun ;
     prov:endedAtTime "2026-07-13T17:44:05.800000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:43:42+02:00"^^xsd:dateTime ;
     prov:type ex:acquireData ;
@@ -38,19 +27,9 @@ ex:act2_acquireData a prov:Activity ;
         ex:processInputs ;
     prov:wasAssociatedWith ex:gisPipelineEngine .
 
-ex:act2a_geocodeCity a prov:Activity ;
-    rdfs:label "Step 2a: Geocode city boundary" ;
-    dcterms:isPartOf "ex:workflowRun" ;
-    prov:endedAtTime "2026-07-13T17:43:41.900000+02:00"^^xsd:dateTime ;
-    prov:startedAtTime "2026-07-13T17:43:41.200000+02:00"^^xsd:dateTime ;
-    prov:type ex:geocodeCity ;
-    prov:used ex:nominatimApi,
-        ex:processInputs ;
-    prov:wasAssociatedWith ex:gisPipelineEngine .
-
 ex:act3_reproject a prov:Activity ;
     rdfs:label "Step 3: Reproject EPSG:4326 to UTM" ;
-    dcterms:isPartOf "ex:workflowRun" ;
+    dcterms:isPartOf ex:workflowRun ;
     prov:endedAtTime "2026-07-13T17:44:06.400000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:44:05.900000+02:00"^^xsd:dateTime ;
     prov:type <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA018> ;
@@ -59,7 +38,7 @@ ex:act3_reproject a prov:Activity ;
 
 ex:act4_filterAreas a prov:Activity ;
     rdfs:label "Step 4: Filter areas by size" ;
-    dcterms:isPartOf "ex:workflowRun" ;
+    dcterms:isPartOf ex:workflowRun ;
     prov:endedAtTime "2026-07-13T17:44:06.700000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:44:06.500000+02:00"^^xsd:dateTime ;
     prov:type <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA020> ;
@@ -69,7 +48,7 @@ ex:act4_filterAreas a prov:Activity ;
 
 ex:act5_buffer300m a prov:Activity ;
     rdfs:label "Step 5: Create 300m buffer (or walking distance)" ;
-    dcterms:isPartOf "ex:workflowRun" ;
+    dcterms:isPartOf ex:workflowRun ;
     prov:endedAtTime "2026-07-13T17:44:09.100000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:44:06.800000+02:00"^^xsd:dateTime ;
     prov:type <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:ogcactivites/items/demo:GA001> ;
@@ -79,7 +58,7 @@ ex:act5_buffer300m a prov:Activity ;
 
 ex:act6_bufferMultiLevel a prov:Activity ;
     rdfs:label "Step 6: Create additional level buffers" ;
-    dcterms:isPartOf "ex:workflowRun" ;
+    dcterms:isPartOf ex:workflowRun ;
     prov:endedAtTime "2026-07-13T17:44:15.900000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:44:09.200000+02:00"^^xsd:dateTime ;
     prov:type <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:ogcactivites/items/demo:GA001> ;
@@ -89,7 +68,7 @@ ex:act6_bufferMultiLevel a prov:Activity ;
 
 ex:act7_calcDifferences a prov:Activity ;
     rdfs:label "Step 7: Identify unserved city areas" ;
-    dcterms:isPartOf "ex:workflowRun" ;
+    dcterms:isPartOf ex:workflowRun ;
     prov:endedAtTime "2026-07-13T17:44:16.900000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:44:16+02:00"^^xsd:dateTime ;
     prov:type <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA019> ;
@@ -224,7 +203,7 @@ ex:nominatimApi a prov:Entity ;
 
 ex:openStreetMap a prov:Entity ;
     rdfs:label "OpenStreetMap" ;
-    dcterms:license "https://opendatacommons.org/licenses/odbl/1-0/" ;
+    dcterms:license <https://opendatacommons.org/licenses/odbl/1-0/> ;
     prov:type prov:PrimarySource ;
     schema:url "https://www.openstreetmap.org" .
 
@@ -236,7 +215,7 @@ ex:overpassApi a prov:Entity ;
 
 ex:rawOsmData a prov:Entity ;
     rdfs:label "Raw OSM vector data (EPSG:4326)" ;
-    dcterms:license "https://opendatacommons.org/licenses/odbl/1-0/" ;
+    dcterms:license <https://opendatacommons.org/licenses/odbl/1-0/> ;
     prov:generatedAtTime "2026-07-13T17:44:05.800000+02:00"^^xsd:dateTime ;
     prov:hadPrimarySource ex:openStreetMap ;
     prov:type ex:OsmDataset ;
@@ -253,6 +232,12 @@ ex:unservedAreas a prov:Entity ;
         ex:primaryBuffers ;
     prov:wasGeneratedBy ex:act7_calcDifferences .
 
+<https://orcid.org/0000-0003-4718-2959> a prov:Agent,
+        prov:Person ;
+    rdfs:label "GIS Analyst" ;
+    prov:type prov:Person ;
+    schema:identifier "https://orcid.org/0000-0003-4718-2959" .
+
 ex:primaryBuffers a prov:Entity ;
     rdfs:label "300m buffers around cool spots" ;
     prov:generatedAtTime "2026-07-13T17:44:09.100000+02:00"^^xsd:dateTime ;
@@ -268,26 +253,26 @@ ex:reprojectedData a prov:Entity ;
     prov:wasGeneratedBy ex:act3_reproject ;
     ex:crs "EPSG:32632" .
 
-<https://orcid.org/0000-0003-4718-2959> a prov:Agent,
-        prov:Person ;
-    rdfs:label "GIS Analyst" ;
-    prov:type prov:Person ;
-    schema:identifier "https://orcid.org/0000-0003-4718-2959" .
-
 ex:cityBoundary a prov:Entity ;
     rdfs:label "Münster city boundary (EPSG:4326)" ;
     prov:generatedAtTime "2026-07-13T17:43:41.900000+02:00"^^xsd:dateTime ;
     prov:hadPrimarySource ex:openStreetMap ;
     prov:type ex:VectorDataset ;
-    prov:wasGeneratedBy ex:act2a_geocodeCity ;
+    prov:wasGeneratedBy ex:act1_geocodeCity ;
     ex:crs "EPSG:4326" .
+
+ex:filteredCoolSpots a prov:Entity ;
+    rdfs:label "Cool spots filtered by min area (>=200m²)" ;
+    prov:generatedAtTime "2026-07-13T17:44:06.700000+02:00"^^xsd:dateTime ;
+    prov:type ex:VectorDataset ;
+    prov:wasDerivedFrom ex:reprojectedData ;
+    prov:wasGeneratedBy ex:act4_filterAreas .
 
 ex:processInputs a prov:Entity ;
     rdfs:label "Workflow Parameters" ;
     prov:generatedAtTime "2026-07-13T17:43:40+02:00"^^xsd:dateTime ;
     prov:type ex:WorkflowInputs ;
     prov:wasAttributedTo <https://orcid.org/0000-0003-4718-2959> ;
-    prov:wasGeneratedBy ex:act1_defineInputs ;
     ex:bufferIntervals 0,
         75,
         150,
@@ -298,13 +283,6 @@ ex:processInputs a prov:Entity ;
     ex:minArea 200 ;
     ex:osmTags "landuse=forest, natural=wood, leisure=park" .
 
-ex:filteredCoolSpots a prov:Entity ;
-    rdfs:label "Cool spots filtered by min area (>=200m²)" ;
-    prov:generatedAtTime "2026-07-13T17:44:06.700000+02:00"^^xsd:dateTime ;
-    prov:type ex:VectorDataset ;
-    prov:wasDerivedFrom ex:reprojectedData ;
-    prov:wasGeneratedBy ex:act4_filterAreas .
-
 ex:multiLevelBuffers a prov:Entity ;
     rdfs:label "Multi-level buffer zones" ;
     prov:generatedAtTime "2026-07-13T17:44:15.900000+02:00"^^xsd:dateTime ;
@@ -312,9 +290,24 @@ ex:multiLevelBuffers a prov:Entity ;
     prov:wasDerivedFrom ex:filteredCoolSpots ;
     prov:wasGeneratedBy ex:act6_bufferMultiLevel .
 
+ex:workflowRun a prov:Activity,
+        acttype:WorkflowRun ;
+    rdfs:label "Cool spots workflow run" ;
+    prov:endedAtTime "2026-07-13T17:44:17.300000+02:00"^^xsd:dateTime ;
+    prov:generated ex:finalOutputPackage ;
+    prov:qualifiedAssociation [ prov:agent ex:gisPipelineEngine ;
+            prov:hadPlan ex:coolSpotsScript ;
+            prov:hadRole ex:workflowExecutor ] ;
+    prov:startedAtTime "2026-07-13T17:43:41.200000+02:00"^^xsd:dateTime ;
+    prov:type acttype:WorkflowRun ;
+    prov:used ex:nominatimApi,
+        ex:overpassApi,
+        ex:processInputs ;
+    prov:wasAssociatedWith ex:gisPipelineEngine .
+
 ex:act8_exportOutputs a prov:Activity ;
     rdfs:label "Step 8: Export process outputs" ;
-    dcterms:isPartOf "ex:workflowRun" ;
+    dcterms:isPartOf ex:workflowRun ;
     prov:endedAtTime "2026-07-13T17:44:17.300000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:44:17+02:00"^^xsd:dateTime ;
     prov:type ex:exportOutputs ;

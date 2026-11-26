@@ -1,5 +1,12 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/workflow-graph/schema.yaml
+x-jsonld-extra-terms:
+  isPartOf:
+    x-jsonld-id: dct:isPartOf
+    x-jsonld-type: '@id'
+  license:
+    x-jsonld-id: dct:license
+    x-jsonld-type: '@id'
 x-jsonld-prefixes:
   ex: https://example.org/cool-spots#
   schema: https://schema.org/
@@ -7,4 +14,4 @@ x-bblocks-metadata:
   itemIdentifier: ogc.osc.prov-examples.52n-provenance.cool-spots
   register: https://ogcincubator.github.io/bblocks-openscience/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-26'

@@ -26,6 +26,17 @@ The example conforms. Its post-processing steps are typed with local CURIEs (`ex
 `ex:StacMetadataCreation`), which the schema accepts as specific types; mapping them to registered
 process types is still to be done, and can only be checked against the register.
 
+The workflow is orchestrated by [Prefect](https://www.prefect.io/). The run, its plan and its runner
+are typed with the generic workflow classes of the
+[activity type register profile](https://w3id.org/ogc/rim/activity-type/):
+`ex:vegetation_productivity_run` is an `acttype:WorkflowRun`, the Prefect flow
+`ex:vegetation_productivity_flow` an `acttype:WorkflowPlan` and `ex:prefect` an `acttype:WorkflowRunner`.
+The run uses the inputs that no step generated (the Sentinel-2 collection and the workflow
+parameters `ex:workflow_parameters`, which steps 1 and 2 share) and generates the output of the last step (the Seasonal Sen Slope STAC collection),
+by reference only.
+The analyst is responsible for the run through Prefect, which acts on their behalf.
+Each step points to the run it belongs to with `isPartOf`.
+
 ## Examples
 
 ### Example from a vegetation productivity trend workflow run from the PEOPLE-ECCO project
@@ -36,44 +47,90 @@ process types is still to be done, and can only be checked against the register.
     "id": "https://openeo.example.org/collections/SENTINEL2_L2",
     "provType": "Entity",
     "entityType": "prov:Collection",
-    "dcterms:title": "Sentinel-2 L2A surface reflectance",
-    "dcterms:description": "Copernicus Sentinel-2 MSI Level-2A bottom-of-atmosphere reflectance, atmospherically corrected with Sen2Cor and including the scene classification layer (SCL), as offered by the openEO backend.",
-    "dcterms:identifier": "SENTINEL2_L2",
-    "dcterms:publisher": "European Space Agency (ESA), Copernicus Programme",
-    "dcterms:license": "https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice",
+    "dct:title": "Sentinel-2 L2A surface reflectance",
+    "dct:description": "Copernicus Sentinel-2 MSI Level-2A bottom-of-atmosphere reflectance, atmospherically corrected with Sen2Cor and including the scene classification layer (SCL), as offered by the openEO backend.",
+    "dct:identifier": "SENTINEL2_L2",
+    "dct:publisher": "European Space Agency (ESA), Copernicus Programme",
+    "license": "https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice",
     "ex:mission": "Sentinel-2",
     "ex:instrument": "MSI",
     "ex:processingLevel": "L2A",
     "ex:spatialResolution": "10 m (B02, B03, B04, B08), 20 m (B05-B07, B8A, B11, B12, SCL), 60 m (B01, B09)",
     "ex:revisitTime": "5 days",
-    "rdfs:seeAlso": "https://documentation.dataspace.copernicus.eu/Data/SentinelMissions/Sentinel2.html"
+    "seeAlso": "https://documentation.dataspace.copernicus.eu/Data/SentinelMissions/Sentinel2.html"
+  },
+
+  {
+    "id": "ex:bap_results",
+    "provType": "Entity",
+    "entityType": "prov:Collection",
+    "dct:title": "Best available pixel composites (plain GeoTIFF)",
+    "dct:format": "image/tiff; application=geotiff",
+    "ex:crs": "EPSG:32635",
+    "hadMember": [
+      "Sakar_complete_months_2021_2025_2021_01_indices_savi.tif",
+      "Sakar_complete_months_2021_2025_2021_02_indices_savi.tif"
+    ],
+    "wasGeneratedBy": "ex:step1_bap",
+    "generatedAtTime": "2026-08-21T10:42:00Z",
+    "wasDerivedFrom": "https://openeo.example.org/collections/SENTINEL2_L2",
+    "wasAttributedTo": "https://orcid.org/0000-0003-4718-2959"
+  },
+
+  {
+    "id": "ex:bap_cogs",
+    "provType": "Entity",
+    "entityType": "prov:Collection",
+    "dct:title": "Best available pixel composites (Cloud Optimized GeoTIFF, EPSG:3857)",
+    "dct:format": "image/tiff; application=geotiff; profile=cloud-optimized",
+    "ex:crs": "EPSG:3857",
+    "hadMember": [
+      "https://example.org/data/bap/Sakar_complete_months_2021_2025_2021_01_indices_savi.tif",
+      "https://example.org/data/bap/Sakar_complete_months_2021_2025_2021_02_indices_savi.tif"
+    ],
+    "wasGeneratedBy": "ex:step1_post_a_bap_reprojection_and_cog_conversion",
+    "generatedAtTime": "2026-08-21T10:46:00Z",
+    "wasDerivedFrom": "ex:bap_results",
+    "wasAttributedTo": "https://orcid.org/0000-0003-4718-2959"
   },
 
   {
     "id": "https://example.org/stac/collections/bap",
     "provType": "Entity",
     "entityType": "prov:Collection",
-    "dcterms:title": "Best available pixels from Sentinel-2 scenes over AOI",
-    "dcterms:conformsTo": "https://schemas.stacspec.org/v1.0.0/collection-spec/json-schema/collection.json",
+    "dct:title": "Best available pixels from Sentinel-2 scenes over AOI",
+    "conformsTo": "https://schemas.stacspec.org/v1.0.0/collection-spec/json-schema/collection.json",
     "hadMember": [
       "https://example.org/stac/collections/bap/items/Sakar_complete_months_2021_2025_2021_01_indices_savi",
       "https://example.org/stac/collections/bap/items/Sakar_complete_months_2021_2025_2021_02_indices_savi"
     ],
-    "wasGeneratedBy": "ex:step1_bap",
-    "generatedAtTime": "2026-08-21T10:05:00Z",
-    "wasDerivedFrom": "https://openeo.example.org/collections/SENTINEL2_L2",
+    "wasGeneratedBy": "ex:step1_post_b_bap_stac_metadata",
+    "generatedAtTime": "2026-08-21T10:49:00Z",
+    "wasDerivedFrom": "ex:bap_cogs",
     "wasAttributedTo": "https://orcid.org/0000-0003-4718-2959",
     "spdx:checksum": {
-      "spdx:algorithm": { "@id": "spdx:checksumAlgorithm_sha256" },
+      "spdx:algorithm": "spdx:checksumAlgorithm_sha256",
       "spdx:checksumValue": "3f1c9a0e7b2d4c6f8a1e5b7d9c0f2a4e6b8d0c1e3f5a7b9d2c4e6f8a0b1c3d5e"
     }
   },
 
   {
+    "id": "ex:vegetation_productivity_flow",
+    "provType": "Entity",
+    "entityType": ["prov:Plan", "schema:SoftwareSourceCode", "acttype:WorkflowPlan"],
+    "dct:title": "Vegetation productivity trend workflow (Prefect flow)",
+    "ex:flowName": "vegetation-productivity-trend",
+    "schema:codeRepository": "https://github.com/example-org/people-ecco-workflows",
+    "schema:version": "0.4.0",
+    "schema:programmingLanguage": "Python",
+    "wasAttributedTo": "https://orcid.org/0000-0003-4718-2959"
+  },
+
+  {
     "id": "ex:bap_process_graph",
     "provType": "Entity",
-    "entityType": ["prov:Plan", "acttype:WorkflowPlan"],
-    "dcterms:title": "Best available pixel in timeseries over AOI",
+    "entityType": "prov:Plan",
+    "dct:title": "Best available pixel in timeseries over AOI",
     "openeo:processId": "bap"
   },
 
@@ -81,22 +138,33 @@ process types is still to be done, and can only be checked against the register.
     "id": "ex:sen_slope_algorithm",
     "provType": "Entity",
     "entityType": ["prov:Plan", "schema:SoftwareSourceCode"],
-    "dcterms:title": "Seasonal Sen slope trend estimator",
+    "dct:title": "Seasonal Sen slope trend estimator",
     "schema:codeRepository": "https://github.com/example-org/seasonal-sen-slope",
     "schema:version": "1.2.0",
     "schema:programmingLanguage": "Python",
-    "rdfs:seeAlso": "https://en.wikipedia.org/wiki/Theil%E2%80%93Sen_estimator"
+    "seeAlso": "https://en.wikipedia.org/wiki/Theil%E2%80%93Sen_estimator"
   },
 
   {
-    "id": "ex:sen_slope_parameters",
+    "id": "ex:postprocessing_code",
+    "provType": "Entity",
+    "entityType": ["prov:Plan", "schema:SoftwareSourceCode"],
+    "dct:title": "Post-processing: reprojection, COG conversion and STAC metadata creation",
+    "schema:codeRepository": "https://github.com/example-org/ecco-postprocessing",
+    "schema:version": "0.6.1",
+    "schema:programmingLanguage": "Python"
+  },
+
+  {
+    "id": "ex:workflow_parameters",
     "provType": "Entity",
     "entityType": "ex:ProcessInputs",
-    "dcterms:title": "Input parameters of the seasonal Sen slope analysis",
-    "ex:vegetationIndex": "SAVI",
-    "ex:saviSoilFactor": 0.5,
+    "dct:title": "Input parameters of the vegetation productivity trend workflow",
+    "ex:bbox": { "@list": [26.45329, 41.8569712, 26.5792884, 41.9825977] },
     "ex:startDate": "2021-01-01",
     "ex:endDate": "2025-12-31",
+    "ex:bands": ["B04", "B08", "SCL"],
+    "ex:vegetationIndex": "SAVI",
     "ex:seasonLength": 12,
     "ex:significanceLevel": 0.05
   },
@@ -105,28 +173,15 @@ process types is still to be done, and can only be checked against the register.
     "id": "ex:sen_slope_results",
     "provType": "Entity",
     "entityType": "prov:Collection",
-    "dcterms:title": "Seasonal Sen slope results (plain GeoTIFF)",
-    "dcterms:format": "image/tiff; application=geotiff",
-    "hadMember": ["ex:DeltaIR_SAVI_tif", "ex:PercentChange_SAVI_tif"],
-    "wasGeneratedBy": "ex:step2_seasonal_sen_slope",
-    "generatedAtTime": "2026-08-21T10:12:00Z",
-    "wasDerivedFrom": "https://example.org/stac/collections/bap",
-    "wasAttributedTo": "https://orcid.org/0000-0003-4718-2959"
-  },
-
-  {
-    "id": "ex:sen_slope_cogs",
-    "provType": "Entity",
-    "entityType": "prov:Collection",
-    "dcterms:title": "Seasonal Sen slope results (Cloud Optimized GeoTIFF)",
-    "dcterms:format": "image/tiff; application=geotiff; profile=cloud-optimized",
+    "dct:title": "Seasonal Sen slope results (Cloud Optimized GeoTIFF)",
+    "dct:format": "image/tiff; application=geotiff; profile=cloud-optimized",
     "hadMember": [
       "https://example.org/data/sen/DeltaIR_SAVI.tif",
       "https://example.org/data/sen/PercentChange_SAVI.tif"
     ],
-    "wasGeneratedBy": "ex:step3a_cog_conversion",
-    "generatedAtTime": "2026-08-21T10:28:00Z",
-    "wasDerivedFrom": "ex:sen_slope_results",
+    "wasGeneratedBy": "ex:step2_seasonal_sen_slope",
+    "generatedAtTime": "2026-08-21T11:02:00Z",
+    "wasDerivedFrom": "https://example.org/stac/collections/bap",
     "wasAttributedTo": "https://orcid.org/0000-0003-4718-2959"
   },
 
@@ -134,19 +189,38 @@ process types is still to be done, and can only be checked against the register.
     "id": "https://example.org/stac/collections/sen",
     "provType": "Entity",
     "entityType": "prov:Collection",
-    "dcterms:title": "Seasonal Sen Slope",
-    "dcterms:conformsTo": "https://schemas.stacspec.org/v1.0.0/collection-spec/json-schema/collection.json",
+    "dct:title": "Seasonal Sen Slope",
+    "conformsTo": "https://schemas.stacspec.org/v1.0.0/collection-spec/json-schema/collection.json",
     "hadMember": [
       "https://example.org/stac/collections/sen/items/DeltaIR_SAVI",
       "https://example.org/stac/collections/sen/items/PercentChange_SAVI"
     ],
-    "wasGeneratedBy": "ex:step3b_stac_metadata",
-    "generatedAtTime": "2026-08-21T10:45:00Z",
-    "wasDerivedFrom": "ex:sen_slope_cogs",
+    "wasGeneratedBy": "ex:step2_post_sen_stac_metadata",
+    "generatedAtTime": "2026-08-21T11:06:00Z",
+    "wasDerivedFrom": "ex:sen_slope_results",
     "wasAttributedTo": "https://orcid.org/0000-0003-4718-2959",
     "spdx:checksum": {
-      "spdx:algorithm": { "@id": "spdx:checksumAlgorithm_sha256" },
+      "spdx:algorithm": "spdx:checksumAlgorithm_sha256",
       "spdx:checksumValue": "a7d2e4f6081b3c5d7e9f0a2b4c6d8e0f1a3b5c7d9e1f2a4b6c8d0e2f4a6b8c0d"
+    }
+  },
+
+  {
+    "id": "ex:vegetation_productivity_run",
+    "provType": "Activity",
+    "activityType": "acttype:WorkflowRun",
+    "rdfs:label": "Vegetation productivity trend workflow run",
+    "startedAtTime": "2026-08-21T10:00:00Z",
+    "endedAtTime": "2026-08-21T11:07:00Z",
+    "ex:prefectFlowRunId": "3f6a1c2e-8b4d-4e7a-9c1f-5d2b7e8a9f01",
+    "used": [
+      "https://openeo.example.org/collections/SENTINEL2_L2",
+      "ex:workflow_parameters"
+    ],
+    "generated": "https://example.org/stac/collections/sen",
+    "qualifiedAssociation": {
+      "agent": "ex:prefect",
+      "hadPlan": "ex:vegetation_productivity_flow"
     }
   },
 
@@ -158,21 +232,58 @@ process types is still to be done, and can only be checked against the register.
       "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA016"
     ],
     "rdfs:label": "Step 1: Best available pixel composites",
-    "startedAtTime": "2026-08-21T10:00:00Z",
-    "endedAtTime": "2026-08-21T18:05:00Z",
+    "startedAtTime": "2026-08-21T10:00:10Z",
+    "endedAtTime": "2026-08-21T10:42:00Z",
+    "isPartOf": "ex:vegetation_productivity_run",
     "openeo:jobId": "j-2608251100",
-    "used": "https://openeo.example.org/collections/SENTINEL2_L2",
-    "qualifiedUsage": {
-      "entity": "https://openeo.example.org/collections/SENTINEL2_L2",
-      "ex:bbox": { "@list": [26.45329, 41.8569712, 26.5792884, 41.9825977] },
-      "ex:startDate": "2021-01-01",
-      "ex:endDate": "2025-12-31",
-      "ex:bands": ["B04", "B08", "SCL"]
-    },
+    "used": ["https://openeo.example.org/collections/SENTINEL2_L2", "ex:workflow_parameters"],
     "qualifiedAssociation": [
-      { "agent": "https://orcid.org/0000-0003-4718-2959", "hadPlan": "ex:bap_process_graph" },
+      { "agent": "ex:prefect" },
       { "agent": "ex:openeo_client", "hadPlan": "ex:bap_process_graph" },
       { "agent": "ex:openeo_backend", "hadPlan": "ex:bap_process_graph" }
+    ]
+  },
+
+  {
+    "id": "ex:step1_post_a_bap_reprojection_and_cog_conversion",
+    "provType": "Activity",
+    "activityType": [
+      "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA018",
+      "ex:CogConversion"
+    ],
+    "rdfs:label": "Step 1 post-processing a: reproject best available pixel composites to EPSG:3857 and convert them to Cloud Optimized GeoTIFFs",
+    "ex:targetCrs": "EPSG:3857",
+    "startedAtTime": "2026-08-21T10:42:00Z",
+    "endedAtTime": "2026-08-21T10:46:00Z",
+    "isPartOf": "ex:vegetation_productivity_run",
+    "used": "ex:bap_results",
+    "wasInformedBy": "ex:step1_bap",
+    "qualifiedAssociation": [
+      { "agent": "ex:prefect" },
+      { "agent": "ex:postprocessing_container", "hadPlan": "ex:postprocessing_code" },
+      { "agent": "ex:gdal" }
+    ]
+  },
+
+  {
+    "id": "ex:step1_post_b_bap_stac_metadata",
+    "provType": "Activity",
+    "activityType": ["ex:StacMetadataCreation"],
+    "rdfs:label": "Step 1 post-processing b: create STAC metadata for the best available pixel composites",
+    "rdfs:comment": "Creates STAC collection and items for the COGs and embeds the available provenance information: openEO process graph, processing backend and input parameters.",
+    "startedAtTime": "2026-08-21T10:46:00Z",
+    "endedAtTime": "2026-08-21T10:49:00Z",
+    "isPartOf": "ex:vegetation_productivity_run",
+    "used": [
+      "ex:bap_cogs",
+      "ex:bap_process_graph",
+      "ex:workflow_parameters"
+    ],
+    "wasInformedBy": ["ex:step1_bap", "ex:step1_post_a_bap_reprojection_and_cog_conversion"],
+    "qualifiedAssociation": [
+      { "agent": "ex:prefect" },
+      { "agent": "ex:postprocessing_container", "hadPlan": "ex:postprocessing_code" },
+      { "agent": "ex:pystac" }
     ]
   },
 
@@ -181,43 +292,38 @@ process types is still to be done, and can only be checked against the register.
     "provType": "Activity",
     "activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA017",
     "rdfs:label": "Step 2: Seasonal Sen slope trend analysis",
-    "startedAtTime": "2026-08-21T10:06:00Z",
-    "endedAtTime": "2026-08-21T10:12:00Z",
-    "used": ["https://example.org/stac/collections/bap", "ex:sen_slope_parameters"],
-    "wasInformedBy": "ex:step1_bap",
+    "startedAtTime": "2026-08-21T10:50:00Z",
+    "endedAtTime": "2026-08-21T11:02:00Z",
+    "isPartOf": "ex:vegetation_productivity_run",
+    "used": ["https://example.org/stac/collections/bap", "ex:workflow_parameters"],
+    "wasInformedBy": "ex:step1_post_b_bap_stac_metadata",
     "qualifiedAssociation": [
-      { "agent": "https://orcid.org/0000-0003-4718-2959", "hadPlan": "ex:sen_slope_algorithm" }
+      { "agent": "ex:prefect" },
+      { "agent": "ex:sen_slope_container", "hadPlan": "ex:sen_slope_algorithm" }
     ]
   },
 
   {
-    "id": "ex:step3a_cog_conversion",
+    "id": "ex:step2_post_sen_stac_metadata",
     "provType": "Activity",
-    "activityType": ["ex:PostProcessing", "ex:CogConversion"],
-    "rdfs:label": "Step 3a: Post-processing - convert results to Cloud Optimized GeoTIFFs",
-    "startedAtTime": "2026-08-21T10:15:00Z",
-    "endedAtTime": "2026-08-21T10:28:00Z",
-    "used": "ex:sen_slope_results",
-    "wasInformedBy": "ex:step2_seasonal_sen_slope",
-    "wasAssociatedWith": ["https://orcid.org/0000-0003-4718-2959", "ex:gdal"]
-  },
-
-  {
-    "id": "ex:step3b_stac_metadata",
-    "provType": "Activity",
-    "activityType": ["ex:PostProcessing", "ex:StacMetadataCreation"],
-    "rdfs:label": "Step 3b: Post-processing - create STAC metadata",
+    "activityType": ["ex:StacMetadataCreation"],
+    "rdfs:label": "Step 2 post-processing: create STAC metadata for the Sen slope results",
     "rdfs:comment": "Creates STAC collection and items for the COGs and embeds the available provenance information: algorithm repository and version, processing backend and input parameters.",
-    "startedAtTime": "2026-08-21T10:28:00Z",
-    "endedAtTime": "2026-08-21T10:45:00Z",
+    "startedAtTime": "2026-08-21T11:02:00Z",
+    "endedAtTime": "2026-08-21T11:06:00Z",
+    "isPartOf": "ex:vegetation_productivity_run",
     "used": [
-      "ex:sen_slope_cogs",
+      "ex:sen_slope_results",
       "ex:sen_slope_algorithm",
-      "ex:sen_slope_parameters",
+      "ex:workflow_parameters",
       "ex:bap_process_graph"
     ],
-    "wasInformedBy": ["ex:step1_bap", "ex:step2_seasonal_sen_slope", "ex:step3a_cog_conversion"],
-    "wasAssociatedWith": ["https://orcid.org/0000-0003-4718-2959", "ex:pystac"]
+    "wasInformedBy": "ex:step2_seasonal_sen_slope",
+    "qualifiedAssociation": [
+      { "agent": "ex:prefect" },
+      { "agent": "ex:postprocessing_container", "hadPlan": "ex:postprocessing_code" },
+      { "agent": "ex:pystac" }
+    ]
   },
 
   {
@@ -229,39 +335,69 @@ process types is still to be done, and can only be checked against the register.
   },
 
   {
+    "id": "ex:prefect",
+    "provType": "Agent",
+    "agentType": ["prov:SoftwareAgent", "schema:SoftwareApplication", "acttype:WorkflowRunner"],
+    "rdfs:label": "Prefect",
+    "schema:softwareVersion": "3.9.4",
+    "seeAlso": "https://www.prefect.io/",
+    "actedOnBehalfOf": "https://orcid.org/0000-0003-4718-2959"
+  },
+
+  {
     "id": "ex:openeo_client",
     "provType": "Agent",
     "agentType": ["prov:SoftwareAgent", "schema:SoftwareApplication"],
-    "dcterms:title": "openeo-python-client",
+    "rdfs:label": "openeo-python-client",
     "schema:softwareVersion": "0.31.0",
-    "qualifiedDelegation": { "agent": "https://orcid.org/0000-0003-4718-2959", "hadActivity": "ex:step1_bap" }
+    "qualifiedDelegation": { "agent": "ex:prefect", "hadActivity": "ex:step1_bap" }
   },
 
   {
     "id": "ex:openeo_backend",
     "provType": "Agent",
-    "agentType": ["prov:SoftwareAgent", "openeo:Backend", "acttype:WorkflowRunner"],
-    "dcterms:title": "openEO backend",
+    "agentType": ["prov:SoftwareAgent", "openeo:Backend"],
+    "rdfs:label": "openEO backend",
     "ex:backendUrl": "https://openeo.example.org",
     "qualifiedDelegation": { "agent": "ex:openeo_client", "hadActivity": "ex:step1_bap" }
+  },
+
+  {
+    "id": "ex:sen_slope_container",
+    "provType": "Agent",
+    "agentType": ["prov:SoftwareAgent", "ex:Container"],
+    "rdfs:label": "Seasonal Sen slope container",
+    "ex:containerImage": "ghcr.io/example-org/ecco-sen-slope:1.2.0",
+    "ex:baseImage": "ecco-algorithm-base:1.1.0",
+    "qualifiedDelegation": { "agent": "ex:prefect", "hadActivity": "ex:step2_seasonal_sen_slope" }
+  },
+
+  {
+    "id": "ex:postprocessing_container",
+    "provType": "Agent",
+    "agentType": ["prov:SoftwareAgent", "ex:Container"],
+    "rdfs:label": "Post-processing container",
+    "ex:containerImage": "ghcr.io/example-org/ecco-postprocessing:0.6.1",
+    "ex:baseImage": "ecco-algorithm-base:1.1.0",
+    "actedOnBehalfOf": "ex:prefect"
   },
 
   {
     "id": "ex:gdal",
     "provType": "Agent",
     "agentType": ["prov:SoftwareAgent", "schema:SoftwareApplication"],
-    "dcterms:title": "GDAL (COG driver)",
+    "rdfs:label": "GDAL (gdalwarp, COG driver)",
     "schema:softwareVersion": "3.9.2",
-    "actedOnBehalfOf": "https://orcid.org/0000-0003-4718-2959"
+    "actedOnBehalfOf": "ex:postprocessing_container"
   },
 
   {
     "id": "ex:pystac",
     "provType": "Agent",
     "agentType": ["prov:SoftwareAgent", "schema:SoftwareApplication"],
-    "dcterms:title": "PySTAC",
+    "rdfs:label": "PySTAC",
     "schema:softwareVersion": "1.10.1",
-    "actedOnBehalfOf": "https://orcid.org/0000-0003-4718-2959"
+    "actedOnBehalfOf": "ex:postprocessing_container"
   }
 ]
 
@@ -276,47 +412,89 @@ process types is still to be done, and can only be checked against the register.
       "id": "https://openeo.example.org/collections/SENTINEL2_L2",
       "provType": "Entity",
       "entityType": "prov:Collection",
-      "dcterms:title": "Sentinel-2 L2A surface reflectance",
-      "dcterms:description": "Copernicus Sentinel-2 MSI Level-2A bottom-of-atmosphere reflectance, atmospherically corrected with Sen2Cor and including the scene classification layer (SCL), as offered by the openEO backend.",
-      "dcterms:identifier": "SENTINEL2_L2",
-      "dcterms:publisher": "European Space Agency (ESA), Copernicus Programme",
-      "dcterms:license": "https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice",
+      "dct:title": "Sentinel-2 L2A surface reflectance",
+      "dct:description": "Copernicus Sentinel-2 MSI Level-2A bottom-of-atmosphere reflectance, atmospherically corrected with Sen2Cor and including the scene classification layer (SCL), as offered by the openEO backend.",
+      "dct:identifier": "SENTINEL2_L2",
+      "dct:publisher": "European Space Agency (ESA), Copernicus Programme",
+      "license": "https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice",
       "ex:mission": "Sentinel-2",
       "ex:instrument": "MSI",
       "ex:processingLevel": "L2A",
       "ex:spatialResolution": "10 m (B02, B03, B04, B08), 20 m (B05-B07, B8A, B11, B12, SCL), 60 m (B01, B09)",
       "ex:revisitTime": "5 days",
-      "rdfs:seeAlso": "https://documentation.dataspace.copernicus.eu/Data/SentinelMissions/Sentinel2.html"
+      "seeAlso": "https://documentation.dataspace.copernicus.eu/Data/SentinelMissions/Sentinel2.html"
+    },
+    {
+      "id": "ex:bap_results",
+      "provType": "Entity",
+      "entityType": "prov:Collection",
+      "dct:title": "Best available pixel composites (plain GeoTIFF)",
+      "dct:format": "image/tiff; application=geotiff",
+      "ex:crs": "EPSG:32635",
+      "hadMember": [
+        "Sakar_complete_months_2021_2025_2021_01_indices_savi.tif",
+        "Sakar_complete_months_2021_2025_2021_02_indices_savi.tif"
+      ],
+      "wasGeneratedBy": "ex:step1_bap",
+      "generatedAtTime": "2026-08-21T10:42:00Z",
+      "wasDerivedFrom": "https://openeo.example.org/collections/SENTINEL2_L2",
+      "wasAttributedTo": "https://orcid.org/0000-0003-4718-2959"
+    },
+    {
+      "id": "ex:bap_cogs",
+      "provType": "Entity",
+      "entityType": "prov:Collection",
+      "dct:title": "Best available pixel composites (Cloud Optimized GeoTIFF, EPSG:3857)",
+      "dct:format": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "ex:crs": "EPSG:3857",
+      "hadMember": [
+        "https://example.org/data/bap/Sakar_complete_months_2021_2025_2021_01_indices_savi.tif",
+        "https://example.org/data/bap/Sakar_complete_months_2021_2025_2021_02_indices_savi.tif"
+      ],
+      "wasGeneratedBy": "ex:step1_post_a_bap_reprojection_and_cog_conversion",
+      "generatedAtTime": "2026-08-21T10:46:00Z",
+      "wasDerivedFrom": "ex:bap_results",
+      "wasAttributedTo": "https://orcid.org/0000-0003-4718-2959"
     },
     {
       "id": "https://example.org/stac/collections/bap",
       "provType": "Entity",
       "entityType": "prov:Collection",
-      "dcterms:title": "Best available pixels from Sentinel-2 scenes over AOI",
-      "dcterms:conformsTo": "https://schemas.stacspec.org/v1.0.0/collection-spec/json-schema/collection.json",
+      "dct:title": "Best available pixels from Sentinel-2 scenes over AOI",
+      "conformsTo": "https://schemas.stacspec.org/v1.0.0/collection-spec/json-schema/collection.json",
       "hadMember": [
         "https://example.org/stac/collections/bap/items/Sakar_complete_months_2021_2025_2021_01_indices_savi",
         "https://example.org/stac/collections/bap/items/Sakar_complete_months_2021_2025_2021_02_indices_savi"
       ],
-      "wasGeneratedBy": "ex:step1_bap",
-      "generatedAtTime": "2026-08-21T10:05:00Z",
-      "wasDerivedFrom": "https://openeo.example.org/collections/SENTINEL2_L2",
+      "wasGeneratedBy": "ex:step1_post_b_bap_stac_metadata",
+      "generatedAtTime": "2026-08-21T10:49:00Z",
+      "wasDerivedFrom": "ex:bap_cogs",
       "wasAttributedTo": "https://orcid.org/0000-0003-4718-2959",
       "spdx:checksum": {
-        "spdx:algorithm": {
-          "@id": "spdx:checksumAlgorithm_sha256"
-        },
+        "spdx:algorithm": "spdx:checksumAlgorithm_sha256",
         "spdx:checksumValue": "3f1c9a0e7b2d4c6f8a1e5b7d9c0f2a4e6b8d0c1e3f5a7b9d2c4e6f8a0b1c3d5e"
       }
     },
     {
-      "id": "ex:bap_process_graph",
+      "id": "ex:vegetation_productivity_flow",
       "provType": "Entity",
       "entityType": [
         "prov:Plan",
+        "schema:SoftwareSourceCode",
         "acttype:WorkflowPlan"
       ],
-      "dcterms:title": "Best available pixel in timeseries over AOI",
+      "dct:title": "Vegetation productivity trend workflow (Prefect flow)",
+      "ex:flowName": "vegetation-productivity-trend",
+      "schema:codeRepository": "https://github.com/example-org/people-ecco-workflows",
+      "schema:version": "0.4.0",
+      "schema:programmingLanguage": "Python",
+      "wasAttributedTo": "https://orcid.org/0000-0003-4718-2959"
+    },
+    {
+      "id": "ex:bap_process_graph",
+      "provType": "Entity",
+      "entityType": "prov:Plan",
+      "dct:title": "Best available pixel in timeseries over AOI",
       "openeo:processId": "bap"
     },
     {
@@ -326,21 +504,45 @@ process types is still to be done, and can only be checked against the register.
         "prov:Plan",
         "schema:SoftwareSourceCode"
       ],
-      "dcterms:title": "Seasonal Sen slope trend estimator",
+      "dct:title": "Seasonal Sen slope trend estimator",
       "schema:codeRepository": "https://github.com/example-org/seasonal-sen-slope",
       "schema:version": "1.2.0",
       "schema:programmingLanguage": "Python",
-      "rdfs:seeAlso": "https://en.wikipedia.org/wiki/Theil%E2%80%93Sen_estimator"
+      "seeAlso": "https://en.wikipedia.org/wiki/Theil%E2%80%93Sen_estimator"
     },
     {
-      "id": "ex:sen_slope_parameters",
+      "id": "ex:postprocessing_code",
+      "provType": "Entity",
+      "entityType": [
+        "prov:Plan",
+        "schema:SoftwareSourceCode"
+      ],
+      "dct:title": "Post-processing: reprojection, COG conversion and STAC metadata creation",
+      "schema:codeRepository": "https://github.com/example-org/ecco-postprocessing",
+      "schema:version": "0.6.1",
+      "schema:programmingLanguage": "Python"
+    },
+    {
+      "id": "ex:workflow_parameters",
       "provType": "Entity",
       "entityType": "ex:ProcessInputs",
-      "dcterms:title": "Input parameters of the seasonal Sen slope analysis",
-      "ex:vegetationIndex": "SAVI",
-      "ex:saviSoilFactor": 0.5,
+      "dct:title": "Input parameters of the vegetation productivity trend workflow",
+      "ex:bbox": {
+        "@list": [
+          26.45329,
+          41.8569712,
+          26.5792884,
+          41.9825977
+        ]
+      },
       "ex:startDate": "2021-01-01",
       "ex:endDate": "2025-12-31",
+      "ex:bands": [
+        "B04",
+        "B08",
+        "SCL"
+      ],
+      "ex:vegetationIndex": "SAVI",
       "ex:seasonLength": 12,
       "ex:significanceLevel": 0.05
     },
@@ -348,51 +550,52 @@ process types is still to be done, and can only be checked against the register.
       "id": "ex:sen_slope_results",
       "provType": "Entity",
       "entityType": "prov:Collection",
-      "dcterms:title": "Seasonal Sen slope results (plain GeoTIFF)",
-      "dcterms:format": "image/tiff; application=geotiff",
-      "hadMember": [
-        "ex:DeltaIR_SAVI_tif",
-        "ex:PercentChange_SAVI_tif"
-      ],
-      "wasGeneratedBy": "ex:step2_seasonal_sen_slope",
-      "generatedAtTime": "2026-08-21T10:12:00Z",
-      "wasDerivedFrom": "https://example.org/stac/collections/bap",
-      "wasAttributedTo": "https://orcid.org/0000-0003-4718-2959"
-    },
-    {
-      "id": "ex:sen_slope_cogs",
-      "provType": "Entity",
-      "entityType": "prov:Collection",
-      "dcterms:title": "Seasonal Sen slope results (Cloud Optimized GeoTIFF)",
-      "dcterms:format": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "dct:title": "Seasonal Sen slope results (Cloud Optimized GeoTIFF)",
+      "dct:format": "image/tiff; application=geotiff; profile=cloud-optimized",
       "hadMember": [
         "https://example.org/data/sen/DeltaIR_SAVI.tif",
         "https://example.org/data/sen/PercentChange_SAVI.tif"
       ],
-      "wasGeneratedBy": "ex:step3a_cog_conversion",
-      "generatedAtTime": "2026-08-21T10:28:00Z",
-      "wasDerivedFrom": "ex:sen_slope_results",
+      "wasGeneratedBy": "ex:step2_seasonal_sen_slope",
+      "generatedAtTime": "2026-08-21T11:02:00Z",
+      "wasDerivedFrom": "https://example.org/stac/collections/bap",
       "wasAttributedTo": "https://orcid.org/0000-0003-4718-2959"
     },
     {
       "id": "https://example.org/stac/collections/sen",
       "provType": "Entity",
       "entityType": "prov:Collection",
-      "dcterms:title": "Seasonal Sen Slope",
-      "dcterms:conformsTo": "https://schemas.stacspec.org/v1.0.0/collection-spec/json-schema/collection.json",
+      "dct:title": "Seasonal Sen Slope",
+      "conformsTo": "https://schemas.stacspec.org/v1.0.0/collection-spec/json-schema/collection.json",
       "hadMember": [
         "https://example.org/stac/collections/sen/items/DeltaIR_SAVI",
         "https://example.org/stac/collections/sen/items/PercentChange_SAVI"
       ],
-      "wasGeneratedBy": "ex:step3b_stac_metadata",
-      "generatedAtTime": "2026-08-21T10:45:00Z",
-      "wasDerivedFrom": "ex:sen_slope_cogs",
+      "wasGeneratedBy": "ex:step2_post_sen_stac_metadata",
+      "generatedAtTime": "2026-08-21T11:06:00Z",
+      "wasDerivedFrom": "ex:sen_slope_results",
       "wasAttributedTo": "https://orcid.org/0000-0003-4718-2959",
       "spdx:checksum": {
-        "spdx:algorithm": {
-          "@id": "spdx:checksumAlgorithm_sha256"
-        },
+        "spdx:algorithm": "spdx:checksumAlgorithm_sha256",
         "spdx:checksumValue": "a7d2e4f6081b3c5d7e9f0a2b4c6d8e0f1a3b5c7d9e1f2a4b6c8d0e2f4a6b8c0d"
+      }
+    },
+    {
+      "id": "ex:vegetation_productivity_run",
+      "provType": "Activity",
+      "activityType": "acttype:WorkflowRun",
+      "rdfs:label": "Vegetation productivity trend workflow run",
+      "startedAtTime": "2026-08-21T10:00:00Z",
+      "endedAtTime": "2026-08-21T11:07:00Z",
+      "ex:prefectFlowRunId": "3f6a1c2e-8b4d-4e7a-9c1f-5d2b7e8a9f01",
+      "used": [
+        "https://openeo.example.org/collections/SENTINEL2_L2",
+        "ex:workflow_parameters"
+      ],
+      "generated": "https://example.org/stac/collections/sen",
+      "qualifiedAssociation": {
+        "agent": "ex:prefect",
+        "hadPlan": "ex:vegetation_productivity_flow"
       }
     },
     {
@@ -403,32 +606,17 @@ process types is still to be done, and can only be checked against the register.
         "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA016"
       ],
       "rdfs:label": "Step 1: Best available pixel composites",
-      "startedAtTime": "2026-08-21T10:00:00Z",
-      "endedAtTime": "2026-08-21T18:05:00Z",
+      "startedAtTime": "2026-08-21T10:00:10Z",
+      "endedAtTime": "2026-08-21T10:42:00Z",
+      "isPartOf": "ex:vegetation_productivity_run",
       "openeo:jobId": "j-2608251100",
-      "used": "https://openeo.example.org/collections/SENTINEL2_L2",
-      "qualifiedUsage": {
-        "entity": "https://openeo.example.org/collections/SENTINEL2_L2",
-        "ex:bbox": {
-          "@list": [
-            26.45329,
-            41.8569712,
-            26.5792884,
-            41.9825977
-          ]
-        },
-        "ex:startDate": "2021-01-01",
-        "ex:endDate": "2025-12-31",
-        "ex:bands": [
-          "B04",
-          "B08",
-          "SCL"
-        ]
-      },
+      "used": [
+        "https://openeo.example.org/collections/SENTINEL2_L2",
+        "ex:workflow_parameters"
+      ],
       "qualifiedAssociation": [
         {
-          "agent": "https://orcid.org/0000-0003-4718-2959",
-          "hadPlan": "ex:bap_process_graph"
+          "agent": "ex:prefect"
         },
         {
           "agent": "ex:openeo_client",
@@ -441,66 +629,117 @@ process types is still to be done, and can only be checked against the register.
       ]
     },
     {
+      "id": "ex:step1_post_a_bap_reprojection_and_cog_conversion",
+      "provType": "Activity",
+      "activityType": [
+        "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA018",
+        "ex:CogConversion"
+      ],
+      "rdfs:label": "Step 1 post-processing a: reproject best available pixel composites to EPSG:3857 and convert them to Cloud Optimized GeoTIFFs",
+      "ex:targetCrs": "EPSG:3857",
+      "startedAtTime": "2026-08-21T10:42:00Z",
+      "endedAtTime": "2026-08-21T10:46:00Z",
+      "isPartOf": "ex:vegetation_productivity_run",
+      "used": "ex:bap_results",
+      "wasInformedBy": "ex:step1_bap",
+      "qualifiedAssociation": [
+        {
+          "agent": "ex:prefect"
+        },
+        {
+          "agent": "ex:postprocessing_container",
+          "hadPlan": "ex:postprocessing_code"
+        },
+        {
+          "agent": "ex:gdal"
+        }
+      ]
+    },
+    {
+      "id": "ex:step1_post_b_bap_stac_metadata",
+      "provType": "Activity",
+      "activityType": [
+        "ex:StacMetadataCreation"
+      ],
+      "rdfs:label": "Step 1 post-processing b: create STAC metadata for the best available pixel composites",
+      "rdfs:comment": "Creates STAC collection and items for the COGs and embeds the available provenance information: openEO process graph, processing backend and input parameters.",
+      "startedAtTime": "2026-08-21T10:46:00Z",
+      "endedAtTime": "2026-08-21T10:49:00Z",
+      "isPartOf": "ex:vegetation_productivity_run",
+      "used": [
+        "ex:bap_cogs",
+        "ex:bap_process_graph",
+        "ex:workflow_parameters"
+      ],
+      "wasInformedBy": [
+        "ex:step1_bap",
+        "ex:step1_post_a_bap_reprojection_and_cog_conversion"
+      ],
+      "qualifiedAssociation": [
+        {
+          "agent": "ex:prefect"
+        },
+        {
+          "agent": "ex:postprocessing_container",
+          "hadPlan": "ex:postprocessing_code"
+        },
+        {
+          "agent": "ex:pystac"
+        }
+      ]
+    },
+    {
       "id": "ex:step2_seasonal_sen_slope",
       "provType": "Activity",
       "activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA017",
       "rdfs:label": "Step 2: Seasonal Sen slope trend analysis",
-      "startedAtTime": "2026-08-21T10:06:00Z",
-      "endedAtTime": "2026-08-21T10:12:00Z",
+      "startedAtTime": "2026-08-21T10:50:00Z",
+      "endedAtTime": "2026-08-21T11:02:00Z",
+      "isPartOf": "ex:vegetation_productivity_run",
       "used": [
         "https://example.org/stac/collections/bap",
-        "ex:sen_slope_parameters"
+        "ex:workflow_parameters"
       ],
-      "wasInformedBy": "ex:step1_bap",
+      "wasInformedBy": "ex:step1_post_b_bap_stac_metadata",
       "qualifiedAssociation": [
         {
-          "agent": "https://orcid.org/0000-0003-4718-2959",
+          "agent": "ex:prefect"
+        },
+        {
+          "agent": "ex:sen_slope_container",
           "hadPlan": "ex:sen_slope_algorithm"
         }
       ]
     },
     {
-      "id": "ex:step3a_cog_conversion",
+      "id": "ex:step2_post_sen_stac_metadata",
       "provType": "Activity",
       "activityType": [
-        "ex:PostProcessing",
-        "ex:CogConversion"
-      ],
-      "rdfs:label": "Step 3a: Post-processing - convert results to Cloud Optimized GeoTIFFs",
-      "startedAtTime": "2026-08-21T10:15:00Z",
-      "endedAtTime": "2026-08-21T10:28:00Z",
-      "used": "ex:sen_slope_results",
-      "wasInformedBy": "ex:step2_seasonal_sen_slope",
-      "wasAssociatedWith": [
-        "https://orcid.org/0000-0003-4718-2959",
-        "ex:gdal"
-      ]
-    },
-    {
-      "id": "ex:step3b_stac_metadata",
-      "provType": "Activity",
-      "activityType": [
-        "ex:PostProcessing",
         "ex:StacMetadataCreation"
       ],
-      "rdfs:label": "Step 3b: Post-processing - create STAC metadata",
+      "rdfs:label": "Step 2 post-processing: create STAC metadata for the Sen slope results",
       "rdfs:comment": "Creates STAC collection and items for the COGs and embeds the available provenance information: algorithm repository and version, processing backend and input parameters.",
-      "startedAtTime": "2026-08-21T10:28:00Z",
-      "endedAtTime": "2026-08-21T10:45:00Z",
+      "startedAtTime": "2026-08-21T11:02:00Z",
+      "endedAtTime": "2026-08-21T11:06:00Z",
+      "isPartOf": "ex:vegetation_productivity_run",
       "used": [
-        "ex:sen_slope_cogs",
+        "ex:sen_slope_results",
         "ex:sen_slope_algorithm",
-        "ex:sen_slope_parameters",
+        "ex:workflow_parameters",
         "ex:bap_process_graph"
       ],
-      "wasInformedBy": [
-        "ex:step1_bap",
-        "ex:step2_seasonal_sen_slope",
-        "ex:step3a_cog_conversion"
-      ],
-      "wasAssociatedWith": [
-        "https://orcid.org/0000-0003-4718-2959",
-        "ex:pystac"
+      "wasInformedBy": "ex:step2_seasonal_sen_slope",
+      "qualifiedAssociation": [
+        {
+          "agent": "ex:prefect"
+        },
+        {
+          "agent": "ex:postprocessing_container",
+          "hadPlan": "ex:postprocessing_code"
+        },
+        {
+          "agent": "ex:pystac"
+        }
       ]
     },
     {
@@ -511,16 +750,29 @@ process types is still to be done, and can only be checked against the register.
       "schema:identifier": "https://orcid.org/0000-0003-4718-2959"
     },
     {
+      "id": "ex:prefect",
+      "provType": "Agent",
+      "agentType": [
+        "prov:SoftwareAgent",
+        "schema:SoftwareApplication",
+        "acttype:WorkflowRunner"
+      ],
+      "rdfs:label": "Prefect",
+      "schema:softwareVersion": "3.9.4",
+      "seeAlso": "https://www.prefect.io/",
+      "actedOnBehalfOf": "https://orcid.org/0000-0003-4718-2959"
+    },
+    {
       "id": "ex:openeo_client",
       "provType": "Agent",
       "agentType": [
         "prov:SoftwareAgent",
         "schema:SoftwareApplication"
       ],
-      "dcterms:title": "openeo-python-client",
+      "rdfs:label": "openeo-python-client",
       "schema:softwareVersion": "0.31.0",
       "qualifiedDelegation": {
-        "agent": "https://orcid.org/0000-0003-4718-2959",
+        "agent": "ex:prefect",
         "hadActivity": "ex:step1_bap"
       }
     },
@@ -529,15 +781,41 @@ process types is still to be done, and can only be checked against the register.
       "provType": "Agent",
       "agentType": [
         "prov:SoftwareAgent",
-        "openeo:Backend",
-        "acttype:WorkflowRunner"
+        "openeo:Backend"
       ],
-      "dcterms:title": "openEO backend",
+      "rdfs:label": "openEO backend",
       "ex:backendUrl": "https://openeo.example.org",
       "qualifiedDelegation": {
         "agent": "ex:openeo_client",
         "hadActivity": "ex:step1_bap"
       }
+    },
+    {
+      "id": "ex:sen_slope_container",
+      "provType": "Agent",
+      "agentType": [
+        "prov:SoftwareAgent",
+        "ex:Container"
+      ],
+      "rdfs:label": "Seasonal Sen slope container",
+      "ex:containerImage": "ghcr.io/example-org/ecco-sen-slope:1.2.0",
+      "ex:baseImage": "ecco-algorithm-base:1.1.0",
+      "qualifiedDelegation": {
+        "agent": "ex:prefect",
+        "hadActivity": "ex:step2_seasonal_sen_slope"
+      }
+    },
+    {
+      "id": "ex:postprocessing_container",
+      "provType": "Agent",
+      "agentType": [
+        "prov:SoftwareAgent",
+        "ex:Container"
+      ],
+      "rdfs:label": "Post-processing container",
+      "ex:containerImage": "ghcr.io/example-org/ecco-postprocessing:0.6.1",
+      "ex:baseImage": "ecco-algorithm-base:1.1.0",
+      "actedOnBehalfOf": "ex:prefect"
     },
     {
       "id": "ex:gdal",
@@ -546,9 +824,9 @@ process types is still to be done, and can only be checked against the register.
         "prov:SoftwareAgent",
         "schema:SoftwareApplication"
       ],
-      "dcterms:title": "GDAL (COG driver)",
+      "rdfs:label": "GDAL (gdalwarp, COG driver)",
       "schema:softwareVersion": "3.9.2",
-      "actedOnBehalfOf": "https://orcid.org/0000-0003-4718-2959"
+      "actedOnBehalfOf": "ex:postprocessing_container"
     },
     {
       "id": "ex:pystac",
@@ -557,9 +835,9 @@ process types is still to be done, and can only be checked against the register.
         "prov:SoftwareAgent",
         "schema:SoftwareApplication"
       ],
-      "dcterms:title": "PySTAC",
+      "rdfs:label": "PySTAC",
       "schema:softwareVersion": "1.10.1",
-      "actedOnBehalfOf": "https://orcid.org/0000-0003-4718-2959"
+      "actedOnBehalfOf": "ex:postprocessing_container"
     }
   ]
 }
@@ -581,169 +859,224 @@ process types is still to be done, and can only be checked against the register.
 <https://example.org/stac/collections/sen> a prov:Collection,
         prov:Entity ;
     rdfs:label "Seasonal Sen Slope" ;
-    dcterms:conformsTo "https://schemas.stacspec.org/v1.0.0/collection-spec/json-schema/collection.json" ;
+    dcterms:conformsTo <https://schemas.stacspec.org/v1.0.0/collection-spec/json-schema/collection.json> ;
     dcterms:title "Seasonal Sen Slope" ;
     spdx:checksum [ spdx:algorithm spdx:checksumAlgorithm_sha256 ;
             spdx:checksumValue "a7d2e4f6081b3c5d7e9f0a2b4c6d8e0f1a3b5c7d9e1f2a4b6c8d0e2f4a6b8c0d" ] ;
-    prov:generatedAtTime "2026-08-21T10:45:00+00:00"^^xsd:dateTime ;
+    prov:generatedAtTime "2026-08-21T11:06:00+00:00"^^xsd:dateTime ;
     prov:hadMember <https://example.org/stac/collections/sen/items/DeltaIR_SAVI>,
         <https://example.org/stac/collections/sen/items/PercentChange_SAVI> ;
     prov:type prov:Collection ;
     prov:wasAttributedTo <https://orcid.org/0000-0003-4718-2959> ;
-    prov:wasDerivedFrom ex:sen_slope_cogs ;
-    prov:wasGeneratedBy ex:step3b_stac_metadata .
+    prov:wasDerivedFrom ex:sen_slope_results ;
+    prov:wasGeneratedBy ex:step2_post_sen_stac_metadata .
 
 ex:gdal a prov:Agent,
         prov:SoftwareAgent ;
-    rdfs:label "GDAL (COG driver)" ;
-    dcterms:title "GDAL (COG driver)" ;
-    prov:actedOnBehalfOf <https://orcid.org/0000-0003-4718-2959> ;
+    rdfs:label "GDAL (gdalwarp, COG driver)" ;
+    prov:actedOnBehalfOf ex:postprocessing_container ;
     prov:type prov:SoftwareAgent,
         schema:SoftwareApplication ;
     schema:softwareVersion "3.9.2" .
 
 ex:openeo_backend a prov:Agent,
-        prov:SoftwareAgent,
-        acttype:WorkflowRunner ;
+        prov:SoftwareAgent ;
     rdfs:label "openEO backend" ;
-    dcterms:title "openEO backend" ;
     prov:qualifiedDelegation [ prov:agent ex:openeo_client ;
             prov:hadActivity ex:step1_bap ] ;
     prov:type prov:SoftwareAgent,
-        openeo:Backend,
-        acttype:WorkflowRunner ;
+        openeo:Backend ;
     ex:backendUrl "https://openeo.example.org" .
 
-ex:pystac a prov:Agent,
+ex:sen_slope_container a prov:Agent,
         prov:SoftwareAgent ;
-    rdfs:label "PySTAC" ;
-    dcterms:title "PySTAC" ;
-    prov:actedOnBehalfOf <https://orcid.org/0000-0003-4718-2959> ;
+    rdfs:label "Seasonal Sen slope container" ;
+    prov:qualifiedDelegation [ prov:agent ex:prefect ;
+            prov:hadActivity ex:step2_seasonal_sen_slope ] ;
     prov:type prov:SoftwareAgent,
-        schema:SoftwareApplication ;
-    schema:softwareVersion "1.10.1" .
+        ex:Container ;
+    ex:baseImage "ecco-algorithm-base:1.1.0" ;
+    ex:containerImage "ghcr.io/example-org/ecco-sen-slope:1.2.0" .
 
-ex:step3b_stac_metadata a prov:Activity ;
-    rdfs:label "Step 3b: Post-processing - create STAC metadata" ;
+ex:step2_post_sen_stac_metadata a prov:Activity ;
+    rdfs:label "Step 2 post-processing: create STAC metadata for the Sen slope results" ;
+    dcterms:isPartOf ex:vegetation_productivity_run ;
     rdfs:comment "Creates STAC collection and items for the COGs and embeds the available provenance information: algorithm repository and version, processing backend and input parameters." ;
-    prov:endedAtTime "2026-08-21T10:45:00+00:00"^^xsd:dateTime ;
-    prov:startedAtTime "2026-08-21T10:28:00+00:00"^^xsd:dateTime ;
-    prov:type ex:PostProcessing,
-        ex:StacMetadataCreation ;
+    prov:endedAtTime "2026-08-21T11:06:00+00:00"^^xsd:dateTime ;
+    prov:qualifiedAssociation [ prov:agent ex:postprocessing_container ;
+            prov:hadPlan ex:postprocessing_code ],
+        [ prov:agent ex:pystac ],
+        [ prov:agent ex:prefect ] ;
+    prov:startedAtTime "2026-08-21T11:02:00+00:00"^^xsd:dateTime ;
+    prov:type ex:StacMetadataCreation ;
     prov:used ex:bap_process_graph,
         ex:sen_slope_algorithm,
-        ex:sen_slope_cogs,
-        ex:sen_slope_parameters ;
-    prov:wasAssociatedWith ex:pystac,
-        <https://orcid.org/0000-0003-4718-2959> ;
-    prov:wasInformedBy ex:step1_bap,
-        ex:step2_seasonal_sen_slope,
-        ex:step3a_cog_conversion .
+        ex:sen_slope_results,
+        ex:workflow_parameters ;
+    prov:wasInformedBy ex:step2_seasonal_sen_slope .
+
+ex:vegetation_productivity_flow a prov:Entity,
+        prov:Plan,
+        acttype:WorkflowPlan ;
+    rdfs:label "Vegetation productivity trend workflow (Prefect flow)" ;
+    dcterms:title "Vegetation productivity trend workflow (Prefect flow)" ;
+    prov:type prov:Plan,
+        schema:SoftwareSourceCode,
+        acttype:WorkflowPlan ;
+    prov:wasAttributedTo <https://orcid.org/0000-0003-4718-2959> ;
+    ex:flowName "vegetation-productivity-trend" ;
+    schema:codeRepository "https://github.com/example-org/people-ecco-workflows" ;
+    schema:programmingLanguage "Python" ;
+    schema:version "0.4.0" .
 
 <https://example.org/stac/collections/bap> a prov:Collection,
         prov:Entity ;
     rdfs:label "Best available pixels from Sentinel-2 scenes over AOI" ;
-    dcterms:conformsTo "https://schemas.stacspec.org/v1.0.0/collection-spec/json-schema/collection.json" ;
+    dcterms:conformsTo <https://schemas.stacspec.org/v1.0.0/collection-spec/json-schema/collection.json> ;
     dcterms:title "Best available pixels from Sentinel-2 scenes over AOI" ;
     spdx:checksum [ spdx:algorithm spdx:checksumAlgorithm_sha256 ;
             spdx:checksumValue "3f1c9a0e7b2d4c6f8a1e5b7d9c0f2a4e6b8d0c1e3f5a7b9d2c4e6f8a0b1c3d5e" ] ;
-    prov:generatedAtTime "2026-08-21T10:05:00+00:00"^^xsd:dateTime ;
+    prov:generatedAtTime "2026-08-21T10:49:00+00:00"^^xsd:dateTime ;
     prov:hadMember <https://example.org/stac/collections/bap/items/Sakar_complete_months_2021_2025_2021_01_indices_savi>,
         <https://example.org/stac/collections/bap/items/Sakar_complete_months_2021_2025_2021_02_indices_savi> ;
     prov:type prov:Collection ;
     prov:wasAttributedTo <https://orcid.org/0000-0003-4718-2959> ;
+    prov:wasDerivedFrom ex:bap_cogs ;
+    prov:wasGeneratedBy ex:step1_post_b_bap_stac_metadata .
+
+ex:bap_cogs a prov:Collection,
+        prov:Entity ;
+    rdfs:label "Best available pixel composites (Cloud Optimized GeoTIFF, EPSG:3857)" ;
+    dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
+    dcterms:title "Best available pixel composites (Cloud Optimized GeoTIFF, EPSG:3857)" ;
+    prov:generatedAtTime "2026-08-21T10:46:00+00:00"^^xsd:dateTime ;
+    prov:hadMember <https://example.org/data/bap/Sakar_complete_months_2021_2025_2021_01_indices_savi.tif>,
+        <https://example.org/data/bap/Sakar_complete_months_2021_2025_2021_02_indices_savi.tif> ;
+    prov:type prov:Collection ;
+    prov:wasAttributedTo <https://orcid.org/0000-0003-4718-2959> ;
+    prov:wasDerivedFrom ex:bap_results ;
+    prov:wasGeneratedBy ex:step1_post_a_bap_reprojection_and_cog_conversion ;
+    ex:crs "EPSG:3857" .
+
+ex:bap_results a prov:Collection,
+        prov:Entity ;
+    rdfs:label "Best available pixel composites (plain GeoTIFF)" ;
+    dcterms:format "image/tiff; application=geotiff" ;
+    dcterms:title "Best available pixel composites (plain GeoTIFF)" ;
+    prov:generatedAtTime "2026-08-21T10:42:00+00:00"^^xsd:dateTime ;
+    prov:hadMember <file:///github/workspace/Sakar_complete_months_2021_2025_2021_01_indices_savi.tif>,
+        <file:///github/workspace/Sakar_complete_months_2021_2025_2021_02_indices_savi.tif> ;
+    prov:type prov:Collection ;
+    prov:wasAttributedTo <https://orcid.org/0000-0003-4718-2959> ;
     prov:wasDerivedFrom <https://openeo.example.org/collections/SENTINEL2_L2> ;
-    prov:wasGeneratedBy ex:step1_bap .
+    prov:wasGeneratedBy ex:step1_bap ;
+    ex:crs "EPSG:32635" .
 
 ex:openeo_client a prov:Agent,
         prov:SoftwareAgent ;
     rdfs:label "openeo-python-client" ;
-    dcterms:title "openeo-python-client" ;
-    prov:qualifiedDelegation [ prov:agent <https://orcid.org/0000-0003-4718-2959> ;
+    prov:qualifiedDelegation [ prov:agent ex:prefect ;
             prov:hadActivity ex:step1_bap ] ;
     prov:type prov:SoftwareAgent,
         schema:SoftwareApplication ;
     schema:softwareVersion "0.31.0" .
 
+ex:pystac a prov:Agent,
+        prov:SoftwareAgent ;
+    rdfs:label "PySTAC" ;
+    prov:actedOnBehalfOf ex:postprocessing_container ;
+    prov:type prov:SoftwareAgent,
+        schema:SoftwareApplication ;
+    schema:softwareVersion "1.10.1" .
+
 ex:sen_slope_algorithm a prov:Entity,
         prov:Plan ;
     rdfs:label "Seasonal Sen slope trend estimator" ;
     dcterms:title "Seasonal Sen slope trend estimator" ;
-    rdfs:seeAlso "https://en.wikipedia.org/wiki/Theil%E2%80%93Sen_estimator" ;
+    rdfs:seeAlso <https://en.wikipedia.org/wiki/Theil%E2%80%93Sen_estimator> ;
     prov:type prov:Plan,
         schema:SoftwareSourceCode ;
     schema:codeRepository "https://github.com/example-org/seasonal-sen-slope" ;
     schema:programmingLanguage "Python" ;
     schema:version "1.2.0" .
 
-ex:sen_slope_cogs a prov:Collection,
+ex:sen_slope_results a prov:Collection,
         prov:Entity ;
     rdfs:label "Seasonal Sen slope results (Cloud Optimized GeoTIFF)" ;
     dcterms:format "image/tiff; application=geotiff; profile=cloud-optimized" ;
     dcterms:title "Seasonal Sen slope results (Cloud Optimized GeoTIFF)" ;
-    prov:generatedAtTime "2026-08-21T10:28:00+00:00"^^xsd:dateTime ;
+    prov:generatedAtTime "2026-08-21T11:02:00+00:00"^^xsd:dateTime ;
     prov:hadMember <https://example.org/data/sen/DeltaIR_SAVI.tif>,
         <https://example.org/data/sen/PercentChange_SAVI.tif> ;
-    prov:type prov:Collection ;
-    prov:wasAttributedTo <https://orcid.org/0000-0003-4718-2959> ;
-    prov:wasDerivedFrom ex:sen_slope_results ;
-    prov:wasGeneratedBy ex:step3a_cog_conversion .
-
-ex:sen_slope_parameters a prov:Entity ;
-    rdfs:label "Input parameters of the seasonal Sen slope analysis" ;
-    dcterms:title "Input parameters of the seasonal Sen slope analysis" ;
-    prov:type ex:ProcessInputs ;
-    ex:endDate "2025-12-31" ;
-    ex:saviSoilFactor 5e-01 ;
-    ex:seasonLength 12 ;
-    ex:significanceLevel 5e-02 ;
-    ex:startDate "2021-01-01" ;
-    ex:vegetationIndex "SAVI" .
-
-ex:sen_slope_results a prov:Collection,
-        prov:Entity ;
-    rdfs:label "Seasonal Sen slope results (plain GeoTIFF)" ;
-    dcterms:format "image/tiff; application=geotiff" ;
-    dcterms:title "Seasonal Sen slope results (plain GeoTIFF)" ;
-    prov:generatedAtTime "2026-08-21T10:12:00+00:00"^^xsd:dateTime ;
-    prov:hadMember ex:DeltaIR_SAVI_tif,
-        ex:PercentChange_SAVI_tif ;
     prov:type prov:Collection ;
     prov:wasAttributedTo <https://orcid.org/0000-0003-4718-2959> ;
     prov:wasDerivedFrom <https://example.org/stac/collections/bap> ;
     prov:wasGeneratedBy ex:step2_seasonal_sen_slope .
 
-ex:step3a_cog_conversion a prov:Activity ;
-    rdfs:label "Step 3a: Post-processing - convert results to Cloud Optimized GeoTIFFs" ;
-    prov:endedAtTime "2026-08-21T10:28:00+00:00"^^xsd:dateTime ;
-    prov:startedAtTime "2026-08-21T10:15:00+00:00"^^xsd:dateTime ;
+ex:step1_post_a_bap_reprojection_and_cog_conversion a prov:Activity ;
+    rdfs:label "Step 1 post-processing a: reproject best available pixel composites to EPSG:3857 and convert them to Cloud Optimized GeoTIFFs" ;
+    dcterms:isPartOf ex:vegetation_productivity_run ;
+    prov:endedAtTime "2026-08-21T10:46:00+00:00"^^xsd:dateTime ;
+    prov:qualifiedAssociation [ prov:agent ex:prefect ],
+        [ prov:agent ex:postprocessing_container ;
+            prov:hadPlan ex:postprocessing_code ],
+        [ prov:agent ex:gdal ] ;
+    prov:startedAtTime "2026-08-21T10:42:00+00:00"^^xsd:dateTime ;
     prov:type ex:CogConversion,
-        ex:PostProcessing ;
-    prov:used ex:sen_slope_results ;
-    prov:wasAssociatedWith ex:gdal,
-        <https://orcid.org/0000-0003-4718-2959> ;
-    prov:wasInformedBy ex:step2_seasonal_sen_slope .
+        <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA018> ;
+    prov:used ex:bap_results ;
+    prov:wasInformedBy ex:step1_bap ;
+    ex:targetCrs "EPSG:3857" .
+
+ex:step1_post_b_bap_stac_metadata a prov:Activity ;
+    rdfs:label "Step 1 post-processing b: create STAC metadata for the best available pixel composites" ;
+    dcterms:isPartOf ex:vegetation_productivity_run ;
+    rdfs:comment "Creates STAC collection and items for the COGs and embeds the available provenance information: openEO process graph, processing backend and input parameters." ;
+    prov:endedAtTime "2026-08-21T10:49:00+00:00"^^xsd:dateTime ;
+    prov:qualifiedAssociation [ prov:agent ex:pystac ],
+        [ prov:agent ex:prefect ],
+        [ prov:agent ex:postprocessing_container ;
+            prov:hadPlan ex:postprocessing_code ] ;
+    prov:startedAtTime "2026-08-21T10:46:00+00:00"^^xsd:dateTime ;
+    prov:type ex:StacMetadataCreation ;
+    prov:used ex:bap_cogs,
+        ex:bap_process_graph,
+        ex:workflow_parameters ;
+    prov:wasInformedBy ex:step1_bap,
+        ex:step1_post_a_bap_reprojection_and_cog_conversion .
+
+ex:postprocessing_code a prov:Entity,
+        prov:Plan ;
+    rdfs:label "Post-processing: reprojection, COG conversion and STAC metadata creation" ;
+    dcterms:title "Post-processing: reprojection, COG conversion and STAC metadata creation" ;
+    prov:type prov:Plan,
+        schema:SoftwareSourceCode ;
+    schema:codeRepository "https://github.com/example-org/ecco-postprocessing" ;
+    schema:programmingLanguage "Python" ;
+    schema:version "0.6.1" .
 
 ex:step2_seasonal_sen_slope a prov:Activity ;
     rdfs:label "Step 2: Seasonal Sen slope trend analysis" ;
-    prov:endedAtTime "2026-08-21T10:12:00+00:00"^^xsd:dateTime ;
-    prov:qualifiedAssociation [ prov:agent <https://orcid.org/0000-0003-4718-2959> ;
-            prov:hadPlan ex:sen_slope_algorithm ] ;
-    prov:startedAtTime "2026-08-21T10:06:00+00:00"^^xsd:dateTime ;
+    dcterms:isPartOf ex:vegetation_productivity_run ;
+    prov:endedAtTime "2026-08-21T11:02:00+00:00"^^xsd:dateTime ;
+    prov:qualifiedAssociation [ prov:agent ex:sen_slope_container ;
+            prov:hadPlan ex:sen_slope_algorithm ],
+        [ prov:agent ex:prefect ] ;
+    prov:startedAtTime "2026-08-21T10:50:00+00:00"^^xsd:dateTime ;
     prov:type <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA017> ;
     prov:used <https://example.org/stac/collections/bap>,
-        ex:sen_slope_parameters ;
-    prov:wasInformedBy ex:step1_bap .
+        ex:workflow_parameters ;
+    prov:wasInformedBy ex:step1_post_b_bap_stac_metadata .
 
 <https://openeo.example.org/collections/SENTINEL2_L2> a prov:Collection,
         prov:Entity ;
     rdfs:label "Sentinel-2 L2A surface reflectance" ;
     dcterms:description "Copernicus Sentinel-2 MSI Level-2A bottom-of-atmosphere reflectance, atmospherically corrected with Sen2Cor and including the scene classification layer (SCL), as offered by the openEO backend." ;
     dcterms:identifier "SENTINEL2_L2" ;
-    dcterms:license "https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice" ;
+    dcterms:license <https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice> ;
     dcterms:publisher "European Space Agency (ESA), Copernicus Programme" ;
     dcterms:title "Sentinel-2 L2A surface reflectance" ;
-    rdfs:seeAlso "https://documentation.dataspace.copernicus.eu/Data/SentinelMissions/Sentinel2.html" ;
+    rdfs:seeAlso <https://documentation.dataspace.copernicus.eu/Data/SentinelMissions/Sentinel2.html> ;
     prov:type prov:Collection ;
     ex:instrument "MSI" ;
     ex:mission "Sentinel-2" ;
@@ -752,41 +1085,80 @@ ex:step2_seasonal_sen_slope a prov:Activity ;
     ex:spatialResolution "10 m (B02, B03, B04, B08), 20 m (B05-B07, B8A, B11, B12, SCL), 60 m (B01, B09)" .
 
 ex:bap_process_graph a prov:Entity,
-        prov:Plan,
-        acttype:WorkflowPlan ;
+        prov:Plan ;
     rdfs:label "Best available pixel in timeseries over AOI" ;
     dcterms:title "Best available pixel in timeseries over AOI" ;
-    prov:type prov:Plan,
-        acttype:WorkflowPlan ;
+    prov:type prov:Plan ;
     openeo:processId "bap" .
+
+ex:postprocessing_container a prov:Agent,
+        prov:SoftwareAgent ;
+    rdfs:label "Post-processing container" ;
+    prov:actedOnBehalfOf ex:prefect ;
+    prov:type prov:SoftwareAgent,
+        ex:Container ;
+    ex:baseImage "ecco-algorithm-base:1.1.0" ;
+    ex:containerImage "ghcr.io/example-org/ecco-postprocessing:0.6.1" .
 
 ex:step1_bap a prov:Activity ;
     rdfs:label "Step 1: Best available pixel composites" ;
-    prov:endedAtTime "2026-08-21T18:05:00+00:00"^^xsd:dateTime ;
+    dcterms:isPartOf ex:vegetation_productivity_run ;
+    prov:endedAtTime "2026-08-21T10:42:00+00:00"^^xsd:dateTime ;
     prov:qualifiedAssociation [ prov:agent ex:openeo_backend ;
             prov:hadPlan ex:bap_process_graph ],
+        [ prov:agent ex:prefect ],
         [ prov:agent ex:openeo_client ;
-            prov:hadPlan ex:bap_process_graph ],
-        [ prov:agent <https://orcid.org/0000-0003-4718-2959> ;
             prov:hadPlan ex:bap_process_graph ] ;
-    prov:qualifiedUsage [ prov:entity <https://openeo.example.org/collections/SENTINEL2_L2> ;
-            ex:bands "B04",
-                "B08",
-                "SCL" ;
-            ex:bbox ( 2.645329e+01 4.185697e+01 2.657929e+01 4.19826e+01 ) ;
-            ex:endDate "2025-12-31" ;
-            ex:startDate "2021-01-01" ] ;
-    prov:startedAtTime "2026-08-21T10:00:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-08-21T10:00:10+00:00"^^xsd:dateTime ;
     prov:type openeo:BatchJob,
         <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA016> ;
-    prov:used <https://openeo.example.org/collections/SENTINEL2_L2> ;
+    prov:used ex:workflow_parameters,
+        <https://openeo.example.org/collections/SENTINEL2_L2> ;
     openeo:jobId "j-2608251100" .
+
+ex:vegetation_productivity_run a prov:Activity,
+        acttype:WorkflowRun ;
+    rdfs:label "Vegetation productivity trend workflow run" ;
+    prov:endedAtTime "2026-08-21T11:07:00+00:00"^^xsd:dateTime ;
+    prov:generated <https://example.org/stac/collections/sen> ;
+    prov:qualifiedAssociation [ prov:agent ex:prefect ;
+            prov:hadPlan ex:vegetation_productivity_flow ] ;
+    prov:startedAtTime "2026-08-21T10:00:00+00:00"^^xsd:dateTime ;
+    prov:type acttype:WorkflowRun ;
+    prov:used ex:workflow_parameters,
+        <https://openeo.example.org/collections/SENTINEL2_L2> ;
+    ex:prefectFlowRunId "3f6a1c2e-8b4d-4e7a-9c1f-5d2b7e8a9f01" .
+
+ex:workflow_parameters a prov:Entity ;
+    rdfs:label "Input parameters of the vegetation productivity trend workflow" ;
+    dcterms:title "Input parameters of the vegetation productivity trend workflow" ;
+    prov:type ex:ProcessInputs ;
+    ex:bands "B04",
+        "B08",
+        "SCL" ;
+    ex:bbox ( 2.645329e+01 4.185697e+01 2.657929e+01 4.19826e+01 ) ;
+    ex:endDate "2025-12-31" ;
+    ex:seasonLength 12 ;
+    ex:significanceLevel 5e-02 ;
+    ex:startDate "2021-01-01" ;
+    ex:vegetationIndex "SAVI" .
 
 <https://orcid.org/0000-0003-4718-2959> a prov:Agent,
         prov:Person ;
     rdfs:label "GIS Analyst" ;
     prov:type prov:Person ;
     schema:identifier "https://orcid.org/0000-0003-4718-2959" .
+
+ex:prefect a prov:Agent,
+        prov:SoftwareAgent,
+        acttype:WorkflowRunner ;
+    rdfs:label "Prefect" ;
+    rdfs:seeAlso <https://www.prefect.io/> ;
+    prov:actedOnBehalfOf <https://orcid.org/0000-0003-4718-2959> ;
+    prov:type prov:SoftwareAgent,
+        schema:SoftwareApplication,
+        acttype:WorkflowRunner ;
+    schema:softwareVersion "3.9.4" .
 
 
 ```
@@ -796,6 +1168,21 @@ ex:step1_bap a prov:Activity ;
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
 $ref: https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/workflow-graph/schema.yaml
+x-jsonld-extra-terms:
+  spdx:algorithm:
+    x-jsonld-type: '@id'
+  isPartOf:
+    x-jsonld-id: dct:isPartOf
+    x-jsonld-type: '@id'
+  license:
+    x-jsonld-id: dct:license
+    x-jsonld-type: '@id'
+  conformsTo:
+    x-jsonld-id: dct:conformsTo
+    x-jsonld-type: '@id'
+  seeAlso:
+    x-jsonld-id: rdfs:seeAlso
+    x-jsonld-type: '@id'
 x-jsonld-prefixes:
   ex: https://example.org/vegetation-productivity#
   openeo: https://example.org/openeo#
@@ -805,7 +1192,7 @@ x-bblocks-metadata:
   itemIdentifier: ogc.osc.prov-examples.52n-provenance.vegetation-productivity
   register: https://ogcincubator.github.io/bblocks-openscience/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-26'
 
 ```
 
@@ -1267,6 +1654,25 @@ Links to the schema:
       "@type": "@id"
     },
     "label": "rdfs:label",
+    "spdx:algorithm": {
+      "@type": "@id"
+    },
+    "isPartOf": {
+      "@id": "dct:isPartOf",
+      "@type": "@id"
+    },
+    "license": {
+      "@id": "dct:license",
+      "@type": "@id"
+    },
+    "conformsTo": {
+      "@id": "dct:conformsTo",
+      "@type": "@id"
+    },
+    "seeAlso": {
+      "@id": "rdfs:seeAlso",
+      "@type": "@id"
+    },
     "prov": "http://www.w3.org/ns/prov#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",

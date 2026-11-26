@@ -5,10 +5,10 @@
     rdfs:label "Compose combined drought severity index" ;
     prov:generated <urn:aganitha:dataset:cdsi> ;
     prov:qualifiedUsage [ a prov:Usage ;
-            prov:entity <urn:aganitha:dataset:vci> ;
+            prov:entity <urn:aganitha:dataset:smdi> ;
             prov:hadRole <https://example.org/ospd/roles/indexComponent> ],
         [ a prov:Usage ;
-            prov:entity <urn:aganitha:dataset:smdi> ;
+            prov:entity <urn:aganitha:dataset:vci> ;
             prov:hadRole <https://example.org/ospd/roles/indexComponent> ] ;
     prov:type <https://example.org/ospd/process-types/index-composition> ;
     prov:used <urn:aganitha:dataset:smdi>,
