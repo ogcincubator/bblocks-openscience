@@ -11,13 +11,13 @@ Activity and entity types emitted by the RSS-Hydro Model of Models flood workflo
 
 ## MoM workflow activity types
 
-Process types used by the MoM flood workflow (subclasses of `Geoprocessing`, itself a `prov:Activity`), candidate entries for the OSPD process-type register in a placeholder namespace (`https://example.org/ospd/process-types/`, prefix `pt`), plus the entity type, properties, workflow run type (`mom:WorkflowRun`) and alert levels (`mom:AlertLevels`) the MoM profile uses.
+Process types used by the MoM flood workflow (subclasses of `Geoprocessing`, itself a `prov:Activity`), defined by the OSPD activity types register (`https://w3id.org/ogc/ospd/activity-type/`, prefix `pt`; until 26 Nov 2026 a placeholder namespace), plus the entity type, properties, workflow run type (`https://w3id.org/ogc/ospd/activity-type/workflow`) and alert levels (`mom:AlertLevels`) the MoM profile uses.
 
 | `activityType` (CURIE) | Register term (`processType`) | Generic operation |
 |---|---|---|
-| `pt:ZonalStatistics` | `https://example.org/ospd/process-types/zonal-statistics` | zonal statistics |
-| `pt:WeightedScoringAndClassification` | `https://example.org/ospd/process-types/weighted-scoring-and-classification` | index composition and classification |
-| `pt:ScoringAndProgressTracking` | `https://example.org/ospd/process-types/scoring-and-progress-tracking` | multi-source scoring and progress tracking |
+| `pt:ZonalStatistics` | `https://w3id.org/ogc/ospd/activity-type/ZonalStatistics` | zonal statistics |
+| `pt:WeightedScoringAndClassification` | `https://w3id.org/ogc/ospd/activity-type/WeightedScoringAndClassification` | index composition and classification |
+| `pt:ScoringAndProgressTracking` | `https://w3id.org/ogc/ospd/activity-type/ScoringAndProgressTracking` | multi-source scoring and progress tracking |
 
 The schema checks that a record of one of these types states the matching `processType` and is a valid processing activity (`ogc.osc.rss-hydro.processing-activity`).
 
@@ -31,7 +31,7 @@ One MoM activity, validated without a workflow. All values are illustrative.
   "id": "https://example.org/mom/run/2026030200/aggregation",
   "provType": "Activity",
   "activityType": "pt:ZonalStatistics",
-  "processType": "https://example.org/ospd/process-types/zonal-statistics",
+  "processType": "https://w3id.org/ogc/ospd/activity-type/ZonalStatistics",
   "name": "GFMS per-watershed aggregation",
   "startedAtTime": "2026-03-02T01:05:33Z",
   "endedAtTime": "2026-03-02T01:05:41Z",
@@ -49,7 +49,7 @@ One MoM activity, validated without a workflow. All values are illustrative.
   "id": "https://example.org/mom/run/2026030200/aggregation",
   "provType": "Activity",
   "activityType": "pt:ZonalStatistics",
-  "processType": "https://example.org/ospd/process-types/zonal-statistics",
+  "processType": "https://w3id.org/ogc/ospd/activity-type/ZonalStatistics",
   "name": "GFMS per-watershed aggregation",
   "startedAtTime": "2026-03-02T01:05:33Z",
   "endedAtTime": "2026-03-02T01:05:41Z",
@@ -63,13 +63,13 @@ One MoM activity, validated without a workflow. All values are illustrative.
 ```ttl
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix pt: <https://example.org/ospd/process-types/> .
+@prefix pt: <https://w3id.org/ogc/ospd/activity-type/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.org/mom/run/2026030200/aggregation> a prov:Activity ;
     rdfs:label "GFMS per-watershed aggregation" ;
-    dcterms:type pt:zonal-statistics ;
+    dcterms:type pt:ZonalStatistics ;
     prov:endedAtTime "2026-03-02T01:05:41+00:00"^^xsd:dateTime ;
     prov:generated <https://example.org/mom/run/2026030200/gfms-aggregates> ;
     prov:startedAtTime "2026-03-02T01:05:33+00:00"^^xsd:dateTime ;
@@ -96,31 +96,31 @@ allOf:
       activityType:
         enum:
         - pt:ZonalStatistics
-        - https://example.org/ospd/process-types/ZonalStatistics
+        - https://w3id.org/ogc/ospd/activity-type/ZonalStatistics
   then:
     properties:
       processType:
-        const: https://example.org/ospd/process-types/zonal-statistics
+        const: https://w3id.org/ogc/ospd/activity-type/ZonalStatistics
 - if:
     properties:
       activityType:
         enum:
         - pt:WeightedScoringAndClassification
-        - https://example.org/ospd/process-types/WeightedScoringAndClassification
+        - https://w3id.org/ogc/ospd/activity-type/WeightedScoringAndClassification
   then:
     properties:
       processType:
-        const: https://example.org/ospd/process-types/weighted-scoring-and-classification
+        const: https://w3id.org/ogc/ospd/activity-type/WeightedScoringAndClassification
 - if:
     properties:
       activityType:
         enum:
         - pt:ScoringAndProgressTracking
-        - https://example.org/ospd/process-types/ScoringAndProgressTracking
+        - https://w3id.org/ogc/ospd/activity-type/ScoringAndProgressTracking
   then:
     properties:
       processType:
-        const: https://example.org/ospd/process-types/scoring-and-progress-tracking
+        const: https://w3id.org/ogc/ospd/activity-type/ScoringAndProgressTracking
 $defs:
   isMomActivity:
     required:
@@ -130,15 +130,15 @@ $defs:
         description: One of the MoM process types, as a pt CURIE or a full IRI.
         enum:
         - pt:ZonalStatistics
-        - https://example.org/ospd/process-types/ZonalStatistics
+        - https://w3id.org/ogc/ospd/activity-type/ZonalStatistics
         - pt:WeightedScoringAndClassification
-        - https://example.org/ospd/process-types/WeightedScoringAndClassification
+        - https://w3id.org/ogc/ospd/activity-type/WeightedScoringAndClassification
         - pt:ScoringAndProgressTracking
-        - https://example.org/ospd/process-types/ScoringAndProgressTracking
+        - https://w3id.org/ogc/ospd/activity-type/ScoringAndProgressTracking
 x-jsonld-prefixes:
   mom: https://rss-hydro.lu/ns/mom/
   dcterms: http://purl.org/dc/terms/
-  pt: https://example.org/ospd/process-types/
+  pt: https://w3id.org/ogc/ospd/activity-type/
 x-bblocks-metadata:
   itemIdentifier: ogc.osc.rss-hydro.ontology.activities
   register: https://ogcincubator.github.io/bblocks-openscience/build/register.json
@@ -974,7 +974,7 @@ Links to the schema:
     "oa": "http://www.w3.org/ns/oa#",
     "dcterms": "http://purl.org/dc/terms/",
     "mom": "https://rss-hydro.lu/ns/mom/",
-    "pt": "https://example.org/ospd/process-types/",
+    "pt": "https://w3id.org/ogc/ospd/activity-type/",
     "@version": 1.1
   }
 }

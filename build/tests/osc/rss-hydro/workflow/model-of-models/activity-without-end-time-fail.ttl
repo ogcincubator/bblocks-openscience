@@ -2,14 +2,14 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix mom: <https://rss-hydro.lu/ns/mom/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix pt: <https://example.org/ospd/process-types/> .
+@prefix pt: <https://w3id.org/ogc/ospd/activity-type/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <run:aggregation> a prov:Activity ;
     rdfs:label "GFMS per-watershed aggregation" ;
     dcterms:isPartOf <run:workflow-run> ;
-    dcterms:type pt:zonal-statistics ;
+    dcterms:type pt:ZonalStatistics ;
     prov:endedAtTime "2026-03-02T01:05:41+00:00"^^xsd:dateTime ;
     prov:generated <run:gfms-aggregates> ;
     prov:startedAtTime "2026-03-02T01:05:33+00:00"^^xsd:dateTime ;
@@ -44,7 +44,7 @@
 <run:final-alert> a prov:Activity ;
     rdfs:label "Final alert" ;
     dcterms:isPartOf <run:workflow-run> ;
-    dcterms:type pt:scoring-and-progress-tracking ;
+    dcterms:type pt:ScoringAndProgressTracking ;
     prov:endedAtTime "2026-03-02T01:12:52+00:00"^^xsd:dateTime ;
     prov:generated <run:final-alert-output> ;
     prov:startedAtTime "2026-03-02T01:12:48+00:00"^^xsd:dateTime ;
@@ -231,7 +231,7 @@
 <run:hazard> a prov:Activity ;
     rdfs:label "GloFAS + GFMS hazard score accumulation" ;
     dcterms:isPartOf <run:workflow-run> ;
-    dcterms:type pt:weighted-scoring-and-classification ;
+    dcterms:type pt:WeightedScoringAndClassification ;
     prov:generated <run:attributes-clean>,
         <run:final-attributes>,
         <run:gfms-summary> ;
@@ -252,7 +252,7 @@
     rdfs:label "MoM workflow run, 2026-03-02 00:00" ;
     prov:endedAtTime "2026-03-02T01:12:52+00:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-03-02T01:05:33+00:00"^^xsd:dateTime ;
-    prov:type mom:WorkflowRun ;
+    prov:type pt:workflow ;
     prov:wasAssociatedWith <run:mom>,
         <run:rss-hydro>,
         <run:server> .

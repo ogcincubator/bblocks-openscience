@@ -22,9 +22,9 @@ so every activity must be a [Registered Processing Step](bblock://ogc.osc.prov-p
 its `activityType` must give a process type, from a governed register, more specific than `prov:Activity`, and it must have an output.
 Each node gives its PROV class in `provType`, and `entityType`, `activityType` and `agentType`
 carry only the specific types.
-The example conforms. Its post-processing steps are typed with local CURIEs (`ex:CogConversion`,
-`ex:StacMetadataCreation`), which the schema accepts as specific types; mapping them to registered
-process types is still to be done, and can only be checked against the register.
+The example conforms. Its post-processing steps are typed with the registered activity types
+`ospd:cog-conversion` and `ospd:catalog-export` (which replaced the local CURIEs `ex:CogConversion` and
+`ex:StacMetadataCreation`, 26 Nov 2026).
 
 The workflow is orchestrated by [Prefect](https://www.prefect.io/). The run, its plan and its runner
 are typed with the generic workflow classes of the
@@ -229,7 +229,7 @@ Each step points to the run it belongs to with `isPartOf`.
     "provType": "Activity",
     "activityType": [
       "openeo:BatchJob",
-      "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA016"
+      "https://w3id.org/ogc/ospd/activity-type/GA016"
     ],
     "rdfs:label": "Step 1: Best available pixel composites",
     "startedAtTime": "2026-08-21T10:00:10Z",
@@ -248,8 +248,8 @@ Each step points to the run it belongs to with `isPartOf`.
     "id": "ex:step1_post_a_bap_reprojection_and_cog_conversion",
     "provType": "Activity",
     "activityType": [
-      "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA018",
-      "ex:CogConversion"
+      "https://w3id.org/ogc/ospd/activity-type/GA018",
+      "https://w3id.org/ogc/ospd/activity-type/cog-conversion"
     ],
     "rdfs:label": "Step 1 post-processing a: reproject best available pixel composites to EPSG:3857 and convert them to Cloud Optimized GeoTIFFs",
     "ex:targetCrs": "EPSG:3857",
@@ -268,7 +268,7 @@ Each step points to the run it belongs to with `isPartOf`.
   {
     "id": "ex:step1_post_b_bap_stac_metadata",
     "provType": "Activity",
-    "activityType": ["ex:StacMetadataCreation"],
+    "activityType": ["https://w3id.org/ogc/ospd/activity-type/catalog-export"],
     "rdfs:label": "Step 1 post-processing b: create STAC metadata for the best available pixel composites",
     "rdfs:comment": "Creates STAC collection and items for the COGs and embeds the available provenance information: openEO process graph, processing backend and input parameters.",
     "startedAtTime": "2026-08-21T10:46:00Z",
@@ -290,7 +290,7 @@ Each step points to the run it belongs to with `isPartOf`.
   {
     "id": "ex:step2_seasonal_sen_slope",
     "provType": "Activity",
-    "activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA017",
+    "activityType": "https://w3id.org/ogc/ospd/activity-type/GA017",
     "rdfs:label": "Step 2: Seasonal Sen slope trend analysis",
     "startedAtTime": "2026-08-21T10:50:00Z",
     "endedAtTime": "2026-08-21T11:02:00Z",
@@ -306,7 +306,7 @@ Each step points to the run it belongs to with `isPartOf`.
   {
     "id": "ex:step2_post_sen_stac_metadata",
     "provType": "Activity",
-    "activityType": ["ex:StacMetadataCreation"],
+    "activityType": ["https://w3id.org/ogc/ospd/activity-type/catalog-export"],
     "rdfs:label": "Step 2 post-processing: create STAC metadata for the Sen slope results",
     "rdfs:comment": "Creates STAC collection and items for the COGs and embeds the available provenance information: algorithm repository and version, processing backend and input parameters.",
     "startedAtTime": "2026-08-21T11:02:00Z",
@@ -603,7 +603,7 @@ Each step points to the run it belongs to with `isPartOf`.
       "provType": "Activity",
       "activityType": [
         "openeo:BatchJob",
-        "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA016"
+        "https://w3id.org/ogc/ospd/activity-type/GA016"
       ],
       "rdfs:label": "Step 1: Best available pixel composites",
       "startedAtTime": "2026-08-21T10:00:10Z",
@@ -632,8 +632,8 @@ Each step points to the run it belongs to with `isPartOf`.
       "id": "ex:step1_post_a_bap_reprojection_and_cog_conversion",
       "provType": "Activity",
       "activityType": [
-        "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA018",
-        "ex:CogConversion"
+        "https://w3id.org/ogc/ospd/activity-type/GA018",
+        "https://w3id.org/ogc/ospd/activity-type/cog-conversion"
       ],
       "rdfs:label": "Step 1 post-processing a: reproject best available pixel composites to EPSG:3857 and convert them to Cloud Optimized GeoTIFFs",
       "ex:targetCrs": "EPSG:3857",
@@ -659,7 +659,7 @@ Each step points to the run it belongs to with `isPartOf`.
       "id": "ex:step1_post_b_bap_stac_metadata",
       "provType": "Activity",
       "activityType": [
-        "ex:StacMetadataCreation"
+        "https://w3id.org/ogc/ospd/activity-type/catalog-export"
       ],
       "rdfs:label": "Step 1 post-processing b: create STAC metadata for the best available pixel composites",
       "rdfs:comment": "Creates STAC collection and items for the COGs and embeds the available provenance information: openEO process graph, processing backend and input parameters.",
@@ -691,7 +691,7 @@ Each step points to the run it belongs to with `isPartOf`.
     {
       "id": "ex:step2_seasonal_sen_slope",
       "provType": "Activity",
-      "activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA017",
+      "activityType": "https://w3id.org/ogc/ospd/activity-type/GA017",
       "rdfs:label": "Step 2: Seasonal Sen slope trend analysis",
       "startedAtTime": "2026-08-21T10:50:00Z",
       "endedAtTime": "2026-08-21T11:02:00Z",
@@ -715,7 +715,7 @@ Each step points to the run it belongs to with `isPartOf`.
       "id": "ex:step2_post_sen_stac_metadata",
       "provType": "Activity",
       "activityType": [
-        "ex:StacMetadataCreation"
+        "https://w3id.org/ogc/ospd/activity-type/catalog-export"
       ],
       "rdfs:label": "Step 2 post-processing: create STAC metadata for the Sen slope results",
       "rdfs:comment": "Creates STAC collection and items for the COGs and embeds the available provenance information: algorithm repository and version, processing backend and input parameters.",
@@ -903,12 +903,12 @@ ex:step2_post_sen_stac_metadata a prov:Activity ;
     dcterms:isPartOf ex:vegetation_productivity_run ;
     rdfs:comment "Creates STAC collection and items for the COGs and embeds the available provenance information: algorithm repository and version, processing backend and input parameters." ;
     prov:endedAtTime "2026-08-21T11:06:00+00:00"^^xsd:dateTime ;
-    prov:qualifiedAssociation [ prov:agent ex:postprocessing_container ;
+    prov:qualifiedAssociation [ prov:agent ex:pystac ],
+        [ prov:agent ex:postprocessing_container ;
             prov:hadPlan ex:postprocessing_code ],
-        [ prov:agent ex:pystac ],
         [ prov:agent ex:prefect ] ;
     prov:startedAtTime "2026-08-21T11:02:00+00:00"^^xsd:dateTime ;
-    prov:type ex:StacMetadataCreation ;
+    prov:type <https://w3id.org/ogc/ospd/activity-type/catalog-export> ;
     prov:used ex:bap_process_graph,
         ex:sen_slope_algorithm,
         ex:sen_slope_results,
@@ -1017,13 +1017,13 @@ ex:step1_post_a_bap_reprojection_and_cog_conversion a prov:Activity ;
     rdfs:label "Step 1 post-processing a: reproject best available pixel composites to EPSG:3857 and convert them to Cloud Optimized GeoTIFFs" ;
     dcterms:isPartOf ex:vegetation_productivity_run ;
     prov:endedAtTime "2026-08-21T10:46:00+00:00"^^xsd:dateTime ;
-    prov:qualifiedAssociation [ prov:agent ex:prefect ],
+    prov:qualifiedAssociation [ prov:agent ex:gdal ],
         [ prov:agent ex:postprocessing_container ;
             prov:hadPlan ex:postprocessing_code ],
-        [ prov:agent ex:gdal ] ;
+        [ prov:agent ex:prefect ] ;
     prov:startedAtTime "2026-08-21T10:42:00+00:00"^^xsd:dateTime ;
-    prov:type ex:CogConversion,
-        <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA018> ;
+    prov:type <https://w3id.org/ogc/ospd/activity-type/GA018>,
+        <https://w3id.org/ogc/ospd/activity-type/cog-conversion> ;
     prov:used ex:bap_results ;
     prov:wasInformedBy ex:step1_bap ;
     ex:targetCrs "EPSG:3857" .
@@ -1033,12 +1033,12 @@ ex:step1_post_b_bap_stac_metadata a prov:Activity ;
     dcterms:isPartOf ex:vegetation_productivity_run ;
     rdfs:comment "Creates STAC collection and items for the COGs and embeds the available provenance information: openEO process graph, processing backend and input parameters." ;
     prov:endedAtTime "2026-08-21T10:49:00+00:00"^^xsd:dateTime ;
-    prov:qualifiedAssociation [ prov:agent ex:pystac ],
+    prov:qualifiedAssociation [ prov:agent ex:postprocessing_container ;
+            prov:hadPlan ex:postprocessing_code ],
         [ prov:agent ex:prefect ],
-        [ prov:agent ex:postprocessing_container ;
-            prov:hadPlan ex:postprocessing_code ] ;
+        [ prov:agent ex:pystac ] ;
     prov:startedAtTime "2026-08-21T10:46:00+00:00"^^xsd:dateTime ;
-    prov:type ex:StacMetadataCreation ;
+    prov:type <https://w3id.org/ogc/ospd/activity-type/catalog-export> ;
     prov:used ex:bap_cogs,
         ex:bap_process_graph,
         ex:workflow_parameters ;
@@ -1063,7 +1063,7 @@ ex:step2_seasonal_sen_slope a prov:Activity ;
             prov:hadPlan ex:sen_slope_algorithm ],
         [ prov:agent ex:prefect ] ;
     prov:startedAtTime "2026-08-21T10:50:00+00:00"^^xsd:dateTime ;
-    prov:type <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA017> ;
+    prov:type <https://w3id.org/ogc/ospd/activity-type/GA017> ;
     prov:used <https://example.org/stac/collections/bap>,
         ex:workflow_parameters ;
     prov:wasInformedBy ex:step1_post_b_bap_stac_metadata .
@@ -1104,14 +1104,14 @@ ex:step1_bap a prov:Activity ;
     rdfs:label "Step 1: Best available pixel composites" ;
     dcterms:isPartOf ex:vegetation_productivity_run ;
     prov:endedAtTime "2026-08-21T10:42:00+00:00"^^xsd:dateTime ;
-    prov:qualifiedAssociation [ prov:agent ex:openeo_backend ;
+    prov:qualifiedAssociation [ prov:agent ex:openeo_client ;
             prov:hadPlan ex:bap_process_graph ],
-        [ prov:agent ex:prefect ],
-        [ prov:agent ex:openeo_client ;
-            prov:hadPlan ex:bap_process_graph ] ;
+        [ prov:agent ex:openeo_backend ;
+            prov:hadPlan ex:bap_process_graph ],
+        [ prov:agent ex:prefect ] ;
     prov:startedAtTime "2026-08-21T10:00:10+00:00"^^xsd:dateTime ;
     prov:type openeo:BatchJob,
-        <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA016> ;
+        <https://w3id.org/ogc/ospd/activity-type/GA016> ;
     prov:used ex:workflow_parameters,
         <https://openeo.example.org/collections/SENTINEL2_L2> ;
     openeo:jobId "j-2608251100" .

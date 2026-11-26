@@ -43,7 +43,7 @@ Retrieval of source observations into the workflow. Ingest is where external pro
 {
   "id": "urn:aganitha:step:ingest-dicra:20260807T060000Z",
   "provType": "Activity",
-  "activityType": "https://example.org/ospd/process-types/ingest",
+  "activityType": "https://w3id.org/ogc/ospd/activity-type/GA047",
   "label": "Ingest mandal NDVI and soil moisture",
   "startedAtTime": "2026-08-07T06:00:00Z",
   "endedAtTime": "2026-08-07T06:03:41Z",
@@ -66,7 +66,7 @@ Retrieval of source observations into the workflow. Ingest is where external pro
   "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/aganitha-ndvi/context.jsonld",
   "id": "urn:aganitha:step:ingest-dicra:20260807T060000Z",
   "provType": "Activity",
-  "activityType": "https://example.org/ospd/process-types/ingest",
+  "activityType": "https://w3id.org/ogc/ospd/activity-type/GA047",
   "label": "Ingest mandal NDVI and soil moisture",
   "startedAtTime": "2026-08-07T06:00:00Z",
   "endedAtTime": "2026-08-07T06:03:41Z",
@@ -100,7 +100,7 @@ Retrieval of source observations into the workflow. Ingest is where external pro
             prov:entity <urn:aganitha:source:dicra-mandal-archive> ;
             prov:hadRole <https://example.org/ospd/roles/sourceArchive> ] ;
     prov:startedAtTime "2026-08-07T06:00:00+00:00"^^xsd:dateTime ;
-    prov:type <https://example.org/ospd/process-types/ingest> ;
+    prov:type <https://w3id.org/ogc/ospd/activity-type/GA047> ;
     prov:used <urn:aganitha:source:dicra-mandal-archive> .
 
 
@@ -114,7 +114,7 @@ Rescaling an observed index against its own historical extremes. The reference e
 {
   "id": "urn:aganitha:step:vci:20260807T061000Z",
   "provType": "Activity",
-  "activityType": "https://example.org/ospd/process-types/index-normalisation",
+  "activityType": "https://w3id.org/ogc/ospd/activity-type/aganitha-index-normalisation",
   "label": "Compute vegetation condition index from NDVI",
   "used": [
     "urn:aganitha:dataset:mandal-ndvi-sm-merged",
@@ -143,7 +143,7 @@ Rescaling an observed index against its own historical extremes. The reference e
   "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/aganitha-ndvi/context.jsonld",
   "id": "urn:aganitha:step:vci:20260807T061000Z",
   "provType": "Activity",
-  "activityType": "https://example.org/ospd/process-types/index-normalisation",
+  "activityType": "https://w3id.org/ogc/ospd/activity-type/aganitha-index-normalisation",
   "label": "Compute vegetation condition index from NDVI",
   "used": [
     "urn:aganitha:dataset:mandal-ndvi-sm-merged",
@@ -176,12 +176,12 @@ Rescaling an observed index against its own historical extremes. The reference e
     rdfs:label "Compute vegetation condition index from NDVI" ;
     prov:generated <urn:aganitha:dataset:vci> ;
     prov:qualifiedUsage [ a prov:Usage ;
-            prov:entity <urn:aganitha:dataset:mandal-ndvi-sm-merged> ;
-            prov:hadRole <https://example.org/ospd/roles/observedIndex> ],
-        [ a prov:Usage ;
             prov:entity <urn:aganitha:reference:ndvi-extrema> ;
-            prov:hadRole <https://example.org/ospd/roles/normalisationReference> ] ;
-    prov:type <https://example.org/ospd/process-types/index-normalisation> ;
+            prov:hadRole <https://example.org/ospd/roles/normalisationReference> ],
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:dataset:mandal-ndvi-sm-merged> ;
+            prov:hadRole <https://example.org/ospd/roles/observedIndex> ] ;
+    prov:type <https://w3id.org/ogc/ospd/activity-type/aganitha-index-normalisation> ;
     prov:used <urn:aganitha:dataset:mandal-ndvi-sm-merged>,
         <urn:aganitha:reference:ndvi-extrema> .
 
@@ -196,7 +196,7 @@ The companion to the vegetation index step, and the piece that closes the gap in
 {
   "id": "urn:aganitha:step:smdi:20260807T061500Z",
   "provType": "Activity",
-  "activityType": "https://example.org/ospd/process-types/index-normalisation",
+  "activityType": "https://w3id.org/ogc/ospd/activity-type/aganitha-index-normalisation",
   "label": "Compute soil moisture deficit index",
   "used": [
     "urn:aganitha:dataset:mandal-ndvi-sm-merged",
@@ -225,7 +225,7 @@ The companion to the vegetation index step, and the piece that closes the gap in
   "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/aganitha-ndvi/context.jsonld",
   "id": "urn:aganitha:step:smdi:20260807T061500Z",
   "provType": "Activity",
-  "activityType": "https://example.org/ospd/process-types/index-normalisation",
+  "activityType": "https://w3id.org/ogc/ospd/activity-type/aganitha-index-normalisation",
   "label": "Compute soil moisture deficit index",
   "used": [
     "urn:aganitha:dataset:mandal-ndvi-sm-merged",
@@ -258,12 +258,12 @@ The companion to the vegetation index step, and the piece that closes the gap in
     rdfs:label "Compute soil moisture deficit index" ;
     prov:generated <urn:aganitha:dataset:smdi> ;
     prov:qualifiedUsage [ a prov:Usage ;
-            prov:entity <urn:aganitha:dataset:mandal-ndvi-sm-merged> ;
-            prov:hadRole <https://example.org/ospd/roles/observedIndex> ],
-        [ a prov:Usage ;
             prov:entity <urn:aganitha:reference:soil-moisture-extrema> ;
-            prov:hadRole <https://example.org/ospd/roles/normalisationReference> ] ;
-    prov:type <https://example.org/ospd/process-types/index-normalisation> ;
+            prov:hadRole <https://example.org/ospd/roles/normalisationReference> ],
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:dataset:mandal-ndvi-sm-merged> ;
+            prov:hadRole <https://example.org/ospd/roles/observedIndex> ] ;
+    prov:type <https://w3id.org/ogc/ospd/activity-type/aganitha-index-normalisation> ;
     prov:used <urn:aganitha:dataset:mandal-ndvi-sm-merged>,
         <urn:aganitha:reference:soil-moisture-extrema> .
 
@@ -278,7 +278,7 @@ Combination of two condition indices under fixed weights. Both inputs share the 
 {
   "id": "urn:aganitha:step:cdsi:20260807T062000Z",
   "provType": "Activity",
-  "activityType": "https://example.org/ospd/process-types/index-composition",
+  "activityType": "https://w3id.org/ogc/ospd/activity-type/index-composition",
   "label": "Compose combined drought severity index",
   "used": [
     "urn:aganitha:dataset:vci",
@@ -310,7 +310,7 @@ Combination of two condition indices under fixed weights. Both inputs share the 
   "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/aganitha-ndvi/context.jsonld",
   "id": "urn:aganitha:step:cdsi:20260807T062000Z",
   "provType": "Activity",
-  "activityType": "https://example.org/ospd/process-types/index-composition",
+  "activityType": "https://w3id.org/ogc/ospd/activity-type/index-composition",
   "label": "Compose combined drought severity index",
   "used": [
     "urn:aganitha:dataset:vci",
@@ -349,12 +349,12 @@ Combination of two condition indices under fixed weights. Both inputs share the 
     rdfs:label "Compose combined drought severity index" ;
     prov:generated <urn:aganitha:dataset:cdsi> ;
     prov:qualifiedUsage [ a prov:Usage ;
-            prov:entity <urn:aganitha:dataset:smdi> ;
+            prov:entity <urn:aganitha:dataset:vci> ;
             prov:hadRole <https://example.org/ospd/roles/indexComponent> ],
         [ a prov:Usage ;
-            prov:entity <urn:aganitha:dataset:vci> ;
+            prov:entity <urn:aganitha:dataset:smdi> ;
             prov:hadRole <https://example.org/ospd/roles/indexComponent> ] ;
-    prov:type <https://example.org/ospd/process-types/index-composition> ;
+    prov:type <https://w3id.org/ogc/ospd/activity-type/index-composition> ;
     prov:used <urn:aganitha:dataset:smdi>,
         <urn:aganitha:dataset:vci> .
 
@@ -369,7 +369,7 @@ Assignment of continuous index values to discrete classes. The class scheme is a
 {
   "id": "urn:aganitha:step:classify:20260807T063000Z",
   "provType": "Activity",
-  "activityType": "https://example.org/ospd/process-types/classification",
+  "activityType": "https://w3id.org/ogc/ospd/activity-type/aganitha-drought-classification",
   "label": "Classify drought severity",
   "used": [
     "urn:aganitha:dataset:cdsi",
@@ -401,7 +401,7 @@ Assignment of continuous index values to discrete classes. The class scheme is a
   "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/aganitha-ndvi/context.jsonld",
   "id": "urn:aganitha:step:classify:20260807T063000Z",
   "provType": "Activity",
-  "activityType": "https://example.org/ospd/process-types/classification",
+  "activityType": "https://w3id.org/ogc/ospd/activity-type/aganitha-drought-classification",
   "label": "Classify drought severity",
   "used": [
     "urn:aganitha:dataset:cdsi",
@@ -447,7 +447,7 @@ Assignment of continuous index values to discrete classes. The class scheme is a
         [ a prov:Usage ;
             prov:entity <urn:aganitha:dataset:cdsi> ;
             prov:hadRole <https://example.org/ospd/roles/inputField> ] ;
-    prov:type <https://example.org/ospd/process-types/classification> ;
+    prov:type <https://w3id.org/ogc/ospd/activity-type/aganitha-drought-classification> ;
     prov:used <urn:aganitha:dataset:cdsi>,
         <urn:aganitha:scheme:drought-severity-classes> .
 
@@ -462,7 +462,7 @@ Derivation of a standardised index from an accumulated series against a fitted r
 {
   "id": "urn:aganitha:step:spi:20260807T064000Z",
   "provType": "Activity",
-  "activityType": "https://example.org/ospd/process-types/standardised-index",
+  "activityType": "https://w3id.org/ogc/ospd/activity-type/aganitha-standardised-index",
   "label": "Compute standardised precipitation index",
   "used": [
     "urn:aganitha:dataset:precipitation-series",
@@ -491,7 +491,7 @@ Derivation of a standardised index from an accumulated series against a fitted r
   "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/aganitha-ndvi/context.jsonld",
   "id": "urn:aganitha:step:spi:20260807T064000Z",
   "provType": "Activity",
-  "activityType": "https://example.org/ospd/process-types/standardised-index",
+  "activityType": "https://w3id.org/ogc/ospd/activity-type/aganitha-standardised-index",
   "label": "Compute standardised precipitation index",
   "used": [
     "urn:aganitha:dataset:precipitation-series",
@@ -524,12 +524,12 @@ Derivation of a standardised index from an accumulated series against a fitted r
     rdfs:label "Compute standardised precipitation index" ;
     prov:generated <urn:aganitha:dataset:spi> ;
     prov:qualifiedUsage [ a prov:Usage ;
-            prov:entity <urn:aganitha:dataset:precipitation-series> ;
-            prov:hadRole <https://example.org/ospd/roles/inputSeries> ],
-        [ a prov:Usage ;
             prov:entity <urn:aganitha:dataset:precipitation-reference-period> ;
-            prov:hadRole <https://example.org/ospd/roles/fittingReference> ] ;
-    prov:type <https://example.org/ospd/process-types/standardised-index> ;
+            prov:hadRole <https://example.org/ospd/roles/fittingReference> ],
+        [ a prov:Usage ;
+            prov:entity <urn:aganitha:dataset:precipitation-series> ;
+            prov:hadRole <https://example.org/ospd/roles/inputSeries> ] ;
+    prov:type <https://w3id.org/ogc/ospd/activity-type/aganitha-standardised-index> ;
     prov:used <urn:aganitha:dataset:precipitation-reference-period>,
         <urn:aganitha:dataset:precipitation-series> .
 
@@ -545,7 +545,7 @@ This is the case the profile is least obviously shaped for, and the reason it is
 {
   "id": "urn:aganitha:step:train:20260807T070000Z",
   "provType": "Activity",
-  "activityType": "https://example.org/ospd/process-types/model-training",
+  "activityType": "https://w3id.org/ogc/ospd/activity-type/model-training",
   "label": "Train drought prediction model with spatial cross-validation",
   "used": [
     "urn:aganitha:dataset:cdsi",
@@ -589,7 +589,7 @@ This is the case the profile is least obviously shaped for, and the reason it is
   "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/aganitha-ndvi/context.jsonld",
   "id": "urn:aganitha:step:train:20260807T070000Z",
   "provType": "Activity",
-  "activityType": "https://example.org/ospd/process-types/model-training",
+  "activityType": "https://w3id.org/ogc/ospd/activity-type/model-training",
   "label": "Train drought prediction model with spatial cross-validation",
   "used": [
     "urn:aganitha:dataset:cdsi",
@@ -636,18 +636,18 @@ This is the case the profile is least obviously shaped for, and the reason it is
     prov:generated <urn:aganitha:model:drought-classifier>,
         <urn:aganitha:report:validation-metrics> ;
     prov:qualifiedUsage [ a prov:Usage ;
-            prov:entity <urn:aganitha:dataset:spi> ;
-            prov:hadRole <https://example.org/ospd/roles/trainingFeatures> ],
+            prov:entity <urn:aganitha:dataset:drought-classes> ;
+            prov:hadRole <https://example.org/ospd/roles/trainingTarget> ],
         [ a prov:Usage ;
             prov:entity <urn:aganitha:partition:district-folds> ;
             prov:hadRole <https://example.org/ospd/roles/validationPartition> ],
         [ a prov:Usage ;
-            prov:entity <urn:aganitha:dataset:cdsi> ;
+            prov:entity <urn:aganitha:dataset:spi> ;
             prov:hadRole <https://example.org/ospd/roles/trainingFeatures> ],
         [ a prov:Usage ;
-            prov:entity <urn:aganitha:dataset:drought-classes> ;
-            prov:hadRole <https://example.org/ospd/roles/trainingTarget> ] ;
-    prov:type <https://example.org/ospd/process-types/model-training> ;
+            prov:entity <urn:aganitha:dataset:cdsi> ;
+            prov:hadRole <https://example.org/ospd/roles/trainingFeatures> ] ;
+    prov:type <https://w3id.org/ogc/ospd/activity-type/model-training> ;
     prov:used <urn:aganitha:dataset:cdsi>,
         <urn:aganitha:dataset:drought-classes>,
         <urn:aganitha:dataset:spi>,
@@ -664,7 +664,7 @@ Applying a fitted model to produce a projection. The same model entity that was 
 {
   "id": "urn:aganitha:step:project:20260807T071500Z",
   "provType": "Activity",
-  "activityType": "https://example.org/ospd/process-types/model-inference",
+  "activityType": "https://w3id.org/ogc/ospd/activity-type/model-inference",
   "label": "Generate forward drought projection",
   "used": [
     "urn:aganitha:model:drought-classifier",
@@ -693,7 +693,7 @@ Applying a fitted model to produce a projection. The same model entity that was 
   "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/aganitha-ndvi/context.jsonld",
   "id": "urn:aganitha:step:project:20260807T071500Z",
   "provType": "Activity",
-  "activityType": "https://example.org/ospd/process-types/model-inference",
+  "activityType": "https://w3id.org/ogc/ospd/activity-type/model-inference",
   "label": "Generate forward drought projection",
   "used": [
     "urn:aganitha:model:drought-classifier",
@@ -731,7 +731,7 @@ Applying a fitted model to produce a projection. The same model entity that was 
         [ a prov:Usage ;
             prov:entity <urn:aganitha:model:drought-classifier> ;
             prov:hadRole <https://example.org/ospd/roles/fittedModel> ] ;
-    prov:type <https://example.org/ospd/process-types/model-inference> ;
+    prov:type <https://w3id.org/ogc/ospd/activity-type/model-inference> ;
     prov:used <urn:aganitha:dataset:cdsi>,
         <urn:aganitha:model:drought-classifier> .
 
@@ -746,7 +746,7 @@ The smallest document that satisfies this profile.
 {
   "id": "urn:example:step:0001",
   "provType": "Activity",
-  "activityType": "https://example.org/ospd/process-types/ingest",
+  "activityType": "https://w3id.org/ogc/ospd/activity-type/GA047",
   "label": "Minimal step",
   "used": ["urn:example:input:0001"],
   "generated": ["urn:example:output:0001"]
@@ -760,7 +760,7 @@ The smallest document that satisfies this profile.
   "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/aganitha-ndvi/context.jsonld",
   "id": "urn:example:step:0001",
   "provType": "Activity",
-  "activityType": "https://example.org/ospd/process-types/ingest",
+  "activityType": "https://w3id.org/ogc/ospd/activity-type/GA047",
   "label": "Minimal step",
   "used": [
     "urn:example:input:0001"
@@ -779,7 +779,7 @@ The smallest document that satisfies this profile.
 <urn:example:step:0001> a prov:Activity ;
     rdfs:label "Minimal step" ;
     prov:generated <urn:example:output:0001> ;
-    prov:type <https://example.org/ospd/process-types/ingest> ;
+    prov:type <https://w3id.org/ogc/ospd/activity-type/GA047> ;
     prov:used <urn:example:input:0001> .
 
 

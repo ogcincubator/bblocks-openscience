@@ -19,7 +19,7 @@
           "activityType": {
             "enum": [
               "pt:ZonalStatistics",
-              "https://example.org/ospd/process-types/ZonalStatistics"
+              "https://w3id.org/ogc/ospd/activity-type/ZonalStatistics"
             ]
           }
         }
@@ -27,7 +27,7 @@
       "then": {
         "properties": {
           "processType": {
-            "const": "https://example.org/ospd/process-types/zonal-statistics"
+            "const": "https://w3id.org/ogc/ospd/activity-type/ZonalStatistics"
           }
         }
       }
@@ -38,7 +38,7 @@
           "activityType": {
             "enum": [
               "pt:WeightedScoringAndClassification",
-              "https://example.org/ospd/process-types/WeightedScoringAndClassification"
+              "https://w3id.org/ogc/ospd/activity-type/WeightedScoringAndClassification"
             ]
           }
         }
@@ -46,7 +46,7 @@
       "then": {
         "properties": {
           "processType": {
-            "const": "https://example.org/ospd/process-types/weighted-scoring-and-classification"
+            "const": "https://w3id.org/ogc/ospd/activity-type/WeightedScoringAndClassification"
           }
         }
       }
@@ -57,7 +57,7 @@
           "activityType": {
             "enum": [
               "pt:ScoringAndProgressTracking",
-              "https://example.org/ospd/process-types/ScoringAndProgressTracking"
+              "https://w3id.org/ogc/ospd/activity-type/ScoringAndProgressTracking"
             ]
           }
         }
@@ -65,7 +65,7 @@
       "then": {
         "properties": {
           "processType": {
-            "const": "https://example.org/ospd/process-types/scoring-and-progress-tracking"
+            "const": "https://w3id.org/ogc/ospd/activity-type/ScoringAndProgressTracking"
           }
         }
       }
@@ -81,11 +81,11 @@
           "description": "One of the MoM process types, as a pt CURIE or a full IRI.",
           "enum": [
             "pt:ZonalStatistics",
-            "https://example.org/ospd/process-types/ZonalStatistics",
+            "https://w3id.org/ogc/ospd/activity-type/ZonalStatistics",
             "pt:WeightedScoringAndClassification",
-            "https://example.org/ospd/process-types/WeightedScoringAndClassification",
+            "https://w3id.org/ogc/ospd/activity-type/WeightedScoringAndClassification",
             "pt:ScoringAndProgressTracking",
-            "https://example.org/ospd/process-types/ScoringAndProgressTracking"
+            "https://w3id.org/ogc/ospd/activity-type/ScoringAndProgressTracking"
           ]
         }
       }
@@ -94,7 +94,7 @@
   "x-jsonld-prefixes": {
     "mom": "https://rss-hydro.lu/ns/mom/",
     "dcterms": "http://purl.org/dc/terms/",
-    "pt": "https://example.org/ospd/process-types/"
+    "pt": "https://w3id.org/ogc/ospd/activity-type/"
   },
   "x-bblocks-metadata": {
     "itemIdentifier": "ogc.osc.rss-hydro.ontology.activities",

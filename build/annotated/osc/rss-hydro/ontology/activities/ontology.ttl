@@ -6,24 +6,6 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.org/ospd/process-types/ScoringAndProgressTracking> a owl:Class ;
-    rdfs:label "Scoring and progress tracking" ;
-    rdfs:comment "Combines the scores of several sources into one result per zone and tracks its status against the previous result (New, Continued, Upgraded, Downgraded)." ;
-    rdfs:seeAlso <https://example.org/ospd/process-types/scoring-and-progress-tracking> ;
-    rdfs:subClassOf <https://example.org/ospd/process-types/Geoprocessing> .
-
-<https://example.org/ospd/process-types/WeightedScoringAndClassification> a owl:Class ;
-    rdfs:label "Weighted scoring and classification" ;
-    rdfs:comment "Combines weighted indicators, e.g. zonal statistics and extra model inputs, into a score and a level per zone; may carry state such as duration from the previous result." ;
-    rdfs:seeAlso <https://example.org/ospd/process-types/weighted-scoring-and-classification> ;
-    rdfs:subClassOf <https://example.org/ospd/process-types/Geoprocessing> .
-
-<https://example.org/ospd/process-types/ZonalStatistics> a owl:Class ;
-    rdfs:label "Zonal statistics" ;
-    rdfs:comment "Aggregates a gridded source per zone, skipping nodata cells." ;
-    rdfs:seeAlso <https://example.org/ospd/process-types/zonal-statistics> ;
-    rdfs:subClassOf <https://example.org/ospd/process-types/Geoprocessing> .
-
 mom: a owl:Ontology ;
     rdfs:label "Model of Models flood workflow activities" ;
     owl:versionInfo "0.1" .
@@ -56,7 +38,8 @@ mom:Watch a skos:Concept ;
 mom:WorkflowRun a owl:Class ;
     rdfs:label "Workflow run" ;
     rdfs:comment "One execution of the MoM workflow." ;
-    rdfs:subClassOf prov:Activity .
+    rdfs:subClassOf prov:Activity ;
+    owl:equivalentClass <https://w3id.org/ogc/ospd/activity-type/workflow> .
 
 mom:dataTime a owl:DatatypeProperty ;
     rdfs:label "data time" ;
@@ -76,11 +59,6 @@ mom:watershedFingerprint a owl:DatatypeProperty ;
     rdfs:label "watershed fingerprint" ;
     rdfs:comment "sha256 of the watershed shapefile (.shp, .dbf)." ;
     rdfs:range xsd:string .
-
-<https://example.org/ospd/process-types/Geoprocessing> a owl:Class ;
-    rdfs:label "Geoprocessing" ;
-    rdfs:comment "Parent of the process types below." ;
-    rdfs:subClassOf prov:Activity .
 
 mom:AlertLevels a skos:ConceptScheme ;
     rdfs:label "MoM alert levels" ;

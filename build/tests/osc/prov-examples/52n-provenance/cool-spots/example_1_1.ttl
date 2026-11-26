@@ -11,7 +11,7 @@ ex:act1_geocodeCity a prov:Activity ;
     dcterms:isPartOf ex:workflowRun ;
     prov:endedAtTime "2026-07-13T17:43:41.900000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:43:41.200000+02:00"^^xsd:dateTime ;
-    prov:type ex:geocodeCity ;
+    prov:type <https://w3id.org/ogc/ospd/activity-type/GA041> ;
     prov:used ex:nominatimApi,
         ex:processInputs ;
     prov:wasAssociatedWith ex:gisPipelineEngine .
@@ -21,7 +21,7 @@ ex:act2_acquireData a prov:Activity ;
     dcterms:isPartOf ex:workflowRun ;
     prov:endedAtTime "2026-07-13T17:44:05.800000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:43:42+02:00"^^xsd:dateTime ;
-    prov:type ex:acquireData ;
+    prov:type <https://w3id.org/ogc/ospd/activity-type/GA047> ;
     prov:used ex:cityBoundary,
         ex:overpassApi,
         ex:processInputs ;
@@ -32,7 +32,7 @@ ex:act3_reproject a prov:Activity ;
     dcterms:isPartOf ex:workflowRun ;
     prov:endedAtTime "2026-07-13T17:44:06.400000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:44:05.900000+02:00"^^xsd:dateTime ;
-    prov:type <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA018> ;
+    prov:type <https://w3id.org/ogc/ospd/activity-type/GA018> ;
     prov:used ex:rawOsmData ;
     prov:wasAssociatedWith ex:gisPipelineEngine .
 
@@ -41,7 +41,7 @@ ex:act4_filterAreas a prov:Activity ;
     dcterms:isPartOf ex:workflowRun ;
     prov:endedAtTime "2026-07-13T17:44:06.700000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:44:06.500000+02:00"^^xsd:dateTime ;
-    prov:type <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA020> ;
+    prov:type <https://w3id.org/ogc/ospd/activity-type/GA020> ;
     prov:used ex:processInputs,
         ex:reprojectedData ;
     prov:wasAssociatedWith ex:gisPipelineEngine .
@@ -51,7 +51,7 @@ ex:act5_buffer300m a prov:Activity ;
     dcterms:isPartOf ex:workflowRun ;
     prov:endedAtTime "2026-07-13T17:44:09.100000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:44:06.800000+02:00"^^xsd:dateTime ;
-    prov:type <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:ogcactivites/items/demo:GA001> ;
+    prov:type <https://w3id.org/ogc/ospd/activity-type/GA001> ;
     prov:used ex:filteredCoolSpots,
         ex:processInputs ;
     prov:wasAssociatedWith ex:gisPipelineEngine .
@@ -61,7 +61,7 @@ ex:act6_bufferMultiLevel a prov:Activity ;
     dcterms:isPartOf ex:workflowRun ;
     prov:endedAtTime "2026-07-13T17:44:15.900000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:44:09.200000+02:00"^^xsd:dateTime ;
-    prov:type <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:ogcactivites/items/demo:GA001> ;
+    prov:type <https://w3id.org/ogc/ospd/activity-type/GA001> ;
     prov:used ex:filteredCoolSpots,
         ex:processInputs ;
     prov:wasAssociatedWith ex:gisPipelineEngine .
@@ -71,7 +71,7 @@ ex:act7_calcDifferences a prov:Activity ;
     dcterms:isPartOf ex:workflowRun ;
     prov:endedAtTime "2026-07-13T17:44:16.900000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:44:16+02:00"^^xsd:dateTime ;
-    prov:type <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA019> ;
+    prov:type <https://w3id.org/ogc/ospd/activity-type/GA019> ;
     prov:used ex:cityBoundary,
         ex:multiLevelBuffers,
         ex:primaryBuffers ;
@@ -310,7 +310,7 @@ ex:act8_exportOutputs a prov:Activity ;
     dcterms:isPartOf ex:workflowRun ;
     prov:endedAtTime "2026-07-13T17:44:17.300000+02:00"^^xsd:dateTime ;
     prov:startedAtTime "2026-07-13T17:44:17+02:00"^^xsd:dateTime ;
-    prov:type ex:exportOutputs ;
+    prov:type <https://w3id.org/ogc/ospd/activity-type/cool-spots-output-export> ;
     prov:used ex:cityBoundary,
         ex:filteredCoolSpots,
         ex:multiLevelBuffers,

@@ -25,7 +25,7 @@ the step is an instance of. Both use the
 
 ```json
 "provType": "Activity",
-"activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA016"
+"activityType": "https://w3id.org/ogc/ospd/activity-type/GA016"
 ```
 
 Data that does not set `provType` can still identify the step by including
@@ -71,7 +71,7 @@ One step: provType identifies it as a PROV Activity, and activityType gives the 
 {
   "id": "urn:example:step:reproject:1",
   "provType": "Activity",
-  "activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA018",
+  "activityType": "https://w3id.org/ogc/ospd/activity-type/GA018",
   "label": "Reproject input areas",
   "startedAtTime": "2026-07-13T17:50:00Z",
   "endedAtTime": "2026-07-13T17:51:10Z",
@@ -87,7 +87,7 @@ One step: provType identifies it as a PROV Activity, and activityType gives the 
   "@context": "https://ogcincubator.github.io/bblocks-openscience/build/annotated/osc/prov-profiles/processing-step/context.jsonld",
   "id": "urn:example:step:reproject:1",
   "provType": "Activity",
-  "activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA018",
+  "activityType": "https://w3id.org/ogc/ospd/activity-type/GA018",
   "label": "Reproject input areas",
   "startedAtTime": "2026-07-13T17:50:00Z",
   "endedAtTime": "2026-07-13T17:51:10Z",
@@ -107,7 +107,7 @@ One step: provType identifies it as a PROV Activity, and activityType gives the 
     prov:endedAtTime "2026-07-13T17:51:10+00:00"^^xsd:dateTime ;
     prov:generated <urn:example:dataset:areas-utm32n> ;
     prov:startedAtTime "2026-07-13T17:50:00+00:00"^^xsd:dateTime ;
-    prov:type <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA018> ;
+    prov:type <https://w3id.org/ogc/ospd/activity-type/GA018> ;
     prov:used <urn:example:dataset:areas-wgs84> .
 
 

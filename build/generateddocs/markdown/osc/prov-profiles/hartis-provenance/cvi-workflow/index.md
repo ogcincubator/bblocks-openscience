@@ -94,7 +94,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
       "provType": "Entity",
       "entityType": ["prov:Plan", "ospd:ProcessingStep"],
       "label": "Validate CVI configuration and initialize output workspace",
-      "processType": "https://example.org/ospd/process-types/configuration-validation",
+      "processType": "https://w3id.org/ogc/ospd/activity-type/cvi-configuration-validation",
       "sourceCode": "steps/setup_env.py"
     },
     {
@@ -102,7 +102,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
       "provType": "Entity",
       "entityType": ["prov:Plan", "ospd:ProcessingStep"],
       "label": "Extract coastline geometry for selected AOI",
-      "processType": "https://example.org/ospd/process-types/coastline-extraction",
+      "processType": "https://w3id.org/ogc/ospd/activity-type/cvi-coastline-extraction",
       "sourceCode": "steps/extract_coastline.py"
     },
     {
@@ -110,7 +110,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
       "provType": "Entity",
       "entityType": ["prov:Plan", "ospd:ProcessingStep"],
       "label": "Generate cross-shore transects from coastline",
-      "processType": "https://example.org/ospd/process-types/transect-generation",
+      "processType": "https://w3id.org/ogc/ospd/activity-type/cvi-transect-generation",
       "sourceCode": "steps/generate_transects.py"
     },
     {
@@ -118,7 +118,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
       "provType": "Entity",
       "entityType": ["prov:Plan", "ospd:ProcessingStep"],
       "label": "Compute land-cover vulnerability score per transect",
-      "processType": "https://example.org/ospd/process-types/land-cover-analysis",
+      "processType": "https://w3id.org/ogc/ospd/activity-type/cvi-land-cover-analysis",
       "sourceCode": "steps/compute_landcover.py"
     },
     {
@@ -126,7 +126,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
       "provType": "Entity",
       "entityType": ["prov:Plan", "ospd:ProcessingStep"],
       "label": "Compute slope vulnerability score per transect",
-      "processType": "https://example.org/ospd/process-types/slope-derivation",
+      "processType": "https://w3id.org/ogc/ospd/activity-type/GA021",
       "sourceCode": "steps/compute_slope.py"
     },
     {
@@ -134,7 +134,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
       "provType": "Entity",
       "entityType": ["prov:Plan", "ospd:ProcessingStep"],
       "label": "Compute erosion vulnerability score per transect",
-      "processType": "https://example.org/ospd/process-types/erosion-data-integration",
+      "processType": "https://w3id.org/ogc/ospd/activity-type/cvi-erosion-data-integration",
       "sourceCode": "steps/compute_erosion.py"
     },
     {
@@ -142,7 +142,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
       "provType": "Entity",
       "entityType": ["prov:Plan", "ospd:ProcessingStep"],
       "label": "Compute coastal elevation vulnerability score per transect",
-      "processType": "https://example.org/ospd/process-types/elevation-analysis",
+      "processType": "https://w3id.org/ogc/ospd/activity-type/cvi-elevation-analysis",
       "sourceCode": "steps/compute_elevation.py"
     },
     {
@@ -150,7 +150,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
       "provType": "Entity",
       "entityType": ["prov:Plan", "ospd:ProcessingStep"],
       "label": "Compute final Coastal Vulnerability Index classification",
-      "processType": "https://example.org/ospd/process-types/vulnerability-index-scoring",
+      "processType": "https://w3id.org/ogc/ospd/activity-type/cvi-vulnerability-index-scoring",
       "sourceCode": "steps/compute_cvi.py"
     }
   ],
@@ -177,7 +177,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
       {
         "id": "hartis:cvi-run-example-001/activity/setup-env",
         "provType": "Activity",
-        "activityType": "https://example.org/ospd/process-types/configuration-validation",
+        "activityType": "https://w3id.org/ogc/ospd/activity-type/cvi-configuration-validation",
         "plan": "hartis:cvi-workflow/step/setup-env",
         "used": ["hartis:cvi-run-example-001/entity/cvi-scoring-config"],
         "generated": ["hartis:cvi-run-example-001/entity/validated-config"],
@@ -194,7 +194,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
       {
         "id": "hartis:cvi-run-example-001/activity/extract-coastline",
         "provType": "Activity",
-        "activityType": "https://example.org/ospd/process-types/coastline-extraction",
+        "activityType": "https://w3id.org/ogc/ospd/activity-type/cvi-coastline-extraction",
         "plan": "hartis:cvi-workflow/step/extract-coastline",
         "used": [
           "hartis:cvi-run-example-001/entity/med-coastal-aois",
@@ -221,7 +221,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
       {
         "id": "hartis:cvi-run-example-001/activity/generate-transects",
         "provType": "Activity",
-        "activityType": "https://example.org/ospd/process-types/transect-generation",
+        "activityType": "https://w3id.org/ogc/ospd/activity-type/cvi-transect-generation",
         "plan": "hartis:cvi-workflow/step/generate-transects",
         "used": ["hartis:cvi-run-example-001/entity/coastline-gpkg"],
         "generated": ["hartis:cvi-run-example-001/entity/transects-geojson"],
@@ -245,7 +245,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
       {
         "id": "hartis:cvi-run-example-001/activity/compute-landcover",
         "provType": "Activity",
-        "activityType": "https://example.org/ospd/process-types/land-cover-analysis",
+        "activityType": "https://w3id.org/ogc/ospd/activity-type/cvi-land-cover-analysis",
         "plan": "hartis:cvi-workflow/step/compute-landcover",
         "used": [
           "hartis:cvi-run-example-001/entity/transects-geojson",
@@ -268,7 +268,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
       {
         "id": "hartis:cvi-run-example-001/activity/compute-slope",
         "provType": "Activity",
-        "activityType": "https://example.org/ospd/process-types/slope-derivation",
+        "activityType": "https://w3id.org/ogc/ospd/activity-type/GA021",
         "plan": "hartis:cvi-workflow/step/compute-slope",
         "used": [
           "hartis:cvi-run-example-001/entity/transects-geojson",
@@ -291,7 +291,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
       {
         "id": "hartis:cvi-run-example-001/activity/compute-erosion",
         "provType": "Activity",
-        "activityType": "https://example.org/ospd/process-types/erosion-data-integration",
+        "activityType": "https://w3id.org/ogc/ospd/activity-type/cvi-erosion-data-integration",
         "plan": "hartis:cvi-workflow/step/compute-erosion",
         "used": [
           "hartis:cvi-run-example-001/entity/transects-geojson",
@@ -314,7 +314,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
       {
         "id": "hartis:cvi-run-example-001/activity/compute-elevation",
         "provType": "Activity",
-        "activityType": "https://example.org/ospd/process-types/elevation-analysis",
+        "activityType": "https://w3id.org/ogc/ospd/activity-type/cvi-elevation-analysis",
         "plan": "hartis:cvi-workflow/step/compute-elevation",
         "used": [
           "hartis:cvi-run-example-001/entity/transects-geojson",
@@ -337,7 +337,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
       {
         "id": "hartis:cvi-run-example-001/activity/compute-cvi",
         "provType": "Activity",
-        "activityType": "https://example.org/ospd/process-types/vulnerability-index-scoring",
+        "activityType": "https://w3id.org/ogc/ospd/activity-type/cvi-vulnerability-index-scoring",
         "plan": "hartis:cvi-workflow/step/compute-cvi",
         "used": [
           "hartis:cvi-run-example-001/entity/transects-with-land-cover",
@@ -429,7 +429,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
         "ospd:ProcessingStep"
       ],
       "label": "Validate CVI configuration and initialize output workspace",
-      "processType": "https://example.org/ospd/process-types/configuration-validation",
+      "processType": "https://w3id.org/ogc/ospd/activity-type/cvi-configuration-validation",
       "sourceCode": "steps/setup_env.py"
     },
     {
@@ -440,7 +440,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
         "ospd:ProcessingStep"
       ],
       "label": "Extract coastline geometry for selected AOI",
-      "processType": "https://example.org/ospd/process-types/coastline-extraction",
+      "processType": "https://w3id.org/ogc/ospd/activity-type/cvi-coastline-extraction",
       "sourceCode": "steps/extract_coastline.py"
     },
     {
@@ -451,7 +451,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
         "ospd:ProcessingStep"
       ],
       "label": "Generate cross-shore transects from coastline",
-      "processType": "https://example.org/ospd/process-types/transect-generation",
+      "processType": "https://w3id.org/ogc/ospd/activity-type/cvi-transect-generation",
       "sourceCode": "steps/generate_transects.py"
     },
     {
@@ -462,7 +462,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
         "ospd:ProcessingStep"
       ],
       "label": "Compute land-cover vulnerability score per transect",
-      "processType": "https://example.org/ospd/process-types/land-cover-analysis",
+      "processType": "https://w3id.org/ogc/ospd/activity-type/cvi-land-cover-analysis",
       "sourceCode": "steps/compute_landcover.py"
     },
     {
@@ -473,7 +473,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
         "ospd:ProcessingStep"
       ],
       "label": "Compute slope vulnerability score per transect",
-      "processType": "https://example.org/ospd/process-types/slope-derivation",
+      "processType": "https://w3id.org/ogc/ospd/activity-type/GA021",
       "sourceCode": "steps/compute_slope.py"
     },
     {
@@ -484,7 +484,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
         "ospd:ProcessingStep"
       ],
       "label": "Compute erosion vulnerability score per transect",
-      "processType": "https://example.org/ospd/process-types/erosion-data-integration",
+      "processType": "https://w3id.org/ogc/ospd/activity-type/cvi-erosion-data-integration",
       "sourceCode": "steps/compute_erosion.py"
     },
     {
@@ -495,7 +495,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
         "ospd:ProcessingStep"
       ],
       "label": "Compute coastal elevation vulnerability score per transect",
-      "processType": "https://example.org/ospd/process-types/elevation-analysis",
+      "processType": "https://w3id.org/ogc/ospd/activity-type/cvi-elevation-analysis",
       "sourceCode": "steps/compute_elevation.py"
     },
     {
@@ -506,7 +506,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
         "ospd:ProcessingStep"
       ],
       "label": "Compute final Coastal Vulnerability Index classification",
-      "processType": "https://example.org/ospd/process-types/vulnerability-index-scoring",
+      "processType": "https://w3id.org/ogc/ospd/activity-type/cvi-vulnerability-index-scoring",
       "sourceCode": "steps/compute_cvi.py"
     }
   ],
@@ -533,7 +533,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
       {
         "id": "hartis:cvi-run-example-001/activity/setup-env",
         "provType": "Activity",
-        "activityType": "https://example.org/ospd/process-types/configuration-validation",
+        "activityType": "https://w3id.org/ogc/ospd/activity-type/cvi-configuration-validation",
         "plan": "hartis:cvi-workflow/step/setup-env",
         "used": [
           "hartis:cvi-run-example-001/entity/cvi-scoring-config"
@@ -561,7 +561,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
       {
         "id": "hartis:cvi-run-example-001/activity/extract-coastline",
         "provType": "Activity",
-        "activityType": "https://example.org/ospd/process-types/coastline-extraction",
+        "activityType": "https://w3id.org/ogc/ospd/activity-type/cvi-coastline-extraction",
         "plan": "hartis:cvi-workflow/step/extract-coastline",
         "used": [
           "hartis:cvi-run-example-001/entity/med-coastal-aois",
@@ -601,7 +601,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
       {
         "id": "hartis:cvi-run-example-001/activity/generate-transects",
         "provType": "Activity",
-        "activityType": "https://example.org/ospd/process-types/transect-generation",
+        "activityType": "https://w3id.org/ogc/ospd/activity-type/cvi-transect-generation",
         "plan": "hartis:cvi-workflow/step/generate-transects",
         "used": [
           "hartis:cvi-run-example-001/entity/coastline-gpkg"
@@ -633,7 +633,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
       {
         "id": "hartis:cvi-run-example-001/activity/compute-landcover",
         "provType": "Activity",
-        "activityType": "https://example.org/ospd/process-types/land-cover-analysis",
+        "activityType": "https://w3id.org/ogc/ospd/activity-type/cvi-land-cover-analysis",
         "plan": "hartis:cvi-workflow/step/compute-landcover",
         "used": [
           "hartis:cvi-run-example-001/entity/transects-geojson",
@@ -671,7 +671,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
       {
         "id": "hartis:cvi-run-example-001/activity/compute-slope",
         "provType": "Activity",
-        "activityType": "https://example.org/ospd/process-types/slope-derivation",
+        "activityType": "https://w3id.org/ogc/ospd/activity-type/GA021",
         "plan": "hartis:cvi-workflow/step/compute-slope",
         "used": [
           "hartis:cvi-run-example-001/entity/transects-geojson",
@@ -710,7 +710,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
       {
         "id": "hartis:cvi-run-example-001/activity/compute-erosion",
         "provType": "Activity",
-        "activityType": "https://example.org/ospd/process-types/erosion-data-integration",
+        "activityType": "https://w3id.org/ogc/ospd/activity-type/cvi-erosion-data-integration",
         "plan": "hartis:cvi-workflow/step/compute-erosion",
         "used": [
           "hartis:cvi-run-example-001/entity/transects-geojson",
@@ -753,7 +753,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
       {
         "id": "hartis:cvi-run-example-001/activity/compute-elevation",
         "provType": "Activity",
-        "activityType": "https://example.org/ospd/process-types/elevation-analysis",
+        "activityType": "https://w3id.org/ogc/ospd/activity-type/cvi-elevation-analysis",
         "plan": "hartis:cvi-workflow/step/compute-elevation",
         "used": [
           "hartis:cvi-run-example-001/entity/transects-geojson",
@@ -791,7 +791,7 @@ A complete design-time and runtime provenance representation for the HARTIS CVI 
       {
         "id": "hartis:cvi-run-example-001/activity/compute-cvi",
         "provType": "Activity",
-        "activityType": "https://example.org/ospd/process-types/vulnerability-index-scoring",
+        "activityType": "https://w3id.org/ogc/ospd/activity-type/cvi-vulnerability-index-scoring",
         "plan": "hartis:cvi-workflow/step/compute-cvi",
         "used": [
           "hartis:cvi-run-example-001/entity/transects-with-land-cover",

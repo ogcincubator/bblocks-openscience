@@ -76,7 +76,7 @@ An input entity, two registered steps, and the outputs, with generation stated f
   {
     "id": "urn:example:step:reproject",
     "provType": "Activity",
-    "activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA018",
+    "activityType": "https://w3id.org/ogc/ospd/activity-type/GA018",
     "rdfs:label": "Reproject green areas",
     "used": "urn:example:dataset:areas-wgs84"
   },
@@ -89,7 +89,7 @@ An input entity, two registered steps, and the outputs, with generation stated f
   {
     "id": "urn:example:step:buffer",
     "provType": "Activity",
-    "activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA020",
+    "activityType": "https://w3id.org/ogc/ospd/activity-type/GA020",
     "rdfs:label": "Buffer green areas by 300 m",
     "used": "urn:example:dataset:areas-utm32n"
   },
@@ -116,7 +116,7 @@ An input entity, two registered steps, and the outputs, with generation stated f
     {
       "id": "urn:example:step:reproject",
       "provType": "Activity",
-      "activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA018",
+      "activityType": "https://w3id.org/ogc/ospd/activity-type/GA018",
       "rdfs:label": "Reproject green areas",
       "used": "urn:example:dataset:areas-wgs84"
     },
@@ -129,7 +129,7 @@ An input entity, two registered steps, and the outputs, with generation stated f
     {
       "id": "urn:example:step:buffer",
       "provType": "Activity",
-      "activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA020",
+      "activityType": "https://w3id.org/ogc/ospd/activity-type/GA020",
       "rdfs:label": "Buffer green areas by 300 m",
       "used": "urn:example:dataset:areas-utm32n"
     },
@@ -161,12 +161,12 @@ An input entity, two registered steps, and the outputs, with generation stated f
 
 <urn:example:step:buffer> a prov:Activity ;
     rdfs:label "Buffer green areas by 300 m" ;
-    prov:type <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA020> ;
+    prov:type <https://w3id.org/ogc/ospd/activity-type/GA020> ;
     prov:used <urn:example:dataset:areas-utm32n> .
 
 <urn:example:step:reproject> a prov:Activity ;
     rdfs:label "Reproject green areas" ;
-    prov:type <https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA018> ;
+    prov:type <https://w3id.org/ogc/ospd/activity-type/GA018> ;
     prov:used <urn:example:dataset:areas-wgs84> .
 
 
@@ -186,7 +186,7 @@ The same kind of run in bundle form: one entity typed prov:Bundle whose steps ar
     {
       "id": "urn:example:run:42:reproject",
       "provType": "Activity",
-      "activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA018",
+      "activityType": "https://w3id.org/ogc/ospd/activity-type/GA018",
       "rdfs:label": "Reproject green areas",
       "used": "urn:example:dataset:areas-wgs84",
       "generated": "urn:example:dataset:areas-utm32n"
@@ -208,7 +208,7 @@ The same kind of run in bundle form: one entity typed prov:Bundle whose steps ar
     {
       "id": "urn:example:run:42:reproject",
       "provType": "Activity",
-      "activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA018",
+      "activityType": "https://w3id.org/ogc/ospd/activity-type/GA018",
       "rdfs:label": "Reproject green areas",
       "used": "urn:example:dataset:areas-wgs84",
       "generated": "urn:example:dataset:areas-utm32n"
