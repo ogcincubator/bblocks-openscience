@@ -14,12 +14,12 @@
     sh:message "Weighted scoring must use a zonal statistics output" ;
     sh:or (
         [ sh:not [ sh:property [ sh:path prov:type ;
-                                 sh:hasValue <https://example.org/ospd/process-types/WeightedScoringAndClassification> ] ] ]
+                                 sh:hasValue <https://w3id.org/ogc/ospd/activity-type/WeightedScoringAndClassification> ] ] ]
         [ sh:property [
             sh:path prov:used ;
             sh:qualifiedValueShape [
                 sh:property [ sh:path ( prov:wasGeneratedBy prov:type ) ;
-                              sh:hasValue <https://example.org/ospd/process-types/ZonalStatistics> ]
+                              sh:hasValue <https://w3id.org/ogc/ospd/activity-type/ZonalStatistics> ]
             ] ;
             sh:qualifiedMinCount 1 ;
         ] ]
@@ -31,13 +31,13 @@
     sh:message "Progress tracking must use a hazard score of a weighted scoring" ;
     sh:or (
         [ sh:not [ sh:property [ sh:path prov:type ;
-                                 sh:hasValue <https://example.org/ospd/process-types/ScoringAndProgressTracking> ] ] ]
+                                 sh:hasValue <https://w3id.org/ogc/ospd/activity-type/ScoringAndProgressTracking> ] ] ]
         [ sh:property [
             sh:path prov:used ;
             sh:qualifiedValueShape [
                 sh:property [ sh:path prov:type ; sh:hasValue mom:HazardScore ] ;
                 sh:property [ sh:path ( prov:wasGeneratedBy prov:type ) ;
-                              sh:hasValue <https://example.org/ospd/process-types/WeightedScoringAndClassification> ]
+                              sh:hasValue <https://w3id.org/ogc/ospd/activity-type/WeightedScoringAndClassification> ]
             ] ;
             sh:qualifiedMinCount 1 ;
         ] ]

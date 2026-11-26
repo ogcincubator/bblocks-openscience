@@ -11,9 +11,9 @@ so every activity must be a [Registered Processing Step](bblock://ogc.osc.prov-p
 its `activityType` must give a process type, from a governed register, more specific than `prov:Activity`, and it must have an output.
 Each node gives its PROV class in `provType`, and `entityType`, `activityType` and `agentType`
 carry only the specific types.
-The example conforms. Its post-processing steps are typed with local CURIEs (`ex:CogConversion`,
-`ex:StacMetadataCreation`), which the schema accepts as specific types; mapping them to registered
-process types is still to be done, and can only be checked against the register.
+The example conforms. Its post-processing steps are typed with the registered activity types
+`ospd:cog-conversion` and `ospd:catalog-export` (which replaced the local CURIEs `ex:CogConversion` and
+`ex:StacMetadataCreation`, 26 Nov 2026).
 
 The workflow is orchestrated by [Prefect](https://www.prefect.io/). The run, its plan and its runner
 are typed with the generic workflow classes of the

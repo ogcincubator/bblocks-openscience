@@ -185,7 +185,7 @@
     "provType": "Activity",
     "activityType": [
       "openeo:BatchJob",
-      "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA016"
+      "https://w3id.org/ogc/ospd/activity-type/GA016"
     ],
     "rdfs:label": "Step 1: Best available pixel composites",
     "startedAtTime": "2026-08-21T10:00:10Z",
@@ -204,8 +204,8 @@
     "id": "ex:step1_post_a_bap_reprojection_and_cog_conversion",
     "provType": "Activity",
     "activityType": [
-      "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA018",
-      "ex:CogConversion"
+      "https://w3id.org/ogc/ospd/activity-type/GA018",
+      "https://w3id.org/ogc/ospd/activity-type/cog-conversion"
     ],
     "rdfs:label": "Step 1 post-processing a: reproject best available pixel composites to EPSG:3857 and convert them to Cloud Optimized GeoTIFFs",
     "ex:targetCrs": "EPSG:3857",
@@ -224,7 +224,7 @@
   {
     "id": "ex:step1_post_b_bap_stac_metadata",
     "provType": "Activity",
-    "activityType": ["ex:StacMetadataCreation"],
+    "activityType": ["https://w3id.org/ogc/ospd/activity-type/catalog-export"],
     "rdfs:label": "Step 1 post-processing b: create STAC metadata for the best available pixel composites",
     "rdfs:comment": "Creates STAC collection and items for the COGs and embeds the available provenance information: openEO process graph, processing backend and input parameters.",
     "startedAtTime": "2026-08-21T10:46:00Z",
@@ -246,7 +246,7 @@
   {
     "id": "ex:step2_seasonal_sen_slope",
     "provType": "Activity",
-    "activityType": "https://register.ospd.dev.kurrawong.ai/catalogs/reg:top/collections/reg:52north/items/demo:GA017",
+    "activityType": "https://w3id.org/ogc/ospd/activity-type/GA017",
     "rdfs:label": "Step 2: Seasonal Sen slope trend analysis",
     "startedAtTime": "2026-08-21T10:50:00Z",
     "endedAtTime": "2026-08-21T11:02:00Z",
@@ -262,7 +262,7 @@
   {
     "id": "ex:step2_post_sen_stac_metadata",
     "provType": "Activity",
-    "activityType": ["ex:StacMetadataCreation"],
+    "activityType": ["https://w3id.org/ogc/ospd/activity-type/catalog-export"],
     "rdfs:label": "Step 2 post-processing: create STAC metadata for the Sen slope results",
     "rdfs:comment": "Creates STAC collection and items for the COGs and embeds the available provenance information: algorithm repository and version, processing backend and input parameters.",
     "startedAtTime": "2026-08-21T11:02:00Z",
